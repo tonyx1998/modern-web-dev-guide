@@ -95,14 +95,11 @@ modern-web-dev-guide/
 
 ## Contributing
 
-Pull requests welcome, especially for:
+This guide is **maintained by the repo owner** and not currently open to general contributions. The intent is to keep voice, tone, and accuracy consistent — drive-by edits make that hard.
 
-- Typo / clarity fixes (anywhere)
-- New "Beginner orientation" callouts in sections that are still too jargon-heavy
-- 2026 tooling updates as the ecosystem moves
-- New analogies — concrete analogies are the single most effective way to make a concept stick
+If you spot a clear factual error or a broken link, **open a GitHub issue** describing what you found. Issues will be reviewed and incorporated as appropriate; please don't open pull requests without first opening an issue and getting a maintainer ack.
 
-Open an issue first for anything larger (structural changes, new chapters).
+Forks for personal use are welcome under the licenses below — just don't expect upstream pull requests to be merged without prior discussion.
 
 ---
 

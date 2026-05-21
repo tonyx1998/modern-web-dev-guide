@@ -54,8 +54,10 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/docs',
-          editUrl:
-            'https://github.com/tonyx1998/modern-web-dev-guide/tree/main/',
+          // editUrl intentionally omitted — we don't surface an
+          // "Edit this page" link to discourage drive-by edits.
+          // Pull requests are still possible by opening a fork directly
+          // on GitHub, but they're not invited from inside the docs.
           showLastUpdateTime: true,
         },
         blog: false,
