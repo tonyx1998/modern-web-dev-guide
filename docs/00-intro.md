@@ -7,6 +7,9 @@ slug: /
 description: How websites are actually built in 2026 — for absolute beginners and beyond. 12 chapters, ~9,000 lines, designed so you can master one topic per page.
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Modern Web Development: A Comprehensive Guide (2026)
 
 *How websites are actually built in 2026 — for absolute beginners and beyond.*
@@ -31,57 +34,69 @@ If you ever hit jargon you don't understand: open the [Glossary](/docs/glossary)
 
 ## Pick your reading path
 
-The guide is structured so you can read straight through, but each path below gets you to the specific value you came for.
+Click the tab that matches you. Each path shows only what's relevant — you don't have to scan through enterprise material if you're a beginner.
 
-### 👶 I'm new to web development
+<Tabs groupId="reader-path" queryString>
+
+<TabItem value="beginner" label="👶 I'm new to web dev" default>
 
 > Never built a website before. Want to understand how the web actually works.
 
-| Order | Read                                                                | Why                                              |
-|-------|---------------------------------------------------------------------|--------------------------------------------------|
-| 1     | [Foundations](/docs/foundations)                                    | Client/server, HTTP, DNS, browsers, rendering   |
-| 2     | [Lifecycle](/docs/lifecycle)                                        | What a real project looks like end-to-end       |
-| 3     | [Solo / Personal](/docs/solo)                   | Build your first deployed site                  |
-| 4     | [Career Path](/docs/career)                                     | What to learn next and where to go              |
+| Order | Read                                              | Why                                              |
+|-------|---------------------------------------------------|--------------------------------------------------|
+| 1     | [Foundations](/docs/foundations)                  | Client/server, HTTP, DNS, browsers, rendering    |
+| 2     | [Lifecycle](/docs/lifecycle)                      | What a real project looks like end-to-end        |
+| 3     | [Solo / Personal](/docs/solo)                     | Build your first deployed site                   |
+| 4     | [Career Path](/docs/career)                       | What to learn next and where to go               |
 
 → **Start with** [Foundations: The Client–Server Model](/docs/foundations/client-server)
 
-### 🚀 I'm joining a startup
+</TabItem>
+
+<TabItem value="startup" label="🚀 Joining a startup">
 
 > I can code. I need to understand modern stacks, workflows, and tradeoffs.
 
-| Order | Read                                                                | Why                                              |
-|-------|---------------------------------------------------------------------|--------------------------------------------------|
-| 1     | [Lifecycle](/docs/lifecycle)                                        | Plan, build, ship, monitor                      |
-| 2     | [Tech Stack](/docs/stack)                                           | Every major 2026 tool decoded                   |
-| 3     | [Startup workflow](/docs/startup)                     | Managed services, balance speed & quality       |
-| 4     | [Decision Frameworks](/docs/decisions)                     | How to actually choose technologies             |
+| Order | Read                                              | Why                                              |
+|-------|---------------------------------------------------|--------------------------------------------------|
+| 1     | [Lifecycle](/docs/lifecycle)                      | Plan, build, ship, monitor                       |
+| 2     | [Tech Stack](/docs/stack)                         | Every major 2026 tool decoded                    |
+| 3     | [Startup workflow](/docs/startup)                 | Managed services, balance speed & quality        |
+| 4     | [Decision Frameworks](/docs/decisions)            | How to actually choose technologies              |
 
 → **Jump to** [Tech Stack Overview](/docs/stack)
 
-### 🏢 I work at a big company
+</TabItem>
+
+<TabItem value="enterprise" label="🏢 Big company">
 
 > Microservices, compliance, 99.99% uptime. I want the enterprise picture.
 
-| Order | Read                                                                | Why                                              |
-|-------|---------------------------------------------------------------------|--------------------------------------------------|
-| 1     | [Enterprise workflow](/docs/enterprise)                  | Kubernetes, SRE, compliance                     |
-| 2     | [Decision Frameworks](/docs/decisions)                     | Boring tech, reversibility, cost of inaction    |
-| 3     | [AI Integration](/docs/ai)                               | Operating AI features in production             |
+| Order | Read                                              | Why                                              |
+|-------|---------------------------------------------------|--------------------------------------------------|
+| 1     | [Enterprise workflow](/docs/enterprise)           | Kubernetes, SRE, compliance                      |
+| 2     | [Decision Frameworks](/docs/decisions)            | Boring tech, reversibility, cost of inaction     |
+| 3     | [AI Integration](/docs/ai)                        | Operating AI features in production              |
 
 → **Read** [Enterprise Workflow](/docs/enterprise)
 
-### 🔄 I'm doing a refresh
+</TabItem>
+
+<TabItem value="refresh" label="🔄 Doing a refresh">
 
 > I've been building for years. What's changed in 2026?
 
-| Order | Read                                                                | Why                                              |
-|-------|---------------------------------------------------------------------|--------------------------------------------------|
-| 1     | [Tech Stack](/docs/stack)                                           | What's new since you last looked                |
-| 2     | [AI Integration](/docs/ai)                               | The new layer in every modern app               |
-| 3     | [Comparison](/docs/comparison)                                       | Side-by-side at every scale                     |
+| Order | Read                                              | Why                                              |
+|-------|---------------------------------------------------|--------------------------------------------------|
+| 1     | [Tech Stack](/docs/stack)                         | What's new since you last looked                 |
+| 2     | [AI Integration](/docs/ai)                        | The new layer in every modern app                |
+| 3     | [Comparison](/docs/comparison)                    | Side-by-side at every scale                      |
 
 → **Skim** [Tech Stack Overview](/docs/stack)
+
+</TabItem>
+
+</Tabs>
 
 ---
 
