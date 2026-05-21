@@ -2,7 +2,7 @@
 id: personal-website-workflow
 title: 4. Personal Website Workflow — Overview
 sidebar_position: 1
-sidebar_label: Overview
+sidebar_label: Solo workflow intro
 description: Solo developers, personal sites, side projects. Free tiers, minimal ops, maximum shipping speed.
 ---
 

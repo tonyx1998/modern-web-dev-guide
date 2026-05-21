@@ -2,7 +2,7 @@
 id: foundational-concepts
 title: 1. Foundational Concepts — Overview
 sidebar_position: 1
-sidebar_label: Overview
+sidebar_label: Foundations at a glance
 description: How the web actually works under the hood. Read this chapter first.
 ---
 

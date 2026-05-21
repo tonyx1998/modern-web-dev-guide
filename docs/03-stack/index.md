@@ -2,7 +2,7 @@
 id: tech-stack-decoded
 title: 3. The 2026 Tech Stack — Overview
 sidebar_position: 1
-sidebar_label: Overview
+sidebar_label: Stack at a glance
 description: Every major tool in the 2026 web stack, organized by layer. Skim once; refer back when choosing.
 ---
 

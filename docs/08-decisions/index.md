@@ -2,7 +2,7 @@
 id: decision-frameworks
 title: 8. Decision Frameworks — Overview
 sidebar_position: 1
-sidebar_label: Overview
+sidebar_label: Frameworks at a glance
 description: How to actually choose. Boring-technology rule, reversibility, team-size heuristics, cost of inaction.
 ---
 

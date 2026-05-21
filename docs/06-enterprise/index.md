@@ -2,7 +2,7 @@
 id: large-company-workflow
 title: 6. Large Company Workflow — Overview
 sidebar_position: 1
-sidebar_label: Overview
+sidebar_label: Enterprise intro
 description: Enterprises (500+ engineers). Microservices, Kubernetes, compliance, 99.99% uptime, SRE.
 ---
 

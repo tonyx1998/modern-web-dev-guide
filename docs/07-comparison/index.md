@@ -2,7 +2,7 @@
 id: comparison
 title: 7. Side-by-Side Comparison — Overview
 sidebar_position: 1
-sidebar_label: Overview
+sidebar_label: All three scales
 description: Solo / startup / enterprise compared side by side across tools, processes, and costs.
 ---
 

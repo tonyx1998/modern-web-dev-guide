@@ -2,7 +2,7 @@
 id: small-company-workflow
 title: 5. Small Company Workflow — Overview
 sidebar_position: 1
-sidebar_label: Overview
+sidebar_label: Startup workflow intro
 description: Startups and small companies (5–50 people). Real product, paying customers, managed services.
 ---
 

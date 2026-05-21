@@ -2,7 +2,7 @@
 id: development-lifecycle
 title: 2. The Development Lifecycle — Overview
 sidebar_position: 1
-sidebar_label: Overview
+sidebar_label: The 11 phases
 description: The eleven phases every software project goes through, from planning to maintenance.
 ---
 

@@ -2,7 +2,7 @@
 id: career-path
 title: 10. Career Path — Overview
 sidebar_position: 1
-sidebar_label: Overview
+sidebar_label: Career intro
 description: For students and developers building toward a career — skills, portfolios, specializations, 2026 comp.
 ---
 
