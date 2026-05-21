@@ -53,23 +53,25 @@ Even solo developers benefit from writing brief ADRs. "I chose Postgres over Mon
 
 ## The modular monolith pattern
 
-The dominant 2026 architectural recommendation for small-to-medium teams: build a **modular monolith**.
+The dominant 2026 architectural recommendation for small-to-medium teams: build a **modular monolith** (one process, deployed as one unit, internally organized into clearly-bounded modules).
 
-```
-┌─────────────────────────────────────┐
-│         Single deployment           │
-│                                     │
-│ ┌──────────┐ ┌──────────┐ ┌───────┐ │
-│ │  Users   │ │  Billing │ │ Orders│ │
-│ │  module  │ │  module  │ │ module│ │
-│ └──────────┘ └──────────┘ └───────┘ │
-│                                     │
-│      Shared infrastructure          │
-│  (DB, cache, queue, observability)  │
-└─────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph Mono["Single deployment"]
+        U["Users<br/>module"]
+        B["Billing<br/>module"]
+        O["Orders<br/>module"]
+    end
+    subgraph Shared["Shared infrastructure"]
+        DB[("Database")]
+        Cache[("Cache")]
+        Q[("Queue")]
+        Obs["Observability"]
+    end
+    Mono --> Shared
 ```
 
-Internally organized as if it were many services, but deployed as one. You get the simplicity of monolith operations with the structure of microservices. If you eventually need to split, the module boundaries become service boundaries.
+> **Reading this diagram:** Three modules live inside a *single* process (top box) but talk to one set of shared infrastructure (bottom box). Internally organized as if it were many services, but deployed as one. You get the simplicity of monolith operations with the structure of microservices. If you eventually need to split, the module boundaries become service boundaries.
 
 The trap is going microservices too early — distributed systems are hard to debug, slow to develop in, and bring operational overhead most small teams can't justify.
 

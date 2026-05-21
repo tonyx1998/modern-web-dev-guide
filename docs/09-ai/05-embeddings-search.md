@@ -31,6 +31,8 @@ async function search(query: string) {
 }
 ```
 
+> **In English:** Embed the query, ask Postgres for the 20 documents whose stored embeddings are most similar (the `<=>` is pgvector's cosine-distance operator). No LLM call needed — embeddings alone power this search.
+
 Returns documents matching meaning, not just keywords. "Affordable laptops" might return results about "budget computers" even with no shared words.
 
 ## Recommendations
@@ -65,6 +67,8 @@ async function findDuplicates(threshold = 0.05) {
   `);
 }
 ```
+
+> **In English:** Self-join the documents table to itself and keep only pairs whose embeddings are *very* close (distance under 0.05). The `a.id < b.id` clause is the standard trick to compare each pair only once.
 
 ## Clustering
 

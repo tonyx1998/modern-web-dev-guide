@@ -16,7 +16,7 @@ At solo scale, "the setup" is whatever's on your laptop. At startup scale, the s
 
 ## Repository structure
 
-For a team to onboard a new engineer in under a day:
+For a team to onboard a new engineer in under a day, the **monorepo** (one Git repo containing multiple apps and shared libraries) is wired up with **Turborepo** (a build orchestrator that runs tasks in parallel across packages and caches their results):
 
 **Repository structure (monorepo with Turborepo):**
 ```
@@ -35,6 +35,8 @@ my-startup/
 ├── package.json
 └── README.md
 ```
+
+> **Reading this layout:** `apps/` holds anything that gets deployed independently (the main product, an admin console, the marketing site). `packages/` holds shared code those apps import — schema, UI components, auth helpers, transactional emails, common tooling config. A change to `packages/db` rebuilds anything that uses it; a change to `apps/marketing` doesn't touch `apps/web`. Turborepo figures that dependency graph out for you.
 
 ## Onboarding script
 
@@ -65,6 +67,8 @@ echo "→ Now fill in .env.local with credentials from 1Password"
 echo "Starting dev server..."
 bun run dev
 ```
+
+> **In English:** This is a single onboarding script the new hire runs once. `set -e` makes it fail loudly if any step errors. It installs the Bun runtime, installs JS dependencies, brings up a local Postgres in Docker, applies migrations and seed data, copies `.env.example` to `.env.local` (which the user then fills in with secrets from 1Password), and finally starts the dev server. The whole point: one command instead of a fifteen-step README.
 
 ## Three environments
 

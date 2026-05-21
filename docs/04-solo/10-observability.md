@@ -16,7 +16,7 @@ description: Three free tools — Sentry for errors, Vercel Analytics for traffi
 
 ## The three-tool stack
 
-For a personal project, three tools cover almost all needs:
+**Observability** is the umbrella term for "knowing what your app is doing in production" — errors, traffic, performance, and user behavior. For a personal project, three tools cover almost all needs:
 
 ## Sentry for Errors
 

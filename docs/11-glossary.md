@@ -28,9 +28,9 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **ACID** — Atomicity, Consistency, Isolation, Durability. Guarantees provided by traditional relational databases.
 
-**ADR (Architecture Decision Record)** — A short document recording why an architectural decision was made, what alternatives were considered, and what the consequences are.
+**ADR (Architecture Decision Record)** — A short document recording why an architectural decision was made, what alternatives were considered, and what the consequences are. *See: [The Documentation Trade-Off](/docs/decisions/documentation-tradeoff).*
 
-**Agent (AI)** — An LLM-based system that plans and executes multi-step actions by calling tools, observing results, and continuing until a task is complete.
+**Agent (AI)** — An LLM-based system that plans and executes multi-step actions by calling tools, observing results, and continuing until a task is complete. *See: [Pattern 4: Agentic Workflows](/docs/ai/ai-agents).*
 
 **Algorithm** — A defined sequence of steps to solve a problem. In CS interviews, often refers to standard techniques like binary search, BFS/DFS, dynamic programming.
 
@@ -180,7 +180,7 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **Edge Function** — Server function that runs at the edge (e.g., Cloudflare Workers, Vercel Edge Functions).
 
-**Embeddings** — Numerical vector representations of text, images, or other data. Similar items have similar vectors.
+**Embeddings** — Numerical vector representations of text, images, or other data. Similar items have similar vectors. *See: [Pattern 5: Embeddings for Semantic Search](/docs/ai/ai-embeddings).*
 
 **ESM (ECMAScript Modules)** — The standard JavaScript module system. `import` and `export`.
 
@@ -214,7 +214,7 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **Fly.io** — A platform for running apps in containers across many global regions.
 
-**Function Calling** — Pattern where an LLM produces structured calls to predefined functions/tools.
+**Function Calling** — Pattern where an LLM produces structured calls to predefined functions/tools. *See: [Pattern 3: Function Calling](/docs/ai/ai-function-calling).*
 
 ---
 
@@ -239,6 +239,8 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 ---
 
 ## H
+
+**Hallucination (AI)** — When an LLM produces confident but false output (a made-up citation, a non-existent API, an invented fact). The dominant correctness failure mode for LLMs; mitigated with RAG, citations, validation, and evals. *See: [AI Safety and Privacy](/docs/ai/ai-safety).*
 
 **Hashing** — Converting input data into a fixed-size value. Used for passwords (one-way), data integrity checks, etc.
 
@@ -294,6 +296,10 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **JWT (JSON Web Token)** — A self-contained, signed token used for authentication. Encodes user info in a base64-encoded JSON payload.
 
+:::note Example
+A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots: a *header* (algorithm), a *payload* (user claims like `{ "sub": "user_123", "exp": 1735689600 }`), and a *signature*. Servers verify the signature with a secret or public key, then trust the claims.
+:::
+
 ---
 
 ## K
@@ -314,7 +320,7 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **Linter** — A tool that analyzes code for potential errors and style violations.
 
-**LLM (Large Language Model)** — Neural network trained on huge text datasets to generate text. Examples: GPT, Claude, Gemini, Llama.
+**LLM (Large Language Model)** — Neural network trained on huge text datasets to generate text. Examples: GPT, Claude, Gemini, Llama. *See: [AI Integration overview](/docs/ai/ai-integration).*
 
 **Load Balancer** — A server that distributes incoming requests across multiple backend servers.
 
@@ -326,6 +332,8 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **MAU (Monthly Active Users)** — Common SaaS metric; users who used the product at least once in the past month.
 
+**MCP (Model Context Protocol)** — Open protocol introduced in late 2024 for exposing tools, resources, and prompts to AI clients in a standard way. By 2026, MCP servers are a common way to give AI assistants (Claude Code, Cursor, etc.) access to external data and actions.
+
 **Meilisearch** — An open-source, fast search engine.
 
 **Mesh (Service Mesh)** — Infrastructure layer that handles service-to-service concerns transparently. Istio, Linkerd.
@@ -336,7 +344,7 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **Migration** — A schema change to a database, applied as code.
 
-**Modular Monolith** — Single-deployment application internally organized into modules with clear boundaries. The recommended pattern for small/medium teams.
+**Modular Monolith** — Single-deployment application internally organized into modules with clear boundaries. The recommended pattern for small/medium teams. *See: [The Team Size Heuristic](/docs/decisions/team-size-heuristic).*
 
 **Monorepo** — A single repository containing many projects or services.
 
@@ -390,7 +398,7 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **PG (Postgres / PostgreSQL)** — Open-source relational database; the 2026 default for most new projects.
 
-**pgvector** — Postgres extension for vector similarity search; popular for RAG applications.
+**pgvector** — Postgres extension for vector similarity search; popular for RAG applications. *See: [Pattern 2: RAG](/docs/ai/ai-rag).*
 
 **PHP** — Server-side scripting language; powers WordPress and a large portion of the web.
 
@@ -408,7 +416,7 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **Prompt Engineering** — Crafting input text to LLMs to get desired output.
 
-**Prompt Injection** — Attack where user input attempts to override an LLM's instructions.
+**Prompt Injection** — Attack where user input attempts to override an LLM's instructions. *See: [AI Safety and Privacy](/docs/ai/ai-safety).*
 
 **Protobuf (Protocol Buffers)** — Binary serialization format developed by Google; used heavily with gRPC.
 
@@ -430,7 +438,7 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 ## R
 
-**RAG (Retrieval-Augmented Generation)** — Pattern of giving an LLM relevant retrieved context to help it answer a question.
+**RAG (Retrieval-Augmented Generation)** — Pattern of giving an LLM relevant retrieved context to help it answer a question. *See: [Pattern 2: RAG](/docs/ai/ai-rag).*
 
 **Railway** — A simple platform-as-a-service for running apps.
 
@@ -446,7 +454,7 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **REST (Representational State Transfer)** — Architectural style for APIs using HTTP methods on resources.
 
-**RFC (Request for Comments)** — A written proposal for a change, reviewed by peers before adoption.
+**RFC (Request for Comments)** — A written proposal for a change, reviewed by peers before adoption. *See: [The Team Size Heuristic](/docs/decisions/team-size-heuristic).*
 
 **RLS (Row-Level Security)** — Database-enforced rules about which rows each user can access.
 
@@ -524,7 +532,7 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **SQLite** — A single-file relational database; lightweight, increasingly used in production at the edge.
 
-**SSE (Server-Sent Events)** — Long-lived HTTP connection for server-to-client streaming. Used for LLM responses.
+**SSE (Server-Sent Events)** — Long-lived HTTP connection for server-to-client streaming. Used for LLM responses. *See: [Pattern 1: Streaming Chat](/docs/ai/ai-streaming-chat).*
 
 **SSG (Static Site Generation)** — Rendering HTML at build time; serving as static files.
 
@@ -596,7 +604,7 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **Valkey** — Open-source fork of Redis after Redis Labs's license change.
 
-**Vector Database** — Database optimized for similarity search on high-dimensional vectors (embeddings).
+**Vector Database** — Database optimized for similarity search on high-dimensional vectors (embeddings). *See: [Pattern 2: RAG](/docs/ai/ai-rag).*
 
 **Vercel** — Hosting platform optimized for Next.js and other frameworks.
 

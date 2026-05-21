@@ -16,33 +16,34 @@ Hosting is one of the few areas where a small company genuinely has options. Ver
 
 ## Pattern A: Vercel + Supabase (Most Popular)
 
+:::info Jargon
+- **Edge** — code running in data centers physically close to the user (lower latency, but a stripped-down runtime).
+- **Serverless functions** — short-lived functions the platform runs on demand; you pay per invocation, no servers to manage.
+- **CDN** (Content Delivery Network) — a global cache of static files (JS, CSS, images) so the browser fetches them from a nearby node.
+:::
+
 - **Vercel** hosts Next.js (edge + serverless functions).
 - **Supabase** provides Postgres + Auth + Realtime + Storage + Edge Functions.
 - **Cloudflare R2** for file storage if not using Supabase Storage.
 - **Resend** for email.
 - **Trigger.dev** for background jobs.
 
-```
-┌──────────────────────────────────────┐
-│           Cloudflare DNS             │
-└─────────┬────────────────────────────┘
-          │
-          ▼
-┌──────────────────────────────────────┐
-│        Vercel (global edge)          │
-│  - Next.js app                       │
-│  - Static assets via Vercel CDN      │
-│  - Serverless functions for APIs     │
-└─────────┬────────────────────────────┘
-          │
-          ▼
-┌──────────────────────────────────────┐
-│           Supabase                   │
-│  - Postgres                          │
-│  - Auth (or use Clerk separately)    │
-│  - Storage                           │
-│  - Realtime                          │
-└──────────────────────────────────────┘
+```mermaid
+flowchart TB
+    DNS["Cloudflare DNS"]
+    subgraph Vercel["Vercel global edge"]
+        App["Next.js app"]
+        CDN["Static assets via Vercel CDN"]
+        Fn["Serverless functions for APIs"]
+    end
+    subgraph Supa["Supabase"]
+        PG[("Postgres")]
+        Auth["Auth — or use Clerk separately"]
+        Store["Storage"]
+        RT["Realtime"]
+    end
+    DNS --> Vercel
+    Vercel --> Supa
 ```
 
 **Pros:** Easiest, fastest, best DX, scales smoothly to substantial traffic.
@@ -64,22 +65,21 @@ Hosting is one of the few areas where a small company genuinely has options. Ver
 - **Cloudflare R2** for storage.
 - **Cloudflare KV / Durable Objects** for state.
 
-```
-┌──────────────────────────────────────┐
-│       Cloudflare (global edge)       │
-│  ┌─────────────┐  ┌──────────────┐   │
-│  │   Pages     │  │   Workers    │   │
-│  │ (frontend)  │  │  (API/logic) │   │
-│  └─────────────┘  └──────────────┘   │
-│  ┌─────────────┐  ┌──────────────┐   │
-│  │     R2      │  │      KV      │   │
-│  │  (storage)  │  │   (cache)    │   │
-│  └─────────────┘  └──────────────┘   │
-│  ┌─────────────┐  ┌──────────────┐   │
-│  │     D1      │  │  Durable     │   │
-│  │  (SQLite)   │  │   Objects    │   │
-│  └─────────────┘  └──────────────┘   │
-└──────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph CF["Cloudflare global edge"]
+        Pages["Pages — frontend"]
+        Workers["Workers — API / logic"]
+        R2[("R2 — object storage")]
+        KV[("KV — cache")]
+        D1[("D1 — SQLite")]
+        DO["Durable Objects — stateful"]
+        Pages --> Workers
+        Workers --> R2
+        Workers --> KV
+        Workers --> D1
+        Workers --> DO
+    end
 ```
 
 **Pros:** Cheap, fast, globally distributed by default.

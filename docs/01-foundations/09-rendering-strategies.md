@@ -22,19 +22,21 @@ Each choice has dramatic consequences for speed, SEO, freshness of data, cost, a
 
 ## The three core strategies (and the hybrids on top)
 
+```mermaid
+flowchart LR
+    Q["Where is HTML built?"] --> B["Build time<br/>(before any user arrives)"]
+    Q --> S["Request time<br/>on the server"]
+    Q --> Br["Request time<br/>in the browser"]
+    B --> SSG["SSG<br/>Static Site Generation"]
+    S --> SSR["SSR<br/>Server-Side Rendering"]
+    Br --> CSR["CSR<br/>Client-Side Rendering"]
+    SSG -.hybrid.-> ISR["ISR<br/>Incremental Static Regeneration"]
+    SSR -.hybrid.-> Stream["Streaming SSR + RSC"]
+    SSG -.hybrid.-> PPR["PPR<br/>Partial Prerendering<br/>(static shell + dynamic holes)"]
+    SSR -.hybrid.-> PPR
 ```
-Where is HTML built?
-│
-├── Build time (before any user arrives)        → SSG  (Static Site Generation)
-├── Request time, on the server                  → SSR  (Server-Side Rendering)
-└── Request time, in the browser                 → CSR  (Client-Side Rendering)
 
-The 2026 hybrids that mix these:
-
-   SSG + occasional rebuilds         → ISR  (Incremental Static Regeneration)
-   SSR streamed in chunks            → Streaming SSR + React Server Components
-   Static shell + dynamic holes      → PPR  (Partial Prerendering)
-```
+> **Reading this diagram:** The top row is the *three pure choices* — every page has to be built somewhere. The dotted "hybrid" lines show how modern frameworks like Next.js mix those pure choices on the same page (e.g., a mostly-static page with one live "hole" served per request).
 
 ## A first-glance comparison
 
@@ -64,14 +66,14 @@ Each is a reasonable default. Only optimize away from the default when you have 
 
 Use this when you have to choose for a specific page:
 
-```
-Is the content the same for every visitor?
-├── Yes → Does it change rarely (less than once an hour)?
-│         ├── Yes → SSG  (Astro, Next.js static)
-│         └── No  → ISR  (Next.js with revalidate, Vercel)
-└── No  → Does it need SEO or fast first paint?
-          ├── Yes → Streaming SSR + RSC (Next.js App Router, Remix, SvelteKit)
-          └── No  → CSR (admin tools, internal apps behind login)
+```mermaid
+flowchart TD
+    A{Same content<br/>for every visitor?} -->|Yes| B{Changes rarely?<br/>&lt; once/hour}
+    A -->|No| C{Needs SEO<br/>or fast first paint?}
+    B -->|Yes| SSG["SSG<br/>(Astro, Next.js static)"]
+    B -->|No| ISR["ISR<br/>(Next.js revalidate, Vercel)"]
+    C -->|Yes| Stream["Streaming SSR + RSC<br/>(Next.js App Router, Remix, SvelteKit)"]
+    C -->|No| CSR["CSR<br/>(admin tools, internal apps behind login)"]
 ```
 
 ## What's next

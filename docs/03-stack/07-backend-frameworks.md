@@ -33,6 +33,8 @@ app.post('/users', async (c) => {
 export default app;
 ```
 
+> **In English:** Create an app, attach two route handlers (GET `/` and POST `/users`), and export it. The `c` parameter is the **context** — Hono's all-in-one wrapper around request + response. `c.req.json()` parses the request body; `c.json(user, 201)` returns a JSON response with HTTP status 201. The exported `app` is a plain handler that any runtime (Node, Bun, Cloudflare Workers) can boot directly.
+
 **Why it's gaining traction:**
 
 - Tiny (the core is ~14KB).
@@ -86,6 +88,8 @@ export default async function UsersPage() {
 }
 ```
 
+> **In English:** The first file is a Next.js **Route Handler** — exporting a function named after an HTTP method (`POST`, `GET`, etc.) wires it up to that verb on the URL `/api/users`. The second file is a **Server Component** (because it has no `"use client"` and uses `await`) that runs entirely on the server, queries the DB directly, and ships rendered HTML — no separate API call from the client needed.
+
 This is the dominant pattern for small/medium apps in 2026.
 
 ## FastAPI (Python)
@@ -106,6 +110,8 @@ class User(BaseModel):
 async def create_user(user: User):
     return {"id": 1, **user.dict()}
 ```
+
+> **In English:** **Pydantic** is FastAPI's validation library — declaring `User` with typed fields means any request body that doesn't match (missing `name`, wrong type) gets auto-rejected with a 422 before your function runs. The `@app.post("/users")` decorator binds the function to that URL, and FastAPI also auto-generates OpenAPI/Swagger docs from these type hints — for free.
 
 The dominant choice for Python web APIs in 2026.
 

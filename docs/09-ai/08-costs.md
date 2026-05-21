@@ -39,6 +39,8 @@ async function getCachedAnswer(question: string) {
 }
 ```
 
+> **In English:** Before paying for an LLM call, check Redis for an answer to the exact same question (keyed by a hash of the text). If it's there, return it instantly for $0. If not, call the model, store the result for 1 hour (`setex`), and return it. For FAQ-style traffic this can cut bills 30–80%.
+
 ## Use prompt caching
 
 Providers like Anthropic offer prompt caching: cache the static part of a long prompt (system instructions, document context); pay only for the dynamic part. Major cost reduction for RAG and long-context use cases.

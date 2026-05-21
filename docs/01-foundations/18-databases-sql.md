@@ -37,7 +37,24 @@ posts table:
 └────┴─────────┴──────────────┘
 ```
 
-The `user_id` column in `posts` is a **foreign key** pointing at `users.id`. SQL lets you ask combined questions across both tables.
+The `user_id` column in `posts` is a **foreign key** (a column whose value must match a primary key in another table) pointing at `users.id`. As an entity-relationship diagram:
+
+```mermaid
+erDiagram
+    users ||--o{ posts : "writes"
+    users {
+        int id PK
+        string name
+        string email
+    }
+    posts {
+        int id PK
+        int user_id FK
+        string title
+    }
+```
+
+> **Reading this diagram:** `||--o{` means "one users row relates to zero-or-more posts rows" — the canonical one-to-many relationship. `PK` is the **primary key** (the unique identifier for a row); `FK` is the **foreign key** (a pointer to another table's primary key). SQL lets you ask combined questions across both tables via `JOIN`.
 
 ## SQL — the query language
 
@@ -52,9 +69,9 @@ ORDER BY post_count DESC
 LIMIT 10;
 ```
 
-In English: "Give me the top 10 users by post count, showing their name and total."
+> **In English:** "Give me the top 10 users by post count, showing their name and total." A **LEFT JOIN** (return every row from the left table, attaching matching rows from the right when they exist) keeps users who have zero posts in the result. **GROUP BY** collapses all of one user's post rows into a single row per user; **COUNT** counts how many were collapsed; **ORDER BY ... DESC** sorts loudest-first; **LIMIT** truncates to ten.
 
-SQL is **declarative** — you describe *what* you want, not *how* to compute it. The database's query planner figures out the most efficient path through your tables.
+SQL is **declarative** — you describe *what* you want, not *how* to compute it. The database's **query planner** (an internal optimizer that picks an execution strategy) figures out the most efficient path through your tables.
 
 :::note Worked example: the 5 SQL queries you'll write 90% of the time
 ```sql

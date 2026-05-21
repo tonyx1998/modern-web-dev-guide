@@ -18,13 +18,25 @@ The LLM plans a sequence of steps, executes them, and adjusts based on results. 
 
 ## Simple agent loop
 
+```mermaid
+flowchart TD
+    Start[User goal + tool list] --> Plan[LLM picks next action]
+    Plan --> Done{Done?}
+    Done -->|Yes| Final[Final answer to user]
+    Done -->|No| Call[Execute chosen tool]
+    Call --> Obs[Append tool result<br/>to conversation]
+    Obs --> Plan
 ```
-1. LLM receives task + available tools
-2. LLM decides next action (call a tool, or finish)
-3. Tool is executed; result returned
-4. LLM sees the result, decides next action
-5. Repeat until LLM signals completion
-```
+
+In words:
+
+1. LLM receives task + available tools.
+2. LLM decides next action (call a tool, or finish).
+3. Tool is executed; result returned.
+4. LLM sees the result, decides next action.
+5. Repeat until LLM signals completion.
+
+> **Jargon:** This is what people mean by *agentic* — the model is in a loop, picking its own next step instead of being driven by a fixed script. **Tool calls** are the agent's only way to affect the outside world (read a file, call an API, write to a DB).
 
 ## Example use cases
 

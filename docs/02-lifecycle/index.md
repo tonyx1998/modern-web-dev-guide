@@ -26,31 +26,24 @@ Software development has a recognizable rhythm. The complexity of each phase var
 
 ## The eleven phases
 
-```
-1. Discovery & Planning      ← What are we building, and why?
-        │
-2. Design                    ← What does it look like?
-        │
-3. Architecture              ← How are we building it?
-        │
-4. Environment Setup         ← Setting up the workshop
-        │
-5. Implementation            ← Actually writing code
-        │
-6. Testing                   ← Proving it works
-        │
-7. Code Review               ← Catching what tests miss
-        │
-8. CI/CD                     ← Automating the path to production
-        │
-9. Deployment & Hosting      ← Code reaches users
-        │
-10. Observability            ← Seeing what's happening in prod
-        │
-11. Maintenance & Iteration  ← The longest phase by far
+```mermaid
+flowchart TD
+    P1["1. Discovery & Planning<br/><em>What are we building, and why?</em>"]
+    P2["2. Design<br/><em>What does it look like?</em>"]
+    P3["3. Architecture<br/><em>How are we building it?</em>"]
+    P4["4. Environment Setup<br/><em>Setting up the workshop</em>"]
+    P5["5. Implementation<br/><em>Actually writing code</em>"]
+    P6["6. Testing<br/><em>Proving it works</em>"]
+    P7["7. Code Review<br/><em>Catching what tests miss</em>"]
+    P8["8. CI/CD<br/><em>Automating the path to production</em>"]
+    P9["9. Deployment & Hosting<br/><em>Code reaches users</em>"]
+    P10["10. Observability<br/><em>Seeing what's happening in prod</em>"]
+    P11["11. Maintenance & Iteration<br/><em>The longest phase by far</em>"]
+    P1 --> P2 --> P3 --> P4 --> P5 --> P6 --> P7 --> P8 --> P9 --> P10 --> P11
+    P11 -. feedback .-> P1
 ```
 
-These aren't strictly sequential — modern development is iterative, with constant feedback loops. But every feature, every bug fix, every refactor goes through these stages in some form.
+> **Reading this diagram:** The dotted line back from phase 11 to phase 1 is the most important arrow on the page. These aren't strictly sequential — modern development is iterative, with constant feedback loops. But every feature, every bug fix, every refactor goes through these stages in some form.
 
 ## Pages in this chapter
 

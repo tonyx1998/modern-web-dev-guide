@@ -44,6 +44,8 @@ const result = await db
   .groupBy(users.id);
 ```
 
+> **In English:** Ask the database for every user paired with their posts, then group results by user id and count how many posts each user has. The `eq(...)` helper builds an SQL equality condition; **TypeScript inference** makes `result` a strongly-typed array of `{ id: number; postCount: number }` — no separate type definition needed.
+
 **Why it's popular:**
 
 - Excellent TypeScript inference (your query result type is exactly the columns you selected).
@@ -125,7 +127,7 @@ const result = await db.execute(sql`
 `);
 ```
 
-Don't be afraid to drop down to raw SQL when it's clearer.
+> **In English:** Identical query to the typed Drizzle version above, written as raw SQL through the `sql` template tag. The tag handles parameter escaping so you don't open yourself to SQL injection. Use this when the ORM's fluent API makes a complex query harder to read, not easier. Don't be afraid to drop down to raw SQL when it's clearer.
 
 ## Migrations
 

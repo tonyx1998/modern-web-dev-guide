@@ -71,7 +71,7 @@ jobs:
       - run: npm run build
 ```
 
-That YAML, committed to your repo, is now a quality gate. Every commit, every PR, every merge runs through it.
+> **In English:** This GitHub Actions config defines a job named `test` that runs on every pull request and every push to `main`. It boots a fresh Ubuntu virtual machine, installs Node 20, restores cached npm dependencies, then runs four shell commands in order. If any command exits non-zero, the whole job fails and the PR can't merge. That YAML, committed to your repo, is now a quality gate — every commit, every PR, every merge runs through it.
 :::
 
 ## Stage 3: Build artifact
@@ -137,15 +137,19 @@ Modern setups use a CDN with edge compute (Cloudflare Workers, Vercel Edge Funct
 
 ## Stage 8: DNS and routing
 
-DNS points your domain to the CDN/load balancer. Modern setups use **anycast** routing — the same IP address is announced from many physical locations, so users automatically hit the geographically closest entry point.
+DNS points your domain to the CDN/load balancer. Modern setups use **anycast** routing (the trick of advertising the same IP address from multiple physical locations and letting the internet's routing tables pick the closest one) — so users automatically hit the geographically closest entry point.
 
-```
-User in Tokyo → DNS for example.com → 1.2.3.4
-   But "1.2.3.4" is announced by both Tokyo and Virginia.
-   The user's network routes to whichever is closer → Tokyo.
+```mermaid
+flowchart LR
+    U[User in Tokyo] -->|DNS lookup| D[DNS for example.com]
+    D -->|"resolves to 1.2.3.4"| Net{Internet routing}
+    Net -.-> Tokyo[POP in Tokyo<br/>announces 1.2.3.4]
+    Net -.-> Virginia[POP in Virginia<br/>also announces 1.2.3.4]
+    Net -->|"closer hop"| Tokyo
+    style Tokyo fill:#2a5
 ```
 
-This is invisible to your code — it just works.
+> **Reading this diagram:** Both POPs claim the same address. The user's ISP picks the closest one via standard internet routing — Tokyo wins. This is invisible to your code — it just works.
 
 ## The pyramid runs in...
 

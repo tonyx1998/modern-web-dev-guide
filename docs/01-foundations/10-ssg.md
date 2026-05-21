@@ -25,14 +25,21 @@ HTML is generated at **build time**. Every URL becomes a pre-built `.html` file 
 3. Files are uploaded to a CDN.
 4. Users request URLs; CDN serves cached HTML instantly.
 
+```mermaid
+flowchart LR
+    subgraph Build["Build phase (once)"]
+        Src["Markdown / CMS / DB"] --> BS[Build script]
+        BS --> Files[HTML files]
+        Files --> CDN1[CDN]
+    end
+    subgraph Req["Request phase (per user)"]
+        User1[User] --> CDN2[CDN]
+        CDN2 --> Prebuilt[Pre-built HTML]
+        Prebuilt --> User2[User]
+    end
 ```
-Build phase (once):
-  Markdown / CMS / DB  →  Build script  →  HTML files  →  CDN
 
-Request phase (per user):
-  User  →  CDN  →  pre-built HTML  →  User
-  (origin server never involved)
-```
+> **Reading this diagram:** The origin server only does work in the top half, *once*, at build time. The bottom half — what users actually experience — is just file serving from the CDN. That asymmetry is the whole reason SSG is fast and cheap.
 
 ## Pros
 

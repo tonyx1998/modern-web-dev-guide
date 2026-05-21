@@ -20,6 +20,19 @@ Five years ago, "AI" meant a separate ML research project. In 2026, AI features 
 
 By 2026, AI is no longer experimental in production web apps. Most serious software now includes some form of LLM integration: chat assistants, semantic search, content generation, classification, agents that take actions. This chapter covers how to add AI to a web app responsibly, what the dominant patterns look like, and what's different about operating AI features in production.
 
+:::info Jargon for this chapter
+- **LLM (Large Language Model)** — a neural network trained on huge amounts of text that takes text in and produces text out. Examples: Claude, GPT, Gemini, Llama.
+- **Token** — the unit an LLM reads and writes — roughly 4 characters of English. Bills are usually quoted per million tokens, in and out separately.
+- **Prompt** — the text you send into the model (often a *system prompt* with instructions + *user messages*).
+- **Hallucination** — when the model produces something confident but wrong.
+- **RAG (Retrieval-Augmented Generation)** — handing the model relevant documents at query time so it can answer from real data instead of guessing.
+- **Embedding** — a fixed-length vector of floats that represents the meaning of a piece of text.
+- **Vector DB** — a database optimized for "find the K most similar vectors" queries.
+- **Tool / function calling** — letting the model emit a structured call (function name + args) that your code then executes.
+- **Agent / agentic** — a setup where the model loops: tool call → observation → next tool call → ... until done.
+- **MCP (Model Context Protocol)** — an open protocol for exposing tools, resources, and prompts to AI clients in a standard way. Defined in 2024, widely adopted by 2026.
+:::
+
 This is its own discipline. The skills to build a CRUD API don't fully transfer; LLMs introduce stochasticity, cost, latency, and safety considerations that traditional software doesn't have.
 
 ## The mental model

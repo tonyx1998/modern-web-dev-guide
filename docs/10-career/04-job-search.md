@@ -27,7 +27,7 @@ This is the hardest stage. Expect:
 - Portfolio over credentials.
 - Referrals are powerful — networking pays off here.
 - Apply to many places (broader funnel).
-- Optimize your resume for ATS systems (clear keywords).
+- Optimize your resume for *ATS* (Applicant Tracking System — software that filters resumes before a human ever looks; tuned via clear keywords).
 - Practice interview questions (LeetCode, but also system design basics).
 - Apply to less-competitive companies first to build interview experience.
 
@@ -51,16 +51,16 @@ A typical web dev interview process:
    - Team fit / hiring manager (1 round).
 
 **Preparation:**
-- **Coding:** LeetCode medium problems. Aim for solving common patterns (two pointers, sliding window, BFS/DFS, hash maps, basic DP).
+- **Coding:** LeetCode medium problems. Aim for solving common patterns (two pointers, sliding window, *BFS/DFS* — Breadth/Depth-First Search graph traversal, hash maps, basic *DP* — Dynamic Programming).
 - **System design:** "Hello Interview," "ByteByteGo," Alex Xu's books.
-- **Behavioral:** STAR format (Situation, Task, Action, Result). Have 5–10 stories ready.
+- **Behavioral:** *STAR* format — **S**ituation, **T**ask, **A**ction, **R**esult — the standard structure for narrative interview answers. Have 5–10 stories ready.
 - **Frontend-specific:** Build something live. Be able to explain your past work clearly.
 
 ## Negotiating
 
 When you get an offer:
 - Always negotiate. Companies expect it.
-- Know your market rate (levels.fyi for big tech).
+- Know your market rate (*levels.fyi* — community-maintained site that crowdsources real comp data by company and level — is the standard reference for big tech).
 - Negotiate base salary, equity, sign-on bonus, start date.
 - Have a competing offer if possible (for leverage).
 - Be polite but firm.

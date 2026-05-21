@@ -37,6 +37,19 @@ This chapter is the practical advice on becoming a great web developer in 2026: 
 
 The advice is opinionated. It reflects what works in the current market — which is increasingly competitive at the junior level and quite favorable at mid and senior levels.
 
+:::info Jargon for this chapter
+- **IC (Individual Contributor)** — an engineer whose job is to do the technical work directly, as opposed to managing people. *Staff IC* and *Principal IC* are the senior rungs of this track.
+- **EM (Engineering Manager)** — manages a team of engineers; a different track from IC, not "above" it.
+- **SDE (Software Development Engineer)** — Amazon's title for an engineer. SDE I = junior, SDE II = mid, SDE III = senior.
+- **FAANG** — Facebook (Meta), Apple, Amazon, Netflix, Google. Shorthand for a small set of large US tech companies. Sometimes broadened to **MANGA** or **Big Tech** to include Microsoft and others.
+- **T-shaped engineer** — broad knowledge across many areas (the horizontal bar of the T) plus deep expertise in one (the vertical bar). The target shape for a mid-to-senior generalist.
+- **TC (Total Compensation)** — base salary + bonus + equity + benefits, summed annually. Always negotiate against TC, not base alone.
+- **RSU (Restricted Stock Unit)** — equity grant that vests over time. At public companies, RSUs are nearly cash; at private companies, their value is uncertain until a liquidity event.
+- **ATS (Applicant Tracking System)** — software companies use to filter and rank resumes. Optimize for it with clear keywords.
+- **STAR** — Situation, Task, Action, Result. The standard format for answering behavioral interview questions.
+- **levels.fyi** — community-maintained site that crowdsources real compensation data by company and level. The standard reference for negotiation.
+:::
+
 ## How this chapter is organized
 
 Each page focuses on **one topic** with worked examples and beginner callouts. Read them in order the first time; revisit any single page later when you need a refresher.

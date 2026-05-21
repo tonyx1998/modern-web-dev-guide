@@ -16,37 +16,31 @@ description: A bird's-eye view of how code becomes a live website. Source → CI
 
 ## The pyramid
 
-How does code reach users? Every project, from one-person blogs to Google, uses some variation of this pipeline:
+How does code reach users? Every project, from one-person blogs to Google, uses some variation of this pipeline. A few terms before the diagram:
 
-```
-        Source Code (Git)
-              │
-              ▼
-       CI: Tests pass?
-              │
-              ▼
-   Build Artifact (container, bundle, function package)
-              │
-              ▼
-       Artifact Registry
-              │
-              ▼
-          Deployment
-       (CD pipeline)
-              │
-              ▼
-     Runtime Environment
-   (servers / containers /
-    serverless / edge)
-              │
-              ▼
-         CDN / Edge
-              │
-              ▼
-            Users
+:::info Jargon for the pipeline
+- **CI** (Continuous Integration) — automation that runs on every commit (lint, tests, security scans).
+- **Artifact** — the *built* output of your code (a Docker container image, a static bundle, a serverless function package). What actually gets deployed.
+- **Registry** — a storage system for artifacts, like a Git for compiled code (GHCR, ECR, Docker Hub).
+- **CD** (Continuous Deployment) — automation that takes a registry artifact and rolls it out to a runtime.
+- **Runtime** — the machine/container/function-host that actually executes your code.
+- **CDN** (Content Delivery Network) — globally distributed edge caches that serve responses close to the user (covered earlier in the chapter).
+:::
+
+```mermaid
+flowchart TD
+    S["1. Source code<br/>(Git)"]
+    CI["2. CI<br/>Tests pass?"]
+    A["3. Build artifact<br/>(container, bundle, function)"]
+    R["4. Artifact registry"]
+    CD["5. Deployment<br/>(CD pipeline)"]
+    RT["6. Runtime environment<br/>(servers / containers /<br/>serverless / edge)"]
+    CDN["7. CDN / Edge"]
+    U["8. Users"]
+    S --> CI --> A --> R --> CD --> RT --> CDN --> U
 ```
 
-Each layer has its own tools, failure modes, and debugging skills. The next page covers each stage in detail. This page gives you the bird's-eye map.
+> **Reading this diagram:** Top-down, each box is a *stage* with its own tools, failure modes, and debugging skills. The next page covers each stage in detail. This page gives you the bird's-eye map.
 
 ## The same shape at every scale
 
@@ -84,23 +78,20 @@ When something breaks in production, it could be in any of these 8 layers:
 
 You push code. The site goes down. Where do you look?
 
-```
-"It worked yesterday."
-   ↓
-Was the bad commit even built? → check CI (layer 2)
-   ↓ Yes
-Did the artifact get pushed to the registry? → check registry (layer 4)
-   ↓ Yes
-Did CD pick up the new artifact? → check CD logs (layer 5)
-   ↓ Yes
-Is the new runtime running? → check container logs (layer 6)
-   ↓ Yes
-Is the CDN serving the new version, or stale cache? → purge CDN (layer 7)
-   ↓
-Aha — layer 7 was serving a stale cached HTML file. Purge cache. Fix.
+```mermaid
+flowchart TD
+    Start["It worked yesterday."]
+    Q2{Bad commit built?<br/>Check CI - layer 2}
+    Q4{Artifact pushed to registry?<br/>Layer 4}
+    Q5{CD picked up new artifact?<br/>Layer 5}
+    Q6{New runtime actually running?<br/>Layer 6}
+    Q7{CDN serving new version?<br/>Layer 7}
+    Fix["Aha - layer 7 stale cache.<br/>Purge. Fixed."]
+    Start --> Q2 -->|Yes| Q4 -->|Yes| Q5 -->|Yes| Q6 -->|Yes| Q7 -->|No - stale| Fix
+    style Fix fill:#2a5
 ```
 
-You'll repeat variations of this dance dozens of times in a career. Each layer is a place to look.
+> **Reading this diagram:** It's a debugging checklist as a flowchart. You walk *down* the pipeline asking "did this layer do its job?" until you find the broken one. You'll repeat variations of this dance dozens of times in a career. Each layer is a place to look.
 
 ## What's next
 

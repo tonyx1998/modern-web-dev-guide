@@ -58,6 +58,8 @@ export function BulkExportButton() {
 }
 ```
 
+> **In English:** `useFeatureFlag('bulk-export')` asks PostHog (or Statsig) "is this flag on *for the current user*?" — the answer depends on whatever targeting rules you set in the dashboard (percentage rollout, cohort, internal-only, etc.). If it's off, the button doesn't render at all. The code is already in production; the *exposure* is gated by the dashboard.
+
 Flags let you:
 - Ship code without releasing it.
 - Roll out gradually (1% → 10% → 100%).

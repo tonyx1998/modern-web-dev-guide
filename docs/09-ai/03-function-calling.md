@@ -50,7 +50,21 @@ const result = await generateText({
 });
 ```
 
+> **In English:** You define a `getWeather` tool with a Zod schema for its arguments and an `execute` function that actually fetches the weather. When the model sees a question it can't answer from its own knowledge, it produces a structured call like `getWeather({location: "San Francisco"})`; the SDK runs your `execute`, hands the result back to the model, and the model writes a natural-language reply using it.
+
 The flow:
+
+```mermaid
+flowchart TD
+    U[User asks a question] --> M1[LLM sees question + tool list]
+    M1 --> D{Need a tool?}
+    D -->|Yes| C[LLM emits tool call:<br/>getWeather location=SF]
+    C --> X[Your code executes the function]
+    X --> R[Result returned to LLM]
+    R --> M2[LLM uses result to write final answer]
+    D -->|No| M2
+    M2 --> A[Answer to user]
+```
 
 1. User asks a question.
 2. LLM decides it needs the `getWeather` tool.
@@ -81,6 +95,8 @@ const result = await generateObject({
 // result.object is fully typed!
 console.log(result.object.title);
 ```
+
+> **In English:** Instead of getting back free-form text, you describe the shape you want (with **Zod**, a TypeScript schema library), and `generateObject` makes the model return JSON that matches it — already parsed, already validated, and typed in TypeScript. You can use the result directly without `JSON.parse` or runtime checks.
 
 The SDK enforces the schema; you get type-safe, validated output.
 

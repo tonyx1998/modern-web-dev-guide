@@ -54,37 +54,41 @@ Context usually makes it clear. When in doubt, ask "the program, the machine, or
 
 ## A real conversation, end-to-end
 
-When you type `example.com` into a browser, an elaborate dance unfolds in milliseconds:
+When you type `example.com` into a browser, an elaborate dance unfolds in milliseconds. Before reading the diagram, a quick jargon primer:
 
+:::info Jargon you'll see in the diagram below
+- **DNS** (Domain Name System) — the internet's phone book; translates a name like `example.com` into a numerical IP address.
+- **TCP** (Transmission Control Protocol) — the underlying protocol that splits your data into reliable, ordered packets between two machines.
+- **SYN / SYN-ACK / ACK** — the three messages of TCP's "handshake," a quick hello/hello-back/got-it that opens a connection.
+- **TLS** (Transport Layer Security) — the encryption layer that turns `http://` into `https://`. The browser and server exchange a `ClientHello` and `ServerHello` to agree on keys.
+- **HTTP** (HyperText Transfer Protocol) — the actual request/response language ("GET this page," "200 OK here you go") that runs on top of TCP+TLS.
+- **FIN** — the polite "I'm done, you can close the connection now" signal.
+:::
+
+```mermaid
+sequenceDiagram
+    participant Client as Client (browser)
+    participant DNS as DNS resolver
+    participant Server
+    Client->>DNS: Where's example.com?
+    DNS-->>Client: 93.184.216.34
+    Note over Client,Server: TCP handshake
+    Client->>Server: TCP SYN
+    Server-->>Client: TCP SYN-ACK
+    Client->>Server: TCP ACK
+    Note over Client,Server: TLS handshake (encrypted channel)
+    Client->>Server: TLS ClientHello
+    Server-->>Client: TLS ServerHello + certificate
+    Client->>Server: TLS Finished
+    Note over Client,Server: Actual HTTP request
+    Client->>Server: HTTP GET / (Host: example.com)
+    Server-->>Client: HTTP 200 OK (text/html, <html>...)
+    Note over Client,Server: Connection teardown
+    Client->>Server: TCP FIN
+    Server-->>Client: TCP FIN-ACK
 ```
-Client (browser)                    Internet                    Server
-      |                                |                            |
-      |--- DNS query: where's          |                            |
-      |    example.com? -------------->|                            |
-      |<-------- DNS response:         |                            |
-      |          93.184.216.34 --------|                            |
-      |                                |                            |
-      |--- TCP SYN ---------------------------------->              |
-      |<-- TCP SYN-ACK -------------------------------|             |
-      |--- TCP ACK ----------------------------------->             |
-      |    (TCP handshake complete)                                 |
-      |                                                             |
-      |--- TLS ClientHello --------------------------->             |
-      |<-- TLS ServerHello + cert ---------------------|            |
-      |--- TLS Finished ------------------------------->            |
-      |    (encrypted channel established)                          |
-      |                                                             |
-      |--- HTTP GET / HTTP/1.1 ----------------------->             |
-      |    Host: example.com                                        |
-      |                                                             |
-      |<-- HTTP/1.1 200 OK ----------------------------|            |
-      |    Content-Type: text/html                                  |
-      |    Content-Length: 1256                                     |
-      |    <html>...                                                |
-      |                                                             |
-      |--- TCP FIN ----------------------------------->             |
-      |<-- TCP FIN-ACK --------------------------------|            |
-```
+
+> **Reading this diagram:** Each arrow is one network round-trip. Notice how *three* separate handshakes (DNS, TCP, TLS) happen before a single byte of your actual webpage is requested. That's why "first paint" feels slow on flaky networks — you're paying for all those handshakes upfront.
 
 That's just the first request. Loading a modern webpage typically involves dozens or hundreds of additional requests for CSS, JavaScript, images, fonts, and API data.
 

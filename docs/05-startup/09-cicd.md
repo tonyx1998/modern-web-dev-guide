@@ -70,6 +70,8 @@ jobs:
           BASE_URL: ${{ secrets.PREVIEW_URL }}
 ```
 
+> **In English:** This is a GitHub Actions workflow — the YAML lives at `.github/workflows/ci.yml` and runs on every push to `main` and every pull request. There are two jobs. **`validate`** runs on a fresh Ubuntu VM: it checks out the code, installs Bun, runs `bun install --frozen-lockfile` (the strict version that fails if `bun.lock` is out of date), lints with Biome, type-checks, runs unit/integration tests against a real test database, and finally compiles the production build. **`e2e`** only runs after `validate` passes (`needs: validate`); it installs Playwright's headless Chromium and runs the end-to-end suite against a preview URL. Secrets (`TEST_DATABASE_URL`, `PREVIEW_URL`) are stored in GitHub's encrypted secrets store, not in the YAML.
+
 CI typically completes in 5–10 minutes. Vercel handles deployment separately — every PR gets a preview URL automatically; merges to `main` deploy to production.
 
 ## Branch protection

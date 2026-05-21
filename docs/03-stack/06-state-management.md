@@ -47,6 +47,8 @@ function UserList() {
 }
 ```
 
+> **In English:** `useQuery` is a React hook that takes a unique `queryKey` (the cache identifier) and a `queryFn` (the function that fetches data). It returns loading/error/data flags you can render against. Behind the scenes, TanStack Query caches the result, dedupes parallel requests for the same key, and refetches in the background when the user refocuses the tab — all "for free."
+
 **SWR** (by Vercel) is a simpler alternative; nearly identical model.
 
 **In React Server Components**, much server state is fetched directly in the component (no library needed) — the framework handles caching for you.
@@ -109,6 +111,8 @@ function SignupForm() {
   );
 }
 ```
+
+> **In English:** **Zod** declares the validation rules (email must look like an email; password must be 8+ chars). React Hook Form's `register('email')` wires an input to the form state using the field name as the key. On submit, the **resolver** runs the Zod schema against the values; any failures populate `errors` so you can render messages next to the offending fields. One schema doubles as runtime validation, TypeScript types, and form validation.
 
 ## URL state
 

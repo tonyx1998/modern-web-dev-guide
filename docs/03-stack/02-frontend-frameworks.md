@@ -66,6 +66,8 @@ const doubled = computed(() => count.value * 2);
 </template>
 ```
 
+> **In English:** `ref(0)` creates a **reactive primitive** — a value Vue tracks so the template re-renders when it changes. `computed(...)` is a derived value that automatically updates when its dependencies do. The template uses `{{ }}` for interpolation and `@click` for events. Everything in the `<script setup>` block is auto-exposed to the template — no `return` statement needed.
+
 **Nuxt** is the Vue equivalent of Next.js — routing, SSR, modules, deployment.
 
 **Strengths:** Cleaner template syntax than JSX (subjective); strong defaults; massive in Europe and Asia.
@@ -120,6 +122,8 @@ const posts = await fetch('/api/posts').then(r => r.json());
   <ReactCounter client:visible />
 </Layout>
 ```
+
+> **In English:** The fenced `---` block (Astro's **frontmatter**) runs *only at build time* — that's where you fetch data and do imports. Everything below is the static HTML output. The trick is `client:visible` on the React component: Astro ships HTML for everything else, but hydrates only that single component, and only when it scrolls into view. That's why Astro pages weigh almost nothing.
 
 **Best for:** Blogs, marketing sites, documentation, portfolios — anywhere content matters more than interactivity.
 

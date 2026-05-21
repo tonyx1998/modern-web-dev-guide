@@ -22,6 +22,17 @@ Every project requires hundreds of decisions: what framework, which database, mo
 
 This chapter is a collection of frameworks for making these decisions well. They're general-purpose — apply them to any scale, any technology, any role.
 
+:::info Jargon used throughout this chapter
+- **Innovation token** — a unit of attention/risk you can "spend" by adopting an unfamiliar technology. Each team has a small budget per project.
+- **One-way door / two-way door** — Jeff Bezos's terms for *Type 1* (irreversible) and *Type 2* (reversible) decisions.
+- **Modular monolith** — a single deployable application internally organized into modules with clear boundaries — the default architecture for small/medium teams (contrast with *microservices*).
+- **RFC (Request for Comments)** — a written design proposal that's reviewed by peers before adoption. Common at 50+ person orgs.
+- **ADR (Architecture Decision Record)** — a short document logging *why* an architecture decision was made and what alternatives lost. Stored next to the code.
+- **Cargo-culting** — copying a practice without understanding why it worked elsewhere. The #1 cause of imported-process pain.
+- **Strangler fig** — incremental migration pattern where the new system grows around the old one until the old one can be removed (named after the tree).
+- **Conway's law** — "any organization that designs a system will produce a design whose structure mirrors the organization's communication structure." Your team shape becomes your system shape.
+:::
+
 :::info Highlight: the single most important principle
 **Boring technology beats exciting technology in almost every situation that matters.** Postgres in 2026 is still Postgres because it's reliable, well-documented, and well-understood. "Just use Postgres" is unglamorous, correct advice you'll hear for the rest of your career.
 

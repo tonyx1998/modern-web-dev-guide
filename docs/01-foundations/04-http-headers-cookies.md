@@ -53,30 +53,28 @@ access-control-allow-origin: https://example.com
 content-security-policy: default-src 'self'
 ```
 
-In English: "I'm returning 200 OK with a JSON response of 1289 bytes. Cache me for 5 minutes, and you can serve stale-while-revalidating for another minute. The content version is `509-h6k8t` — re-ask me later with this tag to check. Also, please store this session cookie (which JavaScript cannot read, only sent over HTTPS, and only on same-site requests). CORS is allowed only from `example.com`. By the way, the page can only load resources from its own origin."
+In English: "I'm returning 200 OK with a JSON response of 1289 bytes. Cache me for 5 minutes, and you can serve stale-while-revalidating for another minute. The content version is `509-h6k8t` — re-ask me later with this tag to check. Also, please store this session cookie (which JavaScript cannot read, only sent over HTTPS, and only on same-site requests). **CORS** (Cross-Origin Resource Sharing — the browser rule that lets one site read responses from another) is allowed only from `example.com`. By the way, **CSP** (Content Security Policy — a browser-enforced allowlist of what scripts/images/etc. a page may load) restricts resource loads to the page's own origin."
 :::
 
 ## Cookies — adding state to a stateless protocol
 
-HTTP is **stateless**: each request is independent. But your bank needs to remember you between requests. That's what cookies do.
+HTTP is **stateless** (each request is independent — the server has no memory of past requests by default). But your bank needs to remember you between requests. That's what cookies do.
 
 A **cookie** is a small piece of data the server tells the browser to store and re-send on every subsequent request to the same domain. The full flow:
 
-```
-Client                                                 Server
-   |--- POST /login (username, password) -------------->|
-   |                                                    |
-   |<-- 200 OK, Set-Cookie: session=abc123 -------------|
-   |    (browser stores "session=abc123" for this site) |
-   |                                                    |
-   |--- GET /dashboard                                  |
-   |    Cookie: session=abc123 ----------------------->|
-   |                                                    |
-   |<-- 200 OK (server looked up "abc123",              |
-   |    knew it was Tony, returned Tony's dashboard) ---|
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
+    Client->>Server: POST /login (username, password)
+    Server-->>Client: 200 OK + Set-Cookie: session=abc123
+    Note over Client: Browser stores "session=abc123"<br/>for this site
+    Client->>Server: GET /dashboard (Cookie: session=abc123)
+    Note over Server: Looks up "abc123",<br/>recognises Tony
+    Server-->>Client: 200 OK (Tony's dashboard HTML)
 ```
 
-The cookie made an otherwise stateless conversation feel like an ongoing session.
+> **Reading this diagram:** The `Set-Cookie` response header is the *one-time hand-off*. After that, the `Cookie` request header rides on every future request automatically — that's how the server keeps recognizing you without you logging in again. The cookie made an otherwise stateless conversation feel like an ongoing session.
 
 ## Important cookie attributes
 

@@ -93,6 +93,13 @@ Always cite sources by mentioning the document name.`,
 }
 ```
 
+> **In English:** Five things happen on every request, in order:
+> 1. Rate-limit the session (stop runaway costs and abuse).
+> 2. Embed the user's question and pull the 5 most relevant doc chunks from pgvector.
+> 3. Build a context block listing each chunk with its source title.
+> 4. Stream a Claude Haiku response that's instructed to use *only* those chunks and to cite sources.
+> 5. On finish, log everything (question, response, tokens, which sources were used) for observability and evals.
+
 About 60 lines of code for a real RAG-based support bot. Plus the UI, the docs ingestion script, observability, and evaluation — but the core pattern is straightforward.
 
 :::note Worked example: mapping the code back to the patterns

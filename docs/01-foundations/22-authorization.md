@@ -27,14 +27,23 @@ After authentication, the server needs to recognize the user on future requests.
 2. Sends it to the client as a cookie.
 3. On each request, server looks up the token to find the user.
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
+    participant Redis
+    Note over Client,Redis: Login
+    Client->>Server: POST /login (credentials)
+    Server->>Redis: Store {abc123: userId=42}
+    Server-->>Client: Set-Cookie: session=abc123
+    Note over Client,Redis: Later requests
+    Client->>Server: GET /something (Cookie: session=abc123)
+    Server->>Redis: Lookup abc123
+    Redis-->>Server: userId=42
+    Server-->>Client: 200 OK (Tony's data)
 ```
-Login:    Server creates session "abc123" → stores {abc123: userId=42} in Redis
-                                          → sends Set-Cookie: session=abc123
 
-Later:    Client sends Cookie: session=abc123
-          Server looks up abc123 in Redis → "this is user 42"
-          Proceeds.
-```
+> **Reading this diagram:** The cookie itself carries *no* identity information — it's just a random opaque string. The server is the one that maps that string to a user via Redis on every request. That's what makes it easy to **revoke** a session: just delete the row.
 
 **Pros:** Easy to revoke (delete the row); small cookie size; standard pattern.
 **Cons:** Requires storage and a lookup per request.
@@ -87,6 +96,8 @@ function canDeletePost(user, post) {
 }
 ```
 
+> **In English:** A user may delete a post if they are an admin *or* they wrote it themselves. Two simple conditions OR-ed together — that's the entire authorization check for this action.
+
 RBAC is the most common pattern. It covers most apps' needs.
 
 ### ABAC — Attribute-Based Access Control
@@ -112,7 +123,7 @@ CREATE POLICY user_owns_post ON posts
   USING (user_id = current_user_id());
 ```
 
-Now *any* query against `posts` automatically filters to that user's rows. Even if your app code has bugs, the DB won't return data the user shouldn't see.
+> **In English:** Create a database-level rule named `user_owns_post` on the `posts` table that applies to all operations (SELECT, INSERT, UPDATE, DELETE) for logged-in users, and only allows access to rows where the post's `user_id` matches the currently authenticated user. Now *any* query against `posts` automatically filters to that user's rows. Even if your app code has bugs, the DB won't return data the user shouldn't see.
 
 **Supabase** and **Postgres** make RLS a primary pattern. Authorization logic lives in the database — a powerful defense-in-depth measure.
 

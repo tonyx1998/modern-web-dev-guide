@@ -51,7 +51,7 @@ Tech is intense; burnout is common.
 
 ## Overemphasis on Big Tech
 
-Optimizing your entire career to get into FAANG.
+Optimizing your entire career to get into *FAANG* (Facebook/Meta, Apple, Amazon, Netflix, Google — the shorthand for a small set of large US tech employers, often broadened to "Big Tech" or "MANGA" to include Microsoft).
 
 **Counter:** Many talented engineers have great careers without FAANG. Smaller companies often offer more responsibility, faster growth, and more interesting work. FAANG is a fine choice but not the only one.
 

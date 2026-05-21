@@ -33,6 +33,8 @@ export const sendWelcomeEmail = task({
 await sendWelcomeEmail.trigger({ userId: '42' });
 ```
 
+> **In English:** Define a task with a unique `id` and a `run` function — that function will execute on Trigger.dev's worker infrastructure, *not* during the original HTTP request. Calling `.trigger(...)` from your route just *enqueues* the work and returns immediately, so your user doesn't wait for the email to send. If the function throws, Trigger.dev retries with exponential backoff automatically.
+
 **Strengths:** Excellent DX, durable (retries on failure), good observability dashboard.
 
 ## Inngest

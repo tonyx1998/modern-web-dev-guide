@@ -21,16 +21,29 @@ A hybrid invented by Next.js: build pages statically, but regenerate them on a s
 **Flow:**
 
 1. Initial build generates the most popular pages.
-2. Pages have a `revalidate: 60` setting → after 60 seconds, the *next* request triggers a background rebuild.
+2. Pages have a `revalidate: 60` setting (the **TTL**, or time-to-live, before the cached copy is considered stale) — after 60 seconds, the *next* request triggers a background rebuild.
 3. User always gets the static page instantly; the next user gets the fresh version.
 
+```mermaid
+sequenceDiagram
+    participant A as User A (t=0)
+    participant B as User B (t=61s)
+    participant C as User C (t=62s)
+    participant CDN
+    participant Origin
+    A->>CDN: GET /products/42
+    CDN-->>A: Cached HTML (instant)
+    Note over CDN: Cached copy is fresh<br/>for 60 seconds
+    Note over CDN: 60s elapse — copy now "stale"
+    B->>CDN: GET /products/42
+    CDN-->>B: Cached HTML (instant, still stale)
+    CDN->>Origin: Background rebuild
+    Origin-->>CDN: Fresh HTML
+    C->>CDN: GET /products/42
+    CDN-->>C: Fresh HTML (instant)
 ```
-Time 0:    User A requests /products/42 → static HTML served instantly.
-Time 60s:  Page is "stale" but still cached.
-Time 61s:  User B requests /products/42 → static HTML served instantly (still),
-           BUT in the background a rebuild is triggered.
-Time 62s:  User C requests /products/42 → fresh HTML served instantly.
-```
+
+> **Reading this diagram:** Nobody ever waits for a rebuild — User B "pays" with one slightly-stale page in exchange for User C getting a fresh page just as fast as the cached one.
 
 **Pros:**
 - Speed of SSG + freshness of SSR (sort of).
@@ -58,23 +71,30 @@ The current state-of-the-art, pioneered by React 18+ and the Next.js App Router.
 
 **How it works:**
 
-- The page is split into components, some of which run *only* on the server (RSCs — React Server Components).
+- The page is split into components, some of which run *only* on the server (**RSCs** — React Server Components, components that execute on the server and ship zero JavaScript to the browser).
 - The server starts streaming HTML chunks as soon as each piece is ready.
 - Client components hydrate progressively.
-- Slow data fetches don't block the rest of the page — they stream in with `<Suspense>` boundaries.
+- Slow data fetches don't block the rest of the page — they stream in with `<Suspense>` boundaries (a React feature that lets you mark a part of the UI as "OK to show a fallback while you wait").
 
-```
-Time 0ms:    Server starts response.
-             Sends <html><head>, then header HTML, then main layout shell.
-             User sees the header & layout immediately.
-Time 50ms:   Sidebar query finishes → server streams sidebar HTML.
-             User sees the sidebar appear.
-Time 200ms:  Slow main content query finishes → server streams main content.
-             User sees the main content appear.
-Time 250ms:  Footer streams. Page is complete.
+```mermaid
+sequenceDiagram
+    participant Browser
+    participant Server
+    Note over Server: t=0ms — response starts
+    Server-->>Browser: <html><head>, header HTML, layout shell
+    Note over Browser: User sees header & layout
+    Note over Server: t=50ms — sidebar query done
+    Server-->>Browser: Sidebar HTML chunk
+    Note over Browser: Sidebar appears
+    Note over Server: t=200ms — main content query done
+    Server-->>Browser: Main content HTML chunk
+    Note over Browser: Main content appears
+    Note over Server: t=250ms — footer ready
+    Server-->>Browser: Footer HTML chunk
+    Note over Browser: Page complete
 ```
 
-Instead of waiting 200ms for *everything*, the user sees progress from 0ms onward.
+> **Reading this diagram:** Instead of waiting 200ms for *everything*, the user sees progress from 0ms onward. The same response stays "open" the whole time — the server keeps writing chunks into it as data becomes available.
 
 **Pros:**
 - Best of all worlds: SSR's SEO, SSG-like initial render speed, CSR-like interactivity.
@@ -100,22 +120,22 @@ This single line determines whether your code can use `useState` (client-only), 
 
 The newest evolution (Next.js 15+): a static "shell" of the page is prerendered at build time, with dynamic "holes" that stream in per request.
 
-```
-┌────────────────────────────┐
-│ Static header (prerendered)│  ← CDN-fast (10ms)
-├────────────────────────────┤
-│ Static nav (prerendered)   │  ← CDN-fast (10ms)
-├────────────────────────────┤
-│ <Suspense>                 │
-│   Dynamic content streams  │  ← Per-request, streamed (50-200ms)
-│   per request              │
-│ </Suspense>                │
-├────────────────────────────┤
-│ Static footer              │  ← CDN-fast (10ms)
-└────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph Page["One page, mixed origins"]
+        H["Static header<br/>(prerendered, CDN ~10ms)"]
+        N["Static nav<br/>(prerendered, CDN ~10ms)"]
+        D["Suspense hole<br/>Dynamic content<br/>(per-request, 50-200ms)"]
+        F["Static footer<br/>(prerendered, CDN ~10ms)"]
+        H --- N --- D --- F
+    end
+    style H fill:#2a5
+    style N fill:#2a5
+    style F fill:#2a5
+    style D fill:#a52
 ```
 
-The static parts come from the CDN in ~10ms; the dynamic parts stream in shortly after.
+> **Reading this diagram:** Green blocks come from the CDN in ~10ms; the orange block is the per-request "hole" that streams in shortly after. The user sees the shell almost instantly and the dynamic part fills in seconds later — same page, two delivery mechanisms.
 
 This is the leading edge in 2026 — many teams haven't adopted it yet, but it's where things are heading. The mental model: **one page, mixed origins, no compromise**.
 

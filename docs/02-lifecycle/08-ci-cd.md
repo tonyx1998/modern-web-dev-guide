@@ -59,6 +59,8 @@ jobs:
         run: bun audit
 ```
 
+> **In English:** Trigger this job on every push to `main` and every pull request. Boot a fresh Ubuntu VM, install Bun, then run six gates in sequence: install with the lockfile pinned (no surprise upgrades), check formatting/lint, type-check, run tests, run the production build, and finally audit dependencies for known vulnerabilities. Any failure blocks the PR.
+
 That YAML, committed to your repo, is now a quality gate. Every commit, every PR, every merge runs through it.
 
 ## CD (Continuous Deployment vs Delivery)

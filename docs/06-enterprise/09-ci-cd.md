@@ -40,40 +40,27 @@ The orchestrator's job: hand work to runners, retry transient failures, surface 
 
 ## Progressive delivery
 
+**Progressive delivery** is the practice of rolling new code out to a tiny slice of users first, watching the metrics, and only widening the rollout if everything looks healthy. The initial sliver is called a **canary** (after the bird in coal mines).
+
 A typical canary pipeline:
 
-```
-Code merged to main
-        │
-        ▼
-   Built + tested
-        │
-        ▼
- Deployed to canary (1% of traffic)
-        │
-        ▼
-   Monitor for 30 minutes
-   ├── Error rate up? → rollback
-   ├── Latency up?   → rollback
-   └── Healthy        → continue
-        │
-        ▼
- Deployed to 10% of traffic
-        │
-        ▼
-   Monitor 2 hours
-        │
-        ▼
- Deployed to 50% of traffic
-        │
-        ▼
-   Monitor 6 hours
-        │
-        ▼
- Deployed to 100% of traffic
+```mermaid
+flowchart TD
+    Merge["Code merged to main"] --> Build["Built + tested"]
+    Build --> Canary["Deploy to canary — 1% of traffic"]
+    Canary --> Mon1{"Monitor 30 min"}
+    Mon1 -->|Error rate up| RB["Rollback"]
+    Mon1 -->|Latency up| RB
+    Mon1 -->|Healthy| Ten["Deploy to 10% of traffic"]
+    Ten --> Mon2{"Monitor 2 hours"}
+    Mon2 -->|Regression| RB
+    Mon2 -->|Healthy| Fifty["Deploy to 50% of traffic"]
+    Fifty --> Mon3{"Monitor 6 hours"}
+    Mon3 -->|Regression| RB
+    Mon3 -->|Healthy| Full["Deploy to 100% of traffic"]
 ```
 
-Automated rollback on SLO regression is standard at this scale. The deploy system *itself* watches the metrics and reverts the change if anything looks wrong — no human in the loop required.
+Automated rollback on **SLO** (Service Level Objective — a numeric target like "99.9% of requests succeed in under 200ms") regression is standard at this scale. The deploy system *itself* watches the metrics and reverts the change if anything looks wrong — no human in the loop required.
 
 :::info Highlight: deploy != release
 At enterprise scale, you split *deploying* (code is on production servers) from *releasing* (users see new behavior). Feature flags make this possible.

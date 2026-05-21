@@ -34,6 +34,8 @@ RUN npm run build
 CMD ["npm", "start"]
 ```
 
+> **In English:** Start from a lightweight Node 20 base **image** (a frozen filesystem snapshot from Docker Hub). Set the working directory, copy in just the lockfiles, install dependencies (cached separately so app-code changes don't bust this layer), then copy the rest of the source, build it, and define the start command. The result is a portable image that runs identically on any machine with Docker.
+
 ## Orchestration
 
 | Tool                | Notes                                                          |
@@ -67,7 +69,7 @@ resource "aws_lambda_function" "api" {
 }
 ```
 
-`terraform apply` reads the file and creates / updates the actual resources in your cloud account. Versioned in git, reviewed via PRs, the same way as code.
+> **In English:** Two `resource` blocks declare the *desired state* of your cloud: one S3 bucket and one Lambda function. Terraform is **declarative** — you describe what should exist, not the steps to create it. `terraform apply` reads the file, compares it to what already exists in your AWS account, and makes only the changes needed. Versioned in git, reviewed via PRs, the same way as code.
 
 ## CI/CD
 

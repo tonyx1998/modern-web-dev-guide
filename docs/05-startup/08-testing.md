@@ -16,21 +16,18 @@ The cliché "test pyramid" is real — lots of cheap unit tests, fewer mid-sized
 
 ## The testing pyramid
 
-A pragmatic testing pyramid:
+A pragmatic testing pyramid — cheap fast tests at the bottom, expensive realistic tests at the top:
 
+```mermaid
+flowchart TB
+    E2E["Playwright E2E — 10–30 critical paths"]
+    Int["Vitest integration — 50–200 tests"]
+    Unit["Vitest unit — hundreds to thousands"]
+    E2E --> Int
+    Int --> Unit
 ```
-              ▲
-             /│\
-            / │ \
-           /  │  \      Playwright E2E (10–30 critical paths)
-          /───┼───\
-         /    │    \
-        /─────┼─────\   Vitest integration (50–200)
-       /      │      \
-      /───────┼───────\
-     /        │        \
-    /─────────┼─────────\Vitest unit (hundreds to thousands)
-```
+
+The shape matters: each layer above is roughly an order of magnitude more expensive to run and harder to keep stable, so you want most of your coverage to come from the base.
 
 ## Unit tests (Vitest)
 
@@ -58,6 +55,8 @@ describe('calculateInvoiceTotal', () => {
   });
 });
 ```
+
+> **In English:** Vitest gives you `describe` (group of tests) and `it` (a single test case). Two cases here: a "happy path" with one line item and 8% tax, and an edge case (empty items list). Each test calls the function under test with crafted input and asserts the exact output via `expect(...).toEqual(...)`. No database, no network — pure logic, runs in milliseconds.
 
 ## Integration tests
 
@@ -93,6 +92,8 @@ test('user can sign up and complete checkout', async ({ page }) => {
   await expect(page.locator('text=Subscription active')).toBeVisible();
 });
 ```
+
+> **In English:** Playwright drives a real browser. This single test walks the most expensive critical path: sign up with a unique email (the `Date.now()` trick avoids collisions across runs), confirm you land on the dashboard, click into upgrade, fill the Stripe iframe with a test card (`4242 4242 4242 4242` is Stripe's universal "approves" card in test mode), and assert the subscription-active confirmation appears. If any link in this chain breaks, the test fails — which is exactly the chain you cannot afford to break in production.
 
 ## Manual QA
 

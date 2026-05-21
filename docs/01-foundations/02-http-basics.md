@@ -43,7 +43,7 @@ Cache-Control: max-age=300
 }
 ```
 
-Everything you've ever done online is built from messages like these.
+> **In English:** The status line `200 OK` means "everything succeeded." The headers describe the body that follows: it's JSON, 87 bytes long, and may be cached for up to 300 seconds (5 minutes). The blank line is the protocol-mandated separator between headers and body — the body itself is the JSON object. Everything you've ever done online is built from messages like these.
 
 :::note Worked example: read this HTTP request like a sentence
 ```http

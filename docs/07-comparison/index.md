@@ -38,17 +38,18 @@ This chapter is a reference. Skim it when you need a quick mental model of how a
 :::info Highlight: choosing your workflow
 Where do you sit?
 
-```
-Are you working alone?
-├── Yes → Personal Project workflow (Chapter 4)
-└── No → How many engineers in your org?
-        ├── 2–50 → Small Company workflow (Chapter 5)
-        └── 50+ → Large Company workflow (Chapter 6)
-            ├── Many product teams that ship independently → Yes, large company patterns apply
-            └── Still feels like one team → Try staying with small-company patterns longer
+```mermaid
+flowchart TD
+    Start{"Are you working alone?"}
+    Start -->|Yes| Solo["Personal Project workflow (Chapter 4)"]
+    Start -->|No| Size{"How many engineers in your org?"}
+    Size -->|2–50| Startup["Small Company workflow (Chapter 5)"]
+    Size -->|50+| Q2{"Many product teams shipping independently?"}
+    Q2 -->|Yes| Ent["Large Company workflow (Chapter 6)"]
+    Q2 -->|Still feels like one team| Startup
 ```
 
-The transitions are gradual. You don't wake up one morning and suddenly need Kubernetes. Adopt practices as their cost is justified by your scale.
+The transitions are gradual. You don't wake up one morning and suddenly need **Kubernetes** (an open-source system that automates deploying, scaling, and managing containerized apps across a cluster of machines). Adopt practices as their cost is justified by your scale.
 :::
 
 ## How this chapter is organized

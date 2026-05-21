@@ -102,6 +102,8 @@ await redis.set(cacheKey, JSON.stringify(data), 'EX', 60);
 return data;
 ```
 
+> **In English:** Look up `dashboard:<userId>` in Redis first. If it's there (a **cache hit**), return it immediately. If not (a **cache miss**), run the slow DB query, store the result in Redis with a 60-second expiry (`'EX', 60`), and return it. This is the classic **read-through cache** pattern.
+
 The first user pays 800ms; the next 1,000 users in the next minute each pay 2ms. This single pattern can drop your DB load by 99%.
 :::
 

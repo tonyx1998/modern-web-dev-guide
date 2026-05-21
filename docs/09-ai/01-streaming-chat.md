@@ -20,6 +20,26 @@ The most common pattern in modern web apps: a chat interface where the user type
 
 The user sees responses appear token-by-token, which is essential for perceived speed (a 3-second response feels fast streamed; the same response delivered as a chunk feels slow).
 
+```mermaid
+sequenceDiagram
+    participant User
+    participant Browser
+    participant Server as Server (Next.js)
+    participant LLM as LLM (Claude/GPT)
+    User->>Browser: types question + submits
+    Browser->>Server: POST /api/chat (messages)
+    Server->>LLM: streamText(prompt)
+    LLM-->>Server: token "Hello"
+    Server-->>Browser: SSE chunk "Hello"
+    Browser-->>User: render "Hello"
+    LLM-->>Server: token " world"
+    Server-->>Browser: SSE chunk " world"
+    Browser-->>User: render "Hello world"
+    Note over LLM,Browser: tokens keep streaming until done
+```
+
+> **Jargon:** A **token** is the unit the model produces — usually a short piece of a word, on average ~4 characters of English text. **SSE (Server-Sent Events)** is a one-way HTTP streaming protocol where the server keeps the connection open and pushes chunks as it generates them.
+
 ## Implementation with Vercel AI SDK
 
 The Vercel AI SDK is the dominant TypeScript abstraction for AI in 2026. It handles streaming, message history, tool calling, and provider switching.
@@ -43,6 +63,8 @@ export async function POST(req: Request) {
   return result.toDataStreamResponse();
 }
 ```
+
+> **In English:** Read the chat history from the request body, ask Claude to continue the conversation with a fixed *system prompt* ("you are a helpful assistant for X"), and return the result as a streaming HTTP response. `toDataStreamResponse()` handles all the SSE plumbing so the client just sees tokens trickle in.
 
 **Client side (React):**
 
@@ -81,6 +103,8 @@ export default function Chat() {
   );
 }
 ```
+
+> **In English:** The `useChat` hook from the AI SDK manages everything — the running message list, the input field, the form submission, and the SSE stream from the server. Your component just renders messages and a form; the hook handles state and network.
 
 That's a working chat in about 50 lines.
 

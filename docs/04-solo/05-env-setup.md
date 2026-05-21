@@ -73,6 +73,8 @@ git push
 # Vercel auto-detects and deploys
 ```
 
+> **In English:** This is a 13-step shopping list that takes you from nothing to a deployed app. Steps 1–7 install tooling and JS dependencies (Bun is a faster Node alternative; `bunx` runs a package without permanently installing it; `shadcn/ui` is a library of copy-paste React components; **Drizzle** is a TypeScript **ORM** — Object-Relational Mapper, a library that lets you query SQL with typed JS code; **Biome** is a single tool that replaces ESLint and Prettier). Steps 8–9 put the project in Git and on GitHub. Steps 10–12 sign you up for the hosted services and wire their credentials into both your local `.env.local` and the Vercel dashboard. Step 13 — `git push` — is the entire deploy: Vercel detects Next.js and builds the site.
+
 In about an hour, you have a working project, a connected GitHub repo, automated deployments, a managed database, auth, and error tracking. **A decade ago this would have taken a week.**
 
 ## .gitignore Essentials
@@ -105,6 +107,8 @@ export default {
 } satisfies Config;
 ```
 
+> **In English:** This config tells the **Drizzle Kit** CLI three things: where your schema lives (`src/db/schema.ts`), where to write generated SQL migrations (`drizzle/`), and what database to connect to (URL from the environment). It's the bridge between "I edited the schema in TypeScript" and "the migration tool knows what to do."
+
 ```typescript
 // src/db/schema.ts
 import { pgTable, text, timestamp, integer, serial } from 'drizzle-orm/pg-core';
@@ -120,6 +124,8 @@ export const books = pgTable('books', {
 });
 ```
 
+> **In English:** This is the *schema* — a TypeScript description of the `books` table. Drizzle generates SQL from it. `serial(...).primaryKey()` creates an auto-incrementing ID. `userId` stores the Clerk-issued user identifier (text, not a foreign key, because Clerk lives outside your DB). `status` is constrained to three valid strings. `createdAt` defaults to "now" in the database itself.
+
 ```typescript
 // src/db/index.ts
 import { drizzle } from 'drizzle-orm/postgres-js';
@@ -128,6 +134,8 @@ import postgres from 'postgres';
 const client = postgres(process.env.DATABASE_URL!);
 export const db = drizzle(client);
 ```
+
+> **In English:** Creates the database client your app code will import. `postgres(...)` opens the raw connection; `drizzle(client)` wraps it so you get typed query builders (`db.select().from(books)`) instead of writing raw SQL strings.
 
 Run migrations:
 ```bash

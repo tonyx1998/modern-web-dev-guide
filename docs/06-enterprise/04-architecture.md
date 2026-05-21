@@ -18,70 +18,54 @@ Why? Because at this scale, no single team can know the whole codebase, and any 
 
 ## Microservices and SOA
 
-**Microservices or service-oriented architecture (SOA)** is the norm at this scale:
+**Microservices** (many small, independently-deployed services each owning one capability) or **service-oriented architecture (SOA)** (the older, broader umbrella term for the same idea) is the norm at this scale:
 
 - Dozens to thousands of services.
 - Each service is owned by a specific team.
 - Database-per-service pattern: each service owns its data; other services access it only via the service's API.
-- Services communicate via gRPC (internal), REST/GraphQL (external), or events (Kafka).
+- Services communicate via **gRPC** (a high-performance binary RPC protocol, typically used inside the cluster), REST/GraphQL (external), or events (Kafka).
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                    External Users                            │
-└──────────────────────────────────────────────────────────────┘
-                            │
-                            ▼
-┌──────────────────────────────────────────────────────────────┐
-│                       CDN / Edge                             │
-│      (Cloudflare, Akamai, Fastly, custom)                    │
-└──────────────────────────────────────────────────────────────┘
-                            │
-                            ▼
-┌──────────────────────────────────────────────────────────────┐
-│                    Load Balancers                            │
-│              (regional, multi-AZ)                            │
-└──────────────────────────────────────────────────────────────┘
-                            │
-                            ▼
-┌──────────────────────────────────────────────────────────────┐
-│                    API Gateway                               │
-│   (auth, rate limiting, request routing, response shaping)   │
-└──────────────────────────────────────────────────────────────┘
-                            │
-       ┌────────────────────┼────────────────────┐
-       ▼                    ▼                    ▼
-┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-│  Web BFF     │    │  Mobile BFF  │    │ Partner API  │
-│ (Backend for │    │  Backend for │    │   Gateway    │
-│  Frontend)   │    │   Frontend)  │    │              │
-└──────────────┘    └──────────────┘    └──────────────┘
-       │                    │                    │
-       └────────────────────┴────────────────────┘
-                            │
-                            ▼
-┌──────────────────────────────────────────────────────────────┐
-│                  Service Mesh (Istio, Linkerd)               │
-│  (mTLS, retries, circuit breakers, distributed tracing)      │
-└──────────────────────────────────────────────────────────────┘
-                            │
-       ┌──────┬──────┬──────┼──────┬──────┬──────┐
-       ▼      ▼      ▼      ▼      ▼      ▼      ▼
-   [User] [Order] [Pay] [Catalog] [Search] [Notif] [...]
-   Service Service ...
-       │      │      │      │      │      │      │
-       ▼      ▼      ▼      ▼      ▼      ▼      ▼
-    (each has its own DB, cache, queues, observability)
+:::info Jargon (used throughout this page)
+- **API Gateway** — a single entry point that authenticates external requests, enforces rate limits, and routes them to the right backend service.
+- **BFF** (Backend-for-Frontend) — a thin service tailored to one client (web, mobile, partner API) that stitches together calls to the underlying microservices.
+- **Service mesh** — a layer of sidecar proxies (usually Envoy) injected next to each service that handles cross-cutting concerns like encryption and retries without each service having to.
+- **mTLS** (mutual TLS) — both sides of a connection prove their identity with certificates; standard for service-to-service encryption.
+- **Event bus** — a durable message stream (typically Kafka) where services publish events and other services subscribe, decoupling producers from consumers.
+- **Multi-AZ** — deployed redundantly across multiple cloud Availability Zones so a single data-center failure doesn't take you down.
+:::
 
-┌──────────────────────────────────────────────────────────────┐
-│           Shared Infrastructure                              │
-│  - Kafka (event bus)                                         │
-│  - Schema registry                                           │
-│  - Secrets management (Vault)                                │
-│  - Observability (Datadog, custom)                           │
-│  - Feature flags (LaunchDarkly, Statsig)                     │
-│  - Internal developer platform                               │
-│  - Data warehouse (Snowflake, BigQuery)                      │
-└──────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    Users["External users"]
+    CDN["CDN / Edge — Cloudflare, Akamai, Fastly"]
+    LB["Load balancers — regional, multi-AZ"]
+    GW["API Gateway — auth, rate limit, routing"]
+    subgraph BFFs["Backend-for-Frontend layer"]
+        WebBFF["Web BFF"]
+        MobBFF["Mobile BFF"]
+        PartGW["Partner API Gateway"]
+    end
+    Mesh["Service Mesh — Istio / Linkerd — mTLS, retries, circuit breakers, tracing"]
+    subgraph Services["Microservices — each with its own DB, cache, queue"]
+        UserSvc["User"]
+        OrderSvc["Order"]
+        PaySvc["Payments"]
+        CatSvc["Catalog"]
+        SearchSvc["Search"]
+        NotifSvc["Notifications"]
+    end
+    subgraph Shared["Shared infrastructure"]
+        Kafka["Kafka — event bus"]
+        Schema["Schema registry"]
+        Vault["Vault — secrets"]
+        Obs["Datadog — observability"]
+        Flags["LaunchDarkly / Statsig — flags"]
+        IDP["Internal developer platform"]
+        DW[("Snowflake / BigQuery — warehouse")]
+    end
+    Users --> CDN --> LB --> GW --> BFFs --> Mesh --> Services
+    Services --> Kafka
+    Services --> Obs
 ```
 
 ## Key architectural components

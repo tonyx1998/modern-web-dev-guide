@@ -74,7 +74,7 @@ After 2–3 years of generalist work, most engineers naturally specialize. Commo
 
 **Deep on:** Cross-team technical strategy, architecture, mentorship, organizational influence.
 
-**Where this leads:** Senior IC roles at large companies. Often paid as much as or more than equivalent managers.
+**Where this leads:** Senior *IC* (Individual Contributor) roles at large companies. Often paid as much as or more than equivalent managers — a parallel track to engineering management, not below it.
 
 :::note Try it yourself: a 2-hour curiosity audit
 Block 2 hours and ask:

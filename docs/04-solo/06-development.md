@@ -73,6 +73,8 @@ export default async function LibraryPage() {
 }
 ```
 
+> **In English:** A Server Component is just an async React function that runs on the server. It can `await` the database directly — no API call, no client-side fetch. Here it reads `userId` from Clerk, short-circuits with a sign-in nudge if absent, queries Drizzle for that user's books, and renders the markup. Only the small `<AddBookButton />` ships JavaScript to the browser; the rest is plain HTML.
+
 ```typescript
 // src/app/library/add-book-button.tsx (Client Component)
 'use client';
@@ -93,9 +95,11 @@ export function AddBookButton() {
 }
 ```
 
+> **In English:** The `'use client'` directive at the top is what flips this file into a Client Component — it gets bundled and shipped to the browser so React can attach event handlers and run `useState`. The component holds one piece of state (`open`) and uses it to toggle the modal dialog. This is exactly the kind of component that *needs* to be a Client Component: a click handler and stateful UI.
+
 ## Server Actions
 
-For mutations (creating, updating, deleting data), Server Actions let you call server functions from client components without writing API routes:
+For mutations (creating, updating, deleting data), **Server Actions** (server-side functions you can call directly from client components — Next.js generates the network plumbing for you) let you skip writing API routes:
 
 ```typescript
 // src/app/library/actions.ts
@@ -127,6 +131,8 @@ export async function addBook(formData: FormData) {
   revalidatePath('/library');
 }
 ```
+
+> **In English:** `'use server'` at the top marks every export as a server-only function. The **Zod** schema (`AddBookSchema`) validates the form input — if `title` is empty or `status` isn't one of the three allowed values, `.parse()` throws before the DB sees bad data. After insert, `revalidatePath('/library')` tells Next.js to throw away its cache of that page so the new book shows up on next render.
 
 ```typescript
 // In a client component:

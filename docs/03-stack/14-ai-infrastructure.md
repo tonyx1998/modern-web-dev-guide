@@ -46,6 +46,8 @@ const result = streamText({
 return result.toDataStreamResponse();
 ```
 
+> **In English:** `streamText` calls the Anthropic API and returns a streaming result object — *not* a finished string. `toDataStreamResponse()` wraps that stream in an HTTP response using Server-Sent Events so the browser sees tokens land one at a time. That "typewriter" effect every ChatGPT-style chat UI has is just this one-liner under the hood.
+
 ## Vector databases
 
 (Also covered in [Databases](./databases).) **pgvector** is the popular 2026 choice — a Postgres extension, so you don't need a separate database.

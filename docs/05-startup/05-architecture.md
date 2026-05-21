@@ -16,25 +16,29 @@ description: The modular monolith, the dominant 2026 stack, and RFCs for major a
 
 ## The modular monolith
 
-The reigning 2026 pattern for small companies: **modular monolith**.
+The reigning 2026 pattern for small companies: **modular monolith** — one deployable app divided internally into clearly-bounded modules (often one folder per business domain).
 
-```
-┌──────────────────────────────────────────────┐
-│              Single Next.js app              │
-│ ┌──────────┐ ┌──────────┐ ┌──────────────┐   │
-│ │ User mgmt│ │ Billing  │ │ Core feature │   │
-│ │  module  │ │  module  │ │   module     │   │
-│ └──────────┘ └──────────┘ └──────────────┘   │
-│ ┌──────────┐ ┌──────────┐ ┌──────────────┐   │
-│ │  Notif   │ │  Search  │ │   Admin      │   │
-│ │  module  │ │  module  │ │  module      │   │
-│ └──────────┘ └──────────┘ └──────────────┘   │
-│         │              │              │      │
-│         ▼              ▼              ▼      │
-│ ┌──────────────────────────────────────────┐ │
-│ │  Shared: DB, cache, queue, observability │ │
-│ └──────────────────────────────────────────┘ │
-└──────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph App["Single Next.js app"]
+        direction TB
+        subgraph Modules["Business modules"]
+            direction LR
+            User["User mgmt"]
+            Billing["Billing"]
+            Core["Core feature"]
+            Notif["Notifications"]
+            Search["Search"]
+            Admin["Admin"]
+        end
+        Shared[("Shared: DB, cache, queue, observability")]
+        User --> Shared
+        Billing --> Shared
+        Core --> Shared
+        Notif --> Shared
+        Search --> Shared
+        Admin --> Shared
+    end
 ```
 
 All deployed as one Next.js app. Internally organized so that modules can later be split into services if needed (but most never need to be).
@@ -66,7 +70,7 @@ All deployed as one Next.js app. Internally organized so that modules can later 
 
 ## RFCs (Request for Comments)
 
-Major architectural changes get an RFC — a short written proposal:
+Major architectural changes get an **RFC** (Request for Comments — a short written proposal circulated before the work starts, so the team can debate the design while it's still cheap to change):
 
 ```markdown
 # RFC: Move from Server Actions to tRPC
@@ -92,6 +96,8 @@ form submissions; tRPC handles all other mutations and queries.
 ## Decision
 Proposed; needs sign-off from CTO and frontend lead.
 ```
+
+> **Reading this RFC:** Every RFC follows the same shape — Context (why we're considering this), Proposal (the actual change), Alternatives Considered (what we rejected and why), Trade-offs (honest pros and cons), Decision (status and who signs off). The discipline of writing it forces you to think before you migrate, and the artifact survives so future engineers understand the *why* without having to ask.
 
 RFCs become a useful artifact — future engineers understand why decisions were made.
 

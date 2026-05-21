@@ -32,7 +32,7 @@ A pattern that works for a 5-person team often fails at 50. A pattern designed f
 - Pick popular defaults (you'll hire people who already know them).
 - Maintain code quality through review and tests.
 - Lightweight process — daily standup, sprint planning, retros.
-- Modular monolith.
+- *Modular monolith* (one deployable app internally split into clear modules — not microservices).
 - One product manager or founder calls product shots.
 
 ## 10–50 people
@@ -52,7 +52,7 @@ A pattern that works for a 5-person team often fails at 50. A pattern designed f
 - Strong defaults; deviation requires architectural review.
 - Distinct teams with clear ownership.
 - Internal platforms emerge (or formal vendors take their place).
-- Real process: RFCs, ADRs, formal launches.
+- Real process: *RFCs* (written design proposals reviewed by peers), *ADRs* (Architecture Decision Records that log why a choice was made), formal launches.
 - SRE / DevOps becomes a discipline.
 
 ## 500+ people
@@ -69,7 +69,7 @@ A pattern that works for a 5-person team often fails at 50. A pattern designed f
 
 Ask: "Is this practice helping or hurting at our current size?" Add what genuinely helps. Remove what's pure overhead.
 
-The biggest mistake is **importing practices from a much larger or smaller company** without considering whether they fit.
+The biggest mistake is **importing practices from a much larger or smaller company** without considering whether they fit — sometimes called *cargo-culting* (mimicking the form of a successful team's process without the underlying conditions that made it work).
 
 :::note Worked example: a process that broke a 12-person team
 A 12-person startup hires a senior engineer from a 5,000-person company. The new hire introduces:

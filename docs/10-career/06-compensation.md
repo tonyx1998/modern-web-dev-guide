@@ -14,7 +14,7 @@ description: Rough total compensation ranges by level — and what shifts them.
 Comp in tech is wider than almost any other field. The same job title at two companies can pay 2x different. The numbers below are not promises — they're a *map* of the territory so you know if an offer is reasonable. Always verify with levels.fyi or a current friend before you negotiate.
 :::
 
-Rough total compensation ranges (base + bonus + equity, fully loaded):
+Rough *total compensation* ranges (TC = base salary + bonus + equity, fully loaded for one year):
 
 | Level                     | Total Comp Range       |
 |---------------------------|------------------------|
@@ -24,9 +24,11 @@ Rough total compensation ranges (base + bonus + equity, fully loaded):
 | **Staff / Principal**     | $350K–$700K+           |
 | **Distinguished / VP**    | $500K–$1M+             |
 
+> **Jargon:** *Staff* and *Principal* are senior **IC** (Individual Contributor) levels — engineers who lead technically without managing people. They're parallel to senior management ranks, not below them.
+
 ## What shifts the number
 
-**Big tech (FAANG, Stripe, Databricks, etc.):** Often 1.5–2x the above, especially at senior levels (heavy equity).
+**Big tech (*FAANG* — Facebook/Meta, Apple, Amazon, Netflix, Google — plus peers like Stripe, Databricks, etc.):** Often 1.5–2x the above, especially at senior levels (heavy equity).
 
 **Smaller companies / startups:** Pay less in cash but often more in meaningful equity. The equity is mostly worthless; rarely it pays out enormously.
 

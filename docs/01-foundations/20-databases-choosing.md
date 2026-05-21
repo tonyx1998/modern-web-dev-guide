@@ -16,51 +16,49 @@ You're going to read a lot of opinions on Twitter, Reddit, and Hacker News about
 
 ## The 2026 default stack
 
-```
-Start here:
-   1. Postgres (or hosted: Supabase, Neon, Railway)
-                ↓
-Add when you feel the pain:
-   2. Redis  (caching, sessions, rate limiting, queues)
-                ↓
-Add only with a specific reason:
-   3. Search engine (Postgres FTS not enough)
-   4. Dedicated vector DB (>10M vectors)
-   5. Document DB (genuinely schemaless data)
+```mermaid
+flowchart TD
+    Start["Start here"] --> PG["1 - Postgres<br/>(or hosted: Supabase, Neon, Railway)"]
+    PG -- "Feel the pain?" --> Redis["2 - Redis<br/>(caching, sessions, rate limit, queues)"]
+    Redis -- "Specific reason?" --> Search["3 - Search engine<br/>(Postgres FTS not enough)"]
+    Redis -- "Specific reason?" --> Vec["4 - Vector DB<br/>(&gt;10M vectors)"]
+    Redis -- "Specific reason?" --> Doc["5 - Document DB<br/>(genuinely schemaless)"]
+    style PG fill:#2a5
 ```
 
 ## A pragmatic decision tree
 
-```
-Are you starting a new project?
-├── Yes → Use Postgres.
-│         ├── Need a free tier? → Supabase, Neon, Railway.
-│         └── Already on AWS/GCP? → RDS Postgres / Cloud SQL Postgres.
-│
-└── Joining an existing project?
-    └── Use what the team uses. Pick your fights.
-```
-
-```
-Do you have a SLOW QUERY problem in production?
-├── Yes → Add Redis. Cache the slow query for 60s. Problem solved 90% of the time.
-└── No  → Don't add Redis yet.
+```mermaid
+flowchart TD
+    A{New project<br/>or existing?} -->|New| B[Use Postgres]
+    A -->|Existing| Z[Use what the team uses.<br/>Pick your fights.]
+    B --> C{Need a free tier?}
+    C -->|Yes| D[Supabase / Neon / Railway]
+    C -->|Already on AWS/GCP| E[RDS Postgres / Cloud SQL Postgres]
 ```
 
-```
-Do you need search beyond "WHERE title LIKE '%foo%'"?
-├── Try Postgres full-text search (tsvector / tsquery) first.
-│   It's usually enough.
-├── If not enough (very large dataset, complex faceting, typo tolerance):
-│   → Add Typesense (easy) or Meilisearch (also easy).
-└── At very large scale + complex queries: Elasticsearch.
+```mermaid
+flowchart TD
+    A{Slow-query problem<br/>in production?} -->|Yes| B[Add Redis. Cache for 60s.<br/>Solves it 90% of the time.]
+    A -->|No| C[Don't add Redis yet.]
 ```
 
+```mermaid
+flowchart TD
+    A{Need search beyond<br/>simple SQL LIKE?} --> B[Try Postgres full-text search<br/>tsvector / tsquery]
+    B --> C{Enough?}
+    C -->|Yes| D[Done.]
+    C -->|No, mid-scale| E[Typesense or Meilisearch]
+    C -->|No, very large scale<br/>+ complex queries| F[Elasticsearch]
 ```
-Do you have AI features with embeddings?
-├── < 10M vectors → pgvector (Postgres extension). Done.
-└── > 10M vectors and need strict latency → Pinecone or Turbopuffer.
+
+```mermaid
+flowchart TD
+    A{AI features<br/>with embeddings?} -->|"&lt; 10M vectors"| B[pgvector<br/>Postgres extension - done.]
+    A -->|"&gt; 10M vectors<br/>strict latency"| C[Pinecone or Turbopuffer]
 ```
+
+> **Reading these trees:** Each diamond is a yes/no choice that moves you to the *next* tool. Notice how almost every "yes" branch ends at Postgres or a Postgres extension — that's the whole point of "boring tech wins." A few quick definitions you'll see across these trees: **FTS** = full-text search (matching words and phrases inside long text columns); **pgvector** = a Postgres extension that stores AI embeddings; **embeddings** = fixed-length numeric vectors that represent the "meaning" of text or images for similarity search.
 
 ## The cost of each addition
 

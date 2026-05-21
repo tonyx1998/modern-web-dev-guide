@@ -23,23 +23,19 @@ Testing is the practice of writing code that *checks your code*. You write a fun
 
 ## The testing pyramid
 
-```
-                    ▲
-                   /│\
-                  / │ \      E2E Tests (few)
-                 /  │  \     - Slow, expensive
-                /───┼───\    - Test full user flows
-               /    │    \
-              /─────┼─────\  Integration Tests (some)
-             /      │      \ - Medium speed
-            /───────┼───────\- Test pieces together
-           /        │        \
-          /─────────┼─────────\Unit Tests (many)
-         /          │          \- Fast, cheap
-        /───────────┴───────────\- Test individual functions
+```mermaid
+flowchart TB
+    E2E["E2E tests<br/>(few)<br/>slow, expensive<br/>test full user flows"]
+    Int["Integration tests<br/>(some)<br/>medium speed<br/>test pieces together"]
+    Unit["Unit tests<br/>(many)<br/>fast, cheap<br/>test individual functions"]
+    E2E --- Int
+    Int --- Unit
+    style E2E fill:#f96
+    style Int fill:#fc6
+    style Unit fill:#6c9
 ```
 
-The shape matters. Many fast unit tests; some integration tests; few end-to-end tests. Inverting the pyramid (many slow E2E tests) makes CI take hours and tests flake constantly.
+> **Reading this diagram:** Stacked top-down because the *shape* is the point — narrow at the top (few slow E2E tests, in orange/red), wide at the bottom (many fast unit tests, in green). Inverting the pyramid (many slow E2E tests) makes CI take hours and tests flake constantly.
 
 ## Test types in depth
 
@@ -62,6 +58,8 @@ describe('formatPrice', () => {
 });
 ```
 
+> **In English:** Each `it(...)` block is one test case. `describe` groups related tests under one heading. `expect(x).toBe(y)` is an **assertion** — if `x` doesn't equal `y` at runtime, the test fails. No mocks here because `formatPrice` is pure (no DB, no network).
+
 ### Integration tests
 
 Test how pieces work together. API endpoint + database. Component + state management.
@@ -81,6 +79,8 @@ test('POST /users creates a user', async () => {
   expect(user.id).toBeDefined();
 });
 ```
+
+> **In English:** Fire a real HTTP `POST /users` at the in-process app, then assert it responded with **201 Created** (the standard HTTP status for "resource created") and that the response body has an `id`. No browser, no real network — but the app's routing, validation, and DB writes all execute. That's what makes it an *integration* test rather than a unit test.
 
 ### End-to-end (E2E) tests
 
@@ -104,6 +104,8 @@ test('user can sign up and create a project', async ({ page }) => {
   await expect(page.locator('h1')).toContainText('My First Project');
 });
 ```
+
+> **In English:** Playwright launches a real headless Chrome, navigates to `/signup`, types into form inputs, clicks Submit, then *asserts* the user landed on `/dashboard`. Then it creates a project and checks the page heading. Each `await` is a real browser action; the test reads almost like an English script of what a user would do.
 
 ### Other test types
 

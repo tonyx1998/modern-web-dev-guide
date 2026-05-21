@@ -16,22 +16,23 @@ Imagine a chat app. With pure REST, the client would have to keep asking the ser
 
 ## WebSockets — bidirectional, real-time
 
-**WebSockets** open a persistent bidirectional connection. Either side can send messages anytime, with very low latency.
+**WebSockets** open a persistent bidirectional connection. Either side can send messages anytime, with very low latency. The connection starts as a regular HTTP request, but the special `Upgrade: websocket` header tells the server to "switch protocols" — after that, it's no longer HTTP, it's a long-lived two-way pipe.
 
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
+    Client->>Server: HTTP GET /chat<br/>Upgrade: websocket
+    Server-->>Client: 101 Switching Protocols
+    Note over Client,Server: Connection now stays open
+    Client->>Server: "Hello!"
+    Server-->>Client: "Hi! who's there?"
+    Client->>Server: "Tony"
+    Server-->>Client: "user42 just joined"
+    Note over Server: Server pushed this<br/>without being asked
 ```
-Client                                    Server
-  |--- HTTP GET /chat                      |
-  |    Upgrade: websocket  ──────────────► |
-  |◄────────────── 101 Switching Protocols |
-  |                                        |
-  | (connection now stays open)            |
-  |                                        |
-  |--- "Hello!" ─────────────────────────► |
-  |◄──────────── "Hi! who's there?" ───────|
-  |--- "Tony" ───────────────────────────► |
-  |◄──────────── "user42 just joined" ─────|
-  |    (server pushed this without being asked)
-```
+
+> **Reading this diagram:** The first two arrows are the "upgrade dance" — one HTTP exchange that promotes the connection to a WebSocket. After that, either side can speak at any time. Notice the last server message wasn't a response to anything — that's the *push* capability you can't get with plain REST.
 
 **Best for:**
 - Chat applications.

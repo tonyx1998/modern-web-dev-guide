@@ -18,29 +18,20 @@ LLMs can answer questions about general knowledge but not your specific data. RA
 
 ## The concept
 
+```mermaid
+flowchart TD
+    Q[User question] --> E[Convert to embedding<br/>semantic vector]
+    E --> S[Search vector DB<br/>for similar documents]
+    S --> R[Retrieve top-K<br/>matching chunks]
+    R --> P[Construct prompt:<br/>Given these documents...<br/>Answer this question...]
+    P --> L[Send to LLM]
+    L --> A[LLM answers using<br/>retrieved context]
 ```
-User question
-    │
-    ▼
-Convert to embedding (semantic vector)
-    │
-    ▼
-Search vector DB for similar documents
-    │
-    ▼
-Retrieve top K matching chunks
-    │
-    ▼
-Construct prompt:
-   "Given these documents: [retrieved chunks]
-    Answer this question: [user question]"
-    │
-    ▼
-Send to LLM
-    │
-    ▼
-LLM answers using retrieved context
-```
+
+> **Jargon used above:**
+> - **Embedding:** a numeric vector (typically hundreds to thousands of floats) that represents the *meaning* of a piece of text. Similar meanings end up close together in vector space.
+> - **Vector DB:** a database optimized for "find the K vectors closest to this one" queries (instead of "find rows where X = Y").
+> - **Top-K:** the K most similar chunks you keep after the similarity search — usually 3 to 20.
 
 ## Why it works
 
@@ -80,6 +71,8 @@ async function ingest(documents) {
 }
 ```
 
+> **In English:** For every document, slice it into ~500-token chunks (small enough that the model can read several of them at once), turn each chunk into an embedding vector, and store the chunk text *plus* its embedding in the database. This runs once at ingestion time, not on every user query.
+
 **Step 2: Get an embedding for a query.**
 
 Embeddings turn text into vectors in a space where similar meanings are close together.
@@ -93,6 +86,8 @@ async function getEmbedding(text: string): Promise<number[]> {
   return response.data[0].embedding;
 }
 ```
+
+> **In English:** Send the text to OpenAI's embedding endpoint. You get back a fixed-length array of floats (1,536 for `text-embedding-3-small`). Two pieces of text with similar meaning produce vectors that are close together — which is what makes the next step possible.
 
 **Step 3: Search the vector DB.**
 
@@ -110,7 +105,9 @@ async function findRelevantChunks(query: string, k = 5) {
 }
 ```
 
-The `<=>` operator is cosine distance. Lower distance = more similar.
+> **In English:** Embed the user's query the same way you embedded the documents, then ask Postgres for the 5 stored chunks whose embeddings are closest to the query's embedding. `pgvector` (the Postgres extension) does the heavy lifting; you just `ORDER BY` the distance.
+
+The `<=>` operator is **cosine distance** (a number from 0 to 2 measuring the angle between two vectors). Lower distance = more similar meaning.
 
 **Step 4: Construct the prompt.**
 
@@ -130,6 +127,8 @@ async function answer(question: string) {
   return result.text;
 }
 ```
+
+> **In English:** Retrieve the top 5 chunks, glue them together with separators, paste them into the user message, and tell the model in the *system prompt* to only use what you handed it. The `"if the answer isn't in the context, say so"` clause is a cheap but important defense against the model making things up (hallucinating).
 
 ## Vector database choices
 

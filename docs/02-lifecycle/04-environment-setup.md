@@ -75,7 +75,7 @@ git commit -m "Initial commit"
 gh repo create my-app --public --source=. --push
 ```
 
-That's a complete modern setup in about 5 minutes.
+> **In English:** This recipe installs **Bun** (a fast JavaScript runtime + package manager that's a drop-in replacement for Node/npm), scaffolds a Next.js + TypeScript + Tailwind project, drops in **shadcn/ui** (a library of copy-pasteable React components), swaps the default lint/format toolchain for **Biome** (a single Rust-based replacement for ESLint + Prettier), installs **Husky** to run lint-staged on every commit, then initializes a Git repo and creates a public GitHub repo via the `gh` CLI in one go. That's a complete modern setup in about 5 minutes.
 
 ## Editor setup
 

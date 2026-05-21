@@ -60,6 +60,8 @@ const users = await trpc.user.list.query({ limit: 10 });
 await trpc.user.create.mutate({ name: 'Tony', email: 'tony@example.com' });
 ```
 
+> **In English:** On the server, you declare two procedures: `user.list` (a read, hence `.query`) and `user.create` (a write, hence `.mutation`). `publicProcedure` is open to anyone; `protectedProcedure` requires authentication (its `ctx` carries the logged-in user). On the client, you call them by name with the *same* shape the server expects — and if you ever rename `limit` to `take` on the server, the client gets a TypeScript error immediately.
+
 **When to use:** Full-stack TypeScript apps where both sides are yours.
 **When not to:** Public APIs, APIs consumed by non-TS clients.
 

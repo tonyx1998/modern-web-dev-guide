@@ -18,6 +18,15 @@ You don't choose this complexity for fun — you choose it because at scale, you
 
 ## Kubernetes is dominant
 
+:::info Jargon
+- **Kubernetes** (often abbreviated **K8s**) — an open-source system that schedules and runs containerized apps across a cluster of machines and restarts them when they crash.
+- **EKS / GKE / AKS** — the managed Kubernetes offerings from AWS, Google, and Azure respectively. You still operate it; the cloud provider just runs the control plane.
+- **Manifest** — a YAML file describing a Kubernetes resource (a deployment, a service, a config map). The unit of "what should exist in the cluster."
+- **Helm / Kustomize** — two ways to template and customize manifests so you can have one source of truth that deploys differently per environment.
+- **`kubectl`** — the command-line client people use to talk to a Kubernetes cluster.
+- **Backstage** — Spotify's open-source developer portal; commonly the front door for an internal developer platform.
+:::
+
 - Self-managed K8s on AWS EKS, GCP GKE, Azure AKS, or bare metal.
 - Internal abstractions hide K8s complexity from product engineers.
 - Service templates: engineers don't write raw Kubernetes manifests.
@@ -37,6 +46,8 @@ Even within an enterprise, Kubernetes isn't the only compute model:
 The platform team typically supports a curated menu of options, each with its own cost profile and use case.
 
 ## Infrastructure as Code
+
+**Infrastructure as Code (IaC)** is the practice of describing your cloud resources (VPCs, databases, load balancers, IAM roles) in text files that live in Git, instead of clicking around the cloud console. **Terraform** is the de facto standard; **Pulumi** and **AWS CDK** are the same idea but you write the config in a real programming language.
 
 - Everything provisioned via Terraform, Pulumi, or AWS CDK.
 - No clicking in cloud consoles for production.

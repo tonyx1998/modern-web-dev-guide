@@ -31,6 +31,8 @@ const result = await generateText({
 });
 ```
 
+> **In English:** A user message can now be a *list* of parts — some text, some images. The model reads them together. No separate "vision API" call; vision is just another content type in the same prompt.
+
 Use cases:
 
 - OCR / document parsing.
@@ -82,6 +84,8 @@ const result = await generateObject({
   }],
 });
 ```
+
+> **In English:** Combine structured output (the Zod schema for a receipt) with multimodal input (the receipt photo). The model returns a typed object with merchant, date, total, currency, and line items — already validated against the schema. No OCR step, no glue code.
 
 Done. ~20 lines, no model training, no glue code, fully typed output. The dedicated OCR pipeline still wins on volume + cost at very large scale, but for most teams the multimodal LLM is a strictly better starting point.
 :::

@@ -16,14 +16,12 @@ The temptation with a painful old system is to "just rewrite it from scratch." T
 
 ## Successful migration patterns
 
-**Strangler fig pattern:**
+**Strangler fig pattern** (named after the *Ficus aurea* tree that grows around a host tree, eventually replacing it):
 
 1. Build new system alongside old.
 2. Route some traffic to new system (start small).
 3. Gradually shift more traffic.
 4. Eventually retire old system.
-
-Named after the strangler fig tree, which grows around and eventually replaces its host.
 
 **Branch by abstraction:**
 

@@ -23,25 +23,20 @@ A small recipe change (color of the parsley) only redoes step 4. A big change (s
 
 ## The pipeline
 
-When a browser receives HTML, it executes a multi-step pipeline:
+When a browser receives HTML, it executes a multi-step pipeline. Quick jargon: **DOM** = Document Object Model (an in-memory tree of HTML elements); **CSSOM** = the same idea for CSS rules; **composite** = stitching together pre-painted layers, typically on the GPU.
 
+```mermaid
+flowchart TD
+    HTML[HTML] -->|parse| DOM
+    CSS[CSS] -->|parse| CSSOM
+    DOM --> Style[Style<br/>combine DOM + CSSOM<br/>into computed styles]
+    CSSOM --> Style
+    Style --> Layout[Layout<br/>calculate positions & sizes]
+    Layout --> Paint[Paint<br/>turn into pixel layers]
+    Paint --> Composite[Composite<br/>combine layers into final image<br/>often on GPU]
 ```
-HTML → Parse → DOM
-                |
-CSS → Parse → CSSOM
-                |
-                v
-              Style (combine DOM + CSSOM → computed styles)
-                |
-                v
-              Layout (calculate positions and sizes)
-                |
-                v
-              Paint (turn into pixels in layers)
-                |
-                v
-              Composite (combine layers into final image, often on GPU)
-```
+
+> **Reading this diagram:** Two inputs (HTML and CSS) merge at the "Style" step, then the flow is strictly linear. Each downstream step is cheaper if the steps above didn't change — that's why some animations are 60fps and others stutter.
 
 ## Which step does your change trigger?
 

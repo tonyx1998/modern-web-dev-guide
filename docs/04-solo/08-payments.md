@@ -27,6 +27,8 @@ Stripe + a webhook handler. The minimal flow:
 
 ## Step 1: create a checkout session
 
+A **webhook** (Stripe's term for "we'll POST a JSON event to this URL when something happens — like a successful payment") is the second half of this flow. First, the checkout session:
+
 ```typescript
 // src/app/api/checkout/route.ts
 import Stripe from 'stripe';
@@ -49,6 +51,8 @@ export async function POST() {
   return Response.json({ url: session.url });
 }
 ```
+
+> **In English:** This is the route the "Subscribe" button hits. It looks up the signed-in user, asks Stripe to create a Checkout session in subscription mode against your pre-configured price (`price_xxxx...` — set up once in the Stripe dashboard), passes URLs Stripe will redirect to on success/cancel, and crucially stashes your `userId` in `metadata` so the webhook (next code block) can find this user again. Returns the hosted Checkout URL; your frontend redirects the user there.
 
 ## Step 2: handle the webhook
 
@@ -82,6 +86,8 @@ export async function POST(req: Request) {
   return new Response('ok');
 }
 ```
+
+> **In English:** Stripe POSTs events here. `constructEvent` does the security work: it verifies the `stripe-signature` header against your webhook secret, so attackers can't fake events by guessing the URL. If verification fails, it throws. On a successful checkout, you write the row to your `subscriptions` table — pulling `userId` out of the metadata you set in step 1 and saving Stripe's customer ID for future API calls. Always return 200 (`'ok'`) so Stripe doesn't keep retrying.
 
 ## Step 3: test it locally
 

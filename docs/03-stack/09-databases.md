@@ -134,10 +134,14 @@ Often Postgres + recursive CTEs is enough for "I just need some graph queries" u
 :::info Highlight: the 2026 default data stack
 For 95% of new projects, this is the right starting point:
 
-```
-Postgres (Supabase or Neon)
-   + Redis (when you need caching)
-   + pgvector extension (if you have AI features)
+```mermaid
+flowchart LR
+    PG[("Postgres<br/>Supabase or Neon")]
+    R[("Redis<br/>when you need caching")]
+    V["pgvector extension<br/>if you have AI features"]
+    PG --- R
+    PG --- V
+    style PG fill:#2a5
 ```
 
 That's it. One DB to back up. One mental model. One ops burden. Add specialized databases only when Postgres genuinely can't handle the job — which, in 2026, is rare.

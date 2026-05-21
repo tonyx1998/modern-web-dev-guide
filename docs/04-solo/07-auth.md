@@ -16,7 +16,7 @@ Authentication looks easy. "It's just an email and a password, right?" Then come
 
 ## Twenty minutes to working auth
 
-With Clerk, auth takes 20 minutes:
+With Clerk, auth takes 20 minutes. Two terms before the code: **middleware** (a function Next.js runs on every incoming request before your page handler) and **passkeys** (a phishing-resistant alternative to passwords that uses public-key cryptography built into the browser and OS).
 
 ```typescript
 // src/middleware.ts
@@ -34,6 +34,8 @@ export const config = {
   matcher: ['/((?!_next|.*\\..*).*)'],
 };
 ```
+
+> **In English:** This runs on every page request. `createRouteMatcher` builds a matcher for paths under `/library` and `/settings`. If the incoming request is for one of those, `auth.protect()` redirects unauthenticated users to the sign-in page; otherwise the request passes through unchanged. The `config.matcher` regex excludes static asset URLs so middleware doesn't fire on every PNG and CSS file.
 
 ```typescript
 // src/app/layout.tsx
@@ -60,6 +62,8 @@ export default function RootLayout({ children }) {
   );
 }
 ```
+
+> **In English:** `<ClerkProvider>` wraps the whole app so any child component can ask "is the user signed in, and who are they?" `<SignedIn>` and `<SignedOut>` are conditional render helpers that show their children only in the matching auth state. `<UserButton>` is a pre-built avatar dropdown with "Manage Account / Sign out"; `<SignInButton>` opens the hosted sign-in modal. You wrote zero auth UI.
 
 Done. Users can sign up, sign in, manage their account, sign out. Clerk handles passkeys, social login, multi-factor, password reset — all of it.
 

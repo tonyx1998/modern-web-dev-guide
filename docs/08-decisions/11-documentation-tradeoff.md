@@ -16,7 +16,7 @@ The classic documentation failure is paraphrasing your code in comments and then
 
 ## What's worth documenting
 
-- **Architecture decisions** (ADRs) — why, not what.
+- **Architecture decisions** (*ADRs* — short docs that record why a choice was made and what alternatives lost) — why, not what.
 - **Conventions** — naming, code style, error handling patterns.
 - **Onboarding** — how to set up the project.
 - **Runbooks** — what to do when X breaks.
@@ -33,7 +33,7 @@ The classic documentation failure is paraphrasing your code in comments and then
 
 - **READMEs** — Entry points; the first thing to read.
 - **Inline code comments** — Why something is non-obvious, not what it does.
-- **ADRs / RFCs** — Significant decisions.
+- **ADRs / RFCs** — Significant decisions (*RFC* = Request for Comments, a peer-reviewed design proposal).
 - **Wikis / Notion** — Cross-cutting concerns, organizational stuff.
 - **API docs** — Generated from code when possible (OpenAPI, TypeDoc).
 - **Diagrams** — For architecture (mermaid, draw.io).

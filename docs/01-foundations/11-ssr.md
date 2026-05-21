@@ -23,13 +23,20 @@ HTML is generated on the server **for each request**.
 1. User requests `/products/42`.
 2. Server runs your code, queries the database, builds HTML.
 3. Server sends HTML to the user.
-4. Browser displays it; JavaScript "hydrates" the page to add interactivity.
+4. Browser displays it; JavaScript **hydrates** the page (attaches event handlers and framework state to the already-rendered DOM) to add interactivity.
 
+```mermaid
+flowchart LR
+    U[User] --> S[Server runs code]
+    S --> DB[(Query DB)]
+    DB --> R[Render HTML]
+    R --> B[Browser shows page]
+    B --> H[JS hydrates - fully interactive]
+    style S fill:#2a5
+    style R fill:#2a5
 ```
-Request flow:
-  User → server → run code → query DB → render HTML → send back → browser shows it
-        └─── all this happens fresh, per request ─────┘
-```
+
+> **Reading this diagram:** The green steps are the per-request work — every visitor pays for them. That's the cost of "always fresh" data.
 
 The word **hydrate** matters here: the server sends complete HTML *and* a JavaScript bundle. The browser shows the HTML immediately, then runs the JavaScript which "attaches" event handlers and React/Vue/etc. state to the existing DOM. The page goes from "visible but inert" to "fully interactive" smoothly.
 
@@ -51,20 +58,15 @@ Imagine `/products/42`.
 
 **With SSG:**
 
-```
-Build time:  Render the page for product 42 once. Save as products-42.html.
-Request:     CDN serves products-42.html in 30ms.
-Problem:     If price changes, you must rebuild & redeploy.
-```
+- *Build time:* Render the page for product 42 once. Save as `products-42.html`.
+- *Request:* CDN serves `products-42.html` in ~30ms.
+- *Problem:* If price changes, you must rebuild and redeploy.
 
 **With SSR:**
 
-```
-Request:     Server queries DB for product 42, renders HTML with current price.
-              Sends to user in ~200ms.
-Benefit:     Price update is reflected immediately.
-Cost:        Server does this work every single time.
-```
+- *Request:* Server queries DB for product 42, renders HTML with current price. Sends to user in ~200ms.
+- *Benefit:* Price update is reflected immediately.
+- *Cost:* Server does this work every single time.
 
 A blog post would be SSG (rarely changes). A product page with live inventory and pricing would be SSR (changes constantly).
 :::
@@ -110,7 +112,7 @@ cd my-app
 npm run dev
 ```
 
-Visit `http://localhost:3000`. Then open DevTools → Network → reload. You'll see the HTML response stream in chunks rather than as one big blob. That's streaming SSR in action.
+Visit `http://localhost:3000`. Then open DevTools → Network → reload. You'll see the HTML response stream in chunks rather than as one big blob — that's streaming SSR in action. Watch the "Waterfall" column in particular: each chunk lights up as it arrives, so you can literally see the page being built top-down over the wire.
 :::
 
 ## What's next

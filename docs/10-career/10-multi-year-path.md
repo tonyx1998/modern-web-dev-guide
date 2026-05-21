@@ -16,6 +16,16 @@ Careers don't move in months — they move in years. The path below is the media
 
 A common trajectory:
 
+```mermaid
+flowchart LR
+    Y0[Year 0<br/>Decide] --> Y1[Year 1<br/>Foundations]
+    Y1 --> Y2[Year 2<br/>Real projects]
+    Y2 --> Y3[Year 3<br/>First job]
+    Y3 --> Y46[Years 4-6<br/>Mid-level]
+    Y46 --> Y7[Years 7+<br/>Senior]
+    Y7 --> Y10[Years 10+<br/>Many open doors:<br/>Staff IC, EM,<br/>founder, consultant]
+```
+
 ## Year 0: Decide to Learn
 
 - Pick a path (full-stack web development).

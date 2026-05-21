@@ -23,6 +23,13 @@ Once the company is past MVP and into "running a real product," maintenance and 
 
 ## Scaling Postgres
 
+:::info Jargon
+- **Index** — a separate data structure Postgres can use to find rows for a query without scanning the whole table.
+- **Read replica** — a copy of the database that handles `SELECT` traffic; writes still go to the primary.
+- **Connection pool** — a process (PgBouncer, Supavisor) sitting between your app and Postgres that multiplexes many client connections onto a small number of real DB connections. Critical with serverless functions, where each function instance otherwise opens its own connection.
+- **`EXPLAIN ANALYZE`** — a Postgres command that runs a query and reports the actual execution plan, including which indexes were used and how long each step took.
+:::
+
 - **Indexes** for columns frequently filtered or sorted.
 - **Read replicas** when read load becomes significant (Supabase, Neon support this).
 - **Connection pooling** (PgBouncer, Supavisor) — essential in serverless environments.

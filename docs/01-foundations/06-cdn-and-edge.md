@@ -18,22 +18,28 @@ Now imagine those distribution centers also have a few employees who can run err
 
 ## Why CDNs exist
 
+A few terms first: **origin server** = your one real backend; **POP** (Point of Presence) = a small CDN data center close to the user; **TTL** (Time To Live) = how long a cached copy is allowed to live before being refreshed.
+
 Without a CDN, every request travels all the way to your origin server:
 
-```
-Without a CDN:
-  User in Tokyo  ────[170ms one-way]────►  Server in Virginia
-                ◄────[170ms return]────
-  Total: 340ms minimum, just for the network. Plus server processing time.
+```mermaid
+sequenceDiagram
+    participant U as User in Tokyo
+    participant S as Origin server in Virginia
+    U->>S: HTTP request (170ms one-way)
+    S-->>U: HTTP response (170ms return)
+    Note over U,S: Total ~340ms network, plus server processing
 ```
 
 With a CDN cached copy in Tokyo:
 
-```
-With a CDN:
-  User in Tokyo ──[5ms one-way]──► CDN POP in Tokyo
-                 ◄──[5ms return]──
-  Total: 10ms. The user gets a cached copy instantly.
+```mermaid
+sequenceDiagram
+    participant U as User in Tokyo
+    participant P as CDN POP in Tokyo
+    U->>P: HTTP request (5ms one-way)
+    P-->>U: Cached response (5ms return)
+    Note over U,P: Total ~10ms — cached copy served instantly
 ```
 
 That difference — 340ms vs 10ms — is the gap between "this feels broken" and "this feels native."

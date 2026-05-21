@@ -34,16 +34,29 @@ queue.depth
 
 ### Traces — follow a single request through every service
 
+A **trace** is a tree of timed *spans*. Each span is one piece of work (a function call, an HTTP request, a DB query) with a start time and duration. Together they show *where the time went* for a single user request.
+
+```mermaid
+flowchart TD
+    F["Frontend: GET /checkout - 240ms"]
+    AG["API Gateway - 5ms"]
+    AU["Auth Service: verify_token - 12ms"]
+    OS["Order Service: create_order - 180ms"]
+    DB["DB: INSERT INTO orders - 45ms"]
+    ST["Stripe API: charge - 110ms"]
+    EM["Email Service: send_receipt - 15ms"]
+    RD["Render - 38ms"]
+    F --> AG
+    F --> AU
+    F --> OS
+    F --> RD
+    OS --> DB
+    OS --> ST
+    OS --> EM
+    style ST fill:#f96
 ```
-[Frontend] GET /checkout (240ms)
-  ├── [API Gateway] (5ms)
-  ├── [Auth Service] verify_token (12ms)
-  ├── [Order Service] create_order (180ms)
-  │   ├── [DB] INSERT INTO orders (45ms)
-  │   ├── [Stripe API] charge (110ms)
-  │   └── [Email Service] send_receipt (15ms)
-  └── [Render] (38ms)
-```
+
+> **Reading this trace:** The root span (`GET /checkout`) took 240ms. The most expensive child by far is `Stripe API: charge` at 110ms (highlighted orange) — that's where you'd optimize first. Traces turn vague "the checkout page feels slow" complaints into a quantified, line-by-line answer.
 
 ## Additional layers (in 2026)
 

@@ -84,6 +84,8 @@ export const appRouter = router({
 });
 ```
 
+> **In English:** Declare one server "procedure" called `user.getById`. The `.input(z.object(...))` line uses **Zod** (a runtime schema-validation library that TypeScript can also read) to validate that callers pass `{ id: number }`. The `.query(...)` callback is what actually runs — here, a DB lookup. tRPC infers the return type automatically from that callback.
+
 On the client, you call them like local functions:
 
 ```typescript
@@ -92,6 +94,8 @@ const user = await trpc.user.getById.query({ id: 42 });
 // `user` is fully typed; if you change the server signature,
 // the client gets a compile error
 ```
+
+> **In English:** Same name as on the server, called like a method. There's no fetch URL, no manual JSON parsing, no separate type definition — under the hood tRPC still sends an HTTP request, but you never write it by hand. The compile-time linkage between client and server is the whole selling point.
 
 **Pros:**
 - **Zero boilerplate** — no OpenAPI specs, no GraphQL schemas, no generated types.
