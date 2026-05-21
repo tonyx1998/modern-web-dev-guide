@@ -53,6 +53,6 @@ You can browse what others have already suggested (and what's been merged or rej
 |----------------------------------|------------------------------------------------------------------------|
 | Suggestion / correction          | [Open a suggestion issue](https://github.com/tonyx1998/modern-web-dev-guide/issues/new?template=suggestion.yml) |
 | Site bug (broken link, layout)   | Open an issue and label it `bug` after submission                      |
-| Security concern about the site  | Email the repo owner directly — please don't open a public issue       |
+| Security concern about the site  | [Use GitHub's private security advisory](https://github.com/tonyx1998/modern-web-dev-guide/security/advisories/new) — please don't open a public issue |
 
 Thanks for caring enough about the guide to suggest something. Keeping it accurate and beginner-friendly is a moving target, and outside eyes catch things the maintainer can't.
