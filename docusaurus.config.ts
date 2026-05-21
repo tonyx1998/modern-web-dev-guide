@@ -104,7 +104,7 @@ const config: Config = {
           label: 'Guide',
         },
         {
-          to: '/docs/foundations',
+          to: '/docs/foundations/client-server',
           label: 'Start Here',
           position: 'left',
         },

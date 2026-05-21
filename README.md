@@ -1,6 +1,6 @@
 # Modern Web Dev Guide
 
-A comprehensive, beginner-friendly 2026 guide to how websites and web applications are actually built. ~9,000 lines across 12 chapters, written so an absolute beginner can follow along while still being useful to working developers.
+A comprehensive, beginner-friendly 2026 guide to how websites and web applications are actually built. ~9,000 lines across **11 chapters plus an introduction**, written so an absolute beginner can follow along while still being useful to working developers. *Last reviewed: May 2026.*
 
 > **Live site:** https://tonyx1998.github.io/modern-web-dev-guide/
 

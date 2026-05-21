@@ -15,7 +15,7 @@
     <text x="80" y="300" font-size="72" font-weight="800" fill="#ffffff">How websites are</text>
     <text x="80" y="380" font-size="72" font-weight="800" fill="url(#accent)">actually built in 2026</text>
     <text x="80" y="460" font-size="32" font-weight="400" fill="#cbd5e1">For absolute beginners and beyond.</text>
-    <text x="80" y="510" font-size="28" font-weight="400" fill="#94a3b8">12 chapters · ~9,000 lines · ~150 focused pages</text>
+    <text x="80" y="510" font-size="28" font-weight="400" fill="#94a3b8">11 chapters + intro · ~9,000 lines · ~150 focused pages</text>
     <line x1="80" y1="550" x2="1120" y2="550" stroke="#334155" stroke-width="2"/>
     <text x="80" y="585" font-size="24" font-weight="500" fill="#60a5fa">tonyx1998.github.io/modern-web-dev-guide</text>
   </g>
