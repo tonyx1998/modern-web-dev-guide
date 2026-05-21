@@ -19,7 +19,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--primary button--lg"
-            to="/docs/foundations/">
+            to="/docs/foundations">
             Start Reading →
           </Link>
           <Link
@@ -53,7 +53,7 @@ const PATHS: Path[] = [
       '4. Solo / Personal — build your first deployed site',
       '10. Career — what to learn next and where to go',
     ],
-    cta: {label: 'Start with Foundations', to: '/docs/foundations/'},
+    cta: {label: 'Start with Foundations', to: '/docs/foundations'},
   },
   {
     audience: 'I\'m joining a startup',
@@ -64,7 +64,7 @@ const PATHS: Path[] = [
       '5. Startup workflow — managed services, balance speed and quality',
       '8. Decisions — how to actually choose technologies',
     ],
-    cta: {label: 'Jump to Tech Stack', to: '/docs/stack/'},
+    cta: {label: 'Jump to Tech Stack', to: '/docs/stack'},
   },
   {
     audience: 'I work at a big company',
@@ -84,7 +84,7 @@ const PATHS: Path[] = [
       '9. AI Layer — the new layer in every modern app',
       '7. Comparison — side-by-side at every scale',
     ],
-    cta: {label: 'Skim the Tech Stack', to: '/docs/stack/'},
+    cta: {label: 'Skim the Tech Stack', to: '/docs/stack'},
   },
 ];
 
@@ -208,7 +208,7 @@ function StartCTA() {
         </Heading>
         <p className={styles.ctaText}>
           The fastest way to start: read{' '}
-          <Link to="/docs/foundations/">chapter 1 (Foundations)</Link>.
+          <Link to="/docs/foundations">chapter 1 (Foundations)</Link>.
           If a term is unfamiliar, the{' '}
           <Link to="/docs/glossary">glossary</Link> has plain-English definitions for
           every piece of jargon in the guide.
@@ -216,7 +216,7 @@ function StartCTA() {
         <div className={styles.buttons}>
           <Link
             className="button button--primary button--lg"
-            to="/docs/foundations/">
+            to="/docs/foundations">
             Read Chapter 1 →
           </Link>
         </div>

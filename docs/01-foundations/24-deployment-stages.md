@@ -179,4 +179,4 @@ If you've read this carefully, you now know:
 
 Every later part of this guide builds on these foundations. The frameworks and tools change every few years, but these underlying concepts don't.
 
-→ **Next chapter:** [Part 2: The Development Lifecycle](/docs/lifecycle/) — the universal phases every project moves through, regardless of size or stack.
+→ **Next chapter:** [Part 2: The Development Lifecycle](/docs/lifecycle) — the universal phases every project moves through, regardless of size or stack.

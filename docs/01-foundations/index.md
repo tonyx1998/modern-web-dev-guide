@@ -80,4 +80,4 @@ Each page focuses on **one topic** with worked examples and beginner callouts. R
 
 ---
 
-When you finish all 24 pages, move on to [Chapter 2: The Development Lifecycle](/docs/lifecycle/).
+When you finish all 24 pages, move on to [Chapter 2: The Development Lifecycle](/docs/lifecycle).

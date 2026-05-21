@@ -70,4 +70,4 @@ Each page covers one phase with worked examples, anti-patterns, and concrete too
 
 ---
 
-When you finish, move on to [Chapter 3: The Tech Stack, Decoded](/docs/stack/).
+When you finish, move on to [Chapter 3: The Tech Stack, Decoded](/docs/stack).

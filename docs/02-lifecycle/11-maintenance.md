@@ -145,4 +145,4 @@ Internalizing this lifecycle gives you a mental model for *any* project:
 - "We're spending too long on planning; ship something and iterate."
 - "We're missing observability; we need to fix that before scaling."
 
-→ **Next chapter:** [Part 3: The Tech Stack, Decoded](/docs/stack/) — every major piece of the 2026 tech stack, explained in detail.
+→ **Next chapter:** [Part 3: The Tech Stack, Decoded](/docs/stack) — every major piece of the 2026 tech stack, explained in detail.
