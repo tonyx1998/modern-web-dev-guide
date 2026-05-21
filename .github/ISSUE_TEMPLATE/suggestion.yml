@@ -1,0 +1,66 @@
+name: 📝 Suggestion
+description: Suggest a clarification, correction, or improvement to a page in the guide.
+title: "[Suggestion] "
+labels: ["suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest an improvement. Please fill in the fields below so the maintainer can act on it efficiently.
+
+        **Note:** this is a suggestion channel, not a pull-request invitation. The maintainer reviews suggestions and decides whether/how to incorporate them.
+
+  - type: input
+    id: page-url
+    attributes:
+      label: Which page is this about?
+      description: Paste the URL or page name (e.g. `/docs/foundations/client-server`, or "Chapter 3 — Frontend Frameworks").
+      placeholder: https://tonyx1998.github.io/modern-web-dev-guide/docs/...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of suggestion?
+      options:
+        - Factual correction (something is wrong)
+        - Clarification (something is unclear)
+        - Missing topic (something should be added)
+        - Out of date (the tool / price / claim has changed)
+        - Typo / formatting
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: What would you change?
+      description: Be specific — quote the existing sentence or paragraph if you can, and write the proposed replacement.
+      placeholder: |
+        Current text:
+        > "..."
+
+        Proposed change:
+        > "..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why?
+      description: Briefly explain the reasoning. A link to a source is great for factual corrections.
+      placeholder: |
+        Example: "The Next.js docs now describe PPR as 'preview' rather than 'stable' — see https://..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I understand this is a suggestion, not a pull request. The maintainer will review and decide whether to incorporate it.
+          required: true

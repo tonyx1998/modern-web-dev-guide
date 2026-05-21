@@ -116,6 +116,11 @@ const config: Config = {
           position: 'left',
         },
         {
+          to: '/suggestions',
+          label: 'Suggestions',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/tonyx1998/modern-web-dev-guide',
           label: 'GitHub',
           position: 'right',
