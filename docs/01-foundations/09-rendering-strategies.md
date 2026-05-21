@@ -2,7 +2,7 @@
 id: rendering-strategies
 title: Rendering Strategies Overview
 sidebar_position: 10
-sidebar_label: 9. Rendering Overview
+sidebar_label: Rendering Overview
 description: Who builds the HTML, and when? This single decision drives the entire architecture of a modern web app.
 ---
 

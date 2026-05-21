@@ -2,7 +2,7 @@
 id: authorization
 title: 'Authorization: Permissions & Tokens'
 sidebar_position: 23
-sidebar_label: 22. Authorization
+sidebar_label: Authorization
 description: After the login — how the server keeps track of you (sessions vs JWTs) and decides what you're allowed to do (RBAC, ABAC, RLS).
 ---
 

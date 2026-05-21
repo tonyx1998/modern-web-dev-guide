@@ -2,7 +2,7 @@
 id: styling
 title: Styling
 sidebar_position: 4
-sidebar_label: 3. Styling
+sidebar_label: Styling
 description: How you write CSS shapes the entire development experience. Tailwind dominates; shadcn/ui is the component layer of choice.
 ---
 

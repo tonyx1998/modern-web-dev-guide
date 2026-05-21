@@ -2,7 +2,7 @@
 id: hosting
 title: Hosting Platforms
 sidebar_position: 16
-sidebar_label: 15. Hosting
+sidebar_label: Hosting
 description: Edge platforms (Vercel, Cloudflare), app platforms (Railway, Fly.io), and cloud providers (AWS, GCP, Azure). When to pick each.
 ---
 

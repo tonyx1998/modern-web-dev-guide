@@ -2,7 +2,7 @@
 id: build-tools
 title: Build Tools
 sidebar_position: 5
-sidebar_label: 4. Build Tools
+sidebar_label: Build Tools
 description: The engines that turn your source code (TypeScript, JSX, CSS) into something browsers can run. Vite, Turbopack, Bun, esbuild.
 ---
 

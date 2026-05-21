@@ -2,7 +2,7 @@
 id: background-jobs
 title: Background Jobs
 sidebar_position: 13
-sidebar_label: 12. Background Jobs
+sidebar_label: Background Jobs
 description: Long-running or scheduled work that shouldn't block HTTP requests. Trigger.dev, Inngest, BullMQ, Sidekiq, Celery, Temporal.
 ---
 

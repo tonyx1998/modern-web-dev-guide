@@ -31,7 +31,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Networking & HTTP',
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           items: [
             'foundations/client-server',
             'foundations/http-basics',
@@ -45,7 +45,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Inside the browser',
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           items: [
             'foundations/browser-runtime',
             'foundations/rendering-pipeline',
@@ -55,7 +55,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Rendering strategies',
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           items: [
             'foundations/rendering-strategies',
             'foundations/ssg',
@@ -69,7 +69,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'APIs',
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           items: [
             'foundations/apis-rest',
             'foundations/apis-graphql-trpc',
@@ -80,7 +80,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Data',
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           items: [
             'foundations/databases-sql',
             'foundations/databases-nosql',
@@ -91,7 +91,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Auth',
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           items: [
             'foundations/authentication',
             'foundations/authorization',
@@ -101,7 +101,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Deployment',
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           items: [
             'foundations/deployment-pyramid',
             'foundations/deployment-stages',
@@ -125,7 +125,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Frontend',
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           items: [
             'stack/languages',
             'stack/frontend-frameworks',
@@ -137,7 +137,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Build & dev tools',
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           items: [
             'stack/build-tools',
             'stack/package-managers',
@@ -149,21 +149,21 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Backend & APIs',
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           items: ['stack/backend-frameworks', 'stack/apis'],
         },
         {
           type: 'category',
           label: 'Data',
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           items: ['stack/databases', 'stack/orms'],
         },
         {
           type: 'category',
           label: 'Services & integrations',
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           items: [
             'stack/authentication-tools',
             'stack/background-jobs',
@@ -175,7 +175,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Infrastructure',
           collapsible: true,
-          collapsed: true,
+          collapsed: false,
           items: [
             'stack/hosting',
             'stack/devops',

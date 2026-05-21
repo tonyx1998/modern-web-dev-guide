@@ -2,7 +2,7 @@
 id: authentication-tools
 title: Authentication (Tools)
 sidebar_position: 12
-sidebar_label: 11. Auth Tools
+sidebar_label: Auth Tools
 description: The auth-as-a-service landscape. Clerk, Better Auth, Auth.js, Auth0, Supabase Auth, WorkOS — and when to pick each.
 ---
 

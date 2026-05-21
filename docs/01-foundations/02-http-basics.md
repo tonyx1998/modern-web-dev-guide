@@ -2,7 +2,7 @@
 id: http-basics
 title: HTTP & HTTPS Basics
 sidebar_position: 3
-sidebar_label: 2. HTTP & HTTPS
+sidebar_label: HTTP & HTTPS
 description: The protocol clients and servers use to talk. What HTTP looks like, why HTTPS is mandatory, and which version you're actually using.
 ---
 

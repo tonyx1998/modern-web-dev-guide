@@ -2,7 +2,7 @@
 id: apis
 title: APIs (Tools)
 sidebar_position: 9
-sidebar_label: 8. APIs
+sidebar_label: APIs
 description: How frontends and backends actually talk. REST, tRPC, GraphQL, gRPC, WebSockets, SSE, webhooks — and when each is the right choice.
 ---
 

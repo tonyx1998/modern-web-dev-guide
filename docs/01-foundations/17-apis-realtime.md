@@ -2,7 +2,7 @@
 id: apis-realtime
 title: 'Real-Time: gRPC, WebSockets & SSE'
 sidebar_position: 18
-sidebar_label: 17. Real-Time APIs
+sidebar_label: Real-Time APIs
 description: When the server needs to push data to the client — chat, live dashboards, LLM streaming — request/response isn't enough. WebSockets, SSE, and gRPC fill the gap.
 ---
 

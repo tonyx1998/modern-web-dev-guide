@@ -2,7 +2,7 @@
 id: deployment-stages
 title: Deployment Stages, Explained
 sidebar_position: 25
-sidebar_label: 24. Deployment Stages
+sidebar_label: Deployment Stages
 description: A detailed walk through each of the eight deployment stages — what happens, what tools are involved, what can go wrong.
 ---
 

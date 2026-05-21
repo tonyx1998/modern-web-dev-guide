@@ -2,7 +2,7 @@
 id: devops
 title: DevOps & Infrastructure
 sidebar_position: 17
-sidebar_label: 16. DevOps
+sidebar_label: DevOps
 description: Containers (Docker), orchestration (Kubernetes), infrastructure as code (Terraform), secret management. The plumbing underneath hosting.
 ---
 

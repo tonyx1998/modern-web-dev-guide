@@ -2,7 +2,7 @@
 id: apis-rest
 title: REST APIs
 sidebar_position: 16
-sidebar_label: 15. REST
+sidebar_label: REST
 description: The dominant style for web APIs. Resources addressed by URLs, manipulated via HTTP methods. Universal, simple, and cacheable.
 ---
 

@@ -2,7 +2,7 @@
 id: browser-runtime
 title: The Browser as a Runtime
 sidebar_position: 8
-sidebar_label: 7. Browser Runtime
+sidebar_label: Browser Runtime
 description: A modern browser is not a viewer — it's a sophisticated application platform with a network stack, multiple parsers, a JIT compiler, and 100+ Web APIs.
 ---
 

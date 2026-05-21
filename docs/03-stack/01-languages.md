@@ -2,7 +2,7 @@
 id: languages
 title: Languages
 sidebar_position: 2
-sidebar_label: 1. Languages
+sidebar_label: Languages
 description: The language you choose constrains everything else — framework, libraries, hiring, ecosystem.
 ---
 

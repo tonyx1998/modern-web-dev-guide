@@ -2,7 +2,7 @@
 id: ai-infrastructure
 title: AI Infrastructure
 sidebar_position: 15
-sidebar_label: 14. AI Infrastructure
+sidebar_label: AI Infrastructure
 description: The new layer in modern web apps — model providers, SDKs, vector databases, embeddings, streaming, AI observability.
 ---
 

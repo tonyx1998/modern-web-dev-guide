@@ -2,7 +2,7 @@
 id: cdn-and-edge
 title: CDNs and the Edge
 sidebar_position: 7
-sidebar_label: 6. CDN & Edge
+sidebar_label: CDN & Edge
 description: Why your website is fast for a user in Tokyo even though your server is in Virginia. CDNs cache copies near users; the edge runs code near users.
 ---
 

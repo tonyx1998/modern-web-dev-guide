@@ -2,7 +2,7 @@
 id: ssg
 title: SSG — Static Site Generation
 sidebar_position: 11
-sidebar_label: 10. SSG
+sidebar_label: SSG
 description: HTML is generated at build time. Every URL becomes a pre-built .html file that lives on a CDN. The fastest, cheapest, simplest strategy.
 ---
 

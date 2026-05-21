@@ -2,7 +2,7 @@
 id: databases-choosing
 title: Choosing a Database (2026 Decision Guide)
 sidebar_position: 21
-sidebar_label: 20. Choosing a DB
+sidebar_label: Choosing a DB
 description: A pragmatic 2026 decision tree for picking your data stores. Spoiler — Postgres almost every time, with Redis added soon after.
 ---
 

@@ -2,7 +2,7 @@
 id: isr-streaming-ppr
 title: ISR, Streaming SSR & PPR
 sidebar_position: 14
-sidebar_label: 13. Hybrid Strategies
+sidebar_label: Hybrid Strategies
 description: The hybrid strategies that combine SSG, SSR, and CSR. ISR rebuilds static pages on demand; Streaming SSR + RSC sends HTML in chunks; PPR mixes static and dynamic in the same page.
 ---
 

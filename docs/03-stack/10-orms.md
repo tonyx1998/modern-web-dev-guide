@@ -2,7 +2,7 @@
 id: orms
 title: ORMs & Database Tools
 sidebar_position: 11
-sidebar_label: 10. ORMs
+sidebar_label: ORMs
 description: The layer between your code and SQL. Drizzle, Prisma, Kysely — and when raw SQL is the right answer.
 ---
 

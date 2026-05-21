@@ -2,7 +2,7 @@
 id: code-quality
 title: Code Quality & Developer Tools
 sidebar_position: 19
-sidebar_label: 18. Code Quality
+sidebar_label: Code Quality
 description: Biome (fast linter+formatter), TypeScript strict mode, pre-commit hooks, monorepo tools. The dev-experience layer.
 ---
 

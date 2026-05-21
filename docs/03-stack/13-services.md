@@ -2,7 +2,7 @@
 id: services
 title: Payments, Email, Files & Other Services
 sidebar_position: 14
-sidebar_label: 13. Services
+sidebar_label: Services
 description: The boring-but-essential third-party services every app needs — payments (Stripe), email (Resend), files (R2), video (Mux), maps, push notifications, analytics.
 ---
 

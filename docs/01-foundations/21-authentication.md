@@ -2,7 +2,7 @@
 id: authentication
 title: 'Authentication: Proving Identity'
 sidebar_position: 22
-sidebar_label: 21. Authentication
+sidebar_label: Authentication
 description: The five common ways users prove they are who they claim to be — passwords, OAuth, magic links, passkeys, SSO.
 ---
 

@@ -2,7 +2,7 @@
 id: http-headers-cookies
 title: HTTP Headers & Cookies
 sidebar_position: 5
-sidebar_label: 4. Headers & Cookies
+sidebar_label: Headers & Cookies
 description: How HTTP requests and responses carry metadata, and the cookie mechanism that lets stateless HTTP remember who you are.
 ---
 

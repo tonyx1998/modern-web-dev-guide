@@ -2,7 +2,7 @@
 id: rendering-pipeline
 title: The Rendering Pipeline
 sidebar_position: 9
-sidebar_label: 8. Rendering Pipeline
+sidebar_label: Rendering Pipeline
 description: How a browser turns HTML and CSS into pixels — DOM, CSSOM, layout, paint, composite — and why some animations are smooth and others stutter.
 ---
 

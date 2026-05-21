@@ -2,7 +2,7 @@
 id: package-managers
 title: Package Managers
 sidebar_position: 6
-sidebar_label: 5. Package Managers
+sidebar_label: Package Managers
 description: How dependencies get installed and managed. pnpm, Bun, npm, Yarn — and which to pick.
 ---
 

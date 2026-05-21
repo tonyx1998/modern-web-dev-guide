@@ -2,7 +2,7 @@
 id: spa-mpa-hybrid
 title: SPA vs MPA vs Hybrid
 sidebar_position: 15
-sidebar_label: 14. SPA vs MPA
+sidebar_label: SPA vs MPA
 description: A related but separate distinction from rendering strategies. How navigations work — full page reloads or in-place swaps — and why modern frameworks do both.
 ---
 

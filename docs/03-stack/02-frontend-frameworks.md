@@ -2,7 +2,7 @@
 id: frontend-frameworks
 title: Frontend Frameworks
 sidebar_position: 3
-sidebar_label: 2. Frontend Frameworks
+sidebar_label: Frontend Frameworks
 description: The component-based UI scaffolding around your app. React, Vue, Svelte, Solid, Astro — and when each is the right pick.
 ---
 

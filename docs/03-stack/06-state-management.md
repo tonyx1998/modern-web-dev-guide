@@ -2,7 +2,7 @@
 id: state-management
 title: State Management
 sidebar_position: 7
-sidebar_label: 6. State Management
+sidebar_label: State Management
 description: Two kinds of state, two kinds of tools. Server state (TanStack Query), client state (Zustand, React built-ins), form state (React Hook Form + Zod), URL state.
 ---
 

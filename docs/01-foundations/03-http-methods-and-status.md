@@ -2,7 +2,7 @@
 id: http-methods-and-status
 title: HTTP Methods & Status Codes
 sidebar_position: 4
-sidebar_label: 3. Methods & Status
+sidebar_label: Methods & Status
 description: The verbs (GET, POST, PUT, PATCH, DELETE) and the numeric replies (200, 404, 500) that make up every HTTP conversation.
 ---
 

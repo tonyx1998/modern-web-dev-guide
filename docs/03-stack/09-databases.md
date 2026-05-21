@@ -2,7 +2,7 @@
 id: databases
 title: Databases (Tools)
 sidebar_position: 10
-sidebar_label: 9. Databases
+sidebar_label: Databases
 description: The store of truth for your application. Postgres dominates; SQLite is increasingly production-viable; Redis is for caching and queues; specialized DBs only when justified.
 ---
 

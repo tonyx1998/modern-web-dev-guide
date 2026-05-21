@@ -2,7 +2,7 @@
 id: csr
 title: CSR — Client-Side Rendering
 sidebar_position: 13
-sidebar_label: 12. CSR
+sidebar_label: CSR
 description: The browser, not the server, builds the page. Great for internal tools and admin dashboards; poor default for public sites.
 ---
 

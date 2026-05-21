@@ -2,7 +2,7 @@
 id: backend-frameworks
 title: Backend Frameworks
 sidebar_position: 8
-sidebar_label: 7. Backend Frameworks
+sidebar_label: Backend Frameworks
 description: What you use to build the server side. Hono, Express, Fastify, NestJS, FastAPI, Django, Rails, Spring — and when to pick each.
 ---
 

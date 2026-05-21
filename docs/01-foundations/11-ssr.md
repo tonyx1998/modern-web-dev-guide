@@ -2,7 +2,7 @@
 id: ssr
 title: SSR — Server-Side Rendering
 sidebar_position: 12
-sidebar_label: 11. SSR
+sidebar_label: SSR
 description: HTML is generated on the server, fresh, for every request. Slower than SSG but always up-to-date and personalizable.
 ---
 

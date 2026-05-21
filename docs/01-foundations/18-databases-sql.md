@@ -2,7 +2,7 @@
 id: databases-sql
 title: Relational (SQL) Databases
 sidebar_position: 19
-sidebar_label: 18. SQL Databases
+sidebar_label: SQL Databases
 description: Tables, rows, columns, foreign keys, joins, ACID guarantees. The dominant default in 2026 — and almost always the right starting choice.
 ---
 

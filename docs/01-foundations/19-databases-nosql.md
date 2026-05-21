@@ -2,7 +2,7 @@
 id: databases-nosql
 title: NoSQL & Specialized Databases
 sidebar_position: 20
-sidebar_label: 19. NoSQL & Specialized
+sidebar_label: NoSQL & Specialized
 description: Document, key-value, search, and vector databases. When and why to reach beyond Postgres.
 ---
 

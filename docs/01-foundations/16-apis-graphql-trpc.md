@@ -2,7 +2,7 @@
 id: apis-graphql-trpc
 title: GraphQL & tRPC
 sidebar_position: 17
-sidebar_label: 16. GraphQL & tRPC
+sidebar_label: GraphQL & tRPC
 description: Two alternatives to REST. GraphQL lets clients specify exactly what they want; tRPC eliminates the API layer entirely for TypeScript-to-TypeScript apps.
 ---
 

@@ -2,7 +2,7 @@
 id: observability-tools
 title: Monitoring & Observability (Tools)
 sidebar_position: 18
-sidebar_label: 17. Observability Tools
+sidebar_label: Observability Tools
 description: The tooling for errors (Sentry), logs (Datadog, Axiom), metrics (Prometheus), traces (Honeycomb), and product analytics (PostHog).
 ---
 

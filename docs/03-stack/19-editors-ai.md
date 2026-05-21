@@ -2,7 +2,7 @@
 id: editors-ai
 title: Editors & AI Coding Assistants
 sidebar_position: 20
-sidebar_label: 19. Editors & AI
+sidebar_label: Editors & AI
 description: The tools you actually type into — VS Code, Cursor, JetBrains, Neovim — and the AI assistants (Claude Code, Copilot, Cursor AI) that have become standard in 2026.
 ---
 

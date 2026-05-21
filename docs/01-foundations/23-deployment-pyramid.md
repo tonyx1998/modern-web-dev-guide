@@ -2,7 +2,7 @@
 id: deployment-pyramid
 title: The Deployment Pyramid
 sidebar_position: 24
-sidebar_label: 23. Deployment Pyramid
+sidebar_label: Deployment Pyramid
 description: A bird's-eye view of how code becomes a live website. Source → CI → artifact → registry → deploy → runtime → CDN → user.
 ---
 
