@@ -31,12 +31,12 @@ The series is structured so you can read it in order — each part builds on the
 ### Foundation (read first if new)
 
 - **00-README.md** — This file
-- **01-foundational-concepts.md** — How the web actually works under the hood: client/server, HTTP, DNS, CDNs, browsers, rendering strategies, APIs, databases, auth basics, and the deployment pipeline. Read this first if any of those terms are fuzzy.
-- **02-development-lifecycle.md** — The universal phases every project moves through: planning, design, architecture, setup, implementation, testing, code review, CI/CD, deployment, observability, and maintenance.
+- **01-foundations/** — How the web actually works under the hood (now split into 24 focused pages): client/server, HTTP, DNS, CDNs, browsers, rendering strategies, APIs, databases, auth basics, and the deployment pipeline. Read this first if any of those terms are fuzzy.
+- **02-lifecycle/** — The universal phases every project moves through (split into 11 phase pages): planning, design, architecture, setup, implementation, testing, code review, CI/CD, deployment, observability, and maintenance.
 
 ### Reference (consult as needed)
 
-- **03-tech-stack-decoded.md** — Every major tool in the 2026 web stack explained: what it does, when to use it, why it exists. Covers languages, frontend frameworks, styling, build tools, backends, APIs, databases, ORMs, auth, hosting, DevOps, observability, and AI tooling.
+- **03-stack/** — Every major tool in the 2026 web stack explained (split into 19 layer pages): what it does, when to use it, why it exists. Covers languages, frontend frameworks, styling, build tools, backends, APIs, databases, ORMs, auth, hosting, DevOps, observability, and AI tooling.
 
 ### Workflows by Scale (the heart of the series)
 

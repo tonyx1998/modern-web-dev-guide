@@ -1,0 +1,73 @@
+---
+id: editors-ai
+title: Editors & AI Coding Assistants
+sidebar_position: 20
+sidebar_label: 19. Editors & AI
+description: The tools you actually type into — VS Code, Cursor, JetBrains, Neovim — and the AI assistants (Claude Code, Copilot, Cursor AI) that have become standard in 2026.
+---
+
+# Editors & AI Coding Assistants
+
+> **In one line:** VS Code is free and dominant; Cursor is the paid AI-first fork most working developers prefer in 2026; AI coding assistants are no longer optional for competitive productivity.
+
+:::tip In plain English
+This is the last layer of the stack — the *editor* itself, the program you spend all day typing into. In 2026, the choice has shifted from "vim vs Emacs vs VS Code" to "which AI-augmented editor do I use?" Free options exist; paid options are dramatically more productive for working developers.
+:::
+
+## Editors
+
+| Editor              | Notes                                                          |
+|---------------------|----------------------------------------------------------------|
+| **VS Code**          | Free, dominant. The reasonable default for newcomers.          |
+| **Cursor**           | VS Code fork with deep AI integration. Massive in 2026.       |
+| **Zed**              | Fast, collaborative, Rust-based.                                |
+| **JetBrains (WebStorm, IntelliJ)** | Powerful, paid, popular in enterprises.             |
+| **Neovim**           | Beloved by power users. Steep learning curve.                  |
+
+## AI coding assistants
+
+| Tool                  | Notes                                                       |
+|-----------------------|-------------------------------------------------------------|
+| **Claude Code**        | Anthropic's terminal-based AI coding agent. Used heavily for autonomous coding tasks. |
+| **GitHub Copilot**     | Inline AI completions; the original mainstream AI coding tool. |
+| **Cursor's built-in AI** | Best-in-class tab completion + chat.                      |
+| **Windsurf**           | Cursor competitor with strong agentic mode.                 |
+| **Continue**           | Open-source assistant, works in VS Code/JetBrains.          |
+
+## How AI tools have changed the workflow
+
+In 2026, AI coding assistants are not optional for competitive productivity. The skill is *reviewing and editing AI output*, not generating it from scratch.
+
+Three modes of AI-assisted work, in increasing autonomy:
+
+1. **Inline completions** (Copilot, Cursor tab) — Predict the next few lines as you type. Massive boost on boilerplate.
+2. **Chat-based generation** (Cursor compose, Claude in chat) — "Refactor this function," "Write a test for this." Mid-sized changes.
+3. **Agentic coding** (Claude Code, Windsurf agent) — "Implement this issue" or "Migrate this codebase from X to Y." Multi-file, multi-step.
+
+The bigger the task, the more you need to *review* what the AI produced. The skills that matter most in 2026 are reading code, judging design, debugging, and architectural taste — not raw typing speed.
+
+:::info Highlight: AI doesn't replace fundamentals — it amplifies them
+A junior developer with AI but no fundamentals produces code they can't debug. A senior developer with AI produces 2–5× more high-quality code.
+
+**The investment thesis:** keep learning the underlying concepts (the rest of this guide). AI is a power amplifier for whatever you already know. The more you know, the more leverage you get.
+:::
+
+## Wrapping up Part 3
+
+This is the working vocabulary of modern web development. You don't need every tool — you need to know *what exists* so you can reach for the right one.
+
+The key choices in 2026 for a new full-stack app:
+
+- **Language:** TypeScript
+- **Framework:** Next.js (or Astro for content sites)
+- **Styling:** Tailwind + shadcn/ui
+- **Database:** Postgres (Supabase or Neon)
+- **ORM:** Drizzle
+- **Auth:** Clerk or Better Auth
+- **Hosting:** Vercel or Cloudflare
+- **Observability:** Sentry + PostHog + Better Stack
+- **AI:** Vercel AI SDK + Anthropic/OpenAI
+
+This is the "boring" path. It's boring because it works. Save creativity for your product.
+
+→ **Next chapter:** [Part 4: Personal Website Workflow](/docs/personal-website-workflow) — how all this comes together for a solo developer's first project.

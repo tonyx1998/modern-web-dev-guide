@@ -1,0 +1,118 @@
+---
+id: ssr
+title: SSR — Server-Side Rendering
+sidebar_position: 12
+sidebar_label: 11. SSR
+description: HTML is generated on the server, fresh, for every request. Slower than SSG but always up-to-date and personalizable.
+---
+
+# SSR — Server-Side Rendering
+
+> **In one line:** Build HTML fresh, per user, per request. Slower than SSG but always current and personalizable.
+
+:::tip In plain English
+SSR is what the web did before SSG existed and what most "dynamic" sites still do. Every time you visit `amazon.com/orders`, Amazon's servers look up *your* orders, build *your* personalized HTML, and send it to you. The next user gets entirely different HTML built for them. The trade-off: someone has to do that work on the server every time, which costs money and adds latency.
+:::
+
+## How SSR works
+
+HTML is generated on the server **for each request**.
+
+**Flow:**
+
+1. User requests `/products/42`.
+2. Server runs your code, queries the database, builds HTML.
+3. Server sends HTML to the user.
+4. Browser displays it; JavaScript "hydrates" the page to add interactivity.
+
+```
+Request flow:
+  User → server → run code → query DB → render HTML → send back → browser shows it
+        └─── all this happens fresh, per request ─────┘
+```
+
+The word **hydrate** matters here: the server sends complete HTML *and* a JavaScript bundle. The browser shows the HTML immediately, then runs the JavaScript which "attaches" event handlers and React/Vue/etc. state to the existing DOM. The page goes from "visible but inert" to "fully interactive" smoothly.
+
+## Pros
+
+- **Always-fresh data** — every request hits the database.
+- **Good for SEO** — search engines see real HTML, not an empty `<div id="app">`.
+- **Can personalize per request** — show the user's name, region, currency, etc.
+- **Works without JavaScript on the client** — even with JS disabled, content is visible.
+
+## Cons
+
+- **Slower than SSG** — server has to do work per request.
+- **Requires running servers** — more expensive than just hosting static files.
+- **Server load scales with traffic** — 10× users means roughly 10× server CPU.
+
+:::note Worked example: SSG vs SSR for the same page
+Imagine `/products/42`.
+
+**With SSG:**
+
+```
+Build time:  Render the page for product 42 once. Save as products-42.html.
+Request:     CDN serves products-42.html in 30ms.
+Problem:     If price changes, you must rebuild & redeploy.
+```
+
+**With SSR:**
+
+```
+Request:     Server queries DB for product 42, renders HTML with current price.
+              Sends to user in ~200ms.
+Benefit:     Price update is reflected immediately.
+Cost:        Server does this work every single time.
+```
+
+A blog post would be SSG (rarely changes). A product page with live inventory and pricing would be SSR (changes constantly).
+:::
+
+## When to use SSR
+
+| Site type            | SSR fit?                                          |
+|---------------------|---------------------------------------------------|
+| E-commerce           | ✅ Live pricing, inventory, recommendations       |
+| Social media feeds   | ✅ Personalized per user                          |
+| Dashboards (public)  | ✅ Live data                                      |
+| Booking / scheduling | ✅ Live availability                              |
+| Blog / docs          | ⚠️ Possible, but SSG is usually better            |
+| Marketing site       | ❌ Use SSG                                        |
+
+## The tools
+
+| Tool              | Notes                                                       |
+|-------------------|-------------------------------------------------------------|
+| **Next.js**       | Most common 2026 choice (App Router does streaming SSR by default) |
+| **Nuxt**          | Vue equivalent of Next.js                                   |
+| **SvelteKit**     | Svelte equivalent                                           |
+| **Remix**         | React, web-platform-first (form-driven)                     |
+| **Rails**         | The classic — Ruby on Rails has been doing SSR since 2004   |
+| **Django**        | Python equivalent                                           |
+| **Phoenix / Elixir** | LiveView is a fascinating SSR + real-time hybrid         |
+
+:::info Highlight: SSR is just "the original web" with better tools
+SSR sounds modern but it's actually the *oldest* model — PHP, Rails, Django, even ASP from the 1990s all did SSR. What changed in the last decade is that React/Vue/Svelte made it possible to have an SSR architecture *and* a snappy SPA-like client experience, by sending hydration JavaScript alongside the server-rendered HTML.
+:::
+
+## A subtle but important point: streaming
+
+Modern SSR isn't all-or-nothing. With **streaming SSR** (the default in Next.js App Router, Remix, SvelteKit), the server starts sending HTML *as soon as it has the first chunk ready*, before the slow parts are done. The browser starts rendering the header, navigation, and other fast-loading sections immediately, while slow database queries continue in the background and stream in when ready.
+
+We'll cover streaming in detail in the [ISR, Streaming & PPR page](./isr-streaming-ppr). For now, just know that "SSR is too slow" is a 2015 critique — modern streaming SSR is competitive with SSG for first paint.
+
+:::note Try it yourself
+```bash
+npx create-next-app@latest my-app
+# accept defaults (App Router = streaming SSR by default)
+cd my-app
+npm run dev
+```
+
+Visit `http://localhost:3000`. Then open DevTools → Network → reload. You'll see the HTML response stream in chunks rather than as one big blob. That's streaming SSR in action.
+:::
+
+## What's next
+
+→ Continue to [CSR — Client-Side Rendering](./csr) where the *browser* builds the HTML with JavaScript instead of the server.

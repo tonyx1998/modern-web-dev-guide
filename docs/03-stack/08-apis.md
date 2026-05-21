@@ -1,0 +1,134 @@
+---
+id: apis
+title: APIs (Tools)
+sidebar_position: 9
+sidebar_label: 8. APIs
+description: How frontends and backends actually talk. REST, tRPC, GraphQL, gRPC, WebSockets, SSE, webhooks — and when each is the right choice.
+---
+
+# APIs (Tools)
+
+> **In one line:** Pick REST by default. Upgrade to tRPC if you're full-TypeScript. Use GraphQL only with many clients and overlapping data. SSE for AI streaming; WebSockets for chat; webhooks for "tell me when X happens."
+
+:::tip In plain English
+The "API" question is *how* your client and server talk. Several styles exist, each for a different shape of conversation:
+
+- **REST** — "Here's a URL, do this verb." Universal default.
+- **tRPC** — "Call my server function as if it were local." Best for full-TypeScript apps.
+- **GraphQL** — "Let me ask for exactly the fields I want." Best when many clients consume the same data.
+- **gRPC** — "Fast binary protocol between internal services." You'll meet this at large companies.
+- **WebSockets** — "Open a phone line and we can both talk anytime."
+- **SSE** — "Open a phone line, server talks, I listen." Used for AI streaming.
+- **Webhooks** — "Call me back when something happens on your end."
+
+Most apps use 2–4 of these together.
+:::
+
+## REST
+
+The default for public APIs and most internal ones. Universal, simple, language-agnostic.
+
+**Specification:** Use **OpenAPI 3.x** to document REST APIs. Tools can generate client code, mock servers, and tests from an OpenAPI spec.
+
+**Best practices:**
+
+- Use plural nouns for resources (`/users`, not `/user`).
+- Use proper HTTP methods and status codes.
+- Version your API (`/v1/users`).
+- Use pagination for list endpoints (cursor-based preferred over offset for large datasets).
+- Return errors in a consistent format.
+
+## tRPC
+
+End-to-end type safety for TypeScript-only stacks. Eliminates the need for explicit API contracts.
+
+```typescript
+// server/router.ts
+export const appRouter = router({
+  user: {
+    list: publicProcedure
+      .input(z.object({ limit: z.number() }))
+      .query(({ input }) => db.user.findMany({ take: input.limit })),
+    create: protectedProcedure
+      .input(z.object({ name: z.string(), email: z.string().email() }))
+      .mutation(({ input, ctx }) => db.user.create({ data: input })),
+  },
+});
+
+// client.tsx
+const users = await trpc.user.list.query({ limit: 10 });
+await trpc.user.create.mutate({ name: 'Tony', email: 'tony@example.com' });
+```
+
+**When to use:** Full-stack TypeScript apps where both sides are yours.
+**When not to:** Public APIs, APIs consumed by non-TS clients.
+
+## GraphQL
+
+Single endpoint, client specifies query shape.
+
+```graphql
+query GetUserWithPosts($id: ID!) {
+  user(id: $id) {
+    name
+    email
+    posts(limit: 5) {
+      title
+      createdAt
+    }
+  }
+}
+```
+
+**When to use:**
+- Many clients (web, iOS, Android, partners) consuming overlapping data.
+- Federated architectures (multiple teams contributing to one schema).
+- Mobile clients on slow networks (one request instead of many).
+
+**When not to:** Simple CRUD APIs; small teams; public APIs where clients expect REST conventions.
+
+**2026 status:** Stable but less hyped than 2018. Still strong in large orgs; rarely chosen for new small projects.
+
+## gRPC
+
+Binary protocol, very fast. Used for service-to-service communication inside large architectures.
+
+**When to use:** Internal services in microservices architectures, especially polyglot ones.
+**When not to use:** Browser clients (requires gRPC-Web proxy, awkward).
+
+## WebSockets
+
+Persistent, bidirectional connection.
+
+**When to use:** Chat, multiplayer games, collaborative editing, anywhere two-way real-time is essential.
+
+**Libraries:** `ws` (Node), Socket.io (adds reconnection and rooms), Partykit (edge-friendly).
+
+## Server-Sent Events (SSE)
+
+Long-lived HTTP connection where the server streams text events to the client. One-way only.
+
+**When to use:** Streaming LLM responses (the dominant 2026 use case), live dashboards, notifications.
+
+**Why SSE over WebSockets for these:** Simpler, works with HTTP/2 multiplexing, automatic reconnection in browsers.
+
+## Webhooks
+
+The server calls back to your endpoint when something happens (Stripe payments, GitHub events, etc.).
+
+**Implementation tips:**
+
+- Always verify the signature (don't trust the source IP).
+- Be idempotent — webhooks can fire multiple times.
+- Return 200 quickly; do work async.
+- Have a replay mechanism for missed webhooks.
+
+:::info Highlight: webhook security is non-negotiable
+A webhook endpoint is, by definition, accessible to the internet. Anyone can hit it. If you don't verify that the request *actually* came from Stripe (or whoever you expect), you're letting strangers trigger your "process payment" logic.
+
+Every payment processor sends a signature header (`Stripe-Signature`, etc.). *Always* verify it before processing the payload. This is a 5-line code change that prevents catastrophic abuse.
+:::
+
+## What's next
+
+→ Continue to [Databases](./databases) — where your data lives. Spoiler: probably Postgres.

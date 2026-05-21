@@ -114,7 +114,7 @@ You'll use it daily forever.
 
 ### 4. HTTP and How the Web Works
 
-You can't debug what you don't understand. This is covered in detail in 01-foundational-concepts.md.
+You can't debug what you don't understand. This is covered in detail in [Chapter 1: Foundations](/docs/foundations/).
 
 ### 5. SQL and Databases
 

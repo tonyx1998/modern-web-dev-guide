@@ -73,7 +73,7 @@ const config: Config = {
           label: 'Guide',
         },
         {
-          to: '/docs/foundational-concepts',
+          to: '/docs/foundations/',
           label: 'Start Here',
           position: 'left',
         },
@@ -96,9 +96,9 @@ const config: Config = {
           title: 'Foundations',
           items: [
             {label: 'Introduction', to: '/'},
-            {label: '1. Foundations', to: '/docs/foundational-concepts'},
-            {label: '2. Lifecycle', to: '/docs/development-lifecycle'},
-            {label: '3. Tech Stack', to: '/docs/tech-stack-decoded'},
+            {label: '1. Foundations', to: '/docs/foundations/'},
+            {label: '2. Lifecycle', to: '/docs/lifecycle/'},
+            {label: '3. Tech Stack', to: '/docs/stack/'},
           ],
         },
         {

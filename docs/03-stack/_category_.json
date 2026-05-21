@@ -1,0 +1,10 @@
+{
+  "label": "3. Tech Stack",
+  "position": 4,
+  "collapsible": true,
+  "collapsed": false,
+  "link": {
+    "type": "doc",
+    "id": "tech-stack-decoded"
+  }
+}
