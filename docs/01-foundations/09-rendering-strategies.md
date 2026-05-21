@@ -8,19 +8,38 @@ description: Who builds the HTML, and when? This single decision drives the enti
 
 # Rendering Strategies Overview
 
-> **In one line:** "Rendering strategy" answers one question: *who builds the HTML, and when?* Three possible answers — at build time, at request time on the server, or in the browser — give you SSG, SSR, and CSR. Modern apps mix them.
+> **In one line:** Rendering strategy answers two related questions — *when is the first useful HTML produced?* and *how much JavaScript is needed afterward to make the page interactive?* The classic answers are SSG, SSR, and CSR. Modern frameworks rarely pick just one.
 
 :::tip[In plain English]
-Every web page is just HTML. The browser only knows how to display HTML. So somebody, somewhere, has to *build* that HTML. There are exactly three places it can happen:
+Every web page is HTML. The browser only knows how to display HTML. So somebody, somewhere, has to *build* that HTML — and then JavaScript usually has to come along behind it to make buttons, forms, and widgets actually work.
 
-1. **At build time** (the developer's laptop or CI server, before any user shows up)
-2. **At request time, on a server**
-3. **At request time, in the user's browser**
+There are **three baseline moments** when the HTML can be built:
 
-Each choice has dramatic consequences for speed, SEO, freshness of data, cost, and complexity. The next few pages walk through each option in detail.
+1. **Build time** — on the developer's laptop or CI server, before any user shows up.
+2. **Request time, on a server** — when a real user asks for the page.
+3. **Request time, in the user's browser** — JavaScript builds the HTML after the empty shell loads.
+
+Real apps don't pick just one. They mix static shells, cached data, streamed sections, server components, and client-side islands depending on the page. The next few pages walk through each pure choice — and the hybrids that combine them.
 :::
 
-## The three core strategies (and the hybrids on top)
+## Rendering vs hydration — the distinction beginners miss
+
+Two things happen on a typical modern page load, and beginners often conflate them:
+
+| Step          | What it does                                              | When the user can…             |
+|--------------|-----------------------------------------------------------|--------------------------------|
+| **Rendering** | Produces the HTML/DOM the user can *see*.                 | …read content.                  |
+| **Hydration** | Attaches JavaScript behavior to the existing DOM.         | …click buttons, submit forms, see widgets update. |
+
+A page can be **rendered but not yet hydrated** — visible but inert. A button shows on screen; clicking it does nothing for a moment. This is the source of the famous "uncanny valley" feeling on slow modern apps.
+
+- **SSR + hydration** ships HTML first, then JS hydrates it. The page is visible early and becomes interactive later.
+- **CSR** delays both rendering *and* hydration until the JS bundle loads — slower first paint, but they happen close together.
+- **SSG** ships pre-built HTML; hydration is optional (Astro for example skips hydration for components that don't need it).
+
+When someone says "server-rendered," ask: *and does it also need hydration?* For almost every React/Vue/Svelte app, the answer is yes.
+
+## The three pure strategies (and the hybrids on top)
 
 ```mermaid
 flowchart LR
@@ -30,37 +49,56 @@ flowchart LR
     B --> SSG["SSG<br/>Static Site Generation"]
     S --> SSR["SSR<br/>Server-Side Rendering"]
     Br --> CSR["CSR<br/>Client-Side Rendering"]
-    SSG -.hybrid.-> ISR["ISR<br/>Incremental Static Regeneration"]
-    SSR -.hybrid.-> Stream["Streaming SSR + RSC"]
-    SSG -.hybrid.-> PPR["PPR<br/>Partial Prerendering<br/>(static shell + dynamic holes)"]
-    SSR -.hybrid.-> PPR
+    SSG -.cached + stale-while-revalidate.-> ISR["ISR<br/>Incremental Static Regeneration"]
+    SSR -.send HTML in chunks.-> Stream["Streaming SSR<br/>(framework-agnostic)"]
+    Stream -.React-only extra.-> RSC["RSCs<br/>(Next.js App Router)"]
+    SSG -.shell + dynamic hole.-> PPR["PPR<br/>(Next.js opt-in)"]
+    SSR -.shell + dynamic hole.-> PPR
 ```
 
-> **Reading this diagram:** The top row is the *three pure choices* — every page has to be built somewhere. The dotted "hybrid" lines show how modern frameworks like Next.js mix those pure choices on the same page (e.g., a mostly-static page with one live "hole" served per request).
+> **Reading this diagram:** The top row is the *three baseline moments* — every page has to be built somewhere. The dotted lines show how modern frameworks stack hybrids on top. Note that **streaming SSR is framework-agnostic** (Next.js, Remix, SvelteKit, Nuxt all do it), while **RSCs and PPR are Next.js-specific** flavors layered on top.
 
 ## A first-glance comparison
 
-| Strategy | When HTML is built | Speed of first paint | Data freshness   | Hosting needed   | Best for                          |
-|----------|--------------------|----------------------|-------------------|------------------|-----------------------------------|
-| SSG      | Build time         | ⚡⚡⚡ Fastest         | Stale until rebuild | CDN only         | Blogs, docs, marketing            |
-| SSR      | Per request, server | ⚡⚡ Fast              | Fresh             | Running server   | E-commerce, dashboards            |
-| CSR      | In the browser     | ⚡ Slow first load     | Fresh (after API) | CDN only         | Internal tools, admin             |
-| ISR      | Build + occasional rebuild | ⚡⚡⚡ Fastest cached | Stale up to TTL | Vercel/Netlify   | Large catalogs                    |
-| Streaming SSR + RSC | Per request, streamed | ⚡⚡ Fast progressive | Fresh           | Running server   | Most new full-stack apps          |
-| PPR      | Static shell + dynamic holes | ⚡⚡⚡ Best of both | Mixed         | Vercel-class     | The 2026 leading edge             |
+| Strategy | When HTML is built | First useful paint | JS sent to browser | Data freshness | Server cost per req | Main risk |
+|----------|--------------------|---------------------|--------------------|----------------|----------------------|-----------|
+| **SSG** | Build time | Very fast (CDN hit) | Optional / minimal | Stale until rebuild | $0 (CDN only) | Long build for big sites; can't personalize |
+| **SSR** | Per request, server | Depends on data speed — usually fast, sometimes slow | Hydration bundle | Always fresh | Linear with traffic | Slow data = slow first paint |
+| **CSR** | In the browser | Slow (blank until JS loads) | Largest (whole app) | Fresh after API call | $0 (CDN only) | Bad SEO / LCP; bad on slow networks |
+| **ISR** | Build + rebuild on TTL | Very fast (CDN hit) | Same as SSG | Stale up to TTL | $0 normally; rebuild traffic | Eventual consistency; surprise stale data |
+| **Streaming SSR** | Per request, sent in chunks | Fast for above-the-fold | Hydration bundle | Always fresh | Linear with traffic | Suspense / boundary bugs hard to debug |
+| **RSCs** (React, on top of streaming SSR) | Per request, server-only components | Fast | *Less* than plain SSR (server components ship 0 JS) | Always fresh | Linear with traffic | "Server vs client" boundary is subtle |
+| **PPR** (Next.js, opt-in) | Static shell + per-request holes | Very fast (shell is CDN) | Hydration bundle | Mixed (static parts stale; holes fresh) | Cheap (only the holes hit origin) | Newer, opt-in, less ecosystem coverage |
 
-Don't try to memorize the table. Read it once. The next six pages explain each row in detail with diagrams and worked examples.
+> **A note on "fast first paint":** SSR is often described as "fast" — but it can be slow when data is slow. CSR can *feel* fast after the first load but typically loses on LCP. Speed isn't a single number — it's a curve that depends on data, network, and how much JS you ship.
 
-:::info[Highlight: this is the single most-overcomplicated topic in modern web dev]
-You'll see endless blog posts, conference talks, and Twitter threads arguing about rendering strategies. **You don't need a strong opinion on day one.** Pick what your framework defaults to:
+:::info[Highlight: these are not competing options — they stack]
+A common misconception is that RSC, SSR, ISR, and PPR are alternatives you must choose between. They're not. On a single Next.js page you can have:
 
-- **Next.js** defaults to a smart mix of Streaming SSR and SSG.
-- **Astro** defaults to SSG with selective "islands" of client-side JS.
-- **Remix** defaults to SSR.
-- **SvelteKit** defaults to a smart mix.
+- A **statically prerendered** header and footer (SSG / PPR shell).
+- A **streamed server component** rendering the main content (streaming SSR + RSC).
+- A **cached server component** that ISR-revalidates every hour.
+- A **client component** with `"use client"` running an interactive widget (CSR).
 
-Each is a reasonable default. Only optimize away from the default when you have a *specific* problem the default doesn't solve.
+The skill is matching the right strategy to the right *section of the page*, not to the whole app.
 :::
+
+## A concrete real-world stack
+
+Imagine you're building a typical SaaS app. Different pages have different needs:
+
+| Page                          | Sensible strategy                          | Why                                              |
+|-------------------------------|--------------------------------------------|--------------------------------------------------|
+| Marketing homepage            | **SSG** (or PPR shell)                     | Content rarely changes; SEO critical             |
+| Pricing / about / blog        | **SSG**                                    | Same as marketing                                |
+| Product catalog listing       | **ISR** or cached server rendering         | Changes occasionally; SEO matters; thousands of pages |
+| Single product page (price/inventory) | **SSR** or streamed dynamic section | Must be live; SEO matters                        |
+| Cart drawer                   | **CSR / client component**                 | Personalized, no SEO, needs instant updates      |
+| Checkout                      | **SSR** with client islands                | Personalized; some live validation               |
+| User dashboard                | **SSR** (behind auth) or CSR               | Personalized; usually no SEO                     |
+| Admin panel                   | **CSR**                                    | Behind auth; SEO irrelevant; complex UI          |
+
+The marketing homepage and the admin panel use **completely different strategies** even though they're the same app. That's normal — and good.
 
 ## A quick decision tree
 
@@ -71,10 +109,32 @@ flowchart TD
     A{Same content<br/>for every visitor?} -->|Yes| B{Changes rarely?<br/>&lt; once/hour}
     A -->|No| C{Needs SEO<br/>or fast first paint?}
     B -->|Yes| SSG["SSG<br/>(Astro, Next.js static)"]
-    B -->|No| ISR["ISR<br/>(Next.js revalidate, Vercel)"]
-    C -->|Yes| Stream["Streaming SSR + RSC<br/>(Next.js App Router, Remix, SvelteKit)"]
+    B -->|No| ISR["ISR or cached SSR<br/>(Next.js revalidate, Vercel)"]
+    C -->|Yes| Stream["Streaming SSR<br/>(Next.js, Remix, SvelteKit)"]
     C -->|No| CSR["CSR<br/>(admin tools, internal apps behind login)"]
 ```
+
+## Common mistakes
+
+Beginner pitfalls that show up over and over in real codebases:
+
+- **Using CSR for public SEO pages.** Google can index CSR pages in some cases, but most crawlers (and link previews on Slack/Discord/Twitter) can't. If a real-life human will arrive via Google, don't ship them a blank `<div id="root">`.
+- **Using SSR for pages that could be static.** "Just make it server-rendered" is the lazy answer for blog/about/marketing. SSG would be cheaper, faster, and easier to scale.
+- **Thinking "server-rendered" means "no JavaScript."** Almost every React/Vue/Svelte SSR setup still ships a hydration bundle. If you actually need *zero JS*, look at Astro or HTMX.
+- **Thinking rendering strategy is a one-time, whole-app decision.** It's a per-page (and increasingly per-component) decision in modern frameworks.
+- **Treating RSC, SSR, ISR, and PPR as competing options.** They stack on the same page (see the highlight above).
+- **Optimizing for a problem you don't have.** PPR is cool, but if you have 50 users a day on a startup MVP, vanilla Next.js defaults are fine. Pick the simpler tool until the simpler tool fails.
+
+:::info[Highlight: this is the single most-overcomplicated topic in modern web dev]
+You'll see endless blog posts, conference talks, and Twitter threads arguing about rendering strategies. **You don't need a strong opinion on day one.** Pick what your framework defaults to:
+
+- **Next.js (App Router)** — server components by default, with streaming and selective caching.
+- **Astro** — SSG by default, with selective "islands" of client-side JS.
+- **Remix / React Router v7** — SSR by default, with `loader`-based data.
+- **SvelteKit** — a smart mix; SSR with prerender opt-in.
+
+Each is a reasonable default. Only optimize away from the default when you have a *specific* problem the default doesn't solve.
+:::
 
 ## What's next
 

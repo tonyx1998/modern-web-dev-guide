@@ -135,9 +135,11 @@ In Next.js App Router, putting `"use client"` at the top of a component means it
 This single line determines whether your code can use `useState` (client-only), or `await` a database query (server-only). Mastering this boundary is the biggest part of learning the modern React stack. It will feel unnatural for the first few projects, then become second nature.
 :::
 
-## PPR — Partial Prerendering (the bleeding edge)
+## PPR — Partial Prerendering (Next.js-specific, opt-in)
 
-The newest evolution (Next.js 15+): a static "shell" of the page is prerendered at build time, with dynamic "holes" that stream in per request.
+**A note on framing:** PPR is **not a universal pattern** — it's a Next.js-specific hybrid that builds on RSCs. It became the default behavior in Next.js when **Cache Components** are enabled, but Cache Components themselves are opt-in. You won't find PPR in Remix, SvelteKit, Nuxt, or Astro (though some have their own "islands"/"static shell" variations). Don't introduce PPR thinking it's an industry standard — it's leading-edge inside the Next ecosystem.
+
+The idea (Next.js 15+): a static "shell" of the page is prerendered at build time, with dynamic "holes" that stream in per request.
 
 ```mermaid
 flowchart TB
@@ -156,7 +158,7 @@ flowchart TB
 
 > **Reading this diagram:** Green blocks come from the CDN in ~10ms; the orange block is the per-request "hole" that streams in shortly after. The user sees the shell almost instantly and the dynamic part fills in seconds later — same page, two delivery mechanisms.
 
-This is the leading edge in 2026 — many teams haven't adopted it yet, but it's where things are heading. The mental model: **one page, mixed origins, no compromise**.
+This is the emerging hybrid default in some Next.js setups in 2026 — many teams haven't adopted it yet, and it's not (and may never be) a cross-framework standard. The mental model: **one Next.js page, mixed origins, no compromise**.
 
 **Best for:** Pages where 90% is static (template, header, footer) but a few key parts must be live (current price, user-specific content).
 
