@@ -1,0 +1,91 @@
+---
+id: auth
+title: 'Phase 5: Adding Auth'
+sidebar_position: 8
+sidebar_label: 7. Auth
+description: With Clerk, adding auth to a personal project takes about twenty minutes. Passkeys, social login, MFA, and password reset come for free.
+---
+
+# Phase 5: Adding Auth
+
+> **In one line:** Don't build auth. Use Clerk (or Better Auth) and spend the saved month on the actual product.
+
+:::tip In plain English
+Authentication looks easy. "It's just an email and a password, right?" Then come password resets, email verification, social logins, multi-factor, session management, account recovery, breach notifications, passkeys, OAuth flows, and the half-dozen subtle attacks each defends against. Services like Clerk have spent millions of dollars getting this right. Use them.
+:::
+
+## Twenty minutes to working auth
+
+With Clerk, auth takes 20 minutes:
+
+```typescript
+// src/middleware.ts
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+
+const isProtected = createRouteMatcher(['/library(.*)', '/settings(.*)']);
+
+export default clerkMiddleware(async (auth, req) => {
+  if (isProtected(req)) {
+    await auth.protect();
+  }
+});
+
+export const config = {
+  matcher: ['/((?!_next|.*\\..*).*)'],
+};
+```
+
+```typescript
+// src/app/layout.tsx
+import { ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
+
+export default function RootLayout({ children }) {
+  return (
+    <ClerkProvider>
+      <html lang="en">
+        <body>
+          <nav className="border-b p-4 flex justify-between items-center">
+            <a href="/" className="font-bold">ShelfTrack</a>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <SignInButton />
+            </SignedOut>
+          </nav>
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
+  );
+}
+```
+
+Done. Users can sign up, sign in, manage their account, sign out. Clerk handles passkeys, social login, multi-factor, password reset — all of it.
+
+:::note Try it yourself
+After you wire up the middleware and `<ClerkProvider>`:
+
+1. Visit a protected route while signed out → you get redirected to a sign-in page Clerk renders for you.
+2. Sign up with a brand-new email → check your inbox; the verification email is already styled.
+3. Hit the `<UserButton />` dropdown → "Manage Account" gives users a full settings panel (avatar, password, MFA, connected accounts) you didn't build.
+4. Turn on Google login in the Clerk dashboard → "Sign in with Google" appears on the sign-in page with zero code change.
+
+Each of those would be a one-to-three-day task to build yourself. You just got them all for $0 on the free tier.
+:::
+
+:::info Highlight: what you're actually paying for
+Clerk's free tier covers up to 10,000 monthly active users. The cost isn't "renting a login form" — it's renting:
+
+- Up-to-date OAuth integrations with Google, GitHub, Apple, Microsoft, et al.
+- Passkey support that actually works on iOS/Android/Chrome.
+- Account-takeover protection and breached-password checks.
+- A hosted, accessible sign-in UI you don't have to design or maintain.
+- Compliance posture (SOC 2, GDPR data deletion) you'd otherwise need to build yourself.
+
+At $0 for the first 10K users, you'd be irrational to roll your own.
+:::
+
+## What's next
+
+→ Continue to [Phase 6: Payments](./payments) where Stripe Checkout + a webhook handle the entire money flow.

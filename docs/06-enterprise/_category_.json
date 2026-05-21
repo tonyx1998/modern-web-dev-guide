@@ -1,0 +1,7 @@
+{
+  "label": "6. Enterprise",
+  "position": 7,
+  "collapsible": true,
+  "collapsed": false,
+  "link": { "type": "doc", "id": "large-company-workflow" }
+}

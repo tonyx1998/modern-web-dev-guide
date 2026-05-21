@@ -1,0 +1,96 @@
+---
+id: tradeoffs
+title: Trade-Offs and Career Implications
+sidebar_position: 7
+sidebar_label: 6. Trade-Offs
+description: The characteristic trade-offs at each scale, and what working at each scale teaches you about your career.
+---
+
+# Trade-Offs and Career Implications
+
+> **In one line:** Each scale optimizes for different things and sacrifices different things — and where you work shapes which skills you build, sometimes for the rest of your career.
+
+:::tip In plain English
+Most engineering careers move between scales — startups become big, mid-career engineers move to enterprises for stability, senior engineers go back to startups to build something new. Each scale teaches different skills, and the engineers who thrive long-term usually rotate deliberately.
+
+There's no "best" scale to work at. The right one for you depends on what you want to learn next.
+:::
+
+## Common Trade-Offs by Scale
+
+Each scale has its own characteristic trade-offs:
+
+### Personal Project
+- **Optimize for:** Speed, fun, learning.
+- **Sacrifice:** Process, scalability, redundancy, testing rigor.
+- **Risk:** Building the wrong thing, not finishing, accumulating side projects.
+
+### Small Company
+- **Optimize for:** Product-market fit, customer responsiveness, sustainable velocity.
+- **Sacrifice:** Enterprise polish, comprehensive compliance, deep specialization.
+- **Risk:** Over-engineering, under-engineering, premature scaling, scaling too slowly.
+
+### Large Company
+- **Optimize for:** Reliability, security, scale, compliance.
+- **Sacrifice:** Speed, individual autonomy, simplicity.
+- **Risk:** Bureaucratic paralysis, internal politics, technical sclerosis, talent drain.
+
+:::info Highlight: the "wrong scale" mistakes
+The most expensive engineering mistakes come from applying the wrong scale's playbook:
+
+- **Personal project with enterprise process:** Nothing ships. The weekend hacker burns out fighting their own process.
+- **Enterprise with personal-project practices:** Chaos. The trading floor goes dark because someone pushed straight to main.
+- **Small company with personal-project practices:** Chaos at a smaller scale. Five engineers can't all push to main and expect things to work.
+- **Small company with enterprise practices:** Glacial. The 10-person startup that requires three approvers and a security review for every PR ships nothing.
+
+The skill is matching the practices to your scale — not aspiring to the practices of a bigger one.
+:::
+
+## Career Implications
+
+Your stage affects what you'll learn:
+
+### Personal Projects
+- End-to-end ownership of everything.
+- Best-in-class for learning the full stack.
+- Trade-off: limited exposure to teamwork, code review, scale.
+
+### Small Company
+- Generalist work; touch everything.
+- Direct user contact.
+- Trade-off: less depth in any single area; less rigorous engineering practices.
+
+### Large Company
+- Deep specialization possible.
+- Exposure to truly hard scaling problems.
+- Strong engineering culture and mentorship (at the best companies).
+- Trade-off: less personal impact; slower velocity; more process; potentially less variety.
+
+Many successful engineers work in multiple stages over a career. Each teaches different skills.
+
+:::note Worked example: a typical career arc
+A made-up but plausible 15-year arc:
+
+- **Years 1–2:** Bootcamp grad joins a 30-person startup. Touches everything: frontend, backend, deploys, on-call. Burns out a little but learns a lot fast.
+- **Years 3–5:** Senior engineer at a 500-person enterprise. Learns proper testing, observability, code review at scale. Specializes in distributed systems. Mentored by staff engineers.
+- **Years 6–8:** Returns to a Series B startup as their first staff engineer. Brings enterprise practices selectively (CI/CD, observability, modular architecture) without enterprise overhead.
+- **Years 9–12:** Helps grow the startup to 200 engineers; builds the first platform team.
+- **Years 13+:** Either continues scaling the company or rotates to a new domain.
+
+Each stage was the right place for what they were learning at the time. The career didn't *climb a ladder* — it *cycled through scales*, picking up different skills at each.
+:::
+
+## Wrapping up Part 7
+
+These comparisons aren't normative — there's no "right" scale. Each works well for its context. The skill is recognizing your scale and applying appropriate practices.
+
+The biggest mistake is **applying the wrong scale's practices**:
+
+- Personal project with enterprise process: nothing ships.
+- Enterprise with personal-project practices: chaos.
+- Small company with personal-project practices: chaos.
+- Small company with enterprise practices: glacial.
+
+## What's next
+
+→ Continue to [Chapter 8: Decision Frameworks](/docs/decisions) — the principles that help you make sound architectural and technology decisions at *any* scale.

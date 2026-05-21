@@ -1,0 +1,7 @@
+{
+  "label": "10. Career",
+  "position": 11,
+  "collapsible": true,
+  "collapsed": false,
+  "link": { "type": "doc", "id": "career-path" }
+}

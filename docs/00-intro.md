@@ -41,8 +41,8 @@ The guide is structured so you can read straight through, but each path below ge
 |-------|---------------------------------------------------------------------|--------------------------------------------------|
 | 1     | [Foundations](/docs/foundations)                                    | Client/server, HTTP, DNS, browsers, rendering   |
 | 2     | [Lifecycle](/docs/lifecycle)                                        | What a real project looks like end-to-end       |
-| 3     | [Solo / Personal](/docs/personal-website-workflow)                   | Build your first deployed site                  |
-| 4     | [Career Path](/docs/career-path)                                     | What to learn next and where to go              |
+| 3     | [Solo / Personal](/docs/solo)                   | Build your first deployed site                  |
+| 4     | [Career Path](/docs/career)                                     | What to learn next and where to go              |
 
 → **Start with** [Foundations: The Client–Server Model](/docs/foundations/client-server)
 
@@ -54,8 +54,8 @@ The guide is structured so you can read straight through, but each path below ge
 |-------|---------------------------------------------------------------------|--------------------------------------------------|
 | 1     | [Lifecycle](/docs/lifecycle)                                        | Plan, build, ship, monitor                      |
 | 2     | [Tech Stack](/docs/stack)                                           | Every major 2026 tool decoded                   |
-| 3     | [Startup workflow](/docs/small-company-workflow)                     | Managed services, balance speed & quality       |
-| 4     | [Decision Frameworks](/docs/decision-frameworks)                     | How to actually choose technologies             |
+| 3     | [Startup workflow](/docs/startup)                     | Managed services, balance speed & quality       |
+| 4     | [Decision Frameworks](/docs/decisions)                     | How to actually choose technologies             |
 
 → **Jump to** [Tech Stack Overview](/docs/stack)
 
@@ -65,11 +65,11 @@ The guide is structured so you can read straight through, but each path below ge
 
 | Order | Read                                                                | Why                                              |
 |-------|---------------------------------------------------------------------|--------------------------------------------------|
-| 1     | [Enterprise workflow](/docs/large-company-workflow)                  | Kubernetes, SRE, compliance                     |
-| 2     | [Decision Frameworks](/docs/decision-frameworks)                     | Boring tech, reversibility, cost of inaction    |
-| 3     | [AI Integration](/docs/ai-integration)                               | Operating AI features in production             |
+| 1     | [Enterprise workflow](/docs/enterprise)                  | Kubernetes, SRE, compliance                     |
+| 2     | [Decision Frameworks](/docs/decisions)                     | Boring tech, reversibility, cost of inaction    |
+| 3     | [AI Integration](/docs/ai)                               | Operating AI features in production             |
 
-→ **Read** [Enterprise Workflow](/docs/large-company-workflow)
+→ **Read** [Enterprise Workflow](/docs/enterprise)
 
 ### 🔄 I'm doing a refresh
 
@@ -78,7 +78,7 @@ The guide is structured so you can read straight through, but each path below ge
 | Order | Read                                                                | Why                                              |
 |-------|---------------------------------------------------------------------|--------------------------------------------------|
 | 1     | [Tech Stack](/docs/stack)                                           | What's new since you last looked                |
-| 2     | [AI Integration](/docs/ai-integration)                               | The new layer in every modern app               |
+| 2     | [AI Integration](/docs/ai)                               | The new layer in every modern app               |
 | 3     | [Comparison](/docs/comparison)                                       | Side-by-side at every scale                     |
 
 → **Skim** [Tech Stack Overview](/docs/stack)
@@ -108,28 +108,28 @@ Solo developer, 20-person startup, and 2,000-engineer enterprise — three radic
 
 → Free-tier solo stack · Startup managed-service stack · Enterprise Kubernetes platform · How CI/CD looks at each scale
 
-[Read Solo Workflow →](/docs/personal-website-workflow) · [Startup →](/docs/small-company-workflow) · [Enterprise →](/docs/large-company-workflow)
+[Read Solo Workflow →](/docs/solo) · [Startup →](/docs/startup) · [Enterprise →](/docs/enterprise)
 
 ### 🤖 AI as a first-class layer
 AI features (streaming chat, RAG, function calling, agents) are now standard. How to build them and how to operate them.
 
 → Streaming chat patterns · RAG with vector DBs · Function/tool calling · Evals and observability
 
-[Read AI Integration →](/docs/ai-integration)
+[Read AI Integration →](/docs/ai)
 
 ### 🧠 Decision frameworks
 How to actually pick technologies without cargo-culting. Boring-technology rule, reversibility test, cost of inaction.
 
 → Boring vs. shiny · Reversibility ladder · Team-size heuristics · Build vs. buy
 
-[Read Decisions →](/docs/decision-frameworks)
+[Read Decisions →](/docs/decisions)
 
 ### 📈 Career path
 For students and self-taught developers. What to learn first, how to build a portfolio, where the jobs are in 2026.
 
 → Foundational skill checklist · Portfolio anatomy · Specialization tracks · Compensation context
 
-[Read Career →](/docs/career-path)
+[Read Career →](/docs/career)
 
 ---
 
@@ -146,19 +146,19 @@ For students and self-taught developers. What to learn first, how to build a por
 
 ### Workflows by Scale (the heart of the series)
 
-- **[04-personal-website-workflow](/docs/personal-website-workflow)** — Solo developers, personal sites, side projects. Free tiers, minimal infrastructure, maximum shipping speed.
-- **[05-small-company-workflow](/docs/small-company-workflow)** — Startups and small companies (5–50 people). Real product, paying customers, managed services, balance between speed and quality.
-- **[06-large-company-workflow](/docs/large-company-workflow)** — Enterprises (500+ engineers). Microservices, Kubernetes, regulatory compliance, 99.99% uptime, full SRE practices.
+- **[04-personal-website-workflow](/docs/solo)** — Solo developers, personal sites, side projects. Free tiers, minimal infrastructure, maximum shipping speed.
+- **[05-small-company-workflow](/docs/startup)** — Startups and small companies (5–50 people). Real product, paying customers, managed services, balance between speed and quality.
+- **[06-large-company-workflow](/docs/enterprise)** — Enterprises (500+ engineers). Microservices, Kubernetes, regulatory compliance, 99.99% uptime, full SRE practices.
 
 ### Practical Application
 
 - **[07-comparison](/docs/comparison)** — Side-by-side comparison across all three tiers in tables.
-- **[08-decision-frameworks](/docs/decision-frameworks)** — How to actually make architectural choices. The boring technology rule, reversibility test, team-size heuristics, cost-of-inaction calculations.
-- **[09-ai-integration](/docs/ai-integration)** — AI is now a standard layer in web apps. Streaming chat, RAG, function calling, agentic workflows, and how to operate AI features in production.
+- **[08-decision-frameworks](/docs/decisions)** — How to actually make architectural choices. The boring technology rule, reversibility test, team-size heuristics, cost-of-inaction calculations.
+- **[09-ai-integration](/docs/ai)** — AI is now a standard layer in web apps. Streaming chat, RAG, function calling, agentic workflows, and how to operate AI features in production.
 
 ### Career
 
-- **[10-career-path](/docs/career-path)** — For students and developers building toward a career. Foundational skills, portfolios, specialization tracks, learning resources, 2026 compensation context.
+- **[10-career-path](/docs/career)** — For students and developers building toward a career. Foundational skills, portfolios, specialization tracks, learning resources, 2026 compensation context.
 - **[11-glossary](/docs/glossary)** — Quick-reference definitions for every term used across the series.
 
 ---

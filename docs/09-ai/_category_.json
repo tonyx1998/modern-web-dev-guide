@@ -1,0 +1,7 @@
+{
+  "label": "9. AI Layer",
+  "position": 10,
+  "collapsible": true,
+  "collapsed": false,
+  "link": { "type": "doc", "id": "ai-integration" }
+}

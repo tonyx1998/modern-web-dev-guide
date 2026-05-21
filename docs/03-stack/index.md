@@ -70,4 +70,4 @@ This is the "boring" path. It's boring because it works. Save creativity for you
 
 ---
 
-When you finish, move on to [Chapter 4: Personal Website Workflow](/docs/personal-website-workflow).
+When you finish, move on to [Chapter 4: Personal Website Workflow](/docs/solo).

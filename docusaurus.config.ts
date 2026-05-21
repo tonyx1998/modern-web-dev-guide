@@ -104,18 +104,18 @@ const config: Config = {
         {
           title: 'Workflows',
           items: [
-            {label: '4. Solo / Personal', to: '/docs/personal-website-workflow'},
-            {label: '5. Startup / Small Co.', to: '/docs/small-company-workflow'},
-            {label: '6. Enterprise', to: '/docs/large-company-workflow'},
+            {label: '4. Solo / Personal', to: '/docs/solo'},
+            {label: '5. Startup / Small Co.', to: '/docs/startup'},
+            {label: '6. Enterprise', to: '/docs/enterprise'},
             {label: '7. Comparison', to: '/docs/comparison'},
           ],
         },
         {
           title: 'Applied',
           items: [
-            {label: '8. Decisions', to: '/docs/decision-frameworks'},
-            {label: '9. AI Layer', to: '/docs/ai-integration'},
-            {label: '10. Career', to: '/docs/career-path'},
+            {label: '8. Decisions', to: '/docs/decisions'},
+            {label: '9. AI Layer', to: '/docs/ai'},
+            {label: '10. Career', to: '/docs/career'},
             {label: '11. Glossary', to: '/docs/glossary'},
           ],
         },
