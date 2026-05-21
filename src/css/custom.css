@@ -60,16 +60,101 @@ html {
   margin: 2.5rem 0;
 }
 
-/* Sidebar polish */
+/* ============================================================
+   Sidebar hierarchy
+   Three visual levels:
+   1. Chapter category (e.g. "1. Foundations")     — biggest, boldest
+   2. Sub-category (e.g. "Networking & HTTP")      — medium, semi-bold, accent color
+   3. Page link (e.g. "Client–Server")             — small, normal weight
+   ============================================================ */
+
+/* Defaults */
 .menu__link {
-  font-size: 0.93rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
 }
 
 .menu__link--sublist-caret::after {
   opacity: 0.7;
 }
 
-/* Table-of-contents on the right */
+/* Level 1 — Chapter category headers ("1. Foundations", "2. Lifecycle", etc.) */
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > .menu__link,
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > a.menu__link {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ifm-color-emphasis-900);
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  margin-top: 0.4rem;
+}
+
+/* Top-level standalone links (Introduction, 11. Glossary) — match chapter weight */
+.theme-doc-sidebar-item-link-level-1 > .menu__link {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ifm-color-emphasis-900);
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+}
+
+/* Level 2 — Sub-category headers ("Networking & HTTP", "Frontend", etc.) */
+.theme-doc-sidebar-item-category-level-2 > .menu__list-item-collapsible > .menu__link {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding-top: 0.45rem;
+  padding-bottom: 0.35rem;
+  opacity: 0.85;
+}
+
+[data-theme='dark'] .theme-doc-sidebar-item-category-level-2 > .menu__list-item-collapsible > .menu__link {
+  color: var(--ifm-color-primary-light);
+}
+
+/* Level 2 + level 3 — Leaf page links inside chapters */
+.theme-doc-sidebar-item-link-level-2 > .menu__link,
+.theme-doc-sidebar-item-link-level-3 > .menu__link {
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.theme-doc-sidebar-item-link-level-2 > .menu__link--active,
+.theme-doc-sidebar-item-link-level-3 > .menu__link--active {
+  font-weight: 600;
+}
+
+/* A subtle divider line above each chapter to visually separate them */
+.theme-doc-sidebar-item-category-level-1:not(:first-child) {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  margin-top: 0.5rem;
+  padding-top: 0.3rem;
+}
+
+[data-theme='dark'] .theme-doc-sidebar-item-category-level-1:not(:first-child) {
+  border-top-color: var(--ifm-color-emphasis-300);
+}
+
+/* Reduce the indent on level-3 items so the hierarchy fits */
+.theme-doc-sidebar-item-link-level-3 > .menu__link {
+  padding-left: 1.5rem;
+}
+
+/* Right-side TOC */
 .table-of-contents__link--active {
   font-weight: 600;
+}
+
+/* Make the page H1 stand out a bit more (the title of the doc itself) */
+.markdown > header > h1,
+.markdown h1:first-child {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
