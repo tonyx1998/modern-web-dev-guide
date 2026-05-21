@@ -2,7 +2,7 @@
 
 A comprehensive, beginner-friendly 2026 guide to how websites and web applications are actually built. ~9,000 lines across 12 chapters, written so an absolute beginner can follow along while still being useful to working developers.
 
-> **Live site:** _will be available once you deploy — see "Deploy" below._
+> **Live site:** https://tonyx1998.github.io/modern-web-dev-guide/
 
 ---
 
@@ -108,10 +108,10 @@ Open an issue first for anything larger (structural changes, new chapters).
 ### GitHub Pages (recommended)
 
 1. Push this repo to GitHub.
-2. In `docusaurus.config.ts`, replace every `YOUR-GITHUB-USERNAME` with your actual username.
+2. In `docusaurus.config.ts`, replace every `tonyx1998` with your actual username.
 3. In repository **Settings → Pages**, set **Source** to `GitHub Actions`.
 4. Push to `main`. The workflow in `.github/workflows/deploy.yml` builds and deploys automatically.
-5. Your site lives at `https://YOUR-USERNAME.github.io/modern-web-dev-guide/`.
+5. Your site lives at `https://tonyx1998.github.io/modern-web-dev-guide/`.
 
 ### Vercel / Netlify (alternative)
 

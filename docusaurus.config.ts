@@ -11,10 +11,10 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://YOUR-GITHUB-USERNAME.github.io',
+  url: 'https://tonyx1998.github.io',
   baseUrl: '/modern-web-dev-guide/',
 
-  organizationName: 'YOUR-GITHUB-USERNAME',
+  organizationName: 'tonyx1998',
   projectName: 'modern-web-dev-guide',
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
@@ -40,7 +40,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/docs',
           editUrl:
-            'https://github.com/YOUR-GITHUB-USERNAME/modern-web-dev-guide/tree/main/',
+            'https://github.com/tonyx1998/modern-web-dev-guide/tree/main/',
           showLastUpdateTime: true,
         },
         blog: false,
@@ -83,7 +83,7 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://github.com/YOUR-GITHUB-USERNAME/modern-web-dev-guide',
+          href: 'https://github.com/tonyx1998/modern-web-dev-guide',
           label: 'GitHub',
           position: 'right',
         },
@@ -124,7 +124,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/YOUR-GITHUB-USERNAME/modern-web-dev-guide',
+              href: 'https://github.com/tonyx1998/modern-web-dev-guide',
             },
           ],
         },
