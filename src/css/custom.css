@@ -158,3 +158,86 @@ html {
   letter-spacing: -0.02em;
   line-height: 1.15;
 }
+
+/* ============================================================
+   Mobile-friendly Tabs
+   On small screens, stack the tabs vertically as full-width cards
+   instead of letting them shrink into narrow columns with wrapping.
+   ============================================================ */
+@media (max-width: 600px) {
+  .tabs {
+    flex-direction: column;
+    gap: 0.35rem;
+    border-bottom: none;
+  }
+  .tabs .tabs__item {
+    border-radius: 8px;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    padding: 0.75rem 1rem;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.25;
+    white-space: normal;
+  }
+  .tabs .tabs__item--active {
+    border-color: var(--ifm-color-primary);
+    background: var(--ifm-color-emphasis-100);
+  }
+  [data-theme='dark'] .tabs .tabs__item--active {
+    background: rgba(96, 165, 250, 0.12);
+  }
+}
+
+/* ============================================================
+   Calmer callouts in dark mode
+   The default :::info and :::tip greens/blues can feel intense.
+   Soften background opacity and reduce border thickness.
+   ============================================================ */
+[data-theme='dark'] .theme-admonition {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+[data-theme='dark'] .theme-admonition-tip,
+[data-theme='dark'] .theme-admonition-success {
+  background-color: rgba(46, 133, 85, 0.08);
+}
+[data-theme='dark'] .theme-admonition-info,
+[data-theme='dark'] .theme-admonition-note {
+  background-color: rgba(37, 99, 235, 0.07);
+}
+[data-theme='dark'] .theme-admonition-warning,
+[data-theme='dark'] .theme-admonition-caution {
+  background-color: rgba(234, 179, 8, 0.06);
+}
+[data-theme='dark'] .theme-admonition-danger {
+  background-color: rgba(239, 68, 68, 0.06);
+}
+.theme-admonition {
+  border-width: 1px;
+}
+
+/* ============================================================
+   More breathing room between major sections
+   ============================================================ */
+.markdown h2 {
+  margin-top: 2.75rem;
+  padding-top: 0.5rem;
+}
+.markdown h3 {
+  margin-top: 2rem;
+}
+.markdown > p,
+.markdown > ul,
+.markdown > ol,
+.markdown > blockquote,
+.markdown > .theme-admonition {
+  margin-bottom: 1.1rem;
+}
+.markdown > .theme-admonition + .theme-admonition {
+  margin-top: 1rem;
+}
+
+/* Less visually heavy bullets in long lists */
+.markdown ul {
+  padding-left: 1.25rem;
+}

@@ -45,6 +45,14 @@ Click the tab that matches you. Each path shows only what's relevant — you don
 
 **Build path:** read chapters 1.1–1.4 → make a tiny portfolio site → read [4. Solo Workflow](/docs/solo) → deploy it to Vercel or GitHub Pages. *Total time: a weekend. Total result: a real URL friends can open.*
 
+:::tip[Two ground-truth facts before you start]
+1. **A "website" is just files (HTML, CSS, JavaScript, images) served from a computer on the internet to your browser.** Everything else — frameworks, databases, deployment pipelines, AI features — is layered on top of that one basic idea.
+
+2. **Every working web developer started exactly where you are now.** The thing that separates beginners from professionals is not talent; it's having shipped a few real projects.
+
+If you ever hit jargon: open the [Glossary](/docs/glossary) in a side tab. Every term used in this guide is defined there in plain English.
+:::
+
 </TabItem>
 
 <TabItem value="startup" label="🚀 Joining a startup">
@@ -100,21 +108,8 @@ Click the tab that matches you. Each path shows only what's relevant — you don
 
 ---
 
-:::tip[If you're an absolute beginner — read this first]
-This guide assumes you know *nothing* and gradually builds up. You don't need a CS degree. You don't need to know any programming language already. You don't need to have built anything before.
-
-**Two ground-truth facts before you start:**
-
-1. **A "website" is just files (HTML, CSS, JavaScript, images) served from a computer on the internet to your browser.** Everything else — frameworks, databases, deployment pipelines, AI features — is layered on top of that one basic idea.
-
-2. **Every working web developer started exactly where you are now.** The thing that separates beginners from professionals is not talent; it's having shipped a few real projects. That's literally the whole secret.
-
-**Recommended first read for total beginners:** Chapter 1 (Foundations) → Chapter 4 (Solo / Personal workflow) → ship a tiny project → Chapter 10 (Career). The other chapters can wait until you have something running on the open internet.
-
-If you ever hit jargon you don't understand: open the [Glossary](/docs/glossary) in a side tab. Every term used in this guide is defined there in plain English.
-:::
-
----
+<details>
+<summary>**More about the guide** — themes, full table of contents, conventions, biases</summary>
 
 ## What this guide covers
 
@@ -215,6 +210,8 @@ This guide is opinionated. Where multiple defensible options exist, it recommend
 4. Doesn't lock you in beyond reasonable reversibility
 
 You may disagree with some choices. That's fine — read the reasoning, then make your own call based on your context.
+
+</details>
 
 ---
 

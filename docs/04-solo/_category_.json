@@ -2,6 +2,6 @@
   "label": "4. Solo / Personal",
   "position": 5,
   "collapsible": true,
-  "collapsed": false,
+  "collapsed": true,
   "link": { "type": "doc", "id": "personal-website-workflow" }
 }

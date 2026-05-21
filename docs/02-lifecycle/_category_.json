@@ -2,7 +2,7 @@
   "label": "2. Lifecycle",
   "position": 3,
   "collapsible": true,
-  "collapsed": false,
+  "collapsed": true,
   "link": {
     "type": "doc",
     "id": "development-lifecycle"

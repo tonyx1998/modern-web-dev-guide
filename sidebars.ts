@@ -23,14 +23,14 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '1. Foundations',
       collapsible: true,
-      collapsed: false,
+      collapsed: true,
       link: {type: 'doc', id: 'foundations/foundational-concepts'},
       items: [
         {
           type: 'category',
           label: 'Networking & HTTP',
           collapsible: true,
-          collapsed: false,
+          collapsed: true,
           link: {
             type: 'generated-index',
             title: 'Networking & HTTP',
@@ -51,7 +51,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Inside the browser',
           collapsible: true,
-          collapsed: false,
+          collapsed: true,
           link: {
             type: 'generated-index',
             title: 'Inside the browser',
@@ -68,7 +68,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Rendering strategies',
           collapsible: true,
-          collapsed: false,
+          collapsed: true,
           link: {
             type: 'generated-index',
             title: 'Rendering strategies',
@@ -89,7 +89,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'APIs',
           collapsible: true,
-          collapsed: false,
+          collapsed: true,
           link: {
             type: 'generated-index',
             title: 'APIs',
@@ -107,7 +107,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Data',
           collapsible: true,
-          collapsed: false,
+          collapsed: true,
           link: {
             type: 'generated-index',
             title: 'Data',
@@ -125,7 +125,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Auth',
           collapsible: true,
-          collapsed: false,
+          collapsed: true,
           link: {
             type: 'generated-index',
             title: 'Auth',
@@ -139,7 +139,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Deployment',
           collapsible: true,
-          collapsed: false,
+          collapsed: true,
           link: {
             type: 'generated-index',
             title: 'Deployment',
@@ -163,14 +163,14 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: '3. Tech Stack',
       collapsible: true,
-      collapsed: false,
+      collapsed: true,
       link: {type: 'doc', id: 'stack/tech-stack-decoded'},
       items: [
         {
           type: 'category',
           label: 'Frontend',
           collapsible: true,
-          collapsed: false,
+          collapsed: true,
           link: {
             type: 'generated-index',
             title: 'Frontend',
@@ -189,7 +189,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Build & dev tools',
           collapsible: true,
-          collapsed: false,
+          collapsed: true,
           link: {
             type: 'generated-index',
             title: 'Build & dev tools',
@@ -208,7 +208,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Backend & APIs',
           collapsible: true,
-          collapsed: false,
+          collapsed: true,
           link: {
             type: 'generated-index',
             title: 'Backend & APIs',
@@ -222,7 +222,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Data',
           collapsible: true,
-          collapsed: false,
+          collapsed: true,
           link: {
             type: 'generated-index',
             title: 'Data (tools)',
@@ -236,7 +236,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Services & integrations',
           collapsible: true,
-          collapsed: false,
+          collapsed: true,
           link: {
             type: 'generated-index',
             title: 'Services & integrations',
@@ -255,7 +255,7 @@ const sidebars: SidebarsConfig = {
           type: 'category',
           label: 'Infrastructure',
           collapsible: true,
-          collapsed: false,
+          collapsed: true,
           link: {
             type: 'generated-index',
             title: 'Infrastructure',
