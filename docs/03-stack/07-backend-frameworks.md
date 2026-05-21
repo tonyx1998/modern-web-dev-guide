@@ -10,7 +10,7 @@ description: What you use to build the server side. Hono, Express, Fastify, Nest
 
 > **In one line:** A backend framework provides routing, request handling, middleware, and conventions for building HTTP servers. Pick based on your *language*, then on your *team's experience* — almost never on benchmarks.
 
-:::tip In plain English
+:::tip[In plain English]
 A backend framework is to a server what Next.js is to a UI — scaffolding that handles the boring parts (routing, parsing requests, returning JSON) so you can focus on the business logic. In TypeScript, **Hono** and **Fastify** are popular for standalone APIs; for full-stack apps, **Next.js itself is the backend** via Server Actions and route handlers. Python? **FastAPI**. Go? **Gin**. Each ecosystem has clear defaults.
 :::
 
@@ -146,7 +146,7 @@ Batteries-included full-stack framework: ORM, auth, admin UI, templating, forms.
 | Enterprise Java                          | Spring Boot                   |
 | Maximum productivity, solo dev           | Rails 8 or Laravel            |
 
-:::info Highlight: in 2026, "do I need a separate backend?" is the first question
+:::info[Highlight: in 2026, "do I need a separate backend?" is the first question]
 For most small-to-medium full-stack apps, the answer is *no*. Next.js (or Remix/SvelteKit/Nuxt) handles both your frontend and your backend in one deployment. Server Actions let you call server functions directly from client components without writing an API endpoint at all.
 
 This single integration eliminates a *lot* of complexity — no separate auth setup, no separate deploy pipeline, no CORS, no cross-service debugging. Only split frontend and backend when you have a clear reason (e.g., a mobile app sharing the API).

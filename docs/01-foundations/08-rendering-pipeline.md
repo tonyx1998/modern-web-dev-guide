@@ -10,7 +10,7 @@ description: How a browser turns HTML and CSS into pixels — DOM, CSSOM, layout
 
 > **In one line:** HTML and CSS become pixels through a five-step pipeline. Knowing which step each CSS change triggers is the difference between a 60fps interface and a janky one.
 
-:::tip In plain English
+:::tip[In plain English]
 Imagine the browser is a chef preparing a meal:
 1. Read the recipe (parse HTML → build DOM).
 2. Read the seasoning chart (parse CSS → build CSSOM).
@@ -52,7 +52,7 @@ Understanding this pipeline is essential for performance:
 
 This is why CSS animations using `transform` are 60fps smooth and animations using `top`/`left` often stutter.
 
-:::note Worked example: animate a card sliding in
+:::note[Worked example: animate a card sliding in]
 **Slow (triggers layout every frame):**
 ```css
 .card {
@@ -95,7 +95,7 @@ Modern best practices:
 
 The framework you choose largely handles this for you, but understanding what's underneath matters when things go wrong.
 
-:::info Highlight: the LCP shortcut
+:::info[Highlight: the LCP shortcut]
 The most important performance metric in 2026 is **LCP (Largest Contentful Paint)** — how long until the largest above-the-fold element (usually a hero image or headline) is visible. Google ranks sites on it.
 
 To make LCP fast, ensure:
@@ -106,7 +106,7 @@ To make LCP fast, ensure:
 Most LCP problems trace to violating #1, #2, or #3.
 :::
 
-:::note Try it yourself
+:::note[Try it yourself]
 Open any site and run Chrome DevTools → **Lighthouse** → Analyze page load. The "Performance" section will tell you your LCP, FID, CLS, and TBT scores, and *exactly* which resources are blocking rendering. Run it on your own site (or any side project) — the suggestions are often the highest-leverage performance wins you'll find.
 :::
 

@@ -10,7 +10,7 @@ description: End-to-end code combining streaming, RAG, observability, and rate l
 
 > **In one line:** A real customer-support assistant in ~60 lines — combining ingestion, vector retrieval, streaming generation, rate limiting, and observability.
 
-:::tip In plain English
+:::tip[In plain English]
 This page is the end-to-end glue: take everything from the previous patterns (RAG, streaming, observability, rate limits) and combine them into one working feature. The point isn't the exact code — it's seeing how little each part costs once you understand the pieces.
 :::
 
@@ -102,7 +102,7 @@ Always cite sources by mentioning the document name.`,
 
 About 60 lines of code for a real RAG-based support bot. Plus the UI, the docs ingestion script, observability, and evaluation — but the core pattern is straightforward.
 
-:::note Worked example: mapping the code back to the patterns
+:::note[Worked example: mapping the code back to the patterns]
 Each piece of the snippet maps directly to a previous chapter:
 
 | Code section                       | Pattern from earlier             |
@@ -118,7 +118,7 @@ Each piece of the snippet maps directly to a previous chapter:
 This isn't a toy. It's the *shape* of every real RAG product in 2026 — just with more UI polish, better chunking, and a much bigger eval set.
 :::
 
-:::info Highlight: what's still missing in the snippet (and worth adding before you ship)
+:::info[Highlight: what's still missing in the snippet (and worth adding before you ship)]
 The 60-line snippet is honest about the happy path. Real production deployments also need:
 
 - **Eval set** with 50+ representative questions, run on every prompt change (see [observability](./ai-observability)).

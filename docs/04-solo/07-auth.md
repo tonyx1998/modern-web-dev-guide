@@ -10,7 +10,7 @@ description: With Clerk, adding auth to a personal project takes about twenty mi
 
 > **In one line:** Don't build auth. Use Clerk (or Better Auth) and spend the saved month on the actual product.
 
-:::tip In plain English
+:::tip[In plain English]
 Authentication looks easy. "It's just an email and a password, right?" Then come password resets, email verification, social logins, multi-factor, session management, account recovery, breach notifications, passkeys, OAuth flows, and the half-dozen subtle attacks each defends against. Services like Clerk have spent millions of dollars getting this right. Use them.
 :::
 
@@ -67,7 +67,7 @@ export default function RootLayout({ children }) {
 
 Done. Users can sign up, sign in, manage their account, sign out. Clerk handles passkeys, social login, multi-factor, password reset — all of it.
 
-:::note Try it yourself
+:::note[Try it yourself]
 After you wire up the middleware and `<ClerkProvider>`:
 
 1. Visit a protected route while signed out → you get redirected to a sign-in page Clerk renders for you.
@@ -78,7 +78,7 @@ After you wire up the middleware and `<ClerkProvider>`:
 Each of those would be a one-to-three-day task to build yourself. You just got them all for $0 on the free tier.
 :::
 
-:::info Highlight: what you're actually paying for
+:::info[Highlight: what you're actually paying for]
 Clerk's free tier covers up to 10,000 monthly active users. The cost isn't "renting a login form" — it's renting:
 
 - Up-to-date OAuth integrations with Google, GitHub, Apple, Microsoft, et al.

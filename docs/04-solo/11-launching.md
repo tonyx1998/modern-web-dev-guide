@@ -10,7 +10,7 @@ description: Personal projects don't need formal launches. Soft-launch to friend
 
 > **In one line:** Personal projects don't need formal launches. Tell friends, post a few places, write about why you built it. The product matters more than the launch.
 
-:::tip In plain English
+:::tip[In plain English]
 At a big company, "launch" is a coordinated event with press, marketing, and a war room. For an indie project, it's a tweet and a Hacker News post. The thing that actually determines whether anyone uses your project is the product itself, not the launch performance. Don't agonize over launch day.
 :::
 
@@ -50,7 +50,7 @@ If you're selling, you need a landing page that explains:
 
 For inspiration, look at landing pages of indie SaaS products on Indie Hackers.
 
-:::note Worked example: a "Show HN" post that worked
+:::note[Worked example: a "Show HN" post that worked]
 A good Show HN title and body look like:
 
 > **Show HN: ShelfTrack — book tracking without the social network**
@@ -64,7 +64,7 @@ A good Show HN title and body look like:
 The pattern: clear problem, clear solution, honest stack/effort, specific feedback request. The HN crowd rewards honesty and punishes marketing-speak.
 :::
 
-:::info Highlight: the product is the launch
+:::info[Highlight: the product is the launch]
 A great launch of a mediocre product gets you a spike of traffic and then crickets. A mediocre launch of a great product gets you slow but compounding growth. If you have limited weekend time, spend the bulk of it on the product, not on launch-day choreography.
 :::
 

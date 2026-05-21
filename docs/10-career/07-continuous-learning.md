@@ -10,7 +10,7 @@ description: How to stay current in a field that never stops changing — withou
 
 > **In one line:** A small daily/weekly info diet, a quarterly deep-dive, a yearly career audit — plus books, paid courses, free resources, and AI as a tutor.
 
-:::tip In plain English
+:::tip[In plain English]
 You cannot read every new framework announcement. Don't try. Have a small information diet you actually keep up with, and a deeper habit you renew quarterly. The engineers who stay good for decades treat learning like exercise — small, regular, sustainable — not like cramming for a final.
 :::
 
@@ -77,7 +77,7 @@ Modern AI assistants are genuinely excellent at:
 
 Use Claude, ChatGPT, Cursor as tutors. Ask questions you'd be embarrassed to ask a colleague. Verify the answers (they're sometimes wrong), but the learning loop is fast.
 
-:::note Try it yourself: a 30-minute weekly habit
+:::note[Try it yourself: a 30-minute weekly habit]
 Pick a fixed slot — say, Sunday evening, 30 minutes. In that slot only:
 
 1. Skim your newsletter backlog (10 min).
@@ -87,7 +87,7 @@ Pick a fixed slot — say, Sunday evening, 30 minutes. In that slot only:
 That's it. Done weekly for a year, this gives you 50 deep reads — more than enough to stay in touch with the field without falling into the doomscroll-shaped hole.
 :::
 
-:::info Highlight: AI is the most underrated learning tool
+:::info[Highlight: AI is the most underrated learning tool]
 For *concept understanding* — not code generation — modern AI assistants are an order of magnitude better than the average tutorial. They explain at your level, answer follow-ups, and don't judge basic questions. The catch is verification: always sanity-check the answer against MDN or the actual docs before you trust it in production.
 :::
 

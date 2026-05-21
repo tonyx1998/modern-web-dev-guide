@@ -10,7 +10,7 @@ description: Big-bang migrations are usually disasters. Incremental migrations w
 
 > **In one line:** Big-bang migrations are usually disasters. Incremental migrations — strangler fig, branch by abstraction, parallel run, feature flags — work.
 
-:::tip In plain English
+:::tip[In plain English]
 The temptation with a painful old system is to "just rewrite it from scratch." That almost never works: the rewrite always takes longer than planned, the original system keeps adding features in the meantime, and switching cost is huge. The reliable approach is to migrate piece by piece, with traffic that you can flip back the moment something breaks.
 :::
 
@@ -67,7 +67,7 @@ The temptation with a painful old system is to "just rewrite it from scratch." T
 4. **Communicate clearly.** Other teams need to know what's happening.
 5. **Commit to finishing.** Half-migrated systems are worse than either old or new.
 
-:::note Worked example: strangler fig for a billing rewrite
+:::note[Worked example: strangler fig for a billing rewrite]
 The old billing system is a tangle of cron jobs and stored procedures. The team decides to migrate to a clean, event-driven service.
 
 Their plan (using strangler fig + parallel run + feature flags):
@@ -81,7 +81,7 @@ Their plan (using strangler fig + parallel run + feature flags):
 Total migration: 4 months — slower than a "big bang" plan would have estimated, but actually *finished* and with no billing incidents. A big-bang version of the same migration almost certainly would have had a billing outage.
 :::
 
-:::info Highlight: half-migrated is the worst state
+:::info[Highlight: half-migrated is the worst state]
 The single worst migration outcome isn't "old system stays" or "new system ships." It's **"both run forever, neither is canonical."**
 
 Half-migrated systems double maintenance cost, double the surface area for bugs, and create a perpetual question of "which one is the truth?" If you start a migration, commit a date to finishing it. If you can't commit, don't start.

@@ -10,7 +10,7 @@ description: How frontends and backends actually talk. REST, tRPC, GraphQL, gRPC
 
 > **In one line:** Pick REST by default. Upgrade to tRPC if you're full-TypeScript. Use GraphQL only with many clients and overlapping data. SSE for AI streaming; WebSockets for chat; webhooks for "tell me when X happens."
 
-:::tip In plain English
+:::tip[In plain English]
 The "API" question is *how* your client and server talk. Several styles exist, each for a different shape of conversation:
 
 - **REST** — "Here's a URL, do this verb." Universal default.
@@ -125,7 +125,7 @@ The server calls back to your endpoint when something happens (Stripe payments, 
 - Return 200 quickly; do work async.
 - Have a replay mechanism for missed webhooks.
 
-:::info Highlight: webhook security is non-negotiable
+:::info[Highlight: webhook security is non-negotiable]
 A webhook endpoint is, by definition, accessible to the internet. Anyone can hit it. If you don't verify that the request *actually* came from Stripe (or whoever you expect), you're letting strangers trigger your "process payment" logic.
 
 Every payment processor sends a signature header (`Stripe-Signature`, etc.). *Always* verify it before processing the payload. This is a 5-line code change that prevents catastrophic abuse.

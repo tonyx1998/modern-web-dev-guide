@@ -10,7 +10,7 @@ description: Trunk-based development, short-lived branches, conventional commits
 
 > **In one line:** Short-lived feature branches off `main`, conventional commits, feature flags for risky launches, and Drizzle Kit for every schema change.
 
-:::tip In plain English
+:::tip[In plain English]
 At startup scale, the daily development loop is less about which framework to use and more about how the team coordinates. Branches should live for days, not weeks. Commit messages should be parseable. Risky features should hide behind flags instead of long-running branches. Schema changes should go through code review, not into the production DB by hand.
 :::
 
@@ -83,7 +83,7 @@ git commit -m "feat: add export_format to users"
 
 Some teams pair extensively; others work async. Both are fine. The key: real review of code, not rubber stamps.
 
-:::note Worked example: a risky launch behind a flag
+:::note[Worked example: a risky launch behind a flag]
 The team is rolling out a new pricing UI. The risk: existing customers see new prices unexpectedly and panic.
 
 1. Build the new pricing page behind a `new-pricing` flag.
@@ -96,7 +96,7 @@ The team is rolling out a new pricing UI. The risk: existing customers see new p
 If anything had gone wrong at any step, the team could turn the flag off instantly — no deploy, no rollback, no "where's the previous commit." That's the whole pitch for feature flags.
 :::
 
-:::info Highlight: long-lived branches are technical debt
+:::info[Highlight: long-lived branches are technical debt]
 A branch that lives more than a week becomes its own special kind of pain — every day, `main` drifts further away, conflicts pile up, and the eventual merge becomes a high-risk event. The trunk-based discipline isn't dogma; it's the path of *fewer* merge conflicts, *not more.*
 
 When a feature is too big to fit in a 1–3 day branch, that's a signal to either (a) decompose it into smaller mergeable steps, or (b) merge it incrementally behind a feature flag. Almost never the right answer: keep working on the long branch.

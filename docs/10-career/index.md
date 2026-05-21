@@ -10,7 +10,7 @@ description: For students and developers building toward a career — skills, po
 
 *For students and developers building toward a career in web development.*
 
-:::tip Beginner orientation
+:::tip[Beginner orientation]
 **If you're a complete beginner reading this chapter first:** Welcome. This chapter is structured as a roadmap, not a syllabus — you don't need to know any of the things in it yet. Use it to know *what to aim for*, then circle back to the foundation chapters to start learning.
 
 **The honest summary of web-dev as a career in 2026:**
@@ -37,7 +37,7 @@ This chapter is the practical advice on becoming a great web developer in 2026: 
 
 The advice is opinionated. It reflects what works in the current market — which is increasingly competitive at the junior level and quite favorable at mid and senior levels.
 
-:::info Jargon for this chapter
+:::info[Jargon for this chapter]
 - **IC (Individual Contributor)** — an engineer whose job is to do the technical work directly, as opposed to managing people. *Staff IC* and *Principal IC* are the senior rungs of this track.
 - **EM (Engineering Manager)** — manages a team of engineers; a different track from IC, not "above" it.
 - **SDE (Software Development Engineer)** — Amazon's title for an engineer. SDE I = junior, SDE II = mid, SDE III = senior.

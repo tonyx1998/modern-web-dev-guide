@@ -10,7 +10,7 @@ description: The characteristic trade-offs at each scale, and what working at ea
 
 > **In one line:** Each scale optimizes for different things and sacrifices different things — and where you work shapes which skills you build, sometimes for the rest of your career.
 
-:::tip In plain English
+:::tip[In plain English]
 Most engineering careers move between scales — startups become big, mid-career engineers move to enterprises for stability, senior engineers go back to startups to build something new. Each scale teaches different skills, and the engineers who thrive long-term usually rotate deliberately.
 
 There's no "best" scale to work at. The right one for you depends on what you want to learn next.
@@ -35,7 +35,7 @@ Each scale has its own characteristic trade-offs:
 - **Sacrifice:** Speed, individual autonomy, simplicity.
 - **Risk:** Bureaucratic paralysis, internal politics, technical sclerosis, talent drain.
 
-:::info Highlight: the "wrong scale" mistakes
+:::info[Highlight: the "wrong scale" mistakes]
 The most expensive engineering mistakes come from applying the wrong scale's playbook:
 
 - **Personal project with enterprise process:** Nothing ships. The weekend hacker burns out fighting their own process.
@@ -68,7 +68,7 @@ Your stage affects what you'll learn:
 
 Many successful engineers work in multiple stages over a career. Each teaches different skills.
 
-:::note Worked example: a typical career arc
+:::note[Worked example: a typical career arc]
 A made-up but plausible 15-year arc:
 
 - **Years 1–2:** Bootcamp grad joins a 30-person startup. Touches everything: frontend, backend, deploys, on-call. Burns out a little but learns a lot fast.

@@ -10,7 +10,7 @@ description: Design systems, micro-frontends, shared infrastructure, and perform
 
 > **In one line:** Enterprise frontend is its own discipline — a versioned design system, micro-frontends owned by independent teams, shared SSR and analytics infrastructure, and strict performance budgets.
 
-:::tip In plain English
+:::tip[In plain English]
 A startup frontend is one Next.js repo. An enterprise frontend is dozens of teams shipping pieces of the same UI, all using the same shared component library, all measured against the same performance budget.
 
 The hardest problem isn't the code — it's keeping the UI feeling like *one product* when hundreds of engineers are working on different pieces of it. That's what design systems and shared frontend infrastructure exist to solve.
@@ -37,7 +37,7 @@ For very large apps, different teams ship independent UI pieces:
 
 Micro-frontends are not free. They add complexity to routing, auth, analytics, and shared state. Most companies should resist them until the org pain of a monolithic frontend is genuinely worse than the runtime complexity of micro-frontends.
 
-:::info Highlight: micro-frontends solve a *people* problem, not a *code* problem
+:::info[Highlight: micro-frontends solve a *people* problem, not a *code* problem]
 The honest reason micro-frontends exist is that **a single frontend codebase shared by 50 teams is a coordination nightmare** — every deploy is a merge train, every conflict blocks 50 people.
 
 Micro-frontends let each team deploy independently. The cost is real (bundle duplication, harder cross-cutting changes, more complex auth) but it's worth it once team coordination dominates engineering velocity.
@@ -67,7 +67,7 @@ Each of these is a product, often built by a dedicated team. Product engineers u
 
 A performance budget is a hard constraint: "our login page must be interactive in under 2 seconds at the 75th percentile, on a 4G connection, on a $200 Android phone." If a PR pushes a metric over the budget, CI fails and the change has to be rethought.
 
-:::note Worked example: a design-system upgrade rollout
+:::note[Worked example: a design-system upgrade rollout]
 A design system team wants to ship a major upgrade (v3 with new tokens, new accessibility primitives, breaking changes to ~20 components):
 
 1. **Pre-release:** v3-beta published; one product team adopts it as a guinea pig.

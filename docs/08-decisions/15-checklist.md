@@ -10,7 +10,7 @@ description: Ten questions to run through on any significant decision. Not every
 
 > **In one line:** Ten questions to run through on any significant decision — reach for the full list on high-stakes calls, keep it light for everyday ones.
 
-:::tip In plain English
+:::tip[In plain English]
 The frameworks in this chapter aren't independent — they're a system. When a decision is big enough to matter, walk through this checklist. It forces you to ask the question instead of the assumption.
 :::
 
@@ -31,7 +31,7 @@ For any significant decision, run through:
 
 Not every decision needs the full checklist. Reach for it on high-stakes ones.
 
-:::note Worked example: applying the checklist to "should we add a job queue?"
+:::note[Worked example: applying the checklist to "should we add a job queue?"]
 The team is considering adopting BullMQ for background jobs (currently doing them inline in API requests).
 
 | # | Question                       | Answer                                                                     |
@@ -50,7 +50,7 @@ The team is considering adopting BullMQ for background jobs (currently doing the
 The checklist exposes that this is a slam-dunk — the cost of inaction ($10k/month) dwarfs the build cost (one-time ~$5k), the alternatives are weak, and the rollback plan is real. **Decision: do it.** And because all the work happened upfront, the actual implementation is unblocked.
 :::
 
-:::info Highlight: the checklist's real job is to surface unknowns
+:::info[Highlight: the checklist's real job is to surface unknowns]
 The questions on the list aren't meant to *answer* the decision. They're meant to surface where you *don't yet have information*. If you find yourself answering "uh, I'm not sure" on questions 2, 8, or 9 — that's the signal that you need more data before deciding.
 
 Half of good decision-making is realizing which question you can't answer yet.

@@ -10,7 +10,7 @@ description: Keep the product working and improving over time. The longest phase
 
 > **In one line:** Once a product exists, the *real* work begins. Bug fixes, security patches, dependency updates, refactors, migrations, incident response — for years. This is what most working developers spend most of their time on.
 
-:::tip In plain English
+:::tip[In plain English]
 There's a misconception that "real software engineering" is the building phase. It's not. **Most engineering work happens after launch.** Fixing bugs you didn't anticipate. Patching libraries with new vulnerabilities. Refactoring code that no longer fits. Migrating to new frameworks because the old ones became unmaintainable. Responding to outages at 3am. Writing post-mortems. This is the *day job* for working engineers — and it's where most of your career growth will happen.
 :::
 
@@ -116,7 +116,7 @@ When things break in production:
 5. **Fix** — Real fix, then deploy.
 6. **Post-mortem** — Write up what happened, what we learned, what we'll change.
 
-:::info Highlight: blameless post-mortems
+:::info[Highlight: blameless post-mortems]
 Post-mortems should be **blameless** — focus on systems and processes, not individuals. People make mistakes; resilient systems tolerate them.
 
 Bad post-mortem: "Alice deployed a bad change that took down checkout."

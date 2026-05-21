@@ -10,7 +10,7 @@ description: Metrics, logs, traces, SLOs, OpenTelemetry, incident management, po
 
 > **In one line:** Metrics, logs, and distributed traces — collected via OpenTelemetry, stored in Datadog/Splunk/Honeycomb, tied to formal SLOs and error budgets, with blameless post-mortems for every major incident.
 
-:::tip In plain English
+:::tip[In plain English]
 At a startup, observability is "Sentry sends an email when something breaks." At an enterprise, observability is a whole engineering discipline: every service emits structured metrics, logs, and traces; every team has SLOs; every incident has a blameless post-mortem; and a dedicated on-call rotation is *always* awake somewhere on Earth.
 
 The reason: at this scale, you cannot debug from logs and a gut feeling. You need data — billions of data points per day — and the tools to query it fast enough to matter during an outage.
@@ -69,7 +69,7 @@ A SEV1 incident triggers a defined playbook: page the on-call, spin up an incide
 - Action items with owners and deadlines.
 - Shared org-wide for learning.
 
-:::info Highlight: blameless post-mortems are a feature, not a politeness
+:::info[Highlight: blameless post-mortems are a feature, not a politeness]
 The blameless post-mortem isn't just being nice to whoever caused the incident. It's a *technical* design choice: when people feel safe admitting what happened, they tell you the truth, and you learn the real root cause. When people feel like they'll be punished, they hide details, and you learn nothing.
 
 The single biggest predictor of an org's reliability is whether its post-mortems are honest. That requires the cultural commitment to never punish people for honest mistakes that the *system* should have prevented.
@@ -91,7 +91,7 @@ The error budget makes the trade-off between velocity and reliability concrete a
 
 SLAs are what you promise paying customers. SLOs are stricter — they give you a buffer to catch problems before they violate the SLA. SLIs are the raw measurements that feed both.
 
-:::note Worked example: a SEV1 walkthrough
+:::note[Worked example: a SEV1 walkthrough]
 A major customer-facing API starts returning 5xx errors. Timeline:
 
 - **00:00** — Synthetic monitor in `us-west-2` reports failed checks; PagerDuty triggers.

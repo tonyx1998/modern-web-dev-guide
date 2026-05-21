@@ -10,7 +10,7 @@ description: Edge platforms (Vercel, Cloudflare), app platforms (Railway, Fly.io
 
 > **In one line:** For new web apps in 2026, the answer is almost always Vercel or Cloudflare. Move to AWS/GCP/Azure only when you've outgrown the platform tier or have a specific cloud-native requirement.
 
-:::tip In plain English
+:::tip[In plain English]
 "Hosting" is *where your code runs*. The 2026 hosting landscape splits into three tiers, roughly by how much you outsource vs. control:
 
 - **Edge platforms (Vercel, Cloudflare)** — easiest. You push code; they run it globally. Best for new full-stack web apps.
@@ -54,7 +54,7 @@ description: Edge platforms (Vercel, Cloudflare), app platforms (Railway, Fly.io
 | Enterprise scale                 | AWS / GCP / Azure             |
 | Want one global server cheaply   | Hetzner / DigitalOcean        |
 
-:::note Worked example: hosting tier per scale
+:::note[Worked example: hosting tier per scale]
 | Scale                 | Hosting                              |
 |----------------------|--------------------------------------|
 | Side project, 1 user  | Vercel free tier or Cloudflare Pages |
@@ -66,7 +66,7 @@ description: Edge platforms (Vercel, Cloudflare), app platforms (Railway, Fly.io
 Each tier solves a problem the previous one couldn't. Don't jump tiers prematurely — the operational burden grows faster than the value.
 :::
 
-:::info Highlight: vendor lock-in is overrated for early-stage projects
+:::info[Highlight: vendor lock-in is overrated for early-stage projects]
 A common worry: "Vercel locks me in." It does. So does Cloudflare. So does AWS Lambda. So does Postgres-specific SQL.
 
 For early-stage projects, *ship something*. Lock-in is a problem you'll have when you have customers complaining about pricing — which is a *great* problem to have. Most projects fail because they don't ship, not because they got locked into the wrong platform.

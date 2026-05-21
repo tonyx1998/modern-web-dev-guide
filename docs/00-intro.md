@@ -13,7 +13,7 @@ description: How websites are actually built in 2026 — for absolute beginners 
 
 This is a deep-dive series on how websites and web applications are actually built today. Each chapter is split into focused, single-topic pages with worked examples, plain-English explanations, and pull-out highlights. **12 chapters · ~9,000 lines · designed so you can master one concept per page.**
 
-:::tip If you're an absolute beginner — read this first
+:::tip[If you're an absolute beginner — read this first]
 This guide assumes you know *nothing* and gradually builds up. You don't need a CS degree. You don't need to know any programming language already. You don't need to have built anything before.
 
 **Two ground-truth facts before you start:**

@@ -10,7 +10,7 @@ description: Write code that solves the problem. The largest single phase — bu
 
 > **In one line:** Write code that solves the problem. This is the phase everyone *thinks* is most of the job. It's actually only about a quarter of it.
 
-:::tip In plain English
+:::tip[In plain English]
 Implementation is the writing-code phase. It's where designs become reality. You'll find that most of the work isn't "writing the happy path" — it's handling everything the design didn't explicitly cover (errors, edge cases, slow networks, mistyped input). A solid implementation phase converts a 100-line spec into 2,000 lines of robust code.
 :::
 
@@ -78,7 +78,7 @@ In 2026, AI-assisted coding is the norm:
 
 The skill is *reviewing and editing AI output*, not generating it. Senior developers benefit most because they can spot when AI-generated code is wrong.
 
-:::info Highlight: AI is a power amplifier, not a replacement
+:::info[Highlight: AI is a power amplifier, not a replacement]
 Junior developers who use AI without learning the fundamentals end up with code they can't debug. Senior developers who use AI well ship 2–5× faster. The fundamentals matter *more* in the AI era because reading and judging code is the new bottleneck.
 
 If you're starting out: type the boilerplate yourself for a while. Use AI for explanations, not just code generation. Build your reading-comprehension before your code-generation speed.
@@ -95,7 +95,7 @@ If you're starting out: type the boilerplate yourself for a while. Use AI for ex
 - **Comments that lie:** Comments not updated when code changes; worse than no comments.
 - **Big-bang refactors:** Rewriting half the codebase in one PR.
 
-:::note Worked example: vertical slice vs horizontal layer
+:::note[Worked example: vertical slice vs horizontal layer]
 **Horizontal (bad):**
 
 Week 1: Build *all the UI* for the entire app.

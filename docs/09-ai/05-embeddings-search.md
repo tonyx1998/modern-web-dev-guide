@@ -10,7 +10,7 @@ description: Embeddings power semantic search, recommendations, deduplication, a
 
 > **In one line:** Embeddings turn text into vectors where similar meanings live close together — useful for semantic search, recommendations, deduplication, and clustering, even without a chat model in the mix.
 
-:::tip In plain English
+:::tip[In plain English]
 Embeddings are how you teach software what "similar meaning" looks like. Once everything you care about (documents, items, support tickets) has an embedding, finding "things like this" becomes a math problem instead of a keyword problem. "Affordable laptops" can return results about "budget computers" with zero shared words.
 :::
 
@@ -78,7 +78,7 @@ Group similar items:
 - Theme extraction from feedback.
 - Anomaly detection (items far from any cluster).
 
-:::note Worked example: an embedding-powered support feature
+:::note[Worked example: an embedding-powered support feature]
 A SaaS team adds three features that all share one embeddings index over their support tickets:
 
 1. **"Find similar tickets"** in the agent UI — agents instantly see how the team handled comparable issues before.
@@ -88,7 +88,7 @@ A SaaS team adds three features that all share one embeddings index over their s
 One embedding pipeline, three features, no LLM calls at query time (embeddings are pre-computed once per ticket). Cheap, fast, and qualitatively much better than keyword search ever was.
 :::
 
-:::info Highlight: when embeddings beat keyword search (and when they don't)
+:::info[Highlight: when embeddings beat keyword search (and when they don't)]
 Embeddings shine on:
 
 - **Synonyms and paraphrases.** "Refund" finds tickets that say "money back" or "reimbursement."

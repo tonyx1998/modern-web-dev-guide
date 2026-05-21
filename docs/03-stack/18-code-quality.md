@@ -10,7 +10,7 @@ description: Biome (fast linter+formatter), TypeScript strict mode, pre-commit h
 
 > **In one line:** Biome is the modern unified linter+formatter; TypeScript strict mode catches whole categories of bugs; Husky / lefthook run checks before each commit so bad code never lands.
 
-:::tip In plain English
+:::tip[In plain English]
 This is the "automatic quality control" layer of your dev environment. It enforces consistent style (so you don't argue about tabs vs spaces in PR reviews), catches obvious mistakes (typos, unused variables, wrong types), and runs those checks automatically — on save, on commit, and in CI. The result: less time on trivia, more time on real engineering.
 :::
 
@@ -77,7 +77,7 @@ Monorepo build tools. Turborepo is simpler; Nx is more featured.
 
 A monorepo holds multiple projects in one repo (frontend + backend + shared lib, or multiple packages). These tools cache builds, parallelize tasks, and let you skip work in projects that didn't change.
 
-:::info Highlight: the 30-minute setup that saves 100 hours
+:::info[Highlight: the 30-minute setup that saves 100 hours]
 For any new TypeScript project, spend 30 minutes setting up:
 
 1. **TypeScript strict mode** — `"strict": true` in tsconfig.

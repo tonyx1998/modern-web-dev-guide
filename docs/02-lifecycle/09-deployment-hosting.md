@@ -10,7 +10,7 @@ description: Get your code running on the public internet, reliably. Hosting cat
 
 > **In one line:** Run your code on a computer your users can reach. Modern hosting platforms make this trivial; the trick is picking the right category for your needs.
 
-:::tip In plain English
+:::tip[In plain English]
 "Deployment" is the act of putting your code somewhere users can reach it on the internet. "Hosting" is the *where* — the company that runs your servers (or pretends to, abstracting them away). For a beginner in 2026, this is dramatically easier than it was 10 years ago: you can deploy a real site with a real URL in 30 seconds by typing `git push`.
 :::
 
@@ -46,7 +46,7 @@ description: Get your code running on the public internet, reliably. Hosting cat
 - **Pros:** Maximum control.
 - **Cons:** You manage everything. Rare for new projects.
 
-:::info Highlight: the right hosting choice for your scale
+:::info[Highlight: the right hosting choice for your scale]
 - **Solo / personal project:** Vercel, Netlify, or Cloudflare Pages free tier. **You're done.**
 - **Startup, 1K–100K users:** Same as above, or Railway/Fly.io for long-running backends.
 - **Mid-stage company, real revenue:** AWS ECS, Cloud Run, or Vercel Pro/Enterprise.
@@ -66,7 +66,7 @@ A typical setup:
 
 Smaller projects often skip staging. Larger projects add more environments (dev, qa, perf, canary).
 
-:::note Worked example: preview deployments are magic
+:::note[Worked example: preview deployments are magic]
 When you open a PR on a Vercel-hosted Next.js project, Vercel automatically:
 
 1. Builds the PR's code.
@@ -102,7 +102,7 @@ Before pushing to production:
 - [ ] Monitoring is in place ("we'll see if this breaks")
 - [ ] It's not Friday afternoon
 
-:::info Highlight: the unwritten rule about Friday deploys
+:::info[Highlight: the unwritten rule about Friday deploys]
 There's a folk wisdom: **don't deploy on Fridays.** It's only half a joke. If you deploy a risky change at 4pm Friday and it breaks, you're working the weekend. If you wait until Monday morning, you have a fresh week to fix it.
 
 Modern continuous-deployment teams break this rule routinely *because their rollback story is great*. If you can roll back in 60 seconds, Friday deploys are fine. If a rollback takes hours, save the risky deploys for Monday.

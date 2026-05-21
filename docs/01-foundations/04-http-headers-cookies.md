@@ -10,7 +10,7 @@ description: How HTTP requests and responses carry metadata, and the cookie mech
 
 > **In one line:** Headers are the envelope on the HTTP letter. Cookies are the server's note to itself, sealed inside the envelope and re-sent on every visit.
 
-:::tip In plain English
+:::tip[In plain English]
 The body of an HTTP message is the *content* — the JSON, the HTML, the image data. The **headers** are everything else: who you are, what format you want, what language you speak, whether you'll accept compressed data, what site sent you. A **cookie** is just one specific header (`Cookie`) that holds tokens the server wrote and is sending back. That's it.
 :::
 
@@ -41,7 +41,7 @@ Headers are key-value pairs of metadata attached to every HTTP request and respo
 - `Access-Control-Allow-Origin` — CORS permissions.
 - `Content-Security-Policy` — Security restrictions for the page.
 
-:::note Worked example: read a real response
+:::note[Worked example: read a real response]
 ```http
 HTTP/2 200 OK
 content-type: application/json; charset=utf-8
@@ -91,7 +91,7 @@ When the server sends `Set-Cookie`, it can attach modifiers that control how the
 | `Expires=DATE`   | Cookie lives until a specific date                                 | Older style; `Max-Age` is preferred       |
 | `Domain` / `Path`| Restricts which URLs the cookie is sent to                         | Useful for multi-subdomain apps           |
 
-:::info Highlight: the four-attribute "safe cookie" recipe
+:::info[Highlight: the four-attribute "safe cookie" recipe]
 For an authentication cookie in 2026, you almost always want:
 
 ```
@@ -130,7 +130,7 @@ Cons: Hard to revoke before expiration; larger cookie size.
 
 In 2026, **session tokens are making a comeback** because their downsides matter less with modern Redis/edge KV, and they're simpler to reason about. JWTs are still appropriate for microservices and APIs where stateless auth is valuable.
 
-:::note Try it yourself
+:::note[Try it yourself]
 Open any logged-in website you use. In DevTools, go to **Application → Storage → Cookies**. You'll see every cookie that site has set on your browser. Pick one labeled `session` or `auth` — note the `HttpOnly`, `Secure`, and `SameSite` flags. Now check a site you suspect is older or less secure — you'll often see cookies missing those flags.
 :::
 

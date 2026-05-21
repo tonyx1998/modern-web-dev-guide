@@ -10,7 +10,7 @@ description: The tutorial trap, the job lottery, stagnation, the better-tool tra
 
 > **In one line:** Seven common failure modes — tutorial trap, job lottery, stagnation, "better tool" trap, burnout, FAANG-obsession, imposter syndrome — and what to do about each.
 
-:::tip In plain English
+:::tip[In plain English]
 None of these are unique to you. Every developer has fallen into at least two of them. The skill isn't avoiding them — it's recognizing them within weeks instead of within years. The fixes below are usually small course-corrections, not dramatic life changes.
 :::
 
@@ -61,13 +61,13 @@ Common at every level. The feeling that you don't really deserve to be here.
 
 **Counter:** Almost everyone has it (yes, even senior people). Recognize it as a feeling, not a fact. Talk to peers; you'll discover they feel the same way.
 
-:::note Worked example: catching the tutorial trap early
+:::note[Worked example: catching the tutorial trap early]
 A self-diagnostic: open your last three weeks of code. How many lines did *you* write from a blank file, without a tutorial open? If the honest answer is "less than 100," you're in the tutorial trap.
 
 **The fix this week:** Pick the simplest concept from your most recent tutorial — say, "fetch data from an API and render it." Close the tutorial. Open a blank file. Build it from scratch in your own style. Stuck? Read the docs, not the tutorial. That's the loop that turns watching into knowing.
 :::
 
-:::info Highlight: switching jobs every 2–4 years is healthy
+:::info[Highlight: switching jobs every 2–4 years is healthy]
 The "stagnation" pitfall is often invisible from the inside. If you've been at the same job for 3+ years and your skill stack hasn't grown, that's not loyalty — it's drift. A planned move every 2–4 years is normal in tech, often comes with a meaningful comp jump, and forces the kind of new-team learning that keeps you sharp.
 :::
 

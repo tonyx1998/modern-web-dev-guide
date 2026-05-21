@@ -10,7 +10,7 @@ description: How you write CSS shapes the entire development experience. Tailwin
 
 > **In one line:** Tailwind CSS + shadcn/ui is the dominant 2026 styling stack. Old-school CSS Modules still work fine; CSS-in-JS is fading.
 
-:::tip In plain English
+:::tip[In plain English]
 "Styling" is the layer that makes things look right — colors, spacing, fonts, hover states. Modern frontend has converged on **utility-first CSS** (Tailwind) — instead of writing custom class names like `.primary-button`, you compose pre-made utility classes (`px-4 py-2 bg-blue-500 rounded`). Combined with a component collection like shadcn/ui, you go from "blank canvas" to "professional-looking UI" in an afternoon.
 :::
 
@@ -54,7 +54,7 @@ This creates `components/ui/button.tsx` (etc.) in your project. **You own the co
 
 Almost every new React project in 2026 starts with shadcn/ui.
 
-:::note Worked example: from blank Next.js to professional UI in 5 minutes
+:::note[Worked example: from blank Next.js to professional UI in 5 minutes]
 ```bash
 bunx create-next-app@latest my-app --typescript --tailwind --app
 cd my-app
@@ -133,7 +133,7 @@ Popular in 2018–2022; falling out of favor by 2026. They don't play nicely wit
 | Backend-heavy / minimal JS | Tailwind + handwritten HTML   |
 | Legacy migration           | CSS Modules                   |
 
-:::info Highlight: design tokens make Tailwind into a design system
+:::info[Highlight: design tokens make Tailwind into a design system]
 A common worry: "If I write `bg-blue-500` everywhere, what happens when I want to change the brand color?"
 
 The answer: define **design tokens** in your Tailwind config (or CSS variables in Tailwind v4) and use semantic names — `bg-primary`, `text-foreground`, `border-muted`. Then you change the token in one place and everything updates. shadcn/ui ships with this pattern out of the box.

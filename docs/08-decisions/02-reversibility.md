@@ -10,7 +10,7 @@ description: Spend deliberation proportionally to how hard a decision is to reve
 
 > **In one line:** Spend deliberation proportionally to how hard a decision is to reverse — agonize over one-way doors, walk briskly through two-way ones.
 
-:::tip In plain English
+:::tip[In plain English]
 Jeff Bezos calls these **Type 1** (one-way doors, hard to reverse) and **Type 2** (two-way doors, easy to reverse) decisions. The mistake most teams make is *uniform deliberation*: spending a week debating button colors while picking a database in twenty minutes. Match the time you spend to how stuck you'd be if you were wrong.
 :::
 
@@ -68,7 +68,7 @@ For reversible decisions, **just decide**. Endless deliberation is its own cost.
 
 For irreversible decisions, **slow down**. The cost of being wrong dominates the cost of careful thought.
 
-:::note Worked example: a week of planning, an afternoon of building
+:::note[Worked example: a week of planning, an afternoon of building]
 A small team is starting a project. Time budget for decisions before writing a line of code:
 
 | Decision               | Time budget |
@@ -83,7 +83,7 @@ A small team is starting a project. Time budget for decisions before writing a l
 Total: ~2.5 days on hard-to-reverse decisions, ~2 hours on the moderate ones, near-zero on reversible ones. That ratio is correct.
 :::
 
-:::info Highlight: the asymmetry
+:::info[Highlight: the asymmetry]
 Most engineers err on the side of too much deliberation on reversible decisions (bike-shedding) and too little on irreversible ones ("we'll figure it out"). The discipline is *consciously asking*: "If we're wrong about this, what does the fix look like?"
 
 If the answer is "a 10-line PR," move fast. If it's "a year of migration work," slow down.

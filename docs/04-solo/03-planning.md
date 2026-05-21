@@ -10,7 +10,7 @@ description: A one-paragraph pitch, five v1 features, a rough sketch, and a go/n
 
 > **In one line:** Solo planning is short and direct — a paragraph pitch, five features, a sketch, and a go/no-go. If it takes longer than an afternoon, you're overthinking.
 
-:::tip In plain English
+:::tip[In plain English]
 Big companies spend weeks in product requirements docs because they have to align dozens of people. You have to align *you*. Your "PRD" is a paragraph in Notes.app. Your "design review" is a rectangle drawn on paper. Your "stakeholder sign-off" is asking yourself whether you'd actually use this in three months.
 :::
 
@@ -53,7 +53,7 @@ Ask:
 
 If "yes" to most: build it. If "no" to most: skip it. Side projects you don't finish accumulate in your graveyard and demoralize you.
 
-:::note Worked example: a real go/no-go
+:::note[Worked example: a real go/no-go]
 **Idea:** "An app that helps me track which of my friends I've seen each month."
 
 - Would I use it weekly? Yes, I forget who I haven't seen recently.
@@ -66,7 +66,7 @@ If "yes" to most: build it. If "no" to most: skip it. Side projects you don't fi
 That five-minute thinking exercise just saved a month of work on a project that wouldn't have stuck.
 :::
 
-:::info Highlight: this is *not* skipping the work
+:::info[Highlight: this is *not* skipping the work]
 "Plan less" is not "don't plan." It's "plan in proportion to the project." A weekend tool deserves an afternoon of thought, not three. A 6-month SaaS deserves more — but still in days, not weeks. The point is to match planning depth to project depth so you don't spend more time planning than building.
 :::
 

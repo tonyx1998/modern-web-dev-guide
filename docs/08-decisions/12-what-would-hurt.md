@@ -10,7 +10,7 @@ description: For any decision, ask — if this is wrong, what would it cost to f
 
 > **In one line:** For any decision, ask: *if this is wrong, what would it cost to fix?* — then match your deliberation to that cost.
 
-:::tip In plain English
+:::tip[In plain English]
 This is the practical version of the reversibility test. Don't think abstractly about whether a decision is "important." Imagine concretely that you got it wrong, then estimate the fix. A button vs link mix-up? 30 minutes. A wrong database choice? Six-month migration. That difference should drive how much time you spend up front.
 :::
 
@@ -30,7 +30,7 @@ This is a variant of the reversibility test, but practical: imagine you're wrong
 
 When the cost is high, slow down. When it's low, move fast.
 
-:::note Worked example: applying the question in a planning meeting
+:::note[Worked example: applying the question in a planning meeting]
 The team is in a one-hour planning meeting. Five decisions are on the table:
 
 | Decision                                | "If wrong, fix cost"     | Time to spend now |
@@ -44,7 +44,7 @@ The team is in a one-hour planning meeting. Five decisions are on the table:
 Total time spent: 38 of 60 minutes — concentrated almost entirely on the public API contract and the auth provider, with everything else moving fast. That's the correct allocation, and it falls out naturally from asking "what would hurt to change?"
 :::
 
-:::info Highlight: the trick is being honest about the fix cost
+:::info[Highlight: the trick is being honest about the fix cost]
 People consistently underestimate the cost of changing schemas, public APIs, and shared infrastructure — and overestimate the cost of changing UI, libraries, and folder structure.
 
 When estimating "what would it cost to fix," include:

@@ -10,7 +10,7 @@ description: How team composition, decision-making, and hiring differ across sol
 
 > **In one line:** Team size and structure dictate how decisions get made and how people get hired — the same pattern that works at 5 engineers is a disaster at 500, and vice versa.
 
-:::tip In plain English
+:::tip[In plain English]
 The role mix at each scale tells you a lot about what the engineering culture feels like. A solo dev is everyone at once. A startup is a handful of generalists plus a few specialists as it grows. An enterprise is dozens of specialized teams, each with its own slice of the work.
 
 How decisions get made follows the same arc: pure intuition → small-team discussion → multi-team RFC + review gauntlet. Hiring goes from "the founder DMs people" to "a five-round structured loop with calibrated interviewers."
@@ -45,7 +45,7 @@ For context on what each scale's daily work feels like, see [The Enterprise Mind
 | **New external API**  | Self                | Security check            | Vendor security review + procurement |
 | **Hosting change**    | Self                | Team + CTO                | Architecture + finance + security |
 
-:::info Highlight: "RFC" is the magic word
+:::info[Highlight: "RFC" is the magic word]
 Once an organization is big enough that decisions outlive their decision-makers, *written* decisions start beating spoken ones. The RFC ("Request for Comments") format — a doc capturing options considered, the chosen approach, and the reasoning — is the dominant decision-making tool at enterprise scale.
 
 A good RFC is also the best way to lobby a large org for change. If you can't write down why your proposal is better than the alternatives, you probably can't convince a senior engineer to bet a quarter of their team's roadmap on it.
@@ -64,7 +64,7 @@ A good RFC is also the best way to lobby a large org for change. If you can't wr
 
 The longer enterprise loops aren't gratuitous — at 500+ engineers, a bad hire is much more expensive (longer to identify, harder to manage out, more damage done). The trade-off is that excellent candidates sometimes take other offers during the slow process.
 
-:::note Worked example: who decides on a database migration?
+:::note[Worked example: who decides on a database migration?]
 A typical "we need to add Postgres FTS support" decision:
 
 - **Personal project:** "Sure, I'll do it Saturday." Done.

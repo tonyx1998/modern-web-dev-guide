@@ -10,7 +10,7 @@ description: HTML is generated at build time. Every URL becomes a pre-built .htm
 
 > **In one line:** Pre-build every page once, dump them on a CDN, serve them in 10ms forever. The web's oldest and still cheapest strategy.
 
-:::tip In plain English
+:::tip[In plain English]
 You write your site, then run `npm run build`. The build script produces a folder full of plain `.html` files — one per page — plus images and CSS. You upload that folder to a CDN. Done. Users get instant page loads because the CDN already has the HTML; there's no server doing work per request. The trade-off: if your data changes, you have to rebuild and redeploy.
 :::
 
@@ -67,7 +67,7 @@ flowchart LR
 | Dashboard        | ❌ Use SSR or CSR       |
 | Real-time chat   | ❌ Use CSR + WebSockets |
 
-:::note Worked example: this site is SSG
+:::note[Worked example: this site is SSG]
 This very documentation site is built with Docusaurus. When the maintainer pushes to the main branch:
 
 1. GitHub Actions runs `npm run build`.
@@ -89,11 +89,11 @@ No server runs at request time. Everything you're reading is a static file. That
 | **Jekyll**      | Original; powers GitHub Pages by default. Ruby.                  |
 | **Hexo / Gatsby** | Older choices, still in use.                                    |
 
-:::info Highlight: Astro is the 2026 default for content sites
+:::info[Highlight: Astro is the 2026 default for content sites]
 If you're starting a new blog, doc site, or portfolio in 2026, **Astro** is the default recommendation. It generates fully static HTML by default, lets you embed components from any framework (React, Vue, Svelte) for the interactive bits, and ships almost no JavaScript by default. Page weight is tiny; Lighthouse scores are near-perfect out of the box.
 :::
 
-:::note Try it yourself
+:::note[Try it yourself]
 ```bash
 npm create astro@latest
 # pick the "Empty" template

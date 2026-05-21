@@ -10,7 +10,7 @@ description: Decide how the product looks and feels before writing code. Changin
 
 > **In one line:** Decide how the product looks and feels in design tools first, where changes cost minutes — not in code, where they cost hours.
 
-:::tip In plain English
+:::tip[In plain English]
 "Design" doesn't mean "make it pretty." It means *plan the user experience*. What screens exist, in what order, with what content, in what visual hierarchy. The medium is Figma (or paper, or a whiteboard) — somewhere you can iterate quickly. Once it feels right in design, you implement it. Skipping design is the most common cause of "I built this and now I want to redo it."
 :::
 
@@ -51,7 +51,7 @@ Accessibility (a11y) isn't something to retrofit. Designs should account for:
 
 Accessibility errors caught at design cost minutes. The same error caught after launch can cost weeks of rework.
 
-:::note Worked example: a beginner's "design" can be paper
+:::note[Worked example: a beginner's "design" can be paper]
 You don't need Figma for a side project. The minimum viable design is:
 
 1. **A list of screens** the user will see, in order.
@@ -79,7 +79,7 @@ That's it. Spending 30 minutes on this saves hours of "wait, where does this but
 | **Storybook**        | Interactive component documentation.                      |
 | **Chromatic**        | Visual regression testing for design systems.             |
 
-:::info Highlight: design the empty states first
+:::info[Highlight: design the empty states first]
 Most beginner designers (and engineers) only design the happy path — the screen with data, a few items, everything working. But users hit empty states constantly:
 
 - The very first time they use your app, *nothing* exists yet.

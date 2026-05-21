@@ -10,7 +10,7 @@ description: A modern browser is not a viewer — it's a sophisticated applicati
 
 > **In one line:** Your browser is not a document viewer. It's a 50-million-line application runtime that happens to also display web pages.
 
-:::tip In plain English
+:::tip[In plain English]
 The browser does an *astonishing* amount when you open a tab. It speaks every major network protocol, parses HTML/CSS in milliseconds, JIT-compiles JavaScript to machine code on the fly, drives the GPU to paint pixels, sandboxes pages from each other, talks to your camera and microphone, plays video, stores databases locally, and exposes 200+ APIs to the code running inside it. "Open a browser tab" is closer to "boot a small operating system" than to "open a PDF."
 :::
 
@@ -28,7 +28,7 @@ A modern browser bundles together:
 8. **A storage layer** — cookies, localStorage, IndexedDB, Cache API.
 9. **A security sandbox** — isolates pages from each other and from your OS.
 
-:::info Highlight: the DOM is "just" a tree of JavaScript objects
+:::info[Highlight: the DOM is "just" a tree of JavaScript objects]
 The HTML you write looks like text. But the moment the browser parses it, that text becomes a **tree of in-memory objects** — the DOM. Every `<div>` is an object with properties (`textContent`, `style`, `children`), methods (`addEventListener`, `appendChild`), and references to its parent and siblings.
 
 Once you internalize that, manipulating the page in JavaScript stops feeling magical: you're just calling methods on a tree of objects.
@@ -62,7 +62,7 @@ Modern browsers expose remarkable capabilities. You don't need to memorize this 
 
 In 2026, the browser is genuinely a full application platform. The phrase "you can build it on the web" is true for the vast majority of applications.
 
-:::note Try it yourself
+:::note[Try it yourself]
 Open DevTools and run this in the Console of any tab:
 
 ```javascript
@@ -91,7 +91,7 @@ If your JS blocks the thread for 200ms, nothing else can happen — the page bec
 
 **Web Workers** let you run JS on background threads, but workers can't access the DOM. They're useful for heavy computation (image processing, parsing large files, running ML models).
 
-:::info Highlight: the 16ms budget
+:::info[Highlight: the 16ms budget]
 A 60fps animation needs the browser to render a frame every **16.6 milliseconds**. If a JavaScript callback takes longer than 16ms on the main thread, you'll *drop a frame* — the animation visibly stutters. This is why performance engineers obsess over keeping callbacks short and moving heavy work to Web Workers, requestIdleCallback, or the server.
 :::
 

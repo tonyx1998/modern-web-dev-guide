@@ -10,7 +10,7 @@ description: Monorepo with Turborepo, onboarding script that gets a new engineer
 
 > **In one line:** A monorepo with Turborepo, a one-script onboarding flow, three environments, and a real secrets manager. New hires running locally in under a day.
 
-:::tip In plain English
+:::tip[In plain English]
 At solo scale, "the setup" is whatever's on your laptop. At startup scale, the setup is *whatever a brand-new engineer can stand up by lunchtime on day one.* Everything in this phase exists to compress the onboarding loop — because onboarding pain compounds with every hire.
 :::
 
@@ -82,7 +82,7 @@ bun run dev
 - Vercel and Supabase store production secrets in their dashboards.
 - Local `.env.local` files (gitignored) for development.
 
-:::note Worked example: an onboarding day from the new hire's view
+:::note[Worked example: an onboarding day from the new hire's view]
 **9:00 AM** — Laptop arrives. Open the README.
 
 **9:30 AM** — Clone the repo. Run `./scripts/setup.sh`. It installs Bun, runs `bun install`, spins up Docker Postgres, runs migrations and seeds.
@@ -100,7 +100,7 @@ bun run dev
 **End of day one:** running locally, deployed to a preview URL, one merged PR. That's the bar.
 :::
 
-:::info Highlight: the .env.example file is sacred
+:::info[Highlight: the .env.example file is sacred]
 The single most common source of onboarding pain: "the app runs but it crashes when I try to log in" — because some `.env` variable was missing from `.env.example` even though the original engineer set it months ago.
 
 Treat `.env.example` as a contract. Every variable the app reads from the environment must appear there with a placeholder value. CI should fail if a referenced env var isn't in `.env.example`. Five minutes of discipline saves new hires hours of frustration.

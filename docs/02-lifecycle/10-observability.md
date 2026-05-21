@@ -10,7 +10,7 @@ description: Know what your software is doing in production, especially when it'
 
 > **In one line:** Observability is your software's *senses* in production. Without it, you only know things broke when angry users tell you.
 
-:::tip In plain English
+:::tip[In plain English]
 Once your code is running in production, you can't just open the file and see what's happening. You need to *instrument* the code to emit signals — logs (text records), metrics (numbers over time), and traces (per-request follow-along). Then you collect those signals somewhere and look at them when things break. That whole practice is called **observability**.
 :::
 
@@ -91,7 +91,7 @@ You want to know about problems *before* users complain. Modern alerting:
 - **Runbooks linked to alerts.** When pager goes off, on-call engineer needs to know what to do.
 - **On-call rotations.** Tools: PagerDuty, Opsgenie, Incident.io, Better Stack.
 
-:::note Worked example: minimum observability for a beginner project
+:::note[Worked example: minimum observability for a beginner project]
 You don't need Datadog and OpenTelemetry on day one. The minimum-viable observability stack for a beginner deploying to Vercel:
 
 1. **Sentry** (free tier) — catches every exception with full stack trace and request context.
@@ -107,7 +107,7 @@ The standard practice: instrument with **OpenTelemetry** (vendor-neutral standar
 
 Smaller projects: just **Sentry + Better Stack + PostHog** is often enough.
 
-:::info Highlight: logs vs metrics vs traces — when to use which
+:::info[Highlight: logs vs metrics vs traces — when to use which]
 A simple rule of thumb:
 
 - **Use logs** when you want to know *what happened* (a specific event with details).

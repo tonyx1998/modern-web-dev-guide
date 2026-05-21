@@ -14,7 +14,7 @@ This chapter covers the workflow for actual companies — startups and small bus
 
 The defining characteristic of this stage: **everything must work, but nothing should require a dedicated team to operate.** You're optimizing for the smallest team that can ship and maintain real software.
 
-:::tip Beginner orientation
+:::tip[Beginner orientation]
 **The leap from solo to startup:** Solo, you can break your own site without consequence. At a startup, breaking the site means actual humans can't use the product they're paying for. Everything in this chapter exists because *real users will notice your mistakes*.
 
 **What changes once you have a small team and paying customers:**

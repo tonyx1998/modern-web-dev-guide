@@ -10,7 +10,7 @@ description: The trade-offs that govern every large-company engineering decision
 
 > **In one line:** At enterprise scale, reliability and security trump speed, process and tooling enable coordination, and you optimize for the median engineer, not the heroic one.
 
-:::tip In plain English
+:::tip[In plain English]
 At a startup, the worst-case outcome of a bad decision is "we ship a buggy feature and patch it tonight." At an enterprise, the worst-case outcome can be "we violate a federal regulation," "we leak millions of users' personal data," or "the trading floor goes dark for 90 minutes." Different stakes produce different cultures.
 
 Enterprise engineers aren't slower because they're worse. They're slower because every shortcut a startup takes is a risk a regulated, multi-billion-dollar business can't afford. The trade-off is real and conscious.
@@ -28,7 +28,7 @@ Large-company engineering is governed by a completely different set of trade-off
 - **Compliance is not optional.** Regulations dictate many decisions.
 - **Hiring is constant.** People rotate; institutional knowledge must live in systems and docs.
 
-:::info Highlight: "median engineer" is the design point
+:::info[Highlight: "median engineer" is the design point]
 A common mistake when reading enterprise practices is thinking they're optimized for "smart engineers doing smart things." They aren't. They're optimized for the engineer who joined three weeks ago, has never touched this service, is on-call at 2 AM, and needs to safely roll back a bad change.
 
 That's why enterprises invest so heavily in runbooks, dashboards, automation, and templates. The system has to keep working even on the worst day of the worst engineer's worst week.
@@ -45,7 +45,7 @@ The failure mode of enterprise engineering is **process for process's sake**:
 
 Senior leadership must actively prune. Good enterprise process is *minimal viable bureaucracy* — just enough to manage risk, no more. Bad enterprise process accretes for years because everyone is afraid to remove anything.
 
-:::note Worked example: same change, different costs
+:::note[Worked example: same change, different costs]
 A typical "add a new field to the user profile" change:
 
 | Scale | What happens | Elapsed time |

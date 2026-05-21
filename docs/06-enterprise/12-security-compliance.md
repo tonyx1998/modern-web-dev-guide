@@ -10,7 +10,7 @@ description: AppSec, zero-trust networking, SOC 2, HIPAA, PCI, threat modeling, 
 
 > **In one line:** Security at enterprise scale is a full discipline — dedicated AppSec teams, zero-trust networking, multi-regulation compliance (SOC 2, HIPAA, PCI, GDPR), continuous vulnerability scanning, and required threat modeling for new services.
 
-:::tip In plain English
+:::tip[In plain English]
 At a startup, security is "we use bcrypt and rotate the AWS keys when an intern leaves." At an enterprise, security is hundreds of engineers, dozens of overlapping regulations, continuous scanning of every dependency and container, and the assumption that someone is *actively trying* to breach you.
 
 The stakes are not theoretical. A serious breach at this scale can mean nine-figure fines, criminal liability for executives, and the kind of brand damage that takes a decade to recover from.
@@ -64,7 +64,7 @@ A regulated enterprise often holds *multiple* of these simultaneously. Each one 
 
 Just-in-time access is a powerful pattern: nobody has standing production database access. When you need it, you request it through a ticket, get a 1-hour window, and every action you take is logged. That dramatically shrinks the blast radius of a compromised account.
 
-:::info Highlight: compliance is risk transfer
+:::info[Highlight: compliance is risk transfer]
 A common engineer reaction to compliance is "this is theater." Sometimes it is. More often, compliance is **risk transfer**: if you follow the documented controls and get breached anyway, the financial consequences look very different from "we ignored basic controls and got breached."
 
 The compliance machinery exists because legislators and auditors decided certain industries (finance, healthcare, government, payments) can't be trusted to self-regulate. As an engineer, you don't have to love it, but you do have to live with it — and at this scale, it shapes everything you build.
@@ -93,7 +93,7 @@ A bug bounty is a paid invitation to attackers to find vulnerabilities legally. 
 
 STRIDE (Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege) is a checklist for thinking through attack surfaces. A good threat model for a new service answers, for each STRIDE category: "what could an attacker do here, and how have we mitigated it?"
 
-:::note Worked example: rolling out a new payments endpoint
+:::note[Worked example: rolling out a new payments endpoint]
 A team is adding a new API endpoint for issuing refunds. At enterprise scale, the security work surrounding the code includes:
 
 1. **Threat model** (week 1): STRIDE analysis. "Could an attacker spoof a refund request? Tamper with the amount? Trigger duplicate refunds via replay?"

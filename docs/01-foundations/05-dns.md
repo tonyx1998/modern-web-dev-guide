@@ -10,7 +10,7 @@ description: How a name like google.com becomes the IP address 142.250.190.78, a
 
 > **In one line:** Computers find each other by numbers (IP addresses). DNS is the system that looks up the number when you give it a name.
 
-:::tip In plain English
+:::tip[In plain English]
 You don't memorize your friends' phone numbers — you tap their name in your contacts and your phone looks the number up. DNS is the world's biggest, most distributed contact list. When you type `google.com`, the network whispers "what's that number again?" to a chain of DNS servers and gets back something like `142.250.190.78`. *Then* the actual request begins.
 :::
 
@@ -30,7 +30,7 @@ A typical DNS lookup goes:
 
 This whole dance happens in milliseconds and is almost always cached.
 
-:::note Worked example: trace a real DNS lookup
+:::note[Worked example: trace a real DNS lookup]
 On macOS or Linux:
 
 ```bash
@@ -62,7 +62,7 @@ DNS doesn't just store IP addresses. It stores many record types. The ones you'l
 
 In 2026 you almost never edit DNS records by hand — your hosting provider (Vercel, Cloudflare, etc.) gives you a UI or accepts your domain via a CNAME.
 
-:::info Highlight: the four DNS records new developers actually need
+:::info[Highlight: the four DNS records new developers actually need]
 For a typical first website:
 
 1. **A record** — `example.com → 1.2.3.4` (your hosting provider's IP).
@@ -85,7 +85,7 @@ Every DNS record has a **TTL (Time to Live)** in seconds. Resolvers and browsers
 
 The catch: a low TTL means changes propagate fast, but also that every resolver asks more often (more load). A high TTL is efficient but means changes take a long time to be seen everywhere.
 
-:::note Pitfall: "I changed DNS and nothing happened"
+:::note[Pitfall: "I changed DNS and nothing happened"]
 You almost certainly didn't change anything wrong. DNS just hasn't *propagated* yet — the old answer is still cached at intermediate resolvers around the world, and they won't refresh until the old TTL expires. Tools like `dig` will show you the cached answer until it does. Patience or a TTL of 60s before the change is the only fix.
 :::
 

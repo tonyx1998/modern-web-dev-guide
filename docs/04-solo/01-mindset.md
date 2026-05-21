@@ -10,7 +10,7 @@ description: Personal projects invert the trade-offs of enterprise software. Spe
 
 > **In one line:** Personal projects are the *opposite* of enterprise software — speed beats process, one developer beats committees, and shipping beats planning.
 
-:::tip In plain English
+:::tip[In plain English]
 When you're alone, every minute spent setting up CI, writing onboarding docs, or running approvals is a minute *not* spent building the actual thing. Big companies need process to keep dozens of people from stepping on each other. You don't. You're a chef cooking for yourself — skip the hairnets, the health-code paperwork, and the menu printing. Just cook.
 :::
 
@@ -41,13 +41,13 @@ The biggest mistake solo developers make is **applying enterprise patterns to pe
 
 You need to ship.
 
-:::note Try it yourself
+:::note[Try it yourself]
 Take any side project you've started and never finished. List five decisions you made because "that's how real software is built" — a custom logger, a monorepo for one app, a Dockerfile you never actually used, a unit-test suite for trivial UI, a database abstraction layer for one table.
 
 Now ask: would the project have shipped sooner without any of those? Almost always: yes.
 :::
 
-:::info Highlight: pick your reviewer
+:::info[Highlight: pick your reviewer]
 At an enterprise, design reviews, code reviews, and architecture committees are how the company avoids catastrophe. Solo, *you are all of them.* That's a feature, not a bug — you can make a call in five seconds that would take five meetings elsewhere. The flip side: nobody will catch your bad decisions for you. The fix isn't process. The fix is shipping early, watching it break in small ways, and iterating.
 :::
 

@@ -10,7 +10,7 @@ description: Enterprises (500+ engineers). Microservices, Kubernetes, compliance
 
 *Hundreds of engineers, regulatory scrutiny, 99.99% uptime, massive infrastructure.*
 
-:::tip Beginner orientation
+:::tip[Beginner orientation]
 **Why enterprise feels alien:** When you read about enterprise engineering, every decision seems to take five times longer than it should and require ten times the meetings. That's not because enterprise engineers are slow — it's because the cost of getting things wrong is enormous. A 30-minute outage at a startup is embarrassing. A 30-minute outage at a bank, a hospital, or a stock exchange can violate regulations, lose millions of dollars, or harm people.
 
 **The fundamental shift:** At a startup, you optimize for *moving fast*. At an enterprise, you optimize for *being reliable, secure, and auditable*. The same code change that takes 20 minutes at a startup might take 3 weeks at an enterprise — and the enterprise process is often the *correct* answer for their context.

@@ -10,7 +10,7 @@ description: How monitoring, on-call, security, and compliance scale from solo /
 
 > **In one line:** A solo dev relies on Sentry emails and prayers; a startup adds dashboards and an informal on-call; an enterprise has full SLOs, error budgets, 24/7 follow-the-sun on-call, plus AppSec teams, bug bounties, and multiple compliance regimes.
 
-:::tip In plain English
+:::tip[In plain English]
 This is where the scale gap is most extreme. The cost of being wrong about reliability or security goes up roughly with the square of your user count, and operations at enterprise scale reflect that.
 
 A solo dev who misses a Sentry alert ships a bug to themselves. A startup that misses an alert ships a bug to a few hundred customers. An enterprise that misses an alert can trigger SLA breaches, regulatory fines, and front-page news.
@@ -33,7 +33,7 @@ A solo dev who misses a Sentry alert ships a bug to themselves. A startup that m
 
 For enterprise specifics, see [Phase 8: Observability at Scale](/docs/enterprise/observability).
 
-:::info Highlight: distributed tracing is the dividing line
+:::info[Highlight: distributed tracing is the dividing line]
 The single observability tool that most clearly separates "small company" from "large company" is **distributed tracing**. A trace follows a single user request through every service it touches, with timing for each hop.
 
 You don't need tracing when you have one or two services — log timestamps and Sentry are enough. The moment you have ten services and a slow page, traces become the only way to debug. That's why every enterprise observability strategy assumes traces are standard, while most startups don't have them at all.
@@ -58,7 +58,7 @@ You don't need tracing when you have one or two services — log timestamps and 
 
 For enterprise specifics, see [Phase 9: Security and Compliance](/docs/enterprise/security-compliance).
 
-:::note Worked example: when does each tier of security investment become worth it?
+:::note[Worked example: when does each tier of security investment become worth it?]
 A rough adoption pattern for security investment:
 
 - **Solo:** Use HTTPS (free via Vercel/Cloudflare), don't commit secrets, use a password manager. Cost: $0, effort: minimal.

@@ -10,7 +10,7 @@ description: Make it work, then make it right, then make it fast — in that ord
 
 > **In one line:** Make it work, then make it right, then make it fast — in that order.
 
-:::tip In plain English
+:::tip[In plain English]
 Donald Knuth: "Premature optimization is the root of all evil." Most code doesn't need to be fast. When you guess at what's slow without measuring, you're almost always wrong — and you've made the code harder to read in exchange for nothing. Build it. Clean it up. *Then* profile.
 :::
 
@@ -37,7 +37,7 @@ Donald Knuth: "Premature optimization is the root of all evil." Most code doesn'
 
 These are not premature — they're structural choices that are expensive to change later.
 
-:::note Worked example: where the time actually went
+:::note[Worked example: where the time actually went]
 An engineer spends a week micro-optimizing an inner loop, hand-rolling a buffer pool, avoiding allocations. Benchmark shows ~3% speedup overall.
 
 Meanwhile, a profiler run reveals the *actual* hot path: a function calling the database inside a `.map()` over user IDs. Replacing it with a single `WHERE id IN (...)` query cuts total response time by 80%.
@@ -45,7 +45,7 @@ Meanwhile, a profiler run reveals the *actual* hot path: a function calling the 
 The lesson: **measure first**. The intuition about what's slow is reliably wrong. Profilers are not optional — they're the only honest source of truth about where time goes.
 :::
 
-:::info Highlight: the difference between "early optimization" and "structural"
+:::info[Highlight: the difference between "early optimization" and "structural"]
 "Premature optimization is the root of all evil" is often misread as "never think about performance." It actually means: don't tune *implementations* before measuring.
 
 You should *always* think about **structural** performance choices from the start:

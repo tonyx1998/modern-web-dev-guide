@@ -10,7 +10,7 @@ description: What a startup at ~$1M ARR and ~5,000 active users actually spends 
 
 > **In one line:** $500–$3,500/month covers the entire stack for a startup at $1M ARR. That's noise next to a single engineer's payroll.
 
-:::tip In plain English
+:::tip[In plain English]
 The conversation about hosting and tooling bills sounds dramatic until you compare it to people costs. A mid-level engineer is fifteen to twenty-five thousand dollars a month, fully loaded. Your *entire* infrastructure bill at startup scale is rarely more than two thousand. That math is the whole reason "buy, don't build" wins at this stage.
 :::
 
@@ -38,7 +38,7 @@ For a startup at ~$1M ARR with ~5,000 active users:
 
 For comparison, a single mid-level engineer costs $15–25K/month fully loaded. Infrastructure costs at this scale are noise.
 
-:::note Worked example: trading infra cost for engineer time
+:::note[Worked example: trading infra cost for engineer time]
 A team debates whether to "save money" by self-hosting Postgres instead of paying $200/month for Supabase Pro. The math:
 
 - **Self-hosted Postgres:** ~$50/month for a VM + storage. But: someone has to set up backups (~1 day to do well), monitor disk space, handle Postgres upgrades, configure connection pooling, troubleshoot when it falls over. Realistically that's 4–8 engineer-hours per month, perpetually.
@@ -49,7 +49,7 @@ If an engineer costs $150/hour fully loaded, the "savings" of self-hosting are *
 This pattern repeats across every managed service.
 :::
 
-:::info Highlight: when costs *do* matter
+:::info[Highlight: when costs *do* matter]
 Infra costs become non-noise once you're at hundreds of thousands of MAUs *or* when a specific service has a runaway line item (Vercel bandwidth spikes, PostHog event volume). The trigger isn't "we should save money in general" — it's "this one bill grew 5x and we can't explain it." Then you investigate and optimize the specific line. The rest you leave alone.
 :::
 

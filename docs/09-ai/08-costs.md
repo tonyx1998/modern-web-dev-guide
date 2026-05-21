@@ -10,7 +10,7 @@ description: LLM costs can spiral quickly. Tiered models, response caching, prom
 
 > **In one line:** LLM costs can spiral quickly — control them with tiered models, response caching, prompt caching, context truncation, per-user rate limits, and a real cost dashboard.
 
-:::tip In plain English
+:::tip[In plain English]
 The "obvious" way to use AI — biggest model for every call, full conversation history every turn, no caching — produces shocking bills the day you go viral. Cost optimization isn't a late-stage concern; it's table stakes from day one. Most of the techniques cost almost nothing to implement.
 :::
 
@@ -64,7 +64,7 @@ if (!rate.allowed) {
 
 Set up dashboards showing daily/weekly LLM spend. Alert on anomalies.
 
-:::note Worked example: a 10x cost reduction in one afternoon
+:::note[Worked example: a 10x cost reduction in one afternoon]
 A startup launches an AI feature. Initial bill at week 1: ~$3,000. Projected at scale: $50,000+/month.
 
 Their afternoon of optimizations:
@@ -80,7 +80,7 @@ Total time: ~one afternoon. Result: next week's bill is ~$280, projected at scal
 The lesson: AI cost is highly compressible if you actually look at it. Most teams never do.
 :::
 
-:::info Highlight: cost is a feature
+:::info[Highlight: cost is a feature]
 Treat cost optimization with the same seriousness as latency or correctness:
 
 - **Cost dashboards** visible to everyone, not just finance.

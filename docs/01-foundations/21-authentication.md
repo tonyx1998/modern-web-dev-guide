@@ -10,7 +10,7 @@ description: The five common ways users prove they are who they claim to be — 
 
 > **In one line:** Authentication answers *"who are you?"*. There are five common ways to answer it, and in 2026 you should use a service rather than building your own.
 
-:::tip In plain English
+:::tip[In plain English]
 "Authentication" (authn) is just the technical word for "logging in." It's the bouncer at the door checking your ID. There are five widely-used styles of ID-checking in 2026 — each has trade-offs. The single most important piece of advice on this whole page is at the bottom: **don't build your own auth.** Use Clerk, Auth0, Supabase, or similar.
 :::
 
@@ -34,7 +34,7 @@ This page covers authentication. The next covers authorization.
 - Password reset flows are themselves attack surfaces.
 - Users pick weak passwords.
 
-:::info Highlight: hashing vs encryption
+:::info[Highlight: hashing vs encryption]
 A common confusion: passwords should be *hashed*, not *encrypted*. Encryption is reversible (you can decrypt). Hashing is one-way (impossible to reverse). You should never know what your user's password is — only whether the hash they sent matches the one you stored. If your database leaks, attackers only have hashes, not usable passwords.
 
 **Use bcrypt or argon2.** Never SHA-256, never MD5, never roll-your-own.
@@ -81,7 +81,7 @@ OAuth 2.0 is the protocol; **OIDC (OpenID Connect)** is OAuth + identity asserti
 - If the user's email is compromised, your auth is compromised.
 - Mobile users sometimes get stuck (clicking the link opens a different browser than where they started).
 
-:::info Highlight: Magic links are great for B2B SaaS
+:::info[Highlight: Magic links are great for B2B SaaS]
 Many modern B2B SaaS products (Notion, Linear, Vercel) default to magic links. The audience (working professionals on their work email) doesn't care about typing a password and gets a smoother first-time experience.
 :::
 
@@ -105,7 +105,7 @@ The most modern and most secure option:
 
 Passkeys are rapidly becoming the default for new auth systems. If you're starting fresh, support passkeys from day one.
 
-:::note Try it yourself
+:::note[Try it yourself]
 Some sites already offer passkey signup: github.com, google.com, amazon.com, apple.com.
 
 Try enabling a passkey for one. The "log in with Face ID" experience is genuinely faster and more secure than typing a password. You'll feel why this is the future.
@@ -132,7 +132,7 @@ Implementing auth correctly is hard — there are dozens of subtle ways to leak 
 | **Supabase Auth** | Bundled with Supabase database; great if you're using Supabase.   |
 | **WorkOS**        | Adds enterprise SSO/SAML to existing apps.                        |
 
-:::info Highlight: don't roll your own auth
+:::info[Highlight: don't roll your own auth]
 This is the single piece of advice with the strongest consensus across the industry in 2026. The attack surface is too large, the consequences of mistakes too severe, and the existing services are too cheap and too good. Spend your engineering time on your product, not on yet another password hashing implementation.
 :::
 

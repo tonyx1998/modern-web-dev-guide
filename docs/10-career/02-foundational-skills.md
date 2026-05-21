@@ -10,7 +10,7 @@ description: Nine skill areas in rough priority order. Don't move on until you'r
 
 > **In one line:** Nine skill areas in rough priority order — HTML/CSS/JS, Git, the command line, HTTP, SQL, TypeScript, one framework, basic backend, and AI assistants.
 
-:::tip In plain English
+:::tip[In plain English]
 Treat this as a checklist, not a curriculum. You don't need a bootcamp or a course to learn these — you need to *build things* that force you to use each one. Every working web developer has these nine in their toolbox; the difference between juniors and seniors is depth, not breadth.
 :::
 
@@ -147,7 +147,7 @@ Now a core skill.
 
 **The skill is judgment, not generation.** AI can produce a lot of code; deciding which to keep is what matters.
 
-:::note Try it yourself: a "depth check" for each skill
+:::note[Try it yourself: a "depth check" for each skill]
 For any skill above, try this: open a blank file and build a tiny demo *without* a tutorial. For example:
 
 - **JS depth check:** Write a debounce function from scratch in 5 minutes.
@@ -158,7 +158,7 @@ For any skill above, try this: open a blank file and build a tiny demo *without*
 If you can't do these confidently, that's the area to invest in next.
 :::
 
-:::info Highlight: priority order is intentional
+:::info[Highlight: priority order is intentional]
 The list above is roughly in dependency order. HTML/CSS/JS unlocks everything else. Git is needed before you can collaborate. HTTP is needed before you can debug anything that crosses the network. SQL is needed before any non-trivial backend. **Don't skip ahead to "one framework deeply" without items 1–4 solid** — that's the most common cause of "I built the tutorial but I can't build anything else."
 :::
 

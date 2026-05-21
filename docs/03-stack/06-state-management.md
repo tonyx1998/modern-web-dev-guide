@@ -10,7 +10,7 @@ description: Two kinds of state, two kinds of tools. Server state (TanStack Quer
 
 > **In one line:** Two kinds of state, two kinds of tools. Server state needs a cache (TanStack Query); client state needs a store (Zustand or React built-ins).
 
-:::tip In plain English
+:::tip[In plain English]
 "State" is just data your app needs to remember. There are two flavors of it and they need different tools:
 
 - **Server state** — Data fetched from your backend. Lives on the server, you cache it on the client. *Tools: TanStack Query, SWR, or React Server Components.*
@@ -120,7 +120,7 @@ The URL is also state. Use the framework's router (Next.js's `useSearchParams`, 
 
 For complex URL state, **nuqs** is a popular library.
 
-:::info Highlight: don't put server data in client state
+:::info[Highlight: don't put server data in client state]
 The most common state management mistake: fetching server data, then dumping it into Zustand or Redux to "share it everywhere."
 
 This sets you up for stale data, manual refetching logic, race conditions, and complex synchronization. *Server data is a cache, not state.* Use a server-state library (TanStack Query or RSC) and let it handle caching, refetching, and invalidation. Reserve Zustand/Redux/Context for *purely client* state — open menus, theme, draft form input.

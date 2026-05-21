@@ -10,7 +10,7 @@ description: Figure out what to build and why, before writing any code. The chea
 
 > **In one line:** Figure out *what* to build and *why* before writing a single line of code. The cheapest bugs are the ones you avoid by not building the wrong thing.
 
-:::tip In plain English
+:::tip[In plain English]
 Discovery is the *thinking* phase. Before you write code, you decide: who am I building for, what problem do they actually have, and what's the smallest thing that helps? The temptation is to skip this — to dive straight into code because that feels productive. But code that solves the wrong problem isn't progress; it's expensive deletion.
 :::
 
@@ -65,7 +65,7 @@ Regardless of scale, you should answer:
 6. **What could go wrong?** (Risks to acknowledge before they bite you.)
 7. **Who needs to approve?** (Stakeholders, security, legal.)
 
-:::note Worked example: a beginner's first project
+:::note[Worked example: a beginner's first project]
 **Bad planning:**
 > "I'm going to build a productivity app with social features and AI."
 
@@ -93,7 +93,7 @@ The second version is shippable in an evening. The first is a 6-month project th
 - **Analytics for understanding existing behavior:** PostHog, Amplitude, Mixpanel
 - **AI-assisted research:** Summarizing user interviews with Claude/GPT, generating synthetic personas
 
-:::info Highlight: the cheapest user research that works
+:::info[Highlight: the cheapest user research that works]
 You don't need a $50/seat research tool to start. The most valuable user research you can do as a beginner:
 
 1. **Email 5 people in your target audience.** "Hey, I'm building X to solve Y. Would you be willing to chat for 15 minutes about how you handle Y today?"

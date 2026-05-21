@@ -10,7 +10,7 @@ description: Frameworks are heuristics, not laws. The skill develops with experi
 
 > **In one line:** Frameworks are heuristics, not laws — early in your career, default to them; as you gain context, learn when "usually right" doesn't apply.
 
-:::tip In plain English
+:::tip[In plain English]
 Everything in this chapter is a *default*, not a rule. Real situations have edge cases, urgent constraints, and team dynamics that the frameworks don't capture. The skill of senior engineering is knowing when to follow the framework and when to deviate — and being able to explain *why* you deviated, in words your team accepts.
 :::
 
@@ -25,7 +25,7 @@ The frameworks tell you what's usually right. Judgment tells you when "usually" 
 
 The skill develops with experience. Early in your career, default to the frameworks. As you gain context, learn when to deviate.
 
-:::note Worked example: a legitimate framework override
+:::note[Worked example: a legitimate framework override]
 A team chooses Rust for a new payments service, even though TypeScript would have been the "boring" choice. Why?
 
 - The service handles money — correctness genuinely matters more than ship speed.
@@ -38,7 +38,7 @@ This is a *justified* override: a real reason, articulated in writing, with stak
 The framework's value isn't in the answer; it's in forcing you to *defend* the override out loud.
 :::
 
-:::info Highlight: the meta-skill — know when to refuse complexity
+:::info[Highlight: the meta-skill — know when to refuse complexity]
 Most failed projects fail because they took on too much, not too little. The single biggest predictor of engineering success isn't intelligence or hours worked — it's *restraint*. Building the smallest thing that could possibly work, then letting real usage drive what comes next, beats elaborate up-front planning almost every time.
 
 Key frameworks to remember from this chapter:

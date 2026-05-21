@@ -10,7 +10,7 @@ description: The eleven phases every software project goes through, from plannin
 
 *The phases every project moves through — from one-person blogs to billion-user platforms.*
 
-:::tip Absolute-beginner orientation
+:::tip[Absolute-beginner orientation]
 **What this chapter is really about:** Real software isn't written in one go. It moves through phases — somebody decides what to build, somebody designs it, somebody writes the code, somebody else reviews it, automated systems test it, it gets shipped to users, and then it gets monitored and maintained forever.
 
 **Why this matters before you learn any framework:** Frameworks (Next.js, React, Django) only solve the "writing the code" phase. The other phases — planning, design, code review, deployment, monitoring — are what actually consume most of your time as a working developer. Understanding the full loop helps you see where each tool fits.

@@ -10,7 +10,7 @@ description: Portfolios, blogs, hobby SaaS, tools, learning projects. Each calls
 
 > **In one line:** Not all personal projects need the same stack. Five common shapes, five appropriate trade-offs.
 
-:::tip In plain English
+:::tip[In plain English]
 "Personal project" is a category, not a recipe. A weekend portfolio site and a side-business SaaS look nothing alike under the hood — the portfolio is essentially Markdown plus a CSS framework, while the SaaS has auth, a database, payments, and webhooks. Pick the shape first, then the stack falls out naturally.
 :::
 
@@ -67,7 +67,7 @@ Something you build to learn, possibly never to deploy.
 - **Stack:** Whatever you're trying to learn.
 - **Effort:** A few hours to a few weeks.
 
-:::note Worked example: matching shape to project
+:::note[Worked example: matching shape to project]
 You want to "build a website to share my running routes with friends." Which type is it?
 
 - If it's mostly static maps and a blog post about each route → **Type 1 (Portfolio)** or **Type 2 (Blog)**.
@@ -77,7 +77,7 @@ You want to "build a website to share my running routes with friends." Which typ
 The labels matter because they imply wildly different effort. Confuse "blog with maps" with "social fitness app" and you'll under-estimate by 10x.
 :::
 
-:::info Highlight: this chapter focuses on Type 3
+:::info[Highlight: this chapter focuses on Type 3]
 For the rest of this chapter, the workflow focuses on **Type 3 (hobby SaaS)** as the most complete example. Simpler project types just skip steps — a portfolio doesn't need [auth](./auth) or [payments](./payments), a learning project doesn't need [observability](./observability) or [a launch](./launching). Read the whole chapter, then mentally cross out what doesn't apply to your shape.
 :::
 

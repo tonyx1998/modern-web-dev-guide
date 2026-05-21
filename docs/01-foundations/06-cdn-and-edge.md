@@ -10,7 +10,7 @@ description: Why your website is fast for a user in Tokyo even though your serve
 
 > **In one line:** A CDN puts copies of your site near users so each request travels meters instead of thousands of miles. The "edge" is the same idea, but for *code*, not just files.
 
-:::tip In plain English
+:::tip[In plain English]
 Imagine you sell books online from a warehouse in New York. A customer in Tokyo orders a book — it takes 10 days to arrive. Now you open small distribution centers in 200 cities globally that each keep copies of your most popular books. Tokyo orders the same book — arrives next day. That's a **CDN** for the web.
 
 Now imagine those distribution centers also have a few employees who can run errands locally — "check the customer's address," "verify their coupon," "stamp the package." That's **edge computing**.
@@ -44,7 +44,7 @@ sequenceDiagram
 
 That difference — 340ms vs 10ms — is the gap between "this feels broken" and "this feels native."
 
-:::info Highlight: a CDN is also a force shield
+:::info[Highlight: a CDN is also a force shield]
 Beyond speed, CDNs protect your origin server from traffic spikes and attacks. When 100,000 users hit your homepage simultaneously, the CDN serves them all from cache; your origin server might only see *one* request to refresh the cache. Without a CDN, that traffic would crush a small backend in seconds.
 :::
 
@@ -66,7 +66,7 @@ CDNs cache **static assets** (images, videos, fonts, JS/CSS bundles) by default.
 
 Modern CDNs cache aggressively and support **stale-while-revalidate** — serving the cached version instantly while fetching a fresh one in the background. The next user gets the fresh copy; the current user never waits.
 
-:::note Worked example: how a request flows through a CDN
+:::note[Worked example: how a request flows through a CDN]
 A user in Tokyo requests `https://example.com/logo.png`:
 
 1. Their request hits the Cloudflare POP in Tokyo.
@@ -90,7 +90,7 @@ Why this matters:
 
 The trade-off: edge runtimes are usually constrained (smaller CPU/memory limits, no filesystem, limited Node APIs). They're great for small handlers, not full applications.
 
-:::info Highlight: the biggest 2026 architectural pattern
+:::info[Highlight: the biggest 2026 architectural pattern]
 **Edge-first apps** — most logic runs at the edge, with a regional database (or globally distributed database like Cloudflare D1, Turso, or Spanner) for state. This pattern dominates new green-field apps in 2026, replacing the older "single region, scale vertically" default.
 :::
 

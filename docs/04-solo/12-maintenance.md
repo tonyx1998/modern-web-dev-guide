@@ -10,7 +10,7 @@ description: Once shipped, the work changes — watch Sentry, reply to users, me
 
 > **In one line:** Once shipped, the work shifts from building to watching, replying, and iterating. The hardest discipline is *not* accumulating a half-built backlog.
 
-:::tip In plain English
+:::tip[In plain English]
 Maintenance isn't glamorous, but it's where projects either survive or die. Half-built backlog items rot; ignored error reports compound; angry users become churned users. The fix is a small weekly routine — fifteen minutes of looking at the right dashboards — that catches almost everything before it becomes a crisis.
 :::
 
@@ -63,7 +63,7 @@ If you grow beyond free tiers:
 
 Still trivial for a project earning anything meaningful.
 
-:::note Try it yourself
+:::note[Try it yourself]
 Schedule a recurring 15-minute calendar block, once a week, called "ShelfTrack tending." In that block:
 
 1. Open Sentry — scan for new issues. Triage one if there is one.
@@ -74,7 +74,7 @@ Schedule a recurring 15-minute calendar block, once a week, called "ShelfTrack t
 Fifteen minutes, once a week. That's the whole maintenance routine for a small SaaS until you have hundreds of users.
 :::
 
-:::info Highlight: early users are disproportionately valuable
+:::info[Highlight: early users are disproportionately valuable]
 At a big company, one customer is one of millions. For your indie project, one of your first ten users is *ten percent of your user base*. Reply to their emails. Ask them questions. Ship the feature they asked about. Treat them like co-founders, because that's basically what they are.
 :::
 

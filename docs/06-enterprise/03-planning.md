@@ -10,7 +10,7 @@ description: How enterprises decide what to build — OKRs, PRDs, RFCs, and the 
 
 > **In one line:** Planning is a discipline at this scale — multi-page PRDs, written RFCs, and cross-functional reviews from security, privacy, legal, accessibility, and ops, all coordinated by program managers.
 
-:::tip In plain English
+:::tip[In plain English]
 At a startup, "planning" is often "the founder DM'd me a Loom." At an enterprise, planning is a multi-week process producing tens of pages of documents that survive years of staff turnover.
 
 That's not bureaucracy — it's pattern matching against past failures. Every cross-functional review exists because some earlier launch missed something obvious in hindsight: a regulation, an accessibility gap, a data flow that wasn't compliant. The doc-and-review machinery is institutional memory.
@@ -46,7 +46,7 @@ A PRD at this scale isn't just "what we're building" — it's "what we're buildi
 
 A good RFC is read by people who've never met the author, two years later, trying to understand why a decision was made. It saves enormous amounts of time by capturing the *reasoning*, not just the conclusion.
 
-:::info Highlight: the "alternatives considered" section is the most valuable
+:::info[Highlight: the "alternatives considered" section is the most valuable]
 The single most useful section of an enterprise RFC is the "Alternatives considered" block — three or four approaches that were *rejected* and *why*.
 
 Without it, future engineers re-litigate the same decision every 18 months. With it, you can answer "why didn't we just use X?" by pointing to the RFC where someone already explored it and listed the reasons. This is institutional memory at its best.
@@ -73,7 +73,7 @@ Each review is gated by a specialized team. Skipping reviews isn't a "move fast"
 
 The TPM's job is to make sure the auth team doesn't ship its piece three weeks before the mobile team is ready for it, and that the marketing date matches reality.
 
-:::note Worked example: a "small" feature's planning timeline
+:::note[Worked example: a "small" feature's planning timeline]
 A feature like "enable passkey login alongside passwords":
 
 - **Week 1:** PM drafts PRD; engineering staff engineer drafts RFC.

@@ -10,7 +10,7 @@ description: Long-running or scheduled work that shouldn't block HTTP requests. 
 
 > **In one line:** When a task takes more than a few hundred milliseconds, push it off the HTTP request and into a background job. Trigger.dev and Inngest dominate the modern TypeScript landscape.
 
-:::tip In plain English
+:::tip[In plain English]
 HTTP requests should be fast — users wait for them. If a task is going to take 30 seconds (send an email, generate a PDF, sync data from a slow API), don't make the user wait. Instead, your endpoint *queues* the task and returns immediately. A separate **worker** picks up the task and runs it later. That whole pattern is called "background jobs."
 :::
 
@@ -67,7 +67,7 @@ Heavy-duty workflow orchestration. Use for complex, long-running business proces
 | Python app                              | Celery              |
 | Complex multi-step business workflows  | Temporal             |
 
-:::info Highlight: the cheapest background job for a beginner
+:::info[Highlight: the cheapest background job for a beginner]
 You don't need a job queue on day one. For a side project, you can:
 
 1. Use **Vercel Cron Jobs** (or any platform's built-in cron) to schedule periodic tasks.

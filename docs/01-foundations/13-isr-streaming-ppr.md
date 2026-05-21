@@ -10,7 +10,7 @@ description: The hybrid strategies that combine SSG, SSR, and CSR. ISR rebuilds 
 
 > **In one line:** Real-world apps need both speed *and* freshness. ISR, Streaming SSR, and PPR are progressively cleverer hybrids that try to give you both.
 
-:::tip In plain English
+:::tip[In plain English]
 SSG is fastest but stale. SSR is fresh but slower. CSR is snappy after first load but slow to start. The hybrids in this page are inventions of the last 5 years aimed at *not having to choose*. Each one gives up a little simplicity in exchange for more speed-and-freshness on a single page.
 :::
 
@@ -56,7 +56,7 @@ sequenceDiagram
 
 **Best for:** Large catalogs (products, articles) that change occasionally.
 
-:::note Worked example: e-commerce catalog
+:::note[Worked example: e-commerce catalog]
 You have 50,000 products. SSG would mean a 30-minute build every time anything changes. SSR would mean every page request hits your DB.
 
 With ISR (`revalidate: 3600`):
@@ -65,16 +65,26 @@ With ISR (`revalidate: 3600`):
 - Users never wait for a rebuild. The CDN always has *something* to serve.
 :::
 
-## Streaming SSR + React Server Components — the 2026 Default
+## Streaming SSR — the 2026 default
 
-The current state-of-the-art, pioneered by React 18+ and the Next.js App Router.
+The current state-of-the-art. Two things are happening at once and beginners often conflate them:
 
-**How it works:**
+1. **Streaming SSR** (the general technique). The server starts sending HTML *as soon as the first chunk is ready*, without waiting for slow data. This works in **any** modern framework — Next.js, Remix / React Router v7, SvelteKit, Nuxt, Astro server output. The browser keeps writing into one open response.
+2. **React Server Components (RSCs)** (the React-specific feature on top). A *React-only* programming model where some components run *only* on the server, ship zero JavaScript to the browser, and can `await` data inline. Pioneered by React 18+ and matured in the Next.js App Router. Remix, SvelteKit, and Nuxt have their own analogous-but-different patterns (e.g. SvelteKit's `+page.server.ts`/`load` functions, Nuxt's server `useFetch`, Remix's `loader`), but they're **not RSCs** — calling them that conflates a React feature with a general capability.
 
-- The page is split into components, some of which run *only* on the server (**RSCs** — React Server Components, components that execute on the server and ship zero JavaScript to the browser).
-- The server starts streaming HTML chunks as soon as each piece is ready.
-- Client components hydrate progressively.
-- Slow data fetches don't block the rest of the page — they stream in with `<Suspense>` boundaries (a React feature that lets you mark a part of the UI as "OK to show a fallback while you wait").
+If you're not on React, you can still get streaming SSR; you just won't have the specific RSC programming model.
+
+**How streaming SSR works (framework-agnostic):**
+
+- The page is split into pieces. Some have fast data, some have slow data.
+- The server flushes the fast pieces immediately so the browser can start painting.
+- The slow pieces stream in later. In React, you mark them with `<Suspense>` boundaries (a React feature that lets you show a fallback while waiting). Other frameworks have equivalents (`{#await}` in Svelte, `<Suspense>` in Vue 3).
+
+**How RSCs add to that (React only):**
+
+- Components marked as server components (the default in Next.js App Router) never ship to the browser at all.
+- They can `await` databases, file systems, and secret-bearing APIs directly — without writing a separate API endpoint.
+- Client components (those with `"use client"` at the top) hydrate progressively after the server HTML arrives.
 
 ```mermaid
 sequenceDiagram
@@ -96,21 +106,30 @@ sequenceDiagram
 
 > **Reading this diagram:** Instead of waiting 200ms for *everything*, the user sees progress from 0ms onward. The same response stays "open" the whole time — the server keeps writing chunks into it as data becomes available.
 
-**Pros:**
-- Best of all worlds: SSR's SEO, SSG-like initial render speed, CSR-like interactivity.
-- Less JavaScript shipped to the client (RSCs run only on the server, ship zero JS).
-- Built-in async data fetching (RSCs can `await` data directly with no `useEffect`).
+**Pros (streaming SSR generally):**
+- Best of all worlds: SSR's SEO, SSG-like time-to-first-byte, CSR-like interactivity.
+- Slow data doesn't block fast paint.
+
+**Extra pros if you're on React + RSCs:**
+- Less JavaScript shipped to the client (server components stay on the server).
+- Built-in async data fetching (`await` data directly with no `useEffect` and no separate API route).
 
 **Cons:**
-- **Steep learning curve** — when does code run on server vs client? The boundaries are subtle.
+- **Steep learning curve** — when does code run on server vs client? The boundaries are subtle, especially with RSCs.
 - Ecosystem still catching up (some libraries assume client-only).
 - Requires careful thinking about boundaries.
 
 **Best for:** Most new full-stack apps in 2026.
 
-**Tools:** Next.js App Router (most mature), Remix, SvelteKit, Nuxt (with Nitro).
+**Tools — streaming SSR is a feature in all of these:**
 
-:::info Highlight: "use client" is a serious boundary
+- **Next.js App Router** — streaming SSR + RSCs (the React-specific extra).
+- **Remix / React Router v7** — streaming SSR + a `loader`/`action` model. *No RSCs as of early 2026, though they're on the roadmap.*
+- **SvelteKit** — streaming SSR via `load` and `+page.server.ts`. Not RSCs (Svelte has its own model).
+- **Nuxt (with Nitro)** — streaming SSR via server `useFetch`. Not RSCs.
+- **Astro** — server output with streaming, plus its own "islands" model on top.
+
+:::info[Highlight: "use client" is a serious boundary]
 In Next.js App Router, putting `"use client"` at the top of a component means it runs in the browser. Without it, the component is a server component — it never ships to the browser at all.
 
 This single line determines whether your code can use `useState` (client-only), or `await` a database query (server-only). Mastering this boundary is the biggest part of learning the modern React stack. It will feel unnatural for the first few projects, then become second nature.
@@ -141,7 +160,7 @@ This is the leading edge in 2026 — many teams haven't adopted it yet, but it's
 
 **Best for:** Pages where 90% is static (template, header, footer) but a few key parts must be live (current price, user-specific content).
 
-:::info Highlight: don't chase the bleeding edge on day one
+:::info[Highlight: don't chase the bleeding edge on day one]
 If you're brand new to web dev, **don't** start with PPR or even RSC. Start with vanilla Next.js or Astro. Get something deployed. Add ISR if you need it. Add streaming SSR if you need it. Add PPR if you need it. Each step adds complexity that's only justified by a specific need.
 
 The industry oscillates between simplifying and complicating. The frameworks will look different in 2030 too. The fundamentals from the [client-server model](./client-server) won't.

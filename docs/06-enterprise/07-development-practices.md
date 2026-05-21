@@ -10,7 +10,7 @@ description: Trunk-based development, strict code review, automated checks, arch
 
 > **In one line:** Daily coding at enterprise scale means trunk-based development with feature flags, multiple reviewers, automated everything (lint, type-check, tests, security, performance), and fitness functions that enforce architecture rules in CI.
 
-:::tip In plain English
+:::tip[In plain English]
 At a startup, "we have CI" means tests run on PRs. At an enterprise, "we have CI" means every commit is checked against dozens of automated rules — security scanners, license compliance, accessibility checks, performance budgets, type strictness, custom architectural rules — and the build fails if any of them complain.
 
 This sounds painful, but it's actually liberating. Once you trust that CI catches the obvious mistakes, you can focus on the interesting parts of the change in code review.
@@ -57,7 +57,7 @@ Each of those is a quality gate. The combination is what makes enterprise codeba
 
 Fitness functions are how you keep architecture decisions enforced without relying on every reviewer to remember them. The rule lives in code; the code runs in CI; the rule is automatically applied to every PR forever.
 
-:::info Highlight: fitness functions beat written guidelines every time
+:::info[Highlight: fitness functions beat written guidelines every time]
 Written architecture guidelines age badly. People forget them. New hires never see them. Reviewers get tired.
 
 A fitness function — a single test that fails if the rule is broken — survives turnover, scales to any team size, and never gets tired. The best enterprise architecture teams convert every guideline they care about into a fitness function. If it isn't enforced in CI, it isn't enforced.
@@ -72,7 +72,7 @@ A fitness function — a single test that fails if the rule is broken — surviv
 
 Enterprises tend to build wrappers around open-source libraries. The wrapper enforces the company's standards (retries, tracing, audit logging) so engineers get them automatically. This is also why dropping an enterprise engineer into a startup is jarring — they're suddenly missing all the infrastructure they assumed was free.
 
-:::note Worked example: anatomy of an enterprise PR
+:::note[Worked example: anatomy of an enterprise PR]
 A typical small PR (changing a single function in the payments service) might trigger:
 
 - Lint, format, type-check (parallel, ~1 minute each).

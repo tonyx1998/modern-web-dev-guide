@@ -14,7 +14,7 @@ This chapter walks through how an individual developer plans, builds, ships, and
 
 The whole goal: **spend your time on the actual product, not infrastructure.** Modern free tiers and managed services let one person ship what would have required a team a decade ago.
 
-:::tip Beginner orientation
+:::tip[Beginner orientation]
 **Who this chapter is for:** You, right now, building your first website or side project. One person, no boss, no users yet, no budget.
 
 **The whole philosophy of solo development:** Pick boring, well-supported tools. Use free tiers. Ship fast. Don't worry about scaling problems you don't have yet. A weekend project with five users does not need Kubernetes.

@@ -10,7 +10,7 @@ description: Vitest for unit and integration tests, Playwright for ~10–30 crit
 
 > **In one line:** Hundreds of Vitest unit tests, dozens of integration tests, a handful of Playwright E2E tests on the critical flows, and manual QA for the rest. Test what would break the business if it failed.
 
-:::tip In plain English
+:::tip[In plain English]
 The cliché "test pyramid" is real — lots of cheap unit tests, fewer mid-sized integration tests, very few expensive E2E tests. The mistake startups make isn't picking the wrong tools (Vitest and Playwright are basically standard); it's either skipping tests entirely or chasing a 90% coverage target that produces a thousand brittle tests nobody trusts.
 :::
 
@@ -107,7 +107,7 @@ test('user can sign up and complete checkout', async ({ page }) => {
 - Focus on testing what would break the business if it failed.
 - Critical paths (payment, auth, data integrity) should have multiple test layers.
 
-:::note Worked example: which tests to write for a new feature
+:::note[Worked example: which tests to write for a new feature]
 You're adding bulk export. What gets tested at each layer?
 
 - **Unit (Vitest):** The CSV-formatting function (input rows → string). Edge cases: empty list, special characters that need escaping, null fields. Five tests.
@@ -117,7 +117,7 @@ You're adding bulk export. What gets tested at each layer?
 The discipline: don't reach for E2E by default. Most features don't earn one.
 :::
 
-:::info Highlight: coverage isn't the goal
+:::info[Highlight: coverage isn't the goal]
 A team chasing 90% coverage will write tests for trivial getters, throwaway components, and edge cases nobody will hit. The result: a thousand tests, a slow CI, and a false sense of security.
 
 The actual goal is: *would I sleep through the night with the current test suite?* That depends on the critical paths — payments work, auth works, data isn't lost. Test those exhaustively. Test most other code lightly. Skip the rest.

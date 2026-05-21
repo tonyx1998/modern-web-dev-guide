@@ -10,7 +10,7 @@ description: Hand the model relevant documents before it answers. The dominant p
 
 > **In one line:** LLMs are great at reading but bad at memorizing — RAG fixes that by retrieving relevant documents from your data and stuffing them into the prompt before the model answers.
 
-:::tip In plain English
+:::tip[In plain English]
 The base LLM was trained months or years ago and has never seen your customer database, your internal docs, or last week's product update. RAG is the standard fix: turn the user's question into a vector, search your data for similar vectors, paste the top matches into the prompt, and let the model answer using that context. It plays to the LLM's strength (reading and summarizing) and around its weakness (poor memorization of specifics).
 :::
 
@@ -175,7 +175,7 @@ Out of the box, RAG often works "okay." Improvements:
 - **Real-time data.** RAG queries an indexed snapshot; for live data, query directly.
 - **Aggregations.** "How many users signed up last month?" — query the database, not embeddings.
 
-:::note Worked example: docs bot that actually works
+:::note[Worked example: docs bot that actually works]
 A team builds a "ask our docs" feature. Their iterations:
 
 1. **v1 — naive RAG.** Chunk every doc into 500-token blocks, embed, retrieve top 5, ask the model. Result: "okay" answers, often missing key info.
@@ -187,7 +187,7 @@ A team builds a "ask our docs" feature. Their iterations:
 Each step is a measurable improvement. The lesson: RAG is not a single technique — it's a pipeline you iterate on with eval data.
 :::
 
-:::info Highlight: the most common RAG mistake
+:::info[Highlight: the most common RAG mistake]
 The most common RAG failure isn't bad embeddings — it's **bad chunks**. If your chunks split mid-sentence, mid-section, or away from their headings, the model gets context with no coherent meaning.
 
 Before you optimize anything else, look at the chunks you're feeding the model. If you wouldn't be able to answer the question from those chunks alone, the model won't either.

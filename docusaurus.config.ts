@@ -28,7 +28,19 @@ const config: Config = {
     },
   },
 
-  themes: ['@docusaurus/theme-mermaid'],
+  themes: [
+    '@docusaurus/theme-mermaid',
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        indexBlog: false,
+        docsRouteBasePath: '/docs',
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+      },
+    ],
+  ],
 
   i18n: {
     defaultLocale: 'en',
@@ -55,10 +67,26 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/social-card.png',
+    image: 'img/social-card.svg',
     colorMode: {
       defaultMode: 'dark',
       respectPrefersColorScheme: false,
+    },
+    mermaid: {
+      theme: {light: 'neutral', dark: 'dark'},
+      options: {
+        themeVariables: {
+          // Dark-mode contrast tweaks
+          darkMode: true,
+          primaryColor: '#1e3a8a',
+          primaryTextColor: '#f1f5f9',
+          primaryBorderColor: '#60a5fa',
+          lineColor: '#94a3b8',
+          secondaryColor: '#334155',
+          tertiaryColor: '#0f172a',
+          fontSize: '15px',
+        },
+      },
     },
     docs: {
       sidebar: {

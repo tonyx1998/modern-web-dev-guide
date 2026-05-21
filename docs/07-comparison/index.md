@@ -10,7 +10,7 @@ description: Solo / startup / enterprise compared side by side across tools, pro
 
 *Quick-reference tables showing how all three scales differ across every dimension.*
 
-:::tip Beginner orientation
+:::tip[Beginner orientation]
 **How to read this chapter:** Each table shows the same dimension (e.g., "How do they deploy code?") at three scales — solo, startup, enterprise. Reading them side-by-side is the fastest way to grasp how engineering culture changes with team size.
 
 **The big takeaway in advance:** There is no single "correct" way to build software. What's reasonable at one scale is absurd at another. Kubernetes is overkill for a personal blog. A laptop deploy is unacceptable for a bank. The skill is matching tooling to context.
@@ -35,7 +35,7 @@ This chapter is a reference. Skim it when you need a quick mental model of how a
 | **Stack churn**     | Whenever you want     | Stable for 1–2 years    | Multi-year stability               |
 | **Cross-team coordination** | None         | Sometimes               | Constant                           |
 
-:::info Highlight: choosing your workflow
+:::info[Highlight: choosing your workflow]
 Where do you sit?
 
 ```mermaid

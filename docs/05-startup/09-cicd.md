@@ -10,7 +10,7 @@ description: A typical GitHub Actions workflow that lints, type-checks, tests, a
 
 > **In one line:** GitHub Actions lints, type-checks, tests, and builds on every PR. Vercel handles deployment. Branch protection makes the green-CI requirement non-optional.
 
-:::tip In plain English
+:::tip[In plain English]
 "CI/CD" is just two ideas: every change is verified automatically (CI), and verified changes deploy automatically (CD). At startup scale, you don't need to build either yourself — GitHub Actions runs your tests for free, and Vercel deploys whenever `main` updates. The interesting work is configuring branch protection so neither step can be bypassed under pressure.
 :::
 
@@ -87,7 +87,7 @@ GitHub branch protection on `main`:
 
 For emergency production fixes, the same flow applies — branch, PR, review, merge, deploy. CI is fast enough that emergency fixes ship in 15–30 minutes.
 
-:::note Worked example: a hot fix at 11 PM
+:::note[Worked example: a hot fix at 11 PM]
 A user reports checkout is broken. You confirm in Sentry: a null check is missing in the Stripe webhook handler.
 
 1. **23:02** — Branch off main: `git checkout -b fix/stripe-webhook-null`.
@@ -100,7 +100,7 @@ A user reports checkout is broken. You confirm in Sentry: a null check is missin
 Total: 15 minutes from "user reports broken" to "fixed in production" — without bypassing review, without deploying off a personal laptop. The fast-CI + branch-protection combination is what makes that possible.
 :::
 
-:::info Highlight: branch protection isn't bureaucracy
+:::info[Highlight: branch protection isn't bureaucracy]
 At 5 people, "we trust each other to not push broken code" is reasonable. At 15, that trust breaks down — not because anyone is bad, but because *somebody* will get tired and push a typo to main on a Friday.
 
 Branch protection makes the safe path the default path. Nobody has to remember to ask for review; nobody has to remember to wait for CI. The system enforces both. This is process earning its way in.

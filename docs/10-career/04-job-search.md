@@ -10,7 +10,7 @@ description: Junior roles, interview prep, and negotiation — what to expect an
 
 > **In one line:** Expect a long search, lean on referrals over cold applications, prepare for a 4-stage interview process, and always negotiate.
 
-:::tip In plain English
+:::tip[In plain English]
 The first job is the hardest you will ever look for. After that, your work history starts doing some of the lifting. Don't take rejection personally — most of it is signal-to-noise filtering, not a verdict on you. Cast a wide net, customize the few applications that matter most, and let referrals carry you through the front door.
 :::
 
@@ -66,7 +66,7 @@ When you get an offer:
 - Be polite but firm.
 - Get everything in writing before accepting.
 
-:::note Worked example: a STAR-format behavioral answer
+:::note[Worked example: a STAR-format behavioral answer]
 **Question:** "Tell me about a time you disagreed with a teammate."
 
 **Bad answer:** "Once a teammate wanted to use Redux and I thought it was overkill, so we argued for a bit and then I let them have it."
@@ -80,7 +80,7 @@ When you get an offer:
 Have 5–10 of these ready before any on-site.
 :::
 
-:::info Highlight: referrals are the single biggest lever
+:::info[Highlight: referrals are the single biggest lever]
 A referral converts to an interview at roughly 5–10x the rate of a cold application at most companies. Spend the time you'd spend on application #200 instead on building one real relationship with someone at a company you'd love to join.
 :::
 

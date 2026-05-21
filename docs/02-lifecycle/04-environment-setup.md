@@ -10,7 +10,7 @@ description: Prepare the workshop before construction — runtimes, editors, ver
 
 > **In one line:** Set up the workshop before the build. The hours you spend on a good local environment save you weeks of fighting your tools later.
 
-:::tip In plain English
+:::tip[In plain English]
 Before you write your first line of feature code, you need: a runtime installed (Node), an editor configured (VS Code or Cursor), a Git repo created, a linter set up, environment variables wired in, and a way to run the app locally. This is "the boring stuff" but it's where future you will live every single day. Invest now, harvest later.
 :::
 
@@ -100,7 +100,7 @@ gh repo create my-app --public --source=. --push
 - **Doppler / 1Password / HashiCorp Vault** for team secret sync.
 - **AWS Secrets Manager / Google Secret Manager** for cloud-native apps.
 
-:::info Highlight: if you accidentally commit a secret, rotate it immediately
+:::info[Highlight: if you accidentally commit a secret, rotate it immediately]
 Removing a leaked secret from Git history *does not help*. Bots scrape new GitHub commits within minutes; once a secret has appeared in any public commit, assume it's compromised. Rotate the secret (generate a new one, invalidate the old one) the moment you notice. Then clean up the history if you want.
 :::
 
@@ -112,7 +112,7 @@ Removing a leaked secret from Git history *does not help*. Bots scrape new GitHu
 - **Committing secrets:** Catastrophic. Rotate immediately if you do.
 - **No README:** Future you, in six months, will not remember how to run the project.
 
-:::note Worked example: the README every project needs
+:::note[Worked example: the README every project needs]
 A minimum-viable README:
 
 ```markdown

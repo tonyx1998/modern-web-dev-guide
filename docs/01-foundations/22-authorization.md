@@ -10,7 +10,7 @@ description: After the login — how the server keeps track of you (sessions vs 
 
 > **In one line:** Once authentication answered "who are you?", authorization answers "what are you allowed to do?". And tokens are how the server keeps track of you between requests.
 
-:::tip In plain English
+:::tip[In plain English]
 Authorization is the bouncer's wristband. Different colors get different access — VIP wristband gets backstage; general admission only gets the main bar. The server needs two things:
 
 1. **A way to recognize you on every request** after you log in. (Tokens.)
@@ -64,7 +64,7 @@ eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0MiIsImV4cCI6MTcyMDAwMDAwMH0.signature_here
 **Pros:** Stateless; scales horizontally without shared session storage.
 **Cons:** Hard to revoke before expiration; larger cookie size; signing key compromise = total breach.
 
-:::info Highlight: 2026 trend — session tokens are back
+:::info[Highlight: 2026 trend — session tokens are back]
 A few years ago JWTs were the obvious choice. By 2026, **session tokens are making a comeback**:
 
 - Their downsides matter less with modern Redis/edge KV (lookups are sub-millisecond globally).
@@ -127,7 +127,7 @@ CREATE POLICY user_owns_post ON posts
 
 **Supabase** and **Postgres** make RLS a primary pattern. Authorization logic lives in the database — a powerful defense-in-depth measure.
 
-:::note Worked example: layered authorization
+:::note[Worked example: layered authorization]
 For a real app, you usually combine these layers:
 
 1. **Authentication** — verify the JWT or session cookie. If invalid, reject.
@@ -146,7 +146,7 @@ Three layers means three things must fail simultaneously for an attacker to acce
 | Short-lived access token + long-lived refresh token | OAuth, mobile apps                          |
 | `X-API-Key` header                     | Server-to-server API calls                                |
 
-:::info Highlight: prefer cookies over headers for web auth
+:::info[Highlight: prefer cookies over headers for web auth]
 For a web app, store auth in a **cookie** (HttpOnly, Secure, SameSite=Lax), not in `localStorage` or in JavaScript memory. Why:
 
 - Cookies with `HttpOnly` cannot be read by JavaScript — XSS attacks can't steal them.

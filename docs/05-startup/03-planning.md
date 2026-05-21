@@ -10,7 +10,7 @@ description: PRDs in Notion or Linear, two-week sprints, quarterly OKRs. The lig
 
 > **In one line:** A 1–3 page PRD in Notion or Linear, two-week sprints, and OKRs every quarter. Enough structure to align a team, not so much it slows shipping.
 
-:::tip In plain English
+:::tip[In plain English]
 At a startup, planning has to scale beyond "a paragraph in Notes.app" because more than one person needs to read it. But it shouldn't yet be the multi-week, multi-stakeholder process of an enterprise PRD. The format converges on a 1–3 page document that the product team writes, engineering reviews, and design attaches mockups to — then turns into Linear tickets.
 :::
 
@@ -48,7 +48,7 @@ Some teams use **continuous flow** (no sprints — just a prioritized queue). Bo
 
 Every 3 months, the team picks a small number (3–5) of large goals for the quarter. These cascade down into sprints. The framework is often **OKRs (Objectives and Key Results)** — Objectives are aspirational; Key Results are measurable.
 
-:::note Worked example: a one-page PRD
+:::note[Worked example: a one-page PRD]
 > **PRD: Bulk Export for Power Users**
 >
 > **Problem.** Power users (top 5% by usage) regularly ask for a way to export their data. Currently they screenshot or copy-paste, which is unusable past ~50 rows.
@@ -70,7 +70,7 @@ Every 3 months, the team picks a small number (3–5) of large goals for the qua
 One page; everyone reads it in five minutes; engineering opens tickets straight from it.
 :::
 
-:::info Highlight: PRDs are conversation starters, not contracts
+:::info[Highlight: PRDs are conversation starters, not contracts]
 The biggest mistake new teams make is treating the PRD as a binding spec. It's not. It's the *current best understanding* of what to build, written down so that engineering, design, and product are pointed in the same direction. Expect it to change during implementation — when engineering finds a constraint, when design discovers a UX problem, when QA notices an edge case. The PRD evolves with the work.
 :::
 

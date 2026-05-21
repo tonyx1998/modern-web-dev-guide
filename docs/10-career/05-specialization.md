@@ -10,7 +10,7 @@ description: Ten common specialization paths after 2–3 years of generalist wor
 
 > **In one line:** After 2–3 years of generalist work, most engineers naturally specialize — into one of about ten common tracks.
 
-:::tip In plain English
+:::tip[In plain English]
 Don't pick a specialty on day one. You can't know what energizes you before you've tried any of it. Be a generalist long enough to feel where your curiosity pulls — then go deep there. The list below is what people end up choosing, not what they start with.
 :::
 
@@ -76,7 +76,7 @@ After 2–3 years of generalist work, most engineers naturally specialize. Commo
 
 **Where this leads:** Senior *IC* (Individual Contributor) roles at large companies. Often paid as much as or more than equivalent managers — a parallel track to engineering management, not below it.
 
-:::note Try it yourself: a 2-hour curiosity audit
+:::note[Try it yourself: a 2-hour curiosity audit]
 Block 2 hours and ask:
 
 1. Which kind of problem made me lose track of time in the last six months?
@@ -86,7 +86,7 @@ Block 2 hours and ask:
 Then look at the tracks above. The one that overlaps with your "lose track of time" category is worth investing in for the next year.
 :::
 
-:::info Highlight: management is a different career, not a promotion
+:::info[Highlight: management is a different career, not a promotion]
 The "Engineering Management" track is *not* the next rung up from Senior IC. It's a parallel track with different skills (people, projects, hiring) and a different daily life (meetings, not code). Many people switch back and forth across their career. Don't accept an EM role because it sounds like a promotion — accept it only if the work itself sounds interesting.
 :::
 

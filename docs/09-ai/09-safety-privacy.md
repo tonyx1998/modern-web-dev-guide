@@ -10,7 +10,7 @@ description: AI features introduce new risk vectors — prompt injection, halluc
 
 > **In one line:** AI features add new risk vectors — prompt injection, hallucinations, authorization bypass, harmful content, and PII exposure — and they need explicit defenses, not vibes.
 
-:::tip In plain English
+:::tip[In plain English]
 The new attack surface from AI isn't "the model gets hacked." It's that *user input becomes executable* in a way regular text never was — a user can write a sentence that hijacks the model's behavior. And the model doesn't have your authorization rules. The defenses are mostly old-school: validate input, don't trust output, never let the model make security decisions, redact PII before it leaves your perimeter.
 :::
 
@@ -62,7 +62,7 @@ LLMs make things up confidently. Mitigations:
 
 Never let an LLM bypass authorization. If a user asks "show me all customer data," the LLM might generate a SQL query that does so — but your application code should enforce that they can't actually run it on data they don't own.
 
-:::note Worked example: a prompt injection that almost worked
+:::note[Worked example: a prompt injection that almost worked]
 A team launches an AI assistant that can read user emails and take actions ("draft a reply," "schedule a follow-up"). A security review surfaces a vulnerability *before* launch:
 
 An attacker emails the user with a message containing:
@@ -80,7 +80,7 @@ The fix, applied before launch:
 The vulnerability is closed *before* a real attacker can use it. The lesson: assume every external piece of text the model sees might be a malicious instruction.
 :::
 
-:::info Highlight: the cardinal rule of AI security
+:::info[Highlight: the cardinal rule of AI security]
 **Never let the LLM be the security boundary.**
 
 Concretely:

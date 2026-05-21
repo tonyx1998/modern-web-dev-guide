@@ -10,7 +10,7 @@ description: HTML is generated on the server, fresh, for every request. Slower t
 
 > **In one line:** Build HTML fresh, per user, per request. Slower than SSG but always current and personalizable.
 
-:::tip In plain English
+:::tip[In plain English]
 SSR is what the web did before SSG existed and what most "dynamic" sites still do. Every time you visit `amazon.com/orders`, Amazon's servers look up *your* orders, build *your* personalized HTML, and send it to you. The next user gets entirely different HTML built for them. The trade-off: someone has to do that work on the server every time, which costs money and adds latency.
 :::
 
@@ -53,7 +53,7 @@ The word **hydrate** matters here: the server sends complete HTML *and* a JavaSc
 - **Requires running servers** — more expensive than just hosting static files.
 - **Server load scales with traffic** — 10× users means roughly 10× server CPU.
 
-:::note Worked example: SSG vs SSR for the same page
+:::note[Worked example: SSG vs SSR for the same page]
 Imagine `/products/42`.
 
 **With SSG:**
@@ -94,7 +94,7 @@ A blog post would be SSG (rarely changes). A product page with live inventory an
 | **Django**        | Python equivalent                                           |
 | **Phoenix / Elixir** | LiveView is a fascinating SSR + real-time hybrid         |
 
-:::info Highlight: SSR is just "the original web" with better tools
+:::info[Highlight: SSR is just "the original web" with better tools]
 SSR sounds modern but it's actually the *oldest* model — PHP, Rails, Django, even ASP from the 1990s all did SSR. What changed in the last decade is that React/Vue/Svelte made it possible to have an SSR architecture *and* a snappy SPA-like client experience, by sending hydration JavaScript alongside the server-rendered HTML.
 :::
 
@@ -104,7 +104,7 @@ Modern SSR isn't all-or-nothing. With **streaming SSR** (the default in Next.js 
 
 We'll cover streaming in detail in the [ISR, Streaming & PPR page](./isr-streaming-ppr). For now, just know that "SSR is too slow" is a 2015 critique — modern streaming SSR is competitive with SSG for first paint.
 
-:::note Try it yourself
+:::note[Try it yourself]
 ```bash
 npx create-next-app@latest my-app
 # accept defaults (App Router = streaming SSR by default)

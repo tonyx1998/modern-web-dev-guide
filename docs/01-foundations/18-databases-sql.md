@@ -10,7 +10,7 @@ description: Tables, rows, columns, foreign keys, joins, ACID guarantees. The do
 
 > **In one line:** Data lives in **tables** with **rows** and **columns**. Tables reference each other with **foreign keys**. You query with **SQL**. This boring tech is the best decision you'll make on most projects.
 
-:::tip In plain English
+:::tip[In plain English]
 A relational database is a glorified spreadsheet system. Each "table" is a sheet with rows (records) and columns (fields). Tables can reference each other — a `posts` table has a `user_id` column pointing at the `users` table. You ask questions in **SQL**, a 50-year-old query language that's still the lingua franca of data. The "boring" choice has won for half a century because it's *correct, predictable, and well-understood*.
 :::
 
@@ -73,7 +73,7 @@ LIMIT 10;
 
 SQL is **declarative** — you describe *what* you want, not *how* to compute it. The database's **query planner** (an internal optimizer that picks an execution strategy) figures out the most efficient path through your tables.
 
-:::note Worked example: the 5 SQL queries you'll write 90% of the time
+:::note[Worked example: the 5 SQL queries you'll write 90% of the time]
 ```sql
 -- 1. Get one row
 SELECT * FROM users WHERE id = 42;
@@ -125,7 +125,7 @@ These guarantees are why banks, healthcare systems, and anything that handles mo
 | **SQLite**       | A single-file database that's surprisingly powerful. **Cloudflare D1** and **Turso** make it production-viable at the edge. |
 | **CockroachDB / Spanner** | Distributed SQL — runs as a global cluster. Used at very large scale.                              |
 
-:::info Highlight: "Just use Postgres" is the most reliable advice in modern web dev
+:::info[Highlight: "Just use Postgres" is the most reliable advice in modern web dev]
 Almost every "should I use X or Y?" question about databases in 2026 has the same answer: *start with Postgres*. It handles:
 
 - Relational data (its bread and butter)
@@ -138,7 +138,7 @@ Almost every "should I use X or Y?" question about databases in 2026 has the sam
 One database to operate, one set of backups, one mental model. You can specialize later when you have a *specific* problem Postgres can't solve. That moment may never come.
 :::
 
-:::note Try it yourself
+:::note[Try it yourself]
 Most modern hosting providers offer a free Postgres tier:
 
 - **Supabase** — `https://supabase.com` — free tier with 500MB.

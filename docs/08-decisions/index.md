@@ -12,7 +12,7 @@ description: How to actually choose. Boring-technology rule, reversibility, team
 
 > **In one line:** Engineering decisions are mostly about restraint — preferring proven tools, deliberating proportionally to reversibility, and quantifying the cost of doing *nothing*.
 
-:::tip In plain English
+:::tip[In plain English]
 Most developers make bad choices because they pick technology based on what's trendy on Hacker News, what a famous YouTuber praised, or what the most senior person on the team likes. None of those are good reasons. This chapter teaches you to choose like a thoughtful engineer: boring tech for everything that isn't your differentiator, slow deliberation for one-way doors, fast deliberation for reversible ones, and a real cost-of-inaction calculation before any big refactor.
 :::
 
@@ -22,7 +22,7 @@ Every project requires hundreds of decisions: what framework, which database, mo
 
 This chapter is a collection of frameworks for making these decisions well. They're general-purpose — apply them to any scale, any technology, any role.
 
-:::info Jargon used throughout this chapter
+:::info[Jargon used throughout this chapter]
 - **Innovation token** — a unit of attention/risk you can "spend" by adopting an unfamiliar technology. Each team has a small budget per project.
 - **One-way door / two-way door** — Jeff Bezos's terms for *Type 1* (irreversible) and *Type 2* (reversible) decisions.
 - **Modular monolith** — a single deployable application internally organized into modules with clear boundaries — the default architecture for small/medium teams (contrast with *microservices*).
@@ -33,13 +33,13 @@ This chapter is a collection of frameworks for making these decisions well. They
 - **Conway's law** — "any organization that designs a system will produce a design whose structure mirrors the organization's communication structure." Your team shape becomes your system shape.
 :::
 
-:::info Highlight: the single most important principle
+:::info[Highlight: the single most important principle]
 **Boring technology beats exciting technology in almost every situation that matters.** Postgres in 2026 is still Postgres because it's reliable, well-documented, and well-understood. "Just use Postgres" is unglamorous, correct advice you'll hear for the rest of your career.
 
 When two options seem roughly equal, pick the one that's been around longer, has more documentation, and is easier to undo.
 :::
 
-:::note Worked example: the mental model
+:::note[Worked example: the mental model]
 Engineering decisions are like dietary choices for an athlete. You don't pick the new TikTok superfood. You stick with proven nutrition (lean protein, vegetables, complex carbs) and only experiment when the basics are dialed in.
 
 In tech terms: you don't pick the new framework that's three months old. You stick with Postgres, React, TypeScript, and a managed host — and only spend an "innovation token" when something genuinely differentiates your product.

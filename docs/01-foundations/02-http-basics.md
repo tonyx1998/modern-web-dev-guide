@@ -10,7 +10,7 @@ description: The protocol clients and servers use to talk. What HTTP looks like,
 
 > **In one line:** HTTP is the *language* the web speaks. HTTPS is the same language with the curtains drawn.
 
-:::tip In plain English
+:::tip[In plain English]
 HTTP is a strict format for sending messages between a client and a server — like a fill-in-the-blank form. The client writes "I want X" on one form; the server writes "here's X, or here's why I can't" on another form. HTTPS is identical, except the forms are sealed in an envelope only the recipient can open.
 :::
 
@@ -45,7 +45,7 @@ Cache-Control: max-age=300
 
 > **In English:** The status line `200 OK` means "everything succeeded." The headers describe the body that follows: it's JSON, 87 bytes long, and may be cached for up to 300 seconds (5 minutes). The blank line is the protocol-mandated separator between headers and body — the body itself is the JSON object. Everything you've ever done online is built from messages like these.
 
-:::note Worked example: read this HTTP request like a sentence
+:::note[Worked example: read this HTTP request like a sentence]
 ```http
 GET /api/users/42 HTTP/1.1
 Host: api.example.com
@@ -71,7 +71,7 @@ In 2026, HTTPS is effectively mandatory:
 - Search engines penalize plain HTTP in rankings
 - TLS certificates are now free and automated via Let's Encrypt and modern hosting platforms
 
-:::info Highlight: You no longer pay for HTTPS
+:::info[Highlight: You no longer pay for HTTPS]
 A decade ago, an SSL certificate cost $50–$300/year and required manual installation. Today, every major hosting platform — Vercel, Netlify, Cloudflare, AWS — provisions and renews certificates *automatically and for free* the moment you point a domain at them. There is no reason to ship a public site over plain HTTP anymore.
 :::
 
@@ -87,7 +87,7 @@ You rarely choose explicitly — your hosting platform and browser negotiate the
 
 The versions are **wire compatible** from your code's perspective. Your fetch call looks the same whether HTTP/1.1, 2, or 3 is underneath. The differences only matter at the network layer.
 
-:::note Try it yourself
+:::note[Try it yourself]
 In Chrome DevTools, open **Network → right-click any column header → check "Protocol."** You'll now see `h2`, `h3`, or `http/1.1` next to each request. Visit a few sites and notice the spread — most modern sites are `h2` or `h3`.
 :::
 
@@ -104,7 +104,7 @@ State is added back on top of HTTP using two mechanisms you'll learn about soon:
 
 We'll cover both in upcoming pages.
 
-:::info Highlight: If you only remember one thing
+:::info[Highlight: If you only remember one thing]
 Every HTTP request has the same shape: **method + path + headers + (optional) body**. Every HTTP response has the same shape: **status code + headers + (optional) body**. Memorize that shape once and you can read any HTTP exchange anywhere — in a browser, in a log file, in a Wireshark capture.
 :::
 

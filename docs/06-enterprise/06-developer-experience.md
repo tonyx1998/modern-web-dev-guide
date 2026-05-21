@@ -10,7 +10,7 @@ description: Monorepos, bootstrapped dev environments, internal CLIs, Backstage,
 
 > **In one line:** The defining feature of mature enterprise engineering is internal platforms that make engineers productive — monorepos, bootstrapped dev environments, internal CLIs, Backstage, and code search across the whole org.
 
-:::tip In plain English
+:::tip[In plain English]
 At a startup, "the dev environment" is whatever each engineer set up by following the README. At an enterprise, the dev environment is itself a product: one command brings up a fully-configured workstation with every credential, every dependency, every internal tool. If onboarding a new engineer takes more than a few days, the DevEx team treats it as a bug.
 
 Enterprise engineers spend most of their time *inside* the company's own tools, not GitHub's. Those internal tools — service catalogs, deploy CLIs, observability dashboards — *are* the workplace.
@@ -40,7 +40,7 @@ The aspiration: an engineer who joined yesterday can push a small fix today. The
 
 A good internal CLI is opinionated. It has a single right way to do the common things, hides the complexity of the underlying tools, and makes wrong configurations actively hard.
 
-:::info Highlight: internal CLIs encode policy as code
+:::info[Highlight: internal CLIs encode policy as code]
 The deepest benefit of internal CLIs isn't convenience — it's that **policy lives in the tool**. When `acme deploy production` automatically requires a canary rollout, an approver, and a rollback plan, those aren't suggestions in a wiki page. They're enforced by the only path engineers know how to use.
 
 That's how enterprises scale safety without scaling pain: build the safe path *easier* than the unsafe path, then make it the only path.
@@ -77,7 +77,7 @@ At enterprise scale, code search is a productivity multiplier. "How does anyone 
 
 When a platform team deprecates an old internal library, they don't just send an email — they write a codemod that fixes 90% of call sites automatically, ship a dashboard that tracks the remaining 10%, and pair with the laggards.
 
-:::note Worked example: deprecating an internal logging library
+:::note[Worked example: deprecating an internal logging library]
 A platform team wants to retire `acme-logger-v1` in favor of OpenTelemetry-based `acme-logger-v2`:
 
 1. **Codemod written** to migrate most call sites automatically.

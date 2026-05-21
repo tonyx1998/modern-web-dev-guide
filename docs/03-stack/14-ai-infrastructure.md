@@ -10,7 +10,7 @@ description: The new layer in modern web apps — model providers, SDKs, vector 
 
 > **In one line:** AI is now a stack layer. Pick a model provider (Claude / GPT / Gemini), wrap it with the Vercel AI SDK (for streaming), store embeddings in pgvector, and watch your costs with Langfuse or Helicone.
 
-:::tip In plain English
+:::tip[In plain English]
 Every modern app in 2026 has at least one AI feature — chat assistance, summarization, semantic search, content generation. The AI infrastructure layer is the set of tools that makes those features practical: who you call for the model, the SDK that handles streaming and tool calls, the database that stores embeddings, and the dashboards that track cost and latency.
 
 For deep coverage of *patterns* for AI features, see [Chapter 9: AI Integration](/docs/ai).
@@ -73,7 +73,7 @@ Server-Sent Events (SSE) is the standard for streaming LLM responses to the brow
 | **LangSmith**     | LangChain's own.                                                   |
 | **Braintrust**    | Eval-focused (testing prompts the way you'd test code).            |
 
-:::info Highlight: AI cost discipline starts on day one
+:::info[Highlight: AI cost discipline starts on day one]
 The biggest 2026 surprise for new AI feature developers: cost. A single user with a long conversation can rack up dollars in API spend if you're not careful. Habits to adopt early:
 
 - **Cache aggressively.** Use prompt caching when the provider supports it (Anthropic and OpenAI both do).

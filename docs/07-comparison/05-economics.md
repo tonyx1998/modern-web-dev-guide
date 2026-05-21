@@ -10,7 +10,7 @@ description: Monthly infrastructure costs and how long different change types ta
 
 > **In one line:** Solo projects run on $1–$20/month and ship typo fixes in 2 minutes; startups spend $500–$5K/month and ship them in 10–30 minutes; enterprises spend $2M–$50M+/month and ship them in 1–4 hours.
 
-:::tip In plain English
+:::tip[In plain English]
 The two most concrete differences between scales are *how much money it costs to run* and *how long it takes to change*. Both increase dramatically with scale, but in different ways.
 
 Cost grows roughly linearly with traffic and headcount; time-to-production grows because of the process layered on top to make change safe at scale. A solo dev's bottleneck is "did I think of the bug?" An enterprise's bottleneck is "did every gate sign off on the change?"
@@ -34,7 +34,7 @@ The pattern: infrastructure is a small percentage of total spend at every scale,
 
 For the enterprise deep dive, see [A Realistic Cost Picture](/docs/enterprise/cost-picture).
 
-:::info Highlight: the optimal cost decision is almost never the cheapest infra
+:::info[Highlight: the optimal cost decision is almost never the cheapest infra]
 At every scale, the dominant cost is people, not infrastructure. That means:
 
 - **Solo:** Pay $20/month for managed Postgres instead of running it on a $5 VPS. Your time is worth more than $15/month.
@@ -59,7 +59,7 @@ How long it takes a code change to reach users:
 
 The 10–100x slowdown at enterprise scale comes from the surrounding process: reviews, security checks, canary rollouts, compliance gates. Each gate exists because some past incident showed why it was necessary.
 
-:::note Worked example: where the enterprise time actually goes
+:::note[Worked example: where the enterprise time actually goes]
 Suppose you're tracking a "small feature" at three scales — say, "add a CSV export button to the dashboard":
 
 - **Solo (1 hour):** Code (40 min) → push → live.

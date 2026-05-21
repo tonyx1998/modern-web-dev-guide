@@ -10,7 +10,7 @@ description: A detailed walk through each of the eight deployment stages — wha
 
 > **In one line:** Source → CI → artifact → registry → deploy → runtime → CDN → DNS. Eight stages. Every one has tools, conventions, and failure modes worth knowing.
 
-:::tip In plain English
+:::tip[In plain English]
 This page walks through what each of the eight deployment stages actually *does*. After reading it, "deployment" stops being a black box and starts being a sequence of clearly-named steps you can debug, automate, and reason about.
 :::
 
@@ -48,7 +48,7 @@ Failed CI blocks the change from merging.
 - **Buildkite** — common at larger companies.
 - **Drone, Jenkins** — legacy or self-hosted setups.
 
-:::note Worked example: a tiny CI workflow
+:::note[Worked example: a tiny CI workflow]
 ```yaml
 # .github/workflows/ci.yml
 name: CI
@@ -108,7 +108,7 @@ CD takes passing builds and ships them:
 - **Pull-based GitOps** — a controller (**Argo CD**, **Flux**) watches the Git repo and applies changes to the cluster.
 - **Progressive delivery** — deploy to 1% of users, monitor metrics, gradually expand.
 
-:::info Highlight: Continuous Deployment vs Continuous Delivery (the subtle difference)
+:::info[Highlight: Continuous Deployment vs Continuous Delivery (the subtle difference)]
 **Continuous Delivery** = every commit *can* be deployed at any time (humans approve when).
 **Continuous Deployment** = every commit *is* deployed automatically (no humans).
 
@@ -161,7 +161,7 @@ flowchart LR
 
 The whole pyramid runs in minutes for personal projects, hours for startups, and can involve approval gates and weeks of staging for large enterprises.
 
-:::info Highlight: optimization isn't always faster — sometimes it's *safer*
+:::info[Highlight: optimization isn't always faster — sometimes it's *safer*]
 At solo scale, speed wins — `git push` and 30 seconds later it's live.
 
 At enterprise scale, *safety* wins — manual approvals, gradual rollouts, kill switches. A 30-second deploy is irrelevant if it accidentally takes down a payment system serving millions.

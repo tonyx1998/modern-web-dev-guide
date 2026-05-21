@@ -10,7 +10,7 @@ description: Quick-reference definitions for every term used in the series.
 
 *Quick-reference definitions for every term used throughout this series.*
 
-:::tip Beginner orientation
+:::tip[Beginner orientation]
 **How to use the glossary:** This isn't meant to be read top-to-bottom. Use the search bar (top right of the site) or Ctrl/Cmd-F to jump to a specific term. Every term you encounter in the other chapters is defined here in plain English.
 
 **If you're a total beginner, the most useful terms to skim first:** *HTTP, HTTPS, DNS, server, client, API, REST, JSON, database, SQL, framework, frontend, backend, deployment, CI/CD, environment variable, repository, branch, pull request.* If those nineteen terms feel familiar, you have a solid working vocabulary.
@@ -296,7 +296,7 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **JWT (JSON Web Token)** — A self-contained, signed token used for authentication. Encodes user info in a base64-encoded JSON payload.
 
-:::note Example
+:::note[Example]
 A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots: a *header* (algorithm), a *payload* (user claims like `{ "sub": "user_123", "exp": 1735689600 }`), and a *signature*. Servers verify the signature with a secret or public key, then trust the claims.
 :::
 

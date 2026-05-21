@@ -10,7 +10,7 @@ description: Containers (Docker), orchestration (Kubernetes), infrastructure as 
 
 > **In one line:** Docker packages your app; Kubernetes runs it at scale; Terraform defines your cloud infrastructure as code; vaults store your secrets. None of this is required for a small project on Vercel — it's the layer big companies build below their hosting.
 
-:::tip In plain English
+:::tip[In plain English]
 "DevOps" is a fuzzy term covering everything from packaging your app (Docker) to running it across many machines (Kubernetes) to declaring your cloud setup in code (Terraform). Most of this is *optional* for small projects — your hosting platform handles it. You start to need these tools when you outgrow the platform tier and have to operate the underlying infrastructure yourself.
 :::
 
@@ -83,7 +83,7 @@ resource "aws_lambda_function" "api" {
 | **AWS Secrets Manager / Google Secret Manager / Azure Key Vault** | Cloud-native.            |
 | **Doppler / 1Password Secrets Automation** | Modern, developer-friendly.                      |
 
-:::info Highlight: most projects don't need any of this
+:::info[Highlight: most projects don't need any of this]
 You'll see senior engineers talk passionately about Kubernetes, Terraform, and service meshes. They're not wrong — at scale, these tools earn their complexity. But the average personal project or startup needs:
 
 - **Docker** — useful even at small scale.

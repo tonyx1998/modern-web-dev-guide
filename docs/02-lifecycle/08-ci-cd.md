@@ -10,7 +10,7 @@ description: Automate the path from "code committed" to "code in production." Th
 
 > **In one line:** CI runs tests automatically on every commit. CD ships passing builds to production automatically. Together: the factory assembly line for software.
 
-:::tip In plain English
+:::tip[In plain English]
 "CI" and "CD" are scary acronyms for simple ideas:
 
 - **CI (Continuous Integration)** — Every time someone commits code, an automated system pulls it, runs the tests, and reports back. The "integration" part means *combining* everyone's work and proving the combined result still works. Without CI, ten developers can break each other's code without realizing.
@@ -106,7 +106,7 @@ For most modern teams, trunk-based or GitHub Flow is the right default.
 | **Argo CD / Flux**                | GitOps for Kubernetes.                              |
 | **Vercel / Netlify / Cloudflare Pages** | Built-in CI/CD for their hosted apps.         |
 
-:::note Worked example: this very site's CI/CD
+:::note[Worked example: this very site's CI/CD]
 This documentation site has `.github/workflows/deploy.yml`:
 
 1. On every push to `main`, GitHub Actions runs `npm run build`.
@@ -117,7 +117,7 @@ This documentation site has `.github/workflows/deploy.yml`:
 That's a complete CI/CD pipeline for a static site, all expressed in one YAML file under 50 lines.
 :::
 
-:::info Highlight: aim for under-10-minute CI
+:::info[Highlight: aim for under-10-minute CI]
 A 30-minute CI loop kills productivity — developers context-switch, lose focus, accept worse code. A 5-minute loop keeps them in flow.
 
 Common ways to speed up slow CI:

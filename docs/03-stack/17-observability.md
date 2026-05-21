@@ -10,7 +10,7 @@ description: The tooling for errors (Sentry), logs (Datadog, Axiom), metrics (Pr
 
 > **In one line:** Sentry for errors, PostHog for analytics, Better Stack for uptime + logs. Reach for Datadog / Honeycomb / OpenTelemetry when you outgrow the basics.
 
-:::tip In plain English
+:::tip[In plain English]
 This page is the *tools* for observability. For the *concepts* (logs vs. metrics vs. traces, SLOs, alerting), see [Chapter 2 Phase 10](../lifecycle/observability).
 :::
 
@@ -73,7 +73,7 @@ Sentry catches exceptions, deduplicates them by stack trace, alerts you on new e
 | **Incident.io**    | Modern, developer-friendly.                                     |
 | **Better Stack On-call** | Bundled with Better Stack.                              |
 
-:::info Highlight: the 5-minute observability stack for a beginner
+:::info[Highlight: the 5-minute observability stack for a beginner]
 Sign up for these three free tiers and you have professional-grade observability in 5 minutes:
 
 1. **Sentry** — exception tracking.

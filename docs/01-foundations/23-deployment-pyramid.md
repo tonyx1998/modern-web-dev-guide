@@ -10,7 +10,7 @@ description: A bird's-eye view of how code becomes a live website. Source → CI
 
 > **In one line:** Every project, from one-person blogs to Google, ships code through some variation of the same eight-stage pipeline. Knowing the stages helps you debug at *every* level.
 
-:::tip In plain English
+:::tip[In plain English]
 "Deploying" is just the word for *putting your code somewhere users can run it*. It's not a single action — it's a multi-step process where each step has a specific job. The pyramid below is the same shape used by everyone from a teenager building their first Astro site (`git push` and Vercel handles the rest) to Google rolling out a global change (the same eight stages, just way more automation at each one).
 :::
 
@@ -18,7 +18,7 @@ description: A bird's-eye view of how code becomes a live website. Source → CI
 
 How does code reach users? Every project, from one-person blogs to Google, uses some variation of this pipeline. A few terms before the diagram:
 
-:::info Jargon for the pipeline
+:::info[Jargon for the pipeline]
 - **CI** (Continuous Integration) — automation that runs on every commit (lint, tests, security scans).
 - **Artifact** — the *built* output of your code (a Docker container image, a static bundle, a serverless function package). What actually gets deployed.
 - **Registry** — a storage system for artifacts, like a Git for compiled code (GHCR, ECR, Docker Hub).
@@ -59,7 +59,7 @@ What changes between solo, startup, and enterprise isn't *what* the stages are �
 
 The solo developer just types `git push` and 30 seconds later their site is live — but under the hood, every one of those eight stages happened. The difference is who/what runs each stage.
 
-:::info Highlight: this is why "deployment problems" are hard
+:::info[Highlight: this is why "deployment problems" are hard]
 When something breaks in production, it could be in any of these 8 layers:
 
 - A bug in your source code (layer 1).

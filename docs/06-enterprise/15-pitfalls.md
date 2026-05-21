@@ -10,7 +10,7 @@ description: Cargo-cult microservices, useless platforms, tech debt avalanche, a
 
 > **In one line:** Even with all the investment in process and platforms, enterprises routinely fall into the same patterns — cargo-cult microservices, platforms nobody uses, tech debt avalanches, process for process's sake, and bureaucratic risk aversion.
 
-:::tip In plain English
+:::tip[In plain English]
 Money and process don't automatically buy good engineering. The biggest enterprises in the world routinely produce systems that take six months to ship a feature that a startup could ship in a weekend. The failure modes are predictable and worth knowing about — they're the warning signs that your organization is sliding into one of them.
 :::
 
@@ -50,7 +50,7 @@ Reviews that take weeks. Approvals from people who don't read the code. Meetings
 
 **Fix:** Senior engineering leadership must actively prune. Ask "what value does this provide?" for every process. Cut what doesn't justify itself.
 
-:::info Highlight: process that nobody actively defends is process that should be cut
+:::info[Highlight: process that nobody actively defends is process that should be cut]
 A useful test: pick a process and ask three people "what would go wrong if we stopped doing this?" If none of them can give a concrete answer rooted in a real past failure, it's cargo cult — and probably worth removing.
 
 The best engineering leaders have a recurring "process audit" cadence: every quarter, they kill at least one process that has stopped justifying itself. Otherwise, process accretes for years and slowly strangles velocity.
@@ -80,7 +80,7 @@ Senior engineers hold critical knowledge in their heads. When they leave, produc
 
 **Fix:** Documentation requirements. Pair programming. Rotation. "Bus factor" reviews.
 
-:::note Worked example: how "back to the monolith" works
+:::note[Worked example: how "back to the monolith" works]
 A mid-sized SaaS split into 80 microservices over five years. By year six, shipping any feature required changes across an average of seven services, each with its own deploy pipeline, each owned by a different team.
 
 Their fix: identify clusters of services that always change together, and merge each cluster into a "modular monolith" — one deployable unit with strong internal module boundaries. The result: 80 services became 12 services. Feature velocity tripled. Operational burden dropped.

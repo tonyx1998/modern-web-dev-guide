@@ -10,7 +10,7 @@ description: The engines that turn your source code (TypeScript, JSX, CSS) into 
 
 > **In one line:** A build tool turns your TypeScript and JSX into the JavaScript and CSS a browser can run. Vite is the dominant standalone choice; Turbopack ships inside Next.js; Bun is faster than both for many tasks.
 
-:::tip In plain English
+:::tip[In plain English]
 Browsers don't understand TypeScript or JSX directly. Someone has to translate that source code into plain JavaScript and bundle it together with your CSS and images into files the browser can load. That translator is your **build tool**. In 2026, build tools have gotten so fast that you barely notice them — the dev server starts in milliseconds and updates instantly when you save a file.
 :::
 
@@ -76,7 +76,7 @@ The dominant bundler from 2014–2022. Still around in many projects but rarely 
 | Custom bundling needs     | Bun build or esbuild                    |
 | Legacy migration          | Webpack (you may have no choice)        |
 
-:::info Highlight: you rarely *configure* a build tool in 2026
+:::info[Highlight: you rarely *configure* a build tool in 2026]
 Five years ago, "webpack.config.js" was where you spent half your life. Today, modern tools have such good defaults that most projects never touch their bundler config. If you find yourself deep in `vite.config.ts` or `next.config.js`, pause and ask: is this a real need, or am I tinkering? Modern defaults beat custom config 9 times out of 10.
 :::
 

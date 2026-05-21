@@ -10,7 +10,7 @@ description: Document, key-value, search, and vector databases. When and why to 
 
 > **In one line:** Not every storage problem fits in tables. Document, key-value, search, and vector databases are specialized tools for specific shapes of data — but in 2026, you should only reach for them when Postgres genuinely can't.
 
-:::tip In plain English
+:::tip[In plain English]
 "NoSQL" is an umbrella term for "any database that isn't relational." It splits into a few families:
 
 - **Document databases** (MongoDB) store flexible JSON-shaped records.
@@ -51,7 +51,7 @@ Data lives as **documents** (JSON-like objects). No fixed schema.
 - **DynamoDB** (AWS) — fully managed, used heavily at AWS scale.
 - **Firestore** (Google) — popular for mobile apps with offline sync.
 
-:::info Highlight: 2026 status — document DBs are niche
+:::info[Highlight: 2026 status — document DBs are niche]
 By 2026, the industry has largely concluded that **Postgres with a JSONB column** beats most document database use cases. You get document flexibility *and* relational rigor in one database. Real document database adoption is now niche — usually big AWS shops that standardized on DynamoDB years ago.
 :::
 
@@ -79,7 +79,7 @@ INCR view_count:post:42        # atomic counter
 - **Upstash** — serverless Redis with HTTP API.
 - **Cloudflare KV** — globally distributed key-value at the edge.
 
-:::note Worked example: caching a slow query
+:::note[Worked example: caching a slow query]
 Without Redis:
 
 ```javascript
@@ -138,7 +138,7 @@ To find similar questions, compute cosine similarity against stored vectors.
 - **Weaviate** — Open-source, feature-rich.
 - **Turbopuffer** — Newer, cost-optimized.
 
-:::info Highlight: pgvector ate the vector database market
+:::info[Highlight: pgvector ate the vector database market]
 Three years ago, you'd reach for a dedicated vector DB the moment you had AI features. In 2026, **pgvector** (the Postgres extension) handles vector search well enough that most teams skip the dedicated DB entirely. Pinecone and friends still win at *very large scale* (>10M vectors with strict latency SLOs), but most production AI apps run on Postgres + pgvector.
 :::
 

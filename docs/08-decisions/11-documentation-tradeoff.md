@@ -10,7 +10,7 @@ description: Document the things that don't change, not the things that do. The 
 
 > **In one line:** Document the things that don't change, not the things that do — the right docs reduce repeated questions; the wrong docs are noise that lies eventually.
 
-:::tip In plain English
+:::tip[In plain English]
 The classic documentation failure is paraphrasing your code in comments and then letting both drift. Code is the source of truth about *what* something does — and code can't go stale because the runtime enforces it. Docs should explain things code can't: *why* a decision was made, *how* to onboard, *what to do when X breaks*.
 :::
 
@@ -40,7 +40,7 @@ The classic documentation failure is paraphrasing your code in comments and then
 
 The right docs reduce repeated questions; the wrong docs are noise.
 
-:::note Worked example: comments that age well vs poorly
+:::note[Worked example: comments that age well vs poorly]
 Two comments in the same file. Six months later, which is still useful?
 
 ```ts
@@ -59,7 +59,7 @@ The first comment becomes a lie the moment someone changes the increment. The se
 Write comments and docs that capture **the reason for a choice**, not the choice itself.
 :::
 
-:::info Highlight: the "stale doc" failure mode
+:::info[Highlight: the "stale doc" failure mode]
 The worst kind of doc isn't a missing one — it's a confidently wrong one. A README that hasn't been updated since 2024 doesn't just fail to help; it actively misleads new engineers who treat it as authoritative.
 
 Defenses:

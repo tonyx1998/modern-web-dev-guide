@@ -10,7 +10,7 @@ description: Ten specific pieces of advice for a CS Master's student at USC taki
 
 > **In one line:** Ten pieces of specific advice for a CS Master's student — ship outside coursework, use the AI tools, optimize for internships, build a public presence.
 
-:::tip In plain English
+:::tip[In plain English]
 This page is written for one specific situation — a CS Master's student at USC taking classes like CSCI571 (Web Tech) and CS570 (Algorithms) — but the principles apply to anyone in a similar program. Treat coursework as the floor, not the ceiling. The students who land strong roles do *more* than the syllabus asks.
 :::
 
@@ -38,7 +38,7 @@ Some specific advice for someone in a CS Master's program at USC, taking classes
 
 10. **The job market is challenging right now.** Plan for a long search, apply broadly, accept that rejection is common. Don't take it personally.
 
-:::note Try it yourself: a Master's program "shipping plan"
+:::note[Try it yourself: a Master's program "shipping plan"]
 Map your two years against the four anchors above:
 
 - **By end of Semester 1:** One small deployed project (any size). One blog post about it. AI tooling installed and used daily.
@@ -49,7 +49,7 @@ Map your two years against the four anchors above:
 The plan is intentionally light — most of the work happens *outside* coursework, on top of a normal class load.
 :::
 
-:::info Highlight: the CSCI571 project is your gateway
+:::info[Highlight: the CSCI571 project is your gateway]
 Of all the leverage points in a USC CS Master's, the CSCI571 final project (the Flask/Ticketmaster/GCP one) is the highest. It's the project recruiters can most easily evaluate: full-stack, deployed, real third-party API. **Make it excellent, deploy it well, and write about how you built it.** That single project, done well, opens more interview doors than three average ones.
 :::
 

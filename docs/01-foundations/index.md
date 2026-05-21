@@ -14,7 +14,7 @@ This chapter covers the bedrock concepts every web developer must understand. Th
 
 If you can explain everything in this chapter confidently, you have a stronger foundation than most working developers.
 
-:::tip Absolute-beginner orientation
+:::tip[Absolute-beginner orientation]
 **If you've never built a website:** This is the longest chapter in the series, but it's the most important one. Every later chapter assumes you've read this.
 
 **Mental model to hold throughout:** Two computers having a conversation. One asks ("client"), one answers ("server"). Every feature on the web — every video, every login button, every chat message — is built from variations of that conversation, repeated billions of times per day.

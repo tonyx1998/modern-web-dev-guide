@@ -10,7 +10,7 @@ description: The language you choose constrains everything else — framework, l
 
 > **In one line:** Your language choice constrains your framework, your hiring pool, and your ecosystem. For new web projects in 2026, TypeScript is the default.
 
-:::tip In plain English
+:::tip[In plain English]
 A programming language is just *syntax + rules + ecosystem*. Most people pick a language because of what they want to *build*, not because of the language itself. Building a typical web app? TypeScript. Building AI/ML pipelines? Python. Building fast backend services? Go or Rust. Working at a big bank? Probably Java. Each language exists because some community decided it solved a specific problem better.
 :::
 
@@ -107,7 +107,7 @@ Systems language with memory safety, no garbage collector, and remarkable perfor
 | **Elixir**       | Functional, BEAM VM. Phoenix LiveView is interesting.             |
 | **Zig**          | Newer systems language; used to implement Bun.                    |
 
-:::info Highlight: as a beginner, pick TypeScript and move on
+:::info[Highlight: as a beginner, pick TypeScript and move on]
 Spending months agonizing over "which language should I learn first?" is the most common time-waster in early web dev. TypeScript is the highest-leverage choice in 2026 because:
 
 1. It works for both frontend (React, Vue, etc.) and backend (Node, Bun, Deno).

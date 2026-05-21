@@ -10,7 +10,7 @@ description: The auth-as-a-service landscape. Clerk, Better Auth, Auth.js, Auth0
 
 > **In one line:** Don't build your own auth. Use Clerk for a polished commercial experience; Better Auth or Auth.js if you want open-source self-hosting; Auth0/WorkOS for enterprise needs.
 
-:::tip In plain English
+:::tip[In plain English]
 Authentication is hard. Modern best practice is to outsource it — pick a service, drop in their components, focus on your actual product. This page is the landscape of those services.
 
 If you want the conceptual background (sessions vs JWTs, passwords vs passkeys, RBAC vs ABAC), see the [Authentication](../foundations/authentication) and [Authorization](../foundations/authorization) pages in chapter 1.
@@ -89,7 +89,7 @@ Enterprise SSO/SAML/SCIM as a service. The go-to when selling B2B and customers 
 | Enterprise B2B                    | Clerk + WorkOS, or Auth0 |
 | Maximum customization             | Build on Better Auth or Auth.js |
 
-:::info Highlight: the auth-service free tiers are real
+:::info[Highlight: the auth-service free tiers are real]
 For solo / startup projects, you almost certainly fit in someone's free tier:
 
 - **Clerk** — 10,000 monthly active users free.

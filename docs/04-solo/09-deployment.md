@@ -10,7 +10,7 @@ description: Pushing to GitHub triggers Vercel to build and deploy automatically
 
 > **In one line:** `git push` is now the entire deployment process. Vercel detects Next.js, builds, deploys, and gives you a URL — including a preview URL per branch.
 
-:::tip In plain English
+:::tip[In plain English]
 "Deployment" used to be a multi-day ordeal involving SSH keys, server provisioning, and reverse-proxy configs. Now you push code to GitHub and a URL appears. The interesting work in this phase isn't the deploy itself — it's the things that wrap around it: custom domains, preview environments, and separating dev/preview/prod environment variables.
 :::
 
@@ -43,7 +43,7 @@ Vercel has three environments by default: Development, Preview, Production. Set 
 
 Tip: Use different Stripe keys (test vs live) and different database URLs for preview vs production.
 
-:::note Worked example: previewing a risky change
+:::note[Worked example: previewing a risky change]
 You want to refactor the entire library page. Don't push it to `main` directly — instead:
 
 1. `git checkout -b refactor/library-page`
@@ -56,7 +56,7 @@ You want to refactor the entire library page. Don't push it to `main` directly �
 The branch and preview can live for days. You can have ten of these open at once. Each gets its own isolated URL.
 :::
 
-:::info Highlight: keep prod and preview keys separate
+:::info[Highlight: keep prod and preview keys separate]
 The most common solo deployment incident: shipping a test charge to a real customer's card, or a preview deploy emailing a production user. Fix it once, structurally:
 
 - **Stripe:** test key for Development + Preview, live key only for Production.

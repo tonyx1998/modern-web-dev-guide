@@ -10,7 +10,7 @@ description: How branching, code review, testing, and deployment pipelines diffe
 
 > **In one line:** A solo dev pushes to `main` after self-review; a startup runs trunk-based with a single reviewer and short branches; an enterprise runs trunk-based with code owners, security review, and a fully gated multi-stage canary rollout.
 
-:::tip In plain English
+:::tip[In plain English]
 The day-to-day rhythm of "I made a change, now what?" is the clearest dividing line between scales. A solo dev's loop is "push, refresh, done." A startup's loop is "PR, one review, merge, auto-deploy." An enterprise's loop is "PR, two reviewers, code owners, fitness functions, security scan, canary, monitor, promote."
 
 The same change can take minutes, hours, or days depending purely on the surrounding process. The process isn't optional once you have more than a handful of engineers — it's how you stop them from breaking each other.
@@ -49,7 +49,7 @@ The testing pyramid expands at every scale. A solo dev's "unit test the tricky f
 
 For enterprise specifics, see [Phase 5: Testing at Scale](/docs/enterprise/testing).
 
-:::info Highlight: contract tests are the unsung enterprise tool
+:::info[Highlight: contract tests are the unsung enterprise tool]
 Most public testing advice focuses on unit and E2E tests. But the most distinctive thing about enterprise testing is **contract tests** — automated checks that two services keep their promises to each other.
 
 A contract test says: "Service A promises to send these fields with these types. Service B promises to accept them. If either side breaks the contract, the build fails." That's how you keep dozens of teams from accidentally breaking each other every Tuesday.
@@ -74,7 +74,7 @@ CI duration shapes everything else. A 5-minute loop encourages many small change
 
 For enterprise specifics, see [Phase 6: CI/CD at Scale](/docs/enterprise/ci-cd).
 
-:::note Worked example: same one-line bug fix, three workflows
+:::note[Worked example: same one-line bug fix, three workflows]
 A typo in a button label causes a small UX bug. Three teams' workflows:
 
 - **Solo dev:** Edit the string, push to `main`, Vercel deploys in 60 seconds. Total: 2 minutes.

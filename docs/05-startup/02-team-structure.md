@@ -10,7 +10,7 @@ description: How a startup engineering org shapes itself at 5, 25, and 50 people
 
 > **In one line:** 5 people: everyone does everything. 25 people: informal teams emerge. 50 people: formal teams own services and product areas.
 
-:::tip In plain English
+:::tip[In plain English]
 The shape of the team changes faster than you expect as you grow. At five engineers, the same person merges PRs in the morning and rotates on-call at night. By fifty, "the auth team" and "the platform team" are real entities with hand-offs between them. Most of the pain in scaling a startup is *not* technical — it's the org chart catching up to reality.
 :::
 
@@ -50,13 +50,13 @@ You start to see "teams" emerge: maybe a frontend team, an API team, an infrastr
 
 Now teams have clear ownership of services or product areas. Cross-team coordination becomes a real cost. Architecture decisions need broader buy-in.
 
-:::note Worked example: hiring the first DevOps engineer
+:::note[Worked example: hiring the first DevOps engineer]
 At ~17 engineers, your team is starting to lose hours every week to "the deploy is flaky," "Vercel bills are confusing," "we don't have a staging environment story." Nobody owns it; everyone touches it.
 
 That's the signal to hire a first DevOps / platform engineer — not because the work suddenly appeared, but because it's now consuming enough cross-team attention to justify a dedicated owner. Hire too early (at five engineers) and they're a bottleneck and underused. Hire too late (at 30) and you've eaten a lot of avoidable pain.
 :::
 
-:::info Highlight: roles are titles, not jobs
+:::info[Highlight: roles are titles, not jobs]
 At every size in this range, *the actual work* doesn't fit cleanly inside role boundaries. A "frontend-focused" engineer at a 15-person startup will still write SQL queries when the feature demands it. The first "platform engineer" will still ship product features when the on-call queue is quiet.
 
 Treat the org chart as a rough guide to ownership and rotation, not a description of what people can and can't do. Specialization is a tendency at this scale, not a fence.

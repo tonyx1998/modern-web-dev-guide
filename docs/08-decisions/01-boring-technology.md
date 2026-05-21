@@ -10,7 +10,7 @@ description: Choose boring technology. Save innovation tokens for the thing that
 
 > **In one line:** Choose boring technology. Save innovation tokens for the thing that actually differentiates your product.
 
-:::tip In plain English
+:::tip[In plain English]
 Every team has a small budget of "innovation tokens" — chances to bet on new, unfamiliar technology. Spend them on the one or two things that actually make your product different. Use boring, well-understood tools for everything else. Postgres, Redis, and Next.js aren't sexy, but they don't surprise you in production at 2 a.m.
 :::
 
@@ -62,7 +62,7 @@ Before adopting a new tool, ask:
 
 If you can't articulate why the new tool is necessary, it probably isn't.
 
-:::note Worked example: spending a token deliberately
+:::note[Worked example: spending a token deliberately]
 You're building an AI-first note-taking app. Your differentiator is the AI summarization and semantic search. Reasonable token allocation:
 
 - **Spend a token on:** a vector database setup and a custom RAG pipeline — this is your moat.
@@ -71,7 +71,7 @@ You're building an AI-first note-taking app. Your differentiator is the AI summa
 You now have *one* novel thing to debug in production instead of five. Your team can focus their attention where it matters.
 :::
 
-:::info Highlight: the test for "is this boring enough?"
+:::info[Highlight: the test for "is this boring enough?"]
 A tool is "boring" if:
 
 1. It's been used in production at meaningful scale for at least 5 years.

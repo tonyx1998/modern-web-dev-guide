@@ -10,7 +10,7 @@ description: Signs you're approaching the next stage — 50+ engineers, multi-te
 
 > **In one line:** When your engineering org passes 50 people, teams routinely block each other, monolith deploys feel risky, and on-call exhausts a single brain — you've outgrown the small-company workflow.
 
-:::tip In plain English
+:::tip[In plain English]
 The small-company workflow has natural limits. The patterns that worked at 20 engineers start to creak at 60. Recognizing the signals early lets you transition deliberately instead of in crisis. The next chapter — [Large Company Workflow](/docs/enterprise) — covers what changes.
 :::
 
@@ -41,7 +41,7 @@ Small-company web development in 2026 is a sweet spot. The tooling is mature, th
 
 The hardest discipline: resisting both extremes. Don't be sloppy like a personal project; don't be heavyweight like an enterprise. Stay in the middle, where execution speed is highest.
 
-:::note Worked example: a clean graduation
+:::note[Worked example: a clean graduation]
 A startup hits 55 engineers. The CTO notices three signals over one quarter:
 
 1. Two teams blocked each other on a shared module three times in a month.
@@ -53,7 +53,7 @@ Instead of waiting for things to get worse, the CTO starts a deliberate transiti
 Three months later, the team is operating under more of the patterns in [Chapter 6](/docs/enterprise). The transition was uncomfortable but not catastrophic.
 :::
 
-:::info Highlight: graduating gracefully beats graduating in crisis
+:::info[Highlight: graduating gracefully beats graduating in crisis]
 Most companies don't notice they've outgrown their workflow until something breaks badly — a major incident, a key hire quitting, a missed deadline. The hard skill at this stage is *noticing the signals early and acting on them before the crisis.*
 
 The signals listed above are the leading indicators. Watch them quarterly. When two or three are flashing red, start the transition — don't wait for the fourth.

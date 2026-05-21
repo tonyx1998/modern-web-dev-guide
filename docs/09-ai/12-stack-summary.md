@@ -10,7 +10,7 @@ description: A one-page reference for the dominant AI tools in 2026 — chat, em
 
 > **In one line:** A pragmatic one-page reference — what most teams reach for, by job, when starting an AI feature in 2026.
 
-:::tip In plain English
+:::tip[In plain English]
 This is the "default stack" the way [Postgres + Next.js + Vercel] is the boring web default. None of these picks are mandatory — but if you don't have a *specific* reason to pick differently, these are the safe choices that most teams converge on by 2026.
 :::
 
@@ -29,7 +29,7 @@ A typical modern app using AI:
 | Durable agents        | Inngest / Trigger.dev                   |
 | Self-hosted models    | Llama via Together/Fireworks/Replicate  |
 
-:::note Worked example: the boring AI stack
+:::note[Worked example: the boring AI stack]
 A founder starts a new AI feature on a weekend. Using the table above as a "boring default":
 
 - **Chat:** Vercel AI SDK + Claude Sonnet (Anthropic).
@@ -44,7 +44,7 @@ Total monthly fixed cost at the start: **$0** (free tiers). Time from `npm creat
 Every piece can be swapped later: change model with one line, switch to Pinecone if pgvector struggles, move observability to Helicone if Langfuse stops fitting. Boring defaults compose well.
 :::
 
-:::info Highlight: when to deviate from the boring stack
+:::info[Highlight: when to deviate from the boring stack]
 Most teams should follow the table. Reasonable reasons to deviate:
 
 - **Self-hosted models (Llama, Mistral)** — strict data-residency requirements, or sustained high volume where the cost math flips.

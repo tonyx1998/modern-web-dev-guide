@@ -10,7 +10,7 @@ description: The tools you actually type into — VS Code, Cursor, JetBrains, Ne
 
 > **In one line:** VS Code is free and dominant; Cursor is the paid AI-first fork most working developers prefer in 2026; AI coding assistants are no longer optional for competitive productivity.
 
-:::tip In plain English
+:::tip[In plain English]
 This is the last layer of the stack — the *editor* itself, the program you spend all day typing into. In 2026, the choice has shifted from "vim vs Emacs vs VS Code" to "which AI-augmented editor do I use?" Free options exist; paid options are dramatically more productive for working developers.
 :::
 
@@ -46,7 +46,7 @@ Three modes of AI-assisted work, in increasing autonomy:
 
 The bigger the task, the more you need to *review* what the AI produced. The skills that matter most in 2026 are reading code, judging design, debugging, and architectural taste — not raw typing speed.
 
-:::info Highlight: AI doesn't replace fundamentals — it amplifies them
+:::info[Highlight: AI doesn't replace fundamentals — it amplifies them]
 A junior developer with AI but no fundamentals produces code they can't debug. A senior developer with AI produces 2–5× more high-quality code.
 
 **The investment thesis:** keep learning the underlying concepts (the rest of this guide). AI is a power amplifier for whatever you already know. The more you know, the more leverage you get.

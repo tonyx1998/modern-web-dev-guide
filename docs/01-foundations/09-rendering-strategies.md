@@ -10,7 +10,7 @@ description: Who builds the HTML, and when? This single decision drives the enti
 
 > **In one line:** "Rendering strategy" answers one question: *who builds the HTML, and when?* Three possible answers — at build time, at request time on the server, or in the browser — give you SSG, SSR, and CSR. Modern apps mix them.
 
-:::tip In plain English
+:::tip[In plain English]
 Every web page is just HTML. The browser only knows how to display HTML. So somebody, somewhere, has to *build* that HTML. There are exactly three places it can happen:
 
 1. **At build time** (the developer's laptop or CI server, before any user shows up)
@@ -51,7 +51,7 @@ flowchart LR
 
 Don't try to memorize the table. Read it once. The next six pages explain each row in detail with diagrams and worked examples.
 
-:::info Highlight: this is the single most-overcomplicated topic in modern web dev
+:::info[Highlight: this is the single most-overcomplicated topic in modern web dev]
 You'll see endless blog posts, conference talks, and Twitter threads arguing about rendering strategies. **You don't need a strong opinion on day one.** Pick what your framework defaults to:
 
 - **Next.js** defaults to a smart mix of Streaming SSR and SSG.

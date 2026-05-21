@@ -10,7 +10,7 @@ description: Rough total compensation ranges by level — and what shifts them.
 
 > **In one line:** US total comp roughly spans $80K (junior) to $1M+ (VP), with big tech paying 1.5–2x mid-market and specialized roles paying 10–30% over generalists.
 
-:::tip In plain English
+:::tip[In plain English]
 Comp in tech is wider than almost any other field. The same job title at two companies can pay 2x different. The numbers below are not promises — they're a *map* of the territory so you know if an offer is reasonable. Always verify with levels.fyi or a current friend before you negotiate.
 :::
 
@@ -38,7 +38,7 @@ Rough *total compensation* ranges (TC = base salary + bonus + equity, fully load
 
 **Specialization premium:** ML engineering, AI engineering, security engineering, and senior platform engineering tend to pay 10–30% above generalist roles at similar levels.
 
-:::note Worked example: reading a junior offer
+:::note[Worked example: reading a junior offer]
 You get an offer:
 - Base: $120K
 - Sign-on: $10K
@@ -52,7 +52,7 @@ That's above the junior range, near the mid-level range — strong for a first j
 **Always do the math this way before negotiating.** A "$150K offer" can mean very different things.
 :::
 
-:::info Highlight: equity is a number, not a promise
+:::info[Highlight: equity is a number, not a promise]
 At pre-IPO startups, equity is worth roughly $0 until a liquidity event. Don't take an offer with weak base + huge "equity upside" unless you can afford to be wrong. At public companies, RSUs are nearly cash — but the *grant date* price is what counts; subsequent stock movement is its own bet. Negotiate in dollars, not percentages.
 :::
 

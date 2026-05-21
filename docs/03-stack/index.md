@@ -10,7 +10,7 @@ description: Every major tool in the 2026 web stack, organized by layer. Skim on
 
 *Every major tool in modern web development — what it does, when to use it, why it exists.*
 
-:::tip Absolute-beginner orientation
+:::tip[Absolute-beginner orientation]
 **Why this chapter looks overwhelming:** It is overwhelming — there are hundreds of tools in modern web development, and this chapter catalogs the important ones. **Don't read it front-to-back like a novel. Skim once to know what exists, then come back to specific sections when you need to make a decision.**
 
 **The "stack" mental model:** A web application is built in layers. Each layer has its own tools:

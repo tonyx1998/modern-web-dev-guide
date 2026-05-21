@@ -10,7 +10,7 @@ description: Models that handle text + images + audio + video. OCR, alt text, vo
 
 > **In one line:** Modern frontier models accept images (and increasingly audio and video) alongside text — enabling OCR, accessibility, document parsing, voice agents, and visual understanding without separate ML pipelines.
 
-:::tip In plain English
+:::tip[In plain English]
 Two years ago, "parse a receipt" was a separate ML project. In 2026, you hand the image to Claude or Gemini and ask "what's the total?" The same models that handle chat now read documents, describe images for accessibility, transcribe speech, and analyze video frames. Multimodal is just *another modality of the same prompt*.
 :::
 
@@ -53,7 +53,7 @@ Use cases:
 - Frame extraction + image analysis.
 - Native video models (emerging in 2026).
 
-:::note Worked example: a receipt scanner with one prompt
+:::note[Worked example: a receipt scanner with one prompt]
 A finance app lets users snap a receipt photo. The old pipeline (still common in 2023) needed:
 
 - A specialized OCR model (Tesseract / Google Document AI).
@@ -90,7 +90,7 @@ const result = await generateObject({
 Done. ~20 lines, no model training, no glue code, fully typed output. The dedicated OCR pipeline still wins on volume + cost at very large scale, but for most teams the multimodal LLM is a strictly better starting point.
 :::
 
-:::info Highlight: multimodal isn't free
+:::info[Highlight: multimodal isn't free]
 Vision input is much more expensive than text input — a single image can cost 1,500+ tokens of input. Cost-control tips:
 
 - **Resize before sending.** Most tasks don't need 4K resolution. Downscale to the longest model-recommended dimension.

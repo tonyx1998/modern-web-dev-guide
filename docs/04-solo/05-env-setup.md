@@ -10,7 +10,7 @@ description: From empty folder to deployed empty project in about an hour. Next.
 
 > **In one line:** In ~60 minutes you can go from empty folder to a real URL with auth, a database, error tracking, and `git push` deploys. A decade ago this took a week.
 
-:::tip In plain English
+:::tip[In plain English]
 This is the part that feels like magic now. Modern tooling has collapsed a week of devops into a one-hour copy-paste. By the end of this phase you'll have a working URL on the internet — empty, but real — that redeploys every time you `git push`. Get to that milestone first, *then* start building features. Never the other way around.
 :::
 
@@ -143,13 +143,13 @@ bunx drizzle-kit generate   # Creates SQL migration files
 bunx drizzle-kit migrate    # Applies them to the database
 ```
 
-:::note Try it yourself
+:::note[Try it yourself]
 Time yourself. The first time you go through this, it will take longer than an hour — probably two or three — because every signup page is slightly different and every API key needs to land in the right place. *Write down* the exact steps as you go.
 
 The second time, on a different project, it'll take ~30 minutes. The third time, it's muscle memory. The cliché "make it work, then make it fast" applies to your own setup process too.
 :::
 
-:::info Highlight: deploy *before* you build
+:::info[Highlight: deploy *before* you build]
 Step 13 — `git push` to deploy an empty project — is the single most important step. It guarantees that:
 
 1. The deploy pipeline works *before* you write any features.

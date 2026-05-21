@@ -10,7 +10,7 @@ description: The modular monolith, the dominant 2026 stack, and RFCs for major a
 
 > **In one line:** The reigning 2026 pattern for small companies is the *modular monolith* — one Next.js app, internally organized so modules can later be split if (rarely) needed.
 
-:::tip In plain English
+:::tip[In plain English]
 "Microservices vs monolith" is a fake debate at this scale. The right answer is almost always a single deployable app, with clean module boundaries inside it. You get one deploy, one log stream, one debugger, one set of tests — and the *option* to split later if a specific module truly outgrows the monolith. Most never need to.
 :::
 
@@ -101,7 +101,7 @@ Proposed; needs sign-off from CTO and frontend lead.
 
 RFCs become a useful artifact — future engineers understand why decisions were made.
 
-:::note Worked example: a module boundary that paid off
+:::note[Worked example: a module boundary that paid off]
 A 14-person SaaS organized its Next.js app into modules: `billing/`, `auth/`, `core/`, `admin/`. Each module exports a clean API; modules don't reach into each other's internals. The DB schema is shared, but each module owns specific tables.
 
 Two years in, the billing logic gets complicated enough (multi-currency, tax, dunning, invoicing) that the team wants to extract it. Because of the clean module boundary, extracting `billing/` into a separate service takes about three weeks instead of the three months it would have taken from a tangled codebase.
@@ -109,7 +109,7 @@ Two years in, the billing logic gets complicated enough (multi-currency, tax, du
 The lesson: the modular monolith isn't "we'll never split." It's "we'll split *if and when* a specific module needs it, and we'll be ready when that day comes."
 :::
 
-:::info Highlight: $10M ARR is a lot
+:::info[Highlight: $10M ARR is a lot]
 The "handles up to $10M ARR" claim isn't marketing — it's the actual track record of this stack. Companies you've heard of run on essentially this configuration well past 50 engineers. The architectural decisions to revisit at $10M+ are usually: read replicas, a queue + worker for heavy background work, and possibly extracting one or two modules into services. Not "rewrite everything."
 :::
 

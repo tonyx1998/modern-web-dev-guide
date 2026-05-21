@@ -10,7 +10,7 @@ description: ChatGPT-style conversation interfaces where the response appears to
 
 > **In one line:** A chat interface where the user types and the assistant responds token-by-token over Server-Sent Events — the most common AI pattern in modern web apps.
 
-:::tip In plain English
+:::tip[In plain English]
 A 3-second response *streamed* feels fast. The same response delivered as a single chunk feels slow. Streaming is a UX trick — the model isn't actually faster, but the user sees progress immediately. In 2026 nearly every chat-style AI feature uses it.
 :::
 
@@ -119,7 +119,7 @@ Why SSE over WebSockets:
 - Automatic reconnection in browsers.
 - One-way communication is sufficient (server → client).
 
-:::note Worked example: why streaming is a UX trick, not a perf trick
+:::note[Worked example: why streaming is a UX trick, not a perf trick]
 The model takes the same wall-clock time either way — say, 3 seconds for a 200-token response.
 
 **Without streaming:**
@@ -136,7 +136,7 @@ The model takes the same wall-clock time either way — say, 3 seconds for a 200
 The model isn't faster. The user just isn't bored. This is why basically every chat-style AI product in 2026 streams by default.
 :::
 
-:::info Highlight: time-to-first-token is the metric that matters
+:::info[Highlight: time-to-first-token is the metric that matters]
 For streamed chat, total response time is a misleading metric — users care about **time-to-first-token (TTFT)**. A 400ms TTFT feels instant; a 2-second TTFT feels broken.
 
 Track TTFT separately from total response time. Optimize TTFT first:

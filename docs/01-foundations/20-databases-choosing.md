@@ -10,7 +10,7 @@ description: A pragmatic 2026 decision tree for picking your data stores. Spoile
 
 > **In one line:** Start with Postgres. Add Redis as soon as you need caching. Add anything else only when Postgres genuinely can't do the job. That's it.
 
-:::tip In plain English
+:::tip[In plain English]
 You're going to read a lot of opinions on Twitter, Reddit, and Hacker News about "the best" database. Most of them are wrong because they generalize from someone else's specific problem. The reality is: 95% of web apps in 2026 are well-served by Postgres, often with Redis added for caching. Save the complex specialized databases for when you actually have the problem they solve.
 :::
 
@@ -71,7 +71,7 @@ Every extra database costs you:
 
 This is why the 2026 advice is *boring*: minimize the number of databases until forced to add more.
 
-:::info Highlight: the "Choose Boring Technology" principle
+:::info[Highlight: the "Choose Boring Technology" principle]
 Dan McKinley's famous essay says every team starts with a budget of ~3 "innovation tokens" for non-boring choices. Spend them carefully. **Choosing Postgres is spending zero tokens** — it's the boring choice. That's good. It means you have all 3 tokens left for the parts of your product that are genuinely novel.
 
 If your innovation tokens are going into "I picked a cool new vector DB," ask yourself: is this the part of my product that's supposed to be novel?

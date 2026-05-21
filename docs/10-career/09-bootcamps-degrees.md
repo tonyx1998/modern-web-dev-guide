@@ -10,7 +10,7 @@ description: The 2026 honest take on CS degrees, bootcamps, self-taught paths, m
 
 > **In one line:** All routes are viable in 2026, but none are a shortcut — what you've actually built matters more than how you learned.
 
-:::tip In plain English
+:::tip[In plain English]
 There is no "best" path into web development. There are paths with different costs, different timelines, and different signaling — but they all converge on the same question at hire time: *show me what you've built.* If your portfolio is strong, the route on your resume is a footnote. If it's weak, no credential will save you.
 :::
 
@@ -38,7 +38,7 @@ There is no "best" path into web development. There are paths with different cos
 
 The pattern across all routes: **what you've actually built matters more than how you learned**.
 
-:::note Worked example: same outcome, three routes
+:::note[Worked example: same outcome, three routes]
 Three engineers all land junior roles at similar companies in 2026:
 
 - **A** has a 4-year CS degree from a state school. Built 2 deployed projects during senior year. Got the job via the campus recruiter.
@@ -48,7 +48,7 @@ Three engineers all land junior roles at similar companies in 2026:
 Same outcome. Three legitimate routes. The common thread is shipped projects, not the credential at the top of the resume.
 :::
 
-:::info Highlight: a certificate is a footnote, not a signal
+:::info[Highlight: a certificate is a footnote, not a signal]
 If you're about to spend $500 on an online certificate, ask: "Would $500 of domain costs + hosting + an iPad to design on do more for my portfolio?" In 2026 the answer is almost always yes. Save the certificate for after you have 2–3 projects deployed.
 :::
 

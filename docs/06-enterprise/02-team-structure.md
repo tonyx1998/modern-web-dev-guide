@@ -10,7 +10,7 @@ description: How a large engineering org is actually organized — product teams
 
 > **In one line:** A large engineering org is hundreds of small teams stitched together by managers, program managers, and platform teams that build internal products for other engineers.
 
-:::tip In plain English
+:::tip[In plain English]
 At a startup, "the engineering team" is one chat channel. At an enterprise, "engineering" is hundreds of teams, each with its own slice of the product and its own backlog. Some teams build features users see; some build tools other engineers use; some keep production running while everyone else sleeps.
 
 If you've only worked at a small company, the biggest mental shift is realizing that **most of the engineering work is invisible** — internal platforms, security, compliance, release engineering, data infrastructure. The user-facing product is the tip of an enormous iceberg.
@@ -53,7 +53,7 @@ At enterprise scale, several functions become full teams (or whole orgs):
 - **Developer experience (DevEx)** — Improves engineer productivity (tools, docs, onboarding).
 - **Localization** — Handles internationalization at scale.
 
-:::info Highlight: SRE is not just "ops with a fancy name"
+:::info[Highlight: SRE is not just "ops with a fancy name"]
 SRE (Site Reliability Engineering, originally from Google) is a discipline that treats reliability as a software problem. SREs:
 
 - Define and enforce SLOs (service-level objectives).
@@ -87,7 +87,7 @@ Engineers have two parallel tracks:
 
 Both are valid careers. Senior ICs (Staff, Principal) often have more leverage than equivalent-level managers — a Principal Engineer can change how thousands of engineers work by setting a standard, writing an RFC, or building a library that becomes the default.
 
-:::note Worked example: who shows up to ship one feature?
+:::note[Worked example: who shows up to ship one feature?]
 A "small" feature like "add 2FA to the login flow" at an enterprise might involve:
 
 - 2 product engineers writing the code.

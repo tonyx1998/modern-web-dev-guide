@@ -10,7 +10,7 @@ description: Your team's size constrains what's optimal. Patterns that work for 
 
 > **In one line:** Your team size constrains what's optimal — patterns that work for 5 people often fail at 50, and patterns designed for 500 engineers crush a small startup.
 
-:::tip In plain English
+:::tip[In plain English]
 The biggest source of wasted engineering effort is **importing practices from a much larger or smaller company** without considering whether they fit. A solo developer doesn't need RFCs. A 500-person org can't survive without them. Match the process to the size.
 :::
 
@@ -71,7 +71,7 @@ Ask: "Is this practice helping or hurting at our current size?" Add what genuine
 
 The biggest mistake is **importing practices from a much larger or smaller company** without considering whether they fit — sometimes called *cargo-culting* (mimicking the form of a successful team's process without the underlying conditions that made it work).
 
-:::note Worked example: a process that broke a 12-person team
+:::note[Worked example: a process that broke a 12-person team]
 A 12-person startup hires a senior engineer from a 5,000-person company. The new hire introduces:
 
 - A formal RFC process for any change over 100 lines.
@@ -83,7 +83,7 @@ Six months later, the team is shipping half as much as before. The process was c
 The fix: keep ADRs for genuinely irreversible decisions (database, language, auth provider) and drop the rest. Velocity recovered within a month.
 :::
 
-:::info Highlight: the symmetric mistake
+:::info[Highlight: the symmetric mistake]
 The *opposite* mistake — a 200-person org running with no process because "we move like a startup" — is equally common and equally expensive. By 200 people, you cannot all sit in one room and align. Either process emerges deliberately, or it emerges as chaos.
 
 Process should scale up with team size. A team of 1 doesn't write RFCs; a team of 500 cannot survive without them.

@@ -10,7 +10,7 @@ description: The LLM doesn't just produce text — it calls predefined functions
 
 > **In one line:** Instead of producing text, the LLM picks a function to call (with arguments) or returns a JSON object that exactly matches a schema you defined.
 
-:::tip In plain English
+:::tip[In plain English]
 Function calling turns the LLM from "text generator" into "router" or "field extractor." You hand it a menu of tools (`getWeather`, `lookupOrder`, `sendEmail`) and it returns *which one to call with what arguments*. Structured output is the same idea for data: you give a JSON schema and the model returns conforming JSON. Both turn the unpredictable token stream into something your regular code can act on.
 :::
 
@@ -122,7 +122,7 @@ try {
 
 LLMs occasionally violate their instructions. Validation is your safety net.
 
-:::note Worked example: extracting structured data from email
+:::note[Worked example: extracting structured data from email]
 A team automates support triage. They want incoming emails turned into a structured object their existing ticket system understands.
 
 ```typescript
@@ -148,7 +148,7 @@ await ticketSystem.create({
 What used to be a human reading every email is now a $0.0003 model call that produces a strictly-typed object. The schema validation guarantees the downstream ticket system doesn't choke on a surprise field.
 :::
 
-:::info Highlight: structured output as a safety boundary
+:::info[Highlight: structured output as a safety boundary]
 Even if you "trust" the LLM, validate. LLMs occasionally:
 
 - Omit required fields.

@@ -10,7 +10,7 @@ description: A concrete weekend-by-weekend schedule for a small tool — setup, 
 
 > **In one line:** Two weekends, ~32 hours, one shipped product. A concrete schedule to anchor what's actually achievable.
 
-:::tip In plain English
+:::tip[In plain English]
 "Two weekends" sounds aggressive until you see exactly what fits. Modern tooling has done so much of the work — auth, hosting, payments, error tracking — that two weekends of focused effort really can take you from empty folder to a real URL with paying users. Here's how the hours map.
 :::
 
@@ -51,13 +51,13 @@ End of weekend: a shipped product with users.
 
 This is genuinely achievable in 2026. The tools have advanced to the point where one person can ship what used to require a small team.
 
-:::note Try it yourself
+:::note[Try it yourself]
 Pick a tiny project you've been meaning to build. Block out the next two weekends on your calendar. Print the schedule above. As you go, write next to each line how long it *actually* took.
 
 After Sunday of weekend 2, even if it's not as polished as the schedule implies, you'll have learned more about your real velocity than any blog post can teach. Use that calibration on the next project.
 :::
 
-:::info Highlight: two weekends is the *floor*, not the ceiling
+:::info[Highlight: two weekends is the *floor*, not the ceiling]
 This schedule works for a "small tool" — a focused, narrow product. A more ambitious SaaS will run 8–14 weekends as covered in [time investment](./time-investment). Don't beat yourself up if your project doesn't fit this schedule. The point is that *some* shippable thing fits this schedule, and that's a remarkable change from a decade ago.
 :::
 

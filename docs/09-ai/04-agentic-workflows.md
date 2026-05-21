@@ -10,7 +10,7 @@ description: The LLM plans a sequence of steps, executes them, and adjusts based
 
 > **In one line:** An agent is an LLM that picks a tool, observes the result, picks the next tool, and keeps going until it decides the task is done — multi-step reasoning over a sandbox of capabilities.
 
-:::tip In plain English
+:::tip[In plain English]
 Function calling lets the model call *one* tool. An agent lets it loop: call a tool, see the output, decide whether to call another, and so on. This is what powers Claude Code, Cursor, customer-support agents, and research assistants. The cost: many LLM calls per task, longer latency, and a much higher need for careful guardrails because the agent is autonomously taking actions.
 :::
 
@@ -80,7 +80,7 @@ When they don't:
 
 In 2026, agentic workflows are increasingly viable but still require careful engineering. The best are heavily scaffolded — strict tool definitions, validation at every step, clear success criteria, monitoring.
 
-:::note Worked example: a research agent in action
+:::note[Worked example: a research agent in action]
 A user asks a research agent: "What's the current sentiment about our latest product launch on social media?"
 
 The agent's actual trace:
@@ -95,7 +95,7 @@ The agent's actual trace:
 Total: 6 LLM calls, ~$0.15 in API costs, ~45 seconds of wall-clock time. A human doing the same task: ~45 minutes. Costs justify themselves at any scale — but you needed to *measure* both sides to know that.
 :::
 
-:::info Highlight: every agent needs a kill switch
+:::info[Highlight: every agent needs a kill switch]
 Agents that take real-world actions (sending emails, modifying databases, spending money) can compound errors quickly. A bug that causes the agent to retry the same action 50 times can produce 50 duplicate charges, 50 wrong emails, or 50 corrupted records.
 
 Non-negotiable guardrails:

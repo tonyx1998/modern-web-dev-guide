@@ -10,7 +10,7 @@ description: The development loop — Server Components, Client Components, Serv
 
 > **In one line:** Build features one at a time, end-to-end. Default to Server Components; reach for `'use client'` only when you need interactivity.
 
-:::tip In plain English
+:::tip[In plain English]
 This is the part where you actually build the product. Pick *one* feature, take it all the way from database schema to deployed UI, then move to the next. Avoid the temptation to "set up everything first" — you'll end up with three half-finished features instead of one shipped one.
 :::
 
@@ -188,7 +188,7 @@ In 2026, you'll likely use Cursor or VS Code with Claude/Copilot. Best practices
 
 The AI is excellent at generating "the obvious next code" — boilerplate, CRUD operations, UI scaffolding. It's worse at making good architectural decisions, especially in unfamiliar codebases.
 
-:::note Worked example: one feature, end-to-end
+:::note[Worked example: one feature, end-to-end]
 "Mark a book as finished" — taking it through every step:
 
 1. **Schema:** Already have `status` column. No change.
@@ -202,7 +202,7 @@ The AI is excellent at generating "the obvious next code" — boilerplate, CRUD 
 Total time: 20–30 minutes. Avoid the trap of refactoring six other things while you're in there.
 :::
 
-:::info Highlight: Server Components are the default for a reason
+:::info[Highlight: Server Components are the default for a reason]
 Most "I need state here" instincts are wrong. You only truly need a Client Component when there's user input or animation. The book list itself doesn't need to be client-side — only the *button that opens the modal* does. Pushing `'use client'` as deep into the tree as possible keeps your JS bundle small and your pages fast.
 :::
 

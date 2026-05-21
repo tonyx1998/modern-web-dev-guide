@@ -10,7 +10,7 @@ description: Microservices, API gateways, service meshes, event buses, and inter
 
 > **In one line:** At enterprise scale, the system is a fleet of microservices behind an API gateway, glued together by a service mesh and an event bus, supported by an internal developer platform that hides the complexity from product engineers.
 
-:::tip In plain English
+:::tip[In plain English]
 A startup typically runs a single Next.js app talking to a single Postgres database. An enterprise typically runs hundreds or thousands of small services, each owned by a different team, each with its own database, talking to each other through standardized communication layers.
 
 Why? Because at this scale, no single team can know the whole codebase, and any change anywhere needs to be safe. Splitting the system into independently-owned services lets each team move at its own pace without breaking each other.
@@ -25,7 +25,7 @@ Why? Because at this scale, no single team can know the whole codebase, and any 
 - Database-per-service pattern: each service owns its data; other services access it only via the service's API.
 - Services communicate via **gRPC** (a high-performance binary RPC protocol, typically used inside the cluster), REST/GraphQL (external), or events (Kafka).
 
-:::info Jargon (used throughout this page)
+:::info[Jargon (used throughout this page)]
 - **API Gateway** — a single entry point that authenticates external requests, enforces rate limits, and routes them to the right backend service.
 - **BFF** (Backend-for-Frontend) — a thin service tailored to one client (web, mobile, partner API) that stitches together calls to the underlying microservices.
 - **Service mesh** — a layer of sidecar proxies (usually Envoy) injected next to each service that handles cross-cutting concerns like encryption and retries without each service having to.
@@ -84,7 +84,7 @@ flowchart TB
 
 **Data warehouse:** Snowflake, BigQuery, Databricks. Analytics and ML.
 
-:::info Highlight: the "database-per-service" rule
+:::info[Highlight: the "database-per-service" rule]
 The single most important microservices discipline is **don't share a database between services**. The moment two services talk to the same database, you no longer have two services — you have one service with two front doors and a hidden coupling that will break in production.
 
 The whole point of a service is that it can change its internal data model without coordinating with every other team in the company. Lose that, and you have all the cost of microservices with none of the benefit.
@@ -102,7 +102,7 @@ An IDP abstracts cloud complexity from product engineers. Could be Backstage-bas
 
 The goal is for a product engineer to type one command, get a fully-provisioned new service with CI/CD, observability, secrets management, and on-call rotation, and have it deployed to production within a day — without ever touching Kubernetes manifests directly.
 
-:::note Worked example: from "I want a new service" to running in prod
+:::note[Worked example: from "I want a new service" to running in prod]
 At a well-tooled enterprise:
 
 1. Engineer runs `acme service new --template=grpc-go --team=payments`.

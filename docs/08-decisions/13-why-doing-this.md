@@ -10,7 +10,7 @@ description: For every project, feature, and change — be able to answer why. C
 
 > **In one line:** For every project, every feature, every change — be able to answer "why?" — and the answer should connect to a real user problem, a measurable outcome, or a strategic priority.
 
-:::tip In plain English
+:::tip[In plain English]
 A surprising amount of engineering effort goes into work that nobody can justify when asked directly. "Because we always have." "Because someone said so." "Because it would be cool." Make answering "why?" a habit on every change. The act of asking surfaces the work that should not be happening.
 :::
 
@@ -31,7 +31,7 @@ If the answer is "because we always have" or "because someone said so" or "becau
 
 These force the question to surface.
 
-:::note Worked example: killing a multi-quarter project with one question
+:::note[Worked example: killing a multi-quarter project with one question]
 A team has been working for two quarters on a "platform redesign." Onboarding the new engineering manager, she asks each engineer in 1:1s: "What problem does this solve, in a sentence?"
 
 The answers vary wildly:
@@ -46,7 +46,7 @@ Nobody can point to a measurable user problem, a measured-and-unacceptable busin
 A single question saved 6+ engineer-quarters of work that nobody could justify when forced to.
 :::
 
-:::info Highlight: "why" should be the first slide, not the last
+:::info[Highlight: "why" should be the first slide, not the last]
 The most common failure mode in tech proposals is starting with the *what* (the new architecture, the new tool, the new team structure) and burying the *why* on slide 14. Then in review, everyone debates implementation details, and the underlying motivation never gets scrutiny.
 
 Flip it: state the user problem or business outcome in the first paragraph. Everything else has to justify itself against that. If you can't fit the motivation into a paragraph, you haven't done the thinking yet.

@@ -10,7 +10,7 @@ description: Three free tools — Sentry for errors, Vercel Analytics for traffi
 
 > **In one line:** Errors in Sentry, traffic in Vercel Analytics, product behavior in PostHog. Free tiers. Set it up before you need it.
 
-:::tip In plain English
+:::tip[In plain English]
 "Observability" sounds intimidating but for a solo project it means three dashboards. Sentry tells you *what broke*. Vercel Analytics tells you *who's visiting*. PostHog tells you *what they're doing*. Set them up while it's still easy — debugging an outage when you have no telemetry is a special kind of misery.
 :::
 
@@ -46,13 +46,13 @@ Better Stack's free tier pings your homepage every 3 minutes. If it fails, you g
 
 That's enough until you have real users.
 
-:::note Worked example: a real bug detected by Sentry
+:::note[Worked example: a real bug detected by Sentry]
 A user reports "the page is broken." You ask which page. They say "the one with the books." You open Sentry → there's a single error from the last 24 hours: `TypeError: Cannot read properties of undefined (reading 'title')` in `BookCard`. Stack trace points to line 14. Breadcrumbs show they navigated to `/library/share/abc123`.
 
 Total time from report to root cause: under a minute. Without Sentry: you'd ask them for their browser/OS, ask them to open DevTools, ask them to copy the stack trace, then maybe see something useful.
 :::
 
-:::info Highlight: set it up *before* you ship
+:::info[Highlight: set it up *before* you ship]
 Every solo developer who skips Sentry on day one regrets it the first time a real user hits a bug. The whole point of telemetry is that *you only need it after something has already broken* — at which point you can't add it retroactively. Five minutes now saves a debugging nightmare later.
 :::
 

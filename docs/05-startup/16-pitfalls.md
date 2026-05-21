@@ -10,7 +10,7 @@ description: Microservices too early, premature scaling, skipping observability,
 
 > **In one line:** Microservices too early, premature scaling, no observability, no code review, building what you should buy, ignoring security, process theater, and avoiding tech debt — the eight ways startups consistently shoot themselves in the foot.
 
-:::tip In plain English
+:::tip[In plain English]
 Each of these pitfalls is a reasonable-sounding decision that turns out to be expensive. They're not exotic failures — most growing startups hit several of them. The goal isn't to never make any of these mistakes; it's to recognize them quickly and reverse course.
 :::
 
@@ -65,7 +65,7 @@ Daily standups that have become status reports nobody listens to. Weekly retros 
 
 "We'll refactor next quarter" — three years in a row. Tech debt compounds. Allocate explicit time (10–20% per sprint) to maintenance and refactoring.
 
-:::note Worked example: a microservices "decision" reversed
+:::note[Worked example: a microservices "decision" reversed]
 A 12-engineer team decides they need to split their app into "the API service," "the worker service," and "the auth service." Three months in: deploy coordination is a nightmare, network calls between services are flaky, debugging requires reading three log streams at once.
 
 In a retro, the team admits the split was premature. They merge the services back into one monolith (~3 weeks of work). Velocity recovers; on-call calms down.
@@ -73,7 +73,7 @@ In a retro, the team admits the split was premature. They merge the services bac
 The lesson isn't "microservices are bad." It's "microservices solve organizational problems you don't have yet at 12 engineers." Reversing the call early was the right move; staying stubborn would have cost six months of velocity.
 :::
 
-:::info Highlight: process theater is everyone's responsibility
+:::info[Highlight: process theater is everyone's responsibility]
 Process theater (standups, retros, JIRA fields) doesn't get added by a villain — it accumulates by inertia. Nobody decides "let's keep doing the useless standup." It just becomes habit.
 
 The fix is institutional: every retro should include "what process should we kill?" The list of accepted process should be *shorter than you'd expect*, with each item earning its place.

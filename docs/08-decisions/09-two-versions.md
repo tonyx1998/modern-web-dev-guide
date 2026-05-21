@@ -10,7 +10,7 @@ description: If you find yourself with duplicate logic, ask — which one is can
 
 > **In one line:** If you find yourself with duplicate logic, ask: *which one is canonical?* — and treat the others as views, generations, or genuinely separate concerns.
 
-:::tip In plain English
+:::tip[In plain English]
 "Don't Repeat Yourself" is good advice taken too far. Duplication is a smell, but the fix isn't always extraction. Sometimes the right answer is identifying which version is the *real* one and treating others as views; sometimes the duplication is accidental and extracting it creates artificial coupling. The trick is telling the difference.
 :::
 
@@ -25,7 +25,7 @@ Duplication is a smell. But the fix isn't always extraction — sometimes the ri
 
 The trick is distinguishing real duplication (same concept, multiple expressions) from accidental similarity.
 
-:::note Worked example: schema, type, validator
+:::note[Worked example: schema, type, validator]
 A backend has three nearly-identical shapes:
 
 1. A Postgres table definition (`users`).
@@ -43,7 +43,7 @@ Three reasonable strategies:
 All three are defensible. The wrong answer is to half-share them via inheritance or a shared base interface that doesn't reflect the real relationship — that gives you the cost of coupling without the benefit of one source of truth.
 :::
 
-:::info Highlight: when "duplication" is actually two different concerns
+:::info[Highlight: when "duplication" is actually two different concerns]
 Two functions that *look* the same but are answering different questions should usually stay separate. A classic example:
 
 ```ts

@@ -10,7 +10,7 @@ description: What enterprise cloud infrastructure actually costs — compute, st
 
 > **In one line:** Cloud infrastructure for a major SaaS or consumer product runs $2M–$50M+ per month — but engineering payroll dwarfs that, often 3–5x larger.
 
-:::tip In plain English
+:::tip[In plain English]
 The shock isn't how big enterprise cloud bills are — it's how *small* they are relative to payroll. Even a $30 million-per-month AWS bill is a fraction of what the same company pays its engineers.
 
 This shapes every cost decision: it's almost always worth spending more on infrastructure to save engineering time. A team of ten engineers costs more per year than a fully-utilized $10M Kubernetes cluster.
@@ -34,7 +34,7 @@ The ranges are wide because enterprise scales vary by orders of magnitude. A reg
 
 Engineering payroll dwarfs infrastructure: a 1,000-engineer org costs $300M+/year in fully-loaded compensation. Infrastructure is typically 20–30% of total tech spend; sometimes higher for data-heavy companies.
 
-:::info Highlight: the FinOps insight
+:::info[Highlight: the FinOps insight]
 The most important FinOps insight is that engineering time is your most expensive resource by a wide margin. That means:
 
 - A tool that costs $500K/year but saves each of your 1,000 engineers an hour a week is a *massive* win.
@@ -53,7 +53,7 @@ A few patterns hold across most enterprises:
 - **Third-party SaaS adds up** — GitHub Enterprise, JetBrains, security tools, monitoring add-ons, productivity SaaS. Easy to forget; nontrivial in aggregate.
 - **Data egress is a hidden tax** — moving data out of AWS to other providers or to users via non-CDN paths can be a major line item.
 
-:::note Worked example: should we self-host Datadog?
+:::note[Worked example: should we self-host Datadog?]
 A common enterprise question: our Datadog bill is $4M/year. Should we self-host Prometheus + Grafana + Loki + Tempo to save money?
 
 The naive math: "We could run that on $400K/year of EC2." But:

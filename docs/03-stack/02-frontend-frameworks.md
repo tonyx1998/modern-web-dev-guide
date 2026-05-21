@@ -10,7 +10,7 @@ description: The component-based UI scaffolding around your app. React, Vue, Sve
 
 > **In one line:** Frontend frameworks turn your language (TypeScript) into a full UI scaffolding — components, routing, data fetching, build pipeline. Next.js + React is the dominant 2026 default.
 
-:::tip Beginner: what is a "framework," really?
+:::tip[Beginner: what is a "framework," really?]
 A **library** is code you call. A **framework** is code that calls you.
 
 When you use a *library* (Lodash, Day.js), you decide when to call it. You're in charge.
@@ -149,7 +149,7 @@ const posts = await fetch('/api/posts').then(r => r.json());
 | Existing Angular team or enterprise | Stay with Angular           |
 | Static site with bits of JS         | Astro + HTMX or vanilla     |
 
-:::info Highlight: if you're new, pick Next.js
+:::info[Highlight: if you're new, pick Next.js]
 You'll find passionate Reddit and Twitter threads telling you React is "old" or "bloated" and that you should pick Svelte/Solid/Qwik. **Ignore them on day one.** React + Next.js gives you the largest pool of jobs, tutorials, components, AI assistance, and Stack Overflow answers. You can switch frameworks later — but you won't, because once you ship 2 or 3 projects in one stack, the marginal value of switching is tiny.
 :::
 

@@ -10,7 +10,7 @@ description: Deployment freezes, coordinated release trains, change advisory boa
 
 > **In one line:** Release management is the discipline that turns "code is in production" into "the launch went well" — freezes during high-traffic events, coordinated release trains for big launches, change advisory boards in regulated industries, and rehearsed rollback procedures.
 
-:::tip In plain English
+:::tip[In plain English]
 At a startup, "releasing" is "deploying." At an enterprise, releasing is a distinct discipline. The code can be in production for weeks (dark) before a feature is *released* to users. Major launches coordinate across many teams, marketing, customer support, and sometimes legal. And during peak business periods, deploys are sometimes deliberately frozen so a routine change can't take down the system at the worst possible moment.
 :::
 
@@ -51,7 +51,7 @@ A typical large feature launch:
 
 The key idea: code being in production is *not* the same as users seeing the feature. The two are decoupled by feature flags. Engineers can ship code months before users notice.
 
-:::info Highlight: dark launches buy you confidence
+:::info[Highlight: dark launches buy you confidence]
 "Dark launching" — shipping new code behind a flag that's off for everyone — is one of the most powerful tools in enterprise releases. It lets you:
 
 - Verify the code actually works in production with real data.
@@ -72,7 +72,7 @@ By the time you flip the flag to 100%, you've already proven the code works. The
 
 Database migrations get particular attention: an irreversible migration (e.g., dropping a column) is a one-way door. Mature teams design migrations to be reversible: add a column, dual-write, switch reads, then drop the old column over multiple deploys.
 
-:::note Worked example: launching a major feature
+:::note[Worked example: launching a major feature]
 A team is launching a redesigned checkout flow used by millions of users daily:
 
 - **T-8 weeks**: Code merged behind a flag (`new_checkout_v2`). 0% rollout.

@@ -10,7 +10,7 @@ description: Year-by-year trajectory from "decide to learn" through senior IC an
 
 > **In one line:** Year 0 decide; Years 1–2 foundations + real projects; Year 3 first job; Years 4–6 mid-level; Years 7+ senior; Years 10+ many open doors.
 
-:::tip In plain English
+:::tip[In plain English]
 Careers don't move in months — they move in years. The path below is the median, not the maximum or minimum. Some people compress it; some take longer. Don't compare yourself to outliers on Twitter; compare yourself to where *you* were a year ago.
 :::
 
@@ -80,7 +80,7 @@ By this point you have options. Some patterns:
 
 There's no single "right" path. The skills you've built open many doors.
 
-:::note Worked example: a Year-2 weekly schedule
+:::note[Worked example: a Year-2 weekly schedule]
 Concretely, here's what a productive Year 2 might look like for someone working 10 hours/week:
 
 - **Mon evening (2 hrs):** Work on current project — push a feature.
@@ -92,7 +92,7 @@ Concretely, here's what a productive Year 2 might look like for someone working 
 That cadence — sustained for 12 months — is what gets you to "real projects, deployed, written about" by Year 3.
 :::
 
-:::info Highlight: compound interest is the real model
+:::info[Highlight: compound interest is the real model]
 A single week of work is barely visible on your portfolio. A year of weeks is a transformation. The engineers who succeed are not the ones who sprinted for three months — they're the ones who showed up most weeks for three years. **Consistency beats intensity at every stage.**
 :::
 

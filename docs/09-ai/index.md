@@ -12,7 +12,7 @@ description: AI as a standard layer in web apps — streaming chat, RAG, functio
 
 > **In one line:** AI is no longer experimental — by 2026, it's a standard layer in production web apps, with its own well-defined patterns (streaming chat, RAG, function calling, agents) and its own engineering discipline (evals, observability, cost control).
 
-:::tip In plain English
+:::tip[In plain English]
 Five years ago, "AI" meant a separate ML research project. In 2026, AI features — chat, summarization, search, generation — are as standard in a web app as user login. Many products are *built around* AI. The patterns are layered: streaming chat is the simplest; RAG hands the model relevant documents; function calling gives it tools; agents let it work multi-step. Each builds on the previous.
 :::
 
@@ -20,7 +20,7 @@ Five years ago, "AI" meant a separate ML research project. In 2026, AI features 
 
 By 2026, AI is no longer experimental in production web apps. Most serious software now includes some form of LLM integration: chat assistants, semantic search, content generation, classification, agents that take actions. This chapter covers how to add AI to a web app responsibly, what the dominant patterns look like, and what's different about operating AI features in production.
 
-:::info Jargon for this chapter
+:::info[Jargon for this chapter]
 - **LLM (Large Language Model)** — a neural network trained on huge amounts of text that takes text in and produces text out. Examples: Claude, GPT, Gemini, Llama.
 - **Token** — the unit an LLM reads and writes — roughly 4 characters of English. Bills are usually quoted per million tokens, in and out separately.
 - **Prompt** — the text you send into the model (often a *system prompt* with instructions + *user messages*).
@@ -47,7 +47,7 @@ LLMs are **stochastic functions that take text in and produce text out**. Unlike
 
 Building reliable systems on top of unreliable components is the central challenge. The good news: software engineering already has patterns for this (caching, retries, validation, graceful degradation). Most AI engineering is applied software engineering with a few new techniques.
 
-:::info Highlight: think of an LLM as a brilliant, amnesiac colleague
+:::info[Highlight: think of an LLM as a brilliant, amnesiac colleague]
 An LLM is a brilliant but isolated colleague who has no memory and no access to your systems by default.
 
 - **RAG** is *handing them a folder of relevant documents before they answer*.
@@ -81,7 +81,7 @@ Most production apps use multiple providers via abstraction (Vercel AI SDK, Lang
 
 The economics: smaller models are 10–100x cheaper and faster. Use them when possible; reach for big models only when reasoning quality matters.
 
-:::note Worked example: a tiered model strategy for one app
+:::note[Worked example: a tiered model strategy for one app]
 A typical mid-sized SaaS uses *multiple* models in production:
 
 - **Classification of incoming support tickets** → Claude Haiku (fast, cheap, good enough).
@@ -102,7 +102,7 @@ This tiering can cut total AI spend by 5–10x compared to using a single top-ti
 
 What's hard about AI features (and what this chapter teaches you to handle): streaming UX, evals (how do you know your AI is actually good?), latency and cost management, hallucinations, prompt-injection security, observability.
 
-:::info Highlight: AI features are still software features
+:::info[Highlight: AI features are still software features]
 If you only remember one thing from this chapter: **AI features need the same engineering discipline — version control, testing (evals), monitoring, rollback — as the rest of your app.**
 
 The fact that the output is non-deterministic doesn't excuse you from instrumenting it. If anything, it raises the bar.

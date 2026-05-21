@@ -10,7 +10,7 @@ description: Production AI needs its own logging, eval, drift detection, and cos
 
 > **In one line:** Production AI features need their own observability layer — prompts, responses, costs, latency, errors, and *quality metrics* — because the underlying model is non-deterministic and silently changes over time.
 
-:::tip In plain English
+:::tip[In plain English]
 With normal code, "did it work?" is a yes-or-no question. With AI, the response was probably *correct enough* but might be slightly wrong in a way no exception will catch. Observability for AI means logging every prompt and response, tracking cost and latency per call, and running eval datasets continuously — because that's the only way to notice your AI silently getting worse.
 :::
 
@@ -47,7 +47,7 @@ Beyond observability: how do you know your AI feature is good?
 
 Evaluation is genuinely hard for open-ended generation. Quality is often subjective; metrics like BLEU/ROUGE don't capture what matters. Most teams end up with custom human-graded rubrics.
 
-:::note Worked example: catching silent quality drift
+:::note[Worked example: catching silent quality drift]
 A team ships a customer-support bot. Over two months, response quality slowly degrades but no errors are thrown — they only find out when customer complaints rise.
 
 After adding proper observability:
@@ -62,7 +62,7 @@ Two weeks later, the alert fires: the provider had silently updated the model. T
 Without the observability + eval setup, they'd have learned about the regression from a wave of support tickets two weeks later.
 :::
 
-:::info Highlight: evals are tests for non-deterministic code
+:::info[Highlight: evals are tests for non-deterministic code]
 Treat evals like unit tests for AI features:
 
 - **Version-controlled** in the repo.

@@ -10,7 +10,7 @@ description: Two alternatives to REST. GraphQL lets clients specify exactly what
 
 > **In one line:** GraphQL lets the client ask for exactly what it wants. tRPC eliminates the API layer entirely for TypeScript-to-TypeScript apps.
 
-:::tip In plain English
+:::tip[In plain English]
 REST's main weakness: the client often needs *less* than (or more than) what the server returns, and assembling a screen takes several round trips. GraphQL fixes this by letting the *client* specify the exact shape of the response. tRPC takes it further: for TypeScript apps where both client and server are yours, it makes API calls feel like calling local functions — fully typed, no separate API contract to maintain.
 :::
 
@@ -59,7 +59,7 @@ The server returns exactly that shape, nothing more:
 - **Harder to cache** — every query is different, so HTTP caching mostly fails.
 - **Can hide expensive queries** from operators.
 
-:::info Highlight: GraphQL's 2026 status
+:::info[Highlight: GraphQL's 2026 status]
 GraphQL was hyped massively in 2017–2020 as "the future of APIs." By 2026 it's settled into a stable niche: **larger organizations with many clients consuming overlapping data benefit most.** Examples: GitHub's API, Shopify's storefront API, big enterprise federations.
 
 For a small/mid product with one client and one backend, REST or tRPC is usually simpler. Don't introduce GraphQL just because it sounds modern — it adds real complexity.
@@ -108,7 +108,7 @@ const user = await trpc.user.getById.query({ id: 42 });
 
 Dominant in 2026 for full-stack TypeScript apps (Next.js + tRPC is one of the most popular combos).
 
-:::note Worked example: when each approach makes sense
+:::note[Worked example: when each approach makes sense]
 **Scenario 1: Personal todo app, you're the only developer.**
 → Use **tRPC**. Zero overhead, full type safety. REST is overkill.
 
@@ -131,7 +131,7 @@ Dominant in 2026 for full-stack TypeScript apps (Next.js + tRPC is one of the mo
 | Server complexity   | Low                     | High                          | Low                               |
 | Best for            | Public APIs, broad reach | Large orgs, many clients    | TypeScript full-stack apps        |
 
-:::info Highlight: how to choose, simply
+:::info[Highlight: how to choose, simply]
 Default to **REST**. Upgrade to **tRPC** if your stack is full-TypeScript and you control both ends. Reach for **GraphQL** only when you have multiple clients pulling overlapping data from the same source.
 :::
 

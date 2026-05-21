@@ -10,7 +10,7 @@ description: The fastest path to a first job in 2026 — real projects, deployed
 
 > **In one line:** Ship 3–5 real projects on custom domains, write about them, contribute to open source, and network online — that's the 2026 portfolio.
 
-:::tip In plain English
+:::tip[In plain English]
 Recruiters in 2026 don't read resumes carefully — they skim portfolios for *evidence you've shipped something*. A live URL with real users beats a screenshot of a tutorial clone every time. Your portfolio is not your resume; it's your *proof*.
 :::
 
@@ -91,7 +91,7 @@ Tech is genuinely a small community; relationships compound.
 - Engage thoughtfully with others' work.
 - Don't be a self-promotional bot.
 
-:::note Worked example: a strong 5-project portfolio
+:::note[Worked example: a strong 5-project portfolio]
 A junior portfolio that actually moves recruiters in 2026 might look like:
 
 1. **A study planner** you built for your own class load — deployed at `studyplan.yourname.dev`, README explains the auth + DB design.
@@ -103,7 +103,7 @@ A junior portfolio that actually moves recruiters in 2026 might look like:
 Each has: a custom domain, a real README, a GitHub link, and at least one blog post explaining how it was built. **Five of these beat fifty tutorial clones.**
 :::
 
-:::info Highlight: a live URL is the single biggest signal
+:::info[Highlight: a live URL is the single biggest signal]
 If you do nothing else from this page, deploy one project to a custom domain. The gap between `localhost:3000` and `yourname-tool.com` is the entire gap between "I'm learning to code" and "I'm a developer." Free hosting + a $12 domain closes it.
 :::
 

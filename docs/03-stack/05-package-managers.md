@@ -10,7 +10,7 @@ description: How dependencies get installed and managed. pnpm, Bun, npm, Yarn �
 
 > **In one line:** A package manager installs and updates the libraries your project depends on. Bun is fastest; pnpm is strictest; npm comes with Node and works fine.
 
-:::tip In plain English
+:::tip[In plain English]
 Your project depends on hundreds of libraries — React, Tailwind, TypeScript, etc. — written by other people and published to **npm** (the central registry). A **package manager** is the tool that downloads those libraries to your machine, keeps them current, and locks the exact versions so your teammates get the same setup. The choice mostly affects *speed* and *disk usage*, not correctness.
 :::
 
@@ -66,13 +66,13 @@ Was the popular alternative to npm in the late 2010s. Yarn 1 is legacy; Yarn 4 (
 | Just learning, on Node already | npm is fine  |
 | Yarn shop already         | Yarn 4 if modernized; otherwise switch |
 
-:::info Highlight: the lockfile is the source of truth
+:::info[Highlight: the lockfile is the source of truth]
 Whichever package manager you choose, **commit the lockfile** (`package-lock.json`, `pnpm-lock.yaml`, `bun.lock`, `yarn.lock`). The lockfile records the *exact* version of every package — including transitive dependencies — that was installed. Without it, your teammates and CI servers can get different versions and you'll hit "works on my machine" bugs.
 
 The lockfile is more important than which package manager produced it.
 :::
 
-:::note Try it yourself
+:::note[Try it yourself]
 ```bash
 # In an empty folder:
 echo '{"name":"test","version":"1.0.0"}' > package.json

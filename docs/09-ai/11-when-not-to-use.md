@@ -10,7 +10,7 @@ description: AI is a hammer; not everything is a nail. When a regex, lookup tabl
 
 > **In one line:** AI is a hammer; not everything is a nail — when a regex, lookup table, or small ML model would do, AI is just an expensive, slow, non-deterministic version of the right answer.
 
-:::tip In plain English
+:::tip[In plain English]
 The hype loop pushes everyone to use LLMs for everything. That's wrong. Many tasks are cheaper, faster, more reliable, and more private if you use a regex, a SQL query, or a tiny ML model trained for the job. Reach for AI when the problem genuinely needs language understanding or generation — not when a 20-line script would handle it.
 :::
 
@@ -35,7 +35,7 @@ AI is a hammer; not everything is a nail.
 
 The right test: "Does AI add something a simpler tool can't provide?" If not, use the simpler tool.
 
-:::note Worked example: a $40 bug caused by using AI for math
+:::note[Worked example: a $40 bug caused by using AI for math]
 A team builds an internal tool that summarizes spreadsheets. They ship a feature that "uses AI to compute the totals."
 
 Two weeks later, a finance lead notices the totals are off by a few cents on a few rows. Cause: the LLM is occasionally rounding floats incorrectly when adding 100+ numbers. The behavior is *almost* right, which is worse than being clearly wrong — nobody caught it for two weeks.
@@ -45,7 +45,7 @@ The fix: do the math in regular code (`array.reduce((a,b) => a + b.amount, 0)`).
 Rule of thumb: **use AI for language; use code for math.**
 :::
 
-:::info Highlight: the substitution test
+:::info[Highlight: the substitution test]
 Before you reach for an LLM, ask the substitution question: **"If I replaced this with a regex, a SQL query, or a 50-line script, would it work?"**
 
 - "Extract email addresses from text" → regex.

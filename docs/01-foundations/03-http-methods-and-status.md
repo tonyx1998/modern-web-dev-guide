@@ -10,7 +10,7 @@ description: The verbs (GET, POST, PUT, PATCH, DELETE) and the numeric replies (
 
 > **In one line:** Methods are *what the client wants done*; status codes are *what actually happened*.
 
-:::tip In plain English
+:::tip[In plain English]
 Imagine ordering at a restaurant. The **method** is the type of order — "I'd like to see the menu" (GET), "I'd like to place an order" (POST), "change my order to medium-well" (PATCH), "cancel my order" (DELETE). The **status code** is the waiter's reply — "here you go" (200), "we're out of that" (404), "your card was declined" (402), "the kitchen is on fire" (500).
 :::
 
@@ -32,7 +32,7 @@ A request's **method** indicates what action the client wants:
 
 This matters for retries: clients (and CDNs, and browsers) will automatically retry idempotent requests on failure but won't retry POSTs without explicit handling.
 
-:::note Worked example: PUT vs PATCH
+:::note[Worked example: PUT vs PATCH]
 Imagine the server has user 42:
 
 ```json
@@ -46,7 +46,7 @@ Imagine the server has user 42:
 The difference matters constantly in REST API design. PATCH is what most apps want most of the time.
 :::
 
-:::info Highlight: a method is just a hint
+:::info[Highlight: a method is just a hint]
 A server is free to interpret a method however it wants. `GET /delete-user/42` will absolutely work if a server is written to accept it — but it violates HTTP conventions, breaks caching, and confuses every CDN in the world. Follow the conventions; your future self will thank you.
 :::
 
@@ -90,7 +90,7 @@ Status codes tell the client what happened, organized in ranges. Every status co
 - `503 Service Unavailable` — Server overloaded or down for maintenance.
 - `504 Gateway Timeout` — Upstream server didn't respond in time.
 
-:::info Highlight: the 4xx vs 5xx litmus test
+:::info[Highlight: the 4xx vs 5xx litmus test]
 When something breaks in production, look at the status code **first**:
 
 - **4xx?** Look at the client (your frontend, the user's input, the request you sent).
@@ -99,7 +99,7 @@ When something breaks in production, look at the status code **first**:
 This single mental shortcut will save you hours of barking up the wrong tree.
 :::
 
-:::note Worked example: 401 vs 403
+:::note[Worked example: 401 vs 403]
 A 401 says: "I don't know who you are. Send credentials and try again."
 
 A 403 says: "I know exactly who you are, and you're not allowed."
@@ -107,7 +107,7 @@ A 403 says: "I know exactly who you are, and you're not allowed."
 Real-world example: you GET `/admin/users` while logged out → **401**. You GET it while logged in as a regular user → **403**.
 :::
 
-:::note Try it yourself
+:::note[Try it yourself]
 In your terminal:
 
 ```bash

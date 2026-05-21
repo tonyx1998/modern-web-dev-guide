@@ -10,7 +10,7 @@ description: Default to buying for non-core capabilities; build only where you'r
 
 > **In one line:** Default to buying for non-core capabilities; build only where you're the world's expert at that specific thing.
 
-:::tip In plain English
+:::tip[In plain English]
 People reliably underestimate the cost of building. A "two-week project" to add auth becomes six months of edge cases, security patches, and password-reset emails over the life of the system. Unless auth *is* your product, buying it from Clerk or Auth0 is almost always cheaper.
 :::
 
@@ -58,7 +58,7 @@ A "2-week build" easily becomes 6 months over the project's lifetime.
 | Live chat              | Buy (Intercom)                     | Almost never                     |
 | ML platform            | Mixed                              | Often build at scale             |
 
-:::note Worked example: a $30 vs $300,000 decision
+:::note[Worked example: a $30 vs $300,000 decision]
 A small SaaS adds auth.
 
 - **Buy path:** Clerk free tier today, ~$25/month when they hit 1,000 active users. Total first-year cost: ~$300. Two days of integration work.
@@ -67,7 +67,7 @@ A small SaaS adds auth.
 Build saved $300/year. It cost $75k. Buy wins by ~100x.
 :::
 
-:::info Highlight: the question that exposes the real cost
+:::info[Highlight: the question that exposes the real cost]
 Before you "just build it," ask: **"Who maintains this in three years, when the author has left and no one remembers why the password reset uses base32?"** If you can't answer that question with a real name, buy.
 :::
 

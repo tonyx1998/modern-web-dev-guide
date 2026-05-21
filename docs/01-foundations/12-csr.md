@@ -10,7 +10,7 @@ description: The browser, not the server, builds the page. Great for internal to
 
 > **In one line:** The server sends a near-empty HTML shell; the browser downloads a JavaScript bundle that builds the entire UI.
 
-:::tip In plain English
+:::tip[In plain English]
 CSR is what early React, Angular, and Vue apps did. The server's only job is to send the JavaScript bundle. The *browser* then runs that JavaScript, asks for data via API calls, and constructs every pixel of the UI itself. Fast and snappy *after* the initial load. Painfully slow *during* the initial load, especially on a 4G phone. Bad for SEO unless you patch it.
 :::
 
@@ -70,7 +70,7 @@ CSR remains fine for:
 | **Angular**              | Defaults to CSR (with optional Angular Universal for SSR).  |
 | **SolidJS + Vite**       | Fast-rising alternative; very small bundles.                |
 
-:::note Worked example: anatomy of a CSR app load
+:::note[Worked example: anatomy of a CSR app load]
 Visit a CSR site (e.g., an old Create React App project). In DevTools → Network → reload:
 
 1. **HTML response** arrives. Size: ~1 KB. Body: an empty `<div id="root">` and a `<script>` tag.
@@ -81,7 +81,7 @@ Visit a CSR site (e.g., an old Create React App project). In DevTools → Networ
 Time-to-first-meaningful-paint: typically 2–5 seconds on cellular. Compare to SSR (200–500ms) or SSG (50–100ms).
 :::
 
-:::info Highlight: SSR + hydration is "CSR after the first request"
+:::info[Highlight: SSR + hydration is "CSR after the first request"]
 A common misconception: people think SSR and CSR are mutually exclusive. They're not.
 
 Modern frameworks (Next.js, Remix, SvelteKit) do **SSR for the first page load** (fast first paint, good SEO) and then **CSR for subsequent navigations** within the app (instant, no page reload). You get the best of both. This is why pure CSR has fallen out of favor for public apps — the alternatives give you everything CSR offered plus a faster first impression.

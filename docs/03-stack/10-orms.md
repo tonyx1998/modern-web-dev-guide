@@ -10,7 +10,7 @@ description: The layer between your code and SQL. Drizzle, Prisma, Kysely — an
 
 > **In one line:** An ORM lets you write queries in your programming language instead of raw SQL. Drizzle is the rising 2026 leader; Prisma is the established choice; Kysely is for SQL purists who want type safety.
 
-:::tip In plain English
+:::tip[In plain English]
 An ORM ("Object-Relational Mapper") is a layer that translates between your code's objects and your database's tables. Instead of writing `SELECT * FROM users WHERE id = 42`, you write `db.user.findById(42)`. The ORM handles the SQL generation, the connection pooling, the type mapping. The trade-off: ORMs hide complexity, which is great until you need to *understand* what's happening under the hood.
 :::
 
@@ -148,7 +148,7 @@ Run with `drizzle-kit migrate`, `prisma migrate deploy`, etc.
 - Test migrations against production data copies.
 - Backward-compatible migrations let you deploy code and schema independently.
 
-:::info Highlight: learn SQL anyway
+:::info[Highlight: learn SQL anyway]
 ORMs are great, but they're not a substitute for understanding SQL. The moment you hit a performance problem, a complex aggregation, or a tricky join, you'll be reading raw SQL. Spend an afternoon on SQL basics. You'll thank yourself for the rest of your career.
 :::
 

@@ -10,7 +10,7 @@ description: The dominant style for web APIs. Resources addressed by URLs, manip
 
 > **In one line:** Treat your data as **resources** addressed by URLs, and use HTTP methods (GET/POST/PATCH/DELETE) as the verbs. That's REST.
 
-:::tip In plain English
+:::tip[In plain English]
 A "REST API" is just a polite naming convention for web servers. URLs name *things* (`/users`, `/orders/42`). HTTP methods name *actions* on those things (GET = read, POST = create, PATCH = update, DELETE = delete). Almost every public web API in the last 15 years has used this pattern. If you can describe what you want as "do this *verb* on this *thing*," REST is a natural fit.
 :::
 
@@ -32,7 +32,7 @@ GET    /users/42/posts/7 → get post 7 by user 42
 
 The URL describes *what*; the method describes *what to do with it*.
 
-:::note Worked example: design a tiny REST API in 60 seconds
+:::note[Worked example: design a tiny REST API in 60 seconds]
 You're building a todo app. Endpoints:
 
 ```
@@ -81,7 +81,7 @@ Beyond the basics, real-world REST APIs follow conventions:
 - **JSON for bodies:** Almost universal in 2026 (`Content-Type: application/json`).
 - **Versioning in the URL or header:** `/v1/users` or `Accept: application/vnd.example.v1+json`.
 
-:::info Highlight: there is no REST police
+:::info[Highlight: there is no REST police]
 "RESTful" is an ideal more than a standard. Real-world APIs deviate constantly (mixing snake_case and camelCase, using POST for actions that aren't really creates, etc.). What matters is *consistency within your API* and *clear documentation*. A pragmatically-imperfect REST API beats a religiously-pure one that ships late.
 :::
 
@@ -125,7 +125,7 @@ Content-Type: application/json
 
 That's a complete create-then-update REST flow. Every API call in every framework boils down to messages like these.
 
-:::note Try it yourself
+:::note[Try it yourself]
 The Pokémon API is free, public, and a perfect way to practice REST:
 
 ```bash

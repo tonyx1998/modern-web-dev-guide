@@ -10,7 +10,7 @@ description: A team should be small enough that two pizzas can feed it. Communic
 
 > **In one line:** A team should be small enough that two pizzas can feed it — roughly 6–10 people.
 
-:::tip In plain English
+:::tip[In plain English]
 Amazon's famous rule. Communication overhead grows quadratically with team size: 10 people have 45 possible pairs to talk; 20 people have 190. Small teams ship faster because there's less to coordinate and ownership is unambiguous. Once "everyone is responsible," no one actually is.
 :::
 
@@ -37,7 +37,7 @@ Small teams can become silos. Counter with:
 - Open Slack channels.
 - Engineering all-hands.
 
-:::note Worked example: when to split
+:::note[Worked example: when to split]
 A team of 8 ships a feature every two weeks. Over a year, they grow to 14 people.
 
 Symptoms a few months in:
@@ -50,7 +50,7 @@ Symptoms a few months in:
 The fix: split into two teams of 7 with clear ownership boundaries. Maybe "payments + billing" and "core product." Each team gets a single service or module as its primary responsibility. Velocity recovers within a sprint or two.
 :::
 
-:::info Highlight: the boundary test
+:::info[Highlight: the boundary test]
 If two teams need to be in the same meeting every week to make progress, the boundary is wrong. Either:
 
 1. They're actually one team (merge them), or

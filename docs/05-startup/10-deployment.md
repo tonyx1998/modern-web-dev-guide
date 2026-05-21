@@ -10,13 +10,13 @@ description: Three popular hosting patterns — Vercel + Supabase, Railway / Ren
 
 > **In one line:** Three popular hosting patterns — Vercel + Supabase (easy), Railway/Render (predictable bills), Cloudflare-first (global edge). Pick by your traffic shape and bill tolerance.
 
-:::tip In plain English
+:::tip[In plain English]
 Hosting is one of the few areas where a small company genuinely has options. Vercel + Supabase is the default for a reason — it's the lowest-friction path. But if your bills spike unpredictably with usage, or you need persistent WebSocket connections, or you want global edge from day one, the alternatives are real. The choice has more to do with your specific app than with which is "best."
 :::
 
 ## Pattern A: Vercel + Supabase (Most Popular)
 
-:::info Jargon
+:::info[Jargon]
 - **Edge** — code running in data centers physically close to the user (lower latency, but a stripped-down runtime).
 - **Serverless functions** — short-lived functions the platform runs on demand; you pay per invocation, no servers to manage.
 - **CDN** (Content Delivery Network) — a global cache of static files (JS, CSS, images) so the browser fetches them from a nearby node.
@@ -95,7 +95,7 @@ flowchart TB
 | Need persistent connections       | B (Railway)    |
 | Maximum free-tier value           | C (Cloudflare) |
 
-:::note Worked example: a Vercel bill that surprised the team
+:::note[Worked example: a Vercel bill that surprised the team]
 A startup launches a viral feature. Traffic 5x's overnight. The next Vercel bill is $2,800 instead of $400 — they hit function-invocation limits, image-optimization charges, and bandwidth tiers all at once.
 
 The team has three options:
@@ -106,7 +106,7 @@ The team has three options:
 None is "wrong." But this is the kind of decision that lives on the boundary between Patterns A and B. Knowing it exists in advance lets you make the call calmly.
 :::
 
-:::info Highlight: edge constraints are real
+:::info[Highlight: edge constraints are real]
 "Just use Cloudflare Workers" looks like the obvious answer until you discover Node-specific libraries that don't work, runtime memory limits that bite mid-development, and an ecosystem that's smaller than Vercel's. Pattern C is the right call for global low-latency apps from day one, but it's a real commitment — not a minor tweak.
 :::
 

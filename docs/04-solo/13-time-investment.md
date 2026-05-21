@@ -10,7 +10,7 @@ description: A common breakdown for an indie SaaS v1 — about 8–14 weekends o
 
 > **In one line:** An indie SaaS v1 takes 8–14 weekends of focused part-time work. Plan for 2x your initial estimate.
 
-:::tip In plain English
+:::tip[In plain English]
 The single most common indie-developer mistake is "I'll knock this out in two weekends." It's almost never two weekends. Not because you're slow — because v1 has more pieces than your initial vision (auth, payments, landing page, error handling, edge cases). Estimate honestly so you don't burn out at week three feeling "behind."
 :::
 
@@ -28,7 +28,7 @@ A common breakdown for an indie SaaS v1:
 
 Most indie projects take longer than expected. Plan for 2x your initial estimate.
 
-:::note Worked example: an honest retrospective
+:::note[Worked example: an honest retrospective]
 A real indie SaaS v1, by the numbers:
 
 | Phase                   | Estimated  | Actual     |
@@ -43,7 +43,7 @@ A real indie SaaS v1, by the numbers:
 The 8-weekend estimate became 13 weekends not because anything went wrong — but because *every* phase had a slow component. That's normal. Plan for it.
 :::
 
-:::info Highlight: the 2x rule cuts both ways
+:::info[Highlight: the 2x rule cuts both ways]
 "Plan for 2x your estimate" is a comfort, not a license. It doesn't mean "schedule 2x and use all of it" — it means *if* things take 2x, you won't quit. If they take 1.2x, ship faster and use the saved time on the next project. The goal is shipping, not filling time.
 :::
 

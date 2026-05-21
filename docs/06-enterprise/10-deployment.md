@@ -10,7 +10,7 @@ description: Kubernetes, IaC, multi-region active-active, service mesh, secrets 
 
 > **In one line:** Kubernetes on AWS/GCP/Azure, everything provisioned via Terraform, multi-region active-active for disaster recovery, secrets in Vault, costs governed by a FinOps discipline.
 
-:::tip In plain English
+:::tip[In plain English]
 Startup infrastructure is "we use Vercel and Postgres on Neon." Enterprise infrastructure is hundreds of Kubernetes clusters across multiple regions, glued together by a service mesh, with all configuration in Git and all secrets in a vault.
 
 You don't choose this complexity for fun — you choose it because at scale, you need redundancy, isolation, and control that managed services can't always give you. Building on Kubernetes lets you abstract over AWS, GCP, and on-prem with one mental model.
@@ -18,7 +18,7 @@ You don't choose this complexity for fun — you choose it because at scale, you
 
 ## Kubernetes is dominant
 
-:::info Jargon
+:::info[Jargon]
 - **Kubernetes** (often abbreviated **K8s**) — an open-source system that schedules and runs containerized apps across a cluster of machines and restarts them when they crash.
 - **EKS / GKE / AKS** — the managed Kubernetes offerings from AWS, Google, and Azure respectively. You still operate it; the cloud provider just runs the control plane.
 - **Manifest** — a YAML file describing a Kubernetes resource (a deployment, a service, a config map). The unit of "what should exist in the cluster."
@@ -56,7 +56,7 @@ The platform team typically supports a curated menu of options, each with its ow
 
 The "no clicking in the console" rule is enforced by IAM: production resources can only be created/modified by the CI service account, never by a human. If you want a change, you write a Terraform PR.
 
-:::info Highlight: IaC is how you survive auditors
+:::info[Highlight: IaC is how you survive auditors]
 SOC 2, PCI, HIPAA — every compliance regime wants to know "who changed this firewall rule, when, and why?"
 
 If your answer is "Joe clicked some buttons in the AWS console six months ago," you fail the audit. If your answer is "here's the Terraform commit, here's the PR with the approval chain, here's the deploy log," you pass.
@@ -98,7 +98,7 @@ Long-lived secrets (a database password that stays the same for years) are an an
 
 A FinOps function is a real team. They look at your cloud bill the way a CFO looks at the P&L — and teams that suddenly start spending 3x more on compute get a call.
 
-:::note Worked example: anatomy of "deploying a new service"
+:::note[Worked example: anatomy of "deploying a new service"]
 A product engineer at a well-tooled enterprise needs to ship a new service. The platform team has invested heavily so that this flow looks like:
 
 1. `acme service new --template=grpc-go --team=billing` generates the repo and Terraform.

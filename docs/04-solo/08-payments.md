@@ -10,7 +10,7 @@ description: Stripe Checkout plus a webhook handler is the minimal payments flow
 
 > **In one line:** Stripe Checkout takes the user to Stripe's site for payment, then a webhook tells your server they paid. You never see a credit card number.
 
-:::tip In plain English
+:::tip[In plain English]
 Payments are the second area (after auth) where rolling your own would be catastrophic. PCI compliance, tax calculations, dispute handling, fraud detection — all hard problems. With Stripe Checkout, your server's job is two functions: "make a checkout session" and "react to the webhook when payment succeeds." Stripe does everything in between.
 :::
 
@@ -96,7 +96,7 @@ Test webhooks locally with the Stripe CLI:
 stripe listen --forward-to localhost:3000/api/stripe/webhook
 ```
 
-:::note Worked example: end-to-end test in Stripe test mode
+:::note[Worked example: end-to-end test in Stripe test mode]
 1. Switch your `STRIPE_SECRET_KEY` to the test key (`sk_test_...`).
 2. Run `stripe listen --forward-to localhost:3000/api/stripe/webhook` in a second terminal.
 3. Click "Subscribe" in your app.
@@ -108,7 +108,7 @@ stripe listen --forward-to localhost:3000/api/stripe/webhook
 Now do it once more with card `4000 0000 0000 0002` — Stripe rejects that one, so you'll see the user *not* land on success. Both code paths covered.
 :::
 
-:::info Highlight: the metadata trick
+:::info[Highlight: the metadata trick]
 `metadata: { userId }` in the Checkout session is how you connect a Stripe customer back to your own user. Without it, the webhook arrives with a Stripe customer ID and no easy way to know *which* of your users it belongs to.
 
 Always pass enough metadata in the session creation to identify the user in the webhook. It's tempting to look up by email — don't. Emails can change; Stripe customer IDs are stable; your `userId` is the bridge.

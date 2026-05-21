@@ -10,7 +10,7 @@ description: Every interaction on the web is a request from a client and a respo
 
 > **In one line:** The web is just two computers talking — one asks ("client"), one answers ("server"). Everything else is decoration.
 
-:::tip In plain English
+:::tip[In plain English]
 When you open Instagram, your phone is the **client**. Instagram's computer in some data center is the **server**. Your phone *asks* the server for the latest posts; the server *replies* with the data. That single back-and-forth — repeated billions of times per second across the planet — is the entire web.
 :::
 
@@ -41,7 +41,7 @@ A server is a long-running program on a computer somewhere on the internet that 
 
 A single physical machine can run many server programs. A single server program can handle thousands of simultaneous clients. Modern cloud infrastructure abstracts this further — "your server" might actually be a virtual machine inside a container inside a Kubernetes pod inside a data center.
 
-:::info Highlight: "Server" is overloaded vocabulary
+:::info[Highlight: "Server" is overloaded vocabulary]
 You'll hear "server" used to mean four different things:
 
 1. **The physical machine** — a computer in a data center.
@@ -56,7 +56,7 @@ Context usually makes it clear. When in doubt, ask "the program, the machine, or
 
 When you type `example.com` into a browser, an elaborate dance unfolds in milliseconds. Before reading the diagram, a quick jargon primer:
 
-:::info Jargon you'll see in the diagram below
+:::info[Jargon you'll see in the diagram below]
 - **DNS** (Domain Name System) — the internet's phone book; translates a name like `example.com` into a numerical IP address.
 - **TCP** (Transmission Control Protocol) — the underlying protocol that splits your data into reliable, ordered packets between two machines.
 - **SYN / SYN-ACK / ACK** — the three messages of TCP's "handshake," a quick hello/hello-back/got-it that opens a connection.
@@ -92,7 +92,7 @@ sequenceDiagram
 
 That's just the first request. Loading a modern webpage typically involves dozens or hundreds of additional requests for CSS, JavaScript, images, fonts, and API data.
 
-:::note Try it yourself
+:::note[Try it yourself]
 Open your browser's **DevTools → Network** tab and refresh any page. You'll see the entire client–server conversation laid out: every request, every response, every header, every status code. This is the single best debugging skill you can develop early.
 
 Try this on `https://example.com` — the simplest page on the web. You'll see ~1 request. Then try it on `https://nytimes.com` — you'll see 100+ requests for a single page.
@@ -113,7 +113,7 @@ Once you internalize the client–server model, everything else makes sense:
 
 It's all just clients and servers, all the way down.
 
-:::info Highlight: If you only remember one thing
+:::info[Highlight: If you only remember one thing]
 The web is a **conversation between computers**. Every problem you'll ever debug can be reframed as: *"Whose turn was it to talk, and what did they actually say?"* — and DevTools shows you that conversation in real time.
 :::
 

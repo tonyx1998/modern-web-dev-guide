@@ -10,7 +10,7 @@ description: Contract tests, load tests, chaos engineering, security testing (SA
 
 > **In one line:** The testing pyramid expands dramatically — tens of thousands of unit tests, contract tests between services, chaos engineering against production, plus dedicated security and compliance testing pipelines.
 
-:::tip In plain English
+:::tip[In plain English]
 At a startup, testing is "Vitest, Playwright for critical paths, maybe a Sentry alert." At an enterprise, testing is a whole org of disciplines: unit tests with coverage requirements, contract tests that verify services keep their promises, chaos engineering that *deliberately breaks production* to make sure failover works, plus security tooling that scans every dependency.
 
 Why the expansion? Because at this scale, you can't keep the whole system in one engineer's head. The tests are how the system explains itself back to you.
@@ -35,7 +35,7 @@ Why the expansion? Because at this scale, you can't keep the whole system in one
 
 **Game days:** Scheduled exercises where teams simulate failures and rehearse responses.
 
-:::info Highlight: untested failovers don't work
+:::info[Highlight: untested failovers don't work]
 Every system claims to have automatic failover. At any scale, the actual fraction of failovers that work the first time you trigger them in anger is *much* lower than the fraction that worked on the design doc.
 
 The only way to find out is to deliberately break things in a controlled setting. That's what chaos engineering and game days are for: stress-test your assumptions before reality stress-tests them at 3 AM on Black Friday.
@@ -63,7 +63,7 @@ Each tool covers a different layer. SAST sees the source code, DAST sees the run
 
 Compliance testing is how you prove to auditors that the controls aren't just written down — they're actually enforced. Every quarter, the audit team runs the test suite and the output is the evidence that, for instance, all production database access was logged.
 
-:::note Worked example: how Netflix discovered Chaos Engineering
+:::note[Worked example: how Netflix discovered Chaos Engineering]
 Netflix's "Chaos Monkey" started as a tool that randomly terminated production EC2 instances during business hours. The hypothesis: if our system is truly resilient, killing a random instance shouldn't matter.
 
 The first few months they ran it, things broke constantly. Each break uncovered a hidden assumption: "this service can't tolerate a dependency restart," "this retry logic has a bug," "this load balancer doesn't drain connections correctly."

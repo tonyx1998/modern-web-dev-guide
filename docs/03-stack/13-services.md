@@ -10,7 +10,7 @@ description: The boring-but-essential third-party services every app needs — p
 
 > **In one line:** Buy, don't build. Every modern app stitches together best-in-class services for payments, email, files, video, and more.
 
-:::tip In plain English
+:::tip[In plain English]
 You're not going to build your own payment processor. Or your own globally-distributed file storage. Or your own email-deliverability system. These are *enormously* hard problems already solved by specialized companies. Pay them and move on. This page is the catalog of which services to pay.
 :::
 
@@ -81,7 +81,7 @@ You're not going to build your own payment processor. Or your own globally-distr
 | **Plausible / Fathom** | Privacy-friendly, simple website analytics.                  |
 | **Vercel Analytics** | Built-in for Vercel sites.                                     |
 
-:::info Highlight: the "buy" decision tree
+:::info[Highlight: the "buy" decision tree]
 Before building any of the categories on this page, ask:
 
 1. **Is this our core product?** No → buy.

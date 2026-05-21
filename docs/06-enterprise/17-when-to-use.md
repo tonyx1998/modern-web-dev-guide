@@ -10,7 +10,7 @@ description: Which enterprise practices to adopt at your scale — and which are
 
 > **In one line:** Not every company at "500+ engineers" needs all of the above — each enterprise practice has a scale at which its cost is justified, and adopting them early is just as wasteful as adopting them late.
 
-:::tip In plain English
+:::tip[In plain English]
 A common mistake is thinking "we want to be like Google someday, so let's set up like Google now." That's almost always wrong. Each enterprise practice was invented to solve a specific scale problem. Adopting it before you have that problem is pure cost.
 
 The right move: keep an eye on which problems are actually starting to bite you, and adopt the matching enterprise practice when (and only when) the pain justifies the investment.
@@ -37,7 +37,7 @@ A few general rules:
 - **Adopt formal review processes when changes start breaking each other.** If your last three incidents involved one team's change breaking another team's service, you need contracts and reviews.
 - **Adopt compliance when a customer or regulator asks.** Don't pursue SOC 2 speculatively; pursue it when a deal depends on it.
 
-:::info Highlight: lag indicators tell you when to invest
+:::info[Highlight: lag indicators tell you when to invest]
 The best signal that you've outgrown a process isn't "we feel slow" — it's a *concrete pattern of failures*:
 
 - Three incidents this quarter caused by deploys → invest in canary and rollback.
@@ -58,7 +58,7 @@ Equally important: when to *resist* adopting enterprise practices:
 
 Each of these tools has a real use, but each also has a real cost. At small scale, that cost dwarfs the benefit.
 
-:::note Worked example: a typical adoption sequence
+:::note[Worked example: a typical adoption sequence]
 A 2026-style company growing from 20 to 200 engineers might adopt enterprise practices in roughly this order:
 
 1. **20–40 engineers:** GitHub Actions CI, Sentry, Vercel/Render deploys. Solo on-call. No "process" beyond PR reviews.

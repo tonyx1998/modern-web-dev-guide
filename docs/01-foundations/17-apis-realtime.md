@@ -10,7 +10,7 @@ description: When the server needs to push data to the client — chat, live das
 
 > **In one line:** REST and GraphQL are *pull* — the client always asks first. WebSockets and SSE let the server *push* data the moment it has something new. gRPC is a high-performance binary protocol used mostly between internal services.
 
-:::tip In plain English
+:::tip[In plain English]
 Imagine a chat app. With pure REST, the client would have to keep asking the server "any new messages? any new messages? any new messages?" every second (this is called **polling** and it's wasteful). With a **WebSocket**, the client opens *one* connection and the server pushes new messages down it the moment they arrive. **SSE (Server-Sent Events)** is similar but only one-way (server → client). **gRPC** is something different — a high-performance binary protocol used between *back-end services*, rarely directly by browsers.
 :::
 
@@ -80,7 +80,7 @@ data: New email
 - One-way only.
 - Limited to text data.
 
-:::info Highlight: SSE is the workhorse of LLM streaming
+:::info[Highlight: SSE is the workhorse of LLM streaming]
 Every AI chat interface you've used (ChatGPT, Claude, Gemini) streams the assistant's response token-by-token using SSE. That "typewriter" effect isn't decorative — it's the server sending each token over an SSE stream as soon as the LLM produces it.
 
 If you're building any AI feature with streaming responses, you'll use SSE. It's the dominant 2026 pattern.
@@ -125,7 +125,7 @@ message UserRequest {
 
 You'll meet gRPC when you join an established backend team — not when you're starting a personal project.
 
-:::note Worked example: a chat app's protocol stack
+:::note[Worked example: a chat app's protocol stack]
 A modern chat app might use *all* of these:
 
 | Layer                       | Protocol                                                |
@@ -139,7 +139,7 @@ A modern chat app might use *all* of these:
 Each protocol fits a specific role; together they make the app feel instant.
 :::
 
-:::info Highlight: don't over-engineer real-time
+:::info[Highlight: don't over-engineer real-time]
 For most personal/startup projects, **plain REST with periodic polling is fine** until you have a real performance problem. WebSockets and SSE are "you'll know when you need them" tools. Don't add a WebSocket server to a static blog because it sounds cool.
 :::
 

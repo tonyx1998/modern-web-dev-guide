@@ -10,7 +10,7 @@ description: Move fast but don't accumulate fatal mistakes. Lean on managed serv
 
 > **In one line:** Move fast, but don't accumulate fatal mistakes. The whole startup workflow is calibrated to that single tension.
 
-:::tip In plain English
+:::tip[In plain English]
 At a personal-project scale, you can be sloppy because only you suffer. At an enterprise scale, process protects hundreds of people from each other. A small company sits between those two worlds — you have customers who'll churn if you break things, but you don't have enough people to justify a 14-stage release process. Everything in this chapter is about finding the middle.
 :::
 
@@ -33,7 +33,7 @@ The opposite mistakes — the dual failure modes of this stage — are:
 
 The right balance is uncomfortable. You'll over-build sometimes; you'll under-build sometimes. That's normal.
 
-:::note Worked example: process earning its way in
+:::note[Worked example: process earning its way in]
 A 12-person team has no formal code review. They ship fast. Then a bad merge takes down checkout for an hour on a Friday afternoon. Lost ~$15K in MRR.
 
 The retro produces: "Every PR touching `apps/web/billing/*` requires one approval from anyone before merge." That's a single rule, scoped to one risky area. Not "all PRs need two approvers and a security review." Not "we adopt full Gitflow." A single rule that solves the specific pain that just happened.
@@ -41,7 +41,7 @@ The retro produces: "Every PR touching `apps/web/billing/*` requires one approva
 That's how process should grow: incident → narrow rule → see if it helps → expand only if needed.
 :::
 
-:::info Highlight: managed services are cheaper than engineers
+:::info[Highlight: managed services are cheaper than engineers]
 A fully-loaded engineer at a small US startup costs roughly $15K–25K/month. Your *entire* infrastructure bill — Vercel + Supabase + Clerk + Stripe + Sentry + Resend + Linear + PostHog combined — is typically $500–$3,500/month at this stage.
 
 The math is brutal: choosing to build instead of buy *any* of these adds 20%+ to your headcount cost. Build what's differentiated. Buy everything else.

@@ -10,7 +10,7 @@ description: Over-engineering, stack churn, skipping deployment, building withou
 
 > **In one line:** Personal projects rarely die from technical problems. They die from over-engineering, stack churn, premature scaling, feature creep, and never shipping.
 
-:::tip In plain English
+:::tip[In plain English]
 The pitfalls below all look like reasonable behavior in the moment. "I'll just refactor this first." "Maybe Svelte would be better." "One more feature before launch." Each individual decision is defensible. The pattern of repeatedly making them is what kills the project. Recognize the pattern and break out of it.
 :::
 
@@ -55,7 +55,7 @@ For SaaS: charging $0 means users have no skin in the game. They give shallow fe
 
 The biggest failure mode of personal projects: never deploying. Polished MVPs in your local environment help no one. Ship ugly; iterate live.
 
-:::note Worked example: catching feature creep in the act
+:::note[Worked example: catching feature creep in the act]
 You're a week from launch. You're brushing your teeth and think: "I should add a CSV export feature. People will want that."
 
 Stop. Run the test:
@@ -69,7 +69,7 @@ Stop. Run the test:
 Almost every time, the right answer is: write "CSV export" on the v2 list and ship the current version.
 :::
 
-:::info Highlight: pick your one pitfall
+:::info[Highlight: pick your one pitfall]
 You're not vulnerable to all nine equally. Most indie developers have *one* pet failure mode — for some it's stack churn, for others over-engineering, for others not charging. Identify your one. Put a sticky note above your desk: "I will not switch frameworks again this year." That one piece of self-awareness is worth more than reading this list.
 :::
 

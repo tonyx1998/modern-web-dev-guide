@@ -10,7 +10,7 @@ description: Decide how to build it — stack selection, data model, system deco
 
 > **In one line:** Decide *how* to build it — language, framework, database, hosting, system structure. These are the decisions you'll pay for (or benefit from) for years.
 
-:::tip In plain English
+:::tip[In plain English]
 Architecture is the technical version of design. Just like you wouldn't start framing a house before knowing how many floors it has, you shouldn't start coding before knowing what stack you're using, where your data lives, and how the parts connect. The catch: architecture decisions get progressively harder to reverse as you build. Choose deliberately.
 :::
 
@@ -75,7 +75,7 @@ flowchart TB
 
 The trap is going microservices too early — distributed systems are hard to debug, slow to develop in, and bring operational overhead most small teams can't justify.
 
-:::info Highlight: when to actually split into services
+:::info[Highlight: when to actually split into services]
 You should split a monolith into multiple services *only* when at least one of these is true:
 
 1. **Different teams own different parts** — and the coupling is slowing them down.
@@ -103,7 +103,7 @@ Most apps don't need these patterns explicitly. A good monolith with a clean mod
 - **Architecture astronautics:** Multi-month design phases that ship nothing.
 - **Big rewrites:** Throwing away working code to rebuild from scratch. Almost always disastrous.
 
-:::note Worked example: a sensible 2026 default architecture for a beginner
+:::note[Worked example: a sensible 2026 default architecture for a beginner]
 - **Frontend + backend:** Next.js (full-stack, deployable to Vercel as one thing).
 - **Database:** Postgres on Supabase, Neon, or Railway (free tier).
 - **Auth:** Clerk or Supabase Auth.

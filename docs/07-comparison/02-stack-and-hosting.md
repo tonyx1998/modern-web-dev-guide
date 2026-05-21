@@ -10,7 +10,7 @@ description: Languages, frameworks, databases, hosting, and infrastructure compa
 
 > **In one line:** A solo dev runs one Next.js app on Vercel free tier; a startup runs a modular monolith plus a few SaaS pieces; an enterprise runs hundreds of polyglot services on self-managed Kubernetes across multiple regions.
 
-:::tip In plain English
+:::tip[In plain English]
 You can predict an org's scale from a one-minute look at its stack diagram. One service + managed DB + free CDN = solo. Modular monolith + a few SaaS pieces (Clerk, Resend, PostHog) = startup. Microservices + service mesh + multi-region Kubernetes + custom CDN = enterprise.
 
 Each step adds capability and cost. The question is never "which is best?" — it's "which is right for your scale?"
@@ -59,13 +59,13 @@ For the deep dive on enterprise architecture, see [Phase 2: Architecture](/docs/
 | **IaC**                | None (manual)      | Light Terraform           | Comprehensive Terraform/Pulumi  |
 | **Secrets**            | .env + Vercel UI   | Doppler / 1Password       | HashiCorp Vault / cloud-native  |
 
-:::info Highlight: Kubernetes is not a startup tool
+:::info[Highlight: Kubernetes is not a startup tool]
 The single most common stack mistake at small companies is adopting Kubernetes too early. Kubernetes is a fantastic answer to problems you have at 200+ engineers and 50+ services. At 5 engineers and 1 service, it's a permanent tax on every deploy.
 
 The 2026 startup default is: Vercel/Render/Fly/Railway until you actually outgrow them. Most teams never need anything else.
 :::
 
-:::note Worked example: same product, three stacks
+:::note[Worked example: same product, three stacks]
 Imagine three versions of a small SaaS app — say, a project-management tool — at different scales:
 
 - **Solo founder:** Next.js + Postgres on Neon + Clerk + Stripe + Resend, all on Vercel. Total monthly bill: under $50. Architecture diagram fits on a napkin.

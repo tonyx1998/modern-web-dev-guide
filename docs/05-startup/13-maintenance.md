@@ -10,7 +10,7 @@ description: Weekly cadence (bug triage, sprint planning, perf review, cost revi
 
 > **In one line:** A weekly cadence of triage, sprint, performance, and cost reviews. When growth bites, scale Postgres first (indexes, replicas, pooling), then add caching, *then* re-architect.
 
-:::tip In plain English
+:::tip[In plain English]
 Once the company is past MVP and into "running a real product," maintenance and scaling become rhythms instead of projects. Bug triage every week. Slow-query review every week. Cost review every week. Nothing dramatic — but the lack of dramatic moments is the point.
 :::
 
@@ -23,7 +23,7 @@ Once the company is past MVP and into "running a real product," maintenance and 
 
 ## Scaling Postgres
 
-:::info Jargon
+:::info[Jargon]
 - **Index** — a separate data structure Postgres can use to find rows for a query without scanning the whole table.
 - **Read replica** — a copy of the database that handles `SELECT` traffic; writes still go to the primary.
 - **Connection pool** — a process (PgBouncer, Supavisor) sitting between your app and Postgres that multiplexes many client connections onto a small number of real DB connections. Critical with serverless functions, where each function instance otherwise opens its own connection.
@@ -51,7 +51,7 @@ Once the company is past MVP and into "running a real product," maintenance and 
 - Right-size your database tier.
 - Audit unused services periodically.
 
-:::note Worked example: a slow query review that paid off
+:::note[Worked example: a slow query review that paid off]
 At the weekly perf review, the team notices the dashboard endpoint has crept from 200ms to 900ms p95 over the last month. They open the Supabase slow-query log.
 
 The culprit: a query that joins `users` to `subscriptions` and filters by `status = 'active'`. As the user count grew, the lack of an index on `subscriptions.status` started biting.
@@ -63,7 +63,7 @@ CREATE INDEX idx_subscriptions_status ON subscriptions(status);
 One migration. p95 latency back to 200ms. Found and fixed in ~30 minutes — *because the weekly cadence surfaced it before users complained.*
 :::
 
-:::info Highlight: scale Postgres before re-architecting
+:::info[Highlight: scale Postgres before re-architecting]
 The instinct when traffic grows is to imagine you need microservices, Kubernetes, a separate read-API service. Usually, you need none of those. You need:
 
 1. An index on the column that's now being scanned.

@@ -10,7 +10,7 @@ description: Sentry for errors, Better Stack or Axiom for logs, uptime monitorin
 
 > **In one line:** Errors in Sentry. Logs in Better Stack or Axiom. Uptime via Better Stack. Behavior in PostHog. Performance in Vercel Analytics. On-call rotates weekly.
 
-:::tip In plain English
+:::tip[In plain English]
 Solo, you can get away with just Sentry. At startup scale, the observability surface widens because the things that can go wrong widen — payments fail silently, background jobs back up, a slow query starts cascading. Each tool covers one specific dimension; together they form the picture you need to keep a paying-customer product up.
 :::
 
@@ -55,7 +55,7 @@ Solo, you can get away with just Sentry. At startup scale, the observability sur
 - Runbooks for common issues in Notion.
 - Blameless post-mortems for significant incidents.
 
-:::note Worked example: an incident pieced together from three tools
+:::note[Worked example: an incident pieced together from three tools]
 **Symptom:** Users complain checkout is slow.
 
 1. **Vercel Analytics:** confirms checkout p95 latency has jumped from 800ms to 4s in the last hour.
@@ -66,7 +66,7 @@ Solo, you can get away with just Sentry. At startup scale, the observability sur
 Total time from "users complain" to "root cause identified": about 10 minutes. Without these tools, this would have been an hour of guesswork. The investment in observability pays back the *first time* there's a real incident.
 :::
 
-:::info Highlight: blameless post-mortems matter more than blame
+:::info[Highlight: blameless post-mortems matter more than blame]
 After a significant incident, the team writes a short post-mortem in Notion: what happened, when, why, what fixed it, what would have caught it earlier. *Crucially, the document doesn't name individuals as the cause.*
 
 The reason is practical, not soft: the moment people fear post-mortems, they hide near-misses. Hidden near-misses become future incidents. Blameless writing trades the small dopamine hit of assigning fault for the much larger benefit of an honest learning culture.

@@ -10,7 +10,7 @@ description: Distributed builds, test sharding, progressive delivery, GitOps, an
 
 > **In one line:** Enterprise CI/CD pipelines are themselves engineered products — distributed builds with smart caching, tests sharded across hundreds of runners, progressive delivery with automated rollback, and GitOps for Kubernetes.
 
-:::tip In plain English
+:::tip[In plain English]
 At a startup, CI/CD is a YAML file in your repo and the trust that your tests catch most things. At an enterprise, CI/CD is a *platform* — built by a team of engineers, run on dedicated infrastructure, processing tens of thousands of builds per day. A 4-hour test suite has to finish in 8 minutes, or developers can't ship at the company's pace.
 
 The point of all this engineering investment: turn "code merged to main" into "code safely in front of users" without a human ever touching a deploy button.
@@ -62,7 +62,7 @@ flowchart TD
 
 Automated rollback on **SLO** (Service Level Objective — a numeric target like "99.9% of requests succeed in under 200ms") regression is standard at this scale. The deploy system *itself* watches the metrics and reverts the change if anything looks wrong — no human in the loop required.
 
-:::info Highlight: deploy != release
+:::info[Highlight: deploy != release]
 At enterprise scale, you split *deploying* (code is on production servers) from *releasing* (users see new behavior). Feature flags make this possible.
 
 That separation is enormously freeing: you can deploy ten times a day, each one a small safe change, and *release* features whenever marketing is ready. Catastrophic releases stop being a thing because you can flip the flag back without redeploying anything.
@@ -76,7 +76,7 @@ That separation is enormously freeing: you can deploy ten times a day, each one 
 
 The GitOps insight: the cluster's desired state should be *declarative*, *versioned*, and *reviewed* — just like application code. Every deploy is a Git commit; every rollback is `git revert`.
 
-:::note Worked example: rollback during a canary
+:::note[Worked example: rollback during a canary]
 A bad commit lands in main. Here's what should happen:
 
 1. **00:00** — Build passes; canary deploy starts (1% of traffic).

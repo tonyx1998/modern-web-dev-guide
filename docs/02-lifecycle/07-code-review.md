@@ -10,7 +10,7 @@ description: A second pair of eyes on every change before it merges. Catches bug
 
 > **In one line:** Every change is read by at least one other person before it merges. Catches what tests miss; spreads knowledge across the team.
 
-:::tip In plain English
+:::tip[In plain English]
 Code review is the practice of having one or more teammates *read your code* before it becomes part of the main codebase. It's done on GitHub (or GitLab/Bitbucket) via **Pull Requests** — a UI that shows the diff between your changes and the main branch. Reviewers comment line-by-line; you respond and update. When everyone's happy, the PR is merged.
 
 This single practice catches more bugs than any other phase. It also rapidly grows junior developers because they see *how a senior reads code*.
@@ -72,7 +72,7 @@ This single practice catches more bugs than any other phase. It also rapidly gro
 | **Mid-size (10–50)** | One reviewer, with explicit code ownership for critical paths.  |
 | **Large**            | Multiple reviewers, code owners required for sensitive areas, security review for auth/payments/data. |
 
-:::note Worked example: a great PR description
+:::note[Worked example: a great PR description]
 Write your PRs like they're a letter to future-you.
 
 ```markdown
@@ -104,7 +104,7 @@ Low. Falls open if Redis is down (logs warning, allows request).
 A reviewer can read this and understand the change *before* even looking at the diff. Two minutes spent on the PR description saves twenty minutes per reviewer.
 :::
 
-:::info Highlight: self-review even when solo
+:::info[Highlight: self-review even when solo]
 If you're a solo developer with no one to review your PRs, **review your own diff before merging**. Open the PR, walk away for 10 minutes, come back, and read it as if it were someone else's code. You'll catch obvious issues you missed while writing.
 
 This single habit dramatically improves solo code quality over time.

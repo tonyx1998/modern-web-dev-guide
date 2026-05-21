@@ -10,7 +10,7 @@ description: A related but separate distinction from rendering strategies. How n
 
 > **In one line:** "How is HTML built?" and "What happens on navigation?" are two different questions. SPA, MPA, and Hybrid are answers to the *second* one.
 
-:::tip In plain English
+:::tip[In plain English]
 Imagine you click a link from `/home` to `/about`.
 
 - **MPA (Multi-Page App):** The browser tosses the current page in the trash and loads `/about` from scratch. Brief white flash. New HTML. Page-reload feeling.
@@ -61,7 +61,7 @@ Modern frameworks (Next.js, Nuxt, SvelteKit, Remix) do *both*:
 
 You get fast first paint, good SEO, and snappy navigation — all without choosing.
 
-:::note Worked example: how Hybrid actually feels
+:::note[Worked example: how Hybrid actually feels]
 Open `https://nextjs.org` (a Hybrid app).
 
 1. **First request to `/`:** Server returns fully-formed HTML. You see the page immediately. ~100ms.
@@ -85,7 +85,7 @@ You get the best of MPA (real HTML on every URL) and SPA (instant navigation wit
 | CSR                 | SPA                  | Vite + React/Vue (internal tools) |
 | CSR                 | MPA                  | Doesn't really exist          |
 
-:::info Highlight: stop worrying, start building
+:::info[Highlight: stop worrying, start building]
 This page taught you the vocabulary. You don't actually need to *choose* between SPA, MPA, and Hybrid on day one — the framework you pick chooses for you.
 
 - Use **Next.js** or **Remix** → you get Hybrid by default.
