@@ -163,6 +163,64 @@ Specialized for timestamped data (metrics, sensor readings, logs).
 | Document DB         | Rare in 2026 — only if you genuinely have schemaless data | Postgres + JSONB                  |
 | Time-series         | When you're recording millions of metrics/second        | Postgres + TimescaleDB              |
 
+## Page checkpoint
+
+<Quiz id="databases-nosql-page" title="Did NoSQL databases stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the typical use case where Redis adds the most value?"
+  options={[
+    { text: "Long-term storage of relational records with strong consistency" },
+    { text: "Caching expensive query results so the next 1000 requests hit a fast in-memory store instead of the DB" },
+    { text: "Storing files larger than 100 MB" },
+    { text: "Running SQL JOINs" }
+  ]}
+  correct={1}
+  explanation="Caching is Redis's #1 use case. The classic read-through pattern: check Redis first, fall back to the DB on a miss, store the result with a TTL. One pattern can drop DB load by 99%."
+  revisit={{ to: "/docs/foundations/databases-nosql#key-value-stores", label: "Key-value stores" }}
+/>
+
+<Question
+  prompt="What kind of data does a vector database store, and what is it used for?"
+  options={[
+    { text: "Geographic coordinates, for mapping apps" },
+    { text: "High-dimensional embeddings (numeric vectors) representing the 'meaning' of text or images, used for semantic search and RAG in AI apps" },
+    { text: "Email addresses, for newsletters" },
+    { text: "Raw image bytes, for photo storage" }
+  ]}
+  correct={1}
+  explanation="Embeddings turn 'How do I cancel my subscription?' into something like [0.23, -0.91, ..., 0.12]. Vector DBs index those so you can find semantically-similar items by cosine similarity — the foundation of modern AI search and RAG."
+  revisit={{ to: "/docs/foundations/databases-nosql#vector-databases-the-ai-layer", label: "Vector databases" }}
+/>
+
+<Question
+  prompt="In 2026, what's the typical advice if you're tempted to use a document database like MongoDB?"
+  options={[
+    { text: "Document DBs are now the dominant choice — pick MongoDB by default" },
+    { text: "Postgres with a JSONB column handles most document use cases — and you keep relational rigor in the same database" },
+    { text: "Skip databases entirely; use a flat file" },
+    { text: "Document DBs require Redis as a prerequisite" }
+  ]}
+  correct={1}
+  explanation="By 2026 the industry has largely concluded Postgres + JSONB beats most document DB use cases. You get document flexibility plus relational guarantees in one system, instead of running two."
+  revisit={{ to: "/docs/foundations/databases-nosql#document-nosql-databases", label: "Document DBs are niche" }}
+/>
+
+<Question
+  prompt="Why has pgvector mostly displaced dedicated vector databases for typical production AI apps?"
+  options={[
+    { text: "It's the only vector DB that supports cosine similarity" },
+    { text: "It runs inside Postgres, so most teams can add vector search without operating a separate database — and it's good enough below very large scale (~10M vectors)" },
+    { text: "Pinecone was deprecated in 2025" },
+    { text: "Postgres now generates embeddings automatically without a model" }
+  ]}
+  correct={1}
+  explanation="One database to operate, one set of backups, one mental model. pgvector covers the vast majority of production AI apps. Dedicated vector DBs still win at very large scale with strict latency SLOs."
+  revisit={{ to: "/docs/foundations/databases-nosql#vector-databases-the-ai-layer", label: "pgvector ate the market" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Choosing a Database](./databases-choosing) where we'll consolidate this into a 2026 decision tree.

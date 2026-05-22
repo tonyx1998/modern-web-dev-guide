@@ -79,6 +79,64 @@ Process theater (standups, retros, JIRA fields) doesn't get added by a villain �
 The fix is institutional: every retro should include "what process should we kill?" The list of accepted process should be *shorter than you'd expect*, with each item earning its place.
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-pitfalls-page" title="Did the pitfalls stick?" sampleSize={2}>
+
+<Question
+  prompt="What does the page call the single biggest mistake of growing startups?"
+  options={[
+    { text: "Microservices too early" },
+    { text: "Hiring too many generalists" },
+    { text: "Picking the wrong programming language" },
+    { text: "Using shadcn/ui instead of a custom design system" }
+  ]}
+  correct={0}
+  explanation="Microservices too early is named the single biggest mistake. They solve organizational problems you don't yet have, and add network latency, distributed debugging, deploy coordination, and operational overhead instead."
+  revisit={{ to: "/docs/startup/pitfalls#microservices-too-early", label: "Microservices too early" }}
+/>
+
+<Question
+  prompt="How does the page frame premature scaling?"
+  options={[
+    { text: "Design for 10M users from day one to avoid future rewrites" },
+    { text: "Build for ~10x current scale; re-architect when actual load demands it, not before" },
+    { text: "Always shard the database before launch" },
+    { text: "Premature scaling isn't a real concern" }
+  ]}
+  correct={1}
+  explanation="Designing for 10M users when you have 100 is premature. The rule of thumb is build for 10x current scale and re-architect only when real load demands it."
+  revisit={{ to: "/docs/startup/pitfalls#premature-scaling", label: "Premature scaling" }}
+/>
+
+<Question
+  prompt="Why does the page tell startups not to build auth, payments, or email from scratch?"
+  options={[
+    { text: "It's illegal in most jurisdictions" },
+    { text: "Time spent building these is time not spent on your differentiator; managed services are cheap compared to engineering time" },
+    { text: "Open-source options don't exist" },
+    { text: "Engineers find these topics boring" }
+  ]}
+  correct={1}
+  explanation="Clerk, Stripe, and Resend cost trivially compared to engineering time. Every hour rebuilding auth, payments, or email is an hour not building your product's actual differentiator."
+  revisit={{ to: "/docs/startup/pitfalls#building-authpaymentsemail-from-scratch", label: "Buy vs build" }}
+/>
+
+<Question
+  prompt="What does the page mean by process theater?"
+  options={[
+    { text: "Plays performed at company offsites" },
+    { text: "Standups, retros, and JIRA fields that have become habit but no longer produce useful outcomes" },
+    { text: "A monthly demo for investors" },
+    { text: "The on-call rotation handoff ritual" }
+  ]}
+  correct={1}
+  explanation="Process theater is process that accumulated by inertia — standups nobody listens to, retros with no follow-through, JIRA fields nobody fills in. Every retro should ask what process to kill."
+  revisit={{ to: "/docs/startup/pitfalls#process-theater", label: "Process theater" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [When You're Outgrowing This Scale](./outgrowing) where we'll cover the signs you're approaching the enterprise stage.

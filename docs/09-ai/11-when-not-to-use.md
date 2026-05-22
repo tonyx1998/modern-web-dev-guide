@@ -60,6 +60,64 @@ Before you reach for an LLM, ask the substitution question: **"If I replaced thi
 If a simpler tool exists, default to it. AI's strengths are language, ambiguity, and open-endedness — not deterministic transformations.
 :::
 
+## Page checkpoint
+
+<Quiz id="ai-when-not-to-use-page" title="Did 'when not to use AI' stick?" sampleSize={2}>
+
+<Question
+  prompt="What is the 'substitution test' for deciding whether to use AI?"
+  options={[
+    { text: "Try the largest model first, then substitute smaller ones" },
+    { text: "Ask: 'If I replaced this with a regex, SQL query, or 50-line script, would it work?' — if yes, prefer the simpler tool" },
+    { text: "Substitute open-source models in for hosted ones to save money" },
+    { text: "Substitute embeddings for keyword search by default" }
+  ]}
+  correct={1}
+  explanation="The substitution test forces a comparison with the boring alternative. AI's strengths are language, ambiguity, and open-endedness — not deterministic transformations a regex can do for free."
+  revisit={{ to: "/docs/ai/ai-when-not-to-use#often-misused-cases", label: "The substitution test" }}
+/>
+
+<Question
+  prompt="A team uses an LLM to 'compute totals' from a spreadsheet and rounding errors quietly corrupt the numbers. What's the right fix?"
+  options={[
+    { text: "Use a bigger model" },
+    { text: "Do the arithmetic in regular code; let the AI only write the narrative summary around the numbers" },
+    { text: "Add more examples to the prompt" },
+    { text: "Disable streaming for math responses" }
+  ]}
+  correct={1}
+  explanation="Use AI for language; use code for math. Have the model summarize ('revenue up 12%') but compute the values with regular arithmetic — deterministic, cheap, and correct."
+  revisit={{ to: "/docs/ai/ai-when-not-to-use#often-misused-cases", label: "AI for language, code for math" }}
+/>
+
+<Question
+  prompt="Which task is a LEGITIMATE fit for AI rather than a simpler tool?"
+  options={[
+    { text: "Extracting email addresses from text" },
+    { text: "Reformatting a date string" },
+    { text: "Summarizing a long meeting transcript into key decisions and action items" },
+    { text: "Summing a list of numbers" }
+  ]}
+  correct={2}
+  explanation="Long-form summarization is exactly where LLMs shine. The other tasks are deterministic and better served by a regex, date-fns, or sum() — cheaper, faster, and 100% reliable."
+  revisit={{ to: "/docs/ai/ai-when-not-to-use#often-misused-cases", label: "Where AI legitimately wins" }}
+/>
+
+<Question
+  prompt="Which of these is a strong signal you should NOT use an LLM?"
+  options={[
+    { text: "The output must be open-ended natural language" },
+    { text: "You need 100% deterministic behavior and a sub-100ms latency budget" },
+    { text: "The input might contain synonyms and paraphrases" },
+    { text: "The task involves classifying ambiguous tone" }
+  ]}
+  correct={1}
+  explanation="LLMs are non-deterministic and add hundreds of ms of latency at minimum. Tight latency budgets plus a hard determinism requirement is exactly the wrong shape for an LLM."
+  revisit={{ to: "/docs/ai/ai-when-not-to-use#dont-use-ai-when", label: "When AI is the wrong tool" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The 2026 AI Stack Summary](./ai-stack-summary) — a one-page reference for the dominant tools.

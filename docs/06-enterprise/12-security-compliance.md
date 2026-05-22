@@ -106,6 +106,64 @@ A team is adding a new API endpoint for issuing refunds. At enterprise scale, th
 The endpoint that takes 2 days to write takes 3 weeks to ship. The reason is not bureaucracy. It's that "issue refunds" is exactly the kind of endpoint attackers target, and the cost of getting it wrong is enormous.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-security-compliance-page" title="Did security & compliance stick?" sampleSize={2}>
+
+<Question
+  prompt="What is the core idea behind zero-trust networking?"
+  options={[
+    { text: "Block all external traffic by default" },
+    { text: "No service implicitly trusts another — every service-to-service call is authenticated and authorized, even inside the data center" },
+    { text: "Only trust internal IPs" },
+    { text: "Disable all networking until proven safe" }
+  ]}
+  correct={1}
+  explanation="The historical 'trust everything on the internal network' model collapsed once attackers started landing on internal networks. Zero-trust authenticates and authorizes every service-to-service call, removing the implicit trust that used to live inside the perimeter."
+  revisit={{ to: "/docs/enterprise/security-compliance#infrastructure-security", label: "Zero-trust" }}
+/>
+
+<Question
+  prompt="Why is just-in-time (JIT) access for production a powerful pattern?"
+  options={[
+    { text: "It removes the need for any logging" },
+    { text: "Nobody has standing production access; elevated privileges are requested for a limited window with every action logged — shrinking the blast radius of a compromised account" },
+    { text: "It speeds up incident response" },
+    { text: "It eliminates the need for MFA" }
+  ]}
+  correct={1}
+  explanation="With JIT access, even senior engineers don't have standing production DB credentials. They request a 1-hour window when needed, every action is logged, and a compromised account has very little blast radius — vs. one with always-on prod access."
+  revisit={{ to: "/docs/enterprise/security-compliance#identity-and-access", label: "JIT access" }}
+/>
+
+<Question
+  prompt="What is the page's honest framing of compliance work?"
+  options={[
+    { text: "It's pure theater and should be ignored" },
+    { text: "It's risk transfer — if you follow documented controls and still get breached, the financial and legal consequences look very different from 'we ignored basic controls'" },
+    { text: "It only matters to lawyers" },
+    { text: "It replaces the need for real security" }
+  ]}
+  correct={1}
+  explanation="Compliance isn't a substitute for real security, but it's also not just theater. It's risk transfer: following documented controls fundamentally changes the legal and financial consequences of a breach. As an engineer, you live with it whether you like it or not."
+  revisit={{ to: "/docs/enterprise/security-compliance#compliance", label: "Compliance as risk transfer" }}
+/>
+
+<Question
+  prompt="What does STRIDE stand for as a threat-modeling framework?"
+  options={[
+    { text: "Security, Threats, Risks, Incidents, Defenses, Escalations" },
+    { text: "Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege" },
+    { text: "Static, Type, Runtime, Integration, Dynamic, End-to-end" },
+    { text: "Storage, Transit, Rest, Internal, Domain, External" }
+  ]}
+  correct={1}
+  explanation="STRIDE is a checklist for thinking through attack surfaces: Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege. A good threat model answers, for each category, 'what could an attacker do here, and how have we mitigated it?'"
+  revisit={{ to: "/docs/enterprise/security-compliance#threat-modeling", label: "STRIDE" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 10: Release Management](./release-management) — how all these pieces come together into a coordinated launch.

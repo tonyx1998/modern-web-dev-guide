@@ -47,6 +47,64 @@ A fully-loaded engineer at a small US startup costs roughly $15K–25K/month. Yo
 The math is brutal: choosing to build instead of buy *any* of these adds 20%+ to your headcount cost. Build what's differentiated. Buy everything else.
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-mindset-page" title="Did the startup mindset stick?" sampleSize={2}>
+
+<Question
+  prompt="The page summarizes the startup mindset as a balance between which two extremes?"
+  options={[
+    { text: "Open source vs proprietary software" },
+    { text: "Personal-project sloppiness and enterprise overhead" },
+    { text: "Frontend specialists and backend specialists" },
+    { text: "Cloud-hosted services and self-hosted infrastructure" }
+  ]}
+  correct={1}
+  explanation="The mindset sits between solo sloppiness (where only you suffer) and enterprise process (which protects hundreds of people). Startups have paying customers but not enough headcount to justify heavyweight workflows."
+  revisit={{ to: "/docs/startup/mindset#the-five-guiding-principles", label: "Five guiding principles" }}
+/>
+
+<Question
+  prompt="When should a startup add a new piece of process, according to the guiding principles?"
+  options={[
+    { text: "When a respected blog post recommends it" },
+    { text: "Up front, before the team ever feels pain from missing it" },
+    { text: "Only after an incident or recurring pain identifies a specific gap" },
+    { text: "Whenever a new engineer joins the team" }
+  ]}
+  correct={2}
+  explanation="Process should earn its way in. The worked example shows a single narrow rule added after a real incident — not a blanket policy adopted on principle."
+  revisit={{ to: "/docs/startup/mindset#the-five-guiding-principles", label: "Process earns its place" }}
+/>
+
+<Question
+  prompt="Why does the page argue managed services are cheaper than building in-house at this scale?"
+  options={[
+    { text: "Managed services are free at startup-tier usage" },
+    { text: "A single fully-loaded engineer costs far more than the entire managed stack combined" },
+    { text: "Managed services automatically scale to infinite revenue with no work" },
+    { text: "Self-hosting is forbidden by most cloud providers" }
+  ]}
+  correct={1}
+  explanation="An engineer runs $15K-$25K/month fully loaded while the whole managed stack often totals $500-$3,500/month. Building instead of buying any single service adds more than 20% to headcount cost."
+  revisit={{ to: "/docs/startup/mindset#the-five-guiding-principles", label: "Managed services math" }}
+/>
+
+<Question
+  prompt="Which is described as one of the two dual failure modes for a startup engineering team?"
+  options={[
+    { text: "Adopting microservices and weeks-long architectural reviews far too early" },
+    { text: "Choosing TypeScript over JavaScript" },
+    { text: "Hosting on Vercel rather than self-hosting" },
+    { text: "Using shadcn/ui instead of building a custom design system" }
+  ]}
+  correct={0}
+  explanation="Acting like an enterprise too early — microservices for 5 engineers, Kubernetes for 100 users, weeks-long reviews — is one of the two failure modes. The other is acting like a personal project once you have real customers."
+  revisit={{ to: "/docs/startup/mindset#the-two-failure-modes", label: "Two failure modes" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Team Structure at This Scale](./team-structure) where we'll look at how 5, 25, and 50-person orgs differ.

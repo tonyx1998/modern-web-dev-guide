@@ -115,6 +115,64 @@ At a well-tooled enterprise:
 At a less-tooled enterprise, that same process takes 3–6 weeks of tickets to platform teams. The difference is what "good platform engineering" buys you.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-architecture-page" title="Did enterprise architecture stick?" sampleSize={2}>
+
+<Question
+  prompt="What is the single most important discipline in a microservices architecture?"
+  options={[
+    { text: "Use gRPC for every internal call" },
+    { text: "Don't share a database between services — each service owns its own data" },
+    { text: "Deploy every service through the same pipeline" },
+    { text: "Always run an API gateway in front" }
+  ]}
+  correct={1}
+  explanation="The database-per-service rule is the load-bearing piece. The moment two services share a database, you no longer have two services — you have one service with two front doors and a hidden coupling that will break in production."
+  revisit={{ to: "/docs/enterprise/architecture#key-architectural-components", label: "Database-per-service" }}
+/>
+
+<Question
+  prompt="What problem does a service mesh primarily solve?"
+  options={[
+    { text: "It replaces the database for each microservice" },
+    { text: "It handles cross-cutting service-to-service concerns — mTLS, retries, timeouts, circuit breaking, tracing — without each service implementing them" },
+    { text: "It exposes services to external users" },
+    { text: "It schedules pods onto Kubernetes nodes" }
+  ]}
+  correct={1}
+  explanation="A service mesh injects sidecar proxies (typically Envoy) next to each service to handle mTLS, retries, circuit breaking, and tracing transparently. Without it, every microservice would have to reimplement those concerns itself."
+  revisit={{ to: "/docs/enterprise/architecture#key-architectural-components", label: "Service mesh" }}
+/>
+
+<Question
+  prompt="At a well-tooled enterprise with a mature Internal Developer Platform, what's the target experience for spinning up a new service?"
+  options={[
+    { text: "Three to six weeks of tickets to platform teams" },
+    { text: "Engineer writes raw Kubernetes manifests, Terraform, and CI configs by hand" },
+    { text: "One command produces a repo with CI/CD, observability, secrets, and on-call configured — deployed to prod within a day" },
+    { text: "It requires approval from the CTO" }
+  ]}
+  correct={2}
+  explanation="A mature IDP gives engineers a single command (e.g., 'acme service new') that scaffolds the repo, registers it in the service catalog, generates dashboards, sets up CI/CD, and gets the new service into production the same day — without ever touching raw Kubernetes."
+  revisit={{ to: "/docs/enterprise/architecture#internal-developer-platform-idp", label: "IDP" }}
+/>
+
+<Question
+  prompt="What is a Backend-for-Frontend (BFF)?"
+  options={[
+    { text: "A database optimized for frontend queries" },
+    { text: "A thin service tailored to one client (web, mobile, partner API) that stitches together calls to underlying microservices" },
+    { text: "A frontend framework for building dashboards" },
+    { text: "The same thing as an API gateway" }
+  ]}
+  correct={1}
+  explanation="A BFF is a thin per-client service — web BFF, mobile BFF, partner BFF — that aggregates downstream microservice calls into a shape that fits that specific client. Different clients get different BFFs without bloating the underlying services."
+  revisit={{ to: "/docs/enterprise/architecture#microservices-and-soa", label: "BFF" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 2.5: Frontend Architecture at Scale](./frontend-architecture) — frontend at this scale is its own discipline, with design systems and micro-frontends.

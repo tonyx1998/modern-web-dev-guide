@@ -71,6 +71,64 @@ The first few months they ran it, things broke constantly. Each break uncovered 
 Once they fixed every break Chaos Monkey found, they had genuinely resilient systems — not because they'd designed for resilience, but because they'd been forced to. That's the core idea of chaos engineering: never trust a recovery path that hasn't been exercised under stress.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-testing-page" title="Did enterprise testing stick?" sampleSize={2}>
+
+<Question
+  prompt="What is the core idea behind chaos engineering?"
+  options={[
+    { text: "Test failures should be ignored if they're flaky" },
+    { text: "Never trust a recovery path that hasn't been exercised under stress — deliberately break things in controlled settings before reality does" },
+    { text: "Only test in staging, never in production" },
+    { text: "Replace unit tests with random fuzzing" }
+  ]}
+  correct={1}
+  explanation="Most systems claim to have automatic failover, but the actual fraction of failovers that work first time is much lower than claimed. Chaos engineering and game days deliberately break things to surface hidden assumptions before a 3 AM Black Friday outage does."
+  revisit={{ to: "/docs/enterprise/testing#chaos-engineering", label: "Chaos engineering" }}
+/>
+
+<Question
+  prompt="What role do contract tests (e.g., Pact) play in a microservices architecture?"
+  options={[
+    { text: "They replace unit tests" },
+    { text: "They verify services adhere to their published API contracts — critical when many independent teams depend on each other" },
+    { text: "They test legal contracts with vendors" },
+    { text: "They simulate production load" }
+  ]}
+  correct={1}
+  explanation="Contract tests verify that each service still honors its published API contract. In a microservices world, that's how you catch a producer accidentally breaking a downstream consumer — before deploy, not in production at 3 AM."
+  revisit={{ to: "/docs/enterprise/testing#the-expanded-pyramid", label: "Contract tests" }}
+/>
+
+<Question
+  prompt="Why do enterprises need SAST, DAST, SCA, container scanning, and IaC scanning — all of them?"
+  options={[
+    { text: "Auditors require five tools" },
+    { text: "Each tool sees a different layer (source code, running app, dependencies, image, infrastructure) — attacks come from all those layers" },
+    { text: "Vendors bundle them together" },
+    { text: "They're cheaper as a bundle" }
+  ]}
+  correct={1}
+  explanation="SAST sees source code, DAST sees the running app, SCA sees dependencies, container scanners see images, IaC scanners see Terraform. You need all of them because real attacks exploit every layer — and one tool can't see what another sees."
+  revisit={{ to: "/docs/enterprise/testing#security-testing", label: "Security testing stack" }}
+/>
+
+<Question
+  prompt="The page warns that end-to-end tests at scale are 'a known plague.' What's the recommended response?"
+  options={[
+    { text: "Write more of them to compensate" },
+    { text: "Delete them all and rely on monitoring" },
+    { text: "Keep them limited and carefully maintained — invest heavily in fixing or removing flaky ones" },
+    { text: "Run them only once a quarter" }
+  ]}
+  correct={2}
+  explanation="Flaky E2E tests are a known plague at scale — they erode trust in CI and slow everyone down. Enterprises keep their E2E suite limited and carefully maintained, fixing or removing flaky tests rather than letting them rot."
+  revisit={{ to: "/docs/enterprise/testing#the-expanded-pyramid", label: "E2E tests" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 6: CI/CD at Scale](./ci-cd) — how all these tests actually run, in parallel, across tens of thousands of builds a day.

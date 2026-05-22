@@ -168,6 +168,64 @@ If you're brand new to web dev, **don't** start with PPR or even RSC. Start with
 The industry oscillates between simplifying and complicating. The frameworks will look different in 2030 too. The fundamentals from the [client-server model](./client-server) won't.
 :::
 
+## Page checkpoint
+
+<Quiz id="isr-streaming-ppr-page" title="Did ISR, streaming & PPR stick?" sampleSize={2}>
+
+<Question
+  prompt="With ISR using revalidate: 60, what does a user who arrives 61 seconds after the last build experience?"
+  options={[
+    { text: "They wait while the page rebuilds, then receive the fresh version" },
+    { text: "They see a 503 until the rebuild finishes" },
+    { text: "They get the stale cached page instantly, while the CDN kicks off a background rebuild so the NEXT visitor gets the fresh copy" },
+    { text: "They are redirected to the homepage" }
+  ]}
+  correct={2}
+  explanation="With ISR, no user ever waits for a rebuild. The cached page is served instantly even when stale; the background rebuild swaps in the fresh copy for subsequent visitors. That's the speed-plus-freshness trick."
+  revisit={{ to: "/docs/foundations/isr-streaming-ppr#isr--incremental-static-regeneration", label: "ISR — Incremental Static Regeneration" }}
+/>
+
+<Question
+  prompt="Which statement about React Server Components (RSCs) is most accurate?"
+  options={[
+    { text: "They're a universal pattern available in any modern framework" },
+    { text: "They're a React-specific feature; streaming SSR works in many frameworks but RSCs themselves are only in React (mainly Next.js App Router)" },
+    { text: "They run primarily on the client, not the server" },
+    { text: "They make all server-side rendering unnecessary" }
+  ]}
+  correct={1}
+  explanation="Streaming SSR is framework-agnostic — Next, Remix, SvelteKit, Nuxt all support it. RSCs are the React-only programming model layered on top: components that run only on the server and ship zero JS to the browser."
+  revisit={{ to: "/docs/foundations/isr-streaming-ppr#streaming-ssr--the-2026-default", label: "Streaming SSR & RSCs" }}
+/>
+
+<Question
+  prompt="In Next.js App Router, what does 'use client' at the top of a component mean?"
+  options={[
+    { text: "The component runs only at build time" },
+    { text: "The component is a client component — it ships to the browser and can use things like useState, but can't directly await a database query" },
+    { text: "It disables hydration for that component" },
+    { text: "It marks the file as deprecated" }
+  ]}
+  correct={1}
+  explanation="Without 'use client', a component is a server component — it runs only on the server, can await DB queries directly, and ships zero JS. 'use client' moves it to the browser, enabling hooks like useState but losing direct server data access."
+  revisit={{ to: "/docs/foundations/isr-streaming-ppr#streaming-ssr--the-2026-default", label: "use client boundary" }}
+/>
+
+<Question
+  prompt="Partial Prerendering (PPR) is best described as…"
+  options={[
+    { text: "An industry-standard pattern across every modern framework" },
+    { text: "A Next.js-specific hybrid where a static shell is prerendered and dynamic 'holes' stream in per request" },
+    { text: "A way to disable JavaScript entirely on a page" },
+    { text: "A new CDN protocol" }
+  ]}
+  correct={1}
+  explanation="PPR is opt-in and Next.js-specific. The static shell comes from the CDN in ~10ms; the dynamic holes (price, user-specific data) stream in shortly after. It's not yet a cross-framework standard."
+  revisit={{ to: "/docs/foundations/isr-streaming-ppr#ppr--partial-prerendering-nextjs-specific-opt-in", label: "PPR — Partial Prerendering" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [SPA vs MPA vs Hybrid](./spa-mpa-hybrid) where we look at a *related but distinct* question: are you a single-page app or a multi-page app? (The answer in 2026 is usually "both.")

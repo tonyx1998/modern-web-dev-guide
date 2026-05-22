@@ -96,6 +96,64 @@ That cadence — sustained for 12 months — is what gets you to "real projects,
 A single week of work is barely visible on your portfolio. A year of weeks is a transformation. The engineers who succeed are not the ones who sprinted for three months — they're the ones who showed up most weeks for three years. **Consistency beats intensity at every stage.**
 :::
 
+## Page checkpoint
+
+<Quiz id="career-multi-year-path-page" title="Did the multi-year path stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the core principle the Highlight box names as the 'real model' for a multi-year career?"
+  options={[
+    { text: "Intensity wins — sprint for three months and you'll be senior" },
+    { text: "Compound interest — consistency beats intensity; a year of weekly work is a transformation, while a single week is invisible" },
+    { text: "Skip ahead by reading more books" },
+    { text: "Switch jobs every six months for fastest growth" }
+  ]}
+  correct={1}
+  explanation="The Highlight is explicit: consistency beats intensity. The engineers who succeed are not the ones who sprinted for three months — they're the ones who showed up most weeks for three years."
+  revisit={{ to: "/docs/career/career-multi-year-path#years-10-senior-choices", label: "Compound interest model" }}
+/>
+
+<Question
+  prompt="By the end of Year 2 in the median trajectory, what should you have done?"
+  options={[
+    { text: "Become a Staff engineer" },
+    { text: "Learned a framework, shipped 2–3 real projects with backend/auth/database, deployed and shared them, started open-source contributions, and begun applying for jobs/internships" },
+    { text: "Founded a unicorn company" },
+    { text: "Earned a PhD" }
+  ]}
+  correct={1}
+  explanation="The Year 2 picture: learn React + Next.js (or chosen framework), build 2–3 real projects with backend + auth + DB, deploy them, contribute to open source, start applying. Year 3 is when the first job typically lands."
+  revisit={{ to: "/docs/career/career-multi-year-path#year-2-real-projects", label: "Year 2 milestones" }}
+/>
+
+<Question
+  prompt="In the Year-2 weekly schedule example, how many hours per week is the suggested cadence?"
+  options={[
+    { text: "About 40 hours/week of side work" },
+    { text: "About 10 hours/week — sustained for 12 months — is what gets you to 'real projects, deployed, written about' by Year 3" },
+    { text: "About 1 hour/week" },
+    { text: "Only weekends, no weekday work at all" }
+  ]}
+  correct={1}
+  explanation="The worked example shows a ~10 hour/week cadence (Mon 2h, Wed 2h, Sat 3h+1h, Sun 2h). Sustained for 12 months, that's enough to reach the Year 3 milestones."
+  revisit={{ to: "/docs/career/career-multi-year-path#year-2-real-projects", label: "Year 2 weekly schedule" }}
+/>
+
+<Question
+  prompt="At Year 10+, what does the page describe as the typical situation?"
+  options={[
+    { text: "There's a single 'right' path everyone follows" },
+    { text: "You have many options — Staff/Principal IC, EM, founder, consultant, research, education — and no single right path" },
+    { text: "Everyone retires from tech" },
+    { text: "Only management is available as a track" }
+  ]}
+  correct={1}
+  explanation="By Year 10+, the page lists at least six legitimate continuations: stay at a big company through Staff/Principal, bounce between scale-ups, start a company, consult, move to research, or do education/content. The skills open many doors; there's no single right path."
+  revisit={{ to: "/docs/career/career-multi-year-path#years-10-senior-choices", label: "Year 10+ choices" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [For Tony Specifically (or Anyone in His Position)](./career-for-tony) for advice tailored to a CS Master's student.

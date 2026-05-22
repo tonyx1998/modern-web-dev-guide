@@ -75,6 +75,64 @@ Imagine three versions of a small SaaS app — say, a project-management tool �
 Same *product*, radically different *stack*. Each is correct for its scale; copying either of the others would be a mistake.
 :::
 
+## Page checkpoint
+
+<Quiz id="comparison-stack-and-hosting-page" title="Did stack and hosting across scales stick?" sampleSize={2}>
+
+<Question
+  prompt="What architectural pattern is typical at each of the three scales?"
+  options={[
+    { text: "Microservices everywhere — only the language changes by scale" },
+    { text: "Monolith for solo, modular monolith for startups, microservices/SOA for enterprise" },
+    { text: "Serverless everywhere, with self-hosted databases at every scale" },
+    { text: "Modular monolith for solo, microservices for startups, monolith for enterprise" }
+  ]}
+  correct={1}
+  explanation="Solo runs a monolith, startups run a modular monolith plus a few SaaS pieces, and enterprises run microservices or SOA across many languages and teams. Each is correct for its scale."
+  revisit={{ to: "/docs/comparison/stack-and-hosting#stack-and-architecture", label: "Stack and Architecture" }}
+/>
+
+<Question
+  prompt="Why is Kubernetes called out as 'not a startup tool'?"
+  options={[
+    { text: "It is too expensive to license for small companies" },
+    { text: "It cannot run TypeScript apps reliably" },
+    { text: "It solves problems you have at 200+ engineers and 50+ services — at 5 engineers it is a permanent tax on every deploy" },
+    { text: "It does not support multi-region deployments" }
+  ]}
+  correct={2}
+  explanation="Kubernetes is a great answer to problems you have at 200+ engineers and 50+ services. At a 5-engineer single-service startup it becomes a permanent operational tax — Vercel/Render/Fly/Railway is the better default."
+  revisit={{ to: "/docs/comparison/stack-and-hosting#hosting-and-infrastructure", label: "Kubernetes is not a startup tool" }}
+/>
+
+<Question
+  prompt="What is the dominant strategy a small company uses for its stack?"
+  options={[
+    { text: "Self-host everything to keep monthly costs as low as possible" },
+    { text: "Glue SaaS services together — never operate anything you can rent" },
+    { text: "Build custom internal versions of every component" },
+    { text: "Adopt Kubernetes early so it is ready when the company grows" }
+  ]}
+  correct={1}
+  explanation="Small companies are mostly SaaS-glued-together; the goal is to never operate anything you can rent. Solo focuses on free tiers and zero plumbing, and large companies build internal versions of most things for scale and compliance."
+  revisit={{ to: "/docs/comparison/stack-and-hosting#stack-and-architecture", label: "Patterns across rows" }}
+/>
+
+<Question
+  prompt="In the worked example of the same product at three scales, what stays the same and what changes?"
+  options={[
+    { text: "The stack stays the same; only the team size changes" },
+    { text: "The product stays the same; the stack changes radically by scale" },
+    { text: "The product changes by scale, but the stack stays roughly constant" },
+    { text: "Both product and stack are nearly identical — only cost changes" }
+  ]}
+  correct={1}
+  explanation="The product is the same project-management tool at every scale, but the stack is radically different: a Vercel+Neon+Clerk app for $50/month vs. dozens of polyglot services with sharded Postgres and Kafka for ~$5M/month."
+  revisit={{ to: "/docs/comparison/stack-and-hosting#hosting-and-infrastructure", label: "Same product, three stacks" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Development](./development) — how each scale actually builds, tests, and ships its code.

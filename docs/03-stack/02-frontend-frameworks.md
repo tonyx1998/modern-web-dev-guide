@@ -153,6 +153,64 @@ const posts = await fetch('/api/posts').then(r => r.json());
 You'll find passionate Reddit and Twitter threads telling you React is "old" or "bloated" and that you should pick Svelte/Solid/Qwik. **Ignore them on day one.** React + Next.js gives you the largest pool of jobs, tutorials, components, AI assistance, and Stack Overflow answers. You can switch frameworks later — but you won't, because once you ship 2 or 3 projects in one stack, the marginal value of switching is tiny.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-frontend-frameworks-page" title="Did frontend frameworks stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the key distinction between a library and a framework, as the page describes it?"
+  options={[
+    { text: "Libraries are open-source; frameworks are paid" },
+    { text: "A library is code you call; a framework is code that calls you" },
+    { text: "Libraries are written in TypeScript; frameworks are written in Rust" },
+    { text: "Libraries run only in the browser; frameworks run only on the server" }
+  ]}
+  correct={1}
+  explanation="With a library you decide when to invoke its functions. With a framework, the framework runs your app and calls into the pieces you wrote — which is why switching frameworks is so expensive."
+  revisit={{ to: "/docs/stack/frontend-frameworks#react-19--nextjs-15--the-dominant-combination", label: "Library vs framework" }}
+/>
+
+<Question
+  prompt="What do React Server Components (RSCs) in React 19 give you that traditional client components do not?"
+  options={[
+    { text: "Automatic offline support via Service Workers" },
+    { text: "Direct DOM access from server code" },
+    { text: "Server-only rendering that can `await` data and ships zero JavaScript to the client" },
+    { text: "Built-in TypeScript type generation for props" }
+  ]}
+  correct={2}
+  explanation="RSCs render only on the server, can await data directly, and ship zero JS to the browser — moving data-fetching and rendering off the client entirely."
+  revisit={{ to: "/docs/stack/frontend-frameworks#react-19--nextjs-15--the-dominant-combination", label: "React 19 features" }}
+/>
+
+<Question
+  prompt="Why is Astro a great pick for a content-heavy site like a blog or documentation?"
+  options={[
+    { text: "It bundles your whole site into one JavaScript file" },
+    { text: "It ships zero JavaScript by default and only hydrates 'islands' of interactivity" },
+    { text: "It is the fastest virtual-DOM implementation available" },
+    { text: "It includes a built-in CMS and database" }
+  ]}
+  correct={1}
+  explanation="Astro is content-first: it produces static HTML and only ships JS for the specific components you mark as interactive (via directives like `client:visible`), keeping pages tiny."
+  revisit={{ to: "/docs/stack/frontend-frameworks#astro-5--the-content-framework", label: "Astro section" }}
+/>
+
+<Question
+  prompt="What makes Svelte's bundle sizes smaller than React's or Vue's?"
+  options={[
+    { text: "Svelte runs entirely on the server with no client code" },
+    { text: "Svelte compiles components to vanilla JS at build time, so there is no large runtime to ship" },
+    { text: "Svelte uses WebAssembly instead of JavaScript" },
+    { text: "Svelte requires you to write your own renderer" }
+  ]}
+  correct={1}
+  explanation="Svelte is a compiler: it converts your components into small chunks of vanilla JS at build time, so there's no big framework runtime to ship — bundles end up smaller than React or Vue."
+  revisit={{ to: "/docs/stack/frontend-frameworks#svelte-5--sveltekit", label: "Svelte section" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Styling](./styling) — how you make your components actually *look* like something.

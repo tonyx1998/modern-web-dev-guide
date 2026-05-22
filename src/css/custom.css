@@ -241,3 +241,396 @@ html {
 .markdown ul {
   padding-left: 1.25rem;
 }
+
+/* ============================================================
+   Reader-level conditional content
+   The <ReaderLevel show="..."> component wraps a block in a div
+   with data-reader-show listing which levels should see it.
+   The selected level is set on <html data-reader-level="...">.
+   Anything not listed for the current level is hidden.
+   Defaults to "reader" if no level is set (SSR safety).
+   ============================================================ */
+
+/* SSR / pre-hydration: treat unset as "beginner" (the default level). */
+html:not([data-reader-level]) [data-reader-show]:not([data-reader-show~="beginner"]) {
+  display: none;
+}
+
+html[data-reader-level="beginner"] [data-reader-show]:not([data-reader-show~="beginner"]) {
+  display: none;
+}
+html[data-reader-level="reader"] [data-reader-show]:not([data-reader-show~="reader"]) {
+  display: none;
+}
+html[data-reader-level="advanced"] [data-reader-show]:not([data-reader-show~="advanced"]) {
+  display: none;
+}
+
+/* Tiny visual marker so authors can see what's level-scoped during dev.
+   Subtle in production: a thin colored left border on each block. */
+.reader-level {
+  position: relative;
+}
+.reader-level::before {
+  content: "";
+  position: absolute;
+  left: -0.85rem;
+  top: 0.25em;
+  bottom: 0.25em;
+  width: 2px;
+  border-radius: 2px;
+  opacity: 0.35;
+  background: var(--ifm-color-emphasis-400);
+}
+.reader-level[data-reader-show="beginner"]::before {
+  background: #f59e0b; /* amber */
+}
+.reader-level[data-reader-show="advanced"]::before {
+  background: #8b5cf6; /* violet */
+}
+.reader-level[data-reader-show~="beginner"][data-reader-show~="reader"]:not([data-reader-show~="advanced"])::before {
+  background: linear-gradient(to bottom, #f59e0b, var(--ifm-color-primary));
+}
+.reader-level[data-reader-show~="reader"][data-reader-show~="advanced"]:not([data-reader-show~="beginner"])::before {
+  background: linear-gradient(to bottom, var(--ifm-color-primary), #8b5cf6);
+}
+
+@media (max-width: 996px) {
+  .reader-level::before {
+    left: -0.5rem;
+  }
+}
+
+/* "Page audience" banner shown at the top of a page, swappable by level. */
+.page-audience-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.65rem 0.9rem;
+  margin: 0.5rem 0 1.5rem;
+  border-radius: 10px;
+  background: var(--ifm-color-emphasis-100);
+  border-left: 3px solid var(--ifm-color-primary);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.page-audience-banner-beginner {
+  background: rgba(245, 158, 11, 0.08);
+  border-left-color: #f59e0b;
+}
+.page-audience-banner-advanced {
+  background: rgba(139, 92, 246, 0.08);
+  border-left-color: #8b5cf6;
+}
+
+[data-theme='dark'] .page-audience-banner {
+  background: rgba(96, 165, 250, 0.08);
+}
+[data-theme='dark'] .page-audience-banner-beginner {
+  background: rgba(245, 158, 11, 0.1);
+}
+[data-theme='dark'] .page-audience-banner-advanced {
+  background: rgba(139, 92, 246, 0.12);
+}
+
+/* ============================================================
+   Beginner mode = guided/linear reading
+   Hide the doc sidebar so the reader follows the chapter in
+   order using the big Prev/Next buttons. They can summon the
+   sidebar on demand via the floating "☰ Menu" button (sets
+   html[data-sidebar="open"]), in which case the sidebar
+   appears as a fixed-position overlay over the content.
+   The main column expands to fill the freed space.
+   ============================================================ */
+
+/* Hide by default in Beginner mode */
+html[data-reader-level="beginner"]:not([data-sidebar="open"]) .theme-doc-sidebar-container,
+html[data-reader-level="beginner"]:not([data-sidebar="open"]) aside.theme-doc-sidebar-container {
+  display: none !important;
+}
+
+html[data-reader-level="beginner"] .docMainContainer_TBSr,
+html[data-reader-level="beginner"] [class*="docMainContainer"] {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html[data-reader-level="beginner"] .theme-doc-toc-mobile {
+  display: none;
+}
+
+/* When summoned in Beginner mode, the sidebar overlays the content
+   instead of pushing it. That way the reader's main column doesn't
+   reflow while they peek at the menu. */
+html[data-reader-level="beginner"][data-sidebar="open"] .theme-doc-sidebar-container {
+  position: fixed !important;
+  top: var(--ifm-navbar-height, 60px);
+  left: 0;
+  bottom: 0;
+  width: 320px;
+  max-width: 88vw;
+  z-index: 100;
+  background: var(--ifm-background-surface-color);
+  border-right: 1px solid var(--ifm-color-emphasis-300);
+  box-shadow: 8px 0 24px rgba(0, 0, 0, 0.18);
+  overflow-y: auto;
+  animation: sidebarSlideIn 0.18s ease;
+}
+
+[data-theme='dark'] html[data-reader-level="beginner"][data-sidebar="open"] .theme-doc-sidebar-container {
+  box-shadow: 8px 0 24px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes sidebarSlideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+
+/* ============================================================
+   Revisit highlight
+   Applied by RevisitHighlight when the user arrived via a quiz
+   "revisit" link. Adds a soft amber glow + a left bar so the
+   exact section they should re-read is unmistakeable. Fades
+   out on its own after a few seconds.
+   ============================================================ */
+.revisit-highlight {
+  animation: revisitPulse 1.4s ease-in-out 0s 2;
+  background: linear-gradient(
+    to right,
+    rgba(245, 158, 11, 0.18),
+    rgba(245, 158, 11, 0.08) 40%,
+    transparent
+  );
+  box-shadow: inset 3px 0 0 #f59e0b;
+  border-radius: 4px;
+  padding-left: 0.6rem;
+  margin-left: -0.6rem;
+  transition: background 0.6s ease, box-shadow 0.6s ease;
+}
+
+[data-theme='dark'] .revisit-highlight {
+  background: linear-gradient(
+    to right,
+    rgba(245, 158, 11, 0.22),
+    rgba(245, 158, 11, 0.1) 40%,
+    transparent
+  );
+}
+
+@keyframes revisitPulse {
+  0%   { box-shadow: inset 3px 0 0 #f59e0b, 0 0 0 0 rgba(245, 158, 11, 0.5); }
+  50%  { box-shadow: inset 3px 0 0 #f59e0b, 0 0 0 6px rgba(245, 158, 11, 0); }
+  100% { box-shadow: inset 3px 0 0 #f59e0b, 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+/* ============================================================
+   Mandatory quiz gating (Beginner mode only)
+   When the page has at least one required quiz that hasn't been
+   passed, body gets `quiz-required-pending` from <Quiz>. We then
+   disable the Next pagination link and surface a clear hint.
+   Reader/Advanced modes ignore the body class — they aren't gated.
+   ============================================================ */
+html[data-reader-level="beginner"] body.quiz-required-pending .pagination-nav__link--next {
+  pointer-events: none;
+  opacity: 0.55;
+  filter: grayscale(0.5);
+  border-color: var(--ifm-color-emphasis-300) !important;
+  background: var(--ifm-color-emphasis-100) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+html[data-reader-level="beginner"] body.quiz-required-pending .pagination-nav__link--next::before {
+  content: "🔒 Pass the quiz above to continue";
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #b45309;
+  background: rgba(245, 158, 11, 0.18);
+  border-radius: 8px;
+  padding: 0.3rem 0.55rem;
+  margin: -0.3rem -0.3rem 0.6rem;
+  text-align: center;
+}
+
+[data-theme='dark'] html[data-reader-level="beginner"] body.quiz-required-pending .pagination-nav__link--next::before {
+  background: rgba(245, 158, 11, 0.16);
+  color: #fbbf24;
+}
+
+html[data-reader-level="beginner"] body.quiz-required-pending .pagination-nav__link--next .pagination-nav__sublabel,
+html[data-reader-level="beginner"] body.quiz-required-pending .pagination-nav__link--next .pagination-nav__label {
+  color: var(--ifm-color-emphasis-600) !important;
+}
+
+/* ============================================================
+   Sidebar lock gate (Beginner mode only)
+   SidebarLockGate sets data-locked="true" on sidebar links whose
+   chapter has unmet quiz prerequisites. We dim them, prefix with
+   a lock icon, and block clicks.
+   ============================================================ */
+.theme-doc-sidebar-container a.menu__link[data-locked="true"] {
+  opacity: 0.45;
+  pointer-events: none;
+  cursor: not-allowed;
+  position: relative;
+  padding-left: 1.85rem;
+}
+
+.theme-doc-sidebar-container a.menu__link[data-locked="true"]::before {
+  content: "🔒";
+  position: absolute;
+  left: 0.45rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9em;
+  filter: grayscale(0.4);
+}
+
+/* Add the lock icon at the front of locked level-1 category labels too. */
+.theme-doc-sidebar-container .theme-doc-sidebar-item-category-level-1[data-locked="true"] > .menu__list-item-collapsible > .menu__link {
+  opacity: 0.45;
+  pointer-events: none;
+  cursor: not-allowed;
+  position: relative;
+  padding-left: 1.85rem;
+}
+
+.theme-doc-sidebar-container .theme-doc-sidebar-item-category-level-1[data-locked="true"] > .menu__list-item-collapsible > .menu__link::before {
+  content: "🔒";
+  position: absolute;
+  left: 0.45rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9em;
+  filter: grayscale(0.4);
+}
+
+/* The chevron/caret on locked categories should also fade. */
+.theme-doc-sidebar-container .theme-doc-sidebar-item-category-level-1[data-locked="true"] > .menu__list-item-collapsible {
+  opacity: 0.9;
+}
+
+/* Small lock-status banner at top of sidebar when anything is locked.
+   Currently we surface this via the per-link hover tooltip; the banner
+   below is optional polish — keep it commented for now but easy to
+   re-enable later if the tooltip alone isn't discoverable enough. */
+/*
+html[data-reader-level="beginner"] .theme-doc-sidebar-container::before {
+  content: "🔒 Locked chapters require passing earlier quizzes.";
+  ...
+}
+*/
+
+/* Small "guided mode" banner so the reader understands what changed */
+html[data-reader-level="beginner"] .markdown::before {
+  content: "👶 Guided mode — follow the big buttons at the bottom of each page. Tap ☰ Menu (top left) to jump back, or switch level in the pill (top right) for the full sidebar.";
+  display: block;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--ifm-color-emphasis-700);
+  background: rgba(245, 158, 11, 0.07);
+  border-left: 3px solid #f59e0b;
+  border-radius: 6px;
+  padding: 0.55rem 0.85rem;
+  margin: 0 0 1.3rem;
+}
+
+[data-theme='dark'] html[data-reader-level="beginner"] .markdown::before {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--ifm-color-emphasis-800);
+}
+
+/* ============================================================
+   Big, CTA-style Prev/Next pagination
+   These already exist (Docusaurus theme), we just make them
+   feel like the primary call to action — especially important
+   when the sidebar is hidden in Beginner mode.
+   ============================================================ */
+.pagination-nav {
+  margin-top: 3rem;
+  gap: 1rem;
+}
+
+.pagination-nav__link {
+  padding: 1.1rem 1.3rem;
+  border-radius: 14px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+  transition: border-color 0.15s, transform 0.1s, box-shadow 0.15s, background 0.15s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.12);
+  text-decoration: none;
+}
+
+[data-theme='dark'] .pagination-nav__link:hover {
+  background: rgba(96, 165, 250, 0.06);
+  box-shadow: 0 6px 18px rgba(96, 165, 250, 0.2);
+}
+
+.pagination-nav__sublabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 0.35rem;
+}
+
+.pagination-nav__label {
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ifm-color-emphasis-900);
+  line-height: 1.3;
+}
+
+/* Make the "Next" link visually primary (the forward action) */
+.pagination-nav__link--next {
+  border-color: var(--ifm-color-primary);
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.pagination-nav__link--next .pagination-nav__sublabel,
+.pagination-nav__link--next .pagination-nav__label {
+  color: var(--ifm-color-primary-darker);
+}
+
+[data-theme='dark'] .pagination-nav__link--next {
+  background: rgba(96, 165, 250, 0.07);
+}
+
+[data-theme='dark'] .pagination-nav__link--next .pagination-nav__sublabel,
+[data-theme='dark'] .pagination-nav__link--next .pagination-nav__label {
+  color: var(--ifm-color-primary-light);
+}
+
+.pagination-nav__link--next:hover {
+  background: rgba(37, 99, 235, 0.08);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+[data-theme='dark'] .pagination-nav__link--next:hover {
+  background: rgba(96, 165, 250, 0.13);
+}
+
+@media (max-width: 600px) {
+  .pagination-nav {
+    grid-template-columns: 1fr;
+  }
+  .pagination-nav__link {
+    padding: 0.9rem 1rem;
+  }
+  .pagination-nav__label {
+    font-size: 1rem;
+  }
+}

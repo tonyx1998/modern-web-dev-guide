@@ -112,6 +112,64 @@ What the engineer never directly touched: Kubernetes manifests, Terraform state,
 Without that abstraction, this same flow at a less-tooled enterprise is weeks of tickets.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-deployment-page" title="Did enterprise deployment stick?" sampleSize={2}>
+
+<Question
+  prompt="Why does the page argue Infrastructure as Code is essential for compliance, not just engineering convenience?"
+  options={[
+    { text: "It's the cheapest option" },
+    { text: "It's the only practical way to keep an immutable, reviewable audit trail of infrastructure changes — 'Joe clicked some buttons' fails audits, 'here's the Terraform PR' passes" },
+    { text: "Auditors specifically require Terraform" },
+    { text: "Cloud providers refuse to provide audit logs otherwise" }
+  ]}
+  correct={1}
+  explanation="SOC 2, PCI, and HIPAA all ask 'who changed this firewall rule, when, and why?' IaC turns that into a Git commit with a PR and approval chain. Console clicks leave no auditable trail — IaC is the only practical answer at enterprise scale."
+  revisit={{ to: "/docs/enterprise/deployment#infrastructure-as-code", label: "IaC and audits" }}
+/>
+
+<Question
+  prompt="Why are long-lived secrets (a DB password unchanged for years) considered an anti-pattern at this scale?"
+  options={[
+    { text: "They use too much memory" },
+    { text: "They violate Kubernetes best practices" },
+    { text: "Modern secrets management issues short-lived credentials (minutes to a day) with automated rotation and audit logging — dramatically shrinking blast radius" },
+    { text: "They cost more in cloud spend" }
+  ]}
+  correct={2}
+  explanation="A static long-lived secret is a credential an attacker can use forever once stolen. Modern secrets management (Vault, AWS Secrets Manager) issues short-lived credentials rotated automatically, with every access logged — shrinking the blast radius of a compromise."
+  revisit={{ to: "/docs/enterprise/deployment#secrets-management", label: "Secrets management" }}
+/>
+
+<Question
+  prompt="What is the typical multi-region strategy for non-trivial stateful workloads?"
+  options={[
+    { text: "Active-active across regions for everything" },
+    { text: "Active-passive across regions for stateful services; active-active mainly for stateless ones" },
+    { text: "Single-region everything to avoid CAP issues" },
+    { text: "Manual failover only" }
+  ]}
+  correct={1}
+  explanation="Multi-region forces you to confront CAP trade-offs (consistency vs. availability vs. partition tolerance). Most enterprises run active-passive for stateful services and reserve active-active for stateless workloads where consistency isn't on the line."
+  revisit={{ to: "/docs/enterprise/deployment#multi-region-multi-az", label: "Multi-region" }}
+/>
+
+<Question
+  prompt="What is the role of a FinOps team at enterprise scale?"
+  options={[
+    { text: "They handle vendor contracts only" },
+    { text: "They scrutinize the cloud bill — chargeback by team, alerting on sudden spend spikes, optimizing reserved capacity and spot usage" },
+    { text: "They write all the Terraform" },
+    { text: "They manage the engineering payroll" }
+  ]}
+  correct={1}
+  explanation="At tens to hundreds of millions of dollars per year in cloud spend, FinOps is a real discipline. They tag resources by owner team for chargeback, monitor budgets, push savings plans and reserved capacity, and call teams whose spend suddenly jumps 3x."
+  revisit={{ to: "/docs/enterprise/deployment#cost-optimization", label: "FinOps" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 8: Observability at Scale](./observability) — once everything's running, how do you actually know what's going on?

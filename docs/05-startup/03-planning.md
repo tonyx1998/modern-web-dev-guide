@@ -74,6 +74,64 @@ One page; everyone reads it in five minutes; engineering opens tickets straight 
 The biggest mistake new teams make is treating the PRD as a binding spec. It's not. It's the *current best understanding* of what to build, written down so that engineering, design, and product are pointed in the same direction. Expect it to change during implementation — when engineering finds a constraint, when design discovers a UX problem, when QA notices an edge case. The PRD evolves with the work.
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-planning-page" title="Did startup planning stick?" sampleSize={2}>
+
+<Question
+  prompt="What is the recommended size and format of a startup PRD on this page?"
+  options={[
+    { text: "A 1-3 page document in Notion or Linear covering problem, proposal, acceptance criteria, and open questions" },
+    { text: "A 20-page formal spec signed by legal and compliance" },
+    { text: "A single Jira ticket with bullet points" },
+    { text: "A recorded video pitch with no written artifact" }
+  ]}
+  correct={0}
+  explanation="At startup scale, PRDs are 1-3 pages — long enough to align product, design, and engineering, but short enough that everyone reads it in five minutes."
+  revisit={{ to: "/docs/startup/planning#process", label: "PRD process" }}
+/>
+
+<Question
+  prompt="How does the page describe a PRD's role once implementation starts?"
+  options={[
+    { text: "A binding contract that cannot change once approved" },
+    { text: "A conversation starter that evolves as engineering and design discover constraints" },
+    { text: "A purely marketing document the engineers ignore" },
+    { text: "A legally required artifact for SOC 2" }
+  ]}
+  correct={1}
+  explanation="The highlight warns against treating PRDs as binding specs. They're the current best understanding, expected to evolve as constraints, UX problems, and edge cases surface during implementation."
+  revisit={{ to: "/docs/startup/planning#process", label: "PRDs are conversation starters" }}
+/>
+
+<Question
+  prompt="What sprint cadence does the page describe as standard for startups?"
+  options={[
+    { text: "One-week sprints with daily demos" },
+    { text: "Two-week sprints with planning, demo, and retro" },
+    { text: "Six-week shape-up cycles only" },
+    { text: "Quarterly releases with no in-between cadence" }
+  ]}
+  correct={1}
+  explanation="Two-week sprints are standard, with planned scope, stretch goals, a review/demo, and a retrospective. Some teams use continuous flow instead, but sprints add structure for newer teams."
+  revisit={{ to: "/docs/startup/planning#sprints", label: "Sprints" }}
+/>
+
+<Question
+  prompt="What framework does the page describe for quarterly planning?"
+  options={[
+    { text: "Scaled Agile Framework (SAFe) with PI planning" },
+    { text: "OKRs — aspirational Objectives paired with measurable Key Results" },
+    { text: "MoSCoW prioritization across all backlog items" },
+    { text: "RACI matrices for each quarterly goal" }
+  ]}
+  correct={1}
+  explanation="Every three months the team picks 3-5 large goals using the OKR framework: Objectives are aspirational; Key Results are measurable. These cascade into sprints."
+  revisit={{ to: "/docs/startup/planning#quarterly-planning", label: "Quarterly planning" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 2: Design](./design) where Figma, the design system, and engineering collaboration take over.

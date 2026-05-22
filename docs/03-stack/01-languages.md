@@ -117,6 +117,64 @@ Spending months agonizing over "which language should I learn first?" is the mos
 Pick TypeScript. Ship 3 projects. *Then* learn a second language if curiosity or career direction demands it.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-languages-page" title="Did languages stick?" sampleSize={2}>
+
+<Question
+  prompt="Why is TypeScript the default for new web projects in 2026 over plain JavaScript?"
+  options={[
+    { text: "It runs faster in the browser at runtime" },
+    { text: "It catches a large class of bugs at compile time and enables industrial-strength refactoring" },
+    { text: "It eliminates the need for a build step entirely" },
+    { text: "It is the only language modern browsers can execute" }
+  ]}
+  correct={1}
+  explanation="TypeScript's type system catches typos, wrong shapes, and null/undefined bugs before runtime, and makes refactors safe by finding every caller of a renamed function. The build-step cost is negligible at any non-trivial size."
+  revisit={{ to: "/docs/stack/languages#typescript--the-default-for-web", label: "TypeScript section" }}
+/>
+
+<Question
+  prompt="When would Python be a better choice than TypeScript for a new project?"
+  options={[
+    { text: "When you want a single language across frontend and backend" },
+    { text: "When you need maximum HTTP throughput on a small VM" },
+    { text: "When the project is AI/ML or scientific-computing heavy" },
+    { text: "When you want strict static typing by default" }
+  ]}
+  correct={2}
+  explanation="Python's unmatched ML, data, and scientific-computing ecosystem is the main reason to pick it over TypeScript. For unified full-stack or strict static typing, TypeScript still wins."
+  revisit={{ to: "/docs/stack/languages#python", label: "Python section" }}
+/>
+
+<Question
+  prompt="Which language is the standard pick when you need fast, concurrent backend services and easy deployment as a single static binary?"
+  options={[
+    { text: "Ruby" },
+    { text: "PHP" },
+    { text: "Go" },
+    { text: "Elixir" }
+  ]}
+  correct={2}
+  explanation="Go was designed for simple, fast, concurrent services and compiles to a single static binary — which is why Kubernetes, Docker, and Terraform are all written in Go."
+  revisit={{ to: "/docs/stack/languages#go", label: "Go section" }}
+/>
+
+<Question
+  prompt="What's the main trade-off of choosing Rust for a web backend?"
+  options={[
+    { text: "It can only run on Linux servers" },
+    { text: "It has a steep learning curve — the borrow checker is famously challenging" },
+    { text: "It has no usable web frameworks" },
+    { text: "It relies on a garbage collector that pauses requests" }
+  ]}
+  correct={1}
+  explanation="Rust delivers C-level performance with safety, but the borrow checker imposes a steep learning curve. It has no garbage collector and a growing web ecosystem (Axum, Actix, Rocket)."
+  revisit={{ to: "/docs/stack/languages#rust", label: "Rust section" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Frontend Frameworks](./frontend-frameworks) — the scaffolding around your language that turns it into a real web app.

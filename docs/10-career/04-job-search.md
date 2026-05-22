@@ -84,6 +84,64 @@ Have 5–10 of these ready before any on-site.
 A referral converts to an interview at roughly 5–10x the rate of a cold application at most companies. Spend the time you'd spend on application #200 instead on building one real relationship with someone at a company you'd love to join.
 :::
 
+## Page checkpoint
+
+<Quiz id="career-job-search-page" title="Did the job search stick?" sampleSize={2}>
+
+<Question
+  prompt="The page calls one thing 'the single biggest lever' in a junior job search. What is it?"
+  options={[
+    { text: "Sending application #200 to a cold job board" },
+    { text: "Adding more certificates to your resume" },
+    { text: "Referrals — they convert to interviews at roughly 5–10x the rate of cold applications" },
+    { text: "Posting your resume on LinkedIn and waiting" }
+  ]}
+  correct={2}
+  explanation="The Highlight box says it directly: a referral converts at 5–10x the rate of a cold application. Building one real relationship at a company you'd love to join beats blasting application #200."
+  revisit={{ to: "/docs/career/career-job-search#junior-roles", label: "Referrals as a lever" }}
+/>
+
+<Question
+  prompt="In the STAR behavioral interview format, what do the four letters stand for?"
+  options={[
+    { text: "Story, Topic, Argument, Resolution" },
+    { text: "Situation, Task, Action, Result" },
+    { text: "Skills, Tools, Achievements, References" },
+    { text: "Setup, Theme, Anchor, Reveal" }
+  ]}
+  correct={1}
+  explanation="STAR = Situation, Task, Action, Result. It's the standard narrative structure for behavioral answers. The page recommends having 5–10 stories prepared before any on-site."
+  revisit={{ to: "/docs/career/career-job-search#interview-preparation", label: "STAR format" }}
+/>
+
+<Question
+  prompt="What advice does the page give about negotiating an offer?"
+  options={[
+    { text: "Never negotiate — companies will rescind the offer" },
+    { text: "Only negotiate base salary; equity and sign-on are fixed" },
+    { text: "Always negotiate; companies expect it. Know your market rate (levels.fyi), and negotiate base, equity, sign-on, and start date" },
+    { text: "Negotiate only if you have 5+ years of experience" }
+  ]}
+  correct={2}
+  explanation="The page is explicit: 'Always negotiate. Companies expect it.' Use levels.fyi for market rate, negotiate all the levers (base, equity, sign-on, start date), bring a competing offer if you can, and get everything in writing."
+  revisit={{ to: "/docs/career/career-job-search#negotiating", label: "Negotiating" }}
+/>
+
+<Question
+  prompt="What does ATS optimization mean in the context of resume prep?"
+  options={[
+    { text: "Adding decorative graphics to your resume" },
+    { text: "Tuning your resume with clear keywords so the Applicant Tracking System filter passes it to a human reviewer" },
+    { text: "Submitting your resume in a proprietary file format" },
+    { text: "Translating your resume into multiple languages" }
+  ]}
+  correct={1}
+  explanation="ATS = Applicant Tracking System — software that filters resumes before a human sees them. The page tells you to optimize for it with clear keywords matched to the job description."
+  revisit={{ to: "/docs/career/career-job-search#junior-roles", label: "Resume and ATS" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Specialization Tracks](./career-specialization) for what comes after your first 2–3 years on the job.

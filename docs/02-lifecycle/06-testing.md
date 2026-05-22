@@ -171,6 +171,64 @@ This gives you ~20% of the testing effort for ~80% of the value. As your project
 | **Chromatic / Percy**| Visual regression.                                     |
 | **Storybook**        | Component development + interaction testing.           |
 
+## Page checkpoint
+
+<Quiz id="lifecycle-testing-page" title="Did testing stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the shape of the testing pyramid the page recommends?"
+  options={[
+    { text: "Many E2E tests on top, few unit tests at the bottom" },
+    { text: "Many fast unit tests at the bottom, few slow E2E tests on top" },
+    { text: "Equal numbers of unit, integration, and E2E tests" },
+    { text: "Only integration tests — they're a balance of both" }
+  ]}
+  correct={1}
+  explanation="Unit tests are fast and cheap, so you write lots. E2E tests are slow and flaky, so you write a few high-value ones. Inverting the shape makes CI take hours and tests flake constantly."
+  revisit={{ to: "/docs/lifecycle/testing#the-testing-pyramid", label: "The testing pyramid" }}
+/>
+
+<Question
+  prompt="A function has 100% line coverage. The page argues you can still ship serious bugs. Why?"
+  options={[
+    { text: "Coverage tools always undercount" },
+    { text: "Coverage only measures whether lines executed, not whether the cases that matter to users were tested" },
+    { text: "100% coverage actually means there are no tests" },
+    { text: "Coverage doesn't account for HTML and CSS" }
+  ]}
+  correct={1}
+  explanation="The page's example: `divide(10, 2)` gets you 100% coverage but never tries `divide(10, 0)`. Coverage is a minimum signal — the real question is whether the cases users care about are tested."
+  revisit={{ to: "/docs/lifecycle/testing#coverage-is-misleading", label: "Coverage is misleading" }}
+/>
+
+<Question
+  prompt="The page recommends an 80/20 starter test suite for a beginner project. Which combination matches?"
+  options={[
+    { text: "Snapshot tests for every component, no unit tests" },
+    { text: "One E2E test for the critical user flow, unit tests for functions with complex logic, skip the trivial code" },
+    { text: "Aim for 100% line coverage before shipping anything" },
+    { text: "Only manual QA — automated tests slow teams down" }
+  ]}
+  correct={1}
+  explanation="One end-to-end test on the most important user flow plus targeted unit tests on the tricky logic gives roughly 20% of the effort for 80% of the value."
+  revisit={{ to: "/docs/lifecycle/testing#coverage-is-misleading", label: "80/20 rule for beginner test suites" }}
+/>
+
+<Question
+  prompt="Which of these is flagged as a testing anti-pattern?"
+  options={[
+    { text: "Writing tests that describe behavior" },
+    { text: "Allowing flaky tests to stay in CI — sometimes pass, sometimes fail" },
+    { text: "Mocking external dependencies in unit tests" },
+    { text: "Using Vitest for new projects" }
+  ]}
+  correct={1}
+  explanation="Flaky tests erode trust in the whole test suite. Once people start retrying CI 'until it goes green,' the safety net is gone."
+  revisit={{ to: "/docs/lifecycle/testing#common-anti-patterns", label: "Testing anti-patterns" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 7: Code Review](./code-review) where we add a second pair of human eyes to catch what tests miss.

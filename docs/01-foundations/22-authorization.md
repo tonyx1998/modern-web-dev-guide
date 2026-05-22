@@ -155,6 +155,64 @@ For a web app, store auth in a **cookie** (HttpOnly, Secure, SameSite=Lax), not 
 This is the single most common mistake junior developers make in auth.
 :::
 
+## Page checkpoint
+
+<Quiz id="authorization-page" title="Did authorization stick?" sampleSize={2}>
+
+<Question
+  prompt="A user's session was compromised and you need to log them out RIGHT NOW. Which token model makes this trivial?"
+  options={[
+    { text: "JWTs — just rotate the signing key" },
+    { text: "Server-side session tokens — delete the row in Redis/DB and the next request fails the lookup" },
+    { text: "Neither can be revoked early" },
+    { text: "Both can be revoked the same way with no setup" }
+  ]}
+  correct={1}
+  explanation="Session tokens are just rows you can delete. JWTs are verified by signature without a DB lookup, so revoking one early requires a separate deny-list. That's a big reason session tokens are making a comeback in 2026."
+  revisit={{ to: "/docs/foundations/authorization#sessions-vs-jwts--how-the-server-remembers-you", label: "Sessions vs JWTs" }}
+/>
+
+<Question
+  prompt="In Role-Based Access Control (RBAC), how are permissions typically organized?"
+  options={[
+    { text: "Each user is granted individual permissions directly" },
+    { text: "Users are assigned roles; roles carry permissions — so you grant/revoke at the role level, not per user" },
+    { text: "Permissions are encoded into the user's password" },
+    { text: "There are no explicit roles; the database guesses" }
+  ]}
+  correct={1}
+  explanation="RBAC: user → role → permissions. You change a role's permissions once and every user with that role inherits the change. It's the most common authorization pattern because it scales cleanly."
+  revisit={{ to: "/docs/foundations/authorization#authorization-patterns", label: "RBAC" }}
+/>
+
+<Question
+  prompt="What does Row-Level Security (RLS) in Postgres give you that app-layer checks alone don't?"
+  options={[
+    { text: "Faster queries via better indexes" },
+    { text: "Database-enforced filtering — even if your app code has bugs, the DB itself refuses to return rows the current user shouldn't see" },
+    { text: "Automatic encryption of every column" },
+    { text: "Built-in 2FA" }
+  ]}
+  correct={1}
+  explanation="RLS pushes authorization into the database. A bug in your app code can't leak other users' rows because the DB filters them at query time. Combined with app-layer checks, you get defense in depth."
+  revisit={{ to: "/docs/foundations/authorization#authorization-patterns", label: "Row-Level Security" }}
+/>
+
+<Question
+  prompt="Where should you store the auth token in a web app?"
+  options={[
+    { text: "In localStorage — easiest to access from JavaScript" },
+    { text: "In an HttpOnly, Secure, SameSite=Lax cookie so JavaScript can't read it and XSS attacks can't steal it" },
+    { text: "In a global window variable so it's always available" },
+    { text: "In the URL as a query parameter" }
+  ]}
+  correct={1}
+  explanation="HttpOnly hides the cookie from document.cookie and any JS APIs — XSS attacks can't exfiltrate it. localStorage and JS globals are wide open to any script on the page, including third-party scripts that might be compromised."
+  revisit={{ to: "/docs/foundations/authorization#tokens-in-practice--common-patterns", label: "Prefer cookies over headers" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The Deployment Pyramid](./deployment-pyramid) where we'll see how all this code, data, and auth logic actually *reaches users in production*.

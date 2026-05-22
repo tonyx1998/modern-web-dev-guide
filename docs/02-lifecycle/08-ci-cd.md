@@ -138,6 +138,64 @@ Treat CI time as a budget. Over 10 minutes = problem to solve.
 - **No staging environment:** Deploy straight to prod with crossed fingers.
 - **Manual deployment steps:** "First SSH in, then run this script..." Should be one button (or zero).
 
+## Page checkpoint
+
+<Quiz id="lifecycle-ci-cd-page" title="Did CI/CD stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the actual difference between Continuous Delivery and Continuous Deployment?"
+  options={[
+    { text: "Delivery uses GitHub Actions; Deployment uses GitLab CI" },
+    { text: "Delivery means every change is deployable but a human releases it; Deployment means every change auto-deploys after passing tests" },
+    { text: "They're synonyms — the terms are interchangeable" },
+    { text: "Delivery is for backends; Deployment is for frontends" }
+  ]}
+  correct={1}
+  explanation="Both rely on automation. The difference is who pushes the final button: in continuous delivery a human gates production; in continuous deployment passing CI is the gate."
+  revisit={{ to: "/docs/lifecycle/ci-cd#cd-continuous-deployment-vs-delivery", label: "Delivery vs Deployment" }}
+/>
+
+<Question
+  prompt="A team wants zero-downtime deploys with an easy rollback path. Which deployment strategy from the page best fits?"
+  options={[
+    { text: "Direct deployment — replace the running version with the new one" },
+    { text: "Blue/Green — run two identical environments and switch traffic between them" },
+    { text: "Skip deploys; ship via email patches" },
+    { text: "Manual SSH and copy files" }
+  ]}
+  correct={1}
+  explanation="Blue/Green keeps the old version live while the new one warms up. Switching traffic is instant, and rollback is just flipping the switch back."
+  revisit={{ to: "/docs/lifecycle/ci-cd#deployment-strategies", label: "Deployment strategies" }}
+/>
+
+<Question
+  prompt="Which branching strategy does the page identify as the 2026 standard for most modern teams?"
+  options={[
+    { text: "Git Flow with long-lived develop, release, and feature branches" },
+    { text: "Trunk-based development — short-lived branches that merge within hours, with feature flags hiding incomplete work" },
+    { text: "One permanent branch per developer" },
+    { text: "Whatever happens — branching is unnecessary" }
+  ]}
+  correct={1}
+  explanation="Trunk-based development minimizes integration pain by keeping branches short and using flags for incomplete work. Git Flow is in decline for modern web apps."
+  revisit={{ to: "/docs/lifecycle/ci-cd#branching-strategies", label: "Branching strategies" }}
+/>
+
+<Question
+  prompt="Why does the page push hard on keeping CI runs under 10 minutes?"
+  options={[
+    { text: "GitHub charges per minute over 10" },
+    { text: "Long CI loops kill productivity — developers context-switch, lose focus, and start accepting worse code" },
+    { text: "Tests become less accurate after 10 minutes" },
+    { text: "Browsers refuse to run longer pipelines" }
+  ]}
+  correct={1}
+  explanation="A 30-minute CI loop trains people to merge and walk away. A 5-minute loop keeps them in flow. The page treats CI time as a budget to actively manage."
+  revisit={{ to: "/docs/lifecycle/ci-cd#common-anti-patterns", label: "Aim for under-10-minute CI" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 9: Deployment & Hosting](./deployment-hosting) where we get the code running on the public internet, reliably.

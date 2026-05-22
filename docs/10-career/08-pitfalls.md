@@ -71,6 +71,64 @@ A self-diagnostic: open your last three weeks of code. How many lines did *you* 
 The "stagnation" pitfall is often invisible from the inside. If you've been at the same job for 3+ years and your skill stack hasn't grown, that's not loyalty — it's drift. A planned move every 2–4 years is normal in tech, often comes with a meaningful comp jump, and forces the kind of new-team learning that keeps you sharp.
 :::
 
+## Page checkpoint
+
+<Quiz id="career-pitfalls-page" title="Did career pitfalls stick?" sampleSize={2}>
+
+<Question
+  prompt="What is the 'Tutorial Trap' and what's the fix?"
+  options={[
+    { text: "Watching tutorial after tutorial without building original work; fix is to build something original from a blank file after each tutorial" },
+    { text: "Writing tutorials for others — never do that" },
+    { text: "Skipping tutorials entirely; fix is to watch more" },
+    { text: "Tutorials in the wrong language; fix is to switch languages" }
+  ]}
+  correct={0}
+  explanation="The Tutorial Trap is the feeling of productivity without actual skill gain. The fix is to follow every tutorial with original work from a blank file — that's the step that turns watching into knowing."
+  revisit={{ to: "/docs/career/career-pitfalls#the-tutorial-trap", label: "Tutorial trap" }}
+/>
+
+<Question
+  prompt="The page's stance on job tenure: what does it call out as healthy in tech?"
+  options={[
+    { text: "Staying at the same company for 10+ years to demonstrate loyalty" },
+    { text: "Switching jobs every six months for fastest comp growth" },
+    { text: "A planned move every 2–4 years — often with a meaningful comp jump and forced new-team learning" },
+    { text: "Never switching jobs once hired" }
+  ]}
+  correct={2}
+  explanation="The Highlight box: a planned move every 2–4 years is normal in tech, often comes with a meaningful comp jump, and forces the new-team learning that keeps you sharp. Three years at the same job with no skill growth is drift, not loyalty."
+  revisit={{ to: "/docs/career/career-pitfalls#stagnation-in-a-comfortable-job", label: "Stagnation pitfall" }}
+/>
+
+<Question
+  prompt="What's the 'Better Tool' Trap, and how does the page recommend you fix it?"
+  options={[
+    { text: "Using outdated tools; fix is to switch frameworks every month" },
+    { text: "Constantly switching frameworks and methodologies in pursuit of perfection without ever shipping; fix is to commit to one stack for a year and build real things" },
+    { text: "Buying expensive editors; fix is to use only free tools" },
+    { text: "Refusing to use AI tools; fix is to adopt every new AI tool that ships" }
+  ]}
+  correct={1}
+  explanation="The Better Tool Trap is perpetual tool-switching with no shipping. The fix: commit to one stack for a year, build real things with it, *then* evaluate."
+  revisit={{ to: "/docs/career/career-pitfalls#the-better-tool-trap", label: "Better Tool trap" }}
+/>
+
+<Question
+  prompt="How does the page frame imposter syndrome?"
+  options={[
+    { text: "A sign you genuinely don't belong and should leave the field" },
+    { text: "A feeling almost everyone has at every level — including seniors — that should be recognized as a feeling, not a fact" },
+    { text: "Something only juniors experience" },
+    { text: "Caused exclusively by bad managers" }
+  ]}
+  correct={1}
+  explanation="The page reframes imposter syndrome: it's common at every level, including senior people. The fix is recognizing it as a feeling, not a fact, and talking to peers — you'll discover they feel the same way."
+  revisit={{ to: "/docs/career/career-pitfalls#imposter-syndrome", label: "Imposter syndrome" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [What About Bootcamps and Degrees?](./career-bootcamps-degrees) for the honest take on each learning route.

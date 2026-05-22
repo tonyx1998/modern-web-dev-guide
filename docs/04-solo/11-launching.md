@@ -68,6 +68,64 @@ The pattern: clear problem, clear solution, honest stack/effort, specific feedba
 A great launch of a mediocre product gets you a spike of traffic and then crickets. A mediocre launch of a great product gets you slow but compounding growth. If you have limited weekend time, spend the bulk of it on the product, not on launch-day choreography.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-launching-page" title="Did the launching advice stick?" sampleSize={2}>
+
+<Question
+  prompt="What does the highlight 'the product is the launch' actually mean?"
+  options={[
+    { text: "Launch day determines all long-term traffic" },
+    { text: "Great products grow even with a mediocre launch; bad products fade after a great one" },
+    { text: "You should skip launching entirely" },
+    { text: "Only launch on Product Hunt for best results" }
+  ]}
+  correct={1}
+  explanation="A great launch of a mediocre product gets you a traffic spike then crickets. A mediocre launch of a great product compounds slowly but durably. Time is better spent on the product than launch-day choreography."
+  revisit={{ to: "/docs/solo/launching#phase-9-launching", label: "Product is the launch" }}
+/>
+
+<Question
+  prompt="What's the recommended paid-tier price range for an indie SaaS?"
+  options={[
+    { text: "$0.99 to $2 per month" },
+    { text: "$5 to $15 per month" },
+    { text: "$50 to $100 per month" },
+    { text: "Always charge a one-time fee" }
+  ]}
+  correct={1}
+  explanation="The page suggests $5–15/month for a paid tier with a limited free tier above it, and a 2-months-free annual discount. Stripe handles the actual billing mechanics."
+  revisit={{ to: "/docs/solo/launching#pricing-for-saas", label: "Pricing" }}
+/>
+
+<Question
+  prompt="What pattern does the HN crowd reward, per the worked example?"
+  options={[
+    { text: "Marketing-speak and bold claims" },
+    { text: "Honesty about the problem, solution, stack, and a specific feedback request" },
+    { text: "Mystery — withholding stack details" },
+    { text: "Long-form essays on industry trends" }
+  ]}
+  correct={1}
+  explanation="The Show HN example is direct: clear problem, clear solution, honest stack and effort, and a specific feedback ask. HN punishes marketing-speak and rewards plain talk."
+  revisit={{ to: "/docs/solo/launching#where-to-soft-launch", label: "Show HN example" }}
+/>
+
+<Question
+  prompt="What does a personal-project soft-launch look like, per this page?"
+  options={[
+    { text: "A press kit, PR firm, and embargo schedule" },
+    { text: "Telling friends, posting on social, HN/Reddit/Product Hunt/Indie Hackers" },
+    { text: "Waiting for organic SEO to ramp up over 6 months" },
+    { text: "An invite-only beta with a waiting list" }
+  ]}
+  correct={1}
+  explanation="The recommended soft-launch list is mundane and effective: tell friends, post to social channels and a few indie forums, write about why you built it. No war room required."
+  revisit={{ to: "/docs/solo/launching#where-to-soft-launch", label: "Where to soft-launch" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 10: Maintenance](./maintenance) where the work changes from "build" to "watch, respond, iterate."

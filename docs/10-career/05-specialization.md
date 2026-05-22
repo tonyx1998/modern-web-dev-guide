@@ -90,6 +90,64 @@ Then look at the tracks above. The one that overlaps with your "lose track of ti
 The "Engineering Management" track is *not* the next rung up from Senior IC. It's a parallel track with different skills (people, projects, hiring) and a different daily life (meetings, not code). Many people switch back and forth across their career. Don't accept an EM role because it sounds like a promotion — accept it only if the work itself sounds interesting.
 :::
 
+## Page checkpoint
+
+<Quiz id="career-specialization-page" title="Did specialization tracks stick?" sampleSize={2}>
+
+<Question
+  prompt="When does the page suggest most engineers should start specializing?"
+  options={[
+    { text: "On day one — pick a track before you write any code" },
+    { text: "After about 2–3 years of generalist work, once you've felt where your curiosity actually pulls" },
+    { text: "Only after reaching the Staff/Principal level" },
+    { text: "Never — specialization is overrated" }
+  ]}
+  correct={1}
+  explanation="The page is explicit: don't pick a specialty on day one — you can't know what energizes you before you've tried any of it. Be a generalist long enough to feel where curiosity pulls, then go deep."
+  revisit={{ to: "/docs/career/career-specialization", label: "When to specialize" }}
+/>
+
+<Question
+  prompt="How does the page frame the Engineering Management track relative to Senior IC?"
+  options={[
+    { text: "EM is the promotion above Senior IC; everyone moves there eventually" },
+    { text: "EM is below Senior IC on the ladder" },
+    { text: "EM is a parallel track, not a promotion — different skills (people, projects, hiring) and a different daily life (meetings, not code)" },
+    { text: "EM and Senior IC are the same role" }
+  ]}
+  correct={2}
+  explanation="The Highlight box says it directly: EM is not the next rung up — it's a parallel track with different skills and daily work. Don't take an EM role because it sounds like a promotion; take it only if the work itself sounds interesting."
+  revisit={{ to: "/docs/career/career-specialization#staff--principal-ic", label: "Management is a different career" }}
+/>
+
+<Question
+  prompt="The page suggests a 'curiosity audit' for picking a specialization. What signal does it tell you to look for?"
+  options={[
+    { text: "Whatever specialization pays the most" },
+    { text: "Whichever category of problem made you lose track of time over the last six months — UI animations, slow DB queries, flaky deploys, confusing LLM output, etc." },
+    { text: "Whatever your manager assigns you" },
+    { text: "Whichever track has the shortest title" }
+  ]}
+  correct={1}
+  explanation="The 2-hour curiosity audit asks: which kind of problem made me lose track of time recently? That category — UI, performance, infra, AI, people — hints at which of the tracks is worth investing in."
+  revisit={{ to: "/docs/career/career-specialization#staff--principal-ic", label: "Curiosity audit" }}
+/>
+
+<Question
+  prompt="In specialization terms, what does IC stand for and what does it imply about the Staff/Principal track?"
+  options={[
+    { text: "Internal Consultant — Staff/Principal are advisory-only roles" },
+    { text: "Individual Contributor — Staff/Principal are senior engineers who lead technically without managing people, often paid as much as or more than equivalent managers" },
+    { text: "Infrastructure Coordinator — they only work on platform teams" },
+    { text: "Initial Candidate — entry-level roles before promotion" }
+  ]}
+  correct={1}
+  explanation="IC = Individual Contributor. Staff and Principal are senior IC levels — engineers who lead technically without managing people, and they're paid as much as or more than equivalent managers."
+  revisit={{ to: "/docs/career/career-specialization#staff--principal-ic", label: "Staff/Principal IC" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Compensation Context (US, 2026)](./career-compensation) to see what each level typically pays.

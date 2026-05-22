@@ -152,6 +152,64 @@ Run with `drizzle-kit migrate`, `prisma migrate deploy`, etc.
 ORMs are great, but they're not a substitute for understanding SQL. The moment you hit a performance problem, a complex aggregation, or a tricky join, you'll be reading raw SQL. Spend an afternoon on SQL basics. You'll thank yourself for the rest of your career.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-orms-page" title="Did ORMs stick?" sampleSize={2}>
+
+<Question
+  prompt="What problem does an ORM primarily solve for application code?"
+  options={[
+    { text: "It replaces your database entirely with an in-memory store" },
+    { text: "It translates between your code's objects and the database's tables, generating SQL and handling type mapping" },
+    { text: "It encrypts the network connection to the database" },
+    { text: "It runs your background jobs" }
+  ]}
+  correct={1}
+  explanation="An ORM maps objects in your language to relational tables. You write `db.user.findById(42)` instead of raw SQL; the ORM produces the query, manages connections, and maps results back to typed objects."
+  revisit={{ to: "/docs/stack/orms#drizzle-orm--the-2026-leader", label: "What an ORM does" }}
+/>
+
+<Question
+  prompt="What's the main reason Drizzle is rising as the 2026 TypeScript ORM leader?"
+  options={[
+    { text: "It hides SQL entirely behind a magical 'AI mode'" },
+    { text: "Excellent TypeScript inference (your query result type matches the columns you selected), lightweight runtime, SQL-like syntax, and edge compatibility" },
+    { text: "It's the only ORM that supports Postgres" },
+    { text: "It has the largest team of paid maintainers" }
+  ]}
+  correct={1}
+  explanation="Drizzle's selling points are precise TypeScript inference (the result type matches what you selected), no heavy query engine, SQL-like ergonomics, and edge-runtime compatibility — exactly what serverless and edge stacks want."
+  revisit={{ to: "/docs/stack/orms#drizzle-orm--the-2026-leader", label: "Drizzle section" }}
+/>
+
+<Question
+  prompt="How does Kysely position itself relative to Drizzle and Prisma?"
+  options={[
+    { text: "A schema-first ORM with built-in migrations and Studio" },
+    { text: "A type-safe SQL query builder for teams that want type safety but reject ORM abstractions" },
+    { text: "A NoSQL driver for MongoDB and DynamoDB" },
+    { text: "A drop-in replacement for Prisma's exact API" }
+  ]}
+  correct={1}
+  explanation="Kysely is lower-level: a type-safe SQL query builder, not a full ORM. It gives you compile-time safety while letting you stay close to the SQL — at the cost of no built-in migration tooling."
+  revisit={{ to: "/docs/stack/orms#kysely", label: "Kysely section" }}
+/>
+
+<Question
+  prompt="When is dropping down to raw SQL (via something like Drizzle's `sql` template tag) the right call?"
+  options={[
+    { text: "Always — ORMs should never be used in production" },
+    { text: "When the ORM's fluent API makes a complex query harder to read than the equivalent SQL" },
+    { text: "Only when you want to bypass parameter escaping for performance" },
+    { text: "Never — raw SQL is a security risk in all modern frameworks" }
+  ]}
+  correct={1}
+  explanation="For complex aggregations and joins, hand-tuned SQL is often clearer than the ORM equivalent. The `sql` template tag still escapes parameters safely — don't be afraid to drop down when it makes the code clearer."
+  revisit={{ to: "/docs/stack/orms#raw-sql--sometimes-the-right-answer", label: "Raw SQL escape hatch" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Authentication](./authentication-tools) — the auth-as-a-service landscape (Clerk, Better Auth, Auth0, etc.).

@@ -54,6 +54,64 @@ That's a clear graduation moment. The fix isn't "try harder solo." It's: add Pla
 The fastest-growing 5-to-50-person companies still feel scrappy — but they've added the *specific* process that the previous stage's pain demanded. Code review came in because of one too many silly bugs. Tests came in because manual checking stopped scaling. Observability came in because you can't watch 400 customers manually. Each piece of process *earned its way in*. Don't add anything that hasn't earned its way in.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-graduating-page" title="Did graduating from solo stick?" sampleSize={2}>
+
+<Question
+  prompt="Which of the following is NOT listed as a sign you've graduated beyond solo?"
+  options={[
+    { text: "Working on it more than 20 hours per week" },
+    { text: "Hundreds of meaningful users" },
+    { text: "Bugs affect real people, not just you" },
+    { text: "You picked the trendiest framework on Hacker News" }
+  ]}
+  correct={3}
+  explanation="The real graduation signals are about real users, real impact, real revenue, and real time investment — not framework choices. The graduation moment is when 'try harder solo' stops being a workable answer."
+  revisit={{ to: "/docs/solo/graduating#signs-youve-graduated", label: "Signs you've graduated" }}
+/>
+
+<Question
+  prompt="What does 'graduating doesn't mean stop being scrappy' mean in practice?"
+  options={[
+    { text: "Add every enterprise process at once" },
+    { text: "Only add process when the previous stage's pain demands it" },
+    { text: "Never adopt code review or testing" },
+    { text: "Move everything onto Kubernetes immediately" }
+  ]}
+  correct={1}
+  explanation="Fast-growing small companies stay scrappy by adding only the specific process that earned its way in. Code review came in after one too many silly bugs; tests came in when manual checking stopped scaling."
+  revisit={{ to: "/docs/solo/graduating#wrapping-up-part-4", label: "Earned-its-way-in" }}
+/>
+
+<Question
+  prompt="Which of these is the clearest graduation moment from the worked example?"
+  options={[
+    { text: "A bad deploy broke checkout for 3 hours and you only learned via user email" },
+    { text: "You added a new feature in one weekend" },
+    { text: "You upgraded a dependency without incident" },
+    { text: "You renamed your domain" }
+  ]}
+  correct={0}
+  explanation="The signal is real users hurt by a real outage you didn't notice. Combined with vacation-blocking on-call and a billing-breaking refactor with no E2E test, this clearly demands more process — tests, alerts, runbooks."
+  revisit={{ to: "/docs/solo/graduating#signs-youve-graduated", label: "Worked example" }}
+/>
+
+<Question
+  prompt="What's the one-line summary of the personal project workflow at the end of Part 4?"
+  options={[
+    { text: "Adopt every enterprise practice from day one" },
+    { text: "Plan briefly, use defaults, ship continuously, iterate on feedback" },
+    { text: "Always start by writing tests" },
+    { text: "Switch frameworks every quarter" }
+  ]}
+  correct={1}
+  explanation="The wrap-up boils Part 4 down to six steps: plan briefly, use the default stack, set up quickly, build one feature end-to-end at a time, ship continuously, and iterate on real feedback. The biggest enemy is over-thinking."
+  revisit={{ to: "/docs/solo/graduating#wrapping-up-part-4", label: "Wrapping up Part 4" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Chapter 5: Small Company Workflow](/docs/startup) — what changes when you graduate to a small company / startup environment.

@@ -137,6 +137,64 @@ curl https://pokeapi.co/api/v2/pokemon/pikachu | jq '.types[].type.name'
 Try paginating, filtering, fetching related resources (`/pokemon/pikachu/encounters`). You'll see textbook REST design in action.
 :::
 
+## Page checkpoint
+
+<Quiz id="apis-rest-page" title="Did REST APIs stick?" sampleSize={2}>
+
+<Question
+  prompt="In REST, what's the typical way to update only the 'done' field of an existing todo without replacing the whole record?"
+  options={[
+    { text: "POST /todos/42 with {done: true}" },
+    { text: "PATCH /todos/42 with {done: true}" },
+    { text: "PUT /todos/42 with {done: true}" },
+    { text: "DELETE /todos/42" }
+  ]}
+  correct={1}
+  explanation="PATCH is the partial-update verb — merge these fields into the existing resource. PUT would REPLACE the whole todo with just {done: true}, nuking the title. POST is for creating new resources."
+  revisit={{ to: "/docs/foundations/apis-rest#the-pattern", label: "The REST pattern" }}
+/>
+
+<Question
+  prompt="Which of these is the strongest argument FOR REST winning so broadly?"
+  options={[
+    { text: "It's the fastest possible protocol" },
+    { text: "It's universal: any language with an HTTP client can call it, and GETs are naturally cacheable by browsers and CDNs" },
+    { text: "It enforces strict type safety" },
+    { text: "It eliminates the need for a database" }
+  ]}
+  correct={1}
+  explanation="REST won because it's just HTTP. Every language, every tool (curl, Postman, fetch) speaks it. Stateless, cacheable GETs are a huge performance win — CDNs can cache them transparently."
+  revisit={{ to: "/docs/foundations/apis-rest#why-rest-won", label: "Why REST won" }}
+/>
+
+<Question
+  prompt="What problem does REST struggle with that GraphQL was invented to solve?"
+  options={[
+    { text: "REST can't use HTTPS" },
+    { text: "Chattiness — assembling one screen often requires multiple round trips and risks over-fetching or under-fetching" },
+    { text: "REST requires WebSockets" },
+    { text: "REST is incompatible with JSON" }
+  ]}
+  correct={1}
+  explanation="A typical REST screen might GET /user, then GET /user/posts, then per-friend GET /user/N/avatar. That's chatty. GraphQL lets the client describe the exact shape it wants in one query."
+  revisit={{ to: "/docs/foundations/apis-rest#the-downsides", label: "REST downsides" }}
+/>
+
+<Question
+  prompt="After a successful POST that creates a new resource, what status code is most idiomatic for the server to return?"
+  options={[
+    { text: "200 OK" },
+    { text: "201 Created (often with a Location header pointing at the new resource)" },
+    { text: "204 No Content" },
+    { text: "302 Found" }
+  ]}
+  correct={1}
+  explanation="201 Created is the conventional REST response after a successful POST, signaling a new resource was created. 200 is acceptable but less specific; 204 means 'no body' (often used after DELETE)."
+  revisit={{ to: "/docs/foundations/apis-rest#rest-conventions-that-matter", label: "REST conventions" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [GraphQL & tRPC](./apis-graphql-trpc) where we'll look at the two leading alternatives to REST — both invented to fix REST's over-fetching/under-fetching problems.

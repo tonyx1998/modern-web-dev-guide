@@ -159,6 +159,64 @@ Even if you "trust" the LLM, validate. LLMs occasionally:
 The Zod (or Pydantic) `.parse()` call is your boundary between the unpredictable model output and the rest of your application — treat it like input validation on a public API endpoint.
 :::
 
+## Page checkpoint
+
+<Quiz id="ai-function-calling-page" title="Did function calling stick?" sampleSize={2}>
+
+<Question
+  prompt="Conceptually, what does function calling turn the LLM into?"
+  options={[
+    { text: "A faster code generator that emits final production code" },
+    { text: "A router or field extractor — it picks which tool to invoke (with what arguments) instead of producing free-form text" },
+    { text: "A database that stores tool definitions" },
+    { text: "A replacement for input validation libraries" }
+  ]}
+  correct={1}
+  explanation="You hand the model a menu of tools with typed arguments. Its output is a structured choice — 'call getWeather with location=SF' — which your regular code then executes."
+  revisit={{ to: "/docs/ai/ai-function-calling#how-it-works", label: "How tool calling works" }}
+/>
+
+<Question
+  prompt="What's the main benefit of `generateObject` with a Zod schema over asking the model for JSON in plain text?"
+  options={[
+    { text: "It uses a cheaper model automatically" },
+    { text: "You get parsed, validated, type-safe output — no manual JSON.parse or shape checking" },
+    { text: "It bypasses the LLM entirely for structured tasks" },
+    { text: "It avoids the need for an API key" }
+  ]}
+  correct={1}
+  explanation="generateObject pairs schema enforcement with parsing. You skip the brittle 'JSON.parse and hope' step and the result is already typed in TypeScript."
+  revisit={{ to: "/docs/ai/ai-function-calling#structured-output", label: "generateObject + Zod" }}
+/>
+
+<Question
+  prompt="Even when using structured output, why should you still call `.parse()` on the LLM's response?"
+  options={[
+    { text: "Zod is slow without it" },
+    { text: "Models occasionally drop fields, swap types, or invent enum values; .parse() is your boundary check" },
+    { text: "It is required by the OpenAI terms of service" },
+    { text: "It converts the output from JSON to CSV" }
+  ]}
+  correct={1}
+  explanation="LLMs are non-deterministic. Treat the model's output like input from a public API — validate at the boundary before letting it flow into the rest of your app."
+  revisit={{ to: "/docs/ai/ai-function-calling#critical-always-validate", label: "Always validate model output" }}
+/>
+
+<Question
+  prompt="In the support-email triage worked example, why is a cheap (Haiku-class) model fine?"
+  options={[
+    { text: "Cheap models are always more accurate at classification" },
+    { text: "The task is constrained classification into a small enum, not open-ended reasoning — small models do this well at a fraction of the cost" },
+    { text: "Haiku is the only model that supports Zod schemas" },
+    { text: "Cheap models never hallucinate" }
+  ]}
+  correct={1}
+  explanation="Routing/classification into a fixed shape is exactly the kind of bounded task small models are good at. Pay for frontier reasoning only where you actually need it."
+  revisit={{ to: "/docs/ai/ai-function-calling#structured-output", label: "Pick model tier by task" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Pattern 4: Agentic Workflows](./ai-agents) — let the model plan and execute multi-step tasks.

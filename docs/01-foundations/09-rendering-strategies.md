@@ -136,6 +136,64 @@ You'll see endless blog posts, conference talks, and Twitter threads arguing abo
 Each is a reasonable default. Only optimize away from the default when you have a *specific* problem the default doesn't solve.
 :::
 
+## Page checkpoint
+
+<Quiz id="rendering-strategies-page" title="Did rendering strategies stick?" sampleSize={2}>
+
+<Question
+  prompt="What are the three baseline moments at which HTML can be built?"
+  options={[
+    { text: "Compile time, link time, run time" },
+    { text: "Build time, request time on the server, request time in the browser" },
+    { text: "Deploy time, build time, request time" },
+    { text: "Server time, client time, edge time" }
+  ]}
+  correct={1}
+  explanation="SSG builds at build time, SSR builds per request on the server, CSR builds in the browser via JavaScript. The hybrids (ISR, streaming, PPR) layer on top of those three."
+  revisit={{ to: "/docs/foundations/rendering-strategies#the-three-pure-strategies-and-the-hybrids-on-top", label: "The three pure strategies" }}
+/>
+
+<Question
+  prompt="What's the difference between 'rendering' and 'hydration' on a modern page load?"
+  options={[
+    { text: "They mean the same thing — different names for the same step" },
+    { text: "Rendering produces the visible HTML/DOM; hydration attaches JavaScript so buttons and forms work" },
+    { text: "Rendering happens on the client; hydration happens on the server" },
+    { text: "Hydration is for CSS; rendering is for HTML" }
+  ]}
+  correct={1}
+  explanation="Rendering = users can SEE content. Hydration = users can INTERACT with it. A page can be rendered but not yet hydrated — that's the 'visible but inert' uncanny-valley feeling."
+  revisit={{ to: "/docs/foundations/rendering-strategies#rendering-vs-hydration--the-distinction-beginners-miss", label: "Rendering vs hydration" }}
+/>
+
+<Question
+  prompt="You're choosing a strategy for a marketing homepage — content rarely changes, SEO matters a lot, and traffic is global. What's the most natural fit?"
+  options={[
+    { text: "Pure CSR" },
+    { text: "Per-request SSR" },
+    { text: "SSG (or a static PPR shell)" },
+    { text: "WebSockets" }
+  ]}
+  correct={2}
+  explanation="Marketing pages are the textbook SSG use case: pre-build once, serve from a CDN. CSR is bad for SEO; SSR is wasteful when nothing changes; WebSockets aren't a rendering strategy."
+  revisit={{ to: "/docs/foundations/rendering-strategies#a-concrete-real-world-stack", label: "A concrete real-world stack" }}
+/>
+
+<Question
+  prompt="Which of these is the most common BEGINNER misconception about rendering strategies?"
+  options={[
+    { text: "That CSR is faster than SSR after the initial load" },
+    { text: "That RSC, SSR, ISR, and PPR are competing options you must choose between, when in fact they stack on the same page" },
+    { text: "That CDNs only cache static images" },
+    { text: "That SSG sites can't be deployed without a server" }
+  ]}
+  correct={1}
+  explanation="A single Next.js page can mix a static shell, a streamed server component, a cached server component, and a client component. The skill is matching the right strategy to each section, not picking one for the whole app."
+  revisit={{ to: "/docs/foundations/rendering-strategies#common-mistakes", label: "Common mistakes" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [SSG — Static Site Generation](./ssg) for the simplest and oldest strategy: pre-build everything, serve from a CDN.

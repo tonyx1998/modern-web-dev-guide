@@ -1,0 +1,158 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-emphasis-900);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.15s;
+  font-family: inherit;
+}
+
+.trigger:hover {
+  border-color: var(--ifm-color-primary);
+  background: var(--ifm-color-emphasis-100);
+}
+
+.trigger:active {
+  transform: scale(0.97);
+}
+
+.emoji {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.label {
+  letter-spacing: -0.01em;
+}
+
+.caret {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  margin-left: 0.1rem;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 201;
+  width: 320px;
+  max-width: calc(100vw - 1rem);
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+[data-theme='dark'] .menu {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+.menuHeader {
+  padding: 0.4rem 0.65rem 0.2rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ifm-color-emphasis-600);
+  font-weight: 700;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.option:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.optionActive {
+  background: rgba(37, 99, 235, 0.08);
+  border-color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .optionActive {
+  background: rgba(96, 165, 250, 0.12);
+}
+
+.optionEmoji {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.optionBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.optionLabel {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-900);
+}
+
+.optionHint {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.menuFooter {
+  padding: 0.4rem 0.65rem 0.25rem;
+  font-size: 0.7rem;
+  color: var(--ifm-color-emphasis-600);
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+  margin-top: 0.15rem;
+}
+
+/* Position when used as a standalone floating pill (no navbar swizzle). */
+:global(.reader-level-floating) .wrapper {
+  position: fixed;
+  top: calc(var(--ifm-navbar-height, 60px) + 0.6rem);
+  right: 1rem;
+  z-index: 100;
+}
+
+@media (max-width: 768px) {
+  :global(.reader-level-floating) .wrapper {
+    top: auto;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}

@@ -70,6 +70,64 @@ That five-minute thinking exercise just saved a month of work on a project that 
 "Plan less" is not "don't plan." It's "plan in proportion to the project." A weekend tool deserves an afternoon of thought, not three. A 6-month SaaS deserves more — but still in days, not weeks. The point is to match planning depth to project depth so you don't spend more time planning than building.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-planning-page" title="Did solo planning stick?" sampleSize={2}>
+
+<Question
+  prompt="How long should the entire solo planning phase take?"
+  options={[
+    { text: "A few hours, an afternoon at most" },
+    { text: "Roughly one week" },
+    { text: "One month — same as a small team" },
+    { text: "It depends entirely on the stack" }
+  ]}
+  correct={0}
+  explanation="The whole point of solo planning is that you're aligning one person (yourself). A paragraph pitch, five features, and a sketch fit comfortably in an afternoon — longer is overthinking."
+  revisit={{ to: "/docs/solo/planning#phase-1-planning-an-afternoon-not-a-month", label: "Planning intro" }}
+/>
+
+<Question
+  prompt="What is the recommended cap on v1 features?"
+  options={[
+    { text: "Three or fewer" },
+    { text: "Five or fewer" },
+    { text: "Ten or fewer" },
+    { text: "However many fit on one page" }
+  ]}
+  correct={1}
+  explanation="The page says five or fewer features. More than that and you're not at v1 — you're describing v2 disguised as v1, and it will not ship in a reasonable time."
+  revisit={{ to: "/docs/solo/planning#step-2-list-the-v1-features", label: "v1 features" }}
+/>
+
+<Question
+  prompt="Which question is NOT part of the go/no-go check?"
+  options={[
+    { text: "Would I use this every week?" },
+    { text: "Can I build v1 in 2 to 4 weekends?" },
+    { text: "Will I still care in 3 months?" },
+    { text: "Could this become a unicorn startup?" }
+  ]}
+  correct={3}
+  explanation="The go/no-go is about personal fit, scope, and durability of interest — not market size or unicorn potential. Those questions belong to a different kind of project entirely."
+  revisit={{ to: "/docs/solo/planning#step-4-decide-if-its-worth-building", label: "Go/no-go" }}
+/>
+
+<Question
+  prompt="What does 'plan less' explicitly NOT mean, per the highlight?"
+  options={[
+    { text: "Plan in proportion to the project" },
+    { text: "Don't plan at all" },
+    { text: "Skip the design sketch" },
+    { text: "Match planning depth to project depth" }
+  ]}
+  correct={1}
+  explanation="The highlight makes this distinction explicit: 'plan less' is shorthand for 'plan in proportion to the project,' not 'skip planning.' A 6-month SaaS still deserves days of thought."
+  revisit={{ to: "/docs/solo/planning#step-4-decide-if-its-worth-building", label: "Plan in proportion" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 2: Stack Selection](./stack-selection) where the 2026 default stack is basically pre-decided.

@@ -123,6 +123,64 @@ A team chasing 90% coverage will write tests for trivial getters, throwaway comp
 The actual goal is: *would I sleep through the night with the current test suite?* That depends on the critical paths — payments work, auth works, data isn't lost. Test those exhaustively. Test most other code lightly. Skip the rest.
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-testing-page" title="Did the testing strategy stick?" sampleSize={2}>
+
+<Question
+  prompt="What shape does the page recommend for the test suite at startup scale?"
+  options={[
+    { text: "Mostly E2E tests, with a handful of unit tests" },
+    { text: "Roughly equal numbers across unit, integration, and E2E" },
+    { text: "Hundreds of unit tests, dozens of integration tests, only 10-30 E2E tests on critical flows" },
+    { text: "100% coverage on every layer" }
+  ]}
+  correct={2}
+  explanation="The pyramid: hundreds to thousands of cheap fast unit tests, 50-200 integration tests, and only 10-30 Playwright E2E tests for the critical paths. Each layer up is roughly 10x more expensive."
+  revisit={{ to: "/docs/startup/testing#the-testing-pyramid", label: "Testing pyramid" }}
+/>
+
+<Question
+  prompt="What does the page say about formal coverage targets like 80% or 90%?"
+  options={[
+    { text: "They are required for any production code" },
+    { text: "Chasing them produces brittle tests nobody trusts; focus on what would break the business if it failed" },
+    { text: "They should be enforced by CI and block merges" },
+    { text: "They are the most important metric for engineering health" }
+  ]}
+  correct={1}
+  explanation="The page rejects formal coverage targets at this scale. The actual question is would you sleep through the night with the current suite — which depends on critical paths (payments, auth, data integrity) being well-tested, not on a percentage."
+  revisit={{ to: "/docs/startup/testing#coverage-targets", label: "Coverage targets" }}
+/>
+
+<Question
+  prompt="When does the page recommend reaching for a Playwright E2E test on a new feature?"
+  options={[
+    { text: "For every new feature, by default" },
+    { text: "Only for critical user flows whose failure would meaningfully harm the business" },
+    { text: "Only when manual QA refuses to test the feature" },
+    { text: "Never — E2E tests are too flaky to be useful" }
+  ]}
+  correct={1}
+  explanation="The worked example explicitly skips E2E for a bulk export. E2E is reserved for flows like sign-up, sign-in, and checkout — paths where breakage in production is a real business problem."
+  revisit={{ to: "/docs/startup/testing#e2e-tests-playwright", label: "When to write E2E" }}
+/>
+
+<Question
+  prompt="Where do integration tests in this stack typically run, per the page?"
+  options={[
+    { text: "Against production with a special test tenant" },
+    { text: "Against a test database — often a Neon branch per CI run, or a Docker Postgres" },
+    { text: "Against an in-memory SQLite mock, never real Postgres" },
+    { text: "On the engineer's laptop only, not in CI" }
+  ]}
+  correct={1}
+  explanation="Integration tests exercise API endpoints and Server Actions with the real database. They run against a test database — commonly a Neon branch spun up per CI run or a Docker Postgres."
+  revisit={{ to: "/docs/startup/testing#integration-tests", label: "Integration tests" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 7: CI/CD](./cicd) where GitHub Actions ties the testing strategy to the deploy pipeline.

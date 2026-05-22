@@ -86,6 +86,64 @@ time bun add react
 You'll see a dramatic spread. Bun is usually 5–10× faster than npm on the same machine, and pnpm sits comfortably in between.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-package-managers-page" title="Did package managers stick?" sampleSize={2}>
+
+<Question
+  prompt="Why is committing the lockfile (package-lock.json, pnpm-lock.yaml, bun.lock, etc.) more important than which package manager produced it?"
+  options={[
+    { text: "The lockfile makes installs faster" },
+    { text: "The lockfile pins exact versions of every package — including transitive deps — so teammates and CI get identical installs" },
+    { text: "The lockfile is required to publish to npm" },
+    { text: "Without the lockfile, package managers won't run at all" }
+  ]}
+  correct={1}
+  explanation="The lockfile records the exact resolved version of every package (direct and transitive). Without it, different machines can install slightly different versions and you hit 'works on my machine' bugs."
+  revisit={{ to: "/docs/stack/package-managers#decision-matrix", label: "Lockfile is source of truth" }}
+/>
+
+<Question
+  prompt="What does pnpm do differently to save disk space across many projects?"
+  options={[
+    { text: "It compresses every node_modules directory with gzip" },
+    { text: "It stores each package version once in a content-addressable store and hardlinks it into each project" },
+    { text: "It deletes unused packages from your global cache nightly" },
+    { text: "It refuses to install dependencies you've already installed elsewhere" }
+  ]}
+  correct={1}
+  explanation="pnpm keeps a single global content-addressable store and hardlinks files into each project's node_modules. The same package version isn't duplicated across projects — huge wins in monorepos."
+  revisit={{ to: "/docs/stack/package-managers#pnpm--fast-and-efficient", label: "pnpm section" }}
+/>
+
+<Question
+  prompt="Which package manager is highlighted as the fastest installer in 2026, often 10–30× faster than npm on cold installs?"
+  options={[
+    { text: "Yarn 1" },
+    { text: "npm" },
+    { text: "pnpm" },
+    { text: "Bun" }
+  ]}
+  correct={3}
+  explanation="Bun's installer is the fastest available — typically 10–30× faster than npm on cold installs — and it's compatible with regular `package.json`."
+  revisit={{ to: "/docs/stack/package-managers#bun-as-a-package-manager", label: "Bun as a package manager" }}
+/>
+
+<Question
+  prompt="What's the right recommendation for a larger team working in a monorepo who wants strict dependency resolution?"
+  options={[
+    { text: "Stick with npm because it ships with Node" },
+    { text: "Use pnpm — fast, disk-efficient, and strict about phantom dependencies" },
+    { text: "Use Yarn 1, which is still the standard for monorepos" },
+    { text: "Skip a package manager entirely and vendor dependencies" }
+  ]}
+  correct={1}
+  explanation="pnpm is the conservative pick for larger teams and monorepos: faster than npm, disk-efficient, and strict enough to catch phantom dependencies (packages you use without declaring them)."
+  revisit={{ to: "/docs/stack/package-managers#decision-matrix", label: "Decision matrix" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [State Management](./state-management) — how your app keeps track of data and UI state across components.

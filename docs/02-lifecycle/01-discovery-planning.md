@@ -103,6 +103,64 @@ You don't need a $50/seat research tool to start. The most valuable user researc
 Three honest conversations are worth ten weeks of solo brainstorming.
 :::
 
+## Page checkpoint
+
+<Quiz id="lifecycle-discovery-planning-page" title="Did discovery & planning stick?" sampleSize={2}>
+
+<Question
+  prompt="Why does the page argue that discovery is 'the cheapest place to fix mistakes'?"
+  options={[
+    { text: "Designers charge less per hour than engineers" },
+    { text: "The cost of changing direction grows exponentially as you move from discovery to design, implementation, and post-launch" },
+    { text: "Discovery is the only phase where you can write tests" },
+    { text: "Most bugs are caused by typos that planning eliminates" }
+  ]}
+  correct={1}
+  explanation="Changing your mind during discovery is free; the same change after launch costs weeks of migration and lost trust. Catching the wrong idea early is dramatically cheaper than catching it in code."
+  revisit={{ to: "/docs/lifecycle/discovery-planning#why-it-matters", label: "Why it matters" }}
+/>
+
+<Question
+  prompt="A solo developer is planning a weekend project. According to the page, what's the appropriate level of planning?"
+  options={[
+    { text: "A 10-page PRD with stakeholder sign-off" },
+    { text: "Full OKR alignment and capacity planning" },
+    { text: "A paragraph in a notes app, a quick sketch, and 3-5 features" },
+    { text: "User interviews with at least 20 participants before writing code" }
+  ]}
+  correct={2}
+  explanation="Planning should scale with the project. A side project needs a paragraph and a sketch; over-planning a solo build is itself a form of procrastination."
+  revisit={{ to: "/docs/lifecycle/discovery-planning#what-planning-means-at-different-scales", label: "Planning at different scales" }}
+/>
+
+<Question
+  prompt="The page lists seven discovery questions. Which of these is NOT one of them?"
+  options={[
+    { text: "Who is this for?" },
+    { text: "What does success look like?" },
+    { text: "Which framework should we use?" },
+    { text: "What's the minimum that's useful?" }
+  ]}
+  correct={2}
+  explanation="Framework choice is an architecture decision, not a discovery question. Discovery focuses on the user, the problem, success metrics, scope, constraints, risks, and approvals — not implementation tech."
+  revisit={{ to: "/docs/lifecycle/discovery-planning#the-seven-discovery-questions", label: "The seven discovery questions" }}
+/>
+
+<Question
+  prompt="Which behavior best matches the page's recommendation for 'the cheapest user research that works'?"
+  options={[
+    { text: "Buy a $50/seat research tool before talking to anyone" },
+    { text: "Pitch your idea to five friends and ask if they'd use it" },
+    { text: "Email five people in your target audience and ask how they currently solve the problem" },
+    { text: "Run a survey of 500 strangers on social media" }
+  ]}
+  correct={2}
+  explanation="The page argues three honest conversations beat weeks of solo brainstorming. The trick is to ask how people currently handle the problem — not pitch your solution."
+  revisit={{ to: "/docs/lifecycle/discovery-planning#tools-used-in-2026", label: "Cheapest user research" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 2: Design](./design) where the question shifts from *what* to build to *how it should look and feel*.

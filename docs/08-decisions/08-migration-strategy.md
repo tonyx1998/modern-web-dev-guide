@@ -87,6 +87,64 @@ The single worst migration outcome isn't "old system stays" or "new system ships
 Half-migrated systems double maintenance cost, double the surface area for bugs, and create a perpetual question of "which one is the truth?" If you start a migration, commit a date to finishing it. If you can't commit, don't start.
 :::
 
+## Page checkpoint
+
+<Quiz id="decisions-migration-strategy-page" title="Did migration strategy stick?" sampleSize={2}>
+
+<Question
+  prompt="Your team wants to replace a tangled legacy billing system. Which approach does the chapter explicitly call 'almost always disastrous'?"
+  options={[
+    { text: "Strangler fig — build new alongside old and route traffic gradually" },
+    { text: "Big-bang rewrite — freeze the old, build a clean replacement, switch over in one cutover" },
+    { text: "Parallel run — run both and compare results" },
+    { text: "Feature-flagged rollout from 1% to 100%" }
+  ]}
+  correct={1}
+  explanation="The chapter is emphatic: big-bang rewrites blow past their estimates while the old system keeps adding features, and the cutover risk is enormous. Incremental approaches are the reliable path."
+  revisit={{ to: "/docs/decisions/migration-strategy#anti-patterns", label: "Anti-patterns" }}
+/>
+
+<Question
+  prompt="The chapter says the SINGLE WORST migration outcome is:"
+  options={[
+    { text: "The new system is slower than the old one for a few weeks" },
+    { text: "Half-migrated — both run forever and neither is canonical" },
+    { text: "The migration finishes a quarter late" },
+    { text: "Customer support is briefly overwhelmed" }
+  ]}
+  correct={1}
+  explanation="Half-migrated doubles maintenance cost and creates a permanent 'which one is the truth?' question. The chapter's prescription: commit to a finish date before you start. If you can't commit, don't start."
+  revisit={{ to: "/docs/decisions/migration-strategy#rules-for-migrations", label: "Half-migrated is the worst state" }}
+/>
+
+<Question
+  prompt="The strangler fig pattern is named after a tree that gradually grows around and replaces a host. In software, it means:"
+  options={[
+    { text: "Run a one-shot script that copies all data into a new system overnight" },
+    { text: "Build the new system alongside the old, route some traffic to it, gradually shift more, then retire the old" },
+    { text: "Block all new features until the old system is removed" },
+    { text: "Force every customer onto the new system on day one and patch issues as they come" }
+  ]}
+  correct={1}
+  explanation="Strangler fig = parallel new + old, gradual traffic shift, eventual retirement of the old. It gives you a rollback path at every step."
+  revisit={{ to: "/docs/decisions/migration-strategy#successful-migration-patterns", label: "Strangler fig pattern" }}
+/>
+
+<Question
+  prompt="Which is NOT one of the chapter's five rules for migrations?"
+  options={[
+    { text: "Never let old and new diverge for long" },
+    { text: "Have a kill switch — be able to roll back instantly" },
+    { text: "Freeze all feature development until the migration is done" },
+    { text: "Measure progress concretely; '80% migrated' should mean something specific" }
+  ]}
+  correct={2}
+  explanation="The chapter explicitly calls 'stop-the-world' an anti-pattern that revolts the product team and damages credibility. The real rules are: don't diverge, kill switch, concrete progress, communicate, commit to finishing."
+  revisit={{ to: "/docs/decisions/migration-strategy#rules-for-migrations", label: "Rules for migrations" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The "Two Versions of the Same Code" Principle](./two-versions) — when duplication is a bug and when it's actually fine.

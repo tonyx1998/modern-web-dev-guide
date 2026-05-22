@@ -169,6 +169,64 @@ At enterprise scale, *safety* wins — manual approvals, gradual rollouts, kill 
 The right pyramid for your project depends on **what failure costs**, not on what's technically possible. A junior engineer's first instinct is "automate everything." A senior engineer's instinct is "automate everything *that's safe to automate*."
 :::
 
+## Page checkpoint
+
+<Quiz id="deployment-stages-page" title="Did deployment stages stick?" sampleSize={2}>
+
+<Question
+  prompt="What does the CI stage typically do on every push?"
+  options={[
+    { text: "Sends a notification email to the team and nothing else" },
+    { text: "Runs automated checks (install deps, lint, type-check, tests, build, security scans) and blocks the merge if any fail" },
+    { text: "Manually approves the change for production" },
+    { text: "Deploys directly to users with no other steps" }
+  ]}
+  correct={1}
+  explanation="CI is the quality gate. On every push (or PR), it installs deps, runs lint/types/tests, builds the project, and often runs SAST/SCA. If anything fails, the change can't merge — bad code is caught before it lands."
+  revisit={{ to: "/docs/foundations/deployment-stages#stage-2-ci--continuous-integration", label: "Stage 2: CI" }}
+/>
+
+<Question
+  prompt="What's the subtle distinction between Continuous Delivery and Continuous Deployment?"
+  options={[
+    { text: "They're identical — different vendors use different names" },
+    { text: "Continuous Delivery means every commit CAN be deployed at any time (a human chooses when); Continuous Deployment means every commit IS deployed automatically" },
+    { text: "Continuous Delivery uses CDNs; Continuous Deployment doesn't" },
+    { text: "Continuous Delivery is for mobile; Continuous Deployment is for web" }
+  ]}
+  correct={1}
+  explanation="Both keep the pipeline always-shippable. Delivery requires a human to push the deploy button (common at startups and enterprises). Deployment is fully automatic — only safe when tests and confidence are high (Netflix, Etsy)."
+  revisit={{ to: "/docs/foundations/deployment-stages#stage-5-cd--continuous-deployment--delivery", label: "CD vs Continuous Delivery" }}
+/>
+
+<Question
+  prompt="A user in Tokyo and a user in Virginia both visit example.com and hit completely different physical servers — yet both got there with the same DNS answer. What technique makes that work?"
+  options={[
+    { text: "Two separate domain names pointing at different IPs" },
+    { text: "Anycast routing — multiple POPs advertise the SAME IP, and the internet's routing tables direct each user to the geographically closest one" },
+    { text: "The browser picks at random" },
+    { text: "DNS rewrites the IP based on a cookie" }
+  ]}
+  correct={1}
+  explanation="Anycast lets many physical locations claim the same IP address. The user's ISP routes to the closest one automatically. This is how modern CDNs and edge networks work — invisible to your code, just naturally fast."
+  revisit={{ to: "/docs/foundations/deployment-stages#stage-8-dns-and-routing", label: "Stage 8: DNS and routing" }}
+/>
+
+<Question
+  prompt="For a new project in 2026 needing somewhere to run the code, what's the recommended starting point?"
+  options={[
+    { text: "Kubernetes — it's the industry standard" },
+    { text: "Raw EC2 VMs — full control" },
+    { text: "A PaaS (Vercel, Netlify, Railway, Render, Fly.io) — easiest for solo/startup; move down to containers, K8s, or VMs only when the higher tier doesn't fit" },
+    { text: "Your own laptop in production" }
+  ]}
+  correct={2}
+  explanation="Start with a PaaS — you ship code, the platform handles runtime. Containers (Cloud Run, ECS) come next; Kubernetes after that when you need orchestration at scale. Each step down the list trades simplicity for control."
+  revisit={{ to: "/docs/foundations/deployment-stages#stage-6-runtime-environment", label: "Stage 6: Runtime environment" }}
+/>
+
+</Quiz>
+
 ## Wrapping up Part 1
 
 If you've read this carefully, you now know:

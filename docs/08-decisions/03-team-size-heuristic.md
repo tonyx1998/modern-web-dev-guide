@@ -89,6 +89,64 @@ The *opposite* mistake — a 200-person org running with no process because "we 
 Process should scale up with team size. A team of 1 doesn't write RFCs; a team of 500 cannot survive without them.
 :::
 
+## Page checkpoint
+
+<Quiz id="decisions-team-size-heuristic-page" title="Did the team size heuristic stick?" sampleSize={2}>
+
+<Question
+  prompt="A new senior hire at a 12-person startup introduces a formal RFC process for any change over 100 lines, plus a weekly architecture review. Six months later velocity has halved. What's the diagnosis?"
+  options={[
+    { text: "The team needs even more process to scale" },
+    { text: "Cargo-culting practices from a much larger company that don't fit the current size" },
+    { text: "The new hire isn't writing enough code themselves" },
+    { text: "RFCs are always a bad idea at any team size" }
+  ]}
+  correct={1}
+  explanation="The chapter's central warning: importing practices from a much larger (or smaller) org without checking fit. At 12 people you can walk to anyone affected. The fix is keeping ADRs for genuinely irreversible decisions and dropping the rest."
+  revisit={{ to: "/docs/decisions/team-size-heuristic#how-to-apply-it", label: "How to apply it" }}
+/>
+
+<Question
+  prompt="At what team size band does the chapter say RFCs and ADRs become real, formalized process — not optional?"
+  options={[
+    { text: "1 person" },
+    { text: "2–10 people" },
+    { text: "50–500 people" },
+    { text: "Never — RFCs are always cargo-culted process" }
+  ]}
+  correct={2}
+  explanation="The 50–500 band is where strong defaults, architectural review, RFCs, and ADRs become the norm. Below that they're often overhead; above it the org can't survive without them."
+  revisit={{ to: "/docs/decisions/team-size-heuristic#50500-people", label: "50–500 people" }}
+/>
+
+<Question
+  prompt="A 200-person engineering org runs with essentially no process because 'we move like a startup.' What does the chapter predict?"
+  options={[
+    { text: "They'll ship faster than competitors with process" },
+    { text: "Process emerges as chaos rather than deliberately — and that's expensive" },
+    { text: "Their boring-technology choices will save them" },
+    { text: "It works fine as long as the founders are still there" }
+  ]}
+  correct={1}
+  explanation="The chapter calls this the symmetric mistake to over-processing a small team. By 200 people you can't all sit in one room and align — process appears either deliberately or as chaos."
+  revisit={{ to: "/docs/decisions/team-size-heuristic#how-to-apply-it", label: "The symmetric mistake" }}
+/>
+
+<Question
+  prompt="For an 8-person team, which architectural default does the chapter recommend?"
+  options={[
+    { text: "Microservices, one per engineer" },
+    { text: "A modular monolith — one deployable, internally split into clear modules" },
+    { text: "A service mesh with formal API contracts between modules" },
+    { text: "Whichever pattern the largest competitor uses" }
+  ]}
+  correct={1}
+  explanation="At 2–10 people the chapter explicitly recommends a modular monolith: one deployable, clear internal modules. Microservices add coordination cost that small teams can't afford."
+  revisit={{ to: "/docs/decisions/team-size-heuristic#210-people", label: "2–10 people" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The Build vs Buy Decision](./build-vs-buy) — default to buying for non-core capabilities; build only where you're the world's expert.

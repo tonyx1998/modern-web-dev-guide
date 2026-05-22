@@ -120,6 +120,64 @@ curl -i https://httpbin.org/redirect/2
 `-i` includes the response headers, so you'll see the status line clearly: `HTTP/2 200`, `HTTP/2 404`, etc. Try a few different codes — they're all valid HTTP responses, just different categories of news.
 :::
 
+## Page checkpoint
+
+<Quiz id="http-methods-page" title="Did HTTP methods & status codes stick?" sampleSize={2}>
+
+<Question
+  prompt="Which HTTP method is NOT idempotent — meaning sending it twice can cause two different effects?"
+  options={[
+    { text: "GET" },
+    { text: "PUT" },
+    { text: "POST" },
+    { text: "DELETE" }
+  ]}
+  correct={2}
+  explanation="POST creates a new resource each time, so two POSTs to /orders create two orders. GET, PUT, and DELETE are idempotent — repeating them has the same effect as doing them once."
+  revisit={{ to: "/docs/foundations/http-methods-and-status#http-methods-verbs", label: "HTTP methods (verbs)" }}
+/>
+
+<Question
+  prompt="Server has user 42 with name, email, and city set. You send PUT /users/42 with body {city: 'NYC'}. What happens?"
+  options={[
+    { text: "Only the city field changes; name and email are preserved" },
+    { text: "The whole user is replaced — name and email are now missing" },
+    { text: "The server returns an error because the body is incomplete" },
+    { text: "Nothing changes — PUT requires the full URL of a new resource" }
+  ]}
+  correct={1}
+  explanation="PUT replaces the entire resource with the body you send. To change just one field while preserving the rest, use PATCH. This is the single most common PUT-vs-PATCH mistake."
+  revisit={{ to: "/docs/foundations/http-methods-and-status#http-methods-verbs", label: "PUT vs PATCH" }}
+/>
+
+<Question
+  prompt="A logged-in regular user requests /admin/users and gets a 403. What does that tell you?"
+  options={[
+    { text: "The server doesn't know who they are; they need to send credentials" },
+    { text: "The server knows who they are but they're not permitted to access this resource" },
+    { text: "The resource doesn't exist at that URL" },
+    { text: "The server is overloaded and rejecting requests" }
+  ]}
+  correct={1}
+  explanation="403 Forbidden means 'I know exactly who you are, and you're not allowed.' 401 Unauthorized is the one that means 'send credentials' — its name is misleading; it really means 'unauthenticated.'"
+  revisit={{ to: "/docs/foundations/http-methods-and-status#http-status-codes", label: "401 vs 403" }}
+/>
+
+<Question
+  prompt="Production is broken and you see your API returning 502 Bad Gateway. Where should you start looking?"
+  options={[
+    { text: "The client — the user probably sent malformed data" },
+    { text: "The server side — likely an upstream service the API depends on" },
+    { text: "DNS — the domain is misconfigured" },
+    { text: "The browser cache — purge it and retry" }
+  ]}
+  correct={1}
+  explanation="5xx codes mean something went wrong on the server. 502 specifically means an upstream server returned an invalid response — start with backend logs and dependent services. 4xx codes would point at the client."
+  revisit={{ to: "/docs/foundations/http-methods-and-status#http-status-codes", label: "The 4xx vs 5xx litmus test" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [HTTP Headers & Cookies](./http-headers-cookies) where we'll see how requests carry metadata and how sites "remember" you across visits.

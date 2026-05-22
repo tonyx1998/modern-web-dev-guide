@@ -40,6 +40,64 @@ The single template danger: deploying code you can't read. When a Stripe webhook
 Before you `npm install` a paid SaaS kit, spend an evening reading its source. If you can't make sense of the auth flow or the payment handler, walk away.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-templates-page" title="Did the templates advice stick?" sampleSize={2}>
+
+<Question
+  prompt="What is the single biggest danger of using a paid SaaS starter kit?"
+  options={[
+    { text: "The upfront cost is too high" },
+    { text: "Deploying code you can't read or debug when things break" },
+    { text: "Lock-in to a specific cloud provider" },
+    { text: "Lack of TypeScript support" }
+  ]}
+  correct={1}
+  explanation="When a Stripe webhook misfires in production, 'the template does it' is not an acceptable answer. The page advises reading the kit's source before npm-installing it — walk away if you can't follow the auth or payment handler."
+  revisit={{ to: "/docs/solo/templates#templates-worth-knowing-in-2026", label: "Understand-or-don't-use" }}
+/>
+
+<Question
+  prompt="Which template is best matched to 'I want a Next.js + Postgres + tRPC structure I'd build anyway'?"
+  options={[
+    { text: "shipfa.st" },
+    { text: "shadcn/ui" },
+    { text: "Create T3 App" },
+    { text: "A random Vercel template" }
+  ]}
+  correct={2}
+  explanation="Create T3 App matches that profile exactly — free, opinionated in mainstream ways, and gives you the type-safe full-stack project structure many solo devs would assemble anyway."
+  revisit={{ to: "/docs/solo/templates#templates-worth-knowing-in-2026", label: "Which template for which goal" }}
+/>
+
+<Question
+  prompt="What does the analogy 'a template is like a furnished apartment' illustrate?"
+  options={[
+    { text: "Templates make your project feel cozy" },
+    { text: "You move in faster, but you inherit the previous tenant's choices" },
+    { text: "Templates are temporary by nature" },
+    { text: "Templates always cost monthly rent" }
+  ]}
+  correct={1}
+  explanation="You skip the setup time, but the curtains (architectural choices) are already picked. That's great when the opinions match yours, and painful when you're ripping out wallpaper for a month."
+  revisit={{ to: "/docs/solo/templates#pre-built-templates-worth-knowing", label: "Plain English intro" }}
+/>
+
+<Question
+  prompt="Strictly speaking, shadcn/ui is described as which of the following?"
+  options={[
+    { text: "A paid SaaS starter kit" },
+    { text: "A component library you copy in, not really a template" },
+    { text: "A Next.js fork" },
+    { text: "A hosting platform" }
+  ]}
+  correct={1}
+  explanation="The page calls out that shadcn/ui isn't really a template — it's a component library (buttons, inputs, dropdowns, dialogs) you copy into your project. Different category, same convenience."
+  revisit={{ to: "/docs/solo/templates#templates-worth-knowing-in-2026", label: "Which template for which goal" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [A Sample Two-Weekend Project](./sample-project) for a concrete weekend-by-weekend schedule.

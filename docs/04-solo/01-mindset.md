@@ -51,6 +51,64 @@ Now ask: would the project have shipped sooner without any of those? Almost alwa
 At an enterprise, design reviews, code reviews, and architecture committees are how the company avoids catastrophe. Solo, *you are all of them.* That's a feature, not a bug — you can make a call in five seconds that would take five meetings elsewhere. The flip side: nobody will catch your bad decisions for you. The fix isn't process. The fix is shipping early, watching it break in small ways, and iterating.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-mindset-page" title="Did the solo mindset stick?" sampleSize={2}>
+
+<Question
+  prompt="What is the biggest mistake solo developers make, according to this page?"
+  options={[
+    { text: "Picking the wrong programming language" },
+    { text: "Applying enterprise patterns to personal projects" },
+    { text: "Not writing unit tests" },
+    { text: "Skipping the planning phase entirely" }
+  ]}
+  correct={1}
+  explanation="The page calls out applying enterprise patterns (Kubernetes, microservices, heavy CI) to a solo project as the core mistake. Enterprise process exists to coordinate many people; alone, it just slows you down."
+  revisit={{ to: "/docs/solo/mindset#the-biggest-mistake", label: "The biggest mistake" }}
+/>
+
+<Question
+  prompt="In the inverted trade-offs table, what replaces 'multiple reviewers' on the personal side?"
+  options={[
+    { text: "Pair programming with AI" },
+    { text: "Async code review on GitHub" },
+    { text: "You are the reviewer" },
+    { text: "Skip review entirely, forever" }
+  ]}
+  correct={2}
+  explanation="Solo, you fill every reviewer role yourself. The page frames this as a feature — fast decisions — with the trade-off that nobody catches your bad calls, so you compensate by shipping early and iterating."
+  revisit={{ to: "/docs/solo/mindset#inverted-trade-offs", label: "Inverted trade-offs" }}
+/>
+
+<Question
+  prompt="Why does the page say enterprises need heavy process while solo developers don't?"
+  options={[
+    { text: "Enterprises have more demanding customers" },
+    { text: "Process keeps many people from stepping on each other" },
+    { text: "Solo work is inherently lower quality" },
+    { text: "Process is just a legal compliance requirement" }
+  ]}
+  correct={1}
+  explanation="Process is coordination overhead. Big companies need it because dozens of people are changing the same systems; a solo developer only has to coordinate with themselves."
+  revisit={{ to: "/docs/solo/mindset#the-personal-project-mindset", label: "Plain English intro" }}
+/>
+
+<Question
+  prompt="What planning horizon does the page recommend for personal projects?"
+  options={[
+    { text: "Plan for 5 years" },
+    { text: "Plan for 5 quarters" },
+    { text: "Plan for 5 weeks" },
+    { text: "Don't plan at all" }
+  ]}
+  correct={2}
+  explanation="The inverted trade-offs table swaps 'plan for 5 years' (enterprise) with 'plan for 5 weeks' (personal). Plan in proportion to the project's lifespan, not the textbook ideal."
+  revisit={{ to: "/docs/solo/mindset#inverted-trade-offs", label: "Inverted trade-offs" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Common Personal Project Types](./project-types) where we'll see how the workflow varies for portfolios, blogs, SaaS, tools, and learning projects.

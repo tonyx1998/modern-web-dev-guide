@@ -81,6 +81,64 @@ The labels matter because they imply wildly different effort. Confuse "blog with
 For the rest of this chapter, the workflow focuses on **Type 3 (hobby SaaS)** as the most complete example. Simpler project types just skip steps — a portfolio doesn't need [auth](./auth) or [payments](./payments), a learning project doesn't need [observability](./observability) or [a launch](./launching). Read the whole chapter, then mentally cross out what doesn't apply to your shape.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-project-types-page" title="Did the project types stick?" sampleSize={2}>
+
+<Question
+  prompt="Which project type does the rest of the chapter focus on as the most complete example?"
+  options={[
+    { text: "Type 1 (Portfolio Site)" },
+    { text: "Type 2 (Personal Blog)" },
+    { text: "Type 3 (Hobby SaaS)" },
+    { text: "Type 5 (Learning Project)" }
+  ]}
+  correct={2}
+  explanation="The chapter centers on Type 3 (hobby SaaS) because it's the most complete shape — auth, database, payments, deployment. Simpler types just skip steps."
+  revisit={{ to: "/docs/solo/project-types#five-common-shapes", label: "Five common shapes" }}
+/>
+
+<Question
+  prompt="Why does mislabeling a 'social fitness app' as a 'blog with maps' matter?"
+  options={[
+    { text: "Search engines won't index it correctly" },
+    { text: "You'll under-estimate effort by roughly 10x" },
+    { text: "The stack is essentially identical anyway" },
+    { text: "Friends won't understand what it does" }
+  ]}
+  correct={1}
+  explanation="The labels imply wildly different effort budgets. Confusing a static Type 2 blog with a Type 3 SaaS leads to massive estimation errors — the worked example calls out a 10x miss."
+  revisit={{ to: "/docs/solo/project-types#five-common-shapes", label: "Matching shape to project" }}
+/>
+
+<Question
+  prompt="What's the suggested stack for a Type 1 Portfolio Site?"
+  options={[
+    { text: "Next.js + Postgres + Clerk + Stripe" },
+    { text: "Astro + Tailwind + Markdown content" },
+    { text: "Vite + React + Cloudflare Pages" },
+    { text: "Whatever you're trying to learn" }
+  ]}
+  correct={1}
+  explanation="The portfolio is mostly static content, so Astro + Tailwind + Markdown is the natural fit. Full SaaS stacks would be overkill for a few pages that update rarely."
+  revisit={{ to: "/docs/solo/project-types#type-1-portfolio-site", label: "Portfolio stack" }}
+/>
+
+<Question
+  prompt="A Type 5 Learning Project is optimized for what?"
+  options={[
+    { text: "Shipping fast" },
+    { text: "Maximum users" },
+    { text: "Learning, possibly never to deploy" },
+    { text: "Long-term maintenance" }
+  ]}
+  correct={2}
+  explanation="Learning projects use whatever tech you want to learn, and may never even deploy. Be honest with yourself when this is the real goal — it changes which stack you pick."
+  revisit={{ to: "/docs/solo/project-types#type-5-learning-project", label: "Learning project" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 1: Planning](./planning) where we'll do the entire planning phase in an afternoon.

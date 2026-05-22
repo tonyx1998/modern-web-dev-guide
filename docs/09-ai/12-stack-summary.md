@@ -67,6 +67,64 @@ AI is now a standard layer in modern web apps, not an experimental novelty. The 
 
 The hard parts are cost management, evaluation, safety, and the new mental model of building with non-deterministic components. Treat AI features like any other production system — instrumented, tested, monitored — and they become reliable.
 
+## Page checkpoint
+
+<Quiz id="ai-stack-summary-page" title="Did the AI stack summary stick?" sampleSize={2}>
+
+<Question
+  prompt="In the 2026 'boring' AI stack, what's the default choice for vector storage in most apps?"
+  options={[
+    { text: "A dedicated vector DB like Pinecone, from day one" },
+    { text: "pgvector inside the existing Postgres database" },
+    { text: "A flat JSON file with cosine similarity computed in Node" },
+    { text: "Redis with vector modules" }
+  ]}
+  correct={1}
+  explanation="For most apps under ~10M vectors, pgvector is plenty. One database for relational and vector data keeps ops simple — only reach for a dedicated vector DB when you have a specific reason."
+  revisit={{ to: "/docs/ai/ai-stack-summary", label: "The boring stack table" }}
+/>
+
+<Question
+  prompt="What does 'spending an innovation token' mean in the context of deviating from the boring stack?"
+  options={[
+    { text: "You have to pay extra to use newer tools" },
+    { text: "Every deviation from boring defaults costs team complexity and learning effort — spend it deliberately, only when the boring choice genuinely doesn't fit" },
+    { text: "Innovation tokens are a feature flag system" },
+    { text: "You must wait a quarter between adoption decisions" }
+  ]}
+  correct={1}
+  explanation="Innovation tokens are a metaphor: novelty has a real cost in team capacity. Pick LangGraph, Temporal, or a specialty vector DB only when you have a concrete reason the boring choice fails."
+  revisit={{ to: "/docs/ai/ai-stack-summary", label: "Innovation tokens" }}
+/>
+
+<Question
+  prompt="Which scenario is a reasonable trigger to move OFF the default pgvector + hosted-model setup?"
+  options={[
+    { text: "You shipped your first AI feature last week" },
+    { text: "You have strict data-residency requirements, or sustained high volume where the cost math flips" },
+    { text: "You read a blog post praising another stack" },
+    { text: "Your dev who knows pgvector left the company" }
+  ]}
+  correct={1}
+  explanation="The page lists concrete reasons: data residency, sustained volume that justifies self-hosted, >10M vectors, agents with branching state, agents that must survive crashes. These are deliberate trade-offs, not vibes."
+  revisit={{ to: "/docs/ai/ai-stack-summary", label: "When to deviate" }}
+/>
+
+<Question
+  prompt="The chapter wrap-up frames cost, evaluation, and safety as the 'hard parts' of building AI. What's the common thread across all three?"
+  options={[
+    { text: "They are all solved by picking a better model" },
+    { text: "They all force you to engineer around the fact that the LLM is a non-deterministic component — instrumented, tested, monitored — just like any other production system" },
+    { text: "They are unique problems that don't apply to non-AI systems" },
+    { text: "They are pure ML research problems, not software engineering" }
+  ]}
+  correct={1}
+  explanation="The mental shift is treating the LLM as a non-deterministic production dependency. Once you instrument, eval, monitor, and guardrail it like any other critical system, AI features become reliable."
+  revisit={{ to: "/docs/ai/ai-stack-summary#wrapping-up-part-9", label: "Wrapping up Part 9" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Chapter 10: Career Path](/docs/career) — paths and learning resources for becoming (or staying) a great web developer in the AI era.

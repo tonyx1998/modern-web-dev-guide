@@ -56,6 +56,64 @@ Total time from report to root cause: under a minute. Without Sentry: you'd ask 
 Every solo developer who skips Sentry on day one regrets it the first time a real user hits a bug. The whole point of telemetry is that *you only need it after something has already broken* — at which point you can't add it retroactively. Five minutes now saves a debugging nightmare later.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-observability-page" title="Did observability stick?" sampleSize={2}>
+
+<Question
+  prompt="Which tool covers which job in the three-tool solo stack?"
+  options={[
+    { text: "Sentry: traffic; Vercel Analytics: errors; PostHog: uptime" },
+    { text: "Sentry: errors; Vercel Analytics: traffic; PostHog: product behavior" },
+    { text: "Sentry: payments; Vercel Analytics: errors; PostHog: search" },
+    { text: "Sentry: uptime; Vercel Analytics: SEO; PostHog: deploys" }
+  ]}
+  correct={1}
+  explanation="Sentry catches exceptions with stack traces. Vercel Analytics shows page views, referrers, and web vitals. PostHog captures product events like 'user did X.' Together they cover almost everything a solo project needs."
+  revisit={{ to: "/docs/solo/observability#the-three-tool-stack", label: "Three-tool stack" }}
+/>
+
+<Question
+  prompt="Why should you set up Sentry BEFORE you ship, not after?"
+  options={[
+    { text: "It's cheaper if installed early" },
+    { text: "You can't add telemetry retroactively after a bug already happened" },
+    { text: "Sentry won't accept new projects with existing traffic" },
+    { text: "Vercel requires it as a deployment dependency" }
+  ]}
+  correct={1}
+  explanation="The whole point of telemetry is having it ready *before* something breaks. After the fact, you can't go back in time and capture the stack trace of yesterday's bug — the data simply doesn't exist."
+  revisit={{ to: "/docs/solo/observability#sentry-for-errors", label: "Set it up before you ship" }}
+/>
+
+<Question
+  prompt="What does the Sentry wizard command do?"
+  options={[
+    { text: "Generates a marketing landing page" },
+    { text: "Configures Sentry in your Next.js project automatically" },
+    { text: "Imports historical errors from production logs" },
+    { text: "Replaces ESLint with Biome" }
+  ]}
+  correct={1}
+  explanation="bunx @sentry/wizard@latest -i nextjs wires Sentry into the project — config files, env vars, source map upload — so exceptions show up in the Sentry dashboard with stack traces and breadcrumbs."
+  revisit={{ to: "/docs/solo/observability#sentry-for-errors", label: "Sentry wizard" }}
+/>
+
+<Question
+  prompt="What does Better Stack's free tier provide in this stack?"
+  options={[
+    { text: "Product analytics" },
+    { text: "Uptime monitoring with email alerts" },
+    { text: "Error tracking with breadcrumbs" },
+    { text: "Web vitals reporting" }
+  ]}
+  correct={1}
+  explanation="Better Stack's free tier pings your homepage every 3 minutes and emails you on failure. That covers the 'is the site even up?' question that Sentry alone won't answer."
+  revisit={{ to: "/docs/solo/observability#uptime-monitoring-optional", label: "Uptime monitoring" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 9: Launching](./launching) where we'll soft-launch to friends, Hacker News, and Indie Hackers.

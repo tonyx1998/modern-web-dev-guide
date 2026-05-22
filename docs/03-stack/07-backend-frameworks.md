@@ -152,6 +152,64 @@ For most small-to-medium full-stack apps, the answer is *no*. Next.js (or Remix/
 This single integration eliminates a *lot* of complexity — no separate auth setup, no separate deploy pipeline, no CORS, no cross-service debugging. Only split frontend and backend when you have a clear reason (e.g., a mobile app sharing the API).
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-backend-frameworks-page" title="Did backend frameworks stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the page's first question to ask before picking a backend framework for a new full-stack app in 2026?"
+  options={[
+    { text: "Which framework wins the latest benchmark?" },
+    { text: "Do I even need a separate backend, or can Next.js (or Remix/SvelteKit/Nuxt) handle both sides?" },
+    { text: "Is GraphQL or REST faster on this hardware?" },
+    { text: "Do I want to write the backend in Go or in Rust?" }
+  ]}
+  correct={1}
+  explanation="For most small-to-medium full-stack apps the answer is no — Server Actions and route handlers cover the backend. Skipping a separate backend eliminates a lot of complexity (auth, deploys, CORS, cross-service debugging)."
+  revisit={{ to: "/docs/stack/backend-frameworks#nextjs-as-a-backend", label: "Next.js as backend" }}
+/>
+
+<Question
+  prompt="What is Hono's distinguishing feature among TypeScript backend frameworks?"
+  options={[
+    { text: "It's the only framework with built-in ORM support" },
+    { text: "It's tiny and runs on any JS runtime: Node, Bun, Deno, Cloudflare Workers, Vercel, AWS Lambda" },
+    { text: "It only runs on Cloudflare Workers" },
+    { text: "It uses decorators and dependency injection like NestJS" }
+  ]}
+  correct={1}
+  explanation="Hono is ultra-light (~14KB core) and runtime-portable: the same handler boots on Node, Bun, Deno, Cloudflare Workers, Vercel, or AWS Lambda. Write once, deploy almost anywhere."
+  revisit={{ to: "/docs/stack/backend-frameworks#hono--the-2026-rising-star", label: "Hono section" }}
+/>
+
+<Question
+  prompt="When is NestJS the better TypeScript backend pick over Hono or Fastify?"
+  options={[
+    { text: "When you want the smallest possible bundle on Cloudflare Workers" },
+    { text: "When you want maximum freedom and minimal conventions" },
+    { text: "Larger teams or teams with a Java/Spring background that benefit from strong, opinionated conventions" },
+    { text: "When the app is a single static page with no backend logic" }
+  ]}
+  correct={2}
+  explanation="NestJS is opinionated and modular, with decorators and DI — Angular-style. It shines for larger teams or backgrounds (Java/Spring) that want strict conventions rather than minimalist freedom."
+  revisit={{ to: "/docs/stack/backend-frameworks#nestjs", label: "NestJS section" }}
+/>
+
+<Question
+  prompt="In FastAPI, what role does Pydantic play in a request handler?"
+  options={[
+    { text: "It runs the database migrations on startup" },
+    { text: "It declares typed request/response models so invalid bodies get auto-rejected with 422 before your code runs" },
+    { text: "It generates the SQL for your queries" },
+    { text: "It handles authentication and authorization" }
+  ]}
+  correct={1}
+  explanation="Pydantic models declare the expected shape of inputs. FastAPI validates incoming bodies against them and returns 422 automatically if validation fails — and uses the same models to auto-generate OpenAPI docs."
+  revisit={{ to: "/docs/stack/backend-frameworks#fastapi-python", label: "FastAPI section" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [APIs](./apis) — the protocols and conventions for how clients and servers actually talk to each other.

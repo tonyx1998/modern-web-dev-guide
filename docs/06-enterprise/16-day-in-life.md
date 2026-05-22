@@ -77,6 +77,64 @@ A useful frame: **the more senior you are, the more your time is fragmented**. A
 That's not "growing into a worse job" — it's "growing into a higher-leverage job." But it does mean senior ICs have to actively manage their calendars and protect focus time, or they'll never code at all.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-day-in-life-page" title="Did the day-in-the-life stick?" sampleSize={2}>
+
+<Question
+  prompt="Roughly what fraction of a senior enterprise engineer's day is spent writing code?"
+  options={[
+    { text: "80–90% — most of the day" },
+    { text: "60–70%" },
+    { text: "30–40% — the rest is reviews, design discussions, mentoring, and on-call work" },
+    { text: "Less than 5%" }
+  ]}
+  correct={2}
+  explanation="Senior engineers at scale typically spend 30–40% of the day coding. The rest is reviews (~20%), meetings and design (~20%), mentoring (~10%), and incident/on-call work (~10%). Staff and Principal engineers tend to code even less."
+  revisit={{ to: "/docs/enterprise/day-in-life#the-work-mix", label: "Work mix" }}
+/>
+
+<Question
+  prompt="What is the key cultural shift from mid-level to senior IC?"
+  options={[
+    { text: "Your output is measured in code shipped, just at a higher pace" },
+    { text: "Your output is measured by how much better the work of engineers around you becomes — leverage, not personal volume" },
+    { text: "You become a people manager" },
+    { text: "You stop attending meetings" }
+  ]}
+  correct={1}
+  explanation="The hardest part of the transition is letting go of 'I should be coding more' as the success metric. A staff engineer who shipped no code but unblocked three teams via design feedback delivered enormous value. The right metric is 'is my org's overall output increasing?'"
+  revisit={{ to: "/docs/enterprise/day-in-life#the-work-mix", label: "Leverage" }}
+/>
+
+<Question
+  prompt="What pattern in calendar focus changes as engineers grow more senior?"
+  options={[
+    { text: "Their calendars become emptier" },
+    { text: "Their time becomes more fragmented — a principal might get only one or two undisturbed hours per week" },
+    { text: "They only attend morning meetings" },
+    { text: "They block out entire days for deep work" }
+  ]}
+  correct={1}
+  explanation="The more senior you are, the more fragmented your time is. A junior might get two big focus blocks per day; a principal might get one or two undisturbed hours per week and has to deliberately protect them. That's higher leverage, but it requires active calendar management."
+  revisit={{ to: "/docs/enterprise/day-in-life#worked-example", label: "Fragmentation" }}
+/>
+
+<Question
+  prompt="Which activity is conspicuously absent from the example schedule but happens regularly in practice?"
+  options={[
+    { text: "Code reviews" },
+    { text: "On-call shifts — typically a week at a time, every 4–8 weeks" },
+    { text: "Stand-ups" },
+    { text: "Lunch" }
+  ]}
+  correct={1}
+  explanation="The example schedule shows a typical day, but on-call shifts (a week at a time, every 4–8 weeks), game days, RFC writing, and cross-team alignment meetings are real recurring commitments that don't fit in any single day's calendar."
+  revisit={{ to: "/docs/enterprise/day-in-life#whats-not-on-this-schedule", label: "What's missing" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [When to Use This Workflow](./when-to-use) — which of these enterprise practices to adopt at your scale, and which to skip.

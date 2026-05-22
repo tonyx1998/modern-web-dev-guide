@@ -65,6 +65,64 @@ The naive math: "We could run that on $400K/year of EC2." But:
 Net: self-hosting "saves $3.6M" and costs $3M+ in headcount, *plus* features lost, *plus* risk. Usually a wash or worse. Most enterprises that *do* self-host are at a scale where they need features the SaaS doesn't offer — not because it's cheaper.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-cost-picture-page" title="Did the cost picture stick?" sampleSize={2}>
+
+<Question
+  prompt="At enterprise scale, how does engineering payroll compare to cloud infrastructure spend?"
+  options={[
+    { text: "Cloud spend is typically 5–10x larger than payroll" },
+    { text: "They're roughly equal" },
+    { text: "Payroll dwarfs infrastructure — often 3–5x larger, even at a $30M/month cloud bill" },
+    { text: "Payroll is usually only 10% of total tech spend" }
+  ]}
+  correct={2}
+  explanation="The shock isn't how big enterprise cloud bills are — it's how small they are relative to payroll. A 1,000-engineer org costs $300M+/year in fully-loaded comp, while a $30M/month AWS bill is a fraction of that. Infrastructure is typically 20–30% of total tech spend."
+  revisit={{ to: "/docs/enterprise/cost-picture#people-dominate", label: "People dominate" }}
+/>
+
+<Question
+  prompt="What is the central FinOps insight the page argues for?"
+  options={[
+    { text: "Always pick the cheapest infrastructure option" },
+    { text: "Engineering time is your most expensive resource by a wide margin — it's almost always worth spending more on infra to save engineering hours" },
+    { text: "Only optimize the top three cost line items" },
+    { text: "Always self-host to control costs" }
+  ]}
+  correct={1}
+  explanation="A $500K/year tool that saves 1,000 engineers an hour a week is a massive win. People who treat the cloud bill in isolation make decisions that cost the company net money; people who optimize total cost (infra + engineering time) make the right call almost every time."
+  revisit={{ to: "/docs/enterprise/cost-picture#people-dominate", label: "FinOps insight" }}
+/>
+
+<Question
+  prompt="The worked example concludes that self-hosting Datadog usually isn't worth it. Why?"
+  options={[
+    { text: "Datadog is the cheapest SaaS on the market" },
+    { text: "Open-source observability at scale needs ~5 dedicated engineers (~$3M/year), and you lose features and take on on-call burden — usually a wash or worse" },
+    { text: "Datadog has an exclusivity contract" },
+    { text: "Self-hosting is technically impossible at scale" }
+  ]}
+  correct={1}
+  explanation="The naive math says self-hosting saves $3.6M. The real math includes ~$3M in headcount for a dedicated observability team, lost features (anomaly detection, ML alerting), and the on-call burden of running your own critical infrastructure. Usually a wash or worse."
+  revisit={{ to: "/docs/enterprise/cost-picture#worked-example", label: "Self-host trade-off" }}
+/>
+
+<Question
+  prompt="Which line item is described as 'shockingly expensive' at high data volumes?"
+  options={[
+    { text: "Compute (EKS, EC2)" },
+    { text: "Storage" },
+    { text: "Observability (Datadog, Splunk) — millions per month are routine" },
+    { text: "CDN" }
+  ]}
+  correct={2}
+  explanation="Observability bills in the millions per month are routine at large scale. The volume of metrics, logs, and traces from hundreds of services adds up fast — which is why log sampling, trace sampling, and retention policies become real engineering decisions, not afterthoughts."
+  revisit={{ to: "/docs/enterprise/cost-picture#where-the-spend-really-goes", label: "Spend patterns" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Common Pitfalls Even at This Scale](./pitfalls) — what still goes wrong even with all this investment.

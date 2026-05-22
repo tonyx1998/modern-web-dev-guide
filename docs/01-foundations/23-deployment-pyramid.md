@@ -93,6 +93,64 @@ flowchart TD
 
 > **Reading this diagram:** It's a debugging checklist as a flowchart. You walk *down* the pipeline asking "did this layer do its job?" until you find the broken one. You'll repeat variations of this dance dozens of times in a career. Each layer is a place to look.
 
+## Page checkpoint
+
+<Quiz id="deployment-pyramid-page" title="Did the deployment pyramid stick?" sampleSize={2}>
+
+<Question
+  prompt="What does it mean that the SAME 8-stage pyramid applies to both a solo blog and a Google-scale deployment?"
+  options={[
+    { text: "Both use identical tools at every stage" },
+    { text: "The stages (source, CI, artifact, registry, CD, runtime, CDN, DNS) are the same — what differs is the amount of automation, gating, and ceremony at each one" },
+    { text: "The solo developer doesn't need a runtime" },
+    { text: "Only Google actually uses all 8 stages; smaller teams skip most of them" }
+  ]}
+  correct={1}
+  explanation="A solo developer typing 'git push' triggers all 8 stages, just with default tooling and zero ceremony. An enterprise deploys through the same stages but with approval gates, signed artifacts, progressive rollouts, etc."
+  revisit={{ to: "/docs/foundations/deployment-pyramid#the-same-shape-at-every-scale", label: "Same shape at every scale" }}
+/>
+
+<Question
+  prompt="In the deployment pipeline, what is a 'build artifact'?"
+  options={[
+    { text: "The Git commit that triggered the build" },
+    { text: "A packaged, immutable output of your code — like a Docker image, a static bundle, or a serverless function zip — that's what actually gets deployed" },
+    { text: "A leftover file from CI that should be deleted" },
+    { text: "An old version of the source code archived for history" }
+  ]}
+  correct={1}
+  explanation="The artifact is what gets shipped: Docker image, static folder, function package, or compiled binary. It's immutable — once built, it never changes. Different versions are different artifacts stored in a registry."
+  revisit={{ to: "/docs/foundations/deployment-pyramid#the-pyramid", label: "Build artifact stage" }}
+/>
+
+<Question
+  prompt="Production breaks after a deploy. Why is knowing the 8 stages a debugging superpower?"
+  options={[
+    { text: "It lets you skip layers you don't like" },
+    { text: "It gives you a checklist — you walk the pipeline asking 'did this layer do its job?' until you find the broken one, instead of guessing randomly" },
+    { text: "It tells the CDN to retry on its own" },
+    { text: "It eliminates the need to read logs" }
+  ]}
+  correct={1}
+  explanation="A failure could be in any of source, CI, artifact, registry, CD, runtime, CDN, or DNS. Knowing the stages turns debugging into a systematic walk down the pipeline instead of a wild guess."
+  revisit={{ to: "/docs/foundations/deployment-pyramid#a-real-world-failure-narrative", label: "Why deployment problems are hard" }}
+/>
+
+<Question
+  prompt="The same change takes 30 seconds to ship at a solo project and several hours (with approval gates) at a large enterprise. Why?"
+  options={[
+    { text: "Enterprise computers are slower" },
+    { text: "At small scale, speed wins. At enterprise scale, safety wins — manual approvals, gradual rollouts, and kill switches are worth slowing down for when failure costs millions" },
+    { text: "Enterprises legally require multi-hour deploys" },
+    { text: "Solo developers skip stages 2 through 7" }
+  ]}
+  correct={1}
+  explanation="The right pyramid for a project depends on what failure costs. A bug in your side project is annoying; a bug in a payment system serving millions is catastrophic. Mature engineering automates everything that's safe to automate."
+  revisit={{ to: "/docs/foundations/deployment-pyramid#the-same-shape-at-every-scale", label: "Optimization isn't always faster" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Deployment Stages, Explained](./deployment-stages) where we walk through each of the eight stages in detail with concrete tooling examples.

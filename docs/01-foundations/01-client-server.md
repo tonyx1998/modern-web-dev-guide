@@ -117,6 +117,64 @@ It's all just clients and servers, all the way down.
 The web is a **conversation between computers**. Every problem you'll ever debug can be reframed as: *"Whose turn was it to talk, and what did they actually say?"* — and DevTools shows you that conversation in real time.
 :::
 
+## Page checkpoint
+
+<Quiz id="client-server-page" title="Did client/server stick?" sampleSize={2}>
+
+<Question
+  prompt="In the client/server model, what initiates the conversation?"
+  options={[
+    { text: "The server, by polling clients for work" },
+    { text: "The client, by sending a request" },
+    { text: "The DNS resolver, by broadcasting addresses" },
+    { text: "Both sides simultaneously" }
+  ]}
+  correct={1}
+  explanation="The client always starts the conversation. The server is passive — it sits and listens, then responds when asked."
+  revisit={{ to: "/docs/foundations/client-server#the-core-idea", label: "Client/server — the core idea" }}
+/>
+
+<Question
+  prompt="When your backend calls Stripe's API, which role is your backend playing?"
+  options={[
+    { text: "Server only" },
+    { text: "Client (it's the side initiating the request to Stripe)" },
+    { text: "Both — it's a peer connection" },
+    { text: "Neither — it's a database query" }
+  ]}
+  correct={1}
+  explanation="Client and server are roles per conversation, not fixed identities. Your backend is a server to the browser AND a client to Stripe."
+  revisit={{ to: "/docs/foundations/client-server#what-is-a-client", label: "What is a client?" }}
+/>
+
+<Question
+  prompt="Why does the FIRST request to a brand-new site feel slow even on fast networks?"
+  options={[
+    { text: "The server is far away" },
+    { text: "Three round-trip handshakes (DNS, TCP, TLS) happen before any HTTP byte moves" },
+    { text: "Browsers throttle the first request to save battery" },
+    { text: "The HTML is always large" }
+  ]}
+  correct={1}
+  explanation="Before the browser can even ask for the HTML, it pays for DNS lookup + TCP handshake + TLS handshake. Each is a network round-trip — on flaky networks, those stack up."
+  revisit={{ to: "/docs/foundations/client-server#a-real-conversation-end-to-end", label: "A real conversation, end-to-end" }}
+/>
+
+<Question
+  prompt="What's the most useful single browser tool for debugging client/server conversations?"
+  options={[
+    { text: "The Console tab" },
+    { text: "The Network tab in DevTools" },
+    { text: "The Memory profiler" },
+    { text: "The Performance recorder" }
+  ]}
+  correct={1}
+  explanation="The Network tab shows every request and response — method, status, headers, body, timing. Most webapp bugs become obvious here within seconds."
+  revisit={{ to: "/docs/foundations/client-server#a-real-conversation-end-to-end", label: "Try it in DevTools" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [HTTP & HTTPS Basics](./http-basics) where we'll look at the *language* clients and servers use to talk.

@@ -70,6 +70,64 @@ A rough adoption pattern for security investment:
 Each step is triggered by a specific business event — a customer requirement, a regulatory deadline, a security incident — not by general aspiration.
 :::
 
+## Page checkpoint
+
+<Quiz id="comparison-ops-page" title="Did ops across scales stick?" sampleSize={2}>
+
+<Question
+  prompt="Which observability tool most clearly separates 'small company' from 'large company'?"
+  options={[
+    { text: "Error tracking (Sentry)" },
+    { text: "Uptime monitoring" },
+    { text: "Distributed tracing" },
+    { text: "Vercel Analytics RUM" }
+  ]}
+  correct={2}
+  explanation="Distributed tracing is the dividing line. With one or two services, logs and Sentry suffice. Once you have ten-plus services, traces are the only way to debug a slow request that crosses many hops."
+  revisit={{ to: "/docs/comparison/ops#observability", label: "Distributed tracing is the dividing line" }}
+/>
+
+<Question
+  prompt="What typically triggers a small company to pursue SOC 2 Type II?"
+  options={[
+    { text: "General aspiration to be more secure" },
+    { text: "A specific business event such as a customer requirement or regulatory deadline, usually around 20–30 employees" },
+    { text: "Reaching 100 engineers" },
+    { text: "The first hire of a dedicated security engineer" }
+  ]}
+  correct={1}
+  explanation="Security investments step up in response to specific business events — typically a mid-market customer requirement around 20–30 employees prompts the SOC 2 Type II project, not general aspiration."
+  revisit={{ to: "/docs/comparison/ops#security-and-compliance", label: "When each tier becomes worth it" }}
+/>
+
+<Question
+  prompt="How does on-call typically scale from solo to enterprise?"
+  options={[
+    { text: "Solo: 24/7 follow-the-sun. Startup: informal rotation. Enterprise: none" },
+    { text: "Solo: none. Startup: informal rotation. Enterprise: 24/7 follow-the-sun via PagerDuty/Opsgenie" },
+    { text: "All three run formal 24/7 rotations from day one" },
+    { text: "Solo and startup both use PagerDuty; enterprises rely on Slack alerts" }
+  ]}
+  correct={1}
+  explanation="A solo dev has no on-call. Startups run informal rotations with Slack or email alerts. Enterprises run 24/7 follow-the-sun rotations through PagerDuty or Opsgenie, with formal post-mortems for SEV1/SEV2 incidents."
+  revisit={{ to: "/docs/comparison/ops#observability", label: "Observability" }}
+/>
+
+<Question
+  prompt="Why does the cost of being wrong about reliability and security grow so dramatically with scale?"
+  options={[
+    { text: "Enterprises just have more expensive tools, so each outage costs more in licenses" },
+    { text: "The impact roughly tracks the square of your user count — missed alerts can mean SLA breaches, regulatory fines, and front-page news" },
+    { text: "Solo developers technically have the highest exposure because they have no insurance" },
+    { text: "It does not actually grow with scale; the article overstates the gap" }
+  ]}
+  correct={1}
+  explanation="The cost of being wrong about reliability or security roughly grows with the square of user count. A missed alert ships a bug to yourself when solo, to a few customers at a startup, and to millions plus regulators at enterprise scale."
+  revisit={{ to: "/docs/comparison/ops#observability", label: "In plain English" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Economics](./economics) — what each scale actually costs, and how long changes take to reach users.

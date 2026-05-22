@@ -110,6 +110,64 @@ None is "wrong." But this is the kind of decision that lives on the boundary bet
 "Just use Cloudflare Workers" looks like the obvious answer until you discover Node-specific libraries that don't work, runtime memory limits that bite mid-development, and an ecosystem that's smaller than Vercel's. Pattern C is the right call for global low-latency apps from day one, but it's a real commitment — not a minor tweak.
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-deployment-page" title="Did deployment patterns stick?" sampleSize={2}>
+
+<Question
+  prompt="Which hosting pattern does the page describe as the most popular default for a small SaaS in 2026?"
+  options={[
+    { text: "Pattern A: Vercel + Supabase (Next.js on Vercel's edge, Postgres and friends on Supabase)" },
+    { text: "Pattern B: Railway/Render containers with predictable bills" },
+    { text: "Pattern C: Cloudflare Pages, Workers, D1, and R2" },
+    { text: "A self-hosted Kubernetes cluster on AWS" }
+  ]}
+  correct={0}
+  explanation="Pattern A — Vercel + Supabase — is the most popular: easiest, fastest, best DX, and scales smoothly. The trade-off is potentially spiky bills and some lock-in."
+  revisit={{ to: "/docs/startup/deployment#pattern-a-vercel--supabase-most-popular", label: "Pattern A" }}
+/>
+
+<Question
+  prompt="When does the page suggest Railway or Render is the better choice over Vercel?"
+  options={[
+    { text: "When you need global edge presence from day one" },
+    { text: "When you need predictable bills or long-running processes like WebSocket servers" },
+    { text: "When you want to avoid using containers" },
+    { text: "When you have under 100 daily active users" }
+  ]}
+  correct={1}
+  explanation="Railway/Render charge for compute rather than per request, giving predictable bills, and they support long-running processes that serverless can't. The trade-off is no global edge by default."
+  revisit={{ to: "/docs/startup/deployment#pattern-b-railway--render-more-flexible", label: "Pattern B" }}
+/>
+
+<Question
+  prompt="What is the main caveat the page raises about Cloudflare-first deployment?"
+  options={[
+    { text: "Cloudflare doesn't support TypeScript" },
+    { text: "Edge runtime constraints — smaller compute, no long-running processes, and a smaller library ecosystem" },
+    { text: "It requires a separate paid CDN" },
+    { text: "It can't host static sites" }
+  ]}
+  correct={1}
+  explanation="Pattern C is genuinely cheap, fast, and globally distributed, but Workers run a stripped-down runtime: Node-specific libraries fail, memory is limited, and long-running processes aren't possible. It's a real commitment, not a minor tweak."
+  revisit={{ to: "/docs/startup/deployment#pattern-c-cloudflare-first-edge-native", label: "Edge constraints" }}
+/>
+
+<Question
+  prompt="In the surprise-bill worked example, which option does the page call out as often the right answer?"
+  options={[
+    { text: "Immediately migrate the entire app to Cloudflare Workers" },
+    { text: "Add aggressive caching to bring function invocations down" },
+    { text: "Stop using a CDN" },
+    { text: "Sue Vercel for the bill increase" }
+  ]}
+  correct={1}
+  explanation="The page lists three options after a Vercel bill spike: absorb the cost, add aggressive caching to reduce invocations, or move to Railway for predictable billing. Caching is often the right answer."
+  revisit={{ to: "/docs/startup/deployment#pattern-c-cloudflare-first-edge-native", label: "Surprise bill example" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 9: Observability](./observability) where Sentry, logs, uptime, and product analytics combine into a real production-monitoring story.

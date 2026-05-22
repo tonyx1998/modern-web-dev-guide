@@ -111,6 +111,64 @@ Day 3: Build settings screen + `/api/settings` endpoint. End-to-end working.
 You discover integration issues *immediately*, not in week 3. You ship visible value every day.
 :::
 
+## Page checkpoint
+
+<Quiz id="lifecycle-implementation-page" title="Did implementation stick?" sampleSize={2}>
+
+<Question
+  prompt="What does the page mean by 'vertical slices, not horizontal layers'?"
+  options={[
+    { text: "Write all the CSS first, then all the JavaScript" },
+    { text: "Build one feature end-to-end (UI to API to DB) before starting the next" },
+    { text: "Split code into vertical files like .vue or .svelte" },
+    { text: "Deploy to a different server for each layer" }
+  ]}
+  correct={1}
+  explanation="Vertical slices surface integration problems immediately and ship visible value every day. Horizontal layering hides nasty issues until late, when fixing them is expensive."
+  revisit={{ to: "/docs/lifecycle/implementation#six-implementation-best-practices", label: "Vertical slices vs horizontal layers" }}
+/>
+
+<Question
+  prompt="The page summarizes a classic order of priorities as 'make it work, then make it right, then make it fast.' What does this imply about optimization?"
+  options={[
+    { text: "Optimize early so the code is fast from day one" },
+    { text: "Optimization is the last step; premature optimization wastes time and obscures intent" },
+    { text: "Skip optimization entirely — modern hardware is fast enough" },
+    { text: "Optimize only after code review" }
+  ]}
+  correct={1}
+  explanation="Working code beats fast-but-broken code. Get it correct, then clean it up, then — only if there's a real performance problem — optimize."
+  revisit={{ to: "/docs/lifecycle/implementation#six-implementation-best-practices", label: "Work, right, fast" }}
+/>
+
+<Question
+  prompt="In the page's view, what makes a senior developer benefit most from AI coding assistance?"
+  options={[
+    { text: "Seniors can type faster than juniors" },
+    { text: "Seniors can spot when AI-generated code is wrong" },
+    { text: "Only seniors have access to paid AI tools" },
+    { text: "Seniors write more boilerplate than juniors" }
+  ]}
+  correct={1}
+  explanation="AI amplifies whoever drives it. Reading and judging code becomes the bottleneck — and that's exactly the skill seniors have spent years sharpening."
+  revisit={{ to: "/docs/lifecycle/implementation#pair-programming-and-ai-assistance", label: "AI is a power amplifier" }}
+/>
+
+<Question
+  prompt="Which of these is flagged as a common implementation anti-pattern?"
+  options={[
+    { text: "Matching the existing codebase's style" },
+    { text: "Handling loading, error, and empty states on every screen" },
+    { text: "Premature abstraction — building flexibility for use cases you may never have" },
+    { text: "Reading more code than you write" }
+  ]}
+  correct={2}
+  explanation="Speculative abstractions usually misfit the real future requirements when they arrive. Build for today's needs; refactor when patterns actually emerge."
+  revisit={{ to: "/docs/lifecycle/implementation#common-anti-patterns", label: "Implementation anti-patterns" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 6: Testing](./testing) where we prove the code actually works (and stays working as it changes).

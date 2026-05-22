@@ -56,6 +56,64 @@ These are byte-for-byte identical today. Extracting a `formatFullName` helper fe
 Extract duplication when the *concept* is the same. Leave it alone when only the *code* is.
 :::
 
+## Page checkpoint
+
+<Quiz id="decisions-two-versions-page" title="Did the two-versions rule stick?" sampleSize={2}>
+
+<Question
+  prompt="`formatUserName(user)` and `formatLegalName(person)` are byte-for-byte identical today. The chapter argues you should:"
+  options={[
+    { text: "Extract them into a shared helper immediately — that's what DRY demands" },
+    { text: "Leave them separate — they answer different questions and will likely diverge (middle names, suffixes for legal)" },
+    { text: "Add a flag parameter to a shared helper to handle both cases" },
+    { text: "Inline the logic at every call site to avoid any abstraction" }
+  ]}
+  correct={1}
+  explanation="Same code, different concepts. The chapter's rule: extract when the concept is the same, leave alone when only the code is. Legal names will need middle names and suffixes; user display names won't."
+  revisit={{ to: "/docs/decisions/two-versions#approaches", label: "When duplication is two concerns" }}
+/>
+
+<Question
+  prompt="You have a Postgres table, a TypeScript interface, and a Zod schema that all describe the same User shape. The chapter's WRONG answer is:"
+  options={[
+    { text: "Generate the TS type and Zod schema from the DB schema (Drizzle/Prisma)" },
+    { text: "Generate the DB schema from a Zod source of truth" },
+    { text: "Half-share them via inheritance or a shared base interface that doesn't reflect the real relationship" },
+    { text: "Keep all three by hand, accepting the duplication" }
+  ]}
+  correct={2}
+  explanation="The chapter calls out exactly this anti-pattern: partial sharing via inheritance gives you the cost of coupling without the benefit of one source of truth. The other three are all defensible designs."
+  revisit={{ to: "/docs/decisions/two-versions#approaches", label: "Worked example: three shapes" }}
+/>
+
+<Question
+  prompt="The chapter says duplication is a smell, but the fix isn't always extraction. What are the four valid responses it lists?"
+  options={[
+    { text: "Extract / pick a canonical source / generate one from the other / accept coincidental duplication" },
+    { text: "Always extract / always inline / always abstract / always copy" },
+    { text: "Ignore it / delete one / merge them / refactor the whole module" },
+    { text: "File a ticket and forget about it" }
+  ]}
+  correct={0}
+  explanation="The four approaches: classic extraction, canonical source (DB is truth), code generation (types from schemas), and accepting truly coincidental similarity as separate concerns."
+  revisit={{ to: "/docs/decisions/two-versions#approaches", label: "Approaches" }}
+/>
+
+<Question
+  prompt="How does the chapter distinguish 'real' duplication from accidental similarity?"
+  options={[
+    { text: "By line count — anything over 5 lines must be extracted" },
+    { text: "Same concept expressed in multiple places = real; same syntax but different concerns = accidental" },
+    { text: "Whichever the linter flags is real duplication" },
+    { text: "Real duplication only exists across files, not within them" }
+  ]}
+  correct={1}
+  explanation="The trick is conceptual, not syntactic. Two functions describing the same idea should be unified; two functions that just happen to read similarly today should usually stay separate because they'll diverge."
+  revisit={{ to: "/docs/decisions/two-versions#approaches", label: "Real vs accidental duplication" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The Premature Optimization Principle](./premature-optimization) — make it work, then right, then fast.

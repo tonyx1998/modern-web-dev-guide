@@ -65,6 +65,64 @@ The formula also keeps you honest in the other direction. Example: a "huge migra
 The point of the calculation isn't to greenlight every refactor — it's to make both sides of the trade-off visible.
 :::
 
+## Page checkpoint
+
+<Quiz id="decisions-cost-of-inaction-page" title="Did cost of inaction stick?" sampleSize={2}>
+
+<Question
+  prompt="Your CI takes 15 minutes instead of 3. Ten engineers run it 4x/day. The chapter calculates roughly $24,000/month of lost productivity. A one-engineer-week fix costs ~$3,000. The chapter's recommendation:"
+  options={[
+    { text: "Wait until you have spare capacity — refactors aren't urgent" },
+    { text: "Do it now — payback is about 3 days" },
+    { text: "Only fix it if a senior engineer volunteers" },
+    { text: "Document the slowness and move on" }
+  ]}
+  correct={1}
+  explanation="The math is overwhelming: $3k cost vs $24k/month savings. The chapter's general rule is that if cost of inaction exceeds cost of doing × 12 months, you do it now."
+  revisit={{ to: "/docs/decisions/cost-of-inaction#concrete-example", label: "Concrete example" }}
+/>
+
+<Question
+  prompt="A proposed ORM migration would take 6 engineer-months (~$75k) and save about 5 minutes per developer per week across 10 devs. What does the chapter conclude?"
+  options={[
+    { text: "Do it — any productivity gain is worth it" },
+    { text: "Skip it — payback is 12+ years; the math doesn't work" },
+    { text: "Do it next quarter when there's more time" },
+    { text: "Do half the migration to capture some of the gains" }
+  ]}
+  correct={1}
+  explanation="The Highlight does this calc: 5min × 10 devs × 50 weeks ≈ 40 hours/year ≈ $6k saved against $75k spent. Payback is over a decade. The cost-of-inaction framework also says no — it keeps you honest both ways."
+  revisit={{ to: "/docs/decisions/cost-of-inaction#the-trap", label: "When cost of doing wins" }}
+/>
+
+<Question
+  prompt="What's the 'trap' the chapter warns about when evaluating refactors?"
+  options={[
+    { text: "Counting only the cost of doing the refactor and missing the accumulated cost of not doing it" },
+    { text: "Refactoring before writing any tests" },
+    { text: "Always agreeing with the engineer proposing the refactor" },
+    { text: "Discussing refactors in a meeting instead of via RFC" }
+  ]}
+  correct={0}
+  explanation="People reflexively count build cost but miss the compounding cost of accumulated slowdowns. The chapter's whole point is making both sides of the trade-off concrete and numeric."
+  revisit={{ to: "/docs/decisions/cost-of-inaction#the-trap", label: "The trap" }}
+/>
+
+<Question
+  prompt="A flaky test suite causes ~20 failures/week, each costing ~30 minutes to investigate. A 3-week, $9k stabilization is proposed. The chapter's recommendation:"
+  options={[
+    { text: "Skip it — flakes are unavoidable" },
+    { text: "Do it — at ~$78k/year of waste, the fix pays back in ~6 weeks" },
+    { text: "Add automatic retries and ignore the failures" },
+    { text: "Hire another QA engineer to investigate the flakes" }
+  ]}
+  correct={1}
+  explanation="The worked example does the math: ~10 engineer-hours/week × $150/hr × 52 weeks ≈ $78k/year. A $9k fix paying back in weeks is an easy yes — yet teams sit on flakes for years 'because there's no time.'"
+  revisit={{ to: "/docs/decisions/cost-of-inaction#concrete-example", label: "Worked example" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The Migration Strategy Framework](./migration-strategy) — once you've decided to migrate, how to actually do it without disaster.

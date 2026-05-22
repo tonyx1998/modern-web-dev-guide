@@ -91,6 +91,64 @@ The biggest mistake is **applying the wrong scale's practices**:
 - Small company with personal-project practices: chaos.
 - Small company with enterprise practices: glacial.
 
+## Page checkpoint
+
+<Quiz id="comparison-tradeoffs-page" title="Did scale tradeoffs stick?" sampleSize={2}>
+
+<Question
+  prompt="What does a large company optimize for, and what does it sacrifice in return?"
+  options={[
+    { text: "Optimizes for speed and fun; sacrifices reliability and compliance" },
+    { text: "Optimizes for reliability, security, scale, and compliance; sacrifices speed, individual autonomy, and simplicity" },
+    { text: "Optimizes for product-market fit; sacrifices testing rigor" },
+    { text: "Optimizes for everything simultaneously, with no real trade-offs" }
+  ]}
+  correct={1}
+  explanation="Large companies optimize for reliability, security, scale, and compliance. They sacrifice speed, individual autonomy, and simplicity — and their characteristic risks are bureaucratic paralysis, internal politics, and technical sclerosis."
+  revisit={{ to: "/docs/comparison/tradeoffs#common-trade-offs-by-scale", label: "Large Company trade-offs" }}
+/>
+
+<Question
+  prompt="Which 'wrong scale' mistake is most likely to make a 10-person startup ship nothing?"
+  options={[
+    { text: "Applying personal-project practices — pushing straight to main" },
+    { text: "Applying enterprise practices — three approvers and a security review for every PR" },
+    { text: "Hiring a product manager too early" },
+    { text: "Adopting trunk-based development" }
+  ]}
+  correct={1}
+  explanation="A small company with enterprise practices is glacial: a 10-person startup that requires three approvers and a security review for every PR ships nothing. The skill is matching practices to scale, not aspiring to a bigger one's playbook."
+  revisit={{ to: "/docs/comparison/tradeoffs#common-trade-offs-by-scale", label: "Wrong-scale mistakes" }}
+/>
+
+<Question
+  prompt="What is the main career trade-off of spending your early years at a small company?"
+  options={[
+    { text: "You get deep specialization but no exposure to users" },
+    { text: "You touch everything and meet users, but get less depth in any single area and less rigorous engineering practices" },
+    { text: "You learn enterprise process but no coding" },
+    { text: "You get the best mentorship from staff engineers" }
+  ]}
+  correct={1}
+  explanation="Small-company work is generalist — you touch every part of the stack and meet users directly. The trade-off is less depth in any one area and exposure to less rigorous engineering practices than at the best large companies."
+  revisit={{ to: "/docs/comparison/tradeoffs#career-implications", label: "Career Implications" }}
+/>
+
+<Question
+  prompt="What is the central message about navigating careers across scales?"
+  options={[
+    { text: "Always climb the ladder from small to large company over your career" },
+    { text: "Pick one scale early and stay there to maximize expertise" },
+    { text: "There is no single 'best' scale; successful engineers often cycle through scales to learn different skills" },
+    { text: "Personal projects are the only scale worth working at long-term" }
+  ]}
+  correct={2}
+  explanation="There is no normatively 'best' scale. The most successful careers often cycle through scales — startup for breadth, enterprise for rigor and specialization, back to a startup to apply lessons — picking up different skills at each stage."
+  revisit={{ to: "/docs/comparison/tradeoffs#career-implications", label: "A typical career arc" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Chapter 8: Decision Frameworks](/docs/decisions) — the principles that help you make sound architectural and technology decisions at *any* scale.

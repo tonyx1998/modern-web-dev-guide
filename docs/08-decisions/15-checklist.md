@@ -56,6 +56,64 @@ The questions on the list aren't meant to *answer* the decision. They're meant t
 Half of good decision-making is realizing which question you can't answer yet.
 :::
 
+## Page checkpoint
+
+<Quiz id="decisions-checklist-page" title="Did the decision checklist stick?" sampleSize={2}>
+
+<Question
+  prompt="Per the chapter, when should you reach for the full 10-question checklist?"
+  options={[
+    { text: "Every decision, including button colors" },
+    { text: "Only for high-stakes decisions; keep it light for everyday ones" },
+    { text: "Only when the CTO mandates it" },
+    { text: "Never — it's purely theoretical" }
+  ]}
+  correct={1}
+  explanation="The chapter is explicit: the checklist is for high-stakes calls. Running it on every micro-decision would be its own kind of process bloat — exactly the failure mode discussed in the team-size chapter."
+  revisit={{ to: "/docs/decisions/checklist#the-checklist", label: "Reach for it on high-stakes" }}
+/>
+
+<Question
+  prompt="The Highlight argues the checklist's REAL job isn't to answer the decision. What is it?"
+  options={[
+    { text: "To force a unanimous vote among stakeholders" },
+    { text: "To surface where you don't yet have information — half of good decision-making is realizing which question you can't answer" },
+    { text: "To make the decision auditable for compliance" },
+    { text: "To slow the team down so they don't ship too fast" },
+  ]}
+  correct={1}
+  explanation="The checklist is a diagnostic tool. If you're saying 'uh, not sure' to the cost-of-inaction, success metric, or rollback question — that's the signal you need data before deciding, not that the decision is wrong."
+  revisit={{ to: "/docs/decisions/checklist#the-checklist", label: "The checklist's real job" }}
+/>
+
+<Question
+  prompt="Which of these IS one of the 10 checklist questions?"
+  options={[
+    { text: "Has anyone on the team blogged about this?" },
+    { text: "What's the rollback plan if it goes wrong?" },
+    { text: "Will this make the engineering team happier?" },
+    { text: "Does it use the latest version of every dependency?" }
+  ]}
+  correct={1}
+  explanation="The 10 questions are: why now, cost of nothing, cost of doing, alternatives, reversibility, scale, who weighs in, success metric, rollback plan, documented. Engineer happiness and dependency versions aren't on the list."
+  revisit={{ to: "/docs/decisions/checklist#the-checklist", label: "The checklist" }}
+/>
+
+<Question
+  prompt="The worked example runs through 'should we adopt BullMQ for background jobs?' What feature of the checklist makes it a 'slam-dunk' decision?"
+  options={[
+    { text: "BullMQ is cheaper than any alternative" },
+    { text: "Cost of inaction (~$10k/month in lost signups) dwarfs the build cost (~$5k), alternatives are weak, and the rollback plan via feature flag is concrete" },
+    { text: "The team already had Redis running" },
+    { text: "BullMQ is the boring choice" }
+  ]}
+  correct={1}
+  explanation="The checklist exposes the asymmetry: huge cost of waiting, modest cost of doing, weak alternatives, real rollback. When the math is that lopsided AND the failure paths are concrete, the answer is obvious — and the upfront work makes implementation unblocked."
+  revisit={{ to: "/docs/decisions/checklist#the-checklist", label: "Worked example" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [When to Override These Frameworks](./overriding) — frameworks are heuristics, not laws.

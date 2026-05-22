@@ -152,6 +152,7 @@ const sidebars: SidebarsConfig = {
             'foundations/deployment-stages',
           ],
         },
+        'foundations/foundations-checkpoint',
       ],
     },
 
@@ -269,6 +270,7 @@ const sidebars: SidebarsConfig = {
             'stack/observability-tools',
           ],
         },
+        'stack/stack-checkpoint',
       ],
     },
 

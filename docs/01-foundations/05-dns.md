@@ -89,6 +89,64 @@ The catch: a low TTL means changes propagate fast, but also that every resolver 
 You almost certainly didn't change anything wrong. DNS just hasn't *propagated* yet — the old answer is still cached at intermediate resolvers around the world, and they won't refresh until the old TTL expires. Tools like `dig` will show you the cached answer until it does. Patience or a TTL of 60s before the change is the only fix.
 :::
 
+## Page checkpoint
+
+<Quiz id="dns-page" title="Did DNS stick?" sampleSize={2}>
+
+<Question
+  prompt="In one sentence, what does DNS actually do?"
+  options={[
+    { text: "Encrypts traffic between your browser and the server" },
+    { text: "Translates human-readable names like google.com into IP addresses" },
+    { text: "Caches website content close to the user" },
+    { text: "Routes packets across the internet between routers" }
+  ]}
+  correct={1}
+  explanation="DNS is the internet's phone book — it maps names to IP addresses. Encryption is TLS; content caching is a CDN; packet routing is the job of routers using BGP."
+  revisit={{ to: "/docs/foundations/dns#what-dns-does", label: "What DNS does" }}
+/>
+
+<Question
+  prompt="You want to point both example.com AND www.example.com at the same hosting provider. What's the typical setup?"
+  options={[
+    { text: "An A record on example.com, plus a CNAME on www.example.com pointing at example.com" },
+    { text: "Two A records pointing at the same IP" },
+    { text: "An MX record on example.com and a TXT on www" },
+    { text: "Two NS records, one for each name" }
+  ]}
+  correct={0}
+  explanation="A records map a name to an IPv4 address; CNAMEs alias one name to another. The 'A + CNAME for www' pattern is the canonical setup for a typical first website."
+  revisit={{ to: "/docs/foundations/dns#dns-record-types", label: "DNS record types" }}
+/>
+
+<Question
+  prompt="You're about to migrate hosting providers next week. What should you do to your DNS TTL beforehand?"
+  options={[
+    { text: "Raise it to 24 hours so changes are less disruptive" },
+    { text: "Lower it (e.g. to 60 seconds) so the change propagates fast when you flip" },
+    { text: "TTL doesn't affect migrations — leave it alone" },
+    { text: "Delete the record entirely and recreate it on the new provider" }
+  ]}
+  correct={1}
+  explanation="A low TTL means resolvers ask more often, so when you change the record, the new answer reaches users quickly. Lower it well before the migration, then raise it back after the dust settles."
+  revisit={{ to: "/docs/foundations/dns#ttl--how-dns-caches", label: "TTL — how DNS caches" }}
+/>
+
+<Question
+  prompt="You changed an A record an hour ago, but dig still shows the old IP. What's most likely going on?"
+  options={[
+    { text: "Your change is wrong — re-enter it" },
+    { text: "The internet is broken; try a different domain" },
+    { text: "Intermediate resolvers are still serving the old cached answer until its TTL expires" },
+    { text: "DNS records can only be changed by the registrar, not the host" }
+  ]}
+  correct={2}
+  explanation="DNS propagation isn't instant — every resolver between you and the authoritative server has its own cache, and they don't refresh until the prior TTL expires. Patience or a pre-lowered TTL is the fix."
+  revisit={{ to: "/docs/foundations/dns#ttl--how-dns-caches", label: "DNS propagation pitfall" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [CDNs and the Edge](./cdn-and-edge) where we'll see how your content gets close to users *physically*, not just logically.

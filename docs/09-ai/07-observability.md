@@ -73,6 +73,64 @@ Treat evals like unit tests for AI features:
 A team without evals can't safely change a prompt. You can't see whether you made things better or worse. An eval set of even 30–50 examples beats no eval set by a huge margin.
 :::
 
+## Page checkpoint
+
+<Quiz id="ai-observability-page" title="Did AI observability stick?" sampleSize={2}>
+
+<Question
+  prompt="Why does AI need its own observability layer beyond regular APM/logging?"
+  options={[
+    { text: "LLM calls don't go over HTTP, so normal logging can't see them" },
+    { text: "Responses are non-deterministic and silently drift — you need full prompt/response capture plus quality metrics, not just status codes" },
+    { text: "Cloud providers refuse to log AI traffic" },
+    { text: "Standard observability tools can't measure latency" }
+  ]}
+  correct={1}
+  explanation="A normal service is mostly 'did it 500?' AI features can return responses that look fine but are quietly wrong. You need prompt/response capture, cost, latency, and ongoing quality measurement."
+  revisit={{ to: "/docs/ai/ai-observability#what-to-track", label: "What AI observability tracks" }}
+/>
+
+<Question
+  prompt="Which scenario does an eval set protect you against best?"
+  options={[
+    { text: "A 500 error from the provider" },
+    { text: "A rate-limit spike at 3am" },
+    { text: "The model provider silently updating the underlying model and quietly degrading answer quality" },
+    { text: "Network packet loss between your server and the user" }
+  ]}
+  correct={2}
+  explanation="Silent quality drift — a new model version, a tweaked prompt, a regression no exception ever throws — is exactly what evals catch. Without them you find out from angry customers."
+  revisit={{ to: "/docs/ai/ai-observability#evaluation", label: "Evals catch silent drift" }}
+/>
+
+<Question
+  prompt="Which statement matches the recommended way to treat evals?"
+  options={[
+    { text: "Run them once at launch and archive the results" },
+    { text: "Treat them like unit tests: version-controlled, run on every prompt change in CI, block merges on regressions" },
+    { text: "Only the ML team should ever look at evals" },
+    { text: "Evals are unnecessary if you log every response" }
+  ]}
+  correct={1}
+  explanation="Evals are tests for non-deterministic code. Pin them in the repo, run them on prompt changes, fail CI on regression, and let the team that ships the feature own them."
+  revisit={{ to: "/docs/ai/ai-observability#evaluation", label: "Evals as tests" }}
+/>
+
+<Question
+  prompt="What's a sensible role for 'LLM-as-judge' in an eval pipeline?"
+  options={[
+    { text: "Replace all human review forever" },
+    { text: "Use a stronger model to score the output of a weaker one against a rubric, as a scalable proxy for human grading" },
+    { text: "Let the model under test grade its own answers" },
+    { text: "Have the LLM rewrite production data to fit the eval" }
+  ]}
+  correct={1}
+  explanation="LLM-as-judge scales human-style grading. A stronger model evaluates the weaker production model's output, usually against a rubric — it's not a full replacement for human review but it makes large eval sets tractable."
+  revisit={{ to: "/docs/ai/ai-observability#evaluation", label: "LLM-as-judge" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Costs and Optimization](./ai-costs) — the techniques that keep LLM bills from spiraling.

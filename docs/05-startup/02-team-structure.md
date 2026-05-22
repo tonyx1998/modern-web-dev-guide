@@ -62,6 +62,64 @@ At every size in this range, *the actual work* doesn't fit cleanly inside role b
 Treat the org chart as a rough guide to ownership and rotation, not a description of what people can and can't do. Specialization is a tendency at this scale, not a fence.
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-team-structure-page" title="Did team structure stick?" sampleSize={2}>
+
+<Question
+  prompt="How does the page describe the engineering org at a 5-10 person company?"
+  options={[
+    { text: "Two formal teams: frontend and backend" },
+    { text: "Full-stack generalists with no specialization yet — everyone touches everything" },
+    { text: "A dedicated platform team and product team from day one" },
+    { text: "All specialists organized around specific microservices" }
+  ]}
+  correct={1}
+  explanation="At 5-10 people the team is mostly full-stack generalists. There's no dedicated DevOps, QA, security, or platform engineer yet — everyone wears multiple hats."
+  revisit={{ to: "/docs/startup/team-structure#510-person-team", label: "5-10 person team" }}
+/>
+
+<Question
+  prompt="What signal does the page give that it's time to hire the first DevOps or platform engineer?"
+  options={[
+    { text: "When the company crosses $10M ARR" },
+    { text: "As soon as Vercel bills go over $500 per month" },
+    { text: "When deploy flakiness and infra ambiguity start consuming cross-team attention with nobody owning it" },
+    { text: "Once a venture investor asks about infrastructure on the cap table" }
+  ]}
+  correct={2}
+  explanation="The worked example shows the trigger is shared pain with no owner — flaky deploys, confusing bills, no staging story. That usually happens around 15-20 engineers, not earlier."
+  revisit={{ to: "/docs/startup/team-structure#1025-person-team", label: "First DevOps hire" }}
+/>
+
+<Question
+  prompt="What does the page say about job titles vs the actual work at this scale?"
+  options={[
+    { text: "Roles are titles, not jobs — specialization is a tendency, not a fence" },
+    { text: "Engineers must stay strictly within their declared specialty" },
+    { text: "Titles should match exactly what someone does day-to-day" },
+    { text: "Title boundaries are enforced by HR once you cross 25 people" }
+  ]}
+  correct={0}
+  explanation="The highlight calls out that frontend-focused engineers still write SQL when needed, and platform engineers still ship product features. Specialization at this scale is a tendency, not a strict boundary."
+  revisit={{ to: "/docs/startup/team-structure#a-typical-small-startup-engineering-org-in-2026", label: "Roles are titles, not jobs" }}
+/>
+
+<Question
+  prompt="At 25-50 people, what changes most about how the team operates?"
+  options={[
+    { text: "Engineers stop writing tests because QA owns quality" },
+    { text: "Teams gain clear ownership of services or product areas and cross-team coordination becomes a real cost" },
+    { text: "The company adopts Kubernetes by default" },
+    { text: "Pair programming becomes the only allowed workflow" }
+  ]}
+  correct={1}
+  explanation="At this size, 3-5 product teams emerge with clear ownership. Coordination between teams becomes a real expense, and architecture decisions need broader buy-in than at 10 people."
+  revisit={{ to: "/docs/startup/team-structure#2550-person-team", label: "25-50 person team" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 1: Discovery & Planning](./planning) where PRDs, sprints, and OKRs replace the solo "paragraph in Notes."

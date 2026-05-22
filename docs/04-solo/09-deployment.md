@@ -66,6 +66,64 @@ The most common solo deployment incident: shipping a test charge to a real custo
 Vercel's per-environment env vars make this trivial — just toggle which env vars apply to which environment in the dashboard.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-deployment-page" title="Did the deployment flow stick?" sampleSize={2}>
+
+<Question
+  prompt="What single command effectively performs deployment in this setup?"
+  options={[
+    { text: "vercel deploy --prod" },
+    { text: "git push" },
+    { text: "bun run deploy" },
+    { text: "ssh into the server and pull" }
+  ]}
+  correct={1}
+  explanation="Once Vercel is connected to the GitHub repo, git push triggers detection, install, build, deploy, and promotion to your production domain — all without further input."
+  revisit={{ to: "/docs/solo/deployment#what-git-push-actually-does", label: "What git push does" }}
+/>
+
+<Question
+  prompt="What's the most common solo deployment incident the page calls out?"
+  options={[
+    { text: "Forgetting to write the README" },
+    { text: "Shipping a test charge to a real card, or a preview emailing a prod user" },
+    { text: "DNS propagation failing globally" },
+    { text: "Vercel rejecting Next.js 15 builds" }
+  ]}
+  correct={1}
+  explanation="The classic bug is using production credentials in preview environments — a test charge hits a real customer, or a preview deploy emails production users. Fix it structurally with per-environment env vars."
+  revisit={{ to: "/docs/solo/deployment#environment-variables", label: "Prod vs preview keys" }}
+/>
+
+<Question
+  prompt="Which environments does Vercel provide by default for env vars?"
+  options={[
+    { text: "Local and Live" },
+    { text: "Dev, Staging, QA, and Production" },
+    { text: "Development, Preview, and Production" },
+    { text: "Just Production" }
+  ]}
+  correct={2}
+  explanation="Vercel has three default environments: Development, Preview, and Production. You can scope env vars to any subset of those, which is how you keep test Stripe keys out of production."
+  revisit={{ to: "/docs/solo/deployment#environment-variables", label: "Environment variables" }}
+/>
+
+<Question
+  prompt="What does every branch and PR get on Vercel?"
+  options={[
+    { text: "A copy of production data" },
+    { text: "Its own unique preview URL" },
+    { text: "An automatic merge to main" },
+    { text: "A separate paid plan" }
+  ]}
+  correct={1}
+  explanation="Each branch and PR gets its own isolated preview URL — perfect for sharing with friends to get feedback before merging. The branch can live for days; the preview redeploys on every push."
+  revisit={{ to: "/docs/solo/deployment#preview-deployments", label: "Preview deployments" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 8: Observability](./observability) where three free tools cover almost all your monitoring needs.

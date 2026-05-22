@@ -114,6 +114,64 @@ Now do it once more with card `4000 0000 0000 0002` — Stripe rejects that one,
 Always pass enough metadata in the session creation to identify the user in the webhook. It's tempting to look up by email — don't. Emails can change; Stripe customer IDs are stable; your `userId` is the bridge.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-payments-page" title="Did the payments flow stick?" sampleSize={2}>
+
+<Question
+  prompt="Why does the Checkout session include metadata: { userId }?"
+  options={[
+    { text: "To prefill the customer's name on the Checkout page" },
+    { text: "So the webhook can connect the Stripe customer back to your user" },
+    { text: "To enable test mode automatically" },
+    { text: "Because Stripe rejects sessions without metadata" }
+  ]}
+  correct={1}
+  explanation="Without the metadata, the webhook arrives with a Stripe customer ID and no clean way to map it to your user. The page warns against looking up by email — emails change, but your userId is stable."
+  revisit={{ to: "/docs/solo/payments#step-1-create-a-checkout-session", label: "The metadata trick" }}
+/>
+
+<Question
+  prompt="What does stripe.webhooks.constructEvent verify in the webhook handler?"
+  options={[
+    { text: "That the payment amount matches the price ID" },
+    { text: "That the stripe-signature header matches your webhook secret" },
+    { text: "That the user is authenticated via Clerk" },
+    { text: "That the request originates from a US IP address" }
+  ]}
+  correct={1}
+  explanation="It validates the stripe-signature header against your webhook secret. Without that check, anyone who guesses the URL could POST fake 'payment successful' events to your server."
+  revisit={{ to: "/docs/solo/payments#step-2-handle-the-webhook", label: "Webhook signature" }}
+/>
+
+<Question
+  prompt="What does the Stripe Checkout flow protect you from having to handle directly?"
+  options={[
+    { text: "Webhook event names" },
+    { text: "Credit card numbers (PCI compliance)" },
+    { text: "Database migrations" },
+    { text: "Server-side environment variables" }
+  ]}
+  correct={1}
+  explanation="Users complete payment on Stripe's hosted page, so card numbers never touch your server. That's how you avoid PCI compliance scope — plus tax calculations, fraud detection, and dispute handling that Stripe also absorbs."
+  revisit={{ to: "/docs/solo/payments#phase-6-payments-if-building-saas", label: "Plain English intro" }}
+/>
+
+<Question
+  prompt="Why should your webhook handler always return 200 ('ok')?"
+  options={[
+    { text: "Stripe charges a fee for non-200 responses" },
+    { text: "So Stripe doesn't keep retrying the same event" },
+    { text: "It's required for GDPR compliance" },
+    { text: "Vercel ignores non-200 responses" }
+  ]}
+  correct={1}
+  explanation="Stripe retries failed webhook deliveries. If you return non-200, the same event keeps arriving — fine for transient errors but noisy if everything actually succeeded. Always return 200 once you've handled the event."
+  revisit={{ to: "/docs/solo/payments#step-2-handle-the-webhook", label: "Webhook response" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 7: Deployment](./deployment) where pushing to GitHub is now the entire deployment process.

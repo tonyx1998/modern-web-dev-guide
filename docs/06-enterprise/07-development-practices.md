@@ -90,6 +90,64 @@ A typical small PR (changing a single function in the payments service) might tr
 Total: ~8 minutes of CI on parallel runners, plus human review time. Each individual check is fast; the combined coverage is what makes the codebase safe at scale.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-development-practices-page" title="Did development practices stick?" sampleSize={2}>
+
+<Question
+  prompt="Why do enterprises mandate trunk-based development with feature flags instead of long-lived branches?"
+  options={[
+    { text: "Long-lived branches use too much disk space" },
+    { text: "A long-lived branch is a ticking bomb — by the time it merges, dozens of other people have moved the code under you" },
+    { text: "Feature flags improve runtime performance" },
+    { text: "GitHub charges per branch at this scale" }
+  ]}
+  correct={1}
+  explanation="At enterprise scale, long-lived branches cause painful integration. Short-lived branches reach main quickly while feature flags keep incomplete work invisible to users. Code reaches integration fast, and releases stay decoupled from deploys."
+  revisit={{ to: "/docs/enterprise/development-practices#trunk-based-development-with-feature-flags", label: "Trunk-based dev" }}
+/>
+
+<Question
+  prompt="What does an architectural fitness function do, according to the page?"
+  options={[
+    { text: "It benchmarks system performance over time" },
+    { text: "It's an automated test in CI that enforces an architecture rule (e.g., 'no cross-service DB access') and blocks merges that violate it" },
+    { text: "It's a quarterly meeting where architects review designs" },
+    { text: "It's a tool for measuring engineer productivity" }
+  ]}
+  correct={1}
+  explanation="A fitness function is a test that fails when an architecture rule is broken. Unlike written guidelines (which people forget), a fitness function survives turnover and never gets tired — if it isn't enforced in CI, it isn't enforced."
+  revisit={{ to: "/docs/enterprise/development-practices#architectural-fitness-functions", label: "Fitness functions" }}
+/>
+
+<Question
+  prompt="What is the role of the CODEOWNERS file?"
+  options={[
+    { text: "It lists who is on call this week" },
+    { text: "It mechanically enforces ownership — GitHub blocks merges to a service without an approver from the owning team" },
+    { text: "It records who originally wrote each file" },
+    { text: "It assigns bonuses to top contributors" }
+  ]}
+  correct={1}
+  explanation="CODEOWNERS is the mechanical enforcement of ownership. You can't merge a change to the payments service without an approver from the payments team — GitHub itself blocks the merge. It turns ownership from convention into policy."
+  revisit={{ to: "/docs/enterprise/development-practices#strict-code-review", label: "CODEOWNERS" }}
+/>
+
+<Question
+  prompt="Why do enterprises tend to wrap open-source libraries with their own internal HTTP client, DB layer, and error handling?"
+  options={[
+    { text: "Because they don't trust open-source code" },
+    { text: "To enforce company-wide standards — built-in metrics, tracing, audit logging, retries — automatically for every engineer" },
+    { text: "To avoid paying open-source license fees" },
+    { text: "Because internal libraries are faster" }
+  ]}
+  correct={1}
+  explanation="Internal wrappers exist so engineers get the company's required behavior — metrics, tracing, retries, audit logging — without having to remember it. This is also why dropping an enterprise engineer into a startup is jarring: they lose all the infrastructure they assumed was free."
+  revisit={{ to: "/docs/enterprise/development-practices#internal-libraries-and-frameworks", label: "Internal libraries" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 5: Testing at Scale](./testing) — how the testing pyramid expands dramatically once you have hundreds of services.

@@ -74,6 +74,64 @@ For early-stage projects, *ship something*. Lock-in is a problem you'll have whe
 If you do hit scaling-cost issues later, the migration from Vercel to AWS is usually a 2–6 week project for a small team. That's a price worth paying for the year of velocity you got on the easier platform.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-hosting-page" title="Did hosting stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the difference between an edge platform (Vercel, Cloudflare) and a cloud provider (AWS, GCP, Azure) in this page's framing?"
+  options={[
+    { text: "Edge platforms are paid; cloud providers are free" },
+    { text: "Edge platforms run only static sites; cloud providers run everything else" },
+    { text: "Edge platforms maximize outsourcing — you push code, they run it globally. Cloud providers give you the most control with the most operational burden" },
+    { text: "Edge platforms only support TypeScript; cloud providers support all languages" }
+  ]}
+  correct={2}
+  explanation="The tiers are organized by how much you outsource vs. control. Edge platforms run your code for you on a global network; cloud providers hand you raw infrastructure and expect you to operate it."
+  revisit={{ to: "/docs/stack/hosting#edge-platforms-most-popular-for-new-apps", label: "Hosting tiers" }}
+/>
+
+<Question
+  prompt="Why is vendor lock-in 'overrated for early-stage projects' according to the page?"
+  options={[
+    { text: "Because lock-in doesn't exist in practice" },
+    { text: "Because most projects fail by not shipping, not by getting locked into the wrong platform — and migrating later is a finite, manageable project" },
+    { text: "Because all hosting platforms are interchangeable" },
+    { text: "Because lock-in is illegal under EU law" }
+  ]}
+  correct={1}
+  explanation="Lock-in is real on every platform, but it's a problem you have when you have customers. Early on, velocity beats portability — migrating Vercel → AWS later is usually a 2–6 week project, not a death sentence."
+  revisit={{ to: "/docs/stack/hosting#decision-matrix", label: "Lock-in is overrated early" }}
+/>
+
+<Question
+  prompt="Which hosting platform is the recommended default for a new Next.js indie or startup app?"
+  options={[
+    { text: "AWS EKS with custom Kubernetes manifests" },
+    { text: "Vercel" },
+    { text: "Heroku" },
+    { text: "Bare-metal at Hetzner" }
+  ]}
+  correct={1}
+  explanation="Vercel maintains Next.js and ships best-in-class DX for it. For an indie/startup Next.js app, it's the path of least friction — premium pricing, but you get back velocity."
+  revisit={{ to: "/docs/stack/hosting#decision-matrix", label: "Decision matrix" }}
+/>
+
+<Question
+  prompt="Why might a globally-distributed app on a tight budget prefer Cloudflare Workers + Pages over Vercel?"
+  options={[
+    { text: "Cloudflare runs only on Windows servers" },
+    { text: "Cloudflare's edge network tends to be the fastest, cheapest, and most globally distributed option" },
+    { text: "Cloudflare is the only platform that supports Next.js" },
+    { text: "Cloudflare auto-generates database schemas" }
+  ]}
+  correct={1}
+  explanation="Cloudflare's edge network is famously fast and inexpensive, with global presence. For an app that needs global reach on a budget — and isn't deeply tied to Next.js features — Cloudflare Workers + Pages is the value pick."
+  revisit={{ to: "/docs/stack/hosting#edge-platforms-most-popular-for-new-apps", label: "Edge platforms" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [DevOps & Infrastructure](./devops) — the tools that run *underneath* hosting platforms (containers, K8s, IaC, secrets).

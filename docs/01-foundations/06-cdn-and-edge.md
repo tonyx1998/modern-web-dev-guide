@@ -94,6 +94,64 @@ The trade-off: edge runtimes are usually constrained (smaller CPU/memory limits,
 **Edge-first apps** — most logic runs at the edge, with a regional database (or globally distributed database like Cloudflare D1, Turso, or Spanner) for state. This pattern dominates new green-field apps in 2026, replacing the older "single region, scale vertically" default.
 :::
 
+## Page checkpoint
+
+<Quiz id="cdn-edge-page" title="Did CDNs & the edge stick?" sampleSize={2}>
+
+<Question
+  prompt="What problem does a CDN primarily solve?"
+  options={[
+    { text: "Encrypting traffic so attackers can't read it" },
+    { text: "Translating domain names into IP addresses" },
+    { text: "Putting copies of content physically close to users so requests don't have to cross the globe" },
+    { text: "Replacing the need for a backend server entirely" }
+  ]}
+  correct={2}
+  explanation="A CDN caches copies of your assets at edge locations (POPs) near users, so a request from Tokyo doesn't travel to Virginia and back. Encryption is TLS; name lookup is DNS; CDNs sit in front of an origin, not instead of one."
+  revisit={{ to: "/docs/foundations/cdn-and-edge#why-cdns-exist", label: "Why CDNs exist" }}
+/>
+
+<Question
+  prompt="A user in Tokyo requests /logo.png and gets a cache miss at the local CDN POP. What happens next?"
+  options={[
+    { text: "The user sees a 404 because the CDN doesn't have the file" },
+    { text: "The CDN forwards the request to the origin server, stores the response locally, and returns it — future Tokyo users get cache hits" },
+    { text: "The CDN refuses the request and redirects the user to the origin" },
+    { text: "The browser falls back to fetching directly from the origin" }
+  ]}
+  correct={1}
+  explanation="A cache miss means the CDN doesn't have the file yet — so it asks the origin once, stores the result, and serves all subsequent Tokyo users from cache. This is why the second request is fast even when the first wasn't."
+  revisit={{ to: "/docs/foundations/cdn-and-edge#what-gets-cached", label: "How a request flows through a CDN" }}
+/>
+
+<Question
+  prompt="In the context of CDNs and edge computing, what does 'the edge' add beyond what a normal CDN does?"
+  options={[
+    { text: "Faster physical hardware in central data centers" },
+    { text: "The ability to run code (JavaScript or Wasm) at the POPs, not just serve cached files" },
+    { text: "A second layer of DNS lookups" },
+    { text: "Encryption keys stored on the user's device" }
+  ]}
+  correct={1}
+  explanation="A traditional CDN serves cached files. Edge computing — Cloudflare Workers, Vercel Edge Functions, etc. — lets you execute code at the POPs themselves, perfect for auth checks, personalization, and lightweight API responses."
+  revisit={{ to: "/docs/foundations/cdn-and-edge#the-edge--running-code-not-just-serving-files", label: "The edge — running code" }}
+/>
+
+<Question
+  prompt="Beyond raw speed, what other major benefit does a CDN give a small website?"
+  options={[
+    { text: "It encrypts the database at rest" },
+    { text: "It absorbs traffic spikes and shields the origin from being overwhelmed" },
+    { text: "It generates HTML for dynamic pages automatically" },
+    { text: "It replaces the need for HTTPS certificates" }
+  ]}
+  correct={1}
+  explanation="A CDN acts as a force shield: 100,000 simultaneous users hit the CDN, but the origin might only see one refresh request. Without it, the same spike could crush a small backend in seconds."
+  revisit={{ to: "/docs/foundations/cdn-and-edge#why-cdns-exist", label: "CDN as a force shield" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The Browser as a Runtime](./browser-runtime) where we'll look inside the most-used application platform on Earth — the browser on your laptop or phone.

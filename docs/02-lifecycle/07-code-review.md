@@ -119,6 +119,64 @@ This single habit dramatically improves solo code quality over time.
 - **Slow reviews:** PRs sitting for days. Costs context, momentum, and morale.
 - **Blocking on style nits:** Use a linter. Don't waste human time.
 
+## Page checkpoint
+
+<Quiz id="lifecycle-code-review-page" title="Did code review stick?" sampleSize={2}>
+
+<Question
+  prompt="The page lists several benefits of code review. Which one is NOT one of them?"
+  options={[
+    { text: "Catching bugs the author missed" },
+    { text: "Spreading knowledge across the team" },
+    { text: "Replacing automated tests" },
+    { text: "Mentoring junior engineers through feedback" }
+  ]}
+  correct={2}
+  explanation="Review and tests are complementary. Tests catch regressions automatically; review catches the design and reasoning issues tests can't see."
+  revisit={{ to: "/docs/lifecycle/code-review#why-code-review", label: "Why code review" }}
+/>
+
+<Question
+  prompt="What's the page's advice for giving good code review comments?"
+  options={[
+    { text: "Be terse — just say 'do this differently'" },
+    { text: "Explain the 'why' behind suggestions and distinguish blockers from nits" },
+    { text: "Block every PR until the style matches your personal preference" },
+    { text: "Approve quickly without reading to avoid being a bottleneck" }
+  ]}
+  correct={1}
+  explanation="A reviewer's job is to teach as much as to gate. Explaining reasoning and labeling severity (nit vs blocker) keeps reviews productive and the author moving."
+  revisit={{ to: "/docs/lifecycle/code-review#giving-good-reviews", label: "Giving good reviews" }}
+/>
+
+<Question
+  prompt="You're a solo developer with no one to review your PRs. What does the page recommend?"
+  options={[
+    { text: "Skip review entirely — it's only valuable with teammates" },
+    { text: "Open the PR, walk away for 10 minutes, then read your own diff as if it were someone else's" },
+    { text: "Hire a freelance reviewer for every PR" },
+    { text: "Wait until you have a team before merging anything" }
+  ]}
+  correct={1}
+  explanation="Self-review with fresh eyes catches a surprising amount. The page calls this a habit that dramatically improves solo code quality over time."
+  revisit={{ to: "/docs/lifecycle/code-review#review-scale-by-team-size", label: "Self-review even when solo" }}
+/>
+
+<Question
+  prompt="Which of these is flagged as a code-review anti-pattern?"
+  options={[
+    { text: "Linking to documentation in a comment" },
+    { text: "Rubber-stamp approvals — clicking approve without reading the diff" },
+    { text: "Writing a PR description that explains the change" },
+    { text: "Using a linter to handle style consistency" }
+  ]}
+  correct={1}
+  explanation="Rubber-stamping defeats the purpose entirely. If reviews are 'always approved,' the whole quality gate becomes ceremonial."
+  revisit={{ to: "/docs/lifecycle/code-review#common-anti-patterns", label: "Code review anti-patterns" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 8: CI/CD](./ci-cd) where we automate the path from "code merged" to "code in production."

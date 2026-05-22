@@ -68,6 +68,64 @@ Web development in 2026 is more demanding than five years ago — and also more 
 
 Good luck building.
 
+## Page checkpoint
+
+<Quiz id="career-for-tony-page" title="Did the personalized advice stick?" sampleSize={2}>
+
+<Question
+  prompt="The page calls one specific project 'your gateway' — the highest-leverage project in the USC CS Master's. Which is it?"
+  options={[
+    { text: "The CS570 final algorithms project" },
+    { text: "The CSCI571 Web Tech final project (Flask/Ticketmaster/GCP) — full-stack, deployed, real third-party API; the kind recruiters can most easily evaluate" },
+    { text: "An unrelated personal website" },
+    { text: "A LinkedIn profile" }
+  ]}
+  correct={1}
+  explanation="The Highlight box says the CSCI571 Flask/Ticketmaster/GCP project is the highest-leverage point: it's full-stack, deployed, uses a real third-party API, and is exactly the kind of project recruiters can evaluate at a glance. Do it well, deploy it well, write about it."
+  revisit={{ to: "/docs/career/career-for-tony#what-matters-most", label: "CSCI571 as gateway" }}
+/>
+
+<Question
+  prompt="When does the page tell you to start applying for next-summer internships during a CS Master's?"
+  options={[
+    { text: "In May, right before summer starts" },
+    { text: "In September — apply early for next summer, broadly, with tailored applications" },
+    { text: "Only after your first year is fully complete" },
+    { text: "Only after you graduate" }
+  ]}
+  correct={1}
+  explanation="The page is explicit: apply early (September for next summer), broadly, and tailor each application. Internships matter most for the first job, so optimize aggressively for landing 1–2 of them during the master's."
+  revisit={{ to: "/docs/career/career-for-tony#what-matters-most", label: "Internship timing" }}
+/>
+
+<Question
+  prompt="What does the page say about course projects as portfolio material?"
+  options={[
+    { text: "Course projects alone are sufficient and don't need extras" },
+    { text: "Course projects are good practice but won't differentiate you — ship 2–3 *additional* real, public, deployed projects during your degree" },
+    { text: "Course projects should never be shared" },
+    { text: "Course projects matter more than independent work" }
+  ]}
+  correct={1}
+  explanation="The page treats coursework as the floor, not the ceiling. Course projects are practice but don't differentiate; the differentiator is 2–3 real, public, deployed projects shipped outside the syllabus."
+  revisit={{ to: "/docs/career/career-for-tony#what-matters-most", label: "Build outside coursework" }}
+/>
+
+<Question
+  prompt="The closing 'wrap up' lists what the career of a modern web developer is shaped by. Which set best matches the page?"
+  options={[
+    { text: "Credentials, certificates, course grades, and degree prestige" },
+    { text: "Real deployed projects, continuous learning, specialization after broad exposure, public presence, and relationships" },
+    { text: "Programming language choice and IDE selection" },
+    { text: "How many hours a week you grind on LeetCode" }
+  ]}
+  correct={1}
+  explanation="The 'Wrapping Up' section names five shaping forces: real deployed projects, continuous learning, specialization that comes after broad exposure, public presence, and relationships. Credentials are notably absent from the list."
+  revisit={{ to: "/docs/career/career-for-tony#wrapping-up-part-10", label: "Wrapping up Part 10" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Chapter 11: Glossary](/docs/glossary) for definitions of every term used in this guide.

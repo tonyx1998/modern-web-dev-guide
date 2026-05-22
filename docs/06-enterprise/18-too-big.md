@@ -73,6 +73,64 @@ Key takeaways:
 - Documentation, runbooks, and automation matter more than at smaller scale.
 - The best enterprise engineering looks like a small company in disguise — small teams shipping fast on top of strong shared infrastructure.
 
+## Page checkpoint
+
+<Quiz id="enterprise-too-big-page" title="Did when-you're-too-big stick?" sampleSize={2}>
+
+<Question
+  prompt="Why do FAANG-tier companies (Google, Meta, Amazon) sometimes fork or build their own versions of critical open-source infrastructure?"
+  options={[
+    { text: "To avoid paying license fees" },
+    { text: "Because at their scale, being one library exploit away from a global outage is unacceptable — they audit, fork, and maintain their own versions" },
+    { text: "Because they don't trust open-source code in general" },
+    { text: "Because their lawyers require it" }
+  ]}
+  correct={1}
+  explanation="When your business depends on a service used by billions, the dependency ecosystem becomes a risk surface. FAANG-tier companies fork and maintain their own versions of critical infrastructure to reduce the chance of a single upstream exploit causing a global outage."
+  revisit={{ to: "/docs/enterprise/too-big#why-standard-advice-breaks-at-this-scale", label: "Forking the ecosystem" }}
+/>
+
+<Question
+  prompt="What is the page's main warning about FAANG-tier engineering practices?"
+  options={[
+    { text: "They're a great template to copy at any size" },
+    { text: "They solve problems almost no company has, and copying them at smaller scale is a great way to slow your own company to a crawl" },
+    { text: "They're poorly documented and unreliable" },
+    { text: "They're illegal outside the US" }
+  ]}
+  correct={1}
+  explanation="FAANG practices are not aspirational templates. They cost staggering engineering investment and solve problems specific to billion-user scale. The worked example shows a mid-sized SaaS that tried to 'do things the Google way' and ended up with a brilliant platform but almost no product."
+  revisit={{ to: "/docs/enterprise/too-big#what-too-big-looks-like", label: "Not aspirational" }}
+/>
+
+<Question
+  prompt="What does the page say still holds true at every scale, even FAANG?"
+  options={[
+    { text: "Specific tools like Kubernetes and Bazel" },
+    { text: "The underlying principles — HTTP primitives, the development lifecycle phases, reliability from observability and discipline, security from defense in depth" },
+    { text: "The same vendors and SaaS providers" },
+    { text: "The exact same org structures" }
+  ]}
+  correct={1}
+  explanation="The implementations differ wildly; the principles don't. HTTP, the development lifecycle, reliability through observability and discipline, and security through defense in depth are universal — even when Google replaces Kubernetes with Borg or Meta replaces PHP with Hack."
+  revisit={{ to: "/docs/enterprise/too-big#where-this-guide-stops", label: "Universal principles" }}
+/>
+
+<Question
+  prompt="Why did the mid-sized SaaS in the worked example ultimately retreat from a 'Google-style' internal platform?"
+  options={[
+    { text: "Google sued them" },
+    { text: "They spent three years building tools and almost no product, then shipped more on Vercel + AWS + standard Kubernetes in one year than the previous three combined" },
+    { text: "Their engineers quit" },
+    { text: "The cloud bill became too high" }
+  ]}
+  correct={1}
+  explanation="The team built a brilliant internal platform and almost no product — spending their engineering budget on tools instead of features. Retreating to standard managed services (Vercel + AWS + vanilla Kubernetes) tripled their product velocity in the following year."
+  revisit={{ to: "/docs/enterprise/too-big#worked-example", label: "Don't copy FAANG" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Chapter 7: Side-by-Side Comparison](/docs/comparison), which puts all three workflows (personal, small, large) into one reference for easy lookup.

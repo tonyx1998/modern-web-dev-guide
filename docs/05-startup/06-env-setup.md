@@ -106,6 +106,64 @@ The single most common source of onboarding pain: "the app runs but it crashes w
 Treat `.env.example` as a contract. Every variable the app reads from the environment must appear there with a placeholder value. CI should fail if a referenced env var isn't in `.env.example`. Five minutes of discipline saves new hires hours of frustration.
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-env-setup-page" title="Did environment setup stick?" sampleSize={2}>
+
+<Question
+  prompt="What is the page's stated bar for a new engineer's first day?"
+  options={[
+    { text: "Reading documentation and shadowing for a full week" },
+    { text: "Running locally, deployed to a preview URL, and one merged PR by end of day one" },
+    { text: "Reviewing the full codebase before touching any code" },
+    { text: "Completing a multi-day security training course" }
+  ]}
+  correct={1}
+  explanation="The worked example sets the bar at running locally, deploying to a preview URL, and merging one starter PR on day one — possible because the onboarding script and setup are designed to compress that loop."
+  revisit={{ to: "/docs/startup/env-setup#onboarding-script", label: "Onboarding day bar" }}
+/>
+
+<Question
+  prompt="Why does the page treat the .env.example file as sacred?"
+  options={[
+    { text: "Because Vercel will refuse to deploy without it" },
+    { text: "Because missing variables are the single most common source of onboarding pain" },
+    { text: "Because it stores production secrets" },
+    { text: "Because GitHub charges extra to read it" }
+  ]}
+  correct={1}
+  explanation="Every env var the app reads must appear in .env.example with a placeholder. Five minutes of discipline keeps new hires from chasing a missing variable for hours."
+  revisit={{ to: "/docs/startup/env-setup#secrets", label: "env.example is sacred" }}
+/>
+
+<Question
+  prompt="Which three environments does the page describe as standard at this stage?"
+  options={[
+    { text: "Local, Preview (per-PR), and Production" },
+    { text: "Dev, QA, Staging, UAT, and Production" },
+    { text: "Local and Production only" },
+    { text: "Sandbox, Internal, and Customer-facing" }
+  ]}
+  correct={0}
+  explanation="The page describes three environments: each developer's local machine, Vercel auto-created preview per PR (often with a Neon branch), and a strictly protected production. No QA/UAT/staging sprawl yet."
+  revisit={{ to: "/docs/startup/env-setup#three-environments", label: "Three environments" }}
+/>
+
+<Question
+  prompt="What does the page describe as the role of Turborepo in this setup?"
+  options={[
+    { text: "A serverless function runtime" },
+    { text: "A build orchestrator that runs tasks in parallel across packages and caches their results" },
+    { text: "A secrets manager for production credentials" },
+    { text: "A CSS framework that replaces Tailwind" }
+  ]}
+  correct={1}
+  explanation="Turborepo is the build orchestrator that figures out the dependency graph in the monorepo, runs tasks in parallel across packages, and caches results so untouched apps don't rebuild."
+  revisit={{ to: "/docs/startup/env-setup#repository-structure", label: "Turborepo role" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 5: Development Practices](./development) where trunk-based development, conventional commits, and feature flags shape the daily workflow.

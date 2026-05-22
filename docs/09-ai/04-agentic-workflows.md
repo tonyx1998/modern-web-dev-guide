@@ -109,6 +109,64 @@ Non-negotiable guardrails:
 Without these, an agent that worked in dev can cost real money in production.
 :::
 
+## Page checkpoint
+
+<Quiz id="ai-agents-page" title="Did agentic workflows stick?" sampleSize={2}>
+
+<Question
+  prompt="What separates an 'agent' from a single function-calling request?"
+  options={[
+    { text: "Agents use a different model family than function calling" },
+    { text: "An agent loops — call a tool, observe the result, pick the next tool, repeat — until it decides the task is done" },
+    { text: "Agents always run in the background; function calls are synchronous" },
+    { text: "Agents don't return text, only JSON" }
+  ]}
+  correct={1}
+  explanation="Function calling is a single tool decision. Agents put that decision in a loop where each step's output feeds the next step's reasoning."
+  revisit={{ to: "/docs/ai/ai-agents#simple-agent-loop", label: "The agent loop" }}
+/>
+
+<Question
+  prompt="Which scenario is the WORST fit for an agentic workflow?"
+  options={[
+    { text: "A multi-step research task across several APIs that requires reasoning about each result" },
+    { text: "A coding assistant that reads files, edits them, runs tests, and iterates" },
+    { text: "Looking up a user's most recent invoice in a synchronous web request with a 1-second SLO" },
+    { text: "Diagnosing an incident by running runbooks step by step" }
+  ]}
+  correct={2}
+  explanation="Agents are slow and expensive — many LLM calls per task. For deterministic single-step lookups inside a tight latency budget, just call the DB (or a single LLM call) directly."
+  revisit={{ to: "/docs/ai/ai-agents#when-agents-make-sense", label: "When agents fit (and don't)" }}
+/>
+
+<Question
+  prompt="A team is shipping an agent that can send external emails on behalf of users. What's the most important guardrail?"
+  options={[
+    { text: "Use the largest available model for accuracy" },
+    { text: "Hard limits on tool-call count and a kill switch, plus human approval for high-impact actions like external emails" },
+    { text: "Disable streaming so users can't interrupt the agent" },
+    { text: "Skip logging to keep response times low" }
+  ]}
+  correct={1}
+  explanation="Agents compound errors fast. A bug that loops the same action 50 times can produce 50 bad emails. Tool-call caps, spend caps, human approval for high-impact actions, and an audit trace are non-negotiable."
+  revisit={{ to: "/docs/ai/ai-agents#agent-challenges", label: "Every agent needs a kill switch" }}
+/>
+
+<Question
+  prompt="Why is debugging a flaky agent harder than debugging a normal HTTP service?"
+  options={[
+    { text: "Agents don't produce HTTP logs at all" },
+    { text: "Each step is a non-deterministic LLM decision, so you need traces of every prompt, tool call, and result to reconstruct what the agent did" },
+    { text: "Agents only run on serverless platforms that hide logs" },
+    { text: "Agents always run in parallel, so logs interleave randomly" }
+  ]}
+  correct={1}
+  explanation="When an agent fails on step 7, you need to see steps 1-6 — the prompts, the tool calls, and their outputs — to understand why it made the choice it did. Without traces, every bug is a guessing game."
+  revisit={{ to: "/docs/ai/ai-agents#agent-challenges", label: "Why agents need traces" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Pattern 5: Embeddings for Semantic Search](./ai-embeddings) — embeddings power more than just RAG.

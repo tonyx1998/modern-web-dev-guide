@@ -79,6 +79,64 @@ The first time you start a SOC 2 process, it feels like a wall of acronyms. Vant
 The other 20% is policy writing (security policy, incident response policy) and the audit itself. Total cost: $10–30K plus ongoing platform fees ($300–$1,000/month). For a B2B startup chasing enterprise customers, it's table stakes.
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-security-page" title="Did startup security stick?" sampleSize={2}>
+
+<Question
+  prompt="What does the page recommend for authorization checks on protected endpoints?"
+  options={[
+    { text: "Trust the client to only call endpoints the user is allowed to use" },
+    { text: "Check authorization in middleware only — the handler can assume the user is allowed" },
+    { text: "Re-check authorization server-side on every protected operation, regardless of upstream guards" },
+    { text: "Use IP allowlists instead of per-user checks" }
+  ]}
+  correct={2}
+  explanation="The worked example shows a reviewer demanding a server-side admin check inside the handler even though middleware guards the route. Defense in depth: every protected operation re-verifies regardless of upstream layers."
+  revisit={{ to: "/docs/startup/security#authorization", label: "Defense in depth" }}
+/>
+
+<Question
+  prompt="At roughly what team size does the page say most B2B SaaS startups pursue SOC 2 Type II?"
+  options={[
+    { text: "On day one, before writing any code" },
+    { text: "Around 20-30 employees, typically when enterprise customers start asking" },
+    { text: "Only after crossing 200 employees" },
+    { text: "Never — SOC 2 is only relevant for fintech" }
+  ]}
+  correct={1}
+  explanation="The page places SOC 2 Type II around 20-30 employees for most B2B SaaS. Tools like Vanta or Drata automate roughly 80% of the work; the rest is policies and the audit itself."
+  revisit={{ to: "/docs/startup/security#soc-2", label: "SOC 2 timing" }}
+/>
+
+<Question
+  prompt="Which set of daily-hygiene practices does the page list as baseline at this scale?"
+  options={[
+    { text: "HTTPS with HSTS, strict CSP, Zod-validated inputs, rate limiting, Dependabot/Renovate, secrets in a vault" },
+    { text: "A WAF and nothing else" },
+    { text: "Annual penetration testing as the sole security measure" },
+    { text: "Hiding the app behind a VPN to avoid all internet threats" }
+  ]}
+  correct={0}
+  explanation="The hygiene list covers HTTPS + HSTS, strict CSP, input validation with Zod, rate limiting on sensitive endpoints, automated dependency updates, and a real secrets vault. Skipping any of these turns into existential risk."
+  revisit={{ to: "/docs/startup/security#daily-hygiene", label: "Daily hygiene" }}
+/>
+
+<Question
+  prompt="How does the page characterize the work involved in getting SOC 2 once you're using Vanta or Drata?"
+  options={[
+    { text: "About 80% is clicking through platform tasks and providing evidence; the other 20% is policy writing and the audit itself" },
+    { text: "100% manual evidence collection by a dedicated team of five" },
+    { text: "Free and instant once you sign up" },
+    { text: "Impossible without a six-figure consulting engagement" }
+  ]}
+  correct={0}
+  explanation="The page describes SOC 2 as half compliance, half checklist. Vanta or Drata reduces it to enabling audit logs, verifying backups, enforcing MFA, and providing screenshots — about 80% of the work — with policy writing and the audit making up the rest."
+  revisit={{ to: "/docs/startup/security#soc-2", label: "SOC 2 as checklist" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 11: Maintenance and Scaling](./maintenance) where the weekly cadence and Postgres scaling come into focus.

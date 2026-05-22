@@ -103,6 +103,64 @@ A "small" feature like "add 2FA to the login flow" at an enterprise might involv
 That's 10+ people on a "two-engineer feature." This is not bureaucracy — every one of those reviewers has caught real incidents on similar features in the past.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-team-structure-page" title="Did team structure stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the defining feature of a healthy platform/infrastructure team?"
+  options={[
+    { text: "It owns the most critical user-facing services" },
+    { text: "It treats other product engineers as customers — with PMs, user research, and adoption metrics" },
+    { text: "It only employs the most senior engineers in the company" },
+    { text: "It reports directly to the CEO" }
+  ]}
+  correct={1}
+  explanation="Internal customers are still customers. Healthy platform teams run adoption metrics and user research just like external-facing teams — that's how they avoid building sophisticated platforms nobody uses."
+  revisit={{ to: "/docs/enterprise/team-structure#platform--infrastructure-teams", label: "Platform teams" }}
+/>
+
+<Question
+  prompt="What culturally distinguishes SRE from old-school operations?"
+  options={[
+    { text: "SREs are paid more" },
+    { text: "SREs only work during business hours" },
+    { text: "SREs write code to manage infrastructure and treat reliability as a software problem" },
+    { text: "SREs never carry pagers" }
+  ]}
+  correct={2}
+  explanation="SRE treats reliability as a software discipline. SREs would rather build a self-healing system than respond to the same page every Tuesday — they define SLOs, automate toil, and ship code, not just configs."
+  revisit={{ to: "/docs/enterprise/team-structure#specialized-functions", label: "SRE" }}
+/>
+
+<Question
+  prompt="On the IC career ladder, what kind of leverage does a Principal Engineer typically have?"
+  options={[
+    { text: "Less than an Engineering Manager at the same level" },
+    { text: "Roughly the same as a senior engineer plus mentoring duties" },
+    { text: "Often more than an equivalent-level manager — they can change how thousands of engineers work" },
+    { text: "None until they switch to the management track" }
+  ]}
+  correct={2}
+  explanation="Senior ICs (Staff, Principal) often have more leverage than equivalent-level managers. A Principal Engineer setting a standard, writing an RFC, or building a library that becomes the default can shift the work of thousands of engineers."
+  revisit={{ to: "/docs/enterprise/team-structure#career-ladders", label: "Career ladders" }}
+/>
+
+<Question
+  prompt="Why does a TPM (Technical Program Manager) matter at enterprise scale?"
+  options={[
+    { text: "They write most of the production code" },
+    { text: "They review every PR" },
+    { text: "They coordinate across teams, deadlines, and reviews — often the real bottleneck on big launches" },
+    { text: "They manage the on-call rotation" }
+  ]}
+  correct={2}
+  explanation="At enterprise scale, the bottleneck on major launches is usually coordinating ten teams, multiple deadlines, legal reviews, and marketing dates — not writing code. A good TPM is often the difference between a launch that ships and one that doesn't."
+  revisit={{ to: "/docs/enterprise/team-structure#management-and-coordination", label: "TPMs" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 1: Discovery & Planning](./planning) to see how all those people actually decide what to build.

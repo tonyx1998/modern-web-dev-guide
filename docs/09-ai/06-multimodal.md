@@ -101,6 +101,64 @@ Vision input is much more expensive than text input — a single image can cost 
 Multimodal is a fantastic *prototype-quality* tool that scales further than people expect — but at high volume, you'll still benchmark it against specialized alternatives.
 :::
 
+## Page checkpoint
+
+<Quiz id="ai-multimodal-page" title="Did multimodal stick?" sampleSize={2}>
+
+<Question
+  prompt="In the Vercel AI SDK, how is an image attached to a user message?"
+  options={[
+    { text: "By calling a separate vision endpoint before the chat call" },
+    { text: "By making the user message's content an array of typed parts, mixing { type: 'text' } and { type: 'image' }" },
+    { text: "By base64-encoding the image into the system prompt" },
+    { text: "By uploading the image to a CDN first and only sending the URL" }
+  ]}
+  correct={1}
+  explanation="Multimodal isn't a separate API — it's just another content part in the same message. Text and images live side by side in the prompt."
+  revisit={{ to: "/docs/ai/ai-multimodal#vision", label: "Mixed-content messages" }}
+/>
+
+<Question
+  prompt="Why does combining `generateObject` with an image input work so well for receipt scanning?"
+  options={[
+    { text: "Multimodal models are immune to hallucination on tabular data" },
+    { text: "The Zod schema forces the model's output into a typed, validated shape (merchant, total, items) — replacing OCR, field extraction, and glue code with one call" },
+    { text: "It lets you skip rate limiting" },
+    { text: "It runs entirely on-device for free" }
+  ]}
+  correct={1}
+  explanation="Structured output + multimodal input gives you typed receipt data straight from the photo. What used to be a multi-stage OCR pipeline collapses into a single prompt with schema validation."
+  revisit={{ to: "/docs/ai/ai-multimodal#vision", label: "Vision + structured output" }}
+/>
+
+<Question
+  prompt="A team is sending 4K product photos straight to the model. What's the most direct cost optimization?"
+  options={[
+    { text: "Switch to GPT-3.5 — it's cheaper" },
+    { text: "Resize images to the model's recommended dimension before sending; vision input is token-expensive" },
+    { text: "Encode images as SVG to reduce file size" },
+    { text: "Use a separate API key per image" }
+  ]}
+  correct={1}
+  explanation="Image input can cost 1,500+ tokens per call. Most tasks don't need 4K detail — downscaling before sending is the cheapest and most effective lever."
+  revisit={{ to: "/docs/ai/ai-multimodal#vision", label: "Multimodal cost levers" }}
+/>
+
+<Question
+  prompt="When should you reach for a specialized model (e.g. Whisper for transcription, dedicated OCR) instead of a multimodal frontier LLM?"
+  options={[
+    { text: "Whenever you process any audio or document data" },
+    { text: "Only when transcription quality is bad in the LLM" },
+    { text: "At high volume, where cost-per-operation makes specialized models more economical even after engineering effort" },
+    { text: "Never — frontier multimodal LLMs always win" }
+  ]}
+  correct={2}
+  explanation="Multimodal LLMs are great prototype tools and scale further than people expect, but at very high volume the cost math eventually tips toward specialized models. Benchmark when you get there."
+  revisit={{ to: "/docs/ai/ai-multimodal#audio", label: "When to specialize" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [AI Observability](./ai-observability) — production AI requires its own logging and evaluation layer.

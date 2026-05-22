@@ -59,6 +59,64 @@ Most companies don't notice they've outgrown their workflow until something brea
 The signals listed above are the leading indicators. Watch them quarterly. When two or three are flashing red, start the transition — don't wait for the fourth.
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-outgrowing-page" title="Did the outgrowing signals stick?" sampleSize={2}>
+
+<Question
+  prompt="Around what engineering-org size does the page say the small-company workflow starts to break down?"
+  options={[
+    { text: "Around 10 engineers" },
+    { text: "Around 50 engineers, when communication overhead is constant and decisions take days not hours" },
+    { text: "Around 200 engineers" },
+    { text: "There's no size threshold — workflows scale forever" }
+  ]}
+  correct={1}
+  explanation="Past about 50 engineers, communication overhead becomes constant, decisions take days, teams routinely block each other, and the monolith deploy becomes a risky event. That's when enterprise patterns become relevant."
+  revisit={{ to: "/docs/startup/outgrowing#signs-youve-outgrown-the-small-company-workflow", label: "Signs you've outgrown" }}
+/>
+
+<Question
+  prompt="Which of these is listed as a real signal that you're approaching the enterprise stage?"
+  options={[
+    { text: "Vercel bills crossing $1,000 per month" },
+    { text: "Different teams need different deployment cadences and services have wildly different scaling needs" },
+    { text: "Hiring your first designer" },
+    { text: "Adopting TypeScript strict mode" }
+  ]}
+  correct={1}
+  explanation="A genuine signal is that microservices reasons become real — different teams need different deploy cadences, and services have wildly different scaling profiles. The other listed signals include >50 engineers, blocking teams, risky monolith deploys, mounting compliance, and exhausting on-call."
+  revisit={{ to: "/docs/startup/outgrowing#signs-youve-outgrown-the-small-company-workflow", label: "Real microservices reasons" }}
+/>
+
+<Question
+  prompt="What's the hard skill the page calls out for engineers leading this transition?"
+  options={[
+    { text: "Waiting until a major incident forces the change" },
+    { text: "Noticing the signals early and acting before crisis, rather than reacting to a breakdown" },
+    { text: "Hiring an external transformation consultancy" },
+    { text: "Rewriting the entire codebase in Rust" }
+  ]}
+  correct={1}
+  explanation="Most companies don't notice they've outgrown the workflow until something breaks badly. The hard skill is treating the listed signals as leading indicators — when two or three flash red, start the transition deliberately."
+  revisit={{ to: "/docs/startup/outgrowing#signs-youve-outgrown-the-small-company-workflow", label: "Graduating gracefully" }}
+/>
+
+<Question
+  prompt="In the clean-graduation worked example, what does the CTO do after spotting the signals?"
+  options={[
+    { text: "Spins up a small platform team, extracts two services with very different scaling needs, and hires a security lead — surgical responses, not a wholesale rewrite" },
+    { text: "Immediately rewrites the monolith into 30 microservices" },
+    { text: "Fires the engineers responsible for the bad deploy" },
+    { text: "Ignores the signals and hopes things improve" }
+  ]}
+  correct={0}
+  explanation="The transition is described as surgical: a small platform team, extracting two services that scale very differently, and a security lead to own compliance work. It's deliberate, not a we became an enterprise overnight rewrite."
+  revisit={{ to: "/docs/startup/outgrowing#signs-youve-outgrown-the-small-company-workflow", label: "Clean graduation" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Chapter 6: Large Company Workflow](/docs/enterprise) — what changes when you scale to enterprise: hundreds of engineers, regulatory compliance, massive infrastructure.

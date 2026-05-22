@@ -72,6 +72,64 @@ Suppose you're tracking a "small feature" at three scales — say, "add a CSV ex
 The actual *coding* takes the same 2–4 hours at every scale. The 30x slowdown at enterprise scale is almost entirely review and rollout gates — and almost all of those gates exist because some past incident proved they were needed.
 :::
 
+## Page checkpoint
+
+<Quiz id="comparison-economics-page" title="Did economics across scales stick?" sampleSize={2}>
+
+<Question
+  prompt="At every scale, what is the dominant cost — and what does that imply for infra decisions?"
+  options={[
+    { text: "Infrastructure dominates spend, so you should always pick the cheapest hosting option" },
+    { text: "People dominate spend, so the cheapest infra option is almost never the cheapest total option" },
+    { text: "Compliance dominates spend at startups, infra dominates at enterprises" },
+    { text: "Marketing dominates spend, making engineering economics irrelevant" }
+  ]}
+  correct={1}
+  explanation="At every scale, infrastructure is a small slice of total spend — people dominate. That means paying $20/month for managed Postgres or $4M/year for Datadog is usually cheaper than the engineering time you'd burn self-hosting."
+  revisit={{ to: "/docs/comparison/economics#cost-profile", label: "Cost Profile" }}
+/>
+
+<Question
+  prompt="In the CSV export worked example, where does the 30x time difference between solo and enterprise actually come from?"
+  options={[
+    { text: "Enterprises write the same feature 30x slower because the code is harder" },
+    { text: "Enterprises run 30x more unit tests, which dominates the elapsed time" },
+    { text: "The coding takes roughly the same 2–4 hours at every scale — the slowdown is almost entirely review and rollout gates" },
+    { text: "Enterprises rewrite the feature in a different language for compliance" }
+  ]}
+  correct={2}
+  explanation="The actual coding is comparable at every scale. The 30x slowdown is review queues, CODEOWNERS waits, security and accessibility checks, and a staged canary rollout — gates that exist because past incidents proved they were needed."
+  revisit={{ to: "/docs/comparison/economics#time-to-production", label: "Where the enterprise time goes" }}
+/>
+
+<Question
+  prompt="What are typical total monthly infrastructure costs across the three scales?"
+  options={[
+    { text: "Solo: ~$500. Startup: ~$50K. Enterprise: ~$5M" },
+    { text: "Solo: $1–$20. Startup: $500–$5,000. Enterprise: $2M–$50M+" },
+    { text: "Solo: free. Startup: $100. Enterprise: $100K" },
+    { text: "All three sit in the $1K–$10K/month range; only payroll changes" }
+  ]}
+  correct={1}
+  explanation="Typical infra totals are $1–$20/month for solo, $500–$5,000/month for a startup, and $2M–$50M+/month for an enterprise. Engineering payroll dwarfs infra at every scale."
+  revisit={{ to: "/docs/comparison/economics#cost-profile", label: "Cost Profile" }}
+/>
+
+<Question
+  prompt="What is the main reason a typo fix takes 1–4 hours at an enterprise versus 2 minutes for a solo dev?"
+  options={[
+    { text: "Enterprise CI compilers are much slower than Vercel" },
+    { text: "Enterprises don't have GitHub access, so deploys go through email" },
+    { text: "Layered process — reviews, security checks, canary rollouts, compliance gates — each born from a past incident" },
+    { text: "Enterprises always wait for a weekly release train regardless of urgency" }
+  ]}
+  correct={2}
+  explanation="The 10–100x slowdown comes from the surrounding process at enterprise scale: reviews, security checks, canary rollouts, and compliance gates. Each gate exists because some past incident showed why it was necessary."
+  revisit={{ to: "/docs/comparison/economics#time-to-production", label: "Time-to-Production" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Trade-Offs](./tradeoffs) — the characteristic trade-offs and career implications at each scale.

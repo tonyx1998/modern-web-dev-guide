@@ -45,6 +45,64 @@ At 5–10 people, you don't have time to build a design system. shadcn/ui gives 
 As you grow, you wrap shadcn components in your own primitives, then eventually graduate to a fully owned design system in Storybook. But the path from "no design system" to "full Storybook" goes through shadcn — not around it.
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-design-page" title="Did startup-scale design stick?" sampleSize={2}>
+
+<Question
+  prompt="Why does the page recommend shadcn/ui as the default component library for a 5-10 person startup?"
+  options={[
+    { text: "It's the cheapest paid component library on the market" },
+    { text: "It gives a fully-styled, accessible library you own in your repo, with no time spent building one" },
+    { text: "It's mandated by Next.js" },
+    { text: "It removes the need to ever hire a designer" }
+  ]}
+  correct={1}
+  explanation="At 5-10 people you can't afford to build a design system. shadcn/ui ships accessible, customizable components that live in your own repo — you customize colors and typography rather than starting from scratch."
+  revisit={{ to: "/docs/startup/design#design-system-maturity-at-this-stage", label: "shadcn/ui default" }}
+/>
+
+<Question
+  prompt="What design-system progression does the page describe as team size grows?"
+  options={[
+    { text: "shadcn/ui directly, then small private library extending shadcn, then full Storybook system" },
+    { text: "Material UI, then Ant Design, then a fully custom CSS framework" },
+    { text: "Tailwind utility classes only, never any component library" },
+    { text: "Storybook from day one, regardless of team size" }
+  ]}
+  correct={0}
+  explanation="The page maps the path: 5-10 people use shadcn directly; 10-25 wrap shadcn in private primitives; 25-50 graduate to a Storybook-based design system with a designer-engineer owner."
+  revisit={{ to: "/docs/startup/design#design-system-maturity-at-this-stage", label: "Design system maturity" }}
+/>
+
+<Question
+  prompt="What is the main argument the page makes for engineers attending design reviews?"
+  options={[
+    { text: "Engineers can negotiate down designer salaries" },
+    { text: "Engineers flag feasibility issues early, before days of design or code are wasted" },
+    { text: "Designers can't be trusted alone with Figma" },
+    { text: "It's required to pass SOC 2 audits" }
+  ]}
+  correct={1}
+  explanation="The worked example shows an engineer in design review surfacing a Client Component cost before implementation. A decision in five minutes saves days of throwaway design or slow code."
+  revisit={{ to: "/docs/startup/design#engineeringdesign-collaboration", label: "Design-feasibility loop" }}
+/>
+
+<Question
+  prompt="What is the overarching goal of design at startup scale, per the In Plain English intro?"
+  options={[
+    { text: "Maximize pixel-perfect fidelity with no engineering compromise" },
+    { text: "Keep the gap between what's in Figma and what's in production small enough that designers trust staging" },
+    { text: "Move design entirely into code so designers no longer use Figma" },
+    { text: "Outsource all visual work to external agencies" }
+  ]}
+  correct={1}
+  explanation="The introduction frames the goal as closing the Figma-to-production gap so design can trust what they see in staging — not perfect fidelity, not eliminating Figma, just a small reliable gap."
+  revisit={{ to: "/docs/startup/design#phase-2-design", label: "Plain English intro" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 3: Architecture](./architecture) where the modular monolith and the 2026 stack come together.

@@ -206,6 +206,64 @@ Total time: 20–30 minutes. Avoid the trap of refactoring six other things whil
 Most "I need state here" instincts are wrong. You only truly need a Client Component when there's user input or animation. The book list itself doesn't need to be client-side — only the *button that opens the modal* does. Pushing `'use client'` as deep into the tree as possible keeps your JS bundle small and your pages fast.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-development-page" title="Did the development workflow stick?" sampleSize={2}>
+
+<Question
+  prompt="When should you reach for 'use client' in Next.js App Router?"
+  options={[
+    { text: "On every component, by default" },
+    { text: "Only when you need interactivity, browser APIs, or state" },
+    { text: "Whenever you fetch data from the database" },
+    { text: "Whenever you import a third-party library" }
+  ]}
+  correct={1}
+  explanation="Server Components are the default. 'use client' is only needed for things that genuinely require the browser — event handlers, useState/useEffect, or browser APIs. Pushing the client boundary deep keeps JS bundles small."
+  revisit={{ to: "/docs/solo/development#server-components-vs-client-components", label: "Server vs Client" }}
+/>
+
+<Question
+  prompt="In the addBook Server Action, why is Zod's parse() call important?"
+  options={[
+    { text: "It serializes the data for the database driver" },
+    { text: "It validates input and throws before bad data reaches the DB" },
+    { text: "It compresses the form data over the wire" },
+    { text: "It rebuilds the form HTML on the server" }
+  ]}
+  correct={1}
+  explanation="Zod validates that title is non-empty and status is one of the three allowed values. Anything malformed throws before the insert, keeping the database honest."
+  revisit={{ to: "/docs/solo/development#server-actions", label: "Server Actions" }}
+/>
+
+<Question
+  prompt="What does revalidatePath('/library') accomplish after an insert?"
+  options={[
+    { text: "Forces an HTTPS redirect" },
+    { text: "Invalidates the cached page so the new data appears on next render" },
+    { text: "Re-runs the database migration" },
+    { text: "Tells Clerk to refresh the user's session" }
+  ]}
+  correct={1}
+  explanation="Next.js caches rendered pages. After mutating data you must explicitly invalidate the cache for affected paths, otherwise users see stale content even though the DB row exists."
+  revisit={{ to: "/docs/solo/development#server-actions", label: "revalidatePath" }}
+/>
+
+<Question
+  prompt="Which file convention shows a UI while a Server Component is loading?"
+  options={[
+    { text: "spinner.tsx" },
+    { text: "loading.tsx" },
+    { text: "suspense.tsx" },
+    { text: "fallback.tsx" }
+  ]}
+  correct={1}
+  explanation="Next.js App Router uses file-based conventions: loading.tsx is shown while the sibling page.tsx is loading. error.tsx, not-found.tsx, and page.tsx round out the set."
+  revisit={{ to: "/docs/solo/development#handling-loading-and-error-states", label: "Loading and error states" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 5: Adding Auth](./auth) where Clerk lets you skip building user accounts entirely.

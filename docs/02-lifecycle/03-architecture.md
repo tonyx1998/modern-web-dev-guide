@@ -113,6 +113,64 @@ Most apps don't need these patterns explicitly. A good monolith with a clean mod
 This stack scales from "weekend project" to "thousands of paying customers" without needing to be rewritten. **Boring. Effective. Recommended.**
 :::
 
+## Page checkpoint
+
+<Quiz id="lifecycle-architecture-page" title="Did architecture stick?" sampleSize={2}>
+
+<Question
+  prompt="Why does the page urge you to deliberate more carefully over architecture decisions than over feature decisions?"
+  options={[
+    { text: "Architects get paid more than designers" },
+    { text: "Architecture decisions get progressively harder to reverse — language and database choices can take years to undo" },
+    { text: "Frameworks require legal approval before adoption" },
+    { text: "Architectural decisions are tracked by external auditors" }
+  ]}
+  correct={1}
+  explanation="The page's reversibility table makes the point: button color costs minutes to reverse, but a database choice can cost years. Spend deliberation proportional to reversibility."
+  revisit={{ to: "/docs/lifecycle/architecture#architecture-decisions-are-hard-to-reverse", label: "Reversibility table" }}
+/>
+
+<Question
+  prompt="When does the page say it's actually worth splitting a monolith into microservices?"
+  options={[
+    { text: "Whenever the codebase exceeds 10,000 lines" },
+    { text: "As soon as you have paying customers" },
+    { text: "When different teams own different parts, scaling needs diverge wildly, or compliance requires isolation" },
+    { text: "Before launch, because retrofitting microservices is impossible" }
+  ]}
+  correct={2}
+  explanation="The page's three triggers are team ownership friction, wildly divergent scaling needs, and isolation for compliance. Splitting earlier is 'microservices because Netflix' — one of the most expensive mistakes in modern web dev."
+  revisit={{ to: "/docs/lifecycle/architecture#the-modular-monolith-pattern", label: "When to split into services" }}
+/>
+
+<Question
+  prompt="What's an ADR (Architecture Decision Record), as described on the page?"
+  options={[
+    { text: "A legal contract between dev teams" },
+    { text: "A short record of an architectural decision — context, options, decision, consequences — that lives in the codebase" },
+    { text: "An automated linter rule that enforces architecture patterns" },
+    { text: "A type of unit test for service boundaries" }
+  ]}
+  correct={1}
+  explanation="ADRs preserve the 'why' behind architectural choices so future engineers (often future-you) understand the reasoning. The page recommends them even for solo developers."
+  revisit={{ to: "/docs/lifecycle/architecture#rfcs-and-adrs", label: "RFCs and ADRs" }}
+/>
+
+<Question
+  prompt="Which of these is flagged as an architecture anti-pattern?"
+  options={[
+    { text: "Writing an ADR before committing to a database" },
+    { text: "Choosing tech because it'll look good on your resume" },
+    { text: "Defaulting to a modular monolith for a small team" },
+    { text: "Picking boring, proven tools for a beginner project" }
+  ]}
+  correct={1}
+  explanation="Resume-driven development picks tech for the engineer's career, not the project's needs. The page also calls out hype-driven and cargo-cult variants for the same reason."
+  revisit={{ to: "/docs/lifecycle/architecture#common-anti-patterns", label: "Architecture anti-patterns" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 4: Environment Setup](./environment-setup) where we set up the workshop — runtimes, editors, version control, linters, secrets, the boring stuff that makes building possible.

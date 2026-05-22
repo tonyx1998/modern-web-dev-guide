@@ -53,6 +53,64 @@ This pattern repeats across every managed service.
 Infra costs become non-noise once you're at hundreds of thousands of MAUs *or* when a specific service has a runaway line item (Vercel bandwidth spikes, PostHog event volume). The trigger isn't "we should save money in general" — it's "this one bill grew 5x and we can't explain it." Then you investigate and optimize the specific line. The rest you leave alone.
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-cost-breakdown-page" title="Did the cost breakdown stick?" sampleSize={2}>
+
+<Question
+  prompt="What range does the page give for a typical $1M ARR startup's total monthly infrastructure bill?"
+  options={[
+    { text: "$10-$50 per month — basically free" },
+    { text: "$500-$3,500 per month across the entire managed stack" },
+    { text: "$25,000-$50,000 per month" },
+    { text: "$200,000+ per month" }
+  ]}
+  correct={1}
+  explanation="The whole managed stack — Vercel, Supabase, Clerk, Sentry, PostHog, Better Stack, background jobs, email, source control, project management, secrets — typically totals $500-$3,500/month at $1M ARR with ~5,000 active users."
+  revisit={{ to: "/docs/startup/cost-breakdown#a-startup-at-1m-arr-with-5000-active-users", label: "Total monthly cost" }}
+/>
+
+<Question
+  prompt="Why does the page argue infrastructure costs are usually noise at this scale?"
+  options={[
+    { text: "Cloud providers offer unlimited free tiers" },
+    { text: "A single mid-level engineer at $15-25K/month dwarfs the entire managed stack bill" },
+    { text: "Most startups don't actually use any paid services" },
+    { text: "Revenue grows faster than any conceivable infrastructure spend" }
+  ]}
+  correct={1}
+  explanation="Fully-loaded engineer cost ($15-25K/month) is roughly 5-50x the entire managed-stack bill. That ratio is the whole reason buy-don't-build wins at this stage."
+  revisit={{ to: "/docs/startup/cost-breakdown#a-startup-at-1m-arr-with-5000-active-users", label: "Costs vs payroll" }}
+/>
+
+<Question
+  prompt="In the self-hosted Postgres worked example, why is the apparent savings actually negative?"
+  options={[
+    { text: "Self-hosted databases lose data more often" },
+    { text: "The 4-8 engineer-hours per month spent on backups, upgrades, and pooling cost more than the $200/month Supabase fee" },
+    { text: "Cloud Postgres is always cheaper than self-hosted" },
+    { text: "Supabase offers a permanent free tier that makes the math irrelevant" }
+  ]}
+  correct={1}
+  explanation="At $150/hour fully loaded, 4-8 monthly engineer-hours on a self-hosted Postgres is $600-$1,200 to save $150 in infra. The math is firmly against self-hosting once you value engineer time."
+  revisit={{ to: "/docs/startup/cost-breakdown#a-startup-at-1m-arr-with-5000-active-users", label: "Trading infra for engineer time" }}
+/>
+
+<Question
+  prompt="When does the page say infrastructure costs do start to matter and warrant investigation?"
+  options={[
+    { text: "When a CFO randomly asks about it" },
+    { text: "When you're at hundreds of thousands of MAUs, or one specific line item grows 5x with no explanation" },
+    { text: "Whenever the total bill exceeds $100/month" },
+    { text: "Never — costs always remain noise" }
+  ]}
+  correct={1}
+  explanation="Investigate when you cross into hundreds of thousands of MAUs, or when one specific service spikes 5x unexpectedly. The trigger is a specific, unexplained line item — not a general we should save money initiative."
+  revisit={{ to: "/docs/startup/cost-breakdown#a-startup-at-1m-arr-with-5000-active-users", label: "When costs matter" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Sample Day-in-the-Life](./day-in-life) for a concrete picture of what a startup engineer's day actually looks like.

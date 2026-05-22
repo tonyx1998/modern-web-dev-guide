@@ -79,6 +79,64 @@ A design system team wants to ship a major upgrade (v3 with new tokens, new acce
 Six months end-to-end for what would take an afternoon at a startup. But the cost of forcing 200 engineers to fix breaking changes simultaneously would be far higher than the cost of a careful rollout.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-frontend-architecture-page" title="Did frontend architecture stick?" sampleSize={2}>
+
+<Question
+  prompt="The page argues micro-frontends primarily solve which kind of problem?"
+  options={[
+    { text: "A performance problem — they make pages load faster" },
+    { text: "A people/coordination problem — they let independent teams deploy without merge trains" },
+    { text: "A security problem — they sandbox malicious code" },
+    { text: "A SEO problem — search engines prefer them" }
+  ]}
+  correct={1}
+  explanation="Micro-frontends solve a coordination nightmare: a single codebase shared by 50 teams turns every deploy into a merge train. They have real costs (bundle duplication, harder cross-cutting changes) and aren't worth it until team coordination dominates engineering velocity."
+  revisit={{ to: "/docs/enterprise/frontend-architecture#micro-frontends", label: "Micro-frontends" }}
+/>
+
+<Question
+  prompt="How is an enterprise design system best described?"
+  options={[
+    { text: "A static Figma file shared with engineering" },
+    { text: "An internal product — versioned packages with PMs, designers, deprecations, migration guides, and adoption metrics" },
+    { text: "A wiki page listing approved colors and fonts" },
+    { text: "A linter rule enforced in CI" }
+  ]}
+  correct={1}
+  explanation="A design system at this scale is a product. It has internal users (engineers), versioned releases, deprecations, migration guides, and adoption metrics — owned by a dedicated team with PMs and designers, not just a Figma file."
+  revisit={{ to: "/docs/enterprise/frontend-architecture#design-system-as-code", label: "Design system as code" }}
+/>
+
+<Question
+  prompt="What does a performance budget actually do in CI?"
+  options={[
+    { text: "It tracks how much engineering time is spent on performance" },
+    { text: "It fails the build when bundle size, time-to-interactive, or LCP exceed defined limits" },
+    { text: "It allocates cloud spend to the frontend team" },
+    { text: "It schedules performance audits quarterly" }
+  ]}
+  correct={1}
+  explanation="A performance budget is a hard constraint with specific numeric limits — bundle size, time-to-interactive, LCP at a specific percentile on a specific device. If a PR pushes a metric over the budget, CI fails and the change has to be rethought."
+  revisit={{ to: "/docs/enterprise/frontend-architecture#performance-budgets", label: "Performance budgets" }}
+/>
+
+<Question
+  prompt="If you have fewer than about 10 product teams, what does the page recommend about micro-frontends?"
+  options={[
+    { text: "Adopt them immediately to future-proof the codebase" },
+    { text: "Resist them — you're solving a problem you don't yet have" },
+    { text: "Adopt them only for the marketing site" },
+    { text: "Use module federation as a partial step" }
+  ]}
+  correct={1}
+  explanation="Micro-frontends add real complexity (routing, auth, analytics, shared state). If you have fewer than ~10 product teams, the coordination cost of a monolithic frontend hasn't yet exceeded that complexity — you're inventing problems."
+  revisit={{ to: "/docs/enterprise/frontend-architecture#micro-frontends", label: "When to adopt" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 3: Developer Experience](./developer-experience) to see how internal platforms make this whole machine usable.
