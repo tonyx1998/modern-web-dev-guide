@@ -115,6 +115,64 @@ Modern continuous-deployment teams break this rule routinely *because their roll
 - **No staging for big changes:** Direct-to-prod for risky changes.
 - **Untested migrations:** Run on production data without testing on a copy first.
 
+## Page checkpoint
+
+<Quiz id="lifecycle-deployment-hosting-page" title="Did deployment & hosting stick?" sampleSize={2}>
+
+<Question
+  prompt="A solo developer wants to host a Next.js side project. Which hosting category does the page recommend?"
+  options={[
+    { text: "Self-managed Kubernetes on bare metal" },
+    { text: "An edge platform like Vercel, Netlify, or Cloudflare Pages on the free tier" },
+    { text: "Raw EC2 VMs with manual SSH deploys" },
+    { text: "A self-hosted Jenkins on a Raspberry Pi" }
+  ]}
+  correct={1}
+  explanation="Edge platforms give you Git-driven deploys, global CDN, preview URLs, and free SSL out of the box. Reaching for Kubernetes 'because it sounds professional' is one of the most common over-engineering mistakes."
+  revisit={{ to: "/docs/lifecycle/deployment-hosting#hosting-categories", label: "Hosting choice for your scale" }}
+/>
+
+<Question
+  prompt="What's so valuable about per-PR preview deployments?"
+  options={[
+    { text: "They replace the need for unit tests" },
+    { text: "Designers, managers, and QA can see your changes live in a real environment before merging" },
+    { text: "They make CI run faster" },
+    { text: "They automatically fix accessibility issues" }
+  ]}
+  correct={1}
+  explanation="A live URL per PR turns reviews into 'click and see' instead of 'imagine and approve'. The page calls this one of the biggest reasons Vercel won the developer market."
+  revisit={{ to: "/docs/lifecycle/deployment-hosting#environments", label: "Preview deployments are magic" }}
+/>
+
+<Question
+  prompt="What's a backward-compatible database migration?"
+  options={[
+    { text: "A migration that only runs on weekends" },
+    { text: "A migration that adds new columns or tables without breaking the old code still running in production" },
+    { text: "A migration written in an older SQL dialect" },
+    { text: "A migration that automatically rolls back if anything fails" }
+  ]}
+  correct={1}
+  explanation="Backward-compatible migrations let old and new code coexist during the deploy. You add schema first, ship code that uses it later — so a partial rollout never breaks production."
+  revisit={{ to: "/docs/lifecycle/deployment-hosting#database-migrations", label: "Database migrations" }}
+/>
+
+<Question
+  prompt="The folk wisdom 'don't deploy on Fridays' is more nuanced on this page. When can a team safely break it?"
+  options={[
+    { text: "Never — Friday deploys are universally banned" },
+    { text: "When their rollback story is great — if they can roll back in 60 seconds, Friday deploys are fine" },
+    { text: "Whenever they want — the rule is a myth" },
+    { text: "Only if a senior engineer approves in person" }
+  ]}
+  correct={1}
+  explanation="The rule isn't about Fridays — it's about how long you'll spend fixing a broken deploy. With fast, reliable rollback, the day of the week stops mattering."
+  revisit={{ to: "/docs/lifecycle/deployment-hosting#a-safe-deploy-checklist", label: "The Friday-deploy rule" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 10: Observability](./observability) where we add the eyes and ears that tell us how the deployed system is actually behaving.

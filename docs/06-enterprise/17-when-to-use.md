@@ -70,6 +70,64 @@ A 2026-style company growing from 20 to 200 engineers might adopt enterprise pra
 Each step is triggered by a real pain. Skipping ahead — Kubernetes at 30 engineers, AppSec team at 50 — is almost always the wrong call.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-when-to-use-page" title="Did when-to-use stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the common mistake when reading about enterprise practices?"
+  options={[
+    { text: "Dismissing them as unnecessary at any scale" },
+    { text: "Thinking 'we want to be like Google someday, so let's set up like Google now' — adopting each practice before you have the problem it solves" },
+    { text: "Treating enterprise advice as too vague" },
+    { text: "Believing enterprise practices were invented by consultants" }
+  ]}
+  correct={1}
+  explanation="Each enterprise practice was invented to solve a specific scale problem. Adopting it before you have that problem is pure cost. The right move is to watch which problems are actually starting to bite and adopt the matching practice when the pain justifies it."
+  revisit={{ to: "/docs/enterprise/when-to-use", label: "When to adopt" }}
+/>
+
+<Question
+  prompt="What is the best signal that you've outgrown a current process?"
+  options={[
+    { text: "A vague feeling of slowness" },
+    { text: "A concrete pattern of failures — e.g., 'three incidents this quarter caused by deploys' justifies investing in canary and rollback" },
+    { text: "Hitting a particular headcount number" },
+    { text: "A competitor adopting the new practice" }
+  ]}
+  correct={1}
+  explanation="Lag indicators — concrete repeating failures — tell you exactly which problem to solve next and let you justify investment to leadership with real data. 'We feel slow' is too vague to act on; 'three deploy-caused incidents this quarter' points directly at canary and rollback work."
+  revisit={{ to: "/docs/enterprise/when-to-use#heuristics-for-when-to-adopt", label: "Lag indicators" }}
+/>
+
+<Question
+  prompt="According to the page, when should you adopt SOC 2?"
+  options={[
+    { text: "As soon as you incorporate" },
+    { text: "When a customer or regulator asks — don't pursue it speculatively, pursue it when a deal depends on it" },
+    { text: "When you hit 100 employees" },
+    { text: "Before raising any funding" }
+  ]}
+  correct={1}
+  explanation="SOC 2 is expensive and time-consuming. Pursue it when a deal depends on it — when a customer asks or a regulator requires it — not speculatively. Same logic applies to most compliance: drive it from real business need, not aspiration."
+  revisit={{ to: "/docs/enterprise/when-to-use#heuristics-for-when-to-adopt", label: "Compliance timing" }}
+/>
+
+<Question
+  prompt="The page recommends resisting Kubernetes until what point?"
+  options={[
+    { text: "Day one — Kubernetes is required for any production workload" },
+    { text: "You've genuinely outgrown a PaaS like Render, Fly, or Railway — most startups never need it" },
+    { text: "You hit 50 services" },
+    { text: "After SOC 2 certification" }
+  ]}
+  correct={1}
+  explanation="Kubernetes is powerful but operationally heavy. Most startups ship faster on a PaaS (Render, Fly, Railway) and never genuinely outgrow it. Adopting Kubernetes early just to look enterprise-ready trades real velocity for theoretical scalability."
+  revisit={{ to: "/docs/enterprise/when-to-use#when-not-to-adopt-enterprise-practices", label: "Don't adopt early" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [When You're "Too Big" for This Workflow](./too-big) — what happens at the scale where this guide stops applying.

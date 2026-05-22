@@ -90,6 +90,64 @@ Most beginner designers (and engineers) only design the happy path — the scree
 A well-designed empty state guides users to the *next action*. A missing empty state confuses them. Design those screens *before* the happy-path screens — they're where users live during onboarding, which is the most critical part of any product.
 :::
 
+## Page checkpoint
+
+<Quiz id="lifecycle-design-page" title="Did design stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the page's central argument for designing in Figma (or on paper) before writing code?"
+  options={[
+    { text: "Designers refuse to work in code editors" },
+    { text: "Iteration is dramatically cheaper in design tools than in code, so bad ideas get caught before they become bad code" },
+    { text: "It's the only way to enforce WCAG compliance" },
+    { text: "Investors expect to see Figma mockups before funding" }
+  ]}
+  correct={1}
+  explanation="Changing pixels in Figma takes minutes; changing them in code takes hours and risks regressions. Design is cheap prototyping that catches bad ideas before they cost real engineering time."
+  revisit={{ to: "/docs/lifecycle/design#why-design-before-code", label: "Why design before code" }}
+/>
+
+<Question
+  prompt="Which sub-phase of design produces low-fidelity sketches — boxes and labels, no color or fonts?"
+  options={[
+    { text: "Information Architecture" },
+    { text: "Wireframes" },
+    { text: "High-fidelity mockups" },
+    { text: "Design system" }
+  ]}
+  correct={1}
+  explanation="Wireframes are deliberately low-fidelity so people focus on structure and flow, not colors or typography. Pixel-perfect comes later in mockups."
+  revisit={{ to: "/docs/lifecycle/design#the-six-sub-phases-of-design", label: "Six sub-phases of design" }}
+/>
+
+<Question
+  prompt="The page strongly recommends designing empty states first. Why?"
+  options={[
+    { text: "Empty states use less ink when printed" },
+    { text: "Empty states are easier to design than populated screens" },
+    { text: "Users live in empty states during onboarding — the most critical part of any product" },
+    { text: "Empty states are required by WCAG AAA" }
+  ]}
+  correct={2}
+  explanation="Every new user starts in an empty state. A well-designed empty state guides them to the next action; a missing one confuses them at the worst possible moment."
+  revisit={{ to: "/docs/lifecycle/design#tools-in-2026", label: "Design empty states first" }}
+/>
+
+<Question
+  prompt="Which of the following is called out as a design anti-pattern on the page?"
+  options={[
+    { text: "Designing with realistic content lengths" },
+    { text: "Considering keyboard navigation early" },
+    { text: "Designing only the happy path with no empty, loading, or error states" },
+    { text: "Using design tokens shared between Figma and code" }
+  ]}
+  correct={2}
+  explanation="Real interfaces spend a lot of time NOT in the happy path. Designing only the happy path leaves engineers improvising the most-seen screens of the product."
+  revisit={{ to: "/docs/lifecycle/design#common-anti-patterns", label: "Design anti-patterns" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 3: Architecture](./architecture) where the question shifts from *how it looks* to *how it works under the hood*.

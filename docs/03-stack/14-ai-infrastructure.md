@@ -84,6 +84,64 @@ The biggest 2026 surprise for new AI feature developers: cost. A single user wit
 One viral tweet about your app + no spend limit = an awful Monday morning.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-ai-infrastructure-page" title="Did AI infrastructure stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the role of the Vercel AI SDK in a typical 2026 AI feature?"
+  options={[
+    { text: "It hosts the actual large language model" },
+    { text: "It's a TypeScript abstraction over model providers that makes streaming chat and tool calls trivial" },
+    { text: "It's a vector database that stores your embeddings" },
+    { text: "It's a billing dashboard for AI spend" }
+  ]}
+  correct={1}
+  explanation="The Vercel AI SDK is a thin, dominant TypeScript wrapper over providers like Anthropic and OpenAI. Calls like `streamText` + `toDataStreamResponse()` give you token-by-token streaming to the browser in a few lines."
+  revisit={{ to: "/docs/stack/ai-infrastructure#sdks", label: "SDKs section" }}
+/>
+
+<Question
+  prompt="What is an 'embedding' in the context of AI infrastructure?"
+  options={[
+    { text: "A compiled binary that runs the LLM locally" },
+    { text: "A vector of numbers representing the meaning of a piece of text, image, or audio — used for similarity search" },
+    { text: "A secret API key embedded in environment variables" },
+    { text: "A prompt template stored on disk" }
+  ]}
+  correct={1}
+  explanation="Embeddings are high-dimensional vectors representing meaning. Stored in a vector database (often pgvector), they power semantic search and RAG by letting you find content whose meaning is close to a query."
+  revisit={{ to: "/docs/stack/ai-infrastructure#embeddings", label: "Embeddings section" }}
+/>
+
+<Question
+  prompt="What's the most important cost discipline to adopt on day one of building AI features?"
+  options={[
+    { text: "Always use the most expensive model so quality is high" },
+    { text: "Cache aggressively, use cheaper models for cheaper tasks, track per-request cost, and set monthly spend limits" },
+    { text: "Disable streaming so you can count tokens manually" },
+    { text: "Bill users upfront for every API call you make" }
+  ]}
+  correct={1}
+  explanation="A single long conversation can rack up dollars in API spend. Use prompt caching where available, route easy tasks to cheaper models (Haiku, not Opus), instrument per-request cost, and set provider spend limits before shipping."
+  revisit={{ to: "/docs/stack/ai-infrastructure#ai-observability", label: "AI cost discipline" }}
+/>
+
+<Question
+  prompt="Why does Server-Sent Events (SSE) appear in the AI infrastructure stack?"
+  options={[
+    { text: "Because SSE is required to authenticate model providers" },
+    { text: "Because SSE is the standard transport for streaming LLM tokens to the browser — and what the Vercel AI SDK uses under the hood" },
+    { text: "Because vector databases only accept inputs over SSE" },
+    { text: "Because SSE is the only way to send file uploads" }
+  ]}
+  correct={1}
+  explanation="LLM responses come token-by-token, and SSE — one-way streaming over HTTP with automatic reconnection — is the natural fit. `toDataStreamResponse()` in the Vercel AI SDK wraps the model's token stream in an SSE response."
+  revisit={{ to: "/docs/stack/ai-infrastructure#streaming", label: "Streaming section" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Hosting Platforms](./hosting) — where your code actually runs.

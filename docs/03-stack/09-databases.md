@@ -147,6 +147,64 @@ flowchart LR
 That's it. One DB to back up. One mental model. One ops burden. Add specialized databases only when Postgres genuinely can't handle the job — which, in 2026, is rare.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-databases-page" title="Did databases stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the page's default database recommendation for almost every new project in 2026?"
+  options={[
+    { text: "MongoDB" },
+    { text: "DynamoDB" },
+    { text: "PostgreSQL" },
+    { text: "MySQL" }
+  ]}
+  correct={2}
+  explanation="Postgres is open-source, mature, and has extensions for almost every specialized need (vectors via pgvector, GIS, time-series, full-text search). Reach for something else only when Postgres genuinely can't solve your problem."
+  revisit={{ to: "/docs/stack/databases#postgresql--the-default", label: "PostgreSQL section" }}
+/>
+
+<Question
+  prompt="Which extension lets you do vector similarity search for AI/RAG features inside Postgres — without a separate vector database?"
+  options={[
+    { text: "PostGIS" },
+    { text: "pg_search" },
+    { text: "pgvector" },
+    { text: "TimescaleDB" }
+  ]}
+  correct={2}
+  explanation="pgvector is the popular 2026 choice for storing and querying embeddings. Using it means one fewer service to operate vs. a dedicated vector DB like Pinecone or Qdrant."
+  revisit={{ to: "/docs/stack/databases#vector-databases", label: "Vector databases" }}
+/>
+
+<Question
+  prompt="What is Redis (or its open-source fork Valkey) typically used for in a modern web stack?"
+  options={[
+    { text: "Primary relational storage for user accounts and orders" },
+    { text: "An in-memory key-value store for caching, sessions, rate limiting, and job queues" },
+    { text: "Long-term archival of analytics events" },
+    { text: "A full-text search engine for product catalogs" }
+  ]}
+  correct={1}
+  explanation="Redis/Valkey is in-memory and fast: it's used for caching, session storage, rate limiting, BullMQ-style job queues, leaderboards (sorted sets), and pub/sub — not as the system of record."
+  revisit={{ to: "/docs/stack/databases#redis--valkey", label: "Redis / Valkey" }}
+/>
+
+<Question
+  prompt="What makes SQLite production-viable for many apps in 2026, where five years ago it would have been 'embedded only'?"
+  options={[
+    { text: "It now ships with built-in horizontal sharding" },
+    { text: "It became a managed service from AWS" },
+    { text: "Edge-friendly offerings like Cloudflare D1 and Turso, plus tools like Litestream for streaming backups" },
+    { text: "It added a network protocol so clients can connect over TCP" }
+  ]}
+  correct={2}
+  explanation="Cloudflare D1, Turso (distributed SQLite with replication), and Litestream (streaming backup to S3) turned SQLite into a serious option for edge-first or single-region apps with moderate write volume."
+  revisit={{ to: "/docs/stack/databases#sqlite", label: "SQLite section" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [ORMs & Database Tools](./orms) — the layer that translates between your code and SQL.

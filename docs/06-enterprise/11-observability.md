@@ -108,6 +108,64 @@ Two days later: blameless post-mortem. Root cause documented. Action items: impr
 That's enterprise incident management working as intended — fast detection, fast mitigation, durable learning.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-observability-page" title="Did observability stick?" sampleSize={2}>
+
+<Question
+  prompt="How do the three pillars of observability complement each other?"
+  options={[
+    { text: "They're interchangeable — pick whichever your vendor supports" },
+    { text: "Metrics say something is wrong, traces say which service is wrong, logs say exactly what happened" },
+    { text: "Metrics are for engineers, logs are for managers, traces are for SREs" },
+    { text: "Only metrics matter at scale" }
+  ]}
+  correct={1}
+  explanation="The three pillars play distinct roles. Metrics surface that something is wrong (rate, errors, duration). Traces pinpoint which service in a distributed call chain is at fault. Logs reveal exactly what happened at that point. You need all three to debug at scale."
+  revisit={{ to: "/docs/enterprise/observability#the-three-pillars", label: "Three pillars" }}
+/>
+
+<Question
+  prompt="Why is the blameless post-mortem described as a technical design choice, not just politeness?"
+  options={[
+    { text: "It's required by SOC 2" },
+    { text: "When people feel safe admitting what happened, they tell the truth and you learn the real root cause — fear hides details and you learn nothing" },
+    { text: "It saves time in the meeting" },
+    { text: "It's traditional at large companies" }
+  ]}
+  correct={1}
+  explanation="Blamelessness is a reliability lever, not just a kindness. Honest post-mortems surface root causes; punitive cultures hide them. The single biggest predictor of an org's reliability is whether its post-mortems are genuinely honest."
+  revisit={{ to: "/docs/enterprise/observability#post-mortems", label: "Blameless post-mortems" }}
+/>
+
+<Question
+  prompt="What does an error budget concretely enforce?"
+  options={[
+    { text: "A cap on how much engineering time can be spent debugging" },
+    { text: "If a service's SLO is 99.9% and it's been at 99.85% this month, the budget is burned — feature work pauses until reliability is restored" },
+    { text: "A maximum number of incidents per quarter" },
+    { text: "A cap on cloud spend per service" }
+  ]}
+  correct={1}
+  explanation="The error budget makes the velocity-vs-reliability trade-off concrete and team-owned. 'We're out of budget this month' is a real constraint that pauses feature work until SLOs recover — turning reliability into something the team must manage, not a vague aspiration."
+  revisit={{ to: "/docs/enterprise/observability#error-budgets", label: "Error budgets" }}
+/>
+
+<Question
+  prompt="What's the difference between an SLO and an SLA?"
+  options={[
+    { text: "They mean the same thing" },
+    { text: "An SLO is an internal target; an SLA is the external commitment to customers, typically less strict than the SLO to give you buffer" },
+    { text: "An SLA is internal; an SLO is external" },
+    { text: "An SLO is for backend services; an SLA is for frontend" }
+  ]}
+  correct={1}
+  explanation="SLAs are what you promise paying customers. SLOs are stricter internal targets that give you buffer to catch problems before they violate the SLA. SLIs are the raw measurements underneath. The strictness order is SLI → SLO → SLA."
+  revisit={{ to: "/docs/enterprise/observability#standard-sli-slo-sla-terms", label: "SLI/SLO/SLA" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 9: Security and Compliance](./security-compliance) — the discipline that overlays everything you've seen so far.

@@ -89,6 +89,64 @@ A platform team wants to retire `acme-logger-v1` in favor of OpenTelemetry-based
 This is what "deprecating safely at scale" actually looks like — codemods to do the work, dashboards to show progress, deadlines with teeth.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-developer-experience-page" title="Did developer experience stick?" sampleSize={2}>
+
+<Question
+  prompt="What is the deepest benefit of an internal CLI like 'acme deploy production'?"
+  options={[
+    { text: "It's shorter to type than kubectl" },
+    { text: "It encodes policy as code — canary, approver, and rollback aren't suggestions in a wiki, they're enforced by the only path engineers use" },
+    { text: "It lets engineers skip code review" },
+    { text: "It uses fewer cloud resources" }
+  ]}
+  correct={1}
+  explanation="Internal CLIs aren't really about convenience — they're how enterprises encode policy as code. Once 'acme deploy production' requires a canary, an approver, and a rollback plan, those requirements stop being optional. The safe path becomes the only path."
+  revisit={{ to: "/docs/enterprise/developer-experience#internal-cli-tools", label: "Internal CLIs" }}
+/>
+
+<Question
+  prompt="Which approach does the page highlight for safely deprecating an internal library across many teams?"
+  options={[
+    { text: "Send an org-wide email and remove the library after two weeks" },
+    { text: "Write a codemod, ship a dashboard tracking adoption by team, set a deadline with teeth" },
+    { text: "Wait until every team migrates voluntarily, however long it takes" },
+    { text: "Hard-fail the build in every repo immediately" }
+  ]}
+  correct={1}
+  explanation="Safe deprecation at scale combines codemods (which do most of the migration work automatically), dashboards (which track remaining adoption by team), and deadlines with real consequences. Emails alone don't move large engineering orgs."
+  revisit={{ to: "/docs/enterprise/developer-experience#migration-tooling", label: "Migration tooling" }}
+/>
+
+<Question
+  prompt="What is the primary trade-off between monorepo and polyrepo at enterprise scale?"
+  options={[
+    { text: "Monorepos are always faster; polyrepos are always slower" },
+    { text: "Monorepos enable strong code sharing and coordinated migrations but require serious build-system investment; polyrepos are simpler per-repo but harder to coordinate across" },
+    { text: "Monorepos work only for backend code; polyrepos only for frontend" },
+    { text: "Polyrepos are cheaper to host" }
+  ]}
+  correct={1}
+  explanation="Both models work — the choice depends on culture and tooling investment. Monorepos (Google, Meta) need Bazel/Buck/Pants to be manageable. Polyrepos (Amazon) are simpler in each repo but make cross-cutting changes much harder."
+  revisit={{ to: "/docs/enterprise/developer-experience#monorepo-or-polyrepo", label: "Monorepo vs polyrepo" }}
+/>
+
+<Question
+  prompt="What concrete question does a good service catalog answer?"
+  options={[
+    { text: "How much cloud budget is left this quarter" },
+    { text: "Who do I page at 3 AM when this thing is broken" },
+    { text: "Which engineer wrote the most code last quarter" },
+    { text: "What features are launching next month" }
+  ]}
+  correct={1}
+  explanation="The service catalog answers 'who owns this thing and how do I reach them?' Without it, a thousand-engineer org degrades into a guessing game during incidents. Backstage and similar tools turn each service into a hub with owner, on-call, dashboards, and runbooks."
+  revisit={{ to: "/docs/enterprise/developer-experience#service-catalog", label: "Service catalog" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 4: Development Practices](./development-practices) — once the tooling is in place, what does daily coding actually look like?

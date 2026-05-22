@@ -106,6 +106,64 @@ ls dist/       # see your generated static site
 Open one of the generated `.html` files in your editor. There's no JavaScript framework runtime in there. It's just HTML. That's SSG.
 :::
 
+## Page checkpoint
+
+<Quiz id="ssg-page" title="Did SSG stick?" sampleSize={2}>
+
+<Question
+  prompt="When is HTML actually generated in a pure SSG setup?"
+  options={[
+    { text: "On every user request, on the server" },
+    { text: "In the user's browser, after the JS bundle downloads" },
+    { text: "Once at build time, before any user shows up" },
+    { text: "Continuously, every few seconds in the background" }
+  ]}
+  correct={2}
+  explanation="SSG renders every page once at build time and uploads the .html files to a CDN. At request time, there's no server doing work — the CDN just serves the prebuilt files."
+  revisit={{ to: "/docs/foundations/ssg#how-ssg-works", label: "How SSG works" }}
+/>
+
+<Question
+  prompt="Which use case is the WORST fit for SSG?"
+  options={[
+    { text: "A personal blog" },
+    { text: "A documentation site" },
+    { text: "A real-time chat app with live presence" },
+    { text: "A static marketing page" }
+  ]}
+  correct={2}
+  explanation="SSG produces the same HTML for every visitor and doesn't update until you rebuild. Real-time chat needs live, personalized, constantly-changing data — that's a job for CSR + WebSockets (or SSR), not SSG."
+  revisit={{ to: "/docs/foundations/ssg#when-to-use-ssg", label: "When to use SSG" }}
+/>
+
+<Question
+  prompt="What's the biggest practical downside of SSG for a large site?"
+  options={[
+    { text: "It's bad for SEO" },
+    { text: "It requires expensive servers" },
+    { text: "Build times grow with the number of pages — 10,000 pages can mean a 30+ minute build, and data is stale until the next rebuild" },
+    { text: "It can't be deployed to a CDN" }
+  ]}
+  correct={2}
+  explanation="SSG is fast and cheap at request time, but expensive at BUILD time. Big sites take long to rebuild, and any data change requires a redeploy. ISR was invented exactly to fix this."
+  revisit={{ to: "/docs/foundations/ssg#cons", label: "SSG cons" }}
+/>
+
+<Question
+  prompt="Which 2026 framework is most associated with 'pure SSG with optional islands of interactivity'?"
+  options={[
+    { text: "Next.js" },
+    { text: "Remix" },
+    { text: "Astro" },
+    { text: "Angular" }
+  ]}
+  correct={2}
+  explanation="Astro defaults to fully static HTML, ships almost no JS, and lets you opt-in 'islands' of interactivity per component. That's why it's the 2026 default for content sites — blogs, docs, marketing."
+  revisit={{ to: "/docs/foundations/ssg#the-tools", label: "The tools" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [SSR — Server-Side Rendering](./ssr) where HTML is built fresh on the server for every single request, giving up speed for freshness and personalization.

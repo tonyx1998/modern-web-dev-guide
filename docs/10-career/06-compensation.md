@@ -56,6 +56,64 @@ That's above the junior range, near the mid-level range — strong for a first j
 At pre-IPO startups, equity is worth roughly $0 until a liquidity event. Don't take an offer with weak base + huge "equity upside" unless you can afford to be wrong. At public companies, RSUs are nearly cash — but the *grant date* price is what counts; subsequent stock movement is its own bet. Negotiate in dollars, not percentages.
 :::
 
+## Page checkpoint
+
+<Quiz id="career-compensation-page" title="Did compensation stick?" sampleSize={2}>
+
+<Question
+  prompt="The page defines Total Compensation (TC). What does it include?"
+  options={[
+    { text: "Just the base salary" },
+    { text: "Base salary plus bonus only" },
+    { text: "Base salary + bonus + equity, fully loaded for one year" },
+    { text: "Equity value at IPO only" }
+  ]}
+  correct={2}
+  explanation="TC = base + bonus + equity, fully loaded for one year. The worked example shows why this matters: a '$150K offer' can mean very different things depending on the mix of base, sign-on, equity vest, and bonus target."
+  revisit={{ to: "/docs/career/career-compensation", label: "TC defined" }}
+/>
+
+<Question
+  prompt="What does the page recommend you treat early-stage startup equity as, when evaluating an offer?"
+  options={[
+    { text: "Roughly equivalent to cash at the stated number" },
+    { text: "A guaranteed payout you should factor in at face value" },
+    { text: "Mostly worthless / a lottery ticket — negotiate in dollars, not percentages, and don't accept weak base for huge 'equity upside' unless you can afford to be wrong" },
+    { text: "Worth double the listed value once vested" }
+  ]}
+  correct={2}
+  explanation="The Highlight box puts it bluntly: at pre-IPO startups, equity is worth roughly $0 until a liquidity event. RSUs at public companies are nearly cash, but pre-IPO equity is a lottery ticket. Negotiate in dollars."
+  revisit={{ to: "/docs/career/career-compensation#what-shifts-the-number", label: "Equity is a number, not a promise" }}
+/>
+
+<Question
+  prompt="Roughly how do FAANG-tier companies pay compared to the baseline ranges in the table, especially at senior levels?"
+  options={[
+    { text: "About the same as everyone else" },
+    { text: "Around 50% of the baseline ranges" },
+    { text: "Often 1.5–2x the baseline, especially at senior levels — driven by heavy equity grants" },
+    { text: "5–10x the baseline at every level" }
+  ]}
+  correct={2}
+  explanation="The page says FAANG and peer companies often pay 1.5–2x the baseline ranges, especially at senior levels, mostly via heavy equity. Smaller companies pay less cash but sometimes more meaningful equity."
+  revisit={{ to: "/docs/career/career-compensation#what-shifts-the-number", label: "What shifts the number" }}
+/>
+
+<Question
+  prompt="Which specializations does the page list as commanding a 10–30% premium over generalist roles at the same level?"
+  options={[
+    { text: "Generic full-stack and frontend-only roles" },
+    { text: "ML engineering, AI engineering, security engineering, and senior platform engineering" },
+    { text: "QA and manual testing roles" },
+    { text: "Internal IT support" }
+  ]}
+  correct={1}
+  explanation="The page lists ML, AI, security, and senior platform engineering as the specializations that typically pay 10–30% above generalist roles at the same level."
+  revisit={{ to: "/docs/career/career-compensation#what-shifts-the-number", label: "Specialization premium" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Continuous Learning](./career-continuous-learning) for how to stay current over a multi-decade career.

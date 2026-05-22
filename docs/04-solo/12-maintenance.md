@@ -78,6 +78,64 @@ Fifteen minutes, once a week. That's the whole maintenance routine for a small S
 At a big company, one customer is one of millions. For your indie project, one of your first ten users is *ten percent of your user base*. Reply to their emails. Ask them questions. Ship the feature they asked about. Treat them like co-founders, because that's basically what they are.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-maintenance-page" title="Did the maintenance routine stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the suggested weekly maintenance routine for a small solo SaaS?"
+  options={[
+    { text: "A full Saturday of code review" },
+    { text: "A 15-minute block: Sentry, Stripe, inbox, Dependabot" },
+    { text: "Two hours of refactoring legacy code" },
+    { text: "A daily standup with yourself" }
+  ]}
+  correct={1}
+  explanation="Fifteen minutes a week is enough until you have hundreds of users. Triage one Sentry issue, check Stripe for failed charges, reply to user emails, merge safe Dependabot PRs."
+  revisit={{ to: "/docs/solo/maintenance#regular-maintenance", label: "Weekly routine" }}
+/>
+
+<Question
+  prompt="Why are early users disproportionately valuable?"
+  options={[
+    { text: "They pay more than later users" },
+    { text: "One of your first ten users is 10% of your user base" },
+    { text: "They give five-star reviews automatically" },
+    { text: "They count more in SEO rankings" }
+  ]}
+  correct={1}
+  explanation="At a big company one customer is one in millions; for your indie project they're 10% of the user base. Reply to their emails, ask questions, ship their requests — treat them like co-founders."
+  revisit={{ to: "/docs/solo/maintenance#regular-maintenance", label: "Early users matter" }}
+/>
+
+<Question
+  prompt="At low traffic with the default stack, what's the typical monthly cost?"
+  options={[
+    { text: "About $1 per month (mostly the domain)" },
+    { text: "About $50 per month" },
+    { text: "About $200 per month" },
+    { text: "About $1000 per month" }
+  ]}
+  correct={0}
+  explanation="The table shows the domain (~$1/month annualized) plus free tiers on Vercel, Neon, Clerk, and Sentry. Stripe fees are per-transaction. Total is about $1/month at low traffic."
+  revisit={{ to: "/docs/solo/maintenance#costs", label: "Cost table" }}
+/>
+
+<Question
+  prompt="What's the first thing to check when a personal project actually has a performance problem?"
+  options={[
+    { text: "Switch to a faster framework" },
+    { text: "Add Redis caching everywhere" },
+    { text: "Check the slow query log in Neon/Supabase" },
+    { text: "Rewrite the frontend in Svelte" }
+  ]}
+  correct={2}
+  explanation="Most performance problems are database queries missing an index. Check the slow query log first, add indexes on the columns you filter/sort on, then consider caching and image optimization if needed."
+  revisit={{ to: "/docs/solo/maintenance#performance", label: "Performance" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Realistic Time Investment](./time-investment) where we'll look at how long indie SaaS v1s actually take.

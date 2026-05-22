@@ -59,6 +59,64 @@ Be honest with yourself about which goal is primary. Both are legitimate — jus
 The whole point of picking the default stack is that it carries you across the entire personal-project lifecycle. From day-one empty deploy to ~10K active users, you make zero architectural changes. By the time you'd outgrow it, you'll either (a) have real revenue to fund a rewrite, or (b) have learned enough about the actual workload to make a smart next call. Either way, you've earned that decision instead of pre-paying for it.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-stack-selection-page" title="Did stack selection stick?" sampleSize={2}>
+
+<Question
+  prompt="Up to roughly how many active users does the default 2026 stack handle without architectural changes?"
+  options={[
+    { text: "About 100" },
+    { text: "About 1,000" },
+    { text: "About 10,000" },
+    { text: "About 1,000,000" }
+  ]}
+  correct={2}
+  explanation="The stack carries you from zero to roughly 10,000 active users with zero architectural changes. By the time you outgrow it, you'll have either revenue or real workload data to make the next call wisely."
+  revisit={{ to: "/docs/solo/stack-selection#the-2026-personal-saas-stack", label: "The 2026 stack" }}
+/>
+
+<Question
+  prompt="When is it actually legitimate to deviate from the default stack?"
+  options={[
+    { text: "When you find a tweet praising a new framework" },
+    { text: "When your primary goal is learning a specific technology" },
+    { text: "When the default tools have any open GitHub issues" },
+    { text: "Never — the defaults always win" }
+  ]}
+  correct={1}
+  explanation="If learning a specific tech is your primary goal, swap it in — just be honest that you're optimizing for learning, not shipping. The page warns against pretending a detour is 'for the project' when it's really for you."
+  revisit={{ to: "/docs/solo/stack-selection#why-not-other-stack", label: "When to deviate" }}
+/>
+
+<Question
+  prompt="Which ORM does the default stack pair with Postgres?"
+  options={[
+    { text: "Prisma" },
+    { text: "Drizzle" },
+    { text: "TypeORM" },
+    { text: "Sequelize" }
+  ]}
+  correct={1}
+  explanation="The 2026 default stack uses Drizzle as the ORM with Postgres on Neon (or Supabase). It's a TypeScript-first query builder that fits the rest of the toolchain."
+  revisit={{ to: "/docs/solo/stack-selection#the-2026-personal-saas-stack", label: "Default stack list" }}
+/>
+
+<Question
+  prompt="Why does the page discourage Svelte or Vue for solo SaaS projects?"
+  options={[
+    { text: "They're slower at runtime" },
+    { text: "They lack TypeScript support" },
+    { text: "Smaller ecosystem means fewer copy-paste answers" },
+    { text: "They can't deploy to Vercel" }
+  ]}
+  correct={2}
+  explanation="The objection isn't technical merit — it's ecosystem size. Fewer Stack Overflow answers and fewer ready-made libraries means more time spent solving problems Next.js users have already solved."
+  revisit={{ to: "/docs/solo/stack-selection#why-not-other-stack", label: "Why not other stacks" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 3: Environment Setup](./env-setup) where we'll go from empty folder to deployed empty project in about an hour.

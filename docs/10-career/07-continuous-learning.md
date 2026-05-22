@@ -91,6 +91,64 @@ That's it. Done weekly for a year, this gives you 50 deep reads — more than en
 For *concept understanding* — not code generation — modern AI assistants are an order of magnitude better than the average tutorial. They explain at your level, answer follow-ups, and don't judge basic questions. The catch is verification: always sanity-check the answer against MDN or the actual docs before you trust it in production.
 :::
 
+## Page checkpoint
+
+<Quiz id="career-continuous-learning-page" title="Did continuous learning stick?" sampleSize={2}>
+
+<Question
+  prompt="What is the page's overall philosophy on staying current in a fast-changing field?"
+  options={[
+    { text: "Read every new framework announcement the day it ships" },
+    { text: "Cram intensely for a few months, then coast" },
+    { text: "Treat learning like exercise — small, regular, sustainable — with a daily/weekly diet and a quarterly deep-dive" },
+    { text: "Only learn new things when forced by a job change" }
+  ]}
+  correct={2}
+  explanation="The page is explicit: engineers who stay good for decades treat learning like exercise — small, regular, sustainable. You can't and shouldn't try to read every announcement. Build a sustainable info diet."
+  revisit={{ to: "/docs/career/career-continuous-learning", label: "Sustainable learning philosophy" }}
+/>
+
+<Question
+  prompt="The page calls one tool 'the most underrated learning tool' — for concept understanding specifically. What is it?"
+  options={[
+    { text: "Long-form video tutorials" },
+    { text: "Modern AI assistants (Claude, ChatGPT, Cursor) used as tutors — with verification against official docs" },
+    { text: "Stack Overflow" },
+    { text: "Twitter threads" }
+  ]}
+  correct={1}
+  explanation="The Highlight box says modern AI assistants are an order of magnitude better than the average tutorial for concept understanding — they explain at your level and don't judge basic questions. The catch is verification: always cross-check against MDN or official docs."
+  revisit={{ to: "/docs/career/career-continuous-learning#ai-as-a-learning-tool", label: "AI as a learning tool" }}
+/>
+
+<Question
+  prompt="The page recommends a 30-minute weekly habit. What is its structure?"
+  options={[
+    { text: "Watch one full tutorial video end-to-end" },
+    { text: "Skim newsletter backlog (10 min), read one interesting link properly (15 min), note one thing to try in your next project (5 min)" },
+    { text: "Refactor old code for 30 minutes" },
+    { text: "Apply to 30 jobs" }
+  ]}
+  correct={1}
+  explanation="The 'Try it yourself' box: 10 min skim + 15 min deep read of the best link + 5 min note. Done weekly for a year, that's 50 deep reads — enough to stay current without doomscrolling."
+  revisit={{ to: "/docs/career/career-continuous-learning#ai-as-a-learning-tool", label: "Weekly 30-minute habit" }}
+/>
+
+<Question
+  prompt="On the quarterly cadence, what does the page recommend you do?"
+  options={[
+    { text: "Apply to a new job every quarter" },
+    { text: "Pick one new technology to learn *properly* (not just skim) and re-evaluate your skill stack — what's becoming legacy, what's emerging" },
+    { text: "Rewrite all your past projects in a new framework" },
+    { text: "Switch jobs every quarter" }
+  ]}
+  correct={1}
+  explanation="Quarterly: pick one new tech to learn properly, and re-evaluate your skill stack. The monthly cadence is for trying a new tool hands-on; quarterly is the deeper renewal."
+  revisit={{ to: "/docs/career/career-continuous-learning#information-diet", label: "Quarterly cadence" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Career Pitfalls and Patterns](./career-pitfalls) for the failure modes to watch for as you grow.

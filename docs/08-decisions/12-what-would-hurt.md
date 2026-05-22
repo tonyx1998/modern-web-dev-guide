@@ -58,6 +58,64 @@ When estimating "what would it cost to fix," include:
 That bigger number is the *real* cost. Use it to set deliberation budget.
 :::
 
+## Page checkpoint
+
+<Quiz id="decisions-what-would-hurt-page" title="Did 'what would hurt?' stick?" sampleSize={2}>
+
+<Question
+  prompt="In a 1-hour planning meeting with 5 decisions, the chapter says you should spend the most time on:"
+  options={[
+    { text: "The color of the primary CTA button" },
+    { text: "The public API URL structure (e.g., `/v1/...`) — getting it wrong breaks every customer" },
+    { text: "The logger library — a 1-day search-and-replace if wrong" },
+    { text: "Splitting time equally across all five decisions" }
+  ]}
+  correct={1}
+  explanation="The worked example burns most of the budget on the public API contract because a wrong choice breaks every consumer. The button color and logger are sub-1-day fixes — minutes of deliberation."
+  revisit={{ to: "/docs/decisions/what-would-hurt#examples", label: "Worked example" }}
+/>
+
+<Question
+  prompt="The chapter says people consistently underestimate the cost of changing certain things. Which set?"
+  options={[
+    { text: "UI components, libraries, folder structure" },
+    { text: "Schemas, public APIs, shared infrastructure" },
+    { text: "Variable names, lint rules, file paths" },
+    { text: "Comments, READMEs, commit messages" }
+  ]}
+  correct={1}
+  explanation="The chapter is explicit: people underestimate schema/API/shared-infra change cost (downstream consumers, migrations, coordination) and overestimate UI/library/folder costs. That asymmetry is what miscalibrates deliberation."
+  revisit={{ to: "/docs/decisions/what-would-hurt#examples", label: "Honest fix-cost estimates" }}
+/>
+
+<Question
+  prompt="A developer asks: should we use NextAuth or Clerk for auth? Per the chapter, what's the appropriate deliberation budget if the realistic switch cost is ~1-2 weeks of integration work?"
+  options={[
+    { text: "Days of research and a formal RFC" },
+    { text: "About 15 minutes — moderate cost means moderate, not heavy, deliberation" },
+    { text: "30 seconds — just pick one" },
+    { text: "Quarter-long evaluation with vendor pilots" }
+  ]}
+  correct={1}
+  explanation="The worked example assigns exactly 15 minutes to choosing the auth provider, because the fix cost is 1-2 weeks of integration — moderate, not catastrophic."
+  revisit={{ to: "/docs/decisions/what-would-hurt#examples", label: "Worked example table" }}
+/>
+
+<Question
+  prompt="What does the chapter say you must include when honestly estimating 'what would it cost to fix?'"
+  options={[
+    { text: "Just the code change itself" },
+    { text: "Code change + downstream consumers + migration plan + coordination cost + dropped improvements during migration" },
+    { text: "Only the engineer-hours, never the calendar time" },
+    { text: "Just the fully-loaded engineer cost" }
+  ]}
+  correct={1}
+  explanation="The chapter lists all five: code change, downstream consumers, migration plan, coordination/communication cost, and dropped-on-the-floor improvements. That bigger number is the real cost, and it's what should drive the deliberation budget."
+  revisit={{ to: "/docs/decisions/what-would-hurt#examples", label: "Estimating fix cost honestly" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The "Why Are You Doing This?" Question](./why-doing-this) — connect every change to a real outcome.

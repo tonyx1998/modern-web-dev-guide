@@ -73,6 +73,64 @@ The instinct when traffic grows is to imagine you need microservices, Kubernetes
 In that order. Most "we need to re-architect" pain at this scale dissolves once Postgres is properly tuned. Re-architecting is a *last* resort, not a *first* one.
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-maintenance-page" title="Did maintenance and scaling stick?" sampleSize={2}>
+
+<Question
+  prompt="What weekly cadence does the page describe at this scale?"
+  options={[
+    { text: "Bug triage, sprint review/planning, performance review, and cost review" },
+    { text: "Daily standups only, with no recurring weekly meetings" },
+    { text: "A single all-hands meeting with no operational reviews" },
+    { text: "Monthly retros and quarterly bug triage" }
+  ]}
+  correct={0}
+  explanation="The weekly cadence is four recurring rituals: triaging new issues, sprint review/planning, reviewing slowest endpoints and queries, and reviewing infrastructure bills."
+  revisit={{ to: "/docs/startup/maintenance#weekly-cadence", label: "Weekly cadence" }}
+/>
+
+<Question
+  prompt="What scaling order does the page recommend when Postgres starts to struggle?"
+  options={[
+    { text: "Split into microservices first, then add a database" },
+    { text: "Indexes, then connection pooling, then a Redis cache in front of hot endpoints — before any re-architecting" },
+    { text: "Immediately migrate to a NoSQL database" },
+    { text: "Add Kubernetes and scale the app tier first" }
+  ]}
+  correct={1}
+  explanation="The highlight pushes the order: index the scanned columns, add a pooler for serverless connection exhaustion, cache hot endpoints with Redis. Most scaling pain dissolves once Postgres is properly tuned. Re-architecting is a last resort."
+  revisit={{ to: "/docs/startup/maintenance#scaling-postgres", label: "Scaling order" }}
+/>
+
+<Question
+  prompt="Why does the page describe connection pooling (PgBouncer, Supavisor) as critical in serverless environments?"
+  options={[
+    { text: "It encrypts the database connection" },
+    { text: "Each function instance otherwise opens its own DB connection, exhausting the pool" },
+    { text: "It's required by SOC 2" },
+    { text: "It compresses query results to save bandwidth" }
+  ]}
+  correct={1}
+  explanation="Without a pooler, every serverless function instance opens its own Postgres connection. A connection pool multiplexes many client connections onto a small number of real DB connections, preventing exhaustion."
+  revisit={{ to: "/docs/startup/maintenance#scaling-postgres", label: "Connection pooling" }}
+/>
+
+<Question
+  prompt="In the slow-query worked example, how did the team find the regression before users complained?"
+  options={[
+    { text: "Customer support escalated a ticket" },
+    { text: "The weekly performance review surfaced p95 dashboard latency creeping from 200ms to 900ms" },
+    { text: "Sentry sent a critical alert at 3am" },
+    { text: "An external monitoring vendor flagged it" }
+  ]}
+  correct={1}
+  explanation="The weekly perf-review cadence caught the regression. The team then used the slow-query log to identify a missing index on subscriptions.status — a 30-minute fix that restored p95 latency."
+  revisit={{ to: "/docs/startup/maintenance#scaling-the-app", label: "Slow query review" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [A Realistic Cost Breakdown](./cost-breakdown) where we see what a $1M ARR startup actually spends each month.

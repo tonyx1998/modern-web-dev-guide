@@ -52,6 +52,64 @@ The most common failure mode in tech proposals is starting with the *what* (the 
 Flip it: state the user problem or business outcome in the first paragraph. Everything else has to justify itself against that. If you can't fit the motivation into a paragraph, you haven't done the thinking yet.
 :::
 
+## Page checkpoint
+
+<Quiz id="decisions-why-doing-this-page" title="Did 'why are we doing this?' stick?" sampleSize={2}>
+
+<Question
+  prompt="A new engineering manager asks each engineer on a two-quarter 'platform redesign' project: 'What problem does this solve, in one sentence?' Per the worked example, what does she learn?"
+  options={[
+    { text: "Everyone has a crisp answer connecting it to a user problem" },
+    { text: "Nobody can point to a measurable user problem, business outcome, or explicit strategic decision — the project is paused" },
+    { text: "The project is technically excellent and worth continuing" },
+    { text: "The question is unfair to ask of individual engineers" }
+  ]}
+  correct={1}
+  explanation="The worked example shows the question saving 6+ engineer-quarters. Answers were vibes — 'our platform is hard to use,' 'better foundation,' 'on the roadmap.' Six months after pausing it, no one missed it."
+  revisit={{ to: "/docs/decisions/why-doing-this#forcing-functions", label: "Worked example" }}
+/>
+
+<Question
+  prompt="The chapter says a valid answer to 'why are we doing this?' must connect to one of three things. Which set?"
+  options={[
+    { text: "A real user problem, a measurable business outcome, or a strategic priority" },
+    { text: "An engineer's interest, the team's curiosity, or a Twitter thread" },
+    { text: "Industry trends, competitor moves, or analyst reports" },
+    { text: "The CTO's preferences, the CEO's preferences, or the board's preferences" }
+  ]}
+  correct={0}
+  explanation="The chapter is specific: user problem, measurable business outcome, or strategic priority. 'Because we always have' or 'because someone said so' are explicit signals to pause."
+  revisit={{ to: "/docs/decisions/why-doing-this#forcing-functions", label: "Connect to a real outcome" }}
+/>
+
+<Question
+  prompt="The chapter's 'why should be the first slide, not the last' advice means:"
+  options={[
+    { text: "Always present the motivation in the first paragraph; everything else must justify itself against it" },
+    { text: "Bury motivation on slide 14 so the architecture gets attention" },
+    { text: "Skip motivation entirely if the work is technical" },
+    { text: "Lead with team-size considerations instead of user problems" }
+  ]}
+  correct={0}
+  explanation="The common failure is starting with the what (architecture, tools, structure) so reviewers debate implementation and never scrutinize motivation. Flipping it forces the team to justify themselves against the actual goal."
+  revisit={{ to: "/docs/decisions/why-doing-this#forcing-functions", label: "Why on the first slide" }}
+/>
+
+<Question
+  prompt="Which of these is NOT one of the forcing functions the chapter recommends to surface 'why?'"
+  options={[
+    { text: "PRDs require a 'problem statement' section" },
+    { text: "Engineering proposals require a 'motivation' section" },
+    { text: "1:1s ask 'what are you working on, and why?'" },
+    { text: "All-hands meetings ban technical discussions entirely" }
+  ]}
+  correct={3}
+  explanation="The chapter lists problem-statement sections, motivation sections, 1:1 prompts, and impact-focused performance reviews. Banning technical discussion isn't part of the framework — it's the opposite of useful."
+  revisit={{ to: "/docs/decisions/why-doing-this#forcing-functions", label: "Forcing functions" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The Hiring-Constraint Principle](./hiring-constraint) — pick technologies your future self can hire for.

@@ -73,6 +73,64 @@ Almost every time, the right answer is: write "CSV export" on the v2 list and sh
 You're not vulnerable to all nine equally. Most indie developers have *one* pet failure mode — for some it's stack churn, for others over-engineering, for others not charging. Identify your one. Put a sticky note above your desk: "I will not switch frameworks again this year." That one piece of self-awareness is worth more than reading this list.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-pitfalls-page" title="Did the pitfalls stick?" sampleSize={2}>
+
+<Question
+  prompt="According to the page, what's the biggest failure mode of personal projects?"
+  options={[
+    { text: "Choosing the wrong framework" },
+    { text: "Not deploying — polished MVPs in your local environment help no one" },
+    { text: "Setting prices too low" },
+    { text: "Skipping unit tests" }
+  ]}
+  correct={1}
+  explanation="Never shipping is the biggest killer. The fix is the opposite of polish: ship ugly, then iterate live. A deployed v1 with rough edges beats a polished local prototype every time."
+  revisit={{ to: "/docs/solo/pitfalls#not-shipping", label: "Not shipping" }}
+/>
+
+<Question
+  prompt="What's the page's argument for actually charging $5/month instead of staying free?"
+  options={[
+    { text: "Free is illegal under modern consumer law" },
+    { text: "Money is a filter — paying users have skin in the game and give better feedback" },
+    { text: "Stripe requires a minimum price" },
+    { text: "Free users can't be tracked in analytics" }
+  ]}
+  correct={1}
+  explanation="Free users give shallow feedback and don't show up. A small charge attracts genuine customers from day one because the act of paying signals they care about the problem."
+  revisit={{ to: "/docs/solo/pitfalls#not-charging", label: "Not charging" }}
+/>
+
+<Question
+  prompt="When you catch yourself thinking 'just one more feature before launch,' what should you do?"
+  options={[
+    { text: "Add it — better to launch complete" },
+    { text: "Write it on the v2 list and ship the current version" },
+    { text: "Switch to a different stack to add it faster" },
+    { text: "Delay launch indefinitely until satisfied" }
+  ]}
+  correct={1}
+  explanation="The worked example explicitly catches feature creep: if it's not in v1, no real user has asked for it, and launch won't fail without it, write it down for v2 and ship now."
+  revisit={{ to: "/docs/solo/pitfalls#feature-creep", label: "Feature creep" }}
+/>
+
+<Question
+  prompt="What does the 'pick your one pitfall' highlight advise?"
+  options={[
+    { text: "Memorize all nine equally" },
+    { text: "Identify your one pet failure mode and put a sticky note about it where you work" },
+    { text: "Ignore the list — pitfalls are unavoidable" },
+    { text: "Switch frameworks until you find one that prevents them all" }
+  ]}
+  correct={1}
+  explanation="Most indie devs have one pet failure mode — stack churn, over-engineering, not charging, etc. Identify yours and post a reminder. One piece of self-awareness beats reading the whole list."
+  revisit={{ to: "/docs/solo/pitfalls#not-shipping", label: "Pick your one pitfall" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Pre-Built Templates Worth Knowing](./templates) where we'll cover when starting from a template beats starting from scratch.

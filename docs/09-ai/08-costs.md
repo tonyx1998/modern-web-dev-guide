@@ -91,6 +91,64 @@ Treat cost optimization with the same seriousness as latency or correctness:
 A 10x cost regression from a prompt change is just as much a "bug" as a 10x latency regression. Catch it the same way.
 :::
 
+## Page checkpoint
+
+<Quiz id="ai-costs-page" title="Did cost management stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the single highest-leverage cost optimization in most LLM apps?"
+  options={[
+    { text: "Switching cloud providers" },
+    { text: "Routing classification, routing, and simple Q&A to a cheap small model, and only using a frontier model where it matters" },
+    { text: "Disabling streaming" },
+    { text: "Sending shorter system prompts" }
+  ]}
+  correct={1}
+  explanation="Tiered models are usually the biggest win — small models are 10-30x cheaper, and most calls in a real app are bounded tasks they handle just fine. Measure with evals, then route accordingly."
+  revisit={{ to: "/docs/ai/ai-costs#choose-the-right-model", label: "Tiered models" }}
+/>
+
+<Question
+  prompt="What does provider-side prompt caching (e.g. Anthropic's) reduce?"
+  options={[
+    { text: "Output token cost only" },
+    { text: "Input token cost for the static parts of a long prompt (system instructions, document context) on subsequent calls" },
+    { text: "The latency of cold-starting your server" },
+    { text: "Embedding storage cost" }
+  ]}
+  correct={1}
+  explanation="Prompt caching lets the provider re-use the encoded representation of the static prefix. You pay full price once, then a sharply reduced rate for the cached portion — huge for RAG with long system prompts."
+  revisit={{ to: "/docs/ai/ai-costs#use-prompt-caching", label: "Prompt caching" }}
+/>
+
+<Question
+  prompt="Why is per-user rate limiting a cost-control technique, not just an abuse-prevention one?"
+  options={[
+    { text: "It speeds up the model" },
+    { text: "It caps the worst-case spend per user, so a runaway client or scraper can't generate an unbounded bill" },
+    { text: "It changes the model selected automatically" },
+    { text: "It is required to use streaming" }
+  ]}
+  correct={1}
+  explanation="Without per-user limits, one buggy client or one abuser can multiply your daily bill by 100x. The rate limiter caps blast radius — abuse prevention and cost control are the same lever."
+  revisit={{ to: "/docs/ai/ai-costs#rate-limit-per-user", label: "Per-user rate limits" }}
+/>
+
+<Question
+  prompt="Conversation history grows on every turn. What's the standard fix to stop per-turn cost from growing linearly?"
+  options={[
+    { text: "Resend the entire history every turn — context is free" },
+    { text: "Truncate to the last few turns plus a rolling summary of older messages" },
+    { text: "Stop letting the user reply after 10 turns" },
+    { text: "Hash the history and send only the hash" }
+  ]}
+  correct={1}
+  explanation="A long chat sent verbatim every turn balloons token cost. Keep the recent turns in full and summarize older context so the prompt stays bounded."
+  revisit={{ to: "/docs/ai/ai-costs#truncate-context", label: "Truncate + summarize history" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Safety and Privacy](./ai-safety) — prompt injection, hallucinations, authorization, and PII handling.

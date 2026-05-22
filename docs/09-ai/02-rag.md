@@ -193,6 +193,64 @@ The most common RAG failure isn't bad embeddings — it's **bad chunks**. If you
 Before you optimize anything else, look at the chunks you're feeding the model. If you wouldn't be able to answer the question from those chunks alone, the model won't either.
 :::
 
+## Page checkpoint
+
+<Quiz id="ai-rag-page" title="Did RAG stick?" sampleSize={2}>
+
+<Question
+  prompt="What problem is RAG primarily solving?"
+  options={[
+    { text: "Making LLMs respond in fewer tokens to save cost" },
+    { text: "Giving the LLM access to specific data it never saw during training, without retraining the model" },
+    { text: "Letting the LLM execute SQL queries directly against a production DB" },
+    { text: "Reducing the latency of token generation" }
+  ]}
+  correct={1}
+  explanation="LLMs are good readers but poor memorizers of your specifics. RAG retrieves the relevant chunks of your data at query time and pastes them into the prompt so the model can answer from that context."
+  revisit={{ to: "/docs/ai/ai-rag#why-it-works", label: "Why RAG works" }}
+/>
+
+<Question
+  prompt="In a RAG pipeline, when are documents converted into embeddings and stored?"
+  options={[
+    { text: "Once, ahead of time during an ingestion job" },
+    { text: "On every user query, alongside the query embedding" },
+    { text: "Only when the model decides it needs them" },
+    { text: "After the LLM has produced an answer, for caching" }
+  ]}
+  correct={0}
+  explanation="Ingestion (chunk -> embed -> store) runs once per document update. At query time you only embed the user's question and search — the document embeddings are already sitting in the vector DB."
+  revisit={{ to: "/docs/ai/ai-rag#a-practical-rag-pipeline", label: "RAG ingestion vs query time" }}
+/>
+
+<Question
+  prompt="Which of these tasks is RAG NOT the right tool for?"
+  options={[
+    { text: "Answering a support question using your product docs" },
+    { text: "Letting a chatbot reference last week's internal release notes" },
+    { text: "Computing 'how many users signed up last month'" },
+    { text: "Summarizing a long internal policy document" }
+  ]}
+  correct={2}
+  explanation="Aggregations and precise computations belong in a real database query, not an embedding search. RAG shines when the answer has to be reasoned out of unstructured text."
+  revisit={{ to: "/docs/ai/ai-rag#when-rag-doesnt-help", label: "When RAG does not help" }}
+/>
+
+<Question
+  prompt="A docs bot is returning vague, confused answers even though embeddings and the model look fine. Where should you look first?"
+  options={[
+    { text: "Switch to a larger, more expensive LLM" },
+    { text: "Inspect the actual chunks being fed to the model — bad chunking is the most common RAG failure" },
+    { text: "Increase top-K from 5 to 50" },
+    { text: "Replace pgvector with a dedicated vector DB" }
+  ]}
+  correct={1}
+  explanation="If a human couldn't answer the question from the chunks alone, the model can't either. Chunks that split mid-sentence or drop their headings are the most common cause of weak RAG quality."
+  revisit={{ to: "/docs/ai/ai-rag#chunking-strategies", label: "Chunking matters most" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Pattern 3: Function Calling / Structured Output](./ai-function-calling) — let the AI call your code or return strictly typed JSON.

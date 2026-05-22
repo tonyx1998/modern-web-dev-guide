@@ -80,6 +80,64 @@ The dominant bundler from 2014–2022. Still around in many projects but rarely 
 Five years ago, "webpack.config.js" was where you spent half your life. Today, modern tools have such good defaults that most projects never touch their bundler config. If you find yourself deep in `vite.config.ts` or `next.config.js`, pause and ask: is this a real need, or am I tinkering? Modern defaults beat custom config 9 times out of 10.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-build-tools-page" title="Did build tools stick?" sampleSize={2}>
+
+<Question
+  prompt="Why do browsers need a build tool between your source code and the page?"
+  options={[
+    { text: "Browsers ban any JavaScript longer than 1000 lines" },
+    { text: "Browsers don't understand TypeScript or JSX directly, so something has to translate and bundle them into plain JS and CSS" },
+    { text: "Browsers can't load files from disk without a build step" },
+    { text: "Build tools are required to enable hot reload, which browsers refuse to do otherwise" }
+  ]}
+  correct={1}
+  explanation="Browsers only run plain JavaScript and CSS. A build tool translates TypeScript/JSX into JS and bundles everything (including CSS and images) into files the browser can load."
+  revisit={{ to: "/docs/stack/build-tools#vite-6--the-dominant-bundler", label: "Why build tools exist" }}
+/>
+
+<Question
+  prompt="What makes Vite's dev server so fast compared with older bundlers like Webpack?"
+  options={[
+    { text: "It pre-bundles your entire app on every keystroke" },
+    { text: "It uses native ES modules during development, so no full bundling is needed and updates are near-instant" },
+    { text: "It only supports vanilla JavaScript, with no transforms" },
+    { text: "It ships your source code unmodified to the browser, including TypeScript" }
+  ]}
+  correct={1}
+  explanation="Vite serves files as native ES modules in dev — the browser pulls modules on demand instead of waiting for a full bundle. That's why the dev server starts in milliseconds and HMR is instant."
+  revisit={{ to: "/docs/stack/build-tools#vite-6--the-dominant-bundler", label: "Vite section" }}
+/>
+
+<Question
+  prompt="Which build tool ships inside Next.js as its default dev bundler in v15?"
+  options={[
+    { text: "esbuild" },
+    { text: "Webpack" },
+    { text: "Turbopack" },
+    { text: "Rollup" }
+  ]}
+  correct={2}
+  explanation="Turbopack is Vercel's Rust-based Webpack successor. It's stable for Next.js dev in v15 and is increasingly used for production builds too — you don't choose it directly, it comes with Next.js."
+  revisit={{ to: "/docs/stack/build-tools#turbopack", label: "Turbopack section" }}
+/>
+
+<Question
+  prompt="What does Bun bundle into a single binary, beyond just being a bundler?"
+  options={[
+    { text: "A JS runtime, package manager, bundler, and test runner" },
+    { text: "A database engine and ORM" },
+    { text: "A CSS framework and design system" },
+    { text: "An operating system and shell" }
+  ]}
+  correct={0}
+  explanation="Bun is a JavaScript runtime (Node alternative), a package manager (10–30× faster than npm), a bundler, and a test runner — all in one binary."
+  revisit={{ to: "/docs/stack/build-tools#bun--runtime--bundler--package-manager", label: "Bun section" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Package Managers](./package-managers) — how dependencies get installed and updated.

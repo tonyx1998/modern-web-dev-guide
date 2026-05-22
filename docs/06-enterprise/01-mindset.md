@@ -68,6 +68,64 @@ The mindset shapes everything else in this chapter:
 
 If you've only worked at startups, the easiest way to mis-read enterprise code is to assume the verbosity is incompetence. Usually, it's scar tissue from real failures.
 
+## Page checkpoint
+
+<Quiz id="enterprise-mindset-page" title="Did the enterprise mindset stick?" sampleSize={2}>
+
+<Question
+  prompt="The page says enterprise systems are designed for which kind of engineer?"
+  options={[
+    { text: "The heroic engineer who can debug anything" },
+    { text: "The median engineer — new, on-call at 2 AM, never seen this service before" },
+    { text: "The original author of the service" },
+    { text: "Whichever senior engineer happens to be on call" }
+  ]}
+  correct={1}
+  explanation="Enterprise practices optimize for the median engineer, not the heroic one. Systems have to keep working when the original authors are gone and a new hire is paged at 2 AM — that's why runbooks, dashboards, and automation matter so much."
+  revisit={{ to: "/docs/enterprise/enterprise-mindset#the-governing-trade-offs", label: "Governing trade-offs" }}
+/>
+
+<Question
+  prompt="What is the characteristic failure mode of enterprise engineering?"
+  options={[
+    { text: "Shipping too fast without enough tests" },
+    { text: "Underinvesting in observability" },
+    { text: "Process for process's sake — bureaucracy that nobody actively defends" },
+    { text: "Hiring engineers who can't navigate ambiguity" }
+  ]}
+  correct={2}
+  explanation="Bad enterprise process accretes for years because everyone is afraid to remove anything. Good enterprise process is minimal viable bureaucracy — just enough to manage risk, and senior leadership has to actively prune what no longer earns its keep."
+  revisit={{ to: "/docs/enterprise/enterprise-mindset#the-opposite-failure-mode", label: "Failure mode" }}
+/>
+
+<Question
+  prompt="At enterprise scale, why is speed sometimes deliberately constrained?"
+  options={[
+    { text: "Because engineers at large companies are less skilled" },
+    { text: "Because a bad deploy can cost millions, trigger regulatory fines, or destroy customer trust" },
+    { text: "Because managers want to look busy" },
+    { text: "Because the codebase is too old to change quickly" }
+  ]}
+  correct={1}
+  explanation="At this scale, reliability and security genuinely trump speed. The worst case isn't a buggy feature — it's a federal regulation violation, a data leak, or a trading floor going dark. Different stakes produce different cultures."
+  revisit={{ to: "/docs/enterprise/enterprise-mindset#the-governing-trade-offs", label: "Trade-offs" }}
+/>
+
+<Question
+  prompt="Why does enterprise process tend to outlive its usefulness?"
+  options={[
+    { text: "Engineers genuinely enjoy bureaucracy" },
+    { text: "Every step exists because of a past incident, and nobody is brave enough to remove anything" },
+    { text: "Auditors require all process to be permanent" },
+    { text: "Removing process requires a board vote" }
+  ]}
+  correct={1}
+  explanation="Each step in an enterprise process was added because some past incident or regulation made it necessary, but the original reason often gets forgotten. Process accretes because removing anything feels risky — even when the rationale is long gone."
+  revisit={{ to: "/docs/enterprise/enterprise-mindset#the-opposite-failure-mode", label: "Process accretion" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Team Structure at This Scale](./team-structure) to see who actually does the work in an enterprise engineering org.

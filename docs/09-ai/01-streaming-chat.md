@@ -146,6 +146,64 @@ Track TTFT separately from total response time. Optimize TTFT first:
 - Stream directly from your edge or origin without buffering.
 :::
 
+## Page checkpoint
+
+<Quiz id="ai-streaming-chat-page" title="Did streaming chat stick?" sampleSize={2}>
+
+<Question
+  prompt="Why does streaming a 3-second LLM response feel faster than waiting 3 seconds for a single chunk?"
+  options={[
+    { text: "Streaming makes the model produce tokens faster overall" },
+    { text: "Streaming compresses tokens so fewer bytes travel the network" },
+    { text: "The model is unchanged — streaming just lets the user read while tokens arrive, which lowers perceived wait" },
+    { text: "Streaming triggers a different, lower-latency model under the hood" }
+  ]}
+  correct={2}
+  explanation="Total wall-clock time is the same. Streaming is a UX trick: as soon as the first token arrives the user starts reading, so they never sit watching a spinner."
+  revisit={{ to: "/docs/ai/ai-streaming-chat#the-setup", label: "Why streaming feels fast" }}
+/>
+
+<Question
+  prompt="Which metric matters most for chat-style streaming UX?"
+  options={[
+    { text: "Total response time" },
+    { text: "Tokens per second once the stream is going" },
+    { text: "Time-to-first-token (TTFT)" },
+    { text: "End-to-end p99 latency including retries" }
+  ]}
+  correct={2}
+  explanation="A 400ms TTFT feels instant; a 2-second TTFT feels broken even if the full answer eventually arrives quickly. Optimize and track TTFT separately."
+  revisit={{ to: "/docs/ai/ai-streaming-chat#the-streaming-protocol", label: "TTFT is the metric" }}
+/>
+
+<Question
+  prompt="Why do modern chat features generally pick Server-Sent Events (SSE) over WebSockets?"
+  options={[
+    { text: "SSE is faster than WebSockets on every benchmark" },
+    { text: "Only SSE supports binary frames" },
+    { text: "Token streaming is server-to-client only, and SSE is plain HTTP with automatic reconnection" },
+    { text: "WebSockets do not work behind HTTPS" }
+  ]}
+  correct={2}
+  explanation="The model only needs to push tokens to the browser, so a one-way HTTP stream is sufficient — and SSE composes with HTTP/2, proxies, and browser auto-reconnect."
+  revisit={{ to: "/docs/ai/ai-streaming-chat#the-streaming-protocol", label: "SSE vs WebSockets" }}
+/>
+
+<Question
+  prompt="In the Vercel AI SDK example, what does the server's `toDataStreamResponse()` do?"
+  options={[
+    { text: "Buffers all tokens and returns one JSON blob at the end" },
+    { text: "Returns an HTTP response that streams tokens over SSE so the client's useChat hook can render incrementally" },
+    { text: "Opens a WebSocket to the browser" },
+    { text: "Sends the response to a queue for background processing" }
+  ]}
+  correct={1}
+  explanation="It wires the model's token stream onto an SSE-style HTTP response. The client's useChat hook reads chunks and appends them to the rendered message as they arrive."
+  revisit={{ to: "/docs/ai/ai-streaming-chat#implementation-with-vercel-ai-sdk", label: "Vercel AI SDK setup" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Pattern 2: Retrieval-Augmented Generation (RAG)](./ai-rag) — how to give the model access to *your* data instead of just its training data.

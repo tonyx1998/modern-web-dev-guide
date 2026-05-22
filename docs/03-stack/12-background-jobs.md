@@ -77,6 +77,64 @@ You don't need a job queue on day one. For a side project, you can:
 Add a real job queue when you have *multiple* background tasks, need retries with backoff, or need to monitor failures. Until then, simpler is better.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-background-jobs-page" title="Did background jobs stick?" sampleSize={2}>
+
+<Question
+  prompt="Why push slow work (sending email, generating PDFs, syncing slow APIs) into a background job instead of doing it inside the HTTP request?"
+  options={[
+    { text: "Background jobs are required by HTTP/2" },
+    { text: "HTTP requests should be fast — users wait for them. The endpoint should enqueue the task and return immediately, while a worker handles it later" },
+    { text: "Browsers refuse to render responses larger than 1KB" },
+    { text: "Database connections expire if the request takes longer than 500ms" }
+  ]}
+  correct={1}
+  explanation="Users wait for HTTP responses, so long-running work has to be moved off the request path. The endpoint enqueues the job and returns; a worker process picks it up and runs it asynchronously."
+  revisit={{ to: "/docs/stack/background-jobs#triggerdev", label: "Why background jobs" }}
+/>
+
+<Question
+  prompt="What does Trigger.dev give you beyond just 'run this function later'?"
+  options={[
+    { text: "An ORM that handles your database schema" },
+    { text: "Automatic retries with exponential backoff on failure, plus an observability dashboard" },
+    { text: "A built-in payment processor" },
+    { text: "A frontend component library" }
+  ]}
+  correct={1}
+  explanation="Trigger.dev tasks are durable: if `run` throws, the platform retries with exponential backoff automatically. You also get a dashboard for inspecting runs, failures, and retries."
+  revisit={{ to: "/docs/stack/background-jobs#triggerdev", label: "Trigger.dev section" }}
+/>
+
+<Question
+  prompt="On a side project, what's the lightest-weight way to handle background work before adopting a real queue?"
+  options={[
+    { text: "Spin up a Kubernetes cluster with BullMQ workers" },
+    { text: "Use platform cron (e.g., Vercel Cron Jobs), `waitUntil()` in route handlers, or a 'we'll email you when done' UX" },
+    { text: "Block the HTTP request and hope users don't notice" },
+    { text: "Set up Temporal with multi-step workflows" }
+  ]}
+  correct={1}
+  explanation="On day one, you usually don't need a real queue. Platform cron, `waitUntil()` (do work after returning the response), and async-by-email UX patterns handle most needs until you have multiple tasks, retries, and monitoring requirements."
+  revisit={{ to: "/docs/stack/background-jobs#decision-matrix", label: "Cheapest background job" }}
+/>
+
+<Question
+  prompt="When does Temporal earn its complexity over Trigger.dev/Inngest or BullMQ?"
+  options={[
+    { text: "Whenever you need to send a single transactional email" },
+    { text: "Complex, long-running, multi-step business processes (multi-step approvals, financial transactions, etc.)" },
+    { text: "For replacing your build tool" },
+    { text: "Only for Ruby applications" }
+  ]}
+  correct={1}
+  explanation="Temporal is heavy-duty workflow orchestration. Reach for it when you genuinely have complex, durable, multi-step business processes — not for simple 'send an email later' work."
+  revisit={{ to: "/docs/stack/background-jobs#temporal", label: "Temporal section" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Services](./services) — payments, email, files, video, maps, and the other boring-but-essential services every app needs.

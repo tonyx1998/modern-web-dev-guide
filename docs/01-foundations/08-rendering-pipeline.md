@@ -110,6 +110,64 @@ Most LCP problems trace to violating #1, #2, or #3.
 Open any site and run Chrome DevTools → **Lighthouse** → Analyze page load. The "Performance" section will tell you your LCP, FID, CLS, and TBT scores, and *exactly* which resources are blocking rendering. Run it on your own site (or any side project) — the suggestions are often the highest-leverage performance wins you'll find.
 :::
 
+## Page checkpoint
+
+<Quiz id="rendering-pipeline-page" title="Did the rendering pipeline stick?" sampleSize={2}>
+
+<Question
+  prompt="You're animating a card sliding across the screen. Which CSS property gives the smoothest 60fps result?"
+  options={[
+    { text: "Animating 'left' from -100% to 0" },
+    { text: "Animating 'margin-left' from -100% to 0" },
+    { text: "Animating 'transform: translateX(...)'" },
+    { text: "Animating 'width' between two values" }
+  ]}
+  correct={2}
+  explanation="transform and opacity are composite-only — the GPU handles them without re-running layout or paint. left, margin, and width all trigger layout every frame, which is why those animations stutter."
+  revisit={{ to: "/docs/foundations/rendering-pipeline#which-step-does-your-change-trigger", label: "Which step does your change trigger?" }}
+/>
+
+<Question
+  prompt="In order, what are the stages of the browser's rendering pipeline once HTML and CSS arrive?"
+  options={[
+    { text: "Parse → Style → Layout → Paint → Composite" },
+    { text: "Parse → Composite → Paint → Layout → Style" },
+    { text: "Parse → Layout → Style → Composite → Paint" },
+    { text: "Parse → Paint → Style → Layout → Composite" }
+  ]}
+  correct={0}
+  explanation="HTML and CSS are parsed into DOM and CSSOM, combined into computed styles, laid out into positions/sizes, painted into pixel layers, and finally composited (often on the GPU) into the final image."
+  revisit={{ to: "/docs/foundations/rendering-pipeline#the-pipeline", label: "The pipeline" }}
+/>
+
+<Question
+  prompt="A <script> tag in the <head> with no async or defer attribute — what's its effect on rendering?"
+  options={[
+    { text: "It runs after the page is fully loaded; no effect on first paint" },
+    { text: "It runs in a Web Worker so it can't block rendering" },
+    { text: "It blocks HTML parsing and delays first paint" },
+    { text: "It's automatically deferred by modern browsers" }
+  ]}
+  correct={2}
+  explanation="A synchronous script in the head blocks the parser until it downloads and executes. That's why best practice is <script defer>, <script type='module'>, or moving scripts before </body>."
+  revisit={{ to: "/docs/foundations/rendering-pipeline#the-critical-rendering-path", label: "The critical rendering path" }}
+/>
+
+<Question
+  prompt="LCP (Largest Contentful Paint) is slow on your homepage. Which fix is most likely to help?"
+  options={[
+    { text: "Add more JavaScript to the page" },
+    { text: "Preload the hero image and make sure the server returns HTML quickly without JS-blocking" },
+    { text: "Move all CSS to an external file with no inlining" },
+    { text: "Wait for the browser's automatic optimizer to kick in" }
+  ]}
+  correct={1}
+  explanation="LCP measures when the biggest above-the-fold element appears. Fast HTML, a preloaded LCP resource (image or hero CSS), and no render-blocking JS are the three big levers. Most LCP problems trace to violating one of those."
+  revisit={{ to: "/docs/foundations/rendering-pipeline#the-critical-rendering-path", label: "The LCP shortcut" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Rendering Strategies Overview](./rendering-strategies) where the question shifts from *how* HTML becomes pixels to *who* builds the HTML in the first place — and when.

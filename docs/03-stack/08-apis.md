@@ -131,6 +131,64 @@ A webhook endpoint is, by definition, accessible to the internet. Anyone can hit
 Every payment processor sends a signature header (`Stripe-Signature`, etc.). *Always* verify it before processing the payload. This is a 5-line code change that prevents catastrophic abuse.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-apis-page" title="Did API styles stick?" sampleSize={2}>
+
+<Question
+  prompt="When is tRPC the right pick over REST?"
+  options={[
+    { text: "When you're publishing a public API consumed by non-TypeScript clients" },
+    { text: "When both the server and the client are TypeScript and you own both ends — you get end-to-end type safety without a separate API contract" },
+    { text: "When you need binary, low-latency service-to-service traffic" },
+    { text: "When you need to stream tokens from an LLM to the browser" }
+  ]}
+  correct={1}
+  explanation="tRPC eliminates the need for an explicit contract by sharing TypeScript types directly between server procedures and the client. It's only useful when you control both sides and they're both TS."
+  revisit={{ to: "/docs/stack/apis#trpc", label: "tRPC section" }}
+/>
+
+<Question
+  prompt="Which API style is the dominant 2026 choice for streaming LLM responses to a browser?"
+  options={[
+    { text: "WebSockets" },
+    { text: "gRPC" },
+    { text: "Server-Sent Events (SSE)" },
+    { text: "GraphQL subscriptions" }
+  ]}
+  correct={2}
+  explanation="SSE is one-way (server → client) over plain HTTP, with automatic browser reconnection and HTTP/2 multiplexing. That's exactly the shape of a streaming LLM response, which is why it's the standard."
+  revisit={{ to: "/docs/stack/apis#server-sent-events-sse", label: "SSE section" }}
+/>
+
+<Question
+  prompt="What's the non-negotiable rule for any webhook endpoint you expose?"
+  options={[
+    { text: "Always respond with 500 if you can't process the payload" },
+    { text: "Trust the source IP as a security check" },
+    { text: "Verify the signature header (e.g., Stripe-Signature) before processing the payload" },
+    { text: "Only accept GET requests so they can be replayed easily" }
+  ]}
+  correct={2}
+  explanation="A webhook endpoint is on the public internet — anyone can hit it. Verifying the provider's signature header is a 5-line change that prevents strangers from triggering sensitive logic."
+  revisit={{ to: "/docs/stack/apis#webhooks", label: "Webhook security" }}
+/>
+
+<Question
+  prompt="When is GraphQL most likely to pay for its added complexity?"
+  options={[
+    { text: "A small CRUD app with one client" },
+    { text: "A public API where consumers expect REST conventions" },
+    { text: "Many clients (web, iOS, Android, partners) consuming overlapping data, or federated schemas across teams" },
+    { text: "Internal service-to-service binary traffic" }
+  ]}
+  correct={2}
+  explanation="GraphQL shines when multiple clients fetch overlapping data and want to ask for exactly the fields they need, or when many teams contribute to one federated schema. For simple CRUD with one client, the overhead isn't worth it."
+  revisit={{ to: "/docs/stack/apis#graphql", label: "GraphQL section" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Databases](./databases) — where your data lives. Spoiler: probably Postgres.

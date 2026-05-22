@@ -125,6 +125,64 @@ Most production issues need all three. A spike in error metrics tells you *somet
 - **Logs without context:** Can't tell which user, which request, which trace.
 - **No correlation IDs:** Can't follow a request across services.
 
+## Page checkpoint
+
+<Quiz id="lifecycle-observability-page" title="Did observability stick?" sampleSize={2}>
+
+<Question
+  prompt="The page's rule of thumb for the three pillars. Which signal best answers 'why was this single request slow?'"
+  options={[
+    { text: "Logs — text records of events" },
+    { text: "Metrics — numerical measurements over time" },
+    { text: "Traces — a tree of timed spans showing where the time went for one request" },
+    { text: "Uptime monitors" }
+  ]}
+  correct={2}
+  explanation="Traces break a single request into spans so you can see exactly which step burned the time. Logs answer 'what happened' and metrics answer 'how often or how fast' in aggregate."
+  revisit={{ to: "/docs/lifecycle/observability#observability-in-2026", label: "Logs vs metrics vs traces" }}
+/>
+
+<Question
+  prompt="What's the difference between an SLO and an SLA, as described on the page?"
+  options={[
+    { text: "They're the same thing with different spellings" },
+    { text: "SLO is your internal target; SLA is the contractual promise to customers, usually less strict than the SLO" },
+    { text: "SLA is internal; SLO is what you promise customers" },
+    { text: "SLOs are for backends; SLAs are for frontends" }
+  ]}
+  correct={1}
+  explanation="You keep the SLA looser than the SLO so you have margin. If you're hitting the internal target, you're comfortably ahead of what customers were promised."
+  revisit={{ to: "/docs/lifecycle/observability#slis-slos-and-slas", label: "SLIs, SLOs, SLAs" }}
+/>
+
+<Question
+  prompt="What's the page's main rule for designing good alerts?"
+  options={[
+    { text: "Alert on everything so nothing is missed" },
+    { text: "Alert on symptoms with user impact, not on underlying causes that might be fine" },
+    { text: "Alert only the most senior engineer" },
+    { text: "Alert by email — pages are too intrusive" }
+  ]}
+  correct={1}
+  explanation="'CPU at 80%' might be totally normal. 'Latency over 500ms' tells you something users feel. Alerting on symptoms keeps the signal-to-noise ratio sane."
+  revisit={{ to: "/docs/lifecycle/observability#alerting", label: "Alerting" }}
+/>
+
+<Question
+  prompt="Which observability stack does the page recommend as a minimum-viable starting point for a beginner on Vercel?"
+  options={[
+    { text: "A full Datadog + OpenTelemetry deployment from day one" },
+    { text: "Sentry for errors, Vercel Analytics for web vitals, Better Stack for uptime and logs" },
+    { text: "Just console.log statements in production" },
+    { text: "A self-hosted Grafana cluster" }
+  ]}
+  correct={1}
+  explanation="The Sentry + Vercel Analytics + Better Stack trio takes about five minutes to wire up and covers errors, real-user performance, and uptime. Enterprise-grade observability can wait."
+  revisit={{ to: "/docs/lifecycle/observability#alerting", label: "Minimum viable observability" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 11: Maintenance & Iteration](./maintenance) where we cover the longest phase by far — the years of work after launch.

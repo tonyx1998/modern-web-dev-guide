@@ -126,6 +126,64 @@ The most common state management mistake: fetching server data, then dumping it 
 This sets you up for stale data, manual refetching logic, race conditions, and complex synchronization. *Server data is a cache, not state.* Use a server-state library (TanStack Query or RSC) and let it handle caching, refetching, and invalidation. Reserve Zustand/Redux/Context for *purely client* state — open menus, theme, draft form input.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-state-management-page" title="Did state management stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the single most common state-management mistake the page calls out?"
+  options={[
+    { text: "Using useState for component-local state" },
+    { text: "Dumping fetched server data into Zustand or Redux to 'share it everywhere'" },
+    { text: "Storing the URL in client state with nuqs" },
+    { text: "Letting React Hook Form manage form fields" }
+  ]}
+  correct={1}
+  explanation="Server data is a cache, not state. Putting it into Zustand/Redux invites stale data, manual refetching, and race conditions. Use a server-state library (TanStack Query or RSC) for server data and reserve client stores for purely client state."
+  revisit={{ to: "/docs/stack/state-management#server-state", label: "Server vs client state" }}
+/>
+
+<Question
+  prompt="Which problem does TanStack Query handle for you that plain `fetch` does not?"
+  options={[
+    { text: "Type-checking your TypeScript code" },
+    { text: "Caching by query key, background refetching, dedup of in-flight requests, and stale-while-revalidate" },
+    { text: "Encrypting requests over TLS" },
+    { text: "Rendering loading spinners and error messages automatically" }
+  ]}
+  correct={1}
+  explanation="TanStack Query gives you key-based caching, background refetching, request deduplication, optimistic updates, and stale-while-revalidate. Plain fetch does none of that — you'd hand-roll it."
+  revisit={{ to: "/docs/stack/state-management#server-state", label: "Server state" }}
+/>
+
+<Question
+  prompt="When is Zustand a better pick than React's built-in `useState` / `useContext`?"
+  options={[
+    { text: "When you need to fetch server data" },
+    { text: "When you need a simple, global client store without the boilerplate of Redux or the rerender pitfalls of Context" },
+    { text: "When you only need a single component's local state" },
+    { text: "When you want type-safe form validation" }
+  ]}
+  correct={1}
+  explanation="Zustand is the modern simple global client store — less boilerplate than Redux and fewer rerender pitfalls than Context. Local component state still belongs in useState; server data belongs in TanStack Query."
+  revisit={{ to: "/docs/stack/state-management#client-state", label: "Client state" }}
+/>
+
+<Question
+  prompt="In the React Hook Form + Zod pattern, what's the role of Zod?"
+  options={[
+    { text: "It runs the form's onSubmit handler" },
+    { text: "It declares validation rules that double as TypeScript types and runtime validation" },
+    { text: "It replaces React Hook Form's `register` API" },
+    { text: "It manages global app state across forms" }
+  ]}
+  correct={1}
+  explanation="Zod declares the schema (email must look like an email, password ≥ 8 chars). One schema serves as TypeScript types, runtime validation, and (via the resolver) form-field error messages."
+  revisit={{ to: "/docs/stack/state-management#form-state", label: "Form state" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Backend Frameworks](./backend-frameworks) — the server-side equivalent of frontend frameworks.

@@ -74,6 +74,64 @@ A typical "we need to add Postgres FTS support" decision:
 The enterprise process looks absurd if you stop at the single decision. It looks reasonable once you remember that *thousands* of database decisions happen across the company every year, and the same RFC framework keeps them all aligned.
 :::
 
+## Page checkpoint
+
+<Quiz id="comparison-team-and-process-page" title="Did team and process across scales stick?" sampleSize={2}>
+
+<Question
+  prompt="What is the biggest cultural divide in team structure between small companies and large companies?"
+  options={[
+    { text: "Small companies use TypeScript while large ones use polyglot stacks" },
+    { text: "Small companies rely on generalists; large companies default to deep specialization" },
+    { text: "Small companies hire faster than large companies" },
+    { text: "Small companies have product managers and large companies do not" }
+  ]}
+  correct={1}
+  explanation="At a small company almost everyone is a generalist who touches every part of the stack. At a large company, deep specialization is the default — an engineer may spend years on one subsystem."
+  revisit={{ to: "/docs/comparison/team-and-process#team-structure", label: "Team Structure" }}
+/>
+
+<Question
+  prompt="Why does the RFC format become the dominant decision-making tool at enterprise scale?"
+  options={[
+    { text: "Because engineers prefer writing to talking" },
+    { text: "Because decisions outlive their decision-makers, so written reasoning beats spoken reasoning" },
+    { text: "Because regulators legally require it for every code change" },
+    { text: "Because it speeds up decisions compared to a Slack thread" }
+  ]}
+  correct={1}
+  explanation="Once an organization is big enough that decisions outlive their decision-makers, written decisions start beating spoken ones — RFCs capture options, the choice, and the reasoning so future engineers can understand them."
+  revisit={{ to: "/docs/comparison/team-and-process#decision-making-process", label: "Decision-Making Process" }}
+/>
+
+<Question
+  prompt="Why do enterprise hiring loops use 5–7 rounds and 4–8 weeks instead of a shorter startup-style process?"
+  options={[
+    { text: "Enterprises have nothing better to do with interviewer time" },
+    { text: "At 500+ engineers, a bad hire is much more expensive — longer to identify and harder to manage out" },
+    { text: "Regulations require five interview rounds for software engineers" },
+    { text: "Longer loops always produce better hires than shorter ones" }
+  ]}
+  correct={1}
+  explanation="The longer loops aren't gratuitous: at enterprise scale a bad hire is much more expensive, since they take longer to identify, are harder to manage out, and can do more damage. The trade-off is losing some great candidates to faster offers."
+  revisit={{ to: "/docs/comparison/team-and-process#hiring", label: "Hiring" }}
+/>
+
+<Question
+  prompt="In the database-migration worked example, what does a solo developer's process look like compared to an enterprise's?"
+  options={[
+    { text: "Both run an RFC; the solo dev just skips the schema review" },
+    { text: "Solo: 'I'll do it Saturday.' Enterprise: RFC, schema review, data-team review, migration plan, staged rollout, CAB sign-off" },
+    { text: "Solo writes a migration plan; enterprise just deploys to production directly" },
+    { text: "Both require multi-team review, but the solo dev acts as every team" }
+  ]}
+  correct={1}
+  explanation="The solo dev just does it; the enterprise process includes an RFC, schema review, data-team review, a migration plan with reversibility, staged rollout, and potentially a change-advisory-board sign-off. It looks absurd for one decision but keeps thousands of decisions aligned."
+  revisit={{ to: "/docs/comparison/team-and-process#decision-making-process", label: "Worked example" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Stack and Hosting](./stack-and-hosting) — the actual technologies and infrastructure each scale runs on.

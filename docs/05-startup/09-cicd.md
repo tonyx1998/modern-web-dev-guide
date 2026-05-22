@@ -106,6 +106,64 @@ At 5 people, "we trust each other to not push broken code" is reasonable. At 15,
 Branch protection makes the safe path the default path. Nobody has to remember to ask for review; nobody has to remember to wait for CI. The system enforces both. This is process earning its way in.
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-cicd-page" title="Did CI/CD at startup scale stick?" sampleSize={2}>
+
+<Question
+  prompt="What two halves make up the typical small-company CI/CD stack on this page?"
+  options={[
+    { text: "GitHub Actions for verification on PRs, and Vercel for deployment on merge to main" },
+    { text: "Jenkins for builds and AWS CodeDeploy for releases" },
+    { text: "GitLab CI for everything end-to-end" },
+    { text: "A custom in-house pipeline written by the platform team" }
+  ]}
+  correct={0}
+  explanation="GitHub Actions lints, type-checks, tests, and builds on every PR. Vercel separately deploys preview URLs per PR and production on merge to main. You don't build either half yourself."
+  revisit={{ to: "/docs/startup/cicd#a-typical-workflow-file", label: "Workflow file" }}
+/>
+
+<Question
+  prompt="What role does branch protection play in this setup, per the page?"
+  options={[
+    { text: "It's bureaucracy that mature teams should bypass under pressure" },
+    { text: "It makes the safe path the default — review and green CI can't be skipped even at 11pm" },
+    { text: "It prevents the use of feature flags" },
+    { text: "It only matters once you cross 100 engineers" }
+  ]}
+  correct={1}
+  explanation="Branch protection makes review and passing CI non-optional. At 15 engineers, somebody will eventually push a tired typo to main on a Friday — protection turns that from possible to blocked."
+  revisit={{ to: "/docs/startup/cicd#branch-protection", label: "Branch protection" }}
+/>
+
+<Question
+  prompt="How does the page describe a typical end-to-end hot fix at startup scale?"
+  options={[
+    { text: "Push directly to production from a personal laptop to skip CI under pressure" },
+    { text: "Branch, PR, review, merge, deploy — about 15 minutes from report to fix because CI is fast and review is quick" },
+    { text: "Open a Jira ticket, wait for a change-advisory-board meeting, then deploy" },
+    { text: "Fix only at the next scheduled release window" }
+  ]}
+  correct={1}
+  explanation="The worked example shows the normal flow doing the work: branch, write the fix plus a regression test, push, get a 3-minute review, CI green, merge, Vercel deploys. About 15 minutes total — no bypass needed."
+  revisit={{ to: "/docs/startup/cicd#hot-fixes", label: "Hot fix flow" }}
+/>
+
+<Question
+  prompt="In the example workflow, why does the e2e job include needs: validate?"
+  options={[
+    { text: "It tells GitHub to run e2e on a more powerful runner" },
+    { text: "It makes e2e wait until the validate job (lint, types, tests, build) passes before running" },
+    { text: "It hides the e2e job from external contributors" },
+    { text: "It caches the Playwright browser binaries" }
+  ]}
+  correct={1}
+  explanation="needs: validate gates the expensive e2e job behind the cheap validate job. If validate fails, you don't waste minutes installing Playwright and running browser tests."
+  revisit={{ to: "/docs/startup/cicd#a-typical-workflow-file", label: "needs: validate" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 8: Deployment & Infrastructure](./deployment) where we compare three popular hosting patterns.

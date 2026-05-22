@@ -88,6 +88,64 @@ Their fix: identify clusters of services that always change together, and merge 
 The lesson: microservices weren't wrong; *too many* microservices were wrong for that team's scale. The right granularity is the one where teams can mostly ship independently — and that varies enormously by company.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-pitfalls-page" title="Did enterprise pitfalls stick?" sampleSize={2}>
+
+<Question
+  prompt="What is a 'distributed monolith,' according to the page?"
+  options={[
+    { text: "A monolith deployed across multiple regions" },
+    { text: "A microservices architecture where services must be deployed together — the worst of both worlds, with the latency of distribution and the coupling of a monolith" },
+    { text: "A monolith that uses distributed databases" },
+    { text: "A team structure spread across time zones" }
+  ]}
+  correct={1}
+  explanation="A distributed monolith is the failure mode of cargo-cult microservices: services that must be deployed together still have all the latency, complexity, and coordination cost of distribution — without the independent-deploy benefit. Recovery is consolidating services that change together."
+  revisit={{ to: "/docs/enterprise/pitfalls#cargo-cult-microservices", label: "Cargo-cult microservices" }}
+/>
+
+<Question
+  prompt="What test does the page suggest for identifying process that should be cut?"
+  options={[
+    { text: "Run it past the legal team" },
+    { text: "Ask three people 'what would go wrong if we stopped doing this?' — if none give a concrete answer rooted in a real past failure, it's cargo cult" },
+    { text: "Check whether other companies do it" },
+    { text: "Measure how many engineers complain about it" }
+  ]}
+  correct={1}
+  explanation="The test is concrete consequence vs. cargo cult. If nobody can point to a real past failure the process prevents, it's accretion — and the best engineering leaders run a 'process audit' every quarter to kill at least one such process before it strangles velocity."
+  revisit={{ to: "/docs/enterprise/pitfalls#process-for-processs-sake", label: "Process audit" }}
+/>
+
+<Question
+  prompt="What fix does the page recommend for platforms that don't get adopted?"
+  options={[
+    { text: "Mandate adoption org-wide via the CTO" },
+    { text: "Treat product engineers as customers — run user research, measure adoption, iterate based on feedback" },
+    { text: "Add more features until engineers are forced to use it" },
+    { text: "Disband the platform team" }
+  ]}
+  correct={1}
+  explanation="The failure mode is platform teams building for themselves. The fix is product discipline: internal customers are still customers. Run user research, measure adoption, iterate based on feedback — the same way a product team would treat external users."
+  revisit={{ to: "/docs/enterprise/pitfalls#internal-platforms-that-dont-serve-users", label: "Platform adoption" }}
+/>
+
+<Question
+  prompt="The 'back to the monolith' worked example shows 80 services becoming 12. What was the underlying principle?"
+  options={[
+    { text: "Microservices are always wrong" },
+    { text: "Identify clusters of services that always change together and merge them — the right granularity is where teams can mostly ship independently, which varies enormously by company" },
+    { text: "Always consolidate to a single service" },
+    { text: "Use Kubernetes regardless" }
+  ]}
+  correct={1}
+  explanation="Microservices aren't wrong — too many microservices for that team's scale was wrong. Services that always change together should be merged into modular monoliths. The right granularity is wherever teams can mostly ship independently; nothing more, nothing less."
+  revisit={{ to: "/docs/enterprise/pitfalls#worked-example", label: "Back to monolith" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [A Day in the Life of a Senior Engineer at Scale](./day-in-life) for a concrete look at how the work actually feels day-to-day.

@@ -160,6 +160,64 @@ Step 13 — `git push` to deploy an empty project — is the single most importa
 Skip this and you build for a week, try to deploy, hit five errors that all interact, and lose a day untangling them.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-env-setup-page" title="Did environment setup stick?" sampleSize={2}>
+
+<Question
+  prompt="Why is step 13 — git push to deploy an empty project — called the single most important step?"
+  options={[
+    { text: "It earns SEO credit for the new domain" },
+    { text: "It proves the deploy pipeline works before you write features" },
+    { text: "It triggers the first Stripe webhook" },
+    { text: "It forces you to write a README" }
+  ]}
+  correct={1}
+  explanation="Deploying nothing first guarantees the pipeline works. If you wait a week and then deploy, errors stack up and interact — debugging five problems at once is much harder than one at a time."
+  revisit={{ to: "/docs/solo/env-setup#a-complete-modern-setup", label: "Deploy before you build" }}
+/>
+
+<Question
+  prompt="What does the .env.example file exist for, since .env.local is gitignored?"
+  options={[
+    { text: "It's required by Vercel's build system" },
+    { text: "It documents which env vars are needed, with placeholder values" },
+    { text: "It's loaded automatically in production" },
+    { text: "It's the legal record of which services you use" }
+  ]}
+  correct={1}
+  explanation="The actual secrets stay out of git, but .env.example commits the *shape* — variable names with placeholder values — so future-you (or anyone cloning the repo) knows what needs to be set."
+  revisit={{ to: "/docs/solo/env-setup#gitignore-essentials", label: ".gitignore essentials" }}
+/>
+
+<Question
+  prompt="In the Drizzle setup, what does drizzle-kit generate do?"
+  options={[
+    { text: "Creates a new Postgres database" },
+    { text: "Creates SQL migration files from your TypeScript schema" },
+    { text: "Applies migrations to the database" },
+    { text: "Generates TypeScript types from existing tables" }
+  ]}
+  correct={1}
+  explanation="generate produces the SQL migration files from your schema.ts changes; migrate is the separate step that applies those migrations to the database."
+  revisit={{ to: "/docs/solo/env-setup#setting-up-drizzle", label: "Drizzle commands" }}
+/>
+
+<Question
+  prompt="Roughly how long does this full setup take the first time you do it?"
+  options={[
+    { text: "About 15 minutes" },
+    { text: "About an hour (sometimes two or three the first time)" },
+    { text: "A full weekend" },
+    { text: "About a week" }
+  ]}
+  correct={1}
+  explanation="The page targets about an hour but is honest that the first run often takes two or three — every signup is different. By the third project it's muscle memory."
+  revisit={{ to: "/docs/solo/env-setup#phase-3-environment-setup-one-hour", label: "Setup time" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 4: Development](./development) where we build features end-to-end with Server Components, Server Actions, and Tailwind.

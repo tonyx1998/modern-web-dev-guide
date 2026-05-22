@@ -100,6 +100,64 @@ For solo / startup projects, you almost certainly fit in someone's free tier:
 You should not be building your own auth from scratch to "save money." The free tiers are extremely generous and the engineering cost is enormous.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-authentication-tools-page" title="Did auth tools stick?" sampleSize={2}>
+
+<Question
+  prompt="Why does the page tell you not to build your own auth?"
+  options={[
+    { text: "Auth services are required by law" },
+    { text: "Auth is genuinely hard, and modern services offer generous free tiers — the engineering cost of DIY auth dwarfs the savings" },
+    { text: "DIY auth violates the npm terms of service" },
+    { text: "Browsers no longer support custom auth flows" }
+  ]}
+  correct={1}
+  explanation="Auth is hard to get right (password hashing, sessions, MFA, social logins, recovery). Clerk, Supabase Auth, Better Auth, and Auth.js have generous free tiers; the engineering cost of rolling your own is enormous."
+  revisit={{ to: "/docs/stack/authentication-tools#clerk", label: "Why outsource auth" }}
+/>
+
+<Question
+  prompt="When is Clerk the right pick over Better Auth or Auth.js?"
+  options={[
+    { text: "When you specifically need to self-host everything for compliance" },
+    { text: "When you want polished pre-built React components and fast time-to-market, and paying a per-MAU fee is acceptable" },
+    { text: "When you want the cheapest option at every scale" },
+    { text: "When you need open-source code you can fork" }
+  ]}
+  correct={1}
+  explanation="Clerk's strength is best-in-class UX with drop-in `<SignIn />`-style components and a generous free tier — at the cost of per-MAU pricing as you grow. If self-hosting and source access matter, Better Auth or Auth.js fit better."
+  revisit={{ to: "/docs/stack/authentication-tools#clerk", label: "Clerk section" }}
+/>
+
+<Question
+  prompt="What does WorkOS specialize in?"
+  options={[
+    { text: "Magic-link auth for indie SaaS" },
+    { text: "OAuth for consumer apps" },
+    { text: "Enterprise SSO / SAML / SCIM as a service — for when B2B customers demand enterprise auth" },
+    { text: "Password-only flows for legacy systems" }
+  ]}
+  correct={2}
+  explanation="WorkOS is the go-to for adding enterprise SSO, SAML, and SCIM provisioning when you're selling B2B and your customers' IT teams require enterprise identity integration."
+  revisit={{ to: "/docs/stack/authentication-tools#workos", label: "WorkOS section" }}
+/>
+
+<Question
+  prompt="Which auth solution would you reach for first if you're already using Supabase for your database?"
+  options={[
+    { text: "Clerk, regardless of database" },
+    { text: "Supabase Auth — it's bundled and uses the same database and SDK" },
+    { text: "Auth0 — it's the only enterprise option" },
+    { text: "Roll your own JWT-based auth from scratch" }
+  ]}
+  correct={1}
+  explanation="If you're already on Supabase, Supabase Auth comes bundled — same SDK, same database, row-level security integrations. There's little reason to add a separate auth service unless you outgrow it."
+  revisit={{ to: "/docs/stack/authentication-tools#supabase-auth", label: "Supabase Auth" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Background Jobs](./background-jobs) — long-running and scheduled work that shouldn't block HTTP requests.

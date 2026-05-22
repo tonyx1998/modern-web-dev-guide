@@ -87,6 +87,64 @@ A team is launching a redesigned checkout flow used by millions of users daily:
 By "launch day," the new checkout has been live for months. The marketing event is a celebration, not a risk.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-release-management-page" title="Did release management stick?" sampleSize={2}>
+
+<Question
+  prompt="What does 'dark launching' mean at enterprise scale?"
+  options={[
+    { text: "Launching a feature without telling marketing" },
+    { text: "Shipping new code behind a flag that's off for everyone — verifying it in production with real data before any user sees it" },
+    { text: "Deploying only at night to avoid customer impact" },
+    { text: "Launching in a single region and never enabling others" }
+  ]}
+  correct={1}
+  explanation="Dark launching ships new code behind a flag that's off for everyone. It lets you verify the code in production with real data, load-test by enabling for 1% of traffic, and test the rollback path — so by the time you flip the flag to 100%, the launch is anticlimactic."
+  revisit={{ to: "/docs/enterprise/release-management#feature-launches", label: "Dark launches" }}
+/>
+
+<Question
+  prompt="Why do enterprises freeze deployments during high-traffic events like Black Friday?"
+  options={[
+    { text: "Cloud providers charge extra during peak periods" },
+    { text: "Routine changes shouldn't risk taking the system down at the moment business stakes are highest — the freeze is a cost paid for stability" },
+    { text: "Engineers want time off" },
+    { text: "Auditors require it" }
+  ]}
+  correct={1}
+  explanation="A freeze is a real cost — engineers can't ship for a week or two — paid for the benefit of stability when business stakes are highest. Companies plan for freezes by front-loading the work that absolutely must ship beforehand."
+  revisit={{ to: "/docs/enterprise/release-management#deployment-freezes", label: "Deployment freezes" }}
+/>
+
+<Question
+  prompt="What is a Change Advisory Board (CAB)?"
+  options={[
+    { text: "A group of customer advisors who suggest features" },
+    { text: "A recurring meeting in regulated industries where every proposed production change is reviewed by engineering, ops, security, and sometimes compliance" },
+    { text: "A board that fires engineers after major incidents" },
+    { text: "An internal newsletter about changes" }
+  ]}
+  correct={1}
+  explanation="CABs are common in regulated industries (banking, healthcare). Every production change is reviewed by representatives from engineering, ops, security, and compliance. The overhead is real — but the alternative (unreviewed changes in regulated systems) is unacceptable to auditors."
+  revisit={{ to: "/docs/enterprise/release-management#change-advisory", label: "CAB" }}
+/>
+
+<Question
+  prompt="Why do mature teams design database migrations to be reversible across multiple deploys (add column, dual-write, switch reads, then drop)?"
+  options={[
+    { text: "It's faster" },
+    { text: "An irreversible migration is a one-way door — if something breaks, you can't roll back the deploy without first restoring the data shape" },
+    { text: "It uses less storage" },
+    { text: "It requires fewer reviewers" }
+  ]}
+  correct={1}
+  explanation="A one-step destructive migration (dropping a column, renaming a table) is a one-way door — once it ships, you can't roll back the code without first restoring the schema. Multi-step migrations keep each deploy reversible, which is required by 'every change has a rollback plan.'"
+  revisit={{ to: "/docs/enterprise/release-management#rollback-procedures", label: "Rollback procedures" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [A Realistic Cost Picture](./cost-picture) — what does all this engineering investment actually cost?

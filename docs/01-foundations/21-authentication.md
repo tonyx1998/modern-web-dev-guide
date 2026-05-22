@@ -136,6 +136,64 @@ Implementing auth correctly is hard — there are dozens of subtle ways to leak 
 This is the single piece of advice with the strongest consensus across the industry in 2026. The attack surface is too large, the consequences of mistakes too severe, and the existing services are too cheap and too good. Spend your engineering time on your product, not on yet another password hashing implementation.
 :::
 
+## Page checkpoint
+
+<Quiz id="authentication-page" title="Did authentication stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the correct way to store user passwords on the server?"
+  options={[
+    { text: "Plain text — passwords need to be readable for support" },
+    { text: "Encrypted with AES so you can decrypt them when needed" },
+    { text: "Hashed with bcrypt or argon2 — one-way, irreversible, so a database leak only exposes hashes, not usable passwords" },
+    { text: "Hashed with MD5 or SHA-256 for speed" }
+  ]}
+  correct={2}
+  explanation="Passwords should be HASHED (one-way) not ENCRYPTED (reversible). bcrypt and argon2 are the modern picks — they're slow on purpose, which frustrates brute-force attacks. Never SHA-256, never MD5, never roll your own."
+  revisit={{ to: "/docs/foundations/authentication#method-1-password-based-classic-but-declining", label: "Hashing vs encryption" }}
+/>
+
+<Question
+  prompt="What's the most security-relevant property of passkeys (WebAuthn)?"
+  options={[
+    { text: "They use shorter passwords, so they're easier to remember" },
+    { text: "The keypair is bound to your domain, making them phishing-resistant — a fake lookalike site can't reuse the credential" },
+    { text: "They are stored centrally on a passkey server" },
+    { text: "They expire after one use" }
+  ]}
+  correct={1}
+  explanation="A passkey's private key is bound to the legitimate site's origin and never leaves the device. A phishing site at a similar URL literally can't request a valid signature for your real site, which kills the entire phishing attack class."
+  revisit={{ to: "/docs/foundations/authentication#method-4-passkeys-webauthn", label: "Passkeys" }}
+/>
+
+<Question
+  prompt="What's the strongest 2026 industry consensus about implementing auth?"
+  options={[
+    { text: "Roll your own — it's a great learning exercise to ship in production" },
+    { text: "Use a service (Clerk, Auth0, Better Auth, Supabase Auth, etc.) — the attack surface is huge and the existing services are good and cheap" },
+    { text: "Send passwords over plain HTTP if SSL is too expensive" },
+    { text: "Store JWTs in localStorage so any script can read them" }
+  ]}
+  correct={1}
+  explanation="The consensus is unusually strong: don't roll your own auth. Token handling, password reset flows, MFA, OAuth, and edge cases are huge and unforgiving. Use a service and save your engineering for your actual product."
+  revisit={{ to: "/docs/foundations/authentication#in-2026-use-a-service", label: "Don't roll your own auth" }}
+/>
+
+<Question
+  prompt="A user clicks 'Sign in with Google.' What does Google ultimately send back to your app after they authenticate?"
+  options={[
+    { text: "The user's Google password, so you can store it" },
+    { text: "A short authorization code that your server exchanges for an access token plus the user's profile info" },
+    { text: "A signed contract with Google" },
+    { text: "Nothing — your app generates its own credentials" }
+  ]}
+  correct={1}
+  explanation="OAuth never gives you the user's password. You get a one-time code, exchange it server-side for an access token, and use that to fetch profile data. Your app never sees or stores the actual Google credentials."
+  revisit={{ to: "/docs/foundations/authentication#method-2-oauth--social-login", label: "OAuth / Social Login" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Authorization: Permissions & Tokens](./authorization) where we'll cover the *after-login* question: now that we know who you are, what can you do?

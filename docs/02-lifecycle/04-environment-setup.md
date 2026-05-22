@@ -149,6 +149,64 @@ Then open http://localhost:3000.
 Spending 15 minutes on this saves your team (and future you) hours.
 :::
 
+## Page checkpoint
+
+<Quiz id="lifecycle-environment-setup-page" title="Did environment setup stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the main problem that lockfiles, Docker, and Node version managers all try to solve?"
+  options={[
+    { text: "Slow internet connections during npm install" },
+    { text: "The 'works on my machine' problem — code that runs on the author's laptop and nowhere else" },
+    { text: "Storing secrets safely in Git" },
+    { text: "Speeding up CI builds" }
+  ]}
+  correct={1}
+  explanation="Lockfiles pin exact dependency versions, Docker provides identical environments, and version managers align runtimes — all to make sure 'works on my machine' also means 'works on yours and in CI'."
+  revisit={{ to: "/docs/lifecycle/environment-setup#the-works-on-my-machine-problem", label: "The works-on-my-machine problem" }}
+/>
+
+<Question
+  prompt="You accidentally committed an API key to a public GitHub repo. According to the page, what's the right first move?"
+  options={[
+    { text: "Force-push to remove the commit from history; you're now safe" },
+    { text: "Delete the repo and re-create it without the key" },
+    { text: "Rotate the secret immediately — assume it's already compromised — then clean up history if you want" },
+    { text: "Email GitHub support and wait for them to scrub the key" }
+  ]}
+  correct={2}
+  explanation="Bots scrape new public commits within minutes. Once a secret has appeared anywhere public, treat it as leaked: generate a new one, invalidate the old one, then worry about history."
+  revisit={{ to: "/docs/lifecycle/environment-setup#secrets-management", label: "If you commit a secret, rotate it" }}
+/>
+
+<Question
+  prompt="Which of these is called out as an environment-setup anti-pattern?"
+  options={[
+    { text: "Pinning a Node version with fnm or volta" },
+    { text: "Writing a minimum-viable README" },
+    { text: "Committing node_modules to your repo" },
+    { text: "Adding a pre-commit hook with Husky" }
+  ]}
+  correct={2}
+  explanation="node_modules is generated from your lockfile and is massive. Committing it bloats the repo and bypasses the whole point of dependency pinning."
+  revisit={{ to: "/docs/lifecycle/environment-setup#common-anti-patterns", label: "Environment anti-patterns" }}
+/>
+
+<Question
+  prompt="Why does the page push so hard on writing a README, even for solo projects?"
+  options={[
+    { text: "GitHub won't make a repo public without one" },
+    { text: "Future you, in six months, will not remember how to run the project" },
+    { text: "Linters require a README to function" },
+    { text: "It's the only legal way to open-source code" }
+  ]}
+  correct={1}
+  explanation="A README is a love letter to future-you. Fifteen minutes documenting setup steps and env vars saves hours of archaeological work when you return to the project later."
+  revisit={{ to: "/docs/lifecycle/environment-setup#common-anti-patterns", label: "The README every project needs" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 5: Implementation](./implementation) where we *finally* start writing the actual feature code.

@@ -135,6 +135,64 @@ Dominant in 2026 for full-stack TypeScript apps (Next.js + tRPC is one of the mo
 Default to **REST**. Upgrade to **tRPC** if your stack is full-TypeScript and you control both ends. Reach for **GraphQL** only when you have multiple clients pulling overlapping data from the same source.
 :::
 
+## Page checkpoint
+
+<Quiz id="apis-graphql-trpc-page" title="Did GraphQL & tRPC stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the main thing GraphQL lets the client do that REST does not?"
+  options={[
+    { text: "Send binary payloads" },
+    { text: "Specify the exact shape of the data it wants — fields, nested relations, limits — in a single query" },
+    { text: "Bypass authentication" },
+    { text: "Avoid using JSON" }
+  ]}
+  correct={1}
+  explanation="A GraphQL query describes the precise response shape: which fields, which nested relations, how many. The server returns exactly that — no over-fetching, no under-fetching, one round trip per screen."
+  revisit={{ to: "/docs/foundations/apis-graphql-trpc#graphql", label: "GraphQL" }}
+/>
+
+<Question
+  prompt="What's the key constraint that limits where tRPC can be used?"
+  options={[
+    { text: "It requires WebSockets" },
+    { text: "It only works when both client and server are TypeScript — not for public APIs or non-TS mobile clients" },
+    { text: "It can't talk to a database" },
+    { text: "It only works on Linux servers" }
+  ]}
+  correct={1}
+  explanation="tRPC's selling point is end-to-end type safety from the TS server to the TS client. That magic only works when both ends share TypeScript types — so it's perfect for full-stack TS apps but unsuitable for public, cross-language APIs."
+  revisit={{ to: "/docs/foundations/apis-graphql-trpc#trpc--typescript-without-the-api", label: "tRPC" }}
+/>
+
+<Question
+  prompt="You're building a SaaS API that 5 different partner companies will consume from Python, Ruby, and Go. Which is the best fit?"
+  options={[
+    { text: "tRPC, because of type safety" },
+    { text: "REST (with OpenAPI), because it's universal across languages and well-documented" },
+    { text: "WebSockets, because they're modern" },
+    { text: "Pure GraphQL with no documentation" }
+  ]}
+  correct={1}
+  explanation="Public APIs across multiple languages favor REST + OpenAPI. tRPC is TypeScript-only. GraphQL works but adds complexity that's only worth it when you have many clients pulling overlapping data — the partner-API case can go either way, but REST is the safe default."
+  revisit={{ to: "/docs/foundations/apis-graphql-trpc#trpc--typescript-without-the-api", label: "When each approach makes sense" }}
+/>
+
+<Question
+  prompt="A common downside of GraphQL compared to REST is…"
+  options={[
+    { text: "GraphQL can't return JSON" },
+    { text: "HTTP-level caching is hard because every query is different, and server setup (resolvers, dataloaders, N+1 problems) is more complex" },
+    { text: "GraphQL requires gRPC under the hood" },
+    { text: "GraphQL doesn't support type definitions" }
+  ]}
+  correct={1}
+  explanation="REST GETs are trivially cached by CDNs. GraphQL POSTs the same /graphql URL with different bodies, so HTTP caching mostly fails. Plus servers need schemas, resolvers, and N+1 mitigations — more setup."
+  revisit={{ to: "/docs/foundations/apis-graphql-trpc#graphql", label: "GraphQL cons" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Real-Time APIs](./apis-realtime) where we look at when *request/response* isn't enough — chat, live dashboards, multiplayer games — and the protocols (gRPC, WebSockets, SSE) that handle real-time data.

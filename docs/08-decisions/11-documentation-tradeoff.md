@@ -70,6 +70,64 @@ Defenses:
 - When in doubt, delete the doc rather than leave it stale.
 :::
 
+## Page checkpoint
+
+<Quiz id="decisions-documentation-tradeoff-page" title="Did the documentation tradeoff stick?" sampleSize={2}>
+
+<Question
+  prompt="The chapter contrasts two comments. Which one ages well?"
+  options={[
+    { text: "`// Increment counter by 1` next to `counter += 1;`" },
+    { text: "`// We retry up to 3 times because the upstream service is flaky; see incident 2026-03-14`" },
+    { text: "`// TODO: rewrite this`" },
+    { text: "`// This is a function`" }
+  ]}
+  correct={1}
+  explanation="Comments that explain a decision and link to context don't expire even if the implementation changes. Comments that paraphrase the code become lies the moment the code is edited."
+  revisit={{ to: "/docs/decisions/documentation-tradeoff#whats-worth-documenting", label: "Comments that age well" }}
+/>
+
+<Question
+  prompt="Per the chapter, which is WORTH documenting?"
+  options={[
+    { text: "Implementation details — exactly how each function works" },
+    { text: "Comments that paraphrase the code" },
+    { text: "Architecture decisions (ADRs) — why a choice was made and what alternatives lost" },
+    { text: "Whatever changes weekly during active development" }
+  ]}
+  correct={2}
+  explanation="The chapter's rule: document things that don't change (decisions, conventions, runbooks, domain concepts, contracts). Things obvious from code or that churn weekly aren't worth the cost — they become stale lies."
+  revisit={{ to: "/docs/decisions/documentation-tradeoff#whats-worth-documenting", label: "What's worth documenting" }}
+/>
+
+<Question
+  prompt="The chapter calls one kind of documentation worse than missing docs. Which?"
+  options={[
+    { text: "Documentation that's too thorough" },
+    { text: "A confidently wrong, stale doc — like a README that hasn't been updated since 2024 but reads as authoritative" },
+    { text: "Documentation written by someone who's no longer on the team" },
+    { text: "Inline code comments" }
+  ]}
+  correct={1}
+  explanation="Stale docs actively mislead. The chapter's defenses: generate docs from code when possible, put docs next to code so PR reviewers notice drift, treat staleness as a review item, and delete rather than leave wrong."
+  revisit={{ to: "/docs/decisions/documentation-tradeoff#forms-of-documentation", label: "The stale doc failure mode" }}
+/>
+
+<Question
+  prompt="Which type of documentation does the chapter say can't drift because it's generated from code?"
+  options={[
+    { text: "A wiki page written in Notion" },
+    { text: "OpenAPI specs or TypeDoc output generated from the source" },
+    { text: "An onboarding runbook" },
+    { text: "An ADR" }
+  ]}
+  correct={1}
+  explanation="Generated docs (OpenAPI, TypeDoc) are derived from code, so they can't lie. The chapter explicitly recommends preferring generation wherever possible — and putting docs next to code so reviewers spot drift."
+  revisit={{ to: "/docs/decisions/documentation-tradeoff#forms-of-documentation", label: "Generated docs" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The "What Would Hurt to Change" Question](./what-would-hurt) — a practical reversibility check.

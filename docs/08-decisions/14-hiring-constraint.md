@@ -55,6 +55,64 @@ A single hire being twice as hard isn't 2x cost — it's worse:
 If you can't articulate a *specific* reason the niche tech is worth all of that, it isn't.
 :::
 
+## Page checkpoint
+
+<Quiz id="decisions-hiring-constraint-page" title="Did the hiring constraint stick?" sampleSize={2}>
+
+<Question
+  prompt="A B2B SaaS picks Haskell 'for correctness.' Two years in, one engineer knows it well, three can mostly work around it, and recruiting is constant grind. The chapter's verdict:"
+  options={[
+    { text: "Worth it — correctness compounds over time" },
+    { text: "Not worth it — TypeScript or Go would have shipped the same product with 3x the candidate pool; niche tech is a tax when it's not central to your moat" },
+    { text: "Solve it by hiring an external recruiter specializing in Haskell" },
+    { text: "Rewrite the codebase in OCaml instead" }
+  ]}
+  correct={1}
+  explanation="The chapter contrasts this with the Elixir-for-real-time case, where niche tech genuinely fits the moat. Haskell-for-vibes is the canonical mistake: a permanent velocity tax with no differentiator to justify it."
+  revisit={{ to: "/docs/decisions/hiring-constraint#the-counter", label: "When niche tech isn't worth it" }}
+/>
+
+<Question
+  prompt="The chapter argues 'hiring difficulty being 2x' actually costs more than 2x. Why?"
+  options={[
+    { text: "It just feels like more because hiring is annoying" },
+    { text: "It compounds: slower fills stall projects, higher comp expectations spread across the team, attrition rises because the pool is small, and leadership pipelines shrink" },
+    { text: "Niche-tech engineers refuse to do code reviews" },
+    { text: "Recruiting agencies double their fees" }
+  ]}
+  correct={1}
+  explanation="The Highlight lays out the compounding: slower fills, higher comp, higher attrition, smaller diversity pool, weaker competitive offers. A single niche-tech bet becomes a system-wide constraint."
+  revisit={{ to: "/docs/decisions/hiring-constraint#the-counter", label: "Compounding cost" }}
+/>
+
+<Question
+  prompt="When IS picking a niche technology justified, per the chapter?"
+  options={[
+    { text: "When the engineering team finds it fun" },
+    { text: "When it's genuinely central to your moat — like Elixir for a real-time-messaging product whose differentiator is the BEAM's actor model" },
+    { text: "Whenever a senior engineer recommends it" },
+    { text: "Whenever the alternative is a few percent slower" }
+  ]}
+  correct={1}
+  explanation="The Elixir case is the chapter's example of a worthwhile niche pick: real-time messaging IS the product, BEAM fits genuinely, and the small pool of senior Elixir engineers is fanatically loyal. Otherwise it's a tax."
+  revisit={{ to: "/docs/decisions/hiring-constraint#the-counter", label: "Niche worth-it case" }}
+/>
+
+<Question
+  prompt="A 6-person startup is choosing a backend language. Per the chapter's 2026 hiring difficulty table, which sequence orders these from easiest to hire for to hardest?"
+  options={[
+    { text: "Haskell → Rust → TypeScript → Python" },
+    { text: "TypeScript → Go → Rust → Haskell" },
+    { text: "Go → Python → TypeScript → Elixir" },
+    { text: "Custom internal tools → OCaml → Vue → Python" }
+  ]}
+  correct={1}
+  explanation="The chapter's rough table: TypeScript/React and Python are easy; Go is moderate; Rust is harder; Elixir/Clojure are hard; OCaml/Haskell very hard; custom internal tools impossible. TS → Go → Rust → Haskell matches that ordering."
+  revisit={{ to: "/docs/decisions/hiring-constraint#hiring-difficulty-rough-2026-estimates", label: "Hiring difficulty table" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [A Decision-Making Checklist](./checklist) — ten questions to run through on any significant decision.

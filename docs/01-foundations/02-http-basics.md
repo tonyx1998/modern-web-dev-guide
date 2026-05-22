@@ -108,6 +108,64 @@ We'll cover both in upcoming pages.
 Every HTTP request has the same shape: **method + path + headers + (optional) body**. Every HTTP response has the same shape: **status code + headers + (optional) body**. Memorize that shape once and you can read any HTTP exchange anywhere — in a browser, in a log file, in a Wireshark capture.
 :::
 
+## Page checkpoint
+
+<Quiz id="http-basics-page" title="Did HTTP & HTTPS stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the shape of every HTTP request?"
+  options={[
+    { text: "Method + path + headers + (optional) body" },
+    { text: "Status code + headers + body" },
+    { text: "Domain + port + payload" },
+    { text: "URL + cookie + signature" }
+  ]}
+  correct={0}
+  explanation="Requests are method + path + headers + optional body. Responses use a status code instead of method+path. Memorize those two shapes and you can read any HTTP exchange."
+  revisit={{ to: "/docs/foundations/http-basics#what-http-is", label: "What HTTP is" }}
+/>
+
+<Question
+  prompt="What is HTTPS, exactly?"
+  options={[
+    { text: "A faster version of HTTP" },
+    { text: "HTTP messages wrapped in TLS so they're encrypted in transit" },
+    { text: "A different protocol incompatible with HTTP" },
+    { text: "HTTP without cookies" }
+  ]}
+  correct={1}
+  explanation="HTTPS is identical HTTP at the protocol level — the same request/response format. TLS just wraps the connection so a network eavesdropper sees ciphertext, not your data."
+  revisit={{ to: "/docs/foundations/http-basics#https--the-encrypted-version", label: "HTTPS — the encrypted version" }}
+/>
+
+<Question
+  prompt='What does "HTTP is stateless" mean for the server?'
+  options={[
+    { text: "The server can't store any data anywhere" },
+    { text: "By default, the server has no built-in memory linking one request to past requests from the same client" },
+    { text: "The server runs without a database" },
+    { text: "The server forgets all configuration after each request" }
+  ]}
+  correct={1}
+  explanation="Statelessness is about the protocol itself, not your app's storage. Two requests from the same browser look independent to the server — cookies/tokens are how we layer identity back on."
+  revisit={{ to: "/docs/foundations/http-basics#stateless-by-design", label: "Stateless by design" }}
+/>
+
+<Question
+  prompt="A response shows `Content-Type: application/json` and `Content-Length: 87`. What does that tell you about the body?"
+  options={[
+    { text: "It's an HTML page 87 KB long" },
+    { text: "It's JSON content, 87 bytes long" },
+    { text: "It's a JPEG image, 87 pixels wide" },
+    { text: "Nothing — those headers describe the request only" }
+  ]}
+  correct={1}
+  explanation="Content-Type identifies the format; Content-Length is in bytes. Headers describe the body that follows them; everything after the blank line IS the body."
+  revisit={{ to: "/docs/foundations/http-basics#what-http-is", label: "Reading an HTTP response" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [HTTP Methods & Status Codes](./http-methods-and-status) where we'll cover the *verbs* (GET, POST, PUT…) and the numeric *replies* (200, 404, 500…).

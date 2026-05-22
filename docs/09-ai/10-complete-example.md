@@ -131,6 +131,64 @@ The 60-line snippet is honest about the happy path. Real production deployments 
 The patterns scale to all of those. The core is unchanged.
 :::
 
+## Page checkpoint
+
+<Quiz id="ai-example-page" title="Did the complete example stick?" sampleSize={2}>
+
+<Question
+  prompt="In the support bot, why is rate-limiting checked BEFORE the embedding and LLM calls — not after?"
+  options={[
+    { text: "The order doesn't matter" },
+    { text: "Doing it first short-circuits abusive traffic before you've paid for any embedding or LLM tokens" },
+    { text: "Rate limits only work pre-stream" },
+    { text: "Postgres requires it" }
+  ]}
+  correct={1}
+  explanation="Every check, embed, and LLM call costs money. Putting the rate limiter first means an abusive client gets a cheap 429 instead of triggering the expensive part of the pipeline."
+  revisit={{ to: "/docs/ai/ai-example", label: "Order of operations in the bot" }}
+/>
+
+<Question
+  prompt="The system prompt says 'Answer using ONLY the provided documentation' and to direct users to support@acme.com when they don't know. Which problem is this primarily defending against?"
+  options={[
+    { text: "Prompt injection from external attackers" },
+    { text: "Hallucinations — the model making up plausible-sounding but wrong answers when it lacks real information" },
+    { text: "PII leakage" },
+    { text: "Rate-limit bypass" }
+  ]}
+  correct={1}
+  explanation="Constraining the model to retrieved context plus an explicit fallback is a cheap, effective anti-hallucination defense. It also makes responses citable and verifiable."
+  revisit={{ to: "/docs/ai/ai-example", label: "Anti-hallucination prompt" }}
+/>
+
+<Question
+  prompt="Claude Haiku is chosen for the support bot. Why is this a sensible default rather than a frontier-tier model?"
+  options={[
+    { text: "Haiku is the only model that streams" },
+    { text: "Support Q&A over retrieved context is mostly reading and summarizing — exactly the kind of task small models do well at a fraction of the cost" },
+    { text: "Haiku can't hallucinate" },
+    { text: "Frontier models don't support tools" }
+  ]}
+  correct={1}
+  explanation="With strong retrieved context, the LLM's job is mainly comprehension and writing. Small/cheap models handle that well; reserve frontier models for genuinely hard reasoning."
+  revisit={{ to: "/docs/ai/ai-example", label: "Tiered model choice" }}
+/>
+
+<Question
+  prompt="The example ships with `onFinish` logging interactions. The page notes a few things the snippet is missing for production — which of these is on that list?"
+  options={[
+    { text: "Replacing pgvector with Pinecone" },
+    { text: "An eval set of representative questions run on every prompt change, and an auth check on the endpoint" },
+    { text: "Removing the rate limiter" },
+    { text: "Switching the model to Opus for every call" }
+  ]}
+  correct={1}
+  explanation="The snippet is honest about the happy path. The page calls out evals, auth, citation UI, retrieval-miss fallback, and PII redaction as the production gaps you'd close before shipping."
+  revisit={{ to: "/docs/ai/ai-example", label: "What is still missing" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [When Not to Use AI](./ai-when-not-to-use) — AI is a hammer; not everything is a nail.

@@ -95,6 +95,64 @@ If your JS blocks the thread for 200ms, nothing else can happen — the page bec
 A 60fps animation needs the browser to render a frame every **16.6 milliseconds**. If a JavaScript callback takes longer than 16ms on the main thread, you'll *drop a frame* — the animation visibly stutters. This is why performance engineers obsess over keeping callbacks short and moving heavy work to Web Workers, requestIdleCallback, or the server.
 :::
 
+## Page checkpoint
+
+<Quiz id="browser-runtime-page" title="Did the browser runtime stick?" sampleSize={2}>
+
+<Question
+  prompt="What is the DOM, in concrete terms?"
+  options={[
+    { text: "The HTML text the server sent" },
+    { text: "A tree of in-memory JavaScript objects the browser built from your HTML" },
+    { text: "A CSS feature that controls layout" },
+    { text: "The compiled JavaScript bundle" }
+  ]}
+  correct={1}
+  explanation="The HTML is parsed once into a tree of objects — that tree is the DOM. Every element has properties, methods, and references to parents and siblings. Manipulating the page in JS is just calling methods on that tree."
+  revisit={{ to: "/docs/foundations/browser-runtime#whats-inside-a-browser", label: "The DOM as a tree of objects" }}
+/>
+
+<Question
+  prompt="Why does heavy JavaScript on the main thread make a page feel janky?"
+  options={[
+    { text: "Because the GPU can't help — it only runs CSS" },
+    { text: "Because the same single thread handles JS, layout, and painting, so blocking it for 200ms freezes everything else" },
+    { text: "Because the browser switches to a slower CPU when JS runs" },
+    { text: "Because every JS call goes through the network stack" }
+  ]}
+  correct={1}
+  explanation="JS, event handling, layout, and painting all share one main thread. If a callback runs for 200ms, nothing else happens — the page becomes unresponsive. This is why heavy work belongs in Web Workers or off the main thread."
+  revisit={{ to: "/docs/foundations/browser-runtime#the-single-main-thread", label: "The single main thread" }}
+/>
+
+<Question
+  prompt="You need to keep an animation at a smooth 60fps. Roughly how long can a JavaScript callback run on the main thread before you risk dropping a frame?"
+  options={[
+    { text: "About 1 millisecond" },
+    { text: "About 16 milliseconds" },
+    { text: "About 100 milliseconds" },
+    { text: "About 1 second" }
+  ]}
+  correct={1}
+  explanation="60fps means a new frame every 16.6ms. If a callback runs longer than that, the browser misses the frame deadline and the animation visibly stutters. This is the 'frame budget' performance engineers obsess over."
+  revisit={{ to: "/docs/foundations/browser-runtime#the-single-main-thread", label: "The 16ms budget" }}
+/>
+
+<Question
+  prompt="You want to run heavy CPU work (image processing) without freezing the UI. What's the right primitive?"
+  options={[
+    { text: "Service Worker" },
+    { text: "Web Worker" },
+    { text: "WebSocket" },
+    { text: "WebAuthn" }
+  ]}
+  correct={1}
+  explanation="Web Workers run JavaScript on a background thread so the main thread stays responsive — but they can't touch the DOM. Service Workers are programmable network proxies (offline, push); WebSockets are network connections; WebAuthn is for passkey auth."
+  revisit={{ to: "/docs/foundations/browser-runtime#key-web-apis-to-know-exist", label: "Web APIs to know exist" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The Rendering Pipeline](./rendering-pipeline) where we'll trace exactly how HTML becomes pixels, and why some CSS properties are 60fps smooth while others stutter.

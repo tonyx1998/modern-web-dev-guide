@@ -87,6 +87,64 @@ A common misconception: people think SSR and CSR are mutually exclusive. They're
 Modern frameworks (Next.js, Remix, SvelteKit) do **SSR for the first page load** (fast first paint, good SEO) and then **CSR for subsequent navigations** within the app (instant, no page reload). You get the best of both. This is why pure CSR has fallen out of favor for public apps — the alternatives give you everything CSR offered plus a faster first impression.
 :::
 
+## Page checkpoint
+
+<Quiz id="csr-page" title="Did CSR stick?" sampleSize={2}>
+
+<Question
+  prompt="On a pure CSR app, what does the server actually return for /products/42?"
+  options={[
+    { text: "A fully rendered HTML page with the product's name and price" },
+    { text: "A near-empty HTML shell plus a <script> tag — the JS then fetches data and builds the DOM" },
+    { text: "A JSON document describing the product" },
+    { text: "Nothing — CSR doesn't use a server" }
+  ]}
+  correct={1}
+  explanation="In CSR the server just ships the JS bundle and an empty <div id='app'>. The browser downloads the bundle, runs it, calls APIs, and builds every pixel of the UI. Until that finishes, the user sees a blank screen."
+  revisit={{ to: "/docs/foundations/csr#how-csr-works", label: "How CSR works" }}
+/>
+
+<Question
+  prompt="Which is the MOST appropriate use case for pure CSR in 2026?"
+  options={[
+    { text: "A public blog that needs to be indexed by Google" },
+    { text: "An e-commerce storefront where SEO drives sales" },
+    { text: "An internal admin dashboard behind login" },
+    { text: "A marketing landing page" }
+  ]}
+  correct={2}
+  explanation="CSR is fine for things behind a login where SEO is irrelevant and users tolerate the few-second first load (since they use the app daily). Public, SEO-sensitive pages should use SSR or SSG instead."
+  revisit={{ to: "/docs/foundations/csr#when-to-use-csr", label: "When to use CSR" }}
+/>
+
+<Question
+  prompt="Why is pure CSR bad for SEO on most public sites?"
+  options={[
+    { text: "Search engines block CSR apps on purpose" },
+    { text: "Search engine crawlers may not execute JavaScript reliably, so they see only the empty shell, not the rendered content" },
+    { text: "CSR apps can't use HTTPS" },
+    { text: "CSR forbids meta tags" }
+  ]}
+  correct={1}
+  explanation="Googlebot runs JS inconsistently and most other crawlers (and link-preview bots on Slack, Twitter, etc.) don't run it at all. They see <div id='root'></div> and index nothing useful."
+  revisit={{ to: "/docs/foundations/csr#cons", label: "CSR cons" }}
+/>
+
+<Question
+  prompt="What does 'SSR + hydration is CSR after the first request' actually mean?"
+  options={[
+    { text: "SSR replaces CSR entirely — there's no overlap" },
+    { text: "Modern frameworks render the first page on the server (fast paint, good SEO), then a client-side router handles subsequent navigations like a SPA" },
+    { text: "SSR can't be used together with client-side JavaScript" },
+    { text: "Every page in a hybrid app is rendered twice — once on the server and once in the browser" }
+  ]}
+  correct={1}
+  explanation="Hybrid frameworks (Next.js, Remix, SvelteKit) give you SSR's fast first paint AND SPA-like instant navigation. After the initial page load, route changes are handled by client-side JS — that's the 'CSR after first request' part."
+  revisit={{ to: "/docs/foundations/csr#when-to-use-csr", label: "SSR + hydration vs CSR" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [ISR, Streaming & PPR](./isr-streaming-ppr) where we look at the hybrid strategies the industry invented to get the best of SSG, SSR, and CSR all at once.

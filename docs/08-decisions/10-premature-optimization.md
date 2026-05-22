@@ -57,6 +57,64 @@ You should *always* think about **structural** performance choices from the star
 These are not "optimizations" — they're correctness at scale. Fixing them after the fact is much more expensive than choosing right initially.
 :::
 
+## Page checkpoint
+
+<Quiz id="decisions-premature-optimization-page" title="Did premature optimization stick?" sampleSize={2}>
+
+<Question
+  prompt="An engineer spends a week hand-rolling a buffer pool to shave allocations from an inner loop. Total speedup: ~3%. Meanwhile a profiler shows the real hot path is a database call inside a `.map()` over user IDs. The chapter's lesson:"
+  options={[
+    { text: "Both optimizations are valuable" },
+    { text: "Measure first — intuition about what's slow is reliably wrong; profilers are the only honest source of truth" },
+    { text: "Hand-rolled buffer pools always pay off eventually" },
+    { text: "Inner-loop optimizations are more important than query patterns" }
+  ]}
+  correct={1}
+  explanation="The worked example shows the classic trap. Replacing the N+1 with a single `WHERE id IN (...)` cut total response time by 80%. Without a profiler, you'd never have known the buffer pool was a waste."
+  revisit={{ to: "/docs/decisions/premature-optimization#why-it-matters", label: "Worked example" }}
+/>
+
+<Question
+  prompt="Which of these does the chapter say is NOT premature — i.e., worth getting right BEFORE you measure?"
+  options={[
+    { text: "Caching every function return value 'just in case'" },
+    { text: "An N+1 query that would ship to production" },
+    { text: "Switching from `for` loops to `.reduce()` for readability" },
+    { text: "Manually inlining hot functions before profiling" }
+  ]}
+  correct={1}
+  explanation="N+1 queries, O(n²) algorithms where n scales with users, network calls inside loops, and oversized JS bundles are structural choices — correctness at scale, not optimization. Fixing them later is much more expensive."
+  revisit={{ to: "/docs/decisions/premature-optimization#when-to-optimize-early", label: "When to optimize early" }}
+/>
+
+<Question
+  prompt="The chapter offers a strict ordering: 'Make it work, then make it right, then make it fast.' What does 'make it right' mean before performance work?"
+  options={[
+    { text: "Hand-tune the inner loop and remove all allocations" },
+    { text: "Clean up the code, add tests, handle edge cases" },
+    { text: "Rewrite it in a faster language" },
+    { text: "Profile every function and cache aggressively" }
+  ]}
+  correct={1}
+  explanation="'Right' is the cleanup-and-tests step. Only after it's correct, readable, and tested do you measure — and only then do you optimize bottlenecks the profiler actually identified."
+  revisit={{ to: "/docs/decisions/premature-optimization#the-rule", label: "The rule" }}
+/>
+
+<Question
+  prompt="Knuth's 'premature optimization is the root of all evil' is commonly misread. What does the chapter say it actually means?"
+  options={[
+    { text: "Never think about performance — wait until users complain" },
+    { text: "Don't tune implementations before measuring; structural choices (algorithms, query patterns, bundle size) are still your job from day one" },
+    { text: "Performance work is always evil and should be banned" },
+    { text: "Only optimize after you've shipped to production" }
+  ]}
+  correct={1}
+  explanation="The chapter explicitly distinguishes implementation tuning (premature without a profile) from structural choices (always worth thinking about). Both extremes — ignoring performance or micro-optimizing everything — are wrong."
+  revisit={{ to: "/docs/decisions/premature-optimization#when-to-optimize-early", label: "Early vs structural" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The Documentation Trade-Off](./documentation-tradeoff) — document the things that don't change, not the things that do.

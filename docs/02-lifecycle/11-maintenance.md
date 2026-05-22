@@ -135,6 +135,64 @@ The first blames a person; the second improves the system. Only the second preve
 - **No post-mortems.** Same incidents recur.
 - **Blame culture.** People hide mistakes; learning stops.
 
+## Page checkpoint
+
+<Quiz id="lifecycle-maintenance-page" title="Did maintenance stick?" sampleSize={2}>
+
+<Question
+  prompt="Roughly what share of total engineering effort does the page say happens after a product's launch?"
+  options={[
+    { text: "About 10% — building is most of the work" },
+    { text: "About 50% — it's an even split" },
+    { text: "About 80% — most engineering work happens after launch" },
+    { text: "It depends entirely on the framework" }
+  ]}
+  correct={2}
+  explanation="Bug fixes, security patches, dependency churn, migrations, refactors, and incident response dwarf the original build. Most working engineers spend most of their careers here."
+  revisit={{ to: "/docs/lifecycle/maintenance#why-maintenance-matters", label: "Why maintenance matters" }}
+/>
+
+<Question
+  prompt="What does the page mean by a 'blameless' post-mortem?"
+  options={[
+    { text: "Nobody attends — it's written by a manager" },
+    { text: "It focuses on systems and processes rather than naming individuals as the cause" },
+    { text: "It hides the incident from the rest of the company" },
+    { text: "It skips action items so nobody feels singled out" }
+  ]}
+  correct={1}
+  explanation="The page's example: 'Alice deployed a bad change' blames a person; 'staging didn't mirror production data' improves the system. Only the second prevents the next outage."
+  revisit={{ to: "/docs/lifecycle/maintenance#incident-response", label: "Blameless post-mortems" }}
+/>
+
+<Question
+  prompt="The page recommends a specific approach to tech debt. Which one?"
+  options={[
+    { text: "Schedule a big rewrite every two years" },
+    { text: "Ignore it until features stop shipping" },
+    { text: "Track it explicitly and allocate 10-20% of capacity to it every sprint, preferring incremental refactoring" },
+    { text: "Pay it down only when management complains" }
+  ]}
+  correct={2}
+  explanation="Tech debt compounds. Continuous, small, business-aligned paydown beats big-bang rewrites — which are usually disasters."
+  revisit={{ to: "/docs/lifecycle/maintenance#tech-debt", label: "Managing tech debt" }}
+/>
+
+<Question
+  prompt="What's the page's recipe for a successful large migration?"
+  options={[
+    { text: "Flip the switch in one big PR over a weekend" },
+    { text: "Run old and new in parallel, migrate gradually, keep a rollback plan at every step, and test against production-data copies" },
+    { text: "Freeze all other development until the migration finishes" },
+    { text: "Hire a consultant to do it without involving the team" }
+  ]}
+  correct={1}
+  explanation="Dual-writing, gradual cutover, and reversibility turn 'terrifying migration' into 'boring sequence of small deploys'. Big-bang migrations are an anti-pattern the page calls out explicitly."
+  revisit={{ to: "/docs/lifecycle/maintenance#migrations", label: "Migrations" }}
+/>
+
+</Quiz>
+
 ## Wrapping up Part 2
 
 The eleven phases — discovery, design, architecture, setup, implementation, testing, review, CI/CD, deployment, observability, maintenance — are present in every project. The scale of each phase varies dramatically, but the rhythm is universal.

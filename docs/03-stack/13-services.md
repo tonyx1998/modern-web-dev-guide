@@ -91,6 +91,64 @@ Before building any of the categories on this page, ask:
 The math almost always favors buying these services. Stripe charges 2.9% + 30¢ per transaction; *building* a global compliant payments system would cost ~$10M and 18 months. A weekend cost-benefit analysis isn't even close.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-services-page" title="Did third-party services stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the 'buy decision tree' the page recommends for any service category like payments or email?"
+  options={[
+    { text: "Always build — saves money long-term" },
+    { text: "Buy only if your CTO approves it in writing" },
+    { text: "Buy if it's not core, if 3+ mature competitors offer it as a service, or if you'd be embarrassed by your in-house version next to theirs" },
+    { text: "Build the first version, then buy if it's slow" }
+  ]}
+  correct={2}
+  explanation="The math almost always favors buying for these categories: payments, email deliverability, video, and storage are enormous specialized problems already solved well by mature services."
+  revisit={{ to: "/docs/stack/services#payments", label: "Buy decision tree" }}
+/>
+
+<Question
+  prompt="What advantage does Cloudflare R2 have over AWS S3 that's making it increasingly the default for file storage?"
+  options={[
+    { text: "R2 is faster on Linux machines" },
+    { text: "R2 is S3-compatible but has no egress fees — a major cost win for download-heavy workloads" },
+    { text: "R2 supports more file formats" },
+    { text: "R2 includes a built-in CDN with no configuration" }
+  ]}
+  correct={1}
+  explanation="R2 speaks the S3 API but charges nothing for egress, which is the line item that bites people on S3 once traffic grows. Same protocol, dramatically different bill."
+  revisit={{ to: "/docs/stack/services#file-storage", label: "File storage" }}
+/>
+
+<Question
+  prompt="Why might an indie SaaS pick Paddle or Lemon Squeezy over Stripe?"
+  options={[
+    { text: "They have lower per-transaction fees in every country" },
+    { text: "They act as Merchant of Record, handling global tax compliance for you" },
+    { text: "They're the only processors that support credit cards" },
+    { text: "They include free email marketing" }
+  ]}
+  correct={1}
+  explanation="Paddle and Lemon Squeezy are Merchants of Record — they collect the payment in their own name and handle VAT/GST/sales-tax filings globally. Stripe leaves that compliance to you."
+  revisit={{ to: "/docs/stack/services#payments", label: "Payments section" }}
+/>
+
+<Question
+  prompt="Which transactional email service does the page highlight for its developer-friendly DX and React Email integration?"
+  options={[
+    { text: "SendGrid" },
+    { text: "AWS SES" },
+    { text: "Resend" },
+    { text: "Mailchimp" }
+  ]}
+  correct={2}
+  explanation="Resend is the modern, developer-friendly transactional email service with first-class React Email integration. Postmark, SES, and SendGrid remain solid alternatives at different price/setup points."
+  revisit={{ to: "/docs/stack/services#email-transactional", label: "Email (transactional)" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [AI Infrastructure](./ai-infrastructure) — the model providers, SDKs, and observability tools for the AI layer.

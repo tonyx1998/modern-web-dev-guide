@@ -90,6 +90,64 @@ Clerk's free tier covers up to 10,000 monthly active users. The cost isn't "rent
 At $0 for the first 10K users, you'd be irrational to roll your own.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-auth-page" title="Did the auth choices stick?" sampleSize={2}>
+
+<Question
+  prompt="What is a passkey, per the page's plain-English definition?"
+  options={[
+    { text: "A long, randomly generated password" },
+    { text: "A phishing-resistant credential using public-key cryptography built into the browser and OS" },
+    { text: "A one-time code sent over SMS" },
+    { text: "An OAuth scope granted by Google" }
+  ]}
+  correct={1}
+  explanation="Passkeys use public-key cryptography stored in the device's secure enclave. They're phishing-resistant because the credential is bound to the origin — there's no shared secret to steal."
+  revisit={{ to: "/docs/solo/auth#twenty-minutes-to-working-auth", label: "Passkeys defined" }}
+/>
+
+<Question
+  prompt="What does middleware.ts actually do in this Clerk setup?"
+  options={[
+    { text: "Runs once at build time to generate static auth pages" },
+    { text: "Runs on every incoming request before your page handler" },
+    { text: "Runs only on API routes, not pages" },
+    { text: "Runs as a client-side guard in the browser" }
+  ]}
+  correct={1}
+  explanation="Middleware runs server-side on every matching request before the page handler. Here it checks whether the route is protected and calls auth.protect() to redirect unauthenticated users."
+  revisit={{ to: "/docs/solo/auth#twenty-minutes-to-working-auth", label: "Middleware explained" }}
+/>
+
+<Question
+  prompt="Up to how many monthly active users does Clerk's free tier cover?"
+  options={[
+    { text: "100" },
+    { text: "1,000" },
+    { text: "10,000" },
+    { text: "Unlimited forever" }
+  ]}
+  correct={2}
+  explanation="Clerk's free tier covers up to 10,000 monthly active users. For a solo project that's effectively free until you have meaningful traction — and at that point you can afford to pay."
+  revisit={{ to: "/docs/solo/auth#twenty-minutes-to-working-auth", label: "What you're paying for" }}
+/>
+
+<Question
+  prompt="What is the main argument against building your own auth from scratch?"
+  options={[
+    { text: "It's impossible without a security degree" },
+    { text: "Email-and-password is the easy part; resets, MFA, passkeys, OAuth, and attack defenses are the hard part" },
+    { text: "Node.js doesn't have crypto libraries" },
+    { text: "It violates GDPR by default" }
+  ]}
+  correct={1}
+  explanation="The page lists everything that comes after the login form: password reset, email verification, social logins, MFA, sessions, account recovery, breach notifications, passkeys, OAuth flows. Each defends against subtle attacks. Hosted auth services have spent millions getting these right."
+  revisit={{ to: "/docs/solo/auth#phase-5-adding-auth", label: "Why use hosted auth" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 6: Payments](./payments) where Stripe Checkout + a webhook handle the entire money flow.

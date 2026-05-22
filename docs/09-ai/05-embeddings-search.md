@@ -104,6 +104,64 @@ Embeddings *lose* to keyword search on:
 The right answer is usually **hybrid search**: run both, combine the results, and let a reranker (or simple score fusion) decide the final order.
 :::
 
+## Page checkpoint
+
+<Quiz id="ai-embeddings-page" title="Did embeddings stick?" sampleSize={2}>
+
+<Question
+  prompt="What does an embedding actually represent?"
+  options={[
+    { text: "A compressed copy of the original text" },
+    { text: "A numeric vector positioned so that texts with similar meaning land near each other" },
+    { text: "An LLM-generated summary of the text" },
+    { text: "A hash that uniquely identifies the text" }
+  ]}
+  correct={1}
+  explanation="Embeddings map text into a space where semantic similarity becomes geometric closeness. That's what makes 'find things like this' a math operation instead of a keyword match."
+  revisit={{ to: "/docs/ai/ai-embeddings#semantic-search", label: "What embeddings encode" }}
+/>
+
+<Question
+  prompt="A user searches for 'affordable laptops' and your embedding-based search returns results about 'budget computers' despite zero shared keywords. Why does this work?"
+  options={[
+    { text: "The vector DB silently translates the query for you" },
+    { text: "The two phrases have similar meaning, so their embeddings sit close in vector space" },
+    { text: "The LLM rewrote the query before searching" },
+    { text: "Postgres pgvector includes a thesaurus by default" }
+  ]}
+  correct={1}
+  explanation="Semantic similarity is the whole point of embeddings. Synonyms and paraphrases end up close in vector space even without shared tokens."
+  revisit={{ to: "/docs/ai/ai-embeddings#semantic-search", label: "Why semantic search wins on synonyms" }}
+/>
+
+<Question
+  prompt="A user searches for the exact SKU 'XJ-4471-B'. Will pure embedding search reliably find it?"
+  options={[
+    { text: "Yes — embeddings handle every search type well" },
+    { text: "No — exact-string lookups, SKUs, and error codes are exactly where keyword search beats embeddings; hybrid search fixes this" },
+    { text: "Yes, but only if you use a larger embedding model" },
+    { text: "No — you must replace embeddings with full-text search entirely" }
+  ]}
+  correct={1}
+  explanation="Embeddings struggle with rare, exact tokens. Hybrid search (embeddings + BM25 keyword search) is the standard fix — semantic for meaning, keyword for precise strings."
+  revisit={{ to: "/docs/ai/ai-embeddings#semantic-search", label: "When embeddings lose" }}
+/>
+
+<Question
+  prompt="In the support-team worked example, three features share one embeddings index. What does that imply about cost at query time?"
+  options={[
+    { text: "Every feature pays for an LLM call on each request" },
+    { text: "Embeddings are computed once per ticket, so query-time cost is just the vector search — no LLM call needed" },
+    { text: "Each feature must re-embed every ticket independently" },
+    { text: "Embedding queries cost more than chat completions" }
+  ]}
+  correct={1}
+  explanation="Pre-computing embeddings is the trick. At query time you embed only the user's query (or none, for item-similarity) and the vector DB does the rest — no LLM call required for search itself."
+  revisit={{ to: "/docs/ai/ai-embeddings#clustering", label: "Embeddings without an LLM" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Pattern 6: Multimodal AI](./ai-multimodal) — models that handle images, audio, and video alongside text.

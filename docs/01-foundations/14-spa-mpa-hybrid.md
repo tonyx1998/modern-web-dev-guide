@@ -95,6 +95,64 @@ This page taught you the vocabulary. You don't actually need to *choose* between
 Pick a framework first; the SPA-vs-MPA decision falls out naturally from that choice.
 :::
 
+## Page checkpoint
+
+<Quiz id="spa-mpa-hybrid-page" title="Did SPA vs MPA vs Hybrid stick?" sampleSize={2}>
+
+<Question
+  prompt="What question does the SPA-vs-MPA distinction actually answer?"
+  options={[
+    { text: "Whether the site uses HTTPS" },
+    { text: "Where the HTML is built (server vs client)" },
+    { text: "What happens on navigation between pages — full reload or in-place swap" },
+    { text: "Whether the site uses a database" }
+  ]}
+  correct={2}
+  explanation="SPA vs MPA is about NAVIGATION, not rendering. MPA reloads the page on every link click; SPA stays on one HTML document and swaps content via JS. It's a separate axis from SSG/SSR/CSR."
+  revisit={{ to: "/docs/foundations/spa-mpa-hybrid#how-the-two-questions-relate", label: "How the two questions relate" }}
+/>
+
+<Question
+  prompt="In a Hybrid app (the 2026 default), what happens when a user visits / for the first time?"
+  options={[
+    { text: "The browser downloads a large JS bundle and shows a blank screen until it finishes" },
+    { text: "The server returns fully-formed HTML (SSR or SSG), so the page appears almost instantly" },
+    { text: "The CDN refuses the request because Hybrid apps require login" },
+    { text: "Nothing happens until the user clicks something" }
+  ]}
+  correct={1}
+  explanation="The first request returns real HTML — that's the MPA-like part, good for SEO and fast first paint. Only AFTER that first load do subsequent navigations become SPA-style (instant, no reload)."
+  revisit={{ to: "/docs/foundations/spa-mpa-hybrid#hybrid--the-2026-default", label: "Hybrid — the 2026 default" }}
+/>
+
+<Question
+  prompt="Which is a real downside of a pure SPA on a public marketing site?"
+  options={[
+    { text: "It can't use cookies" },
+    { text: "Slow first load (must download JS bundle first) and weak SEO unless you patch it" },
+    { text: "It can't communicate with a backend" },
+    { text: "Browsers refuse to render SPAs" }
+  ]}
+  correct={1}
+  explanation="A SPA shows a blank screen until the JS bundle loads — bad for first impression and bad for crawlers that don't run JS. After the first load, SPAs feel snappy, but the first paint cost is real."
+  revisit={{ to: "/docs/foundations/spa-mpa-hybrid#spa--single-page-application", label: "SPA cons" }}
+/>
+
+<Question
+  prompt="You pick Astro for a content site. What's the default navigation style?"
+  options={[
+    { text: "SPA — Astro uses a client-side router by default" },
+    { text: "MPA — every navigation is a full page load by default, with Hybrid optional via view transitions" },
+    { text: "Hybrid — same as Next.js" },
+    { text: "There's no navigation; Astro is single-page only" }
+  ]}
+  correct={1}
+  explanation="Astro is MPA by default — it ships almost no JS and treats each page as a real page load. You can opt-in to Hybrid behavior with view transitions, but the default is multi-page."
+  revisit={{ to: "/docs/foundations/spa-mpa-hybrid#hybrid--the-2026-default", label: "Pick a framework" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [REST APIs](./apis-rest) where we shift from rendering HTML to the *other* major thing web servers do: serve raw data.

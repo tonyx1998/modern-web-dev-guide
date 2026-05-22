@@ -115,6 +115,64 @@ npm run dev
 Visit `http://localhost:3000`. Then open DevTools → Network → reload. You'll see the HTML response stream in chunks rather than as one big blob — that's streaming SSR in action. Watch the "Waterfall" column in particular: each chunk lights up as it arrives, so you can literally see the page being built top-down over the wire.
 :::
 
+## Page checkpoint
+
+<Quiz id="ssr-page" title="Did SSR stick?" sampleSize={2}>
+
+<Question
+  prompt="In a typical React SSR setup, what does 'hydration' refer to?"
+  options={[
+    { text: "The server querying the database before rendering" },
+    { text: "The browser running JavaScript that attaches event handlers and framework state to the already-rendered DOM" },
+    { text: "The CDN caching the HTML for the next request" },
+    { text: "The browser converting HTML into a PDF" }
+  ]}
+  correct={1}
+  explanation="The server sends complete HTML plus a JS bundle. The browser shows the HTML immediately, then runs the JS, which 'hydrates' the existing DOM — attaching event handlers, restoring state, making it interactive."
+  revisit={{ to: "/docs/foundations/ssr#how-ssr-works", label: "How SSR works" }}
+/>
+
+<Question
+  prompt="What's a key advantage of SSR over SSG for a product page with live pricing?"
+  options={[
+    { text: "SSR uses less server CPU" },
+    { text: "SSR generates HTML fresh per request, so the price is always current — no rebuild required" },
+    { text: "SSR works without HTTPS" },
+    { text: "SSR doesn't need JavaScript on the client at all" }
+  ]}
+  correct={1}
+  explanation="SSR re-queries the database on every request, so any data change is reflected immediately. SSG would require a rebuild and redeploy each time the price changes — impractical for live data."
+  revisit={{ to: "/docs/foundations/ssr#pros", label: "SSR pros" }}
+/>
+
+<Question
+  prompt="What does 'streaming SSR' improve over traditional all-at-once SSR?"
+  options={[
+    { text: "It compresses the HTML harder" },
+    { text: "The server starts flushing HTML as soon as the first chunk is ready, so fast sections (header, layout) paint before slow data finishes loading" },
+    { text: "It moves all rendering to the client" },
+    { text: "It eliminates the need for a server" }
+  ]}
+  correct={1}
+  explanation="Traditional SSR waits for ALL data before sending any HTML. Streaming SSR sends the page header and shell immediately, then streams in slow sections (often inside Suspense boundaries) as their data arrives — dramatically faster first paint."
+  revisit={{ to: "/docs/foundations/ssr#a-subtle-but-important-point-streaming", label: "Streaming SSR" }}
+/>
+
+<Question
+  prompt="What's the main cost trade-off you're accepting when you choose SSR over SSG?"
+  options={[
+    { text: "Worse SEO" },
+    { text: "Server CPU work per request, which scales with traffic — 10x users means roughly 10x server cost" },
+    { text: "No support for caching" },
+    { text: "No way to use a CDN" }
+  ]}
+  correct={1}
+  explanation="SSG is free at request time (the CDN does the work). SSR pays server CPU per request, so cost scales linearly with traffic. You get freshness and personalization in exchange."
+  revisit={{ to: "/docs/foundations/ssr#cons", label: "SSR cons" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [CSR — Client-Side Rendering](./csr) where the *browser* builds the HTML with JavaScript instead of the server.

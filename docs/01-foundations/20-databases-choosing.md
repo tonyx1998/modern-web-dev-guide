@@ -109,6 +109,64 @@ That's it. Done.
 
 The pattern: complexity grows with scale, not with ambition. Start small. Earn each addition.
 
+## Page checkpoint
+
+<Quiz id="databases-choosing-page" title="Did choosing a database stick?" sampleSize={2}>
+
+<Question
+  prompt="A new project in 2026 needs a database. What's the recommended starting point?"
+  options={[
+    { text: "Pick a brand-new vector DB to look modern" },
+    { text: "Start with Postgres — add Redis when you genuinely need caching, and add specialized DBs only when Postgres can't do the job" },
+    { text: "Set up MongoDB, DynamoDB, and Elasticsearch on day one" },
+    { text: "Use whatever your favorite influencer recommends this week" }
+  ]}
+  correct={1}
+  explanation="The 2026 default is deliberately boring: Postgres first, Redis as caching pain appears, and specialized databases only with a concrete reason. Minimizing the number of databases saves you operational, mental, and consistency complexity."
+  revisit={{ to: "/docs/foundations/databases-choosing#the-2026-default-stack", label: "The 2026 default stack" }}
+/>
+
+<Question
+  prompt="You have an AI feature with ~50,000 vector embeddings. Which vector store is the most sensible choice?"
+  options={[
+    { text: "Pinecone, because all AI apps need a dedicated vector DB" },
+    { text: "pgvector inside Postgres — well under 10M vectors, no need for a separate database" },
+    { text: "An in-memory hash map you write yourself" },
+    { text: "Elasticsearch" }
+  ]}
+  correct={1}
+  explanation="Under ~10M vectors, pgvector is more than enough. Reach for a dedicated vector DB (Pinecone, Turbopuffer) only when you have very large scale with strict latency SLOs."
+  revisit={{ to: "/docs/foundations/databases-choosing#a-pragmatic-decision-tree", label: "Vector DB decision" }}
+/>
+
+<Question
+  prompt="What does 'Choose Boring Technology' actually mean for database choices?"
+  options={[
+    { text: "Always pick the newest, most exciting database to differentiate your product" },
+    { text: "You have a small budget of innovation tokens — spend them on the parts of your product that are genuinely novel, not on infrastructure choices like the database" },
+    { text: "Avoid all databases; use flat files" },
+    { text: "Pick whatever your team learned in college" }
+  ]}
+  correct={1}
+  explanation="Dan McKinley's principle: every team has ~3 innovation tokens. Boring database choices (Postgres) cost 0 tokens, leaving them free for the genuinely novel parts of your product. If your novelty is 'I picked a cool DB,' that's misallocated."
+  revisit={{ to: "/docs/foundations/databases-choosing#the-cost-of-each-addition", label: "Choose Boring Technology" }}
+/>
+
+<Question
+  prompt="What's a real, non-obvious cost of adding ANY additional database to your stack?"
+  options={[
+    { text: "Slightly higher monthly bill, and that's it" },
+    { text: "More backups, more monitoring, more failure modes, more team knowledge required, and consistency issues when one DB disagrees with another" },
+    { text: "Nothing — every database is functionally identical" },
+    { text: "You lose the ability to use Postgres at all" }
+  ]}
+  correct={1}
+  explanation="Each new database multiplies operational complexity (backups, monitoring, on-call), mental complexity (one more system to understand), and introduces cross-database consistency challenges. That's why 'fewer DBs' is the conservative default."
+  revisit={{ to: "/docs/foundations/databases-choosing#the-cost-of-each-addition", label: "The cost of each addition" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Authentication: Proving Identity](./authentication) where we start the third pillar of every web app (after rendering and data): **who is talking to us, and what are they allowed to do?**

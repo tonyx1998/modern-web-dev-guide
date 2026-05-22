@@ -92,6 +92,64 @@ You'll see senior engineers talk passionately about Kubernetes, Terraform, and s
 Everything else (K8s, service meshes, custom Helm charts) is a *solution looking for a problem* at small scale. Resist adopting them prematurely.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-devops-page" title="Did DevOps tooling stick?" sampleSize={2}>
+
+<Question
+  prompt="What problem does Docker (or Podman) solve for application deployment?"
+  options={[
+    { text: "It makes JavaScript run faster" },
+    { text: "It packages your app and all dependencies into a portable container, so it runs identically on any machine with the runtime" },
+    { text: "It generates SQL migrations automatically" },
+    { text: "It encrypts your environment variables" }
+  ]}
+  correct={1}
+  explanation="A container bundles the app with its runtime, libraries, and OS dependencies. Same container, same behavior — on your laptop, CI, and prod. 'Works on my machine' stops being a problem."
+  revisit={{ to: "/docs/stack/devops#containers", label: "Containers section" }}
+/>
+
+<Question
+  prompt="Why is Kubernetes considered overkill for most teams under ~50 engineers?"
+  options={[
+    { text: "It only runs on Mac M-series chips" },
+    { text: "It's genuinely complex — scheduling, networking, scaling, manifests, operators — and you usually don't need that machinery until you're operating many services at real scale" },
+    { text: "It's incompatible with Docker" },
+    { text: "It can't run TypeScript apps" }
+  ]}
+  correct={1}
+  explanation="Kubernetes earns its complexity at scale, but it's a steep tax — manifests, networking, RBAC, operators — most small teams pay before they need to. Hosting platforms hide all of this until you've outgrown them."
+  revisit={{ to: "/docs/stack/devops#orchestration", label: "Orchestration section" }}
+/>
+
+<Question
+  prompt="What does Infrastructure-as-Code (Terraform, OpenTofu, Pulumi) actually do?"
+  options={[
+    { text: "It writes your application code from a spec" },
+    { text: "It declares the desired state of your cloud resources in versioned files, then provisions or updates them to match" },
+    { text: "It compiles your TypeScript to machine code" },
+    { text: "It runs your CI/CD pipelines" }
+  ]}
+  correct={1}
+  explanation="IaC tools are declarative: you describe what infrastructure should exist (buckets, functions, DBs), commit those files to git, and the tool reconciles real cloud state to match. Reviewed via PRs like application code."
+  revisit={{ to: "/docs/stack/devops#infrastructure-as-code-iac", label: "IaC section" }}
+/>
+
+<Question
+  prompt="Of the DevOps tools on this page, which two does the page say are realistically worth adopting even at small scale?"
+  options={[
+    { text: "Kubernetes and Helm" },
+    { text: "Docker, and *maybe* Terraform if cloud setup grows complex" },
+    { text: "Nomad and Vault" },
+    { text: "Pulumi and AWS CDK from day one" }
+  ]}
+  correct={1}
+  explanation="The page is explicit: Docker is useful even small, and Terraform earns its place only if your cloud setup grows complex. Everything else (K8s, service meshes, custom Helm) is a solution looking for a problem at small scale."
+  revisit={{ to: "/docs/stack/devops#orchestration", label: "Most projects don't need K8s" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Monitoring & Observability](./observability-tools) — the tools that tell you what's happening in production.

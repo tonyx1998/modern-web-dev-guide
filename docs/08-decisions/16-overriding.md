@@ -53,6 +53,64 @@ Key frameworks to remember from this chapter:
 Decision-making is the hidden craft of senior engineering. Anyone can write code; the multiplier is making good decisions about what to build and how.
 :::
 
+## Page checkpoint
+
+<Quiz id="decisions-overriding-page" title="Did overriding the frameworks stick?" sampleSize={2}>
+
+<Question
+  prompt="A team picks Rust over TypeScript for a new payments service — overriding the 'boring technology' default. Per the chapter, which of these makes this a JUSTIFIED override?"
+  options={[
+    { text: "An engineer likes Rust and wants to learn it on the job" },
+    { text: "The service handles money, both engineers building it have prior Rust experience, performance matters, and the blast radius justifies extra rigor — articulated in writing with stakeholder buy-in" },
+    { text: "Rust's logo is cooler" },
+    { text: "A blog post said Rust is the future" }
+  ]}
+  correct={1}
+  explanation="The worked example contrasts a real reason (money + experience + performance + blast radius, written down) against 'we want to use Rust because it would be fun.' Same outcome, completely different decision quality."
+  revisit={{ to: "/docs/decisions/overriding#frameworks-are-heuristics-not-laws", label: "Legitimate override" }}
+/>
+
+<Question
+  prompt="The chapter says the framework's real value isn't in the answer it gives. What is it?"
+  options={[
+    { text: "It guarantees you make the right decision" },
+    { text: "It forces you to defend the override out loud — with words your team accepts" },
+    { text: "It makes decisions auditable for the board" },
+    { text: "It eliminates the need for senior judgment" }
+  ]}
+  correct={1}
+  explanation="The frameworks are heuristics. Their value is forcing articulation when you deviate — turning 'I just felt like it' into a defensible reason. That defense is what makes the override good or bad."
+  revisit={{ to: "/docs/decisions/overriding#frameworks-are-heuristics-not-laws", label: "Defend the override out loud" }}
+/>
+
+<Question
+  prompt="What does the chapter identify as the single biggest predictor of engineering success?"
+  options={[
+    { text: "Raw intelligence" },
+    { text: "Hours worked" },
+    { text: "Restraint — building the smallest thing that could work, then letting real usage drive what comes next" },
+    { text: "Knowing the most frameworks" }
+  ]}
+  correct={2}
+  explanation="The meta-skill the chapter ends on: most failed projects take on too much, not too little. Restraint — refusing complexity — beats elaborate up-front planning almost every time."
+  revisit={{ to: "/docs/decisions/overriding#frameworks-are-heuristics-not-laws", label: "The meta-skill" }}
+/>
+
+<Question
+  prompt="Per the chapter, when should an engineer default to following the frameworks versus deviating?"
+  options={[
+    { text: "Always follow them as strict rules" },
+    { text: "Default to them early in your career; learn to deviate as you gain context, and when you do deviate, be able to explain why" },
+    { text: "Always deviate — frameworks are for beginners" },
+    { text: "Follow them only when management is watching" }
+  ]}
+  correct={1}
+  explanation="The chapter's stance: early career = use the frameworks as defaults. With experience comes the ability to recognize when 'usually right' doesn't apply — and the obligation to justify the deviation in words the team accepts."
+  revisit={{ to: "/docs/decisions/overriding#frameworks-are-heuristics-not-laws", label: "Default vs deviate" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Chapter 9: AI Integration](/docs/ai) — the new layer in modern web applications, from streaming chat to RAG to agents.

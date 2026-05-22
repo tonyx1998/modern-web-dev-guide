@@ -143,6 +143,64 @@ Each protocol fits a specific role; together they make the app feel instant.
 For most personal/startup projects, **plain REST with periodic polling is fine** until you have a real performance problem. WebSockets and SSE are "you'll know when you need them" tools. Don't add a WebSocket server to a static blog because it sounds cool.
 :::
 
+## Page checkpoint
+
+<Quiz id="apis-realtime-page" title="Did real-time APIs stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the key difference between WebSockets and Server-Sent Events?"
+  options={[
+    { text: "WebSockets are bidirectional (either side can send anytime); SSE is one-way, server-to-client only" },
+    { text: "WebSockets are insecure; SSE is encrypted by default" },
+    { text: "SSE supports binary data while WebSockets do not" },
+    { text: "They are functionally identical" }
+  ]}
+  correct={0}
+  explanation="WebSockets open a persistent bidirectional pipe — chat apps and multiplayer games need that. SSE is a long-lived HTTP response where the server streams events to the client; it's simpler but one-way only."
+  revisit={{ to: "/docs/foundations/apis-realtime#sse--server-sent-events-one-way-streaming", label: "SSE vs WebSockets" }}
+/>
+
+<Question
+  prompt="You're building an AI chat feature where the server streams the assistant's response token-by-token. Which protocol is the standard choice in 2026?"
+  options={[
+    { text: "WebSockets" },
+    { text: "gRPC" },
+    { text: "Server-Sent Events (SSE)" },
+    { text: "Plain REST polling" }
+  ]}
+  correct={2}
+  explanation="LLM token streaming is one-way (server-to-client) and fits HTTP, so SSE is the dominant pattern. Every major AI chat UI (ChatGPT, Claude, Gemini) uses it. WebSockets would work but are overkill for one-way streaming."
+  revisit={{ to: "/docs/foundations/apis-realtime#sse--server-sent-events-one-way-streaming", label: "SSE for LLM streaming" }}
+/>
+
+<Question
+  prompt="Where does gRPC usually fit in a modern web architecture?"
+  options={[
+    { text: "Between the browser and the public API" },
+    { text: "Between internal backend services (service-to-service), not directly with browsers" },
+    { text: "Replacing the database driver" },
+    { text: "As a CSS preprocessor" }
+  ]}
+  correct={1}
+  explanation="gRPC is fast, binary, and strongly typed — perfect between internal services. Browsers can't speak gRPC directly without a proxy (gRPC-Web), so you almost never see it in client code. It's a service-to-service tool."
+  revisit={{ to: "/docs/foundations/apis-realtime#grpc--internal-service-communication", label: "gRPC — internal service communication" }}
+/>
+
+<Question
+  prompt="You're building a simple notifications widget that checks once a minute. Should you add WebSockets?"
+  options={[
+    { text: "Yes — WebSockets are always better than polling" },
+    { text: "No — plain REST polling every minute is simpler and more than enough; WebSockets are 'you'll know when you need them' tools" },
+    { text: "No — only SSE works for notifications" },
+    { text: "Yes — REST can't poll periodically" }
+  ]}
+  correct={1}
+  explanation="Don't over-engineer real-time. WebSockets add a long-lived connection and reconnection logic; for once-a-minute updates, REST polling is simpler and fine. Reach for WebSockets/SSE only when polling actually hurts."
+  revisit={{ to: "/docs/foundations/apis-realtime#when-to-use-what-the-decision", label: "Don't over-engineer real-time" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Relational (SQL) Databases](./databases-sql) where we leave APIs behind and look at *where the data lives* — starting with the dominant default, Postgres.

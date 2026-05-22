@@ -61,6 +61,64 @@ Every adoption proposal should include an explicit "do nothing" option with its 
 If the cost of waiting is unclear, you're probably not at the "why now" moment yet.
 :::
 
+## Page checkpoint
+
+<Quiz id="decisions-why-now-page" title="Did the 'why now?' question stick?" sampleSize={2}>
+
+<Question
+  prompt="An engineer pitches migrating from Express to Fastify 'for performance.' Per the chapter, which response best applies the 'why now?' framework?"
+  options={[
+    { text: "Approve — performance is always worth pursuing" },
+    { text: "Reject reflexively — Fastify isn't boring enough" },
+    { text: "Ask for measured P99 latency, CPU bound vs I/O, cost pressure, and a specific bug class — and reject if the answer is 'I read a benchmark blog post'" },
+    { text: "Run the migration on a small service first to see if it helps" }
+  ]}
+  correct={2}
+  explanation="The worked example walks through exactly this dialog. 'Why now' demands a concrete measured problem; if the answer is 'one engineer read a blog,' the proposal dies and saves months of partial-migration work."
+  revisit={{ to: "/docs/decisions/why-now#good-reasons", label: "Worked example" }}
+/>
+
+<Question
+  prompt="Which of these is a GOOD answer to 'why now?', per the chapter?"
+  options={[
+    { text: "'It's the latest thing and other companies use it'" },
+    { text: "'We're hitting measured Postgres limits and our hiring pool is constrained by the current language'" },
+    { text: "'The team is bored with the current stack'" },
+    { text: "'It would look great on our engineering blog'" }
+  ]}
+  correct={1}
+  explanation="Good 'why now?' answers are concrete, measurable problems: capacity ceilings you've hit, critical security bugs, hiring constraints, or specific bug classes the new tech eliminates. The others are vibes."
+  revisit={{ to: "/docs/decisions/why-now#good-reasons", label: "Good reasons" }}
+/>
+
+<Question
+  prompt="The chapter argues every adoption proposal should include one specific baseline. Which one?"
+  options={[
+    { text: "A comparison to what FAANG companies use" },
+    { text: "An explicit 'do nothing' option with its costs and benefits" },
+    { text: "A vendor's marketing deck" },
+    { text: "A guarantee from the proposer that they'll own it for 5 years" }
+  ]}
+  correct={1}
+  explanation="The 'do nothing' baseline forces the proponent to articulate what actually changes if you wait six months. If the cost of waiting is unclear, you're not at the 'why now' moment yet."
+  revisit={{ to: "/docs/decisions/why-now#forcing-functions", label: "The 'do nothing' baseline" }}
+/>
+
+<Question
+  prompt="What forcing functions does the chapter recommend to make 'why now?' a habit rather than an afterthought?"
+  options={[
+    { text: "A required 'why now?' section in RFC templates, plus migration-cost estimates before deciding" },
+    { text: "Banning new technology adoption company-wide" },
+    { text: "Having only the CTO answer the question" },
+    { text: "Requiring a unanimous vote of senior engineers" }
+  ]}
+  correct={0}
+  explanation="The chapter prescribes structural forcing functions: RFC templates with a 'problem this solves' section, mandatory migration-cost estimation, and tech proposals that surface the question early."
+  revisit={{ to: "/docs/decisions/why-now#forcing-functions", label: "Forcing functions" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The Cost-of-Inaction Calculation](./cost-of-inaction) — sometimes the cost of *not* deciding is bigger than picking the wrong option.

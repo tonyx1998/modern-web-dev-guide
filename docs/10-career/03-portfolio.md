@@ -107,6 +107,64 @@ Each has: a custom domain, a real README, a GitHub link, and at least one blog p
 If you do nothing else from this page, deploy one project to a custom domain. The gap between `localhost:3000` and `yourname-tool.com` is the entire gap between "I'm learning to code" and "I'm a developer." Free hosting + a $12 domain closes it.
 :::
 
+## Page checkpoint
+
+<Quiz id="career-portfolio-page" title="Did building a portfolio stick?" sampleSize={2}>
+
+<Question
+  prompt="The page calls one thing 'the single biggest signal' in a 2026 portfolio. What is it?"
+  options={[
+    { text: "A long README with diagrams" },
+    { text: "A high GitHub commit count" },
+    { text: "A live URL on a custom domain — the gap between localhost and yourname-tool.com is the gap between 'learning to code' and 'developer'" },
+    { text: "A pinned tweet showing off the project" }
+  ]}
+  correct={2}
+  explanation="The Highlight box is explicit: if you do only one thing, deploy a project to a custom domain. Free hosting plus a ~$12 domain closes the gap between 'learning' and 'developer.'"
+  revisit={{ to: "/docs/career/career-portfolio#2-deploy-everything", label: "Deploy everything" }}
+/>
+
+<Question
+  prompt="Which project type does the page tell you to AVOID for your portfolio?"
+  options={[
+    { text: "A niche SaaS targeting a community you understand" },
+    { text: "An AI-powered tool that solves a specific problem" },
+    { text: "Generic todo or weather tutorial clones with no original spin" },
+    { text: "A re-implementation of a popular product with your own twist" }
+  ]}
+  correct={2}
+  explanation="The page calls out generic todo/weather apps and tutorials-that-look-exactly-like-the-tutorial as anti-signals. Original spin matters — even a clone is fine if it has one twist that's yours."
+  revisit={{ to: "/docs/career/career-portfolio#1-build-35-real-projects", label: "What to avoid" }}
+/>
+
+<Question
+  prompt="The page suggests writing a technical blog. What does it say you need to be qualified to write?"
+  options={[
+    { text: "The world expert on the topic" },
+    { text: "Someone with 10+ years of experience" },
+    { text: "Someone who recently learned the thing — sharing what you just figured out is genuinely valuable to people one step behind you" },
+    { text: "A published academic" }
+  ]}
+  correct={2}
+  explanation="The page is explicit: 'You don't need to be the world expert. Sharing what you learned recently is genuinely valuable to people one step behind you.' Build logs and lessons-learned posts count."
+  revisit={{ to: "/docs/career/career-portfolio#3-write-about-your-work", label: "Write about your work" }}
+/>
+
+<Question
+  prompt="What approach does the page recommend for contributing to open source?"
+  options={[
+    { text: "Spam PRs to popular projects to maximize your contribution count" },
+    { text: "Start with projects you actually use; familiarity makes contribution easier, and quality beats quantity" },
+    { text: "Only contribute to projects with 100k+ stars" },
+    { text: "Fork projects and never submit a PR" }
+  ]}
+  correct={1}
+  explanation="The page recommends starting with projects you already use — your familiarity makes the contribution easier. Quality matters over quantity; don't spam PRs for the sake of it."
+  revisit={{ to: "/docs/career/career-portfolio#4-contribute-to-open-source", label: "Contribute to open source" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The Job Search](./career-job-search) for what to do once your portfolio is real.

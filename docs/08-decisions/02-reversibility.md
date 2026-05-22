@@ -89,6 +89,64 @@ Most engineers err on the side of too much deliberation on reversible decisions 
 If the answer is "a 10-line PR," move fast. If it's "a year of migration work," slow down.
 :::
 
+## Page checkpoint
+
+<Quiz id="decisions-reversibility-page" title="Did reversibility stick?" sampleSize={2}>
+
+<Question
+  prompt="In Bezos's framing, what is a Type 1 decision?"
+  options={[
+    { text: "A two-way door — easy to walk back if you're wrong" },
+    { text: "A one-way door — hard or impossible to reverse" },
+    { text: "Any decision involving more than one team" },
+    { text: "A decision that requires written documentation" }
+  ]}
+  correct={1}
+  explanation="Type 1 = one-way door (hard to reverse, agonize over it). Type 2 = two-way door (easy to reverse, walk briskly through it). The mistake is treating both the same."
+  revisit={{ to: "/docs/decisions/reversibility#categorizing-decisions", label: "Categorizing decisions" }}
+/>
+
+<Question
+  prompt="Your team has spent three meetings debating folder structure for a new repo while burning through choices about the database in 15 minutes. According to the chapter, what's wrong?"
+  options={[
+    { text: "Folder structure deserves more time — it shapes the codebase forever" },
+    { text: "The team has inverted the deliberation budget — folder structure is easily reversible, database choice is hard to reverse" },
+    { text: "Three meetings is the right amount for any structural decision" },
+    { text: "The database choice is reversible because most ORMs abstract it" }
+  ]}
+  correct={1}
+  explanation="This is the canonical anti-pattern: weeks on button colors, 20 minutes on databases. Folder structure is a near-zero-cost change; the database accumulates dependencies and is one of the hardest things to swap."
+  revisit={{ to: "/docs/decisions/reversibility#how-to-apply-it", label: "How to apply it" }}
+/>
+
+<Question
+  prompt="You're choosing between two CSS frameworks for an internal tool. The chapter's deliberation budget would be roughly:"
+  options={[
+    { text: "Days of research and a written ADR" },
+    { text: "An hour with a quick prototype" },
+    { text: "Around 5–15 minutes — just pick one" },
+    { text: "A formal RFC with multiple reviewers" }
+  ]}
+  correct={2}
+  explanation="A CSS approach is easily reversible — pick Tailwind or whatever and move on. The chapter explicitly budgets 5 minutes for this class and a written process only for hard-to-reverse decisions."
+  revisit={{ to: "/docs/decisions/reversibility#how-to-apply-it", label: "Time allocation" }}
+/>
+
+<Question
+  prompt="Which of these belongs in the 'very hard or impossible to reverse' bucket the chapter warns about?"
+  options={[
+    { text: "Switching ESLint rules" },
+    { text: "Choosing between two date-utility libraries" },
+    { text: "Open-sourcing proprietary code" },
+    { text: "Renaming a private internal variable" }
+  ]}
+  correct={2}
+  explanation="Open-sourcing code is genuinely irreversible — once it's out, it's out. Linter rules, date libraries, and variable names are textbook two-way doors."
+  revisit={{ to: "/docs/decisions/reversibility#categorizing-decisions", label: "Categorizing decisions" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [The Team Size Heuristic](./team-size-heuristic) — your team's size limits which practices and tools are realistic.

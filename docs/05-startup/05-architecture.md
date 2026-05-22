@@ -113,6 +113,64 @@ The lesson: the modular monolith isn't "we'll never split." It's "we'll split *i
 The "handles up to $10M ARR" claim isn't marketing — it's the actual track record of this stack. Companies you've heard of run on essentially this configuration well past 50 engineers. The architectural decisions to revisit at $10M+ are usually: read replicas, a queue + worker for heavy background work, and possibly extracting one or two modules into services. Not "rewrite everything."
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-architecture-page" title="Did startup architecture stick?" sampleSize={2}>
+
+<Question
+  prompt="How does the page define a modular monolith?"
+  options={[
+    { text: "A single deployable app divided internally into clearly-bounded modules, often one per business domain" },
+    { text: "Many small services that share a single database" },
+    { text: "A monorepo containing exactly one Next.js app and one Python service" },
+    { text: "An old-style monolith with no internal structure" }
+  ]}
+  correct={0}
+  explanation="The modular monolith is one deployable app with strong internal module boundaries — billing, auth, core, etc. You get one deploy and one log stream while preserving the option to split modules later."
+  revisit={{ to: "/docs/startup/architecture#the-modular-monolith", label: "Modular monolith" }}
+/>
+
+<Question
+  prompt="What is the page's claim about how far the dominant 2026 small-company stack scales?"
+  options={[
+    { text: "It scales to roughly the first $10M+ in ARR for most modern SaaS companies" },
+    { text: "It tops out at about 100 active users" },
+    { text: "It requires a rewrite once you cross 5 engineers" },
+    { text: "It can only support B2C apps, never B2B" }
+  ]}
+  correct={0}
+  explanation="The page states this stack — Next.js, TypeScript, Postgres, Drizzle, Vercel, Supabase, managed services — handles the first $10M+ ARR for most SaaS companies, with minor adjustments rather than rewrites."
+  revisit={{ to: "/docs/startup/architecture#the-dominant-2026-small-company-stack", label: "Stack scale claim" }}
+/>
+
+<Question
+  prompt="What is an RFC used for at this scale, according to the page?"
+  options={[
+    { text: "Approving every individual pull request" },
+    { text: "A short written proposal circulated before major architectural changes, so the team can debate cheaply" },
+    { text: "A weekly project status report for investors" },
+    { text: "Internal compliance paperwork required by SOC 2" }
+  ]}
+  correct={1}
+  explanation="RFCs document Context, Proposal, Alternatives, Trade-offs, and Decision before significant architecture work begins. The artifact also helps future engineers understand the why."
+  revisit={{ to: "/docs/startup/architecture#rfcs-request-for-comments", label: "RFC purpose" }}
+/>
+
+<Question
+  prompt="How does the page frame the choice to extract a module from the monolith later?"
+  options={[
+    { text: "Never extract — once a monolith, always a monolith" },
+    { text: "Extract only when a specific module truly outgrows the monolith; clean module boundaries make that cheap when the day comes" },
+    { text: "Plan to extract every module within the first year" },
+    { text: "Extract as soon as the codebase exceeds 10,000 lines" }
+  ]}
+  correct={1}
+  explanation="The worked example shows clean module boundaries turning a three-month extraction into three weeks. The modular monolith isn't never split — it's split if and when a specific module needs it."
+  revisit={{ to: "/docs/startup/architecture#the-modular-monolith", label: "Boundary that paid off" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 4: Environment Setup](./env-setup) where we cover monorepo structure, onboarding scripts, and secrets.

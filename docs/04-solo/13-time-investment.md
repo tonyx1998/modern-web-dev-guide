@@ -47,6 +47,64 @@ The 8-weekend estimate became 13 weekends not because anything went wrong — bu
 "Plan for 2x your estimate" is a comfort, not a license. It doesn't mean "schedule 2x and use all of it" — it means *if* things take 2x, you won't quit. If they take 1.2x, ship faster and use the saved time on the next project. The goal is shipping, not filling time.
 :::
 
+## Page checkpoint
+
+<Quiz id="solo-time-investment-page" title="Did time investment stick?" sampleSize={2}>
+
+<Question
+  prompt="What's the realistic weekend budget for an indie SaaS v1?"
+  options={[
+    { text: "2 to 3 weekends" },
+    { text: "4 to 6 weekends" },
+    { text: "8 to 14 weekends" },
+    { text: "20 to 30 weekends" }
+  ]}
+  correct={2}
+  explanation="The page lands on 8–14 weekends (about 3–4 months of part-time work) as a realistic v1 budget. The single most common indie mistake is estimating two weekends."
+  revisit={{ to: "/docs/solo/time-investment#a-typical-v1-budget", label: "Typical v1 budget" }}
+/>
+
+<Question
+  prompt="What does the page recommend you do with your initial estimate?"
+  options={[
+    { text: "Cut it in half — modern tools make things faster" },
+    { text: "Plan for 2x your initial estimate" },
+    { text: "Add a 10% buffer for polish" },
+    { text: "Don't estimate; just start" }
+  ]}
+  correct={1}
+  explanation="Plan for 2x. Not because anything goes wrong — but because every phase tends to have a slow component (config takes longer, edge cases multiply, copy takes as long as code)."
+  revisit={{ to: "/docs/solo/time-investment#a-typical-v1-budget", label: "2x rule" }}
+/>
+
+<Question
+  prompt="In the worked example, which phase blew out the most compared to estimate?"
+  options={[
+    { text: "Planning + design" },
+    { text: "Setup + auth + DB" },
+    { text: "Core features (4 weekends estimated, 7 actual)" },
+    { text: "Polish + launch" }
+  ]}
+  correct={2}
+  explanation="Core features expanded from 4 to 7 weekends because 'every feature had edge cases.' That's the normal pattern — the feature list looks short, but the long tail of edge cases multiplies effort."
+  revisit={{ to: "/docs/solo/time-investment#a-typical-v1-budget", label: "Retrospective table" }}
+/>
+
+<Question
+  prompt="What does the highlight clarify about the '2x rule'?"
+  options={[
+    { text: "It's a license to schedule 2x and use all the time" },
+    { text: "It's a comfort buffer — if things take 2x you won't quit; if they don't, ship faster" },
+    { text: "It only applies to backend work" },
+    { text: "It means you should commit to exactly 2x your estimate" }
+  ]}
+  correct={1}
+  explanation="2x cuts both ways. It's psychological insurance against burnout, not permission to fill the time. If you finish in 1.2x, ship and move on to the next project."
+  revisit={{ to: "/docs/solo/time-investment#a-typical-v1-budget", label: "2x cuts both ways" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Common Pitfalls](./pitfalls) where we'll see the most common ways indie projects die.

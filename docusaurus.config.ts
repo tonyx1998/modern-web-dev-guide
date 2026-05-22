@@ -107,11 +107,6 @@ const config: Config = {
           label: 'Guide',
         },
         {
-          to: '/docs/foundations/client-server',
-          label: 'Start Here',
-          position: 'left',
-        },
-        {
           to: '/docs/glossary',
           label: 'Glossary',
           position: 'left',

@@ -88,6 +88,64 @@ For any new TypeScript project, spend 30 minutes setting up:
 You've now made it impossible for stylistically inconsistent or obviously-broken code to land. This will save you 100+ hours of code-review nit-picking over the project's lifetime.
 :::
 
+## Page checkpoint
+
+<Quiz id="stack-code-quality-page" title="Did code quality tooling stick?" sampleSize={2}>
+
+<Question
+  prompt="What does Biome combine into a single tool that previously required ESLint + Prettier?"
+  options={[
+    { text: "A linter and a formatter, written in Rust, with one config and one CLI" },
+    { text: "A test runner and a bundler" },
+    { text: "A type checker and a build tool" },
+    { text: "A documentation generator and a deployment tool" }
+  ]}
+  correct={0}
+  explanation="Biome is a fast, unified linter+formatter in Rust. Migrating means one config and one binary instead of the ESLint+Prettier pair, with sensible defaults and dramatically faster runs."
+  revisit={{ to: "/docs/stack/code-quality#biome", label: "Biome section" }}
+/>
+
+<Question
+  prompt="Why is TypeScript strict mode worth enabling on day one?"
+  options={[
+    { text: "It compiles your code into a smaller bundle" },
+    { text: "It turns on a bundle of flags (`strictNullChecks`, `noImplicitAny`, etc.) that collectively catch huge classes of bugs at compile time" },
+    { text: "It enables async/await syntax" },
+    { text: "It is required for npm to publish a package" }
+  ]}
+  correct={1}
+  explanation="`strict: true` enables strictNullChecks, noImplicitAny, strictFunctionTypes, and strictBindCallApply together. Without it, you're leaving a huge amount of TypeScript's value on the table."
+  revisit={{ to: "/docs/stack/code-quality#typescript-strict-mode", label: "Strict mode" }}
+/>
+
+<Question
+  prompt="What job do tools like Husky and lefthook do in the dev workflow?"
+  options={[
+    { text: "They auto-format code in production after deploys" },
+    { text: "They run git hooks (pre-commit, pre-push) so checks like lint and format run automatically before bad code reaches the repo" },
+    { text: "They host your code on a private git server" },
+    { text: "They run end-to-end tests in CI" }
+  ]}
+  correct={1}
+  explanation="Husky and lefthook install git hooks that run scripts on commit/push. Combined with lint-staged, you can auto-format staged files so stylistically broken code never even gets committed."
+  revisit={{ to: "/docs/stack/code-quality#husky--lefthook", label: "Husky / lefthook" }}
+/>
+
+<Question
+  prompt="What problem do monorepo tools like Turborepo and Nx solve?"
+  options={[
+    { text: "They convert a monorepo into many smaller repos" },
+    { text: "They cache builds, parallelize tasks, and skip work in packages whose source didn't change" },
+    { text: "They replace your test framework" },
+    { text: "They generate database migrations across packages" }
+  ]}
+  correct={1}
+  explanation="Monorepos hold multiple packages in one repo. Turborepo/Nx track which packages actually changed and cache previous outputs so unchanged packages don't rebuild — massive speedup as the repo grows."
+  revisit={{ to: "/docs/stack/code-quality#turborepo--nx", label: "Turborepo / Nx" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Editors & AI Coding Assistants](./editors-ai) — the last stack-page, covering the tools you actually *type into*.

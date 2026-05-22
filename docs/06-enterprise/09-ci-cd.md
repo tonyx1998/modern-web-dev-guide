@@ -90,6 +90,64 @@ Total user impact: 1% of users for 4 minutes. The whole thing happens before any
 At a startup, the same scenario plays out at 100% of users for 45 minutes until someone notices. The engineering investment in canary deploys and auto-rollback is what turns hours of customer pain into minutes for a tiny slice of traffic.
 :::
 
+## Page checkpoint
+
+<Quiz id="enterprise-ci-cd-page" title="Did enterprise CI/CD stick?" sampleSize={2}>
+
+<Question
+  prompt="At enterprise scale, what is the key conceptual split that feature flags enable?"
+  options={[
+    { text: "Frontend vs. backend deploys" },
+    { text: "Deploying (code is on production servers) vs. releasing (users see new behavior)" },
+    { text: "Staging vs. production" },
+    { text: "Unit tests vs. integration tests" }
+  ]}
+  correct={1}
+  explanation="Feature flags decouple deploy from release. You can deploy ten times a day, each one a small safe change, and release features whenever the business is ready. Catastrophic releases stop happening because flipping a flag back doesn't require redeploying."
+  revisit={{ to: "/docs/enterprise/ci-cd#progressive-delivery", label: "Deploy vs release" }}
+/>
+
+<Question
+  prompt="What is a 'canary' in a progressive delivery pipeline?"
+  options={[
+    { text: "A test environment that mirrors production" },
+    { text: "A small initial slice of real traffic (often 1%) that gets the new code first, while metrics are watched before widening" },
+    { text: "A backup region used during disaster recovery" },
+    { text: "An automated linter for deploy configs" }
+  ]}
+  correct={1}
+  explanation="A canary is a tiny slice of real users — often 1% — that gets the new code first. Metrics are watched during the canary window; if error rate or latency regresses, automated rollback triggers. Named after the canary in a coal mine."
+  revisit={{ to: "/docs/enterprise/ci-cd#progressive-delivery", label: "Canary" }}
+/>
+
+<Question
+  prompt="What is the core idea of GitOps?"
+  options={[
+    { text: "All Git operations must happen on production servers" },
+    { text: "The cluster's desired state is declarative, versioned, and reviewed in Git — every deploy is a commit and every rollback is git revert" },
+    { text: "Git replaces Kubernetes" },
+    { text: "Only the SRE team can use Git" }
+  ]}
+  correct={1}
+  explanation="GitOps tools like Argo CD and Flux make a Git repo the source of truth for what's deployed to Kubernetes. Changes to infrastructure go through code review like any other change, and rolling back is just reverting a commit."
+  revisit={{ to: "/docs/enterprise/ci-cd#gitops", label: "GitOps" }}
+/>
+
+<Question
+  prompt="Why is remote build caching (Bazel, BuildBuddy, Turborepo Remote Cache) so important at enterprise scale?"
+  options={[
+    { text: "It reduces the cost of cloud storage" },
+    { text: "If anyone in the company has built a file already, you reuse their result — turning a 4-hour sequential build into 8 minutes with cache reuse" },
+    { text: "It encrypts build artifacts" },
+    { text: "It's required by SOC 2" }
+  ]}
+  correct={1}
+  explanation="With 100 PRs landing per day, rebuilding everything from scratch turns the build farm into the engineering bottleneck. Remote caching means anyone's prior build result is shared — so a 4-hour sequential build can finish in minutes."
+  revisit={{ to: "/docs/enterprise/ci-cd#distributed-builds", label: "Distributed builds" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 7: Deployment & Infrastructure](./deployment) — what's actually running once the CD pipeline ships your code.

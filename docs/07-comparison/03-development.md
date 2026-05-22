@@ -84,6 +84,64 @@ A typo in a button label causes a small UX bug. Three teams' workflows:
 Each workflow is *correct for its risk profile*. The solo dev has nothing to lose if the typo fix breaks something; the enterprise has a regulatory paper trail to maintain and millions of users.
 :::
 
+## Page checkpoint
+
+<Quiz id="comparison-development-page" title="Did development across scales stick?" sampleSize={2}>
+
+<Question
+  prompt="Which branching strategy becomes universal once a team is past solo work, and why?"
+  options={[
+    { text: "GitFlow with long-lived release branches, because it scales to large teams" },
+    { text: "Trunk-based development with short branches, because long-lived branches cause integration pain at any scale" },
+    { text: "One branch per engineer indefinitely, to maximize isolation" },
+    { text: "Push directly to main with no branches, because reviews slow teams down" }
+  ]}
+  correct={1}
+  explanation="Trunk-based development is universal beyond solo work — long-lived branches are the single biggest source of integration pain at any team scale, so startups and enterprises both keep branches short."
+  revisit={{ to: "/docs/comparison/development#development-workflow", label: "Development Workflow" }}
+/>
+
+<Question
+  prompt="What makes contract tests the 'unsung enterprise tool' compared to startup-scale testing?"
+  options={[
+    { text: "They replace unit and E2E tests at scale" },
+    { text: "They are cheaper than other test types, so enterprises adopt them first" },
+    { text: "They enforce that two services keep their promises to each other — critical when dozens of teams could otherwise break each other" },
+    { text: "They are required by SOC 2 auditors at every scale" }
+  ]}
+  correct={2}
+  explanation="A contract test pins down the fields and types one service promises to send and another promises to accept. At solo or startup scale they're overkill; at enterprise scale they keep dozens of teams from accidentally breaking each other."
+  revisit={{ to: "/docs/comparison/development#testing", label: "Contract tests" }}
+/>
+
+<Question
+  prompt="How does deployment strategy typically differ between a startup and a large company?"
+  options={[
+    { text: "Both use canary rollouts; only the rollout duration changes" },
+    { text: "Startups: rolling or blue-green. Enterprises: progressive canary (1% → 10% → 100%) gated by SLOs" },
+    { text: "Startups deploy weekly; enterprises deploy hourly" },
+    { text: "Startups always deploy via Kubernetes; enterprises always deploy via Vercel" }
+  ]}
+  correct={1}
+  explanation="Startups typically use rolling or blue-green deploys triggered by a merge to main. Enterprises use progressive canary rollouts — 1%, 10%, 100% — with automated rollback on SLO regression and freezes during major events."
+  revisit={{ to: "/docs/comparison/development#cicd", label: "CI/CD" }}
+/>
+
+<Question
+  prompt="In the worked example of a one-line typo fix, why does the same change take 2 minutes for a solo dev but 1–4 hours at an enterprise?"
+  options={[
+    { text: "Enterprise CI is intentionally slow to discourage frequent deploys" },
+    { text: "Enterprises require a longer canary soak and review gates that exist for risk-profile reasons" },
+    { text: "Enterprises rebuild the entire monorepo from scratch for every commit" },
+    { text: "Solo devs skip testing entirely while enterprises run every test in serial" }
+  ]}
+  correct={1}
+  explanation="The coding is identical — the time difference is the surrounding process: two reviewers, CODEOWNERS, full CI, then a staged canary with soak times. Each workflow is correct for its risk profile."
+  revisit={{ to: "/docs/comparison/development#cicd", label: "Same typo fix, three workflows" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Operations](./ops) — observability, security, and compliance differ even more dramatically than development workflow.

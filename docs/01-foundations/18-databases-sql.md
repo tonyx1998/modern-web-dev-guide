@@ -148,6 +148,64 @@ Most modern hosting providers offer a free Postgres tier:
 Sign up, create a database, run `SELECT 1;` in the web SQL editor. You're now a database operator.
 :::
 
+## Page checkpoint
+
+<Quiz id="databases-sql-page" title="Did SQL databases stick?" sampleSize={2}>
+
+<Question
+  prompt="In a posts table, the user_id column references the users table's id column. What is user_id called?"
+  options={[
+    { text: "A primary key" },
+    { text: "A foreign key" },
+    { text: "An index" },
+    { text: "A view" }
+  ]}
+  correct={1}
+  explanation="A primary key uniquely identifies rows in its own table; a foreign key is a pointer to another table's primary key. user_id in posts is the FK that ties each post to a user."
+  revisit={{ to: "/docs/foundations/databases-sql#the-structure", label: "Tables and foreign keys" }}
+/>
+
+<Question
+  prompt="What do the ACID guarantees of a relational database actually promise?"
+  options={[
+    { text: "That all queries run in under a millisecond" },
+    { text: "Atomicity, Consistency, Isolation, and Durability — transactions either complete fully or not at all, constraints are enforced, concurrent operations don't interfere, and committed data survives crashes" },
+    { text: "That data is automatically encrypted at rest" },
+    { text: "That all replicas are byte-identical at all times" }
+  ]}
+  correct={1}
+  explanation="ACID is the four-letter promise: A = all-or-nothing transactions, C = constraints always hold, I = isolation between concurrent transactions, D = durability across crashes. That's why banks and healthcare run on SQL."
+  revisit={{ to: "/docs/foundations/databases-sql#acid-guarantees--why-relational-databases-earn-trust", label: "ACID guarantees" }}
+/>
+
+<Question
+  prompt="What does it mean that SQL is a 'declarative' language?"
+  options={[
+    { text: "You write step-by-step instructions for how to read each row" },
+    { text: "You describe WHAT you want; the database's query planner figures out HOW to compute it efficiently" },
+    { text: "SQL has no syntax for joins" },
+    { text: "SQL only runs in single-threaded mode" }
+  ]}
+  correct={1}
+  explanation="SQL is declarative: you say SELECT/JOIN/WHERE/GROUP BY, and the database's internal query planner picks indexes, join order, and execution strategy. That separation is what makes the same query portable across engines."
+  revisit={{ to: "/docs/foundations/databases-sql#sql--the-query-language", label: "SQL is declarative" }}
+/>
+
+<Question
+  prompt="In 2026, what's the most repeated piece of database advice for a new project?"
+  options={[
+    { text: "Pick whatever NoSQL DB is trendy this quarter" },
+    { text: "Start with Postgres — it handles relational data, JSON, full-text search, vectors, time-series, and geo through extensions" },
+    { text: "Use Excel as your database for the first year" },
+    { text: "Build a custom database engine from scratch" }
+  ]}
+  correct={1}
+  explanation="'Just use Postgres' is the most reliable 2026 advice. It covers most workloads (relational + JSONB + tsvector + pgvector + TimescaleDB + PostGIS) so you operate one DB, not five — and you can specialize later when forced."
+  revisit={{ to: "/docs/foundations/databases-sql#the-2026-choices", label: "Just use Postgres" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [NoSQL & Specialized Databases](./databases-nosql) where we'll cover the non-relational alternatives: document, key-value, search, and vector databases — and when each is worth adopting alongside (or instead of) SQL.

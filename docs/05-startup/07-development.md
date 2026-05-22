@@ -102,6 +102,64 @@ A branch that lives more than a week becomes its own special kind of pain — ev
 When a feature is too big to fit in a 1–3 day branch, that's a signal to either (a) decompose it into smaller mergeable steps, or (b) merge it incrementally behind a feature flag. Almost never the right answer: keep working on the long branch.
 :::
 
+## Page checkpoint
+
+<Quiz id="startup-development-page" title="Did the development workflow stick?" sampleSize={2}>
+
+<Question
+  prompt="What branching pattern does the page recommend at startup scale?"
+  options={[
+    { text: "Long-lived release branches managed via Gitflow" },
+    { text: "Short-lived feature branches off main, merged within 1-3 days" },
+    { text: "A separate branch per environment, kept in sync manually" },
+    { text: "All work directly on main with no branches" }
+  ]}
+  correct={1}
+  explanation="Trunk-based development with short-lived feature branches off main, typically merged within 1-3 days. Long-lived branches are explicitly forbidden because they cause merge pain."
+  revisit={{ to: "/docs/startup/development#branching-strategy-trunk-based-development", label: "Trunk-based development" }}
+/>
+
+<Question
+  prompt="What is the primary purpose of feature flags as described on this page?"
+  options={[
+    { text: "Speeding up CI by skipping tests on flagged code" },
+    { text: "Separating shipping code from releasing it, so rollouts and kill-switches don't require deploys" },
+    { text: "Replacing pull request review" },
+    { text: "Avoiding writing tests for new features" }
+  ]}
+  correct={1}
+  explanation="Flags let code ship to production while the exposure is gated by a dashboard — so you can roll out gradually, A/B test, and kill features instantly without redeploying."
+  revisit={{ to: "/docs/startup/development#feature-flags", label: "Feature flags" }}
+/>
+
+<Question
+  prompt="What does the page recommend when a feature is too big to fit in a 1-3 day branch?"
+  options={[
+    { text: "Keep the branch open for as long as needed — that's normal" },
+    { text: "Decompose into smaller mergeable steps, or merge incrementally behind a feature flag" },
+    { text: "Skip code review to land it faster" },
+    { text: "Merge the half-finished feature to main with a TODO comment" }
+  ]}
+  correct={1}
+  explanation="The highlight calls long-lived branches technical debt. The right move is to decompose the work into mergeable steps or hide an incremental version behind a feature flag — almost never to keep the branch open."
+  revisit={{ to: "/docs/startup/development#branching-strategy-trunk-based-development", label: "Long-lived branches" }}
+/>
+
+<Question
+  prompt="How does the page say production schema changes should happen?"
+  options={[
+    { text: "Run ALTER TABLE manually on the production DB during off-hours" },
+    { text: "Generate Drizzle Kit migration files via PR; deployment applies the migration before app code updates" },
+    { text: "Let the ORM auto-migrate on app boot" },
+    { text: "Edit the schema in the Supabase dashboard UI" }
+  ]}
+  correct={1}
+  explanation="Drizzle Kit generates SQL migration files that go through PR review. Deployment runs the migration before the app code is updated — never edit production schema by hand."
+  revisit={{ to: "/docs/startup/development#database-migrations", label: "Database migrations" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 6: Testing Strategy](./testing) where Vitest unit/integration tests and a handful of Playwright E2E tests do most of the work.

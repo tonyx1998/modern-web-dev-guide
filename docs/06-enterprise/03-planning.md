@@ -86,6 +86,64 @@ Three weeks of planning for a feature whose code might take two weeks to write. 
 
 This planning overhead is real, but at enterprise scale, the cost of misaligned work across hundreds of engineers far exceeds the cost of planning.
 
+## Page checkpoint
+
+<Quiz id="enterprise-planning-page" title="Did enterprise planning stick?" sampleSize={2}>
+
+<Question
+  prompt="According to the page, which section of an enterprise RFC is the single most valuable?"
+  options={[
+    { text: "The implementation plan" },
+    { text: "The capacity estimate" },
+    { text: "The 'Alternatives considered' block — three or four approaches that were rejected and why" },
+    { text: "The author's bio" }
+  ]}
+  correct={2}
+  explanation="The Alternatives Considered block is what stops future engineers from re-litigating the same decision every 18 months. It captures the reasoning behind a choice, not just the conclusion — that's institutional memory at its best."
+  revisit={{ to: "/docs/enterprise/planning#engineering-design-docs--rfcs", label: "RFC alternatives" }}
+/>
+
+<Question
+  prompt="Why does an enterprise route a feature through security, privacy, accessibility, legal, and ops reviews before code starts?"
+  options={[
+    { text: "To slow engineers down deliberately" },
+    { text: "Because each review exists due to a past incident or regulation — skipping them is how $50M settlements happen" },
+    { text: "Because lawyers control the engineering org" },
+    { text: "Because regulations require a fixed three-week planning window" }
+  ]}
+  correct={1}
+  explanation="Cross-functional reviews aren't bureaucracy — they're pattern matching against past failures. Each gate exists because a similar feature once missed something obvious in hindsight. The doc-and-review machinery is institutional memory."
+  revisit={{ to: "/docs/enterprise/planning#cross-functional-reviews", label: "Cross-functional reviews" }}
+/>
+
+<Question
+  prompt="What is the main payoff of three weeks of planning for a two-week feature at enterprise scale?"
+  options={[
+    { text: "Fewer line items on the cloud bill" },
+    { text: "A much lower change-of-plan rate once code is being written — fewer rewrites and rollbacks" },
+    { text: "Faster code reviews" },
+    { text: "Better unit test coverage" }
+  ]}
+  correct={1}
+  explanation="The planning overhead looks wasteful until you see that the change-of-plan rate, once code is being written, drops sharply. Fewer rewrites, fewer 'oh we should have asked legal first' moments, fewer rolled-back launches."
+  revisit={{ to: "/docs/enterprise/planning#worked-example", label: "Worked example" }}
+/>
+
+<Question
+  prompt="Which document captures user research, market analysis, success metrics, and accessibility considerations?"
+  options={[
+    { text: "The PRD (Product Requirements Document)" },
+    { text: "The RFC (Engineering Design Doc)" },
+    { text: "The runbook" },
+    { text: "The CODEOWNERS file" }
+  ]}
+  correct={0}
+  explanation="A PRD at this scale is 10–30 pages and answers what you're building, why, who needs to approve, what could go wrong, and how you'll know it worked. The RFC focuses on the technical approach; the PRD covers the broader product picture."
+  revisit={{ to: "/docs/enterprise/planning#product-requirements-documents-prds", label: "PRDs" }}
+/>
+
+</Quiz>
+
 ## What's next
 
 → Continue to [Phase 2: Architecture](./architecture) to see what gets built once the planning machinery hands off to engineers.
