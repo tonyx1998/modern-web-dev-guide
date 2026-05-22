@@ -28,9 +28,26 @@
   transform: scale(0.97);
 }
 
+.depthPrefix {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-700);
+  margin-right: 0.05rem;
+}
+
 .emoji {
   font-size: 1rem;
   line-height: 1;
+}
+
+/* On narrow screens, hide the "Depth:" prefix to save horizontal
+   space — the emoji + label still convey the meaning. */
+@media (max-width: 480px) {
+  .depthPrefix {
+    display: none;
+  }
 }
 
 .label {

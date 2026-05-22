@@ -74,9 +74,10 @@ export default function LevelSwitcher(): ReactNode {
         className={styles.trigger}
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        aria-label={`Reading level: ${current.label}. Click to change.`}
-        title="Choose your reading level"
+        aria-label={`Reading depth: ${current.label}. Click to change.`}
+        title="Choose how much detail you want per page (this is different from the reading-path tabs on the intro)"
       >
+        <span className={styles.depthPrefix} aria-hidden>Depth:</span>
         <span className={styles.emoji}>{current.emoji}</span>
         <span className={styles.label}>{current.label}</span>
         <span className={styles.caret} aria-hidden>▾</span>
@@ -85,7 +86,7 @@ export default function LevelSwitcher(): ReactNode {
         <>
           <div className={styles.backdrop} onClick={() => setOpen(false)} />
           <div className={styles.menu} role="menu">
-            <div className={styles.menuHeader}>Reading level</div>
+            <div className={styles.menuHeader}>Reading depth</div>
             {LEVELS.map((l) => (
               <button
                 key={l.value}
@@ -103,7 +104,8 @@ export default function LevelSwitcher(): ReactNode {
               </button>
             ))}
             <div className={styles.menuFooter}>
-              Your choice is saved on this device.
+              Controls how much detail you see per page (saved on this device).
+              Different from the reading-path tabs on the intro.
             </div>
           </div>
         </>

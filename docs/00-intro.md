@@ -5,6 +5,7 @@ sidebar_position: 1
 sidebar_label: Introduction
 slug: /
 description: How websites are actually built in 2026 — for absolute beginners and beyond. 11 chapters plus an introduction, ~9,000 lines, designed so you can master one topic per page.
+toc_max_heading_level: 2
 ---
 
 import Tabs from '@theme/Tabs';
@@ -27,6 +28,13 @@ import TabItem from '@theme/TabItem';
 ## Pick your reading path
 
 Click the tab that matches you. Each path shows only what's relevant — you don't have to scan through enterprise material if you're a beginner.
+
+:::info[Two different controls — don't confuse them]
+- **These tabs** pick your reading *path* — *which chapters* to read and in *what order*.
+- **The Depth pill** (top-right of every page) picks your reading *depth* — *how much explanation* you see on each page (Beginner / Reader / Advanced).
+
+You can mix them freely: a beginner reader path with Reader depth, an experienced refresh with Advanced depth, etc.
+:::
 
 <Tabs groupId="reader-path" queryString>
 
@@ -111,7 +119,7 @@ If you ever hit jargon: open the [Glossary](/docs/glossary) in a side tab. Every
 <details>
 <summary>**More about the guide** — themes, full table of contents, conventions, biases</summary>
 
-## What this guide covers
+### What this guide covers
 
 Six themes, eleven chapters, around 9,000 lines of detailed explanation — all written so an absolute beginner can follow along while still being useful to working developers.
 
@@ -159,7 +167,7 @@ For students and self-taught developers. What to learn first, how to build a por
 
 ---
 
-## The full table of contents
+### The full table of contents
 
 Eleven chapters plus this introduction. Each chapter is split into focused per-topic pages — the page counts below exclude the chapter overview page itself.
 
@@ -191,7 +199,7 @@ Eleven chapters plus this introduction. Each chapter is split into focused per-t
 
 ---
 
-## Conventions used throughout
+### Conventions used throughout
 
 - **Code samples** are illustrative, not always copy-pasteable. They show the shape of solutions.
 - **Tool recommendations** reflect the dominant choices as of *May 2026*. Alternatives are mentioned, but each section gives a clear default.
@@ -200,7 +208,7 @@ Eleven chapters plus this introduction. Each chapter is split into focused per-t
 - **Pitfalls and gotchas** are flagged explicitly. Most of the value of experience is knowing what *not* to do.
 - **Worked examples and highlights** are flagged with `:::note` and `:::info` callouts. Skim the highlights if you want the punch lines fast.
 
-## A note on bias
+### A note on bias
 
 This guide is opinionated. Where multiple defensible options exist, it recommends the one that:
 
