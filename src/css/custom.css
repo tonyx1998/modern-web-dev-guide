@@ -361,6 +361,21 @@ html[data-reader-level="beginner"] .theme-doc-toc-mobile {
   display: none;
 }
 
+/* On mobile, the floating Menu (bottom-left) and Depth pill
+   (bottom-right) sit ~1rem off the viewport bottom. Without extra
+   bottom padding, the last paragraph of any page slides under the
+   pills. Add breathing room only in Beginner mode where the pills
+   are positioned bottom-aligned. */
+@media (max-width: 768px) {
+  html[data-reader-level="beginner"] .markdown,
+  html[data-reader-level="beginner"] main {
+    padding-bottom: 5.5rem;
+  }
+  html[data-reader-level="beginner"] .pagination-nav {
+    margin-bottom: 4.5rem;
+  }
+}
+
 /* When summoned in Beginner mode, the sidebar overlays the content
    instead of pushing it. That way the reader's main column doesn't
    reflow while they peek at the menu. */
