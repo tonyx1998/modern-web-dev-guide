@@ -107,11 +107,6 @@ const config: Config = {
           label: 'Guide',
         },
         {
-          to: '/docs/roadmap',
-          label: 'Roadmap',
-          position: 'left',
-        },
-        {
           to: '/docs/glossary',
           label: 'Glossary',
           position: 'left',
