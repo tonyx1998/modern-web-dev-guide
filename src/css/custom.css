@@ -547,7 +547,7 @@ html[data-reader-level="beginner"] .theme-doc-sidebar-container::before {
 
 /* Small "guided mode" banner so the reader understands what changed */
 html[data-reader-level="beginner"] .markdown::before {
-  content: "👶 Guided mode — follow the big buttons at the bottom of each page. Tap ☰ Menu (top left) to jump back, or switch level in the pill (top right) for the full sidebar.";
+  content: "👶 Guided mode — follow the big buttons at the bottom of each page. Tap ☰ Menu (top left) to jump back.";
   display: block;
   font-size: 0.82rem;
   line-height: 1.45;

@@ -12,7 +12,7 @@ You've finished the Tech Stack chapter. Take a minute to make sure the core idea
 
 There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit, and the link highlights the paragraph for you.
 
-In **Beginner mode**, you must pass (≥ 60%) to unlock the Next button and Chapter 4 in the sidebar. Switch the reading-level pill (top right) if you'd rather skip.
+You must pass (≥ 60%) to unlock the Next button and Chapter 4 in the sidebar.
 
 <Quiz id="stack-checkpoint" title="Tech Stack checkpoint" sampleSize={5}>
 

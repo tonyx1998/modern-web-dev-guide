@@ -29,11 +29,8 @@ import TabItem from '@theme/TabItem';
 
 Click the tab that matches you. Each path shows only what's relevant — you don't have to scan through enterprise material if you're a beginner.
 
-:::info[Two different controls — don't confuse them]
-- **These tabs** pick your reading *path* — *which chapters* to read and in *what order*.
-- **The Depth pill** (top-right of every page) picks your reading *depth* — *how much explanation* you see on each page (Beginner / Reader / Advanced).
-
-You can mix them freely: a beginner reader path with Reader depth, an experienced refresh with Advanced depth, etc.
+:::info[How to use the tabs]
+The tabs below pick your reading *path* — *which chapters* to read and in *what order*. The pages themselves are written in beginner-friendly guided mode, so you'll get the full explanations regardless of which path you choose.
 :::
 
 <Tabs groupId="reader-path" queryString>
