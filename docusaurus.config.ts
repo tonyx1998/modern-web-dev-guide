@@ -131,26 +131,27 @@ const config: Config = {
           items: [
             {label: 'Introduction', to: '/'},
             {label: '1. Foundations', to: '/docs/foundations'},
-            {label: '2. Lifecycle', to: '/docs/lifecycle'},
-            {label: '3. Tech Stack', to: '/docs/stack'},
+            {label: '2. Roadmap', to: '/docs/roadmap'},
+            {label: '3. Lifecycle', to: '/docs/lifecycle'},
+            {label: '4. Tech Stack', to: '/docs/stack'},
           ],
         },
         {
           title: 'Workflows',
           items: [
-            {label: '4. Solo / Personal', to: '/docs/solo'},
-            {label: '5. Startup / Small Co.', to: '/docs/startup'},
-            {label: '6. Enterprise', to: '/docs/enterprise'},
-            {label: '7. Comparison', to: '/docs/comparison'},
+            {label: '5. Solo / Personal', to: '/docs/solo'},
+            {label: '6. Startup / Small Co.', to: '/docs/startup'},
+            {label: '7. Enterprise', to: '/docs/enterprise'},
+            {label: '8. Comparison', to: '/docs/comparison'},
           ],
         },
         {
           title: 'Applied',
           items: [
-            {label: '8. Decisions', to: '/docs/decisions'},
-            {label: '9. AI Layer', to: '/docs/ai'},
-            {label: '10. Career', to: '/docs/career'},
-            {label: '11. Glossary', to: '/docs/glossary'},
+            {label: '9. Decisions', to: '/docs/decisions'},
+            {label: '10. AI Layer', to: '/docs/ai'},
+            {label: '11. Career', to: '/docs/career'},
+            {label: '12. Glossary', to: '/docs/glossary'},
           ],
         },
         {

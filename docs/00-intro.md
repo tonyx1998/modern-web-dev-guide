@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 
 *How websites are actually built in 2026 — for absolute beginners and beyond.*
 
-**What it is** — A 2026 reference on how modern web apps are designed, built, shipped, and operated. **11 chapters plus this introduction**, ~9,000 lines, split into ~150 focused single-topic pages.
+**What it is** — A 2026 reference on how modern web apps are designed, built, shipped, and operated, paired with a step-by-step roadmap for getting there from zero. **12 chapters plus this introduction**, split into ~200 focused single-topic pages.
 
 **Who it's for** — Anyone from total beginner to working developer doing a refresh. Pick a tab below; each path shows only what's relevant to you.
 
@@ -42,13 +42,13 @@ The tabs below pick your reading *path* — *which chapters* to read and in *wha
 | Order | Read                                              | Why                                              |
 |-------|---------------------------------------------------|--------------------------------------------------|
 | 1     | [Foundations](/docs/foundations)                  | Client/server, HTTP, DNS, browsers, rendering    |
-| 2     | [Lifecycle](/docs/lifecycle)                      | What a real project looks like end-to-end        |
+| 2     | [Roadmap](/docs/roadmap)                          | The 13-stage curriculum from zero to shipped     |
 | 3     | [Solo / Personal](/docs/solo)                     | Build your first deployed site                   |
 | 4     | [Career Path](/docs/career)                       | What to learn next and where to go               |
 
-→ **Start with** [The Client–Server Model](/docs/foundations/client-server)
+→ **Start with** [The Client–Server Model](/docs/foundations/client-server), then work through the [Roadmap stages](/docs/roadmap/part-1-from-zero).
 
-**Build path:** read chapters 1.1–1.4 → make a tiny portfolio site → read [4. Solo Workflow](/docs/solo) → deploy it to Vercel or GitHub Pages. *Total time: a weekend. Total result: a real URL friends can open.*
+**Build path:** read chapters 1.1–1.4 for the mental model → start [Roadmap Stage 0](/docs/roadmap/part-1-from-zero/stage-0-setup) and follow the stages in order. Reach for [5. Solo Workflow](/docs/solo) when you're ready to deploy. *Plan for 4–9 months of part-time effort.*
 
 :::tip[Two ground-truth facts before you start]
 1. **A "website" is just files (HTML, CSS, JavaScript, images) served from a computer on the internet to your browser.** Everything else — frameworks, databases, deployment pipelines, AI features — is layered on top of that one basic idea.
@@ -68,12 +68,13 @@ If you ever hit jargon: open the [Glossary](/docs/glossary) in a side tab. Every
 |-------|---------------------------------------------------|--------------------------------------------------|
 | 1     | [Lifecycle](/docs/lifecycle)                      | Plan, build, ship, monitor                       |
 | 2     | [Tech Stack](/docs/stack)                         | Every major 2026 tool decoded                    |
-| 3     | [Startup workflow](/docs/startup)                 | Managed services, balance speed & quality        |
-| 4     | [Decision Frameworks](/docs/decisions)            | How to actually choose technologies              |
+| 3     | [Roadmap — Modern Stack](/docs/roadmap/part-2-modern-stack) | Opinionated picks: Tier 1/2/3 |
+| 4     | [Startup workflow](/docs/startup)                 | Managed services, balance speed & quality        |
+| 5     | [Decision Frameworks](/docs/decisions)            | How to actually choose technologies              |
 
-→ **Jump to** [Tech Stack Overview](/docs/stack)
+→ **Jump to** [Roadmap — Tier 1 picks](/docs/roadmap/part-2-modern-stack/tier-1)
 
-**Build path:** scan chapter 3 (Tech Stack) → ship a SaaS MVP using the recommended startup stack → read chapter 8 (Decisions) when you face your first real "Should we add X?" debate.
+**Build path:** scan [Tech Stack](/docs/stack) for the reference view → read [Roadmap Part II](/docs/roadmap/part-2-modern-stack) for the opinionated picks → ship a SaaS MVP → reach for [Decisions](/docs/decisions) when you face your first real "Should we add X?" debate.
 
 </TabItem>
 
@@ -99,13 +100,14 @@ If you ever hit jargon: open the [Glossary](/docs/glossary) in a side tab. Every
 
 | Order | Read                                              | Why                                              |
 |-------|---------------------------------------------------|--------------------------------------------------|
-| 1     | [Tech Stack](/docs/stack)                         | What's new since you last looked                 |
-| 2     | [AI Integration](/docs/ai)                        | The new layer in every modern app                |
-| 3     | [Comparison](/docs/comparison)                    | Side-by-side at every scale                      |
+| 1     | [Roadmap — Trends](/docs/roadmap/part-2-modern-stack/trends) | The six 2026 directional shifts |
+| 2     | [Tech Stack](/docs/stack)                         | What's new since you last looked                 |
+| 3     | [AI Integration](/docs/ai)                        | The new layer in every modern app                |
+| 4     | [Roadmap — Beyond the Stack](/docs/roadmap/part-3-beyond) | The skills the stack hides |
 
-→ **Skim** [Tech Stack Overview](/docs/stack)
+→ **Skim** [Roadmap — Trends](/docs/roadmap/part-2-modern-stack/trends)
 
-**Build path:** skim chapter 3 in 30 minutes → pick one new tool that looks interesting → build a small spike with it → revisit chapter 9 (AI) since it didn't exist as a layer two years ago.
+**Build path:** read [Trends](/docs/roadmap/part-2-modern-stack/trends) in 15 minutes → check the [Tier 1 picks](/docs/roadmap/part-2-modern-stack/tier-1) against what you already use → pick one new tool that looks interesting → build a small spike with it → revisit [chapter 10 (AI)](/docs/ai) since it didn't exist as a layer two years ago.
 
 </TabItem>
 
@@ -171,28 +173,29 @@ Eleven chapters plus this introduction. Each chapter is split into focused per-t
 ### Foundation (read first if new)
 
 - **[1. Foundations](/docs/foundations)** — *24 pages.* How the web actually works: client/server, HTTP, DNS, CDNs, browsers, rendering strategies, APIs, databases, auth basics, and the deployment pipeline.
-- **[2. Lifecycle](/docs/lifecycle)** — *11 pages, one per phase.* Planning, design, architecture, setup, implementation, testing, code review, CI/CD, deployment, observability, and maintenance.
+- **[2. Roadmap](/docs/roadmap)** — *~30 pages.* The progression view: 13-stage curriculum from zero, the 2026 stack as Tier 1/2/3 picks, the fundamentals beyond the stack, and the meta-skills of learning itself.
+- **[3. Lifecycle](/docs/lifecycle)** — *11 pages, one per phase.* Planning, design, architecture, setup, implementation, testing, code review, CI/CD, deployment, observability, and maintenance.
 
 ### Reference (consult as needed)
 
-- **[3. Tech Stack](/docs/stack)** — *19 pages, one per layer.* Languages, frontend frameworks, styling, build tools, backends, APIs, databases, ORMs, auth, hosting, DevOps, observability, AI tooling.
+- **[4. Tech Stack](/docs/stack)** — *19 pages, one per layer.* Languages, frontend frameworks, styling, build tools, backends, APIs, databases, ORMs, auth, hosting, DevOps, observability, AI tooling.
 
 ### Workflows by scale (the heart of the series)
 
-- **[4. Solo / Personal](/docs/solo)** — *17 pages.* Solo developers, personal sites, side projects. Free tiers, minimal infrastructure, maximum shipping speed.
-- **[5. Startup / Small Co.](/docs/startup)** — *17 pages.* Startups and small companies (5–50 people). Real product, paying customers, managed services, balance between speed and quality.
-- **[6. Enterprise](/docs/enterprise)** — *17 pages.* Enterprises (500+ engineers). Microservices, Kubernetes, regulatory compliance, 99.99% uptime, full SRE practices.
+- **[5. Solo / Personal](/docs/solo)** — *17 pages.* Solo developers, personal sites, side projects. Free tiers, minimal infrastructure, maximum shipping speed.
+- **[6. Startup / Small Co.](/docs/startup)** — *17 pages.* Startups and small companies (5–50 people). Real product, paying customers, managed services, balance between speed and quality.
+- **[7. Enterprise](/docs/enterprise)** — *17 pages.* Enterprises (500+ engineers). Microservices, Kubernetes, regulatory compliance, 99.99% uptime, full SRE practices.
 
 ### Practical application
 
-- **[7. Comparison](/docs/comparison)** — *6 pages.* Solo / startup / enterprise side-by-side across team, stack, ops, economics.
-- **[8. Decision Frameworks](/docs/decisions)** — *16 pages.* How to actually make architectural choices. Boring-technology rule, reversibility, team-size heuristics, cost of inaction.
-- **[9. AI Integration](/docs/ai)** — *12 pages.* Streaming chat, RAG, function calling, agentic workflows, and how to operate AI features in production.
+- **[8. Comparison](/docs/comparison)** — *6 pages.* Solo / startup / enterprise side-by-side across team, stack, ops, economics.
+- **[9. Decision Frameworks](/docs/decisions)** — *16 pages.* How to actually make architectural choices. Boring-technology rule, reversibility, team-size heuristics, cost of inaction.
+- **[10. AI Integration](/docs/ai)** — *12 pages.* Streaming chat, RAG, function calling, agentic workflows, and how to operate AI features in production.
 
 ### Career
 
-- **[10. Career Path](/docs/career)** — *11 pages.* Foundational skills, portfolios, specialization tracks, 2026 compensation context.
-- **[11. Glossary](/docs/glossary)** — Single searchable A–Z reference for every term used in the guide.
+- **[11. Career Path](/docs/career)** — *11 pages.* Foundational skills, portfolios, specialization tracks, 2026 compensation context.
+- **[12. Glossary](/docs/glossary)** — Single searchable A–Z reference for every term used in the guide.
 
 ---
 

@@ -1,6 +1,6 @@
 # Modern Web Dev Guide
 
-A comprehensive, beginner-friendly 2026 guide to how websites and web applications are actually built. ~9,000 lines across **11 chapters plus an introduction**, written so an absolute beginner can follow along while still being useful to working developers. *Last reviewed: May 2026.*
+A comprehensive, beginner-friendly 2026 guide to how websites and web applications are actually built, paired with a step-by-step roadmap for getting there from zero. **12 chapters plus an introduction**, written so an absolute beginner can follow along while still being useful to working developers. *Last reviewed: May 2026.*
 
 > **Live site:** https://tonyx1998.github.io/modern-web-dev-guide/
 
@@ -12,16 +12,17 @@ A comprehensive, beginner-friendly 2026 guide to how websites and web applicatio
 |---|---------|-----------------|
 | - | [Introduction](docs/00-intro.md) | Start here. How to read the guide. |
 | 1 | [Foundations](docs/01-foundations/) | How the web works (24 focused pages): client/server, HTTP, DNS, browsers, rendering, APIs, databases, auth, deployment. |
-| 2 | [Lifecycle](docs/02-lifecycle/) | Every phase a real project moves through (11 focused pages): planning → design → build → review → ship → monitor → maintain. |
-| 3 | [Tech Stack](docs/03-stack/) | Every major 2026 tool decoded (19 focused pages): what it does, when to use it, why it exists. |
-| 4 | [Solo / Personal](docs/04-personal-website-workflow.md) | Side projects, free tiers, maximum shipping speed. |
-| 5 | [Startup / Small Co.](docs/05-small-company-workflow.md) | 5–50 person teams, real customers, managed services. |
-| 6 | [Enterprise](docs/06-large-company-workflow.md) | 500+ engineers, microservices, compliance, 99.99% uptime. |
-| 7 | [Comparison](docs/07-comparison.md) | Solo / startup / enterprise side-by-side tables. |
-| 8 | [Decisions](docs/08-decision-frameworks.md) | How to actually choose technologies — boring tech, reversibility, cost of inaction. |
-| 9 | [AI Layer](docs/09-ai-integration.md) | The new layer in modern apps: streaming chat, RAG, function calling, agents. |
-| 10 | [Career](docs/10-career-path.md) | Skills, portfolios, specializations, 2026 compensation context. |
-| 11 | [Glossary](docs/11-glossary.md) | Every term used in the guide, in plain English. |
+| 2 | [Roadmap](docs/02-roadmap/) | The progression view: 13-stage curriculum from zero, the 2026 stack as Tier 1/2/3 picks, fundamentals beyond the stack, meta-skills of learning. |
+| 3 | [Lifecycle](docs/03-lifecycle/) | Every phase a real project moves through (11 focused pages): planning → design → build → review → ship → monitor → maintain. |
+| 4 | [Tech Stack](docs/04-stack/) | Every major 2026 tool decoded (19 focused pages): what it does, when to use it, why it exists. |
+| 5 | [Solo / Personal](docs/05-solo/) | Side projects, free tiers, maximum shipping speed. |
+| 6 | [Startup / Small Co.](docs/06-startup/) | 5–50 person teams, real customers, managed services. |
+| 7 | [Enterprise](docs/07-enterprise/) | 500+ engineers, microservices, compliance, 99.99% uptime. |
+| 8 | [Comparison](docs/08-comparison/) | Solo / startup / enterprise side-by-side tables. |
+| 9 | [Decisions](docs/09-decisions/) | How to actually choose technologies — boring tech, reversibility, cost of inaction. |
+| 10 | [AI Layer](docs/10-ai/) | The new layer in modern apps: streaming chat, RAG, function calling, agents. |
+| 11 | [Career](docs/11-career/) | Skills, portfolios, specializations, 2026 compensation context. |
+| 12 | [Glossary](docs/11-glossary.md) | Every term used in the guide, in plain English. |
 
 ---
 
@@ -38,11 +39,12 @@ A comprehensive, beginner-friendly 2026 guide to how websites and web applicatio
 
 | Goal | Path |
 |------|------|
-| Build my first website | 1 → 4 → 10 |
-| Join a startup | 2 → 3 → 5 → 8 |
-| Work at enterprise | 6 → 8 → 9 |
-| Refresh existing knowledge | 3 → 9 |
-| Choose a stack for a new project | 3 → 8 → (4 or 5 or 6) |
+| Build my first website | 1 → 2 (Roadmap Part I) → 5 → 11 |
+| Join a startup | 3 → 4 → 2 (Roadmap Part II) → 6 → 9 |
+| Work at enterprise | 7 → 9 → 10 |
+| Refresh existing knowledge | 2 (Roadmap Part II Trends) → 4 → 10 |
+| Choose a stack for a new project | 4 → 2 (Roadmap Tier 1) → 9 → (5 or 6 or 7) |
+| Level up from junior to mid | 2 (Roadmap Part III) → 9 |
 
 ---
 
@@ -75,10 +77,16 @@ modern-web-dev-guide/
 ├── docs/                       # The guide, split into focused per-topic pages
 │   ├── 00-intro.md
 │   ├── 01-foundations/         # 25 pages: foundations of the web
-│   ├── 02-lifecycle/           # 12 pages: development lifecycle phases
-│   ├── 03-stack/               # 20 pages: 2026 tech stack tools
-│   ├── 04-personal-website-workflow.md
-│   ├── ...
+│   ├── 02-roadmap/             # ~30 pages: progression view — stages, tiers, fundamentals, meta-skills
+│   ├── 03-lifecycle/           # 12 pages: development lifecycle phases
+│   ├── 04-stack/               # 20 pages: 2026 tech stack tools
+│   ├── 05-solo/                # solo / personal workflow
+│   ├── 06-startup/             # startup workflow
+│   ├── 07-enterprise/          # enterprise workflow
+│   ├── 08-comparison/
+│   ├── 09-decisions/
+│   ├── 10-ai/
+│   ├── 11-career/
 │   └── 11-glossary.md
 ├── src/
 │   ├── pages/index.tsx         # Landing page (React)
