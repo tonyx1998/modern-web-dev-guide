@@ -1,10 +1,10 @@
 {
-  "label": "2. Lifecycle",
-  "position": 3,
+  "label": "2. Roadmap",
+  "position": 2,
   "collapsible": true,
   "collapsed": true,
   "link": {
     "type": "doc",
-    "id": "development-lifecycle"
+    "id": "roadmap-overview"
   }
 }

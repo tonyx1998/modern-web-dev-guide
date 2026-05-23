@@ -1,0 +1,10 @@
+{
+  "label": "3. Lifecycle",
+  "position": 3,
+  "collapsible": true,
+  "collapsed": true,
+  "link": {
+    "type": "doc",
+    "id": "development-lifecycle"
+  }
+}
