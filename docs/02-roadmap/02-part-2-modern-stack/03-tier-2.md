@@ -355,3 +355,57 @@ For a solo dev with one backend, Sentry alone is fine. OpenTelemetry becomes wor
 Defer until you have ≥2 services. Then read the Honeycomb or Datadog OTel quickstart.
 
 → See also: [Observability tools](/docs/stack/observability-tools)
+
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Learning Tier 2 tools speculatively.** This whole tier is "learn it *when a project asks for it*." Spending a Saturday on Convex without a multiplayer project to apply it to, or wiring up tRPC on a single-page form-submit app, burns time you could have used shipping. Wait for the pull.
+- **Adopting tRPC when Server Actions already cover the need.** If your stack is Next.js end-to-end and your APIs are only consumed by your own app, Server Actions (Tier 1) give you typed RPC for free. tRPC's win is *framework-agnostic* typed RPC — multiple clients (React Native, Astro, vanilla React) calling the same backend. Reach for it then; before then it's extra layers.
+- **Treating Cloudflare Workers as a drop-in for any Node backend.** Workers run V8 isolates, not Node — no filesystem, no long-lived TCP pools, no native dependencies, strict CPU limits per request. Re-implementing a backend on Workers means rethinking the parts that assume Node. Great for the small-fast-endpoint half of the app; wrong for the heavy-lifting half.
+- **Picking Bun / Astro / Convex because the demo videos look cool.** Hype velocity is not fit. The honest question is "what does my next project actually need?" If the answer is "the auth flow Clerk already handles" or "the email Resend already sends," reach for the tool that maps to your real next step — not the trendiest entry on this page.
+:::
+
+## Page checkpoint
+
+<Quiz id="tier-2-page" title="Did Tier 2 stick?" sampleSize={3}>
+
+<Question
+  prompt="You're building a one-page contact form for a friend's small business — Next.js, one form submit, one database insert. Is tRPC the right tool?"
+  options={[
+    { text: "Yes — type safety always wins" },
+    { text: "Yes — tRPC is required for production Next.js apps in 2026" },
+    { text: "No — a Next.js Server Action already gives you typed RPC for in-app calls; tRPC's win is framework-agnostic typed RPC across multiple clients" },
+    { text: "No — REST is the only correct answer for a form submit" }
+  ]}
+  correct={2}
+  explanation="tRPC shines when you have multiple clients (React Native, Astro, vanilla React, etc.) hitting the same backend and want shared types. Inside a single Next.js app, Server Actions already give you typed function calls server-to-client without the tRPC setup. For a one-page form: Server Action."
+  revisit={{ to: "/docs/roadmap/part-2-modern-stack/tier-2#trpc--typed-server-actions", label: "tRPC / typed server actions" }}
+/>
+
+<Question
+  prompt="What does a local-first sync engine (Convex, Zero) give you that a standard Postgres + REST stack does NOT?"
+  options={[
+    { text: "Cheaper hosting at scale" },
+    { text: "An instant-feeling UI (writes hit a local copy first), automatic real-time sync to other connected clients, and offline tolerance — without you writing the WebSocket / conflict-resolution / cache-invalidation glue" },
+    { text: "Better SEO" },
+    { text: "Type-safe SQL queries — Postgres doesn't have those" }
+  ]}
+  correct={1}
+  explanation="The point of a sync engine is that the database, the offline storage, the sync protocol, and the conflict resolution are bundled. You get instant UI (local write first), live updates across clients, and offline tolerance — the messy parts of building a multiplayer app — without writing a Postgres + Redis + WebSocket layer by hand."
+  revisit={{ to: "/docs/roadmap/part-2-modern-stack/tier-2#convex--zero-local-first-databases", label: "Convex / Zero" }}
+/>
+
+<Question
+  prompt="What's the key thing edge runtimes (Cloudflare Workers + Hono) change about how you write backend code?"
+  options={[
+    { text: "Nothing — it's just hosting; the code is the same as a Node Express app" },
+    { text: "You write in Rust instead of JavaScript" },
+    { text: "You lose parts of the Node API (filesystem, long-lived TCP, native modules) and gain global low-latency execution + no cold starts in the traditional sense — so backend code is structured around small stateless handlers" },
+    { text: "Code runs only in the user's browser" }
+  ]}
+  correct={2}
+  explanation="Workers run V8 isolates, not full Node — no fs, no native binaries, no persistent connections, strict CPU limits per request. In exchange you get code running in 300+ data centres near every user with effectively no cold starts. The trade-off forces small stateless handler-shaped backend code (which is also why Hono exists)."
+  revisit={{ to: "/docs/roadmap/part-2-modern-stack/tier-2#cloudflare-workers--hono", label: "Cloudflare Workers + Hono" }}
+/>
+
+</Quiz>

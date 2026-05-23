@@ -59,4 +59,71 @@ AI-integrated editors are wonderful as a productivity tool for engineers who alr
 Type every keyword, every API call, every type signature. Once you finish Part I, turn it back on — by then you'll know what it's doing and can use it well.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Asking AI to write the code you were about to learn from.** The struggle of writing it yourself *is* the learning — outsource it and you stay the same shape forever. Use AI to *explain*, not to *do*, especially on the exact thing the current project is meant to teach you.
+- **Trusting confident-sounding AI output.** LLMs invent function names, hallucinate APIs, and misexplain language semantics with full conviction. Always cross-check with the official docs (MDN, the library site) — the skill of *verifying* AI output is what separates "AI makes me faster" from "AI makes me ship subtly broken code."
+- **Reaching for AI before the 15-minute mark.** If you ask before you've actually tried, you skip the productive frustration that produces growth. Order: think, try, fail, try differently, fail again, *then* ask — and ask for a hint, not a solution.
+- **Leaving Copilot/Cursor autocomplete on while learning the basics.** Tab-completing your way through Part I means you never form the muscle memory. Turn it off until you can type the API from memory; then turn it back on as a productivity tool.
+:::
+
+## Page checkpoint
+
+<Quiz id="ai-as-learner-page" title="Did AI-as-learner stick?" sampleSize={3}>
+
+<Question
+  prompt="You're stuck on a React form. Which prompt is the right way to use AI as a learner?"
+  options={[
+    { text: "'Write me a React form component with validation for email and password.'" },
+    { text: "'I'm learning React. I know useState. Walk me through the design decisions for a controlled form — what state I need, where validation lives — then show a short example with comments on every hook.'" },
+    { text: "'Build me a complete signup page with Tailwind styling.'" },
+    { text: "'Fix my code: [pastes 200 lines]'" }
+  ]}
+  correct={1}
+  explanation="The same AI can either teach you or short-circuit your learning — it depends on framing. 'Write me X' gets code you don't understand. 'Explain how I'd approach X, then show a simple version with comments' builds understanding you can reuse."
+  revisit={{ to: "/docs/roadmap/part-4-meta/ai-as-learner#rule-1-use-ai-to-explain-not-to-do", label: "Rule 1: Use AI to explain, not to do" }}
+/>
+
+<Question
+  prompt="ChatGPT confidently tells you that `Array.prototype.flatMap` accepts a depth argument. What should you do?"
+  options={[
+    { text: "Trust it — ChatGPT is usually right about JavaScript basics" },
+    { text: "Try it in the console and ship whatever works" },
+    { text: "Check MDN or the official spec before using it; LLMs hallucinate APIs with full confidence" },
+    { text: "Ask ChatGPT again with a slightly different prompt to confirm" }
+  ]}
+  correct={2}
+  explanation="LLMs invent function signatures, parameters, and APIs that don't exist — often with total confidence. The skill of *verifying* AI output against primary sources (MDN, official docs) is what separates AI as a tool from AI as a source of subtle production bugs."
+  revisit={{ to: "/docs/roadmap/part-4-meta/ai-as-learner#rule-3-verify-everything-ai-tells-you-especially-when-it-sounds-confident", label: "Rule 3: Verify everything" }}
+/>
+
+<Question
+  prompt="When does asking AI for help *steal* a rep you needed for growth?"
+  options={[
+    { text: "Any time you ask AI — always struggle alone" },
+    { text: "When you ask before genuinely trying yourself, on the exact concept the project was meant to teach you" },
+    { text: "Only when you're working on production code" },
+    { text: "Only when AI gets the answer wrong" }
+  ]}
+  correct={1}
+  explanation="Productive struggle is the workout that produces growth. If you reach for AI before the 15-minute mark — especially on the concept the current project is meant to teach you — you skip the rep. Try, fail, try differently, *then* ask for a hint."
+  revisit={{ to: "/docs/roadmap/part-4-meta/ai-as-learner#rule-2-always-try-first-ask-second", label: "Rule 2: Always try first, ask second" }}
+/>
+
+<Question
+  prompt="Why is the advice to turn OFF Copilot/Cursor autocomplete during Part I, then turn it back ON afterward?"
+  options={[
+    { text: "Autocomplete is always harmful and should stay off forever" },
+    { text: "It saves API costs while learning" },
+    { text: "Autocomplete is a productivity tool for people who already know the basics — using it before you do means you never build the muscle memory" },
+    { text: "Copilot's output is too low-quality for beginners" }
+  ]}
+  correct={2}
+  explanation="AI editors make you faster at what you can already do — they're double-edged for learners. Tab-completing through Part I means you never form muscle memory for the syntax or API. Type it yourself until you know it, then re-enable AI as a productivity multiplier."
+  revisit={{ to: "/docs/roadmap/part-4-meta/ai-as-learner#the-cursor--copilot-question", label: "The Cursor / Copilot question" }}
+/>
+
+</Quiz>
+
 → Next: [Asking Good Questions](/docs/roadmap/part-4-meta/asking-questions) · [Back to Part IV overview](/docs/roadmap/part-4-meta)

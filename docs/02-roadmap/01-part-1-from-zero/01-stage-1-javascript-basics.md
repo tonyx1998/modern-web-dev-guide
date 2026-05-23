@@ -211,4 +211,58 @@ You will see these and panic — *don't*. They're for later, not now:
 In a `stage-1/` folder, build three things, no UI, all printed to the terminal: (1) a **number guessing game** — the program picks a random number 1–100, the user guesses via `readline`, the program says "higher" or "lower"; (2) a **todo list** stored in a JavaScript array, with functions to add, complete, and list todos; (3) a **word counter** that reads a text file and prints the 10 most-used words. Each one uses different bits of what you just learned. If you can build all three without copy-pasting, you've internalised Stage 1.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Reading without typing.** Skimming JavaScript docs builds the illusion of understanding. Open a Node REPL or a CodeSandbox alongside every section and *type every example* — your fingers learn what your eyes won't.
+- **Using `==` "because it's shorter."** It does silent type coercion (`0 == ""` is `true`, `null == undefined` is `true`) and has been the root cause of more JS bugs than any other feature. Only ever write `===` and `!==`.
+- **Mutating arrays/objects when you meant to copy.** `const y = x` doesn't copy — `y` and `x` point to the same object, and changes to one affect the other. Spread (`{...x}`, `[...arr]`) when you want an independent copy; this single mistake will haunt React state later.
+- **Rushing to Stage 2 because "the basics are boring."** Every stage after this is JavaScript with extra rules. Shaky fundamentals here turn React, async/await, and TypeScript into ten times more pain than they need to be. Spend the full 3–6 weeks.
+:::
+
+## Page checkpoint
+
+<Quiz id="stage-1-page" title="Did Stage 1 stick?" sampleSize={3}>
+
+<Question
+  prompt="What does `console.log(5 == '5')` print, and why?"
+  options={[
+    { text: "false — different types are never equal" },
+    { text: "true — `==` coerces the string '5' to the number 5 before comparing" },
+    { text: "TypeError — you can't compare a number to a string" },
+    { text: "undefined — JavaScript refuses to guess" }
+  ]}
+  correct={1}
+  explanation="`==` performs type coercion: it converts the string '5' to the number 5, then compares. Use `===` to compare without coercion — that would correctly return false because the types differ."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-1-javascript-basics#2-strings-template-literals-and-the-operators-that-bite", label: "Revisit: Operators that bite" }}
+/>
+
+<Question
+  prompt="After running `const x = { count: 1 }; const y = x; y.count = 99;`, what is `x.count`?"
+  options={[
+    { text: "1 — `y` is a separate copy" },
+    { text: "99 — `x` and `y` point to the same object in memory" },
+    { text: "undefined — the assignment broke the reference" },
+    { text: "TypeError — you can't mutate a `const`" }
+  ]}
+  correct={1}
+  explanation="Objects are passed by reference. `const y = x` copies the pointer, not the data, so `x` and `y` are two names for the same object. `const` only stops reassignment of the variable — it does not freeze the object's contents."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-1-javascript-basics#7-reference-vs-value-the-one-that-trips-everyone", label: "Revisit: Reference vs value" }}
+/>
+
+<Question
+  prompt="You write `if (count) doSomething();`, expecting it to run whenever `count` is set. Why does it incorrectly skip when `count === 0`?"
+  options={[
+    { text: "`if` only checks for `null` and `undefined`" },
+    { text: "`0` is one of JavaScript's falsy values, so the condition evaluates to false" },
+    { text: "`count` was hoisted before assignment" },
+    { text: "Numbers can't be used in conditionals" }
+  ]}
+  correct={1}
+  explanation="JavaScript treats `false`, `0`, `''`, `null`, `undefined`, and `NaN` as falsy. To check 'is this value set,' use `if (count !== undefined)` or `if (count != null)` instead of relying on truthiness."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-1-javascript-basics#3-conditionals-and-truthy--falsy", label: "Revisit: Truthy / falsy" }}
+/>
+
+</Quiz>
+
 → [Next: Stage 2 — HTML & CSS](/docs/roadmap/part-1-from-zero/stage-2-html-css) · [Back to Part I overview](/docs/roadmap/part-1-from-zero)

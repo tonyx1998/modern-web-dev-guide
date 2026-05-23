@@ -1,4 +1,4 @@
-﻿---
+---
 id: stage-7-tailwind
 title: Stage 7 — Tailwind CSS
 sidebar_position: 8
@@ -109,5 +109,59 @@ One `dark:` prefix per styling property. Configure how dark mode activates (syst
 :::tip[Project — Re-style your Stage 6 todo with Tailwind]
 Add Tailwind to your Stage 6 React todo project. Delete your existing CSS file entirely. Restyle the app using only Tailwind utilities — at minimum: a centered max-width container, a styled input + button row, list items with hover states, a "completed" struck-through style, dark-mode support via the `dark:` prefix. Make it responsive — single-column on mobile, two-column "active / done" layout from `md:` up. By the end of this project, the Tailwind class vocabulary will feel like a language, not a list.
 :::
+
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Giving up after 20 minutes because "the classes are ugly."** Yes — for the first day. After a week you stop reading individual classes and start reading shapes (`flex items-center justify-between` = "horizontal bar"). Install the [prettier-plugin-tailwindcss](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) so classes auto-sort into a predictable order; this is half the readability fight.
+- **Building a custom CSS file alongside Tailwind.** The minute you write `.btn-primary { @apply ... }` for every component, you've rebuilt the abstraction Tailwind was trying to delete. Reach for an actual React component (`<Button variant="primary">`) instead — same DRY, no two-place editing.
+- **Using arbitrary values for everything (`p-[17px]`, `text-[#a93f12]`).** Tailwind's spacing and color scales exist to keep your design consistent. Arbitrary values are a fire escape — fine once or twice per project, a smell if every component uses them.
+- **Mixing `sm:`, `md:`, `lg:` as if they were *max-widths*.** Tailwind is mobile-first: unprefixed is the base, and `md:` means "from 768px **up**." Writing `md:px-2 px-8` (expecting `px-2` only above 768px) does the opposite of what you want — the unprefixed class always applies.
+:::
+
+## Page checkpoint
+
+<Quiz id="stage-7-page" title="Did Stage 7 stick?" sampleSize={3}>
+
+<Question
+  prompt="`<div className=&quot;px-4 md:px-8 lg:px-16&quot;>` — what's the horizontal padding on a phone (375px wide)?"
+  options={[
+    { text: "16px (px-16, the most specific class)" },
+    { text: "8px (px-8, the middle option)" },
+    { text: "1rem / 16px from `px-4` — the unprefixed class is the mobile base; `md:` and `lg:` only kick in at 768px and 1024px respectively" },
+    { text: "0px — Tailwind requires an explicit `sm:` prefix" }
+  ]}
+  correct={2}
+  explanation="Tailwind is mobile-first. Unprefixed classes apply at every size; breakpoint prefixes (`sm:`, `md:`, `lg:`...) override *from that width upward*. On a 375px phone, only `px-4` is active."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-7-tailwind#4-responsive-prefixes", label: "Revisit: Responsive prefixes" }}
+/>
+
+<Question
+  prompt="Why is the production CSS that Tailwind ships usually tiny, even though Tailwind has thousands of utility classes?"
+  options={[
+    { text: "Tailwind compresses CSS more aggressively than other tools" },
+    { text: "Tailwind scans your source files and only includes the classes you actually used — unused utilities are tree-shaken out" },
+    { text: "Browsers cache Tailwind from a CDN" },
+    { text: "Tailwind sends only inline styles, not a CSS file" }
+  ]}
+  correct={1}
+  explanation="Tailwind's build step reads your JSX/HTML, finds every class string you wrote, and outputs only those rules. The thousands of *possible* utilities never make it into your bundle."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-7-tailwind#1-why-utility-first-wins-for-solo-development", label: "Revisit: Why utility-first" }}
+/>
+
+<Question
+  prompt="You want a button that's blue normally and darker on hover. Which is the idiomatic Tailwind?"
+  options={[
+    { text: "`bg-blue-600` plus a separate CSS file with `.btn:hover { background: ... }`" },
+    { text: "`bg-blue-600 hover:bg-blue-700` — state variants compose right into the class string" },
+    { text: "`bg-blue-600 onhover-bg-blue-700`" },
+    { text: "Tailwind doesn't support hover; use inline styles" }
+  ]}
+  correct={1}
+  explanation="State variants like `hover:`, `focus:`, `active:`, and `disabled:` prefix a utility to apply it only in that state. They compose freely with responsive prefixes (`md:hover:bg-blue-700`)."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-7-tailwind#5-state-variants", label: "Revisit: State variants" }}
+/>
+
+</Quiz>
 
 → [Next: Stage 8 — Next.js](/docs/roadmap/part-1-from-zero/stage-8-nextjs) · [Back to Part I overview](/docs/roadmap/part-1-from-zero)

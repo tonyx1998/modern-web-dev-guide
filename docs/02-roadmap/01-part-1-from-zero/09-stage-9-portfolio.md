@@ -79,4 +79,58 @@ Add [Plausible](https://plausible.io) or [PostHog](https://posthog.com) for basi
 Build it with Next.js + Tailwind. Include at least three projects you've built in earlier stages. Buy a domain. Deploy to Vercel. Run Lighthouse — fix every issue until you have a 95+ in every category. Add basic analytics. Share the link with at least one person who'll give honest feedback, and iterate based on what they say.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Listing tutorials as projects.** "Built a Todo MVC following a tutorial" reads as "I can copy code." A recruiter wants to see something *you* shaped — even a small project with your own idea beats a polished clone of a tutorial. Show, don't tell.
+- **Endless polish, never deploys.** Tweaking the hover animation for a week while the live URL doesn't exist is the inverse of the goal. Deploy on day one with placeholder content, then iterate in public.
+- **Cramped typography.** The single biggest "this site looks amateur" tell isn't code — it's tight line-height, dense paragraphs, and 14px body text. Use ~16–18px, line-height 1.5–1.7, and generous margins. One pass on typography matters more than three frameworks.
+- **No OpenGraph image.** Every share on Twitter, LinkedIn, or Discord becomes a sad text link without one. Thirty minutes in Figma to make a 1200×630 PNG punches well above its weight in how the site is received.
+:::
+
+## Page checkpoint
+
+<Quiz id="stage-9-page" title="Did Stage 9 stick?" sampleSize={3}>
+
+<Question
+  prompt="What's the right bar to aim for on a personal portfolio's Lighthouse scores?"
+  options={[
+    { text: "60+ in Performance; the rest don't matter" },
+    { text: "95+ in all four categories (Performance, Accessibility, Best Practices, SEO) — Next.js makes this realistic" },
+    { text: "100/100 in everything or don't deploy" },
+    { text: "Whatever you can hit in an hour" }
+  ]}
+  correct={1}
+  explanation="95+ across all four is achievable with sensible defaults (Next.js + `next/image` + `next/font`) and signals you care. Chasing perfect 100s often costs hours for diminishing return; 95 is the right stop point."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-9-portfolio#2-the-bar-to-aim-for", label: "Revisit: The bar to aim for" }}
+/>
+
+<Question
+  prompt="Which of these belongs on a portfolio?"
+  options={[
+    { text: "A list of every tutorial you've completed" },
+    { text: "Three to five projects you actually built, each with a screenshot, 1–3 sentences on what it does and what was hard, and links to live demo + source" },
+    { text: "Badges like 'I know React'" },
+    { text: "A wall of every technology you've ever touched" }
+  ]}
+  correct={1}
+  explanation="Recruiters and engineers scan for *evidence* of work — a working live URL and a brief story about what was hard. Tutorials and self-declared skill badges signal nothing they can verify."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-9-portfolio#1-what-goes-on-a-portfolio", label: "Revisit: What goes on a portfolio" }}
+/>
+
+<Question
+  prompt="Why is the OpenGraph image (`og.png`) worth 30 minutes of design effort?"
+  options={[
+    { text: "Google ranks pages with OG images higher" },
+    { text: "It's what shows up as the preview card whenever your link is shared on Twitter, LinkedIn, Discord, Slack — first impression for anyone who didn't visit yet" },
+    { text: "Browsers refuse to render the page without one" },
+    { text: "Vercel charges more for sites without one" }
+  ]}
+  correct={1}
+  explanation="OG images are the social-media preview card. A custom 1200×630 image with your name and tagline turns every share into a small ad for your work; without one, your link looks indistinguishable from spam."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-9-portfolio#4-seo-and-metadata", label: "Revisit: SEO and metadata" }}
+/>
+
+</Quiz>
+
 → [Next: Stage 10 — Backend basics](/docs/roadmap/part-1-from-zero/stage-10-backend) · [Back to Part I overview](/docs/roadmap/part-1-from-zero)

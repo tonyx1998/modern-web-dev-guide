@@ -144,6 +144,77 @@ Pick the transcript-save in SoloMock. Write four lines:
 
 Then fix whichever answer scares you most. You'll have written your first idempotent mutation.
 
+## How backpressure and queues show up
+
+When traffic spikes faster than your service drains it, requests pile up in a queue. Latency climbs not because any single request got slower — they're just waiting their turn. Past a point, timeouts cascade and the queue itself becomes the failure:
+
+```mermaid
+flowchart LR
+    C[Incoming requests<br/>200 req/s] --> Q[Queue<br/>depth growing]
+    Q --> W[Worker pool<br/>capacity: 100 req/s]
+    W --> DB[(Database)]
+    Q -.->|"queue full →<br/>shed load (429)"| Reject[Reject early]
+    W -.->|"slow query →<br/>workers blocked"| Q
+    style Q fill:#fee,stroke:#c33
+    style Reject fill:#efe,stroke:#3a3
+```
+
+*Backpressure is the system telling the layer upstream to slow down — by rejecting (HTTP 429), by blocking, or by dropping. Without it, the queue grows unbounded and latency climbs until everything times out.* The fix is rarely "make the worker faster" — it's "shed load earlier" (rate-limit at the edge, return 429 when the queue is deep) so callers can retry with backoff instead of all piling onto a dying service.
+
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Conflating latency with throughput.** Latency is "how long does one request take?" Throughput is "how many can finish per second?" You can have low latency and low throughput (a fast single-threaded server), or high latency and high throughput (a batch pipeline). Optimising the wrong one wastes weeks — name which number you're moving before you change code.
+- **Assuming the network "just works."** Most production bugs live in the "succeeded but you don't know it" middle case — the DB committed, but the response never reached the client. Every mutation should be designed assuming the client might retry it.
+- **Adding a cache to fix slowness without measuring first.** A wrongly-cached page is worse than a slow page — users see stale data and trust degrades silently. Default to no cache; add one only after a trace or metric points at a specific operation, and design the invalidation story before the cache itself.
+- **Forgetting that rolling deploys run old and new code simultaneously.** A "simple rename column" migration that works on your laptop breaks production because one instance is on the new schema while another is still on the old. Expand & contract, always — break renames into deployable steps.
+:::
+
+## Page checkpoint
+
+<Quiz id="systems-thinking-page" title="Did systems thinking stick?" sampleSize={3}>
+
+<Question
+  prompt="What's the actual difference between latency and throughput?"
+  options={[
+    { text: "They're synonyms — both measure speed" },
+    { text: "Latency is request size; throughput is response size" },
+    { text: "Latency is how long ONE request takes; throughput is how many requests FINISH per unit of time — you can optimise one and hurt the other (e.g. batching trades latency for throughput)" },
+    { text: "Latency is for reads; throughput is for writes" }
+  ]}
+  correct={2}
+  explanation="They're different beasts. A batch pipeline can have high latency (10 seconds per batch) AND high throughput (1M rows/sec). A real-time API can have low latency (10ms) AND low throughput (one request at a time). Naming which number you're moving prevents weeks of wasted optimisation."
+  revisit={{ to: "/docs/roadmap/part-3-beyond/systems-thinking#how-backpressure-and-queues-show-up", label: "Latency vs throughput" }}
+/>
+
+<Question
+  prompt="Why does idempotency matter so much in a system with retries?"
+  options={[
+    { text: "It makes the code easier to read" },
+    { text: "Because the 'succeeded but you don't know it' failure mode means clients will retry operations that already committed — without idempotency, a charge or email or insert happens twice" },
+    { text: "It's required by HTTP — non-idempotent endpoints aren't allowed" },
+    { text: "Idempotency only matters for GET requests" }
+  ]}
+  correct={1}
+  explanation="The server can commit a write and then crash before responding. The client times out and retries — and your operation runs twice. Idempotency (via unique keys, state-machine guards, or idempotency-key tables) is what makes the second call a safe no-op instead of a duplicate charge."
+  revisit={{ to: "/docs/roadmap/part-3-beyond/systems-thinking#2-idempotency-making-retries-safe", label: "Idempotency: making retries safe" }}
+/>
+
+<Question
+  prompt="Your service is overloaded. Where does backpressure most usefully show up?"
+  options={[
+    { text: "Inside the database — let the DB sort out the queue" },
+    { text: "Nowhere — just scale up the worker pool until requests are fast again" },
+    { text: "At the edge — reject early (HTTP 429 / queue depth limits) so callers can back off, instead of letting the queue grow unbounded until everything times out" },
+    { text: "In the client UI — show a spinner forever" }
+  ]}
+  correct={2}
+  explanation="Backpressure is the system telling upstream layers to slow down. Without it, the request queue grows unbounded, latency climbs, and timeouts cascade. The fix is shedding load early (rate limit, 429, bounded queue) so callers retry with backoff — not adding capacity to absorb an unbounded surge."
+  revisit={{ to: "/docs/roadmap/part-3-beyond/systems-thinking#how-backpressure-and-queues-show-up", label: "Backpressure and queues" }}
+/>
+
+</Quiz>
+
 ---
 
 → Next: [Security beyond HTTPS](/docs/roadmap/part-3-beyond/security) · [Back to Part III overview](/docs/roadmap/part-3-beyond)

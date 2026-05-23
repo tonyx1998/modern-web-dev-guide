@@ -161,6 +161,78 @@ Pick one deployed project. Do the audit:
 
 You will find at least one issue. Fix it before reading the next section.
 
+## A request's threat surface, end to end
+
+Every hop in a real request is also an attack surface. The bug class changes per hop, but the discipline is the same — distrust input, scope authority, validate output:
+
+```mermaid
+flowchart LR
+    A[User / Attacker] -->|"XSS payload<br/>CSRF, bot traffic"| CDN[CDN / WAF]
+    CDN -->|"cache poisoning<br/>via headers"| LB[Load Balancer]
+    LB -->|"rate-limit bypass<br/>spoofed IPs"| APP[App server]
+    APP -->|"SQL injection<br/>IDOR, mass assignment"| DB[(Database)]
+    APP -->|"SSRF to internal<br/>metadata endpoints"| INT[Internal services<br/>cloud metadata]
+    APP -->|"leaked secrets<br/>in logs/responses"| OUT[Logs / 3rd parties]
+    style A fill:#fee,stroke:#c33
+    style INT fill:#ffe,stroke:#c83
+```
+
+*The defensive habit: at every arrow, ask "what would a malicious version of this input do?" — then validate, scope, or reject before it crosses.* No single layer catches everything; defence-in-depth means each hop assumes the one before it might have failed.
+
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Trusting framework defaults to be "secure enough."** Most frameworks ship sensible defaults for *some* things (React escapes strings, ORMs parameterise queries) and nothing at all for the things you have to wire yourself — authz checks, CSP headers, rate limits, allowlists for outbound URLs. The bugs live in the gaps. Read your framework's security docs explicitly; don't assume.
+- **Thinking the threat is a targeted hacker.** The actual threat is automated scanners hitting every internet-facing endpoint with the same five known exploits. You don't need to be interesting to be compromised — you need to be *findable*, and every public URL is findable within hours of going live.
+- **Putting authorisation checks in the application layer instead of the WHERE clause.** A "fetch then check ownership" pattern leaks the row into memory, logs, or responses before the check fires. Scope the query itself: `WHERE id = ? AND user_id = ?`. The defensive habit is making it impossible for the row to exist outside its owner's context.
+- **Treating a leaked secret as "deletable."** Once a secret is in any git history, anywhere — even force-pushed, even in a private repo — assume it's compromised. Bots scrape GitHub commit feeds in real time. The only correct response is to rotate (revoke + replace), then audit how it got there.
+:::
+
+## Page checkpoint
+
+<Quiz id="security-page" title="Did security thinking stick?" sampleSize={3}>
+
+<Question
+  prompt="What's the basic shape of a threat model for a new endpoint?"
+  options={[
+    { text: "Run a vulnerability scanner and fix whatever it flags" },
+    { text: "Name the asset (what's valuable here?), the attacker (who might want it, and what access do they start with?), and the entry point (how does input reach the asset?) — then close each path" },
+    { text: "Add HTTPS and call it done" },
+    { text: "Wait for a pentest before shipping" }
+  ]}
+  correct={1}
+  explanation="Threat modelling is a structured 'what could go wrong' before code ships. Asset = what's valuable (user data, money, compute). Attacker = who might want it (bots, logged-in users, ex-employees). Entry point = where their input enters your system. You then enumerate the paths from entry to asset and close each one."
+  revisit={{ to: "/docs/roadmap/part-3-beyond/security#a-requests-threat-surface-end-to-end", label: "A request's threat surface" }}
+/>
+
+<Question
+  prompt="An attacker visits `/api/orders/124` and gets back another user's order — what class of bug is this?"
+  options={[
+    { text: "SQL injection" },
+    { text: "XSS (cross-site scripting)" },
+    { text: "IDOR (Insecure Direct Object Reference) — the endpoint checked that the user is logged in, but not that the requested resource belongs to them" },
+    { text: "CSRF (cross-site request forgery)" }
+  ]}
+  correct={2}
+  explanation="IDOR is the classic authorisation bug: authn passes (user is logged in), authz fails (no ownership check). The fix is to scope the query — `WHERE id = ? AND user_id = ?` — so the resource is unreachable unless it actually belongs to the current user. Return 404 (not 403) so attackers can't enumerate which IDs exist."
+  revisit={{ to: "/docs/roadmap/part-3-beyond/security#1-authn-vs-authz--and-why-authz-is-the-harder-one", label: "Authn vs authz and IDOR" }}
+/>
+
+<Question
+  prompt="You just realised you committed an API key to git two commits ago. What's the correct response?"
+  options={[
+    { text: "Run `git reset` to delete the commit — the key is now gone" },
+    { text: "Force-push to overwrite history so the key isn't in the repo anymore" },
+    { text: "Rotate the secret immediately (revoke + replace at the provider). Removing it from git doesn't matter — bots scrape commit feeds in real time and it's already in clones and caches" },
+    { text: "Add the key to .gitignore so it won't be committed again" }
+  ]}
+  correct={2}
+  explanation="Git rewrites don't help — the secret is already in everyone's clones, GitHub's API mirror, and every scraping bot's cache within minutes. The ONLY correct response is to rotate the secret at the provider. After that, add gitleaks/trufflehog as a pre-commit hook so it can't happen again."
+  revisit={{ to: "/docs/roadmap/part-3-beyond/security#5-secret-management-and-the-leak-youve-already-had", label: "Secret management" }}
+/>
+
+</Quiz>
+
 ---
 
 → Next: [Part IV — Meta-skills](/docs/roadmap/part-4-meta) · [Back to Part III overview](/docs/roadmap/part-3-beyond)

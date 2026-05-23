@@ -127,3 +127,82 @@ What a React component is, what npm is, what Tailwind CSS is (utility-first CSS 
 :::
 
 → See also: [Styling](/docs/stack/styling)
+
+## How the six trends interrelate
+
+```mermaid
+flowchart TB
+    subgraph Server["The server-shift cluster"]
+      RSC[Server-first React<br/>RSC + Server Actions]
+      EDGE[Edge runtimes<br/>Workers / Vercel Edge]
+      TS[Type-safe everywhere<br/>Zod + Drizzle + tRPC]
+    end
+    subgraph Client["The client-shift cluster"]
+      LF[Local-first / sync engines<br/>Convex / Zero]
+      SH[shadcn/ui<br/>own-the-source components]
+    end
+    AI[AI as a feature layer<br/>tool calling / RAG / agents]
+    RSC --> TS
+    RSC --> EDGE
+    TS --> LF
+    EDGE -.->|hosts| AI
+    RSC -.->|streams| AI
+    LF -.->|UI built with| SH
+    AI -.->|UI built with| SH
+```
+
+> **Reading this diagram:** Server-first React, edge, and type-safety reinforce each other (one stack, one type system, runs everywhere). Local-first and shadcn/ui mostly affect the client. AI cuts across both — it lives on the edge but renders in the UI.
+
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Treating "trend" as "tool to adopt this week."** These are *patterns to recognise* — the shapes 2026 codebases take. Tier 1/2/3 pages tell you what to actually adopt. Reading the trends page and immediately rewriting a project is the wrong response.
+- **Defaulting to client components in App Router.** The Next.js App Router defaults to *server* components. Sprinkling `"use client"` at the top of every file because "that's what we used to do" defeats the whole point — you ship JS for things that didn't need it. Add `"use client"` only when the component genuinely needs state, effects, or browser APIs.
+- **Picking edge for everything.** Edge runtimes are stripped-down — no full Node API, no long-lived TCP, limited CPU per request. Cron jobs, video processing, anything that opens a database pool, anything using a native dependency: keep on Node. Edge is for *small fast endpoints*, not "all backend code."
+- **Confusing local-first with "client-side."** A client-side app stores data only in the browser and loses it on cache clear. A local-first app keeps a synced copy locally AND has the server as the source of truth. Don't reach for Convex/Zero on a one-user form — the complexity only pays off when you have multiplayer, offline, or collaborative needs.
+:::
+
+## Page checkpoint
+
+<Quiz id="trends-page" title="Did the 2026 trends stick?" sampleSize={3}>
+
+<Question
+  prompt="In Next.js App Router with React Server Components, what is the DEFAULT for a new component file?"
+  options={[
+    { text: "Client component — it runs in the browser unless you mark it server" },
+    { text: "Server component — it runs on the server unless you add &quot;use client&quot;" },
+    { text: "Both — every component runs on both sides automatically" },
+    { text: "Static — components are pre-rendered at build time" }
+  ]}
+  correct={1}
+  explanation="In the App Router, components are server components by default. You opt specific components into the client by adding the &quot;use client&quot; directive at the top of the file when you need state, effects, or event handlers."
+  revisit={{ to: "/docs/roadmap/part-2-modern-stack/trends#server-first-react", label: "Server-first React" }}
+/>
+
+<Question
+  prompt="In the &quot;AI as a feature layer&quot; pattern, what is the model's role in the architecture?"
+  options={[
+    { text: "It replaces the database — the model stores all the app's data" },
+    { text: "It replaces the business logic — the model decides every user-facing action" },
+    { text: "It's a function call inside your normal app — UI ↔ logic ↔ LLM ↔ database" },
+    { text: "It runs the frontend — the model generates HTML on each request" }
+  ]}
+  correct={2}
+  explanation="The trend is that the model is a feature layer slotted into a normal app, not the product itself. Your app still has UI, business logic, and a database — the LLM is a function call (often via tool calling, RAG, or an agent loop) that sits alongside them."
+  revisit={{ to: "/docs/roadmap/part-2-modern-stack/trends#ai-as-a-feature-layer", label: "AI as a feature layer" }}
+/>
+
+<Question
+  prompt="You have a backend endpoint that opens a long-lived database connection, runs ffmpeg on uploaded video, and writes to disk. Edge or Node runtime?"
+  options={[
+    { text: "Edge — to minimise latency for users" },
+    { text: "Edge — all 2026 backends should be edge" },
+    { text: "Node — edge runtimes don't support long-lived TCP, native binaries like ffmpeg, or filesystem APIs" },
+    { text: "Either — they're functionally identical" }
+  ]}
+  correct={2}
+  explanation="Edge runtimes are stripped-down JavaScript environments. They don't have the full Node API, can't run heavy native libraries (ffmpeg), and can't hold long-lived TCP connections. Edge is for small fast endpoints; this workload belongs on Node."
+  revisit={{ to: "/docs/roadmap/part-2-modern-stack/trends#edge-runtimes", label: "Edge runtimes" }}
+/>
+
+</Quiz>

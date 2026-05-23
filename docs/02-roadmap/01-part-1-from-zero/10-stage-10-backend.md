@@ -1,4 +1,4 @@
-﻿---
+---
 id: stage-10-backend
 title: Stage 10 — Backend basics
 sidebar_position: 11
@@ -96,6 +96,25 @@ Lesson reinforced: every byte from the outside is suspect. Zod (or any validator
 
 ### 5. Talking to a database — SQLite + Drizzle for your first time
 
+The shape of every request from this point on:
+
+```mermaid
+sequenceDiagram
+    participant B as Browser
+    participant API as Hono route
+    participant ORM as Drizzle
+    participant DB as SQLite
+    B->>API: GET /posts/42
+    API->>API: validate params (Zod)
+    API->>ORM: db.select().from(posts).where(id=42)
+    ORM->>DB: SELECT * FROM posts WHERE id = 42
+    DB-->>ORM: row
+    ORM-->>API: typed Post object
+    API-->>B: 200 OK with Post JSON
+```
+
+> Every backend request follows this loop. Add auth, caching, logging — but the spine doesn't change.
+
 You don't need to set up Postgres just to learn. SQLite is a database that lives in a single file on disk — no server to install, no config. Combined with Drizzle, the experience is identical to "real" databases and the code transfers directly later.
 
 ```bash
@@ -190,5 +209,59 @@ For your first backend, deploy to [Render](https://render.com) (free tier, simpl
 :::tip[Project — A working REST API with persistence]
 Build a Hono API for a "links" app: `POST /links` creates a new link (validates with Zod: url required, title optional), `GET /links` lists all links newest first, `GET /links/:id` returns one, `DELETE /links/:id` removes one. Store everything in SQLite via Drizzle. Test with `curl` or [Postman](https://www.postman.com). Deploy to Render. By the end you'll have your first public-facing API.
 :::
+
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Trusting request bodies without validation.** `c.req.json()` returns `unknown` — anything could be in there, including a 50 MB string designed to crash your DB. Always parse with Zod (or similar) before touching the data; "the frontend will only send valid input" is a security bug, not a fact.
+- **Concatenating SQL strings.** Building a query like `"SELECT * FROM users WHERE id = " + id` is the textbook SQL injection bug — a malicious id like `1; DROP TABLE users;--` will execute. Use the ORM's parameterised query API (`where(eq(users.id, id))`) so values are bound, not interpolated.
+- **Storing secrets in code.** API keys, DB connection strings, JWT secrets all belong in `.env` (gitignored) and read via `process.env.NAME`. The moment you push a secret to GitHub, assume the world has it — rotate immediately.
+- **Forgetting CORS until the frontend can't talk to you.** When the frontend at `localhost:3000` calls the backend at `localhost:8787`, the browser blocks it by default. Add `cors()` middleware with the explicit allowed origin — and never `origin: "*"` on an authenticated API.
+:::
+
+## Page checkpoint
+
+<Quiz id="stage-10-page" title="Did Stage 10 stick?" sampleSize={3}>
+
+<Question
+  prompt="A user sends `POST /posts` with `{ title: &quot;&quot;, body: 12345 }`. Your handler does `const data = await c.req.json(); await db.insert(posts).values(data);`. What's the problem?"
+  options={[
+    { text: "Nothing — TypeScript will catch the bad types" },
+    { text: "You're inserting unvalidated data straight into the DB — title is empty, body is the wrong type, and a malicious payload could be much worse. Always parse with Zod (or a schema validator) at the boundary." },
+    { text: "Hono doesn't support POST requests" },
+    { text: "The DB will reject it automatically" }
+  ]}
+  correct={1}
+  explanation="`c.req.json()` returns `unknown` at runtime — TypeScript can't see what's actually in the request. A validator like Zod is the boundary guard: it rejects bad shapes with a 400 before they hit your DB."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-10-backend#4-reading-and-validating-request-data", label: "Revisit: Validating request data" }}
+/>
+
+<Question
+  prompt="In REST conventions, what does `DELETE /posts/42` mean?"
+  options={[
+    { text: "Delete every post" },
+    { text: "Delete the post with id 42" },
+    { text: "Mark post 42 as draft" },
+    { text: "Delete the user who wrote post 42" }
+  ]}
+  correct={1}
+  explanation="REST uses HTTP verbs against resources. `DELETE /posts/42` targets one specific resource. `DELETE /posts` (the collection) would mean delete all — almost never what you want, and most APIs don't implement it."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-10-backend#3-rest-the-convention-every-api-follows", label: "Revisit: REST" }}
+/>
+
+<Question
+  prompt="Why does this guide start you on SQLite instead of Postgres?"
+  options={[
+    { text: "SQLite is faster than Postgres" },
+    { text: "SQLite lives in a single file with no server to install or configure — you learn the ORM and SQL fundamentals without sysadmin work; the code transfers directly to Postgres later" },
+    { text: "Postgres doesn't work with Drizzle" },
+    { text: "SQLite supports more data types" }
+  ]}
+  correct={1}
+  explanation="SQLite removes setup friction so you can focus on schema design, queries, and migrations. Drizzle's API is nearly identical across SQLite and Postgres, so the transition later is a config change, not a rewrite."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-10-backend#5-talking-to-a-database--sqlite--drizzle-for-your-first-time", label: "Revisit: SQLite + Drizzle" }}
+/>
+
+</Quiz>
 
 → [Next: Stage 11 — Your first full-stack project](/docs/roadmap/part-1-from-zero/stage-11-fullstack) · [Back to Part I overview](/docs/roadmap/part-1-from-zero)
