@@ -487,7 +487,8 @@ html[data-reader-level="beginner"] body.quiz-required-pending .pagination-nav__l
    chapter has unmet quiz prerequisites. We dim them, prefix with
    a lock icon, and block clicks.
    ============================================================ */
-.theme-doc-sidebar-container a.menu__link[data-locked="true"] {
+.theme-doc-sidebar-container a.menu__link[data-locked="true"],
+.navbar-sidebar a.menu__link[data-locked="true"] {
   opacity: 0.45;
   pointer-events: none;
   cursor: not-allowed;
@@ -495,7 +496,8 @@ html[data-reader-level="beginner"] body.quiz-required-pending .pagination-nav__l
   padding-left: 1.85rem;
 }
 
-.theme-doc-sidebar-container a.menu__link[data-locked="true"]::before {
+.theme-doc-sidebar-container a.menu__link[data-locked="true"]::before,
+.navbar-sidebar a.menu__link[data-locked="true"]::before {
   content: "🔒";
   position: absolute;
   left: 0.45rem;
@@ -506,7 +508,8 @@ html[data-reader-level="beginner"] body.quiz-required-pending .pagination-nav__l
 }
 
 /* Add the lock icon at the front of locked level-1 category labels too. */
-.theme-doc-sidebar-container .theme-doc-sidebar-item-category-level-1[data-locked="true"] > .menu__list-item-collapsible > .menu__link {
+.theme-doc-sidebar-container .theme-doc-sidebar-item-category-level-1[data-locked="true"] > .menu__list-item-collapsible > .menu__link,
+.navbar-sidebar .theme-doc-sidebar-item-category-level-1[data-locked="true"] > .menu__list-item-collapsible > .menu__link {
   opacity: 0.45;
   pointer-events: none;
   cursor: not-allowed;
@@ -514,7 +517,8 @@ html[data-reader-level="beginner"] body.quiz-required-pending .pagination-nav__l
   padding-left: 1.85rem;
 }
 
-.theme-doc-sidebar-container .theme-doc-sidebar-item-category-level-1[data-locked="true"] > .menu__list-item-collapsible > .menu__link::before {
+.theme-doc-sidebar-container .theme-doc-sidebar-item-category-level-1[data-locked="true"] > .menu__list-item-collapsible > .menu__link::before,
+.navbar-sidebar .theme-doc-sidebar-item-category-level-1[data-locked="true"] > .menu__list-item-collapsible > .menu__link::before {
   content: "🔒";
   position: absolute;
   left: 0.45rem;
@@ -525,7 +529,8 @@ html[data-reader-level="beginner"] body.quiz-required-pending .pagination-nav__l
 }
 
 /* The chevron/caret on locked categories should also fade. */
-.theme-doc-sidebar-container .theme-doc-sidebar-item-category-level-1[data-locked="true"] > .menu__list-item-collapsible {
+.theme-doc-sidebar-container .theme-doc-sidebar-item-category-level-1[data-locked="true"] > .menu__list-item-collapsible,
+.navbar-sidebar .theme-doc-sidebar-item-category-level-1[data-locked="true"] > .menu__list-item-collapsible {
   opacity: 0.9;
 }
 

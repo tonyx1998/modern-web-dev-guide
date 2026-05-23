@@ -36,8 +36,13 @@ export default function SidebarLockGate(): null {
       // previously-set lock attrs so the sidebar fully reopens.
       const enforce = level === 'beginner';
 
+      // On desktop, doc sidebar items live inside
+      // `.theme-doc-sidebar-container`. On mobile, Docusaurus renders
+      // the same items inside `.navbar-sidebar` (the slide-out panel
+      // from the navbar hamburger). We have to scan both containers,
+      // or mobile readers see every chapter unlocked.
       const links = document.querySelectorAll<HTMLAnchorElement>(
-        '.theme-doc-sidebar-container a.menu__link',
+        '.theme-doc-sidebar-container a.menu__link, .navbar-sidebar a.menu__link',
       );
 
       // First pass: per-link lock state. Track whether each chapter
@@ -75,7 +80,7 @@ export default function SidebarLockGate(): null {
       // ANY locked link, which over-blocked once we added per-page
       // sequencing within a chapter.)
       const categories = document.querySelectorAll<HTMLElement>(
-        '.theme-doc-sidebar-container .theme-doc-sidebar-item-category-level-1',
+        '.theme-doc-sidebar-container .theme-doc-sidebar-item-category-level-1, .navbar-sidebar .theme-doc-sidebar-item-category-level-1',
       );
       categories.forEach((cat) => {
         // Find a link inside the category to determine chapter slug.
@@ -101,7 +106,7 @@ export default function SidebarLockGate(): null {
     function onClickCapture(e: MouseEvent) {
       const target = e.target as HTMLElement;
       const link = target.closest(
-        '.theme-doc-sidebar-container a[data-locked="true"]',
+        '.theme-doc-sidebar-container a[data-locked="true"], .navbar-sidebar a[data-locked="true"]',
       );
       if (link) {
         e.preventDefault();
@@ -116,11 +121,18 @@ export default function SidebarLockGate(): null {
     const t1 = window.setTimeout(apply, 200);
     const t2 = window.setTimeout(apply, 800);
 
-    const sidebar = document.querySelector('.theme-doc-sidebar-container');
-    const obs = sidebar
-      ? new MutationObserver(() => apply())
-      : null;
-    obs?.observe(sidebar!, {childList: true, subtree: true});
+    // Watch both the desktop sidebar container and the mobile
+    // navbar-sidebar panel — Docusaurus mounts/unmounts the mobile
+    // panel as the hamburger toggles, and we need to re-apply locks
+    // every time the doc items appear.
+    const sidebars = document.querySelectorAll(
+      '.theme-doc-sidebar-container, .navbar-sidebar',
+    );
+    const obs = new MutationObserver(() => apply());
+    sidebars.forEach((el) => obs.observe(el, {childList: true, subtree: true}));
+    // Also observe <body> so we catch the mobile navbar-sidebar
+    // being added/removed entirely on hamburger toggle.
+    obs.observe(document.body, {childList: true});
 
     const levelObs = new MutationObserver(apply);
     levelObs.observe(document.documentElement, {
