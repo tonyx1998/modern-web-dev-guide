@@ -12,7 +12,7 @@ You've finished the AI Layer chapter. Make sure the practical patterns stuck —
 
 There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit, and the link highlights the paragraph for you.
 
-In **Beginner mode**, you must pass (≥ 60%) to unlock the Next button and Chapter 10 in the sidebar. Switch the reading-level pill (top right) if you'd rather skip.
+You must pass (≥ 60%) to unlock the Next button and Chapter 10 in the sidebar.
 
 <Quiz id="ai-checkpoint" title="AI Layer checkpoint" sampleSize={5}>
 
