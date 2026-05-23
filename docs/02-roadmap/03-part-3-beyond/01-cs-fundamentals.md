@@ -181,6 +181,60 @@ One book per year in this category. *Designing Data-Intensive Applications* (Kle
 
 Next time you write a Drizzle query, log the actual SQL (Drizzle has a query logger built in) and run `EXPLAIN ANALYZE` on the result against your real data. Do this ten times across your projects. The abstraction stops being opaque, and you'll spot two or three missing indexes immediately.
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Reaching for Big-O before measuring.** "This *might* be slow on 10k rows" turns into a week refactoring code that runs on 50 rows in production. Measure first (a `console.time`, an `EXPLAIN ANALYZE`, a Sentry latency trace), optimise only the lines the numbers point at.
+- **Confusing "I've read about N+1" with "I can spot it in the wild."** The bug almost never looks like a literal `for` loop with `await db.query` inside — it hides behind ORM lazy-loaders, GraphQL field resolvers, and `.map(p => fetchAuthor(p))`. Log the actual SQL from your ORM in dev; if you see the same query shape 50 times for one page load, you've found one.
+- **Assuming "JavaScript is single-threaded" means race-free.** Every `await` is a suspension point — values you read *before* the await can be stale when you write them *after*. Do compound read-modify-write operations atomically in the DB, or wrap them in a transaction.
+- **Treating indexes as free.** Indexing every column slows writes, balloons disk usage, and confuses the query planner. Index columns you actually filter, join, or sort on, and check with `EXPLAIN ANALYZE` that the index is being used — not just that it exists.
+:::
+
+## Page checkpoint
+
+<Quiz id="cs-fundamentals-page" title="Did CS fundamentals stick?" sampleSize={3}>
+
+<Question
+  prompt="When does an O(n²) algorithm actually become a problem in practice?"
+  options={[
+    { text: "Immediately — O(n²) code is always wrong and should be rewritten" },
+    { text: "Only when n is large enough that the squared term dominates — small n is usually fine, but the cliff is sharp once you cross it" },
+    { text: "Never on modern hardware — CPUs are fast enough that complexity doesn't matter" },
+    { text: "Only when the inner loop touches the database" }
+  ]}
+  correct={1}
+  explanation="O(n²) on 50 items is 2,500 ops — instant. On 10,000 items it's 100,000,000 ops — the UI freezes. The danger is that the code feels fine in dev and silently breaks at production scale. Measure on realistic data."
+  revisit={{ to: "/docs/roadmap/part-3-beyond/cs-fundamentals#1-big-o-why-a-nested-loop-hurts-later", label: "Big-O: when nested loops hurt" }}
+/>
+
+<Question
+  prompt="What's the telltale signature of an N+1 query bug?"
+  options={[
+    { text: "A single query that returns more than 1,000 rows" },
+    { text: "A loop over query results where each iteration triggers another query (often hidden behind an ORM lazy-load or a `.map(x => fetch...)`)" },
+    { text: "Any query that uses a JOIN" },
+    { text: "A query that takes more than 100ms by itself" }
+  ]}
+  correct={1}
+  explanation="N+1 = 1 query to get a list, then N more queries (one per item) to load related data. The fix is a JOIN or an IN(?) batch. The bug usually hides behind ORM lazy-loaders or per-item `await`s in a loop — log the actual SQL to spot it."
+  revisit={{ to: "/docs/roadmap/part-3-beyond/cs-fundamentals#2-the-n1-query-the-database-version-of-the-same-trap", label: "The N+1 query trap" }}
+/>
+
+<Question
+  prompt="Before your HTTP handler runs on a first request to a new host, which round-trips have already happened?"
+  options={[
+    { text: "None — the request goes straight to the server" },
+    { text: "Just DNS" },
+    { text: "DNS lookup, TCP handshake, and TLS handshake — each a network round-trip before the first HTTP byte is sent" },
+    { text: "Only the TLS handshake; DNS and TCP are negligible" }
+  ]}
+  correct={2}
+  explanation="DNS, TCP, and TLS each cost a round-trip before HTTP can even start. On a 200ms-RTT network, that's roughly 600ms of overhead before your code runs. This is why CDNs, HTTP/2 multiplexing, and edge runtimes matter so much."
+  revisit={{ to: "/docs/roadmap/part-3-beyond/cs-fundamentals#3-the-http-lifecycle-no-tutorial-shows-you", label: "The HTTP lifecycle" }}
+/>
+
+</Quiz>
+
 ---
 
 → Next: [Engineering Judgment](/docs/roadmap/part-3-beyond/engineering-judgment) · [Back to Part III overview](/docs/roadmap/part-3-beyond)

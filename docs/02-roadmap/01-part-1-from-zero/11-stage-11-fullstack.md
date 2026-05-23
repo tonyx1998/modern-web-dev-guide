@@ -1,4 +1,4 @@
-﻿---
+---
 id: stage-11-fullstack
 title: Stage 11 — Your first full-stack project
 sidebar_position: 12
@@ -75,5 +75,59 @@ Or — and this is increasingly common — skip the separate backend entirely. P
 :::tip[Project — Ship the thing you picked]
 Build one of the three options (or invent your own at similar complexity). Use Next.js + Tailwind + Drizzle + SQLite or Postgres. Deploy it. Add it to your portfolio. The completion of this project is the line between "learning to code" and "I can build software." You've crossed it.
 :::
+
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Picking too ambitious a project.** "A Twitter clone with DMs and notifications" sounds inspiring and ships nothing. The bar is "more than just list-and-create" — guestbook, bookmark manager, habit tracker. Finishing a small project teaches more than abandoning a big one.
+- **Coding before sketching the schema.** Five hours into UI work you realise a habit needs many completions per day, not one — and now the migration, the API, and the page all need rewriting. Sketch tables → columns → relationships on paper *first*; the act of writing it down exposes 80% of the structural mistakes.
+- **Splitting frontend and backend repos out of habit.** Two deploys, CORS, env var duplication, two CI pipelines — for a solo project, all of that is unnecessary. Default to Next.js server actions + `lib/db.ts` in one repo unless you have a specific reason to split.
+- **Skipping the empty/loading/error states.** "The feature works" usually means "the happy path works." First-load empty state, network-failed error state, and skeleton loading state are the difference between a tutorial demo and a portfolio piece — and they're 80% of perceived quality.
+:::
+
+## Page checkpoint
+
+<Quiz id="stage-11-page" title="Did Stage 11 stick?" sampleSize={3}>
+
+<Question
+  prompt="What's the recommended first step when starting a full-stack project?"
+  options={[
+    { text: "Set up the deploy pipeline" },
+    { text: "Sketch the database schema — tables, columns, relationships — on paper or in a comment block before writing any code" },
+    { text: "Write the frontend with hardcoded data" },
+    { text: "Install every library you might need" }
+  ]}
+  correct={1}
+  explanation="Schema mistakes ripple through every layer. Sketching it first surfaces design issues (one-to-many vs many-to-many, missing columns) while they're free to fix. After that, the build sequence is schema → UI with fake data → connect reads → connect writes → polish → deploy."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-11-fullstack#3-the-build-sequence-the-order-that-prevents-thrashing", label: "Revisit: The build sequence" }}
+/>
+
+<Question
+  prompt="You get a 'hydration mismatch' error. What does it usually mean?"
+  options={[
+    { text: "Your CSS file failed to load" },
+    { text: "The HTML the server rendered disagrees with what the client renders — often because of a timestamp, random ID, or `typeof window` check that produces different output on each side" },
+    { text: "The database needs migrating" },
+    { text: "You forgot `&quot;use client&quot;`" }
+  ]}
+  correct={1}
+  explanation="React hydrates by attaching to the server's HTML; if its first client render produces different output, you get a mismatch. The fix is usually to compute the divergent value on one side only (e.g., format the date client-side after mount)."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-11-fullstack#4-the-things-that-will-trip-you-up-in-order-of-likelihood", label: "Revisit: Things that trip you up" }}
+/>
+
+<Question
+  prompt="For a solo first full-stack project, why does this guide recommend Next.js server actions + a `lib/db.ts` over a separate Hono backend?"
+  options={[
+    { text: "Server actions are faster" },
+    { text: "It's one repo, one deploy, no CORS, no duplicated env vars — strictly less ceremony for the same capability, and the architecture diagram is simpler" },
+    { text: "Hono doesn't work with SQLite" },
+    { text: "Vercel forbids external backends" }
+  ]}
+  correct={1}
+  explanation="Two deploys + CORS + duplicated config is real overhead. A monolith inside Next.js is the cheapest path that still teaches the full loop. Split later if you actually need to (different scaling, different team, different runtime)."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-11-fullstack#2-the-architecture-the-simplest-one-that-works", label: "Revisit: The architecture" }}
+/>
+
+</Quiz>
 
 → [Next: Stage 12 — Going professional](/docs/roadmap/part-1-from-zero/stage-12-going-pro) · [Back to Part I overview](/docs/roadmap/part-1-from-zero)

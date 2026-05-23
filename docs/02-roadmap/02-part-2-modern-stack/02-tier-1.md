@@ -464,3 +464,57 @@ posthog.capture("contact_form_submitted", { source: "homepage" });
 Drop Sentry into `all-in-one-URL/ui` via the wizard. Force an error (throw inside a button handler), confirm it shows up in your Sentry dashboard with a useful stack trace.
 
 → See also: [Observability tools](/docs/stack/observability-tools), [Observability in lifecycle](/docs/lifecycle/observability)
+
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Reading "Tier 1" as "adopt all six this weekend."** Adopt the one that fixes a pain you have *right now* in the *next* project. Six rewrites in parallel is how the project stalls. Pick one tier-1 item per project iteration.
+- **Picking Prisma because it's more famous than Drizzle.** Prisma is still fine, but in 2026 the type-safety story, bundle size, edge compatibility, and migration ergonomics favour Drizzle for new projects. Familiarity is not the same as fit — if you're starting fresh, default to Drizzle.
+- **Treating Server Actions as "just an API replacement."** They replace REST routes for the *common* case (form submits, simple mutations) but they're not for everything — public APIs, mobile clients, anything called by non-Next.js code still needs a real HTTP endpoint. Use Server Actions for the in-app mutations; keep REST/tRPC for external consumers.
+- **Conflating Sentry and PostHog.** Sentry catches *errors* (the app crashed, this request 500'd) — you want to know immediately. PostHog measures *behaviour* (which page, which click, which funnel drop-off) — you want trends over time. They overlap a little; install both. Skipping one because "we have the other" leaves a real blind spot.
+:::
+
+## Page checkpoint
+
+<Quiz id="tier-1-page" title="Did Tier 1 stick?" sampleSize={3}>
+
+<Question
+  prompt="You're starting a new TypeScript project in 2026 and want a type-safe database layer. The recommendation in this tier is:"
+  options={[
+    { text: "Prisma — it's the most popular, so the safest default" },
+    { text: "Drizzle — it's TypeScript-first, edge-compatible, and ships smaller code than Prisma's generated client" },
+    { text: "Raw SQL via psycopg2 / pg — drivers are simplest" },
+    { text: "TypeORM — it's been around the longest" }
+  ]}
+  correct={1}
+  explanation="Drizzle is the 2026 default for new TypeScript projects: TypeScript-first schemas, no code-generation step, edge-runtime compatible, smaller runtime than Prisma's client, and types flow from your schema definition directly."
+  revisit={{ to: "/docs/roadmap/part-2-modern-stack/tier-1#drizzle-orm--zod", label: "Drizzle ORM + Zod" }}
+/>
+
+<Question
+  prompt="What specific problem do React Server Components + Server Actions solve compared to the older &quot;client React + REST API&quot; pattern?"
+  options={[
+    { text: "They make React faster at the framework level" },
+    { text: "They eliminate the round-trip — the page renders entirely on the client" },
+    { text: "They remove the boilerplate of writing REST endpoints + fetch calls + manual response types for in-app data needs, and let server code (DB queries, secrets) stay on the server" },
+    { text: "They replace HTTP with a binary protocol for speed" }
+  ]}
+  correct={2}
+  explanation="The pre-RSC pattern required a REST route on the server, a fetch call on the client, and hand-maintained TypeScript types of the response shape. Server components query the database directly with zero JS shipped; Server Actions let you call server functions from the client without writing a route. Less boilerplate, types flow end-to-end, secrets stay on the server."
+  revisit={{ to: "/docs/roadmap/part-2-modern-stack/tier-1#react-server-components--server-actions", label: "RSC + Server Actions" }}
+/>
+
+<Question
+  prompt="Sentry and PostHog both go in this tier. Why install BOTH instead of picking one?"
+  options={[
+    { text: "Redundancy — if one provider goes down, the other catches the data" },
+    { text: "They measure different things: Sentry tracks errors and stack traces (the app broke); PostHog tracks product behaviour (which pages, which clicks, where users drop off)" },
+    { text: "PostHog is for backend, Sentry is for frontend" },
+    { text: "One is free, the other is paid — install both to compare pricing" }
+  ]}
+  correct={1}
+  explanation="They cover non-overlapping observability questions. Sentry answers &quot;is the app crashing, and where?&quot; — error tracking. PostHog answers &quot;what are users actually doing, and where do they give up?&quot; — product analytics, session replay, funnels. You need both signals to run a live app."
+  revisit={{ to: "/docs/roadmap/part-2-modern-stack/tier-1#sentry--posthog", label: "Sentry + PostHog" }}
+/>
+
+</Quiz>

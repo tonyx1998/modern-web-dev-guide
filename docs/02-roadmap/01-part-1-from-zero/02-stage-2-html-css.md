@@ -175,4 +175,58 @@ Mobile-first means: write styles for the small screen first, then add media quer
 In a `stage-2/` folder, build a single-page personal site by hand: a hero section with your name and a tagline, an "about me" section with 2 paragraphs, a "projects" section showing 3 cards in a grid, a contact form (no submit handler yet — Stage 3 will wire it up), a footer. Make it responsive: looks good on mobile AND a 1440px monitor. Use semantic tags. No frameworks, no libraries — just `index.html` and `styles.css`. Open it by double-clicking the HTML file. Iterate until you're proud of it; you'll deploy this version of yourself again in Stage 9 with Next.js.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **`<div>` for everything.** A wall of `<div>` works visually but is invisible to screen readers, search engines, and your future self skimming the markup. Reach for `<header>`, `<main>`, `<nav>`, `<article>`, `<section>`, `<footer>`, `<button>` first; fall back to `<div>` only when nothing semantic fits.
+- **Forgetting `box-sizing: border-box`.** Without it, `width: 300px` + padding + border = an element wider than 300px, and your layouts mysteriously overflow. Set `* { box-sizing: border-box; }` on every project — there is no downside.
+- **Desktop-first CSS.** Writing the desktop layout, then trying to "make it work on mobile" with overrides almost always produces a worse mobile experience than going the other way. Start with mobile styles, add `@media (min-width: 768px)` to override for bigger screens.
+- **Skipping labels on form inputs.** A bare `<input>` with placeholder text only is invisible to screen readers and breaks autofill. Always pair every input with a `<label for="id">` — accessibility and UX in one line.
+:::
+
+## Page checkpoint
+
+<Quiz id="stage-2-page" title="Did Stage 2 stick?" sampleSize={3}>
+
+<Question
+  prompt="With the default `box-sizing`, what is the rendered width of `.card { width: 300px; padding: 16px; border: 2px solid black; }`?"
+  options={[
+    { text: "300px — width is width" },
+    { text: "336px — width + left/right padding (32) + left/right border (4)" },
+    { text: "316px — width plus the border only" },
+    { text: "268px — width minus the padding" }
+  ]}
+  correct={1}
+  explanation="The default `content-box` sizing adds padding and border *outside* the declared width. 300 + 16 + 16 + 2 + 2 = 336. Setting `box-sizing: border-box` makes `width` include padding and border, which is almost always what you want."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-2-html-css#5-the-box-model", label: "Revisit: The box model" }}
+/>
+
+<Question
+  prompt="When should you reach for CSS Grid over Flexbox?"
+  options={[
+    { text: "Always — Grid replaced Flexbox" },
+    { text: "When laying out one direction (a row OR a column)" },
+    { text: "When you need two-dimensional layout — rows AND columns aligned together" },
+    { text: "Only inside `<table>` elements" }
+  ]}
+  correct={2}
+  explanation="Flexbox is one-dimensional (a row or a column). Grid is two-dimensional (rows and columns aligned together) and shines for page layouts and dashboard-style designs. They coexist — use the right one per situation."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-2-html-css#7-grid--for-two-dimensional-layouts", label: "Revisit: Grid" }}
+/>
+
+<Question
+  prompt="Two CSS rules target the same element with equal specificity. Which one wins?"
+  options={[
+    { text: "The one declared earlier in the file" },
+    { text: "The one declared later in the file" },
+    { text: "Whichever has `!important` (always)" },
+    { text: "The browser picks randomly" }
+  ]}
+  correct={1}
+  explanation="With equal specificity, later wins — that's the 'cascade' in Cascading Style Sheets. This is why your overrides usually go at the bottom of the file, and why source order matters."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-2-html-css#4-css-selectors-the-cascade-and-the-rules-of-engagement", label: "Revisit: Selectors and the cascade" }}
+/>
+
+</Quiz>
+
 → [Next: Stage 3 — JavaScript in the browser](/docs/roadmap/part-1-from-zero/stage-3-js-in-browser) · [Back to Part I overview](/docs/roadmap/part-1-from-zero)

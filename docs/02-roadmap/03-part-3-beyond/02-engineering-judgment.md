@@ -119,6 +119,60 @@ Three concrete habits:
 
 For your next non-trivial bug fix on any project, force yourself to write a 3-paragraph commit message: *symptom*, *root cause*, *fix*. It feels like overkill for one commit; it pays back the first time you have to figure out what past-you was thinking.
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Picking the "exciting" technology over the boring one.** Boring tech (Postgres, Express, server-rendered HTML) has years of bug fixes, docs, and known failure modes. Reach for the novel option only when the boring one provably fails for your constraints — and write down what it failed at.
+- **Treating every decision as equally weighty.** A one-way door (you can't undo it) — DB choice, public API shape, primary-key format — deserves a week of thought. A two-way door (you can revert in an hour) — a folder structure, a UI component library — deserves a commit, not a meeting. Spending equal energy on both is how teams stall.
+- **Confusing "I haven't decided" with "I'm being careful."** Not deciding is itself a decision — you're choosing to live with today's default, with whatever it costs. If a decision keeps coming back unresolved, write down the options and pick the least-bad one; you can revisit when new information arrives.
+- **Abstracting on the second occurrence.** The second case looks like the first because *you made it look like the first*. Wait for the third, real, unprompted occurrence — that's when the genuine shared shape becomes visible. Premature abstractions are almost always wrong-shaped and harder to remove than to add.
+:::
+
+## Page checkpoint
+
+<Quiz id="engineering-judgment-page" title="Did engineering judgment stick?" sampleSize={3}>
+
+<Question
+  prompt="When is it actually right to break the 'choose boring technology' rule?"
+  options={[
+    { text: "When the boring option is clearly slower than a newer one in benchmarks" },
+    { text: "When the team is bored and wants to learn something new" },
+    { text: "When the boring option provably fails for a specific, named constraint you've already measured against — and you can articulate what failure you're trading away" },
+    { text: "Whenever a popular framework releases a major new version" }
+  ]}
+  correct={2}
+  explanation="Boring tech wins by default because its failure modes are known and Googleable. You only break the rule when the boring option fails a *specific* constraint (latency budget, scale, a missing feature) — and you can name what new failure modes you're now signing up for."
+  revisit={{ to: "/docs/roadmap/part-3-beyond/engineering-judgment#3-trade-off-thinking", label: "Trade-off thinking" }}
+/>
+
+<Question
+  prompt="Which of these decisions should get the MOST scrutiny before you commit?"
+  options={[
+    { text: "Which folder structure to use for your routes" },
+    { text: "Which CSS framework to start with" },
+    { text: "Your primary database choice and how you model your core entities — a one-way door with high blast radius" },
+    { text: "Which testing library to use for unit tests" }
+  ]}
+  correct={2}
+  explanation="The reversibility test: ask 'if I'm wrong, how hard is it to undo?' Folder structures and testing libraries are two-way doors — change in an afternoon. Primary DB choice and core data model touch every line of code downstream and migrate slowly. High blast radius deserves high scrutiny; low blast radius deserves a commit."
+  revisit={{ to: "/docs/roadmap/part-3-beyond/engineering-judgment#3-trade-off-thinking", label: "Trade-offs and reversibility" }}
+/>
+
+<Question
+  prompt="A decision keeps coming up in standups, never gets resolved, and the team keeps shipping around it. What's the failure mode?"
+  options={[
+    { text: "The team isn't being thorough enough — they should keep deliberating until they're sure" },
+    { text: "Indecision IS a decision — you're choosing to live with today's default and paying its cost in delayed work and accumulated workarounds. Pick the least-bad option and revisit when new info arrives" },
+    { text: "It's fine — important decisions take time and shouldn't be rushed" },
+    { text: "The team needs more meetings to align on it" }
+  ]}
+  correct={1}
+  explanation="Not deciding is a choice — you're picking the status quo, including all its costs. The cost of deliberation often exceeds the cost of being wrong on a reversible decision. Make the call, write down why, and revisit if new evidence changes the picture."
+  revisit={{ to: "/docs/roadmap/part-3-beyond/engineering-judgment#5-writing-things-down", label: "Writing decisions down" }}
+/>
+
+</Quiz>
+
 ---
 
 → Next: [Systems Thinking](/docs/roadmap/part-3-beyond/systems-thinking) · [Back to Part III overview](/docs/roadmap/part-3-beyond)

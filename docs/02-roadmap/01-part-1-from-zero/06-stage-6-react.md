@@ -72,6 +72,19 @@ function Card({ title, body, onClick }: CardProps) {
 
 Props flow one-way: parent → child. A child cannot directly change a parent's data — it can only ask via a callback prop (the `onClick` in the example).
 
+```mermaid
+flowchart TD
+    App["&lt;App&gt;<br/>holds state: todos"] -->|"props: todos, onAdd"| Header["&lt;Header&gt;"]
+    App -->|"props: todos"| List["&lt;TodoList&gt;"]
+    App -->|"props: onAdd"| Input["&lt;TodoInput&gt;"]
+    List -->|"props: todo, onDone"| Item["&lt;TodoItem&gt;"]
+    Item -.->|"event bubbles up<br/>via onDone callback"| List
+    List -.->|"forwarded to onAdd / onDone"| App
+    Input -.->|"event bubbles up<br/>via onAdd callback"| App
+```
+
+> **Data flows down via props (solid arrows); events flow up via callback props (dotted arrows).** State lives at the highest component that needs to read or write it — usually the parent — and children stay "dumb" functions of their props.
+
 ### 4. State: `useState`
 
 ```tsx
@@ -198,5 +211,59 @@ Stop thinking "what should I do when X changes?" Start thinking "what should the
 :::tip[Project — Todo list in React + TypeScript]
 Use `npm create vite@latest` with the `react-ts` template. Rebuild your Stage 3 todo list in React: add, complete, delete todos, persist via `localStorage`, show the remaining count. Compose it from at least three components (`App`, `TodoInput`, `TodoItem`). Pass data down via props, send actions up via callback props. No external libraries. The goal isn't features — it's experiencing how much cleaner this is than the Stage 3 vanilla version.
 :::
+
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Mutating state instead of replacing it.** `todos.push(x); setTodos(todos)` doesn't trigger a re-render — the array reference is unchanged, so React thinks nothing changed. Always create a new array/object: `setTodos([...todos, x])`. This is the React-flavoured version of the Stage 1 reference-vs-value trap.
+- **Using the array index as a `key`.** `key={i}` works until the list reorders or you insert/remove items — then React reuses the wrong DOM nodes and you get ghost state, wrong focus, lost input values. Use a stable unique id (database id, UUID).
+- **Reaching for `useEffect` to derive data from props.** If you can calculate it during render (`const filtered = todos.filter(...)`), do that — no effect needed. `useEffect` is for *side effects* (subscriptions, manual DOM, third-party libs), not "I want this variable to update when X changes."
+- **Reading React's source code instead of typing examples.** React clicks through the fingers, not the eyes. Open a CodeSandbox alongside react.dev and *type* every example, then break it on purpose to see what error you get.
+:::
+
+## Page checkpoint
+
+<Quiz id="stage-6-page" title="Did Stage 6 stick?" sampleSize={3}>
+
+<Question
+  prompt="You write `todos.push(newTodo); setTodos(todos);` and nothing re-renders. Why?"
+  options={[
+    { text: "`push` is asynchronous and hasn't finished yet" },
+    { text: "React compares state by reference — the array reference didn't change, so React thinks nothing changed" },
+    { text: "You forgot to wrap it in useEffect" },
+    { text: "`setTodos` only accepts strings" }
+  ]}
+  correct={1}
+  explanation="React's bailout uses Object.is, which is reference equality for arrays/objects. Mutating in place keeps the same reference. Create a new array — `setTodos([...todos, newTodo])` — and React sees a different reference, triggering a re-render."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-6-react#5-the-rules-of-state-that-bite-newcomers", label: "Revisit: Rules of state" }}
+/>
+
+<Question
+  prompt="In React, a child component needs to update a value owned by its parent. What's the correct pattern?"
+  options={[
+    { text: "Mutate the prop directly inside the child" },
+    { text: "The parent passes a callback prop (e.g. `onChange`); the child invokes it, and the parent updates its own state" },
+    { text: "Use a global variable" },
+    { text: "Children can't update parent data — the architecture is wrong" }
+  ]}
+  correct={1}
+  explanation="React enforces one-way data flow: props go parent → child, but children request changes via callback props that the parent provides. The parent stays the single source of truth for its state."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-6-react#3-props-passing-data-into-components", label: "Revisit: Props and one-way data flow" }}
+/>
+
+<Question
+  prompt="What's the React team's current recommendation about `useEffect`?"
+  options={[
+    { text: "Use it for every piece of derived state" },
+    { text: "Wrap every component's body in one" },
+    { text: "You probably don't need it — server-side fetching and computing values during render cover most cases; reserve it for genuine outside-world side effects" },
+    { text: "Avoid it entirely — it's deprecated" }
+  ]}
+  correct={2}
+  explanation="The official guidance is 'You Might Not Need an Effect.' Most data-loading effects are replaced by server components (Stage 8); most derived values should be computed during render. Save `useEffect` for subscriptions, manual DOM work, and non-React libraries."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-6-react#8-useeffect-side-effects-and-why-you-should-avoid-it", label: "Revisit: useEffect" }}
+/>
+
+</Quiz>
 
 → [Next: Stage 7 — Tailwind CSS](/docs/roadmap/part-1-from-zero/stage-7-tailwind) · [Back to Part I overview](/docs/roadmap/part-1-from-zero)

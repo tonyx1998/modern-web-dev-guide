@@ -204,4 +204,58 @@ That's a three-day weekend of effort and it covers what most backend / full-stac
 Add the following to the full-stack project you built in Stage 11: (1) a `Dockerfile` for the app and a `docker-compose.yml` that brings up the app + a Postgres database with one command; (2) a `.github/workflows/ci.yml` that runs lint, type-check, and tests on every PR; (3) a *staging* environment separate from production (Vercel preview deployments count); (4) a README explaining how a new developer would clone, install, and run the project locally — then have a friend actually do it and watch where they get stuck. Bonus: open a PR to one open-source repo you've used (a tiny doc fix or typo counts) just to experience the OSS PR loop end-to-end.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Skipping Stage 12 because "I can already build."** This is the most common reason self-taught developers stall at junior level. The gap between "I can build" and "I can work on a team" is communication, PR workflow, CI, environments, and code review — none of it is new tech, all of it gates promotion.
+- **Treating PRs as a code dump.** A 2000-line "fix everything" PR will be rubber-stamped or ignored — neither is review. One purpose per PR, under 400 lines of diff, clear title and description. Reviewer fatigue is a real failure mode.
+- **Taking review feedback personally.** "This could be clearer" is about the code, not you. Engage every comment — change it or explain why you disagree. Ghosting comments wastes the team's time and reads as defensiveness.
+- **Trying to learn Kubernetes the way an SRE would.** As an application dev, you need to read a Deployment YAML and run `kubectl get/logs/describe/exec` — that's it. Going deep on operators and the scheduler is a career path of its own; pursue only if platform engineering is the goal.
+:::
+
+## Page checkpoint
+
+<Quiz id="stage-12-page" title="Did Stage 12 stick?" sampleSize={3}>
+
+<Question
+  prompt="What is a Docker container, in one sentence?"
+  options={[
+    { text: "A virtual machine running its own OS kernel" },
+    { text: "Your app plus everything it needs to run (specific runtime, libraries, env vars, dependencies) packaged into an image that runs identically on any machine" },
+    { text: "A faster version of `npm install`" },
+    { text: "A code repository hosted by Docker Inc." }
+  ]}
+  correct={1}
+  explanation="Containers package the app *with* its environment, so 'works on my machine' stops being a mystery — the same image runs in CI, on a colleague's laptop, and in production. They share the host kernel (unlike VMs), which is why they're fast."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-12-going-pro#1-docker--containerise-everything", label: "Revisit: Docker" }}
+/>
+
+<Question
+  prompt="What's the right size and scope for a PR you submit to a team?"
+  options={[
+    { text: "As big as possible — fewer PRs to review" },
+    { text: "One logical purpose, under ~400 lines of diff, with a clear title and a description covering why + how to test" },
+    { text: "Always exactly one file changed" },
+    { text: "Whatever you happened to commit that day" }
+  ]}
+  correct={1}
+  explanation="Small focused PRs get genuinely reviewed; huge ones get rubber-stamped. 'One purpose' lets reviewers reason about the change as a unit; a clear description respects their time and surfaces what they should look at hardest."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-12-going-pro#3-pr-workflow-and-code-review", label: "Revisit: PR workflow and code review" }}
+/>
+
+<Question
+  prompt="As an application developer (not an SRE), what's the right depth to learn Kubernetes?"
+  options={[
+    { text: "Deep — write your own operators and tune the scheduler" },
+    { text: "Zero — your platform team handles it" },
+    { text: "Read a Deployment manifest, run `kubectl get pods / logs / describe / exec`, know what a Helm chart is, learn the vocab (pod, service, ingress, namespace, configmap, secret) — about a three-day weekend of effort" },
+    { text: "Replace Kubernetes with Docker Compose in production" }
+  ]}
+  correct={2}
+  explanation="Application devs need *literacy*: deploy their app, read its logs, and debug crashes inside a cluster. Deep k8s — operators, scheduler internals, networking — is a separate career path. Match depth to your role."
+  revisit={{ to: "/docs/roadmap/part-1-from-zero/stage-12-going-pro#8-kubernetes--the-literacy-version", label: "Revisit: Kubernetes — the literacy version" }}
+/>
+
+</Quiz>
+
 → [Next: Part II — Once you can ship](/docs/roadmap/part-2-modern-stack) · [Back to Part I overview](/docs/roadmap/part-1-from-zero)

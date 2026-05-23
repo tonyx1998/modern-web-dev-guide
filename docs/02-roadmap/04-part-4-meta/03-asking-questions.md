@@ -48,4 +48,71 @@ Sometimes writing the good version of the question answers it for you — the ac
 - **GitHub Issues / Discussions** — best for "I think this might be a bug" reports. Always check existing issues first.
 - **Reddit** (r/learnprogramming, r/reactjs, r/webdev) — best for broader, more opinion-driven questions.
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Hiding context to seem smart.** Beginners often strip out the "embarrassing" parts — what they tried, the exact error, their stack — thinking it makes them look more competent. It does the opposite: it makes the question unanswerable and signals you haven't done the work. Include the messy details; that's what gets you a real answer.
+- **Asking 'why is this broken?' instead of a specific question.** Vague questions get vague (or no) responses. "Why is my Drizzle query returning duplicate rows after I add the second join?" is answerable; "react not working help" is not. Specificity is what summons the senior engineer.
+- **DMing instead of asking in public.** A DM gets answered once, helps one person, and dies. The same question in a public Discord channel or Stack Overflow thread gets better answers (more eyes), helps the next person who Googles it, and builds your reputation. Never DM what you could ask in public.
+- **Posting the bad version before writing the good version.** The act of writing a complete question — context, goal, what you tried, what you ruled out — often surfaces the answer mid-sentence. Write the full question first; you'll need to post less than half the time.
+:::
+
+## Page checkpoint
+
+<Quiz id="asking-questions-page" title="Did asking-questions stick?" sampleSize={3}>
+
+<Question
+  prompt="What makes a reproducible example actually reproducible?"
+  options={[
+    { text: "A screenshot of the error message" },
+    { text: "A description of what you were trying to do, in plain English" },
+    { text: "Minimal, complete, runnable code that demonstrates the problem in isolation — plus expected vs actual behaviour" },
+    { text: "Your entire project pushed to GitHub" }
+  ]}
+  correct={2}
+  explanation="A good repro is minimal (no unrelated code), complete (a helper can run it without filling in blanks), and verifiable (clear expected vs actual). A 20-line gist beats a whole-project link every time — and beats a screenshot by miles."
+  revisit={{ to: "/docs/roadmap/part-4-meta/asking-questions#bad-question-vs-good-question", label: "Bad question vs good question" }}
+/>
+
+<Question
+  prompt="You're stuck on a Next.js routing bug. Should you DM a senior engineer you know, or post in the public Next.js Discord?"
+  options={[
+    { text: "DM — you'll get a faster, more personal answer" },
+    { text: "Post in public — more eyes, the answer helps the next person who Googles it, and it builds your reputation" },
+    { text: "Both — DM first, then post if no reply" },
+    { text: "Neither — figure it out yourself to avoid bothering anyone" }
+  ]}
+  correct={1}
+  explanation="Public threads scale. A DM helps one person once; a public post gets better answers (more eyes), helps everyone who hits the same bug later, and builds your reputation as someone who asks well. Never DM what you could ask in public."
+  revisit={{ to: "/docs/roadmap/part-4-meta/asking-questions#where-to-ask", label: "Where to ask" }}
+/>
+
+<Question
+  prompt="Which of these belongs in a good question?"
+  options={[
+    { text: "Only the exact error message — keep it short so people read it" },
+    { text: "Context (stack), goal, what you tried with results, what you've ruled out, and a specific question" },
+    { text: "A long backstory about why you're learning to code" },
+    { text: "The full source of every file in your project, for completeness" }
+  ]}
+  correct={1}
+  explanation="The anatomy of an answerable question: context + goal + what you tried (with results) + what you ruled out + a specific question. Each piece prevents a round-trip. Backstory and full-project dumps are noise; a stripped-out error is unanswerable."
+  revisit={{ to: "/docs/roadmap/part-4-meta/asking-questions#the-anatomy-of-a-question-that-gets-answered", label: "The anatomy of a question that gets answered" }}
+/>
+
+<Question
+  prompt="What's the 'Socratic move' when writing out a question?"
+  options={[
+    { text: "Quote a famous philosopher to seem credible" },
+    { text: "Phrase the question so the answer is obvious — manipulate the reader" },
+    { text: "Articulating the problem precisely often surfaces the answer mid-sentence; write it fully before posting" },
+    { text: "Always ask three questions instead of one to get more answers" }
+  ]}
+  correct={2}
+  explanation="Rubber-duck debugging: explaining the problem completely — to a duck, a doc, or a Discord channel — often reveals the answer before you hit send. Always write the full question first; you'll need to post less than half the time."
+  revisit={{ to: "/docs/roadmap/part-4-meta/asking-questions#the-socratic-move", label: "The Socratic move" }}
+/>
+
+</Quiz>
+
 → Next: [Escaping the Tutorial Trap](/docs/roadmap/part-4-meta/tutorial-trap) · [Back to Part IV overview](/docs/roadmap/part-4-meta)
