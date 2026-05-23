@@ -119,6 +119,16 @@ This single habit dramatically improves solo code quality over time.
 - **Slow reviews:** PRs sitting for days. Costs context, momentum, and morale.
 - **Blocking on style nits:** Use a linter. Don't waste human time.
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Opening a 1,500-line PR and expecting a real review.** Reviewers will skim, leave one comment, and approve. You'll merge with bugs nobody saw. Split into a stack of small PRs — ideally each one reviewable in 15 minutes — even if it means more orchestration.
+- **Reviewing the diff instead of the change.** The diff hides context: the file that *isn't* modified but should be, the test that *isn't* added, the migration that should accompany this code. Always pull the branch (or click the preview deploy) and exercise the change before approving.
+- **Pasting LGTM after Copilot review checks pass.** AI review tools catch style issues, not design issues. Treating "AI approved" as a substitute for human reading means design errors and subtle bugs sail through. The AI is one more reviewer, not the only one.
+- **Letting "nit:" comments turn into blockers.** A reviewer leaves five `nit:` comments and the author dutifully fixes them all. Two days later, the PR is still open. If it's a nit, approve and let the author decide. Save the round-trip for blockers.
+- **Reviewing tone as if it were code quality.** Snarky comments ("did you even test this?") get the right technical answer and poison the team. Pretend the author is reading your comments aloud on a video call — if you'd cringe, rewrite it.
+:::
+
 ## Page checkpoint
 
 <Quiz id="lifecycle-code-review-page" title="Did code review stick?" sampleSize={2}>

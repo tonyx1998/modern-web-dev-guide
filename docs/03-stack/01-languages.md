@@ -117,6 +117,16 @@ Spending months agonizing over "which language should I learn first?" is the mos
 Pick TypeScript. Ship 3 projects. *Then* learn a second language if curiosity or career direction demands it.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Spending a month picking the "right" language.** You'll find passionate threads claiming Rust or Elixir is the secret unlock. The fix: pick TypeScript, ship three projects, *then* look around. Optionality is worth less than experience.
+- **Treating TypeScript as "JavaScript with annotations."** It's a structural type system, not a tax — `unknown` vs `any`, generics, and discriminated unions are where the real bug-catching lives. If your codebase is full of `any`, you're paying for TS and getting none of it.
+- **Choosing Python for the backend because the team already uses it for ML.** Different problem. A Python web service alongside a Python ML pipeline is fine; *forcing* a high-throughput API onto Python because of language familiarity often ends in a rewrite. Pick per-service, not per-org.
+- **Picking Go or Rust for the "performance" of a CRUD app.** Most web bottlenecks are the database and the network, not the language. Until you've profiled and confirmed CPU is the wall, you're optimizing the wrong layer.
+- **Conflating "language" with "framework."** "We use Next.js" and "we use TypeScript" answer different questions. The language constrains your runtime and ecosystem; the framework constrains your app's shape. Pick the language first, then the framework within it.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-languages-page" title="Did languages stick?" sampleSize={2}>

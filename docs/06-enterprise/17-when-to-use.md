@@ -70,6 +70,16 @@ A 2026-style company growing from 20 to 200 engineers might adopt enterprise pra
 Each step is triggered by a real pain. Skipping ahead — Kubernetes at 30 engineers, AppSec team at 50 — is almost always the wrong call.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Adopting enterprise practices to "look mature" in a funding round.** Investors don't grade you on whether you run Kubernetes; they grade you on revenue and growth. Building enterprise infrastructure to impress a board is a fast way to slow the company that's supposed to be impressing them.
+- **Waiting for the lag indicator that never quite arrives.** The opposite mistake: refusing to adopt anything until production is on fire. By then you're firefighting and building the new system at the same time — the worst possible context to make architectural decisions. Pick a clear trigger ("the third deploy-caused incident") and act on it the first time it hits.
+- **Cherry-picking the practice without the prerequisites.** Adopting feature flags without an observability story to measure them, or canary deploys without an SLO to evaluate them, leaves you with the cost of the new tool and none of the benefit. Each practice depends on the ones underneath it.
+- **Mandating the new practice org-wide on day one.** Telling 30 teams to migrate to a new platform "by Q3" without piloting it first guarantees a botched rollout. Run one or two teams on it, fix the rough edges, *then* expand — the same way you'd ship a customer-facing product.
+- **Confusing "scale we hope to reach" with "scale we have."** Setting up a 200-engineer process at 40 engineers means 160 engineers' worth of meetings funded by 40 engineers' worth of headcount. Build for the scale you're at; revisit when the lag indicators say you've moved.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-when-to-use-page" title="Did when-to-use stick?" sampleSize={2}>

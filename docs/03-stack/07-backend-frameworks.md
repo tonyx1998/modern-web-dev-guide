@@ -152,6 +152,16 @@ For most small-to-medium full-stack apps, the answer is *no*. Next.js (or Remix/
 This single integration eliminates a *lot* of complexity — no separate auth setup, no separate deploy pipeline, no CORS, no cross-service debugging. Only split frontend and backend when you have a clear reason (e.g., a mobile app sharing the API).
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Splitting frontend and backend on day one out of habit.** "We'll do React + Express" sounds normal, but it doubles your deploy pipeline, your auth setup, your CORS headaches, and your debugging surface. If you're already on Next.js or SvelteKit, do the backend there until you have a concrete reason to split.
+- **Picking a framework by benchmark numbers.** Fastify is "faster than Express," Hono is "faster than Fastify," and almost none of that matters for your CRUD app — the database is your bottleneck. Pick on ecosystem, team familiarity, and runtime targets.
+- **Spreading business logic across Express middleware.** Auth in one `app.use()`, validation in another, logging in a third — and now a single endpoint's behavior depends on the order they were registered. Keep middleware thin (cross-cutting concerns); put business logic in explicit handlers.
+- **Confusing Server Actions with API routes.** They're not the same. Server Actions are RPC-style functions you call from a component; route handlers are HTTP endpoints exposed to the world. Forms inside your app → Server Actions. Third-party integrations or mobile clients → route handlers.
+- **Reaching for NestJS on a small project for the "structure."** That structure is an Angular-style module/DI tax you pay every day. NestJS earns its complexity at team size. A solo dev or small team is faster on Hono or Fastify.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-backend-frameworks-page" title="Did backend frameworks stick?" sampleSize={2}>

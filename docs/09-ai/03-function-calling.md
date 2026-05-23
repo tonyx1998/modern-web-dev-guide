@@ -159,6 +159,16 @@ Even if you "trust" the LLM, validate. LLMs occasionally:
 The Zod (or Pydantic) `.parse()` call is your boundary between the unpredictable model output and the rest of your application — treat it like input validation on a public API endpoint.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Vague or missing tool descriptions.** A tool named `getData` with no description leaves the model guessing when to call it. Treat the description and parameter descriptions like docstrings for a junior dev — what does it do, when should it be used, what does it return? That text is the prompt for the routing decision.
+- **Auto-executing destructive tools.** Wiring `deleteUser` or `sendEmail` directly into `tools` and letting the SDK run them with no confirmation step is how prompt injection turns into real damage. Require explicit user approval — or a separate non-AI policy check — for any tool with side effects.
+- **Skipping `.parse()` because "structured output is guaranteed."** Even with native structured output, models occasionally drop required fields, emit out-of-range numbers, or invent enum values. The Zod/Pydantic parse at the boundary is non-negotiable; treat it like input validation on a public API.
+- **Picking a frontier model for a classification task.** Routing into 4 enum buckets doesn't need Opus 4.7. Use Haiku 4.5 or GPT-4.1-mini for bounded extraction/classification and reserve frontier models for genuinely open-ended reasoning — easy 10-30x cost cut with no measurable quality loss.
+- **No retry on a schema-validation failure.** When `.parse()` throws, dumping a 500 to the user is worse than asking the model to try again with the validation error in the prompt. Build a single-retry path that feeds the Zod error back as a corrective message.
+:::
+
 ## Page checkpoint
 
 <Quiz id="ai-function-calling-page" title="Did function calling stick?" sampleSize={2}>

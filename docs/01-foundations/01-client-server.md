@@ -117,6 +117,15 @@ It's all just clients and servers, all the way down.
 The web is a **conversation between computers**. Every problem you'll ever debug can be reframed as: *"Whose turn was it to talk, and what did they actually say?"* — and DevTools shows you that conversation in real time.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Treating "server" as a fixed identity instead of a role.** Your backend is a server to the browser AND a client to Stripe in the same second. When debugging, always ask: *in this conversation, which side started it?*
+- **Confusing the machine, the program, and the role.** "The server is down" might mean the box died, the process crashed, or the load balancer pulled it out — three completely different fixes. Be specific about which one you mean.
+- **Thinking the server can speak first.** It can't. Even real-time features (chat, push notifications, live scores) start with the *client* opening a connection. Once open, the server can keep talking — but the client always initiates.
+- **Skipping the Network tab.** Beginners stare at `console.log` and source code. Most webapp bugs are visible immediately in DevTools → Network — wrong URL, wrong status, missing header. Look at the conversation before reading the code.
+:::
+
 ## Page checkpoint
 
 <Quiz id="client-server-page" title="Did client/server stick?" sampleSize={2}>

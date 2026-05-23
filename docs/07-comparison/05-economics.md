@@ -72,6 +72,16 @@ Suppose you're tracking a "small feature" at three scales — say, "add a CSV ex
 The actual *coding* takes the same 2–4 hours at every scale. The 30x slowdown at enterprise scale is almost entirely review and rollout gates — and almost all of those gates exist because some past incident proved they were needed.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Optimizing the line item instead of the total.** Switching from $200/month Vercel to a $30/month VPS feels frugal until you spend two engineer-days per quarter on it. At a $150/hour blended rate, that's $4,800/year to save $2,000. Always price changes against the engineering time they cost.
+- **Quoting enterprise infra numbers at startup interviews.** "We run on $5M/month of AWS" sounds impressive and is almost never relevant to the decisions a 30-person company is actually making. Use the scale column you're hiring into, not the one with the biggest numbers.
+- **Treating time-to-production as pure waste.** A 4-hour canary at enterprise scale isn't bureaucratic friction — it's insurance priced against the cost of a global outage. The mistake is keeping each gate after the incident that justified it is no longer plausible. Audit gates yearly; don't blanket-import them.
+- **Modeling startup costs as if they scale linearly with users.** Most of a startup's $500–$5K/month bill is fixed regardless of whether you have 100 or 100,000 users — it only inflects when you hit specific cliffs (Postgres connection limits, observability ingest tiers, Vercel team plan). Forecast the cliffs, not the slope.
+- **Believing "engineering payroll dwarfs infra" means infra doesn't matter.** It matters when a single bad query 10x's your DB bill overnight, or a misconfigured logger fills S3 with TB of garbage. Payroll dominates the *baseline*; surprises live on the infra side.
+:::
+
 ## Page checkpoint
 
 <Quiz id="comparison-economics-page" title="Did economics across scales stick?" sampleSize={2}>

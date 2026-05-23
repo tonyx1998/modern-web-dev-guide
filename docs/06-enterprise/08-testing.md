@@ -71,6 +71,16 @@ The first few months they ran it, things broke constantly. Each break uncovered 
 Once they fixed every break Chaos Monkey found, they had genuinely resilient systems — not because they'd designed for resilience, but because they'd been forced to. That's the core idea of chaos engineering: never trust a recovery path that hasn't been exercised under stress.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Letting a flaky E2E suite rot in CI.** A 5% flake rate on 200 tests means roughly every run fails for "reasons." Engineers learn to re-run until green, which trains everyone to ignore real failures. Quarantine flaky tests immediately and either fix or delete them — don't let "it's just flaky" become acceptable.
+- **Chasing a coverage percentage instead of meaningful tests.** 90% line coverage with shallow tests catches less than 60% with tests that exercise real edge cases. Don't set the coverage gate so high that teams game it with `expect(true).toBe(true)`.
+- **Running chaos engineering without an error budget to absorb it.** If breaking a service in staging would derail the team's launch, nobody will let you do it. Chaos only works when the org genuinely accepts that finding a problem now is cheaper than finding it at 3 AM.
+- **Bolting on contract tests after the fact.** Pact or similar contract tests work when producers and consumers both opt in from day one. Retrofitting them across an existing 50-service mesh is months of work and usually ends with half-finished adoption — start contracts when you start splitting services.
+- **Treating security scanners as "noise from the AppSec team."** A SAST finding ignored for six months is a CVE waiting for an auditor. Triage on a schedule, suppress with a reason (not silently), and treat the dashboards like a queue, not a wall.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-testing-page" title="Did enterprise testing stick?" sampleSize={2}>

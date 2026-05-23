@@ -40,6 +40,16 @@ The single template danger: deploying code you can't read. When a Stripe webhook
 Before you `npm install` a paid SaaS kit, spend an evening reading its source. If you can't make sense of the auth flow or the payment handler, walk away.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Buying the SaaS kit to procrastinate on the actual product.** Spending three weekends "evaluating" paid kits is just the planning trap with a credit card. The fix is a 60-minute time-box: skim two kits, pick one, or commit to building from scratch. Either is fine; the *deciding* is what burns weekends.
+- **Cargo-culting features from the template into v1.** The kit ships with team workspaces, blog, email sequences, and an admin panel — and now your "v1" has all of it because deleting felt wasteful. The fix is to ruthlessly rip out anything that isn't on your five-feature list. Unused code in a template is still code you have to maintain.
+- **Treating the template as a black box you can't modify.** "I don't want to touch their auth code in case it breaks updates." The fix is to fork mentally — once you ship, the kit isn't a dependency, it's your code. Read it, modify it, own it. Updates to the upstream kit will rarely matter once you've shipped real users.
+- **Picking the template that markets best instead of the one that fits.** The kit with the slickest landing page isn't necessarily the one whose code matches your stack and taste. The fix is the "read the source for an evening" gate from the highlight — landing pages lie, code doesn't.
+- **Letting "I'll learn it later" become permanent.** You ship on the kit, plan to "study the Stripe webhook handler eventually," and three months later prod breaks at 9pm with code you've never read. The fix is to walk the kit's critical paths (auth, payment, webhook) within the first week of using it — even if everything works.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-templates-page" title="Did the templates advice stick?" sampleSize={2}>

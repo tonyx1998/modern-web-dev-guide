@@ -163,6 +163,16 @@ Specialized for timestamped data (metrics, sensor readings, logs).
 | Document DB         | Rare in 2026 — only if you genuinely have schemaless data | Postgres + JSONB                  |
 | Time-series         | When you're recording millions of metrics/second        | Postgres + TimescaleDB              |
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Picking MongoDB to avoid "schema work."** Schemaless storage doesn't mean schemaless data — it means the schema lives in your application code, undocumented, and varies row-to-row. Two years later, half the documents are missing fields and migrations are nightmarish. Postgres + JSONB gives you the same flexibility *and* a schema you can lean on.
+- **Caching everything in Redis without an expiry.** A cache without a TTL is just a second database that drifts from the first. Always pass `EX <seconds>` (or `PX <ms>`) on writes. Forgetting this turns Redis into an unbounded memory leak.
+- **Forgetting the cache invalidation problem.** Caching is easy; invalidating is the hard part. When an order updates, every cache key derived from that order must be invalidated or expire — otherwise users see stale prices. Either keep TTLs short (60s is fine for most pages) or explicitly invalidate on writes.
+- **Adding Elasticsearch for a `LIKE '%foo%'` query.** Postgres full-text search (`tsvector`/`tsquery`) handles stemming, ranking, and basic search well enough for the vast majority of apps — and it stays in the same database, same backup, same transaction. Reach for Elasticsearch when you need faceting, multi-language, or genuine search scale, not as a default.
+- **Letting pgvector tables grow unindexed.** Vectors search is fast *with* an HNSW or IVFFlat index, slow without. A million-row `vector(1536)` column without an index is a sequential scan on every query. Build the index from the start; tune it later.
+:::
+
 ## Page checkpoint
 
 <Quiz id="databases-nosql-page" title="Did NoSQL databases stick?" sampleSize={2}>

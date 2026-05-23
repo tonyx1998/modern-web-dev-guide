@@ -68,6 +68,16 @@ Web development in 2026 is more demanding than five years ago — and also more 
 
 Good luck building.
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Letting coursework crowd out shipping.** A 4.0 GPA with no deployed projects is a worse signal in 2026 than a 3.4 with three live URLs. Treat the syllabus as a floor; the shipping work happens on top.
+- **Waiting until "after this exam" to start the side projects.** There is always a next exam. The students who land strong internships started shipping in Semester 1, not after grades were locked in.
+- **Applying for summer internships in February.** By February, the strong roles are filled. September of Year 1 for the next summer is not optional — set a calendar reminder before the program even starts.
+- **Treating CSCI571 like just another class.** The Flask/Ticketmaster/GCP project is the single highest-leverage artifact a USC CS Master's student produces. Doing it to spec for the grade and never polishing or deploying it well wastes the leverage.
+- **Networking only with classmates.** The cohort matters, but so do alums two years ahead of you (now working at companies you want), professors, and TAs. Send the email; cold outreach inside the same school has a remarkably high response rate.
+:::
+
 ## Page checkpoint
 
 <Quiz id="career-for-tony-page" title="Did the personalized advice stick?" sampleSize={2}>

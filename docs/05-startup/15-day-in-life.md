@@ -54,6 +54,16 @@ The two meetings in the day above (stand-up, pair debugging) take ~75 minutes co
 Beyond a certain team size, coordination cost is unavoidable. The lever is *how* you coordinate — async by default, synchronous when it actually helps. Meetings that don't pay for themselves get killed in the retro.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Joining a startup expecting solo-dev hours of deep focus.** If 6+ hours of uninterrupted coding is what makes work feel good to you, this rhythm will frustrate you. Either find a startup with explicit "maker time" norms or accept the trade — the in-between is misery.
+- **Reviewing PRs in 90-second bursts between context switches.** A real review takes 20-40 minutes for a substantive change. Batch reviews into one or two dedicated blocks per day instead of triaging the GitHub notification badge.
+- **Treating standup as status reporting up to the manager.** That makes it pointless. The actual value of standup is engineers spotting where they could *unblock each other today*. If yours feels performative, kill it and try async — most teams don't notice.
+- **Letting "deep work" mean "available in Slack but not really."** Half-presence is the worst of both worlds — you neither help teammates nor finish your task. Set a status, close Slack, and protect 90 minutes — then check messages.
+- **Skipping the post-incident wrap-up because "everything's fine now."** Triaging a Sentry alert, fixing it, and moving on without writing what happened means the next engineer rediscovers the same root cause from scratch. Three lines in the runbook is enough.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-day-in-life-page" title="Did the day-in-life picture stick?" sampleSize={2}>

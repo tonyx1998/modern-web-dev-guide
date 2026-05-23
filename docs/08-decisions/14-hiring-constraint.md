@@ -55,6 +55,15 @@ A single hire being twice as hard isn't 2x cost — it's worse:
 If you can't articulate a *specific* reason the niche tech is worth all of that, it isn't.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Treating "the team already knows it" as the whole answer.** Today's six engineers know Elixir. The seventh hire and the manager you'll need to recruit next year don't. The hiring constraint is about who you'll *need*, not who you have — discount the current team's preference accordingly.
+- **Assuming AI-assisted coding erases the talent-pool gap.** AI helps engineers move into unfamiliar languages faster, but the senior engineers who can debug a production incident at 2 a.m. in Haskell still have to exist somewhere. Niche-language seniority is still scarce regardless of how good the tooling gets.
+- **Picking the niche tech and *then* trying to justify it.** Engineers fall in love with the tool first and reach for "but it'll attract passionate engineers" as the post-hoc reason. If your moat-related justification existed before the engineer's enthusiasm, fine. If it appeared after, you're rationalizing.
+- **Ignoring the hiring lens for internal tools.** Custom internal frameworks ("our own auth abstraction," "our own ORM") have a hiring pool of *zero* — every new engineer pays the onboarding tax. That cost is invisible at five engineers and crippling at fifty. Internal tools are the most extreme version of the hiring constraint.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-hiring-constraint-page" title="Did the hiring constraint stick?" sampleSize={2}>

@@ -136,6 +136,16 @@ Implementing auth correctly is hard — there are dozens of subtle ways to leak 
 This is the single piece of advice with the strongest consensus across the industry in 2026. The attack surface is too large, the consequences of mistakes too severe, and the existing services are too cheap and too good. Spend your engineering time on your product, not on yet another password hashing implementation.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Mixing up *hashing* and *encrypting* passwords.** Encryption is reversible; whoever has the key can read the plaintext. Hashing (bcrypt, argon2) is one-way. If anyone — including you — can *decrypt* user passwords, the design is wrong. Hash them.
+- **Using a fast hash like SHA-256 or MD5 for passwords.** Fast hashes are exactly what GPUs need to brute-force a leaked database. bcrypt and argon2 are *deliberately* slow; that slowness is the security feature. Never roll your own.
+- **Treating "Sign in with Google" as a free upgrade.** OAuth means your auth depends on Google being up, your `client_id` being correct, and your app's privacy policy explaining what data you receive. It also doesn't free you from session management — you still need to issue your own session/JWT once the OAuth flow completes.
+- **Sending the magic link from a domain users don't recognize.** If users see an email from `mail.no-reply-server.aws-ses-region-2.example` they will mark it as spam and your "passwordless flow" silently breaks. Set up a verified sending domain (SPF, DKIM, DMARC) before launch.
+- **Building auth yourself "to learn."** Learning is fine; *shipping* a homegrown auth system in 2026 is not. Token rotation, password resets, MFA, OAuth edge cases, and account takeover defenses are massive surface areas with severe consequences. Use Clerk, Better Auth, Auth.js, Auth0, or Supabase Auth and spend that time on your product.
+:::
+
 ## Page checkpoint
 
 <Quiz id="authentication-page" title="Did authentication stick?" sampleSize={2}>

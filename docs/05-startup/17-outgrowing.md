@@ -59,6 +59,16 @@ Most companies don't notice they've outgrown their workflow until something brea
 The signals listed above are the leading indicators. Watch them quarterly. When two or three are flashing red, start the transition — don't wait for the fourth.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Declaring "we're an enterprise now" the moment you hit 50 headcount.** Headcount alone isn't the signal — pain is. A 60-engineer team without blocking dependencies or risky deploys can run small-company patterns longer; a 35-engineer team with a brittle monolith may need enterprise practices sooner. Watch the symptoms, not the org chart.
+- **Treating the transition as a wholesale rewrite.** "We need to be enterprise" turns into a six-month re-platforming project that ships nothing. Pick the *two* most painful signals, address them surgically, and let the rest of the workflow keep working until it doesn't.
+- **Promoting your strongest IC to "VP Engineering" to handle scale.** Running an org and writing code are different jobs. Forcing the transition on someone who didn't want it loses you the IC *and* the manager. Recruit externally for management roles you don't have internal interest in.
+- **Believing you'll get to enterprise practices "after this launch."** The next launch always exists. If you're three signals deep into the outgrowing list, the transition has to happen *during* the work, not after — or the next big incident makes the decision for you.
+- **Losing the speed advantage that got you here.** Enterprise patterns add coordination cost on purpose. The risk is over-correcting: adopting RFCs for every change, ARBs, multi-week planning cycles. The goal is to layer in *just enough* enterprise to keep the wheels on — not to become the company you were rebelling against at 10 people.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-outgrowing-page" title="Did the outgrowing signals stick?" sampleSize={2}>

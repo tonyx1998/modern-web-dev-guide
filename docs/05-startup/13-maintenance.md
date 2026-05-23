@@ -73,6 +73,16 @@ The instinct when traffic grows is to imagine you need microservices, Kubernetes
 In that order. Most "we need to re-architect" pain at this scale dissolves once Postgres is properly tuned. Re-architecting is a *last* resort, not a *first* one.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Indexing every column "just in case."** Each index slows writes and costs storage. Add indexes when `EXPLAIN ANALYZE` proves a real query is doing a sequential scan — not preemptively because someone might filter by `created_at` someday.
+- **Caching too aggressively, then debugging stale data for a month.** A 5-minute Redis TTL on user profile data feels fine until a customer changes their email and gets confused for an hour. Cache only what's safe to be slightly stale, and invalidate on write where it matters.
+- **Letting the cost review become "review the chart, nothing to do."** Each weekly review needs a *decision*: cap a runaway service, archive cold data, downgrade a tier. Reviews that end in "interesting, see you next week" stop adding value within a month.
+- **Putting off the major Postgres or framework upgrade because "it's stable."** A Postgres 14 cluster you can't easily upgrade in 2026 is a future weekend of pain. Schedule version upgrades quarterly while the gap is small — it's cheaper than catching up by three majors when forced.
+- **Killing the maintenance budget the quarter before a big launch.** Tech debt compounds whether you pay the interest or not. The "we'll skip maintenance this sprint" decision typically extends to four sprints and produces the incident that delays the launch anyway.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-maintenance-page" title="Did maintenance and scaling stick?" sampleSize={2}>

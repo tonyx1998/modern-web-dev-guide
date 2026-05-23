@@ -61,6 +61,16 @@ Three years later, they had a brilliant internal platform — and almost no prod
 The lesson: the practices that make sense at 30,000 engineers make no sense at 300. Copying them is a great way to slow your own company to a crawl.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Reading FAANG engineering blogs as how-tos instead of war stories.** A Meta post about their custom build system is fascinating context, not a template. Treat those posts as "what someone solved at a scale we don't have," not as "what we should adopt next quarter."
+- **Hiring ex-FAANG engineers to "bring Google practices" to a 200-person company.** They built those practices for a 30,000-person org with hundreds of platform engineers behind them. Without that scaffolding, the practices either get rebuilt at huge cost or quietly fail. Hire them for their judgment, not for the bullet points on their resume.
+- **Forking a critical open-source project "because FAANG does."** FAANG companies fork because they have whole teams to maintain the fork forever. If you fork at 200 engineers, the fork stops getting upstream security patches and you've just adopted a slow, silent CVE pipeline.
+- **Building your own internal language or framework "for productivity."** A 10% boost across 30,000 engineers is enormous; across 300 it's a hobby project pretending to be infrastructure. Use the public ecosystem until it actually breaks for you — and "we wish it had this feature" is not breakage.
+- **Treating the universal principles as optional once you copy the tools.** Borg-style schedulers don't excuse skipping observability; in-house languages don't excuse skipping security review. The implementations vary; HTTP, the lifecycle, and defense in depth still apply. Make sure the principles survive whatever you copy.
+:::
+
 ## Wrapping up the chapter
 
 Enterprise web development is qualitatively different from small-company work. The technical concepts are similar — HTTP, databases, frameworks — but the organizational dimension dominates.

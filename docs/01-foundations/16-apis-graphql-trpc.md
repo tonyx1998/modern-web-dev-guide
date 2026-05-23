@@ -135,6 +135,16 @@ Dominant in 2026 for full-stack TypeScript apps (Next.js + tRPC is one of the mo
 Default to **REST**. Upgrade to **tRPC** if your stack is full-TypeScript and you control both ends. Reach for **GraphQL** only when you have multiple clients pulling overlapping data from the same source.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Adopting GraphQL for a small app "for flexibility."** GraphQL pays off when many clients pull overlapping data. For one app talking to one backend, it adds schema, resolvers, N+1 mitigations, and harder caching — without solving any problem you actually have. REST or tRPC will ship faster and break less.
+- **Ignoring the N+1 query problem in resolvers.** A naive `Post.author` resolver runs one DB query per post — fetch 100 posts, run 101 queries. Use **DataLoader** (or your framework's equivalent batching primitive) from the first day, not as an emergency fix at 50,000 users.
+- **Exposing tRPC as a public API.** tRPC's entire value is the end-to-end TypeScript type link between *your* server and *your* client. The moment a third party in Python or Swift needs to consume it, you've lost the magic and gained a bespoke protocol no one else understands. Use REST for the public surface; keep tRPC internal.
+- **Caching GraphQL with HTTP semantics.** Every GraphQL request is a `POST /graphql` with a different body — CDNs can't cache by URL. If you want caching, you need persisted queries (turn the query into a stable ID) or a GraphQL-aware cache layer like Apollo, Urql, or a gateway.
+- **Treating "fully typed" as "fully validated."** TypeScript types vanish at runtime. tRPC uses Zod (or similar) for runtime validation on the server, and you must keep those schemas honest. A type-only check passes garbage data straight to your DB.
+:::
+
 ## Page checkpoint
 
 <Quiz id="apis-graphql-trpc-page" title="Did GraphQL & tRPC stick?" sampleSize={2}>

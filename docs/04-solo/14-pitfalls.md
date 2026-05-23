@@ -73,6 +73,16 @@ Almost every time, the right answer is: write "CSV export" on the v2 list and sh
 You're not vulnerable to all nine equally. Most indie developers have *one* pet failure mode — for some it's stack churn, for others over-engineering, for others not charging. Identify your one. Put a sticky note above your desk: "I will not switch frameworks again this year." That one piece of self-awareness is worth more than reading this list.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Over-engineering the anti-over-engineering checklist.** You build a personal "is this premature optimization?" framework with rubrics and decision trees — and now the framework itself is the over-engineering. The fix is a single gut-check question ("would I do this if I had four hours total?") and move on. Meta-process is still process.
+- **Copying enterprise pitfall guides verbatim.** "Always write tests before code" is great advice for a 30-person team and terrible advice for a weekend tool with three users. The fix is to apply pitfalls in proportion — enterprise warnings about "lack of process" are usually solving problems you don't have yet.
+- **Reading about pitfalls instead of shipping.** This whole chapter can become a way to feel productive while building nothing. The fix is to read this page once, pick the one pitfall that's most *you*, and close the tab. Awareness without action is just guilt-flavored procrastination.
+- **Refusing to ever add process.** "I'll never write a test, I read the chapter." Then a billing bug ships and you wish you had. The fix is to remember that solo principles are about *defaulting* to lightness, not banning structure forever. When pain earns it, add the thing.
+- **Believing you're immune because you're aware.** Reading "don't switch frameworks" then immediately rationalizing why your case is different is the classic pattern. The fix is the sticky-note rule from the highlight — pre-commit your future self to a constraint before the rationalization shows up.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-pitfalls-page" title="Did the pitfalls stick?" sampleSize={2}>

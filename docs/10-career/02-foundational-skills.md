@@ -162,6 +162,16 @@ If you can't do these confidently, that's the area to invest in next.
 The list above is roughly in dependency order. HTML/CSS/JS unlocks everything else. Git is needed before you can collaborate. HTTP is needed before you can debug anything that crosses the network. SQL is needed before any non-trivial backend. **Don't skip ahead to "one framework deeply" without items 1–4 solid** — that's the most common cause of "I built the tutorial but I can't build anything else."
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Treating the list as nine boxes to tick off.** The point is depth, not coverage. "I did the React tutorial" is not item 7 done. You finish an item when you can build something non-trivial in it from a blank file.
+- **Learning a framework before HTTP and SQL.** You'll get React components rendering and still be unable to explain why your fetch returns 401 or why your query takes 4 seconds. Items 4 and 5 unlock more debugging power than item 7.
+- **Outsourcing the fundamentals to AI.** Letting Copilot write your first closures, your first SQL joins, your first async/await means you never internalize them. Use AI to *check* your understanding, not to skip past it.
+- **Skipping the command line because "the IDE has buttons for that."** Every server you touch in production is a shell. Engineers who can't grep, ssh, or read a process list lose hours every week to tasks that should take seconds.
+- **Calling TypeScript "optional."** In 2026 it's the default for almost every greenfield project and most legacy ones are migrating. Learn it alongside JS, not "after you're comfortable."
+:::
+
 ## Page checkpoint
 
 <Quiz id="career-foundational-skills-page" title="Did the foundational skills stick?" sampleSize={2}>

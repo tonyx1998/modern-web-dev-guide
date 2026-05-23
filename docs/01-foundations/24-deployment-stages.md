@@ -169,6 +169,16 @@ At enterprise scale, *safety* wins — manual approvals, gradual rollouts, kill 
 The right pyramid for your project depends on **what failure costs**, not on what's technically possible. A junior engineer's first instinct is "automate everything." A senior engineer's instinct is "automate everything *that's safe to automate*."
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Letting CI grow to 30 minutes and "fixing" it by skipping tests.** A slow pipeline kills the habit of frequent small commits. Profile the slow steps, parallelize, cache dependencies (`actions/setup-node` with `cache: 'npm'`), and split into faster check jobs and slower nightly jobs — don't `--skip-tests` your way out.
+- **Baking secrets into the Docker image.** Anything in a layer is recoverable from the registry, even if you `RUN rm` it in the next layer. Pass secrets at runtime (env vars, mounted files, AWS Secrets Manager / Vault) — never `COPY .env` into a build.
+- **Using `:latest` tag in production.** `image: myapp:latest` means "whatever was most recently pushed," which makes rollbacks impossible and turns every deploy into a guess. Tag with the commit SHA (`myapp:c3a1b9f`) and pin deploys to specific versions.
+- **Deploying straight to prod with no staging or canary.** "It worked locally" is the famous last words of every Friday afternoon outage. Even a tiny percentage rollout (1% of traffic for 5 minutes) catches the kind of regressions that don't show up in tests.
+- **Forgetting the runtime's resource limits.** A serverless function with a 128MB memory limit and a 10-second timeout doesn't tell you when it's about to OOM — it just kills the request. Set alerts on memory, CPU, and execution-time approaching the limit, not just on actual failures.
+:::
+
 ## Page checkpoint
 
 <Quiz id="deployment-stages-page" title="Did deployment stages stick?" sampleSize={2}>

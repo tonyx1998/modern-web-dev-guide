@@ -110,6 +110,16 @@ None is "wrong." But this is the kind of decision that lives on the boundary bet
 "Just use Cloudflare Workers" looks like the obvious answer until you discover Node-specific libraries that don't work, runtime memory limits that bite mid-development, and an ecosystem that's smaller than Vercel's. Pattern C is the right call for global low-latency apps from day one, but it's a real commitment — not a minor tweak.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Setting up multi-region "for resilience" on day one.** You don't have the traffic to justify two regions and you do have the complexity tax (replication lag, write-region routing, doubled bills). Single-region with good backups beats multi-region you don't understand.
+- **Choosing Cloudflare Workers because it's cheap, then discovering Node-only libraries every week.** The Workers runtime is genuinely constrained — `node:fs`, large Postgres clients, and many libraries won't run. Audit your dependency tree against the Workers compatibility list *before* committing.
+- **Ignoring egress costs.** AWS S3 egress, Vercel image-optimization charges, and PostHog event volume can be 10x what you expect after a feature goes viral. Set billing alerts at 2x, 5x, and 10x your normal usage so you find out in hours, not at the next invoice.
+- **Hand-rolling your own deploy pipeline because "we know better."** A bash script piping to `rsync` is fine for a hackathon and a slow leak everywhere else. Vercel, Railway, and Cloudflare ship with health checks, rollback, and preview environments — recreating those well is months of work.
+- **Migrating hosting providers chasing a 20% bill savings.** Migration cost (engineering time, debugging weird new failure modes, retraining the team) usually exceeds the savings unless your bill is enormous. Migrate when you hit a *capability* wall, not a 20% pricing wall.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-deployment-page" title="Did deployment patterns stick?" sampleSize={2}>

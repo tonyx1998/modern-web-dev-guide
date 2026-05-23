@@ -84,6 +84,16 @@ Have 5–10 of these ready before any on-site.
 A referral converts to an interview at roughly 5–10x the rate of a cold application at most companies. Spend the time you'd spend on application #200 instead on building one real relationship with someone at a company you'd love to join.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Letting AI write every cover letter.** Recruiters in 2026 read fifty AI-generated paragraphs a day and the tells are obvious — generic phrasing, hallucinated company facts, no specific project linked. Use AI to draft, then rewrite in your own voice with one concrete detail about *this* team.
+- **Treating LeetCode as the whole job search.** A junior who can solve mediums but can't describe a project they shipped will still lose to one who shipped a real thing and grinded fewer problems. Practice algorithms in parallel with shipping, not instead of it.
+- **Ghosting after rejection.** A polite "thanks, would love to stay in touch" reply to a rejection email is the cheapest network move in tech. Recruiters often re-surface roles 6 months later; the ones they remember get the email first.
+- **Negotiating like the offer is fragile.** Companies that rescind for polite, professional negotiation were going to be a bad place to work anyway. The risk you imagine is much bigger than the risk that exists.
+- **Refusing roles below your "target level."** A junior offer at a smaller company that lets you ship real work beats waiting six months for a "perfect" first job. The second job is much easier than the first.
+:::
+
 ## Page checkpoint
 
 <Quiz id="career-job-search-page" title="Did the job search stick?" sampleSize={2}>

@@ -61,6 +61,16 @@ After Sunday of weekend 2, even if it's not as polished as the schedule implies,
 This schedule works for a "small tool" — a focused, narrow product. A more ambitious SaaS will run 8–14 weekends as covered in [time investment](./time-investment). Don't beat yourself up if your project doesn't fit this schedule. The point is that *some* shippable thing fits this schedule, and that's a remarkable change from a decade ago.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Reading the schedule as a guarantee.** Your first attempt will overrun — Clerk config, DNS propagation, or a stuck shadcn install will eat an hour you didn't budget. The fix is to use the schedule as a *shape*, not a stopwatch. The point isn't hitting 32 hours; it's confirming a real shippable thing fits in two weekends.
+- **Pushing the scope until "the schedule fits a SaaS."** This schedule works for a *small tool* — one or two features. The fix is to resist the urge to add a "small" social layer or admin panel and call it a weekend tool. If the feature list won't fit in 32 hours, that's a 13-week project, not a 32-hour one.
+- **Skipping the deploy block on Sunday of Weekend 1.** You'll be tempted to "finish one more thing first." The fix is to deploy at 5pm Sunday even if the UI is ugly — Weekend 2 depends on a real URL existing, and pushing it to Weekend 2 cascades the whole plan.
+- **Ignoring the actual-vs-estimated tracking.** The "Try it yourself" admonition asks you to log real times — most readers skip it because it feels like extra work. The fix is to do it anyway. Your second project's estimate is only honest if you have data from your first.
+- **Treating polish as optional on Sunday of Weekend 2.** Three hours of UI cleanup feels skippable when you're tired, but the rough-edged version is the one strangers judge on HN. The fix is to keep the polish block — even a tiny pass on spacing, copy, and the empty state changes how the launch lands.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-sample-project-page" title="Did the sample project stick?" sampleSize={2}>

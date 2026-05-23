@@ -103,6 +103,15 @@ A "small" feature like "add 2FA to the login flow" at an enterprise might involv
 That's 10+ people on a "two-engineer feature." This is not bureaucracy — every one of those reviewers has caught real incidents on similar features in the past.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Mistaking the org chart for the system architecture.** Reorgs happen every 18 months; the services those teams own outlive five reorgs. When a team gets dissolved, the code doesn't disappear — it just becomes orphaned. Make sure CODEOWNERS and the service catalog get updated *the same week* as the reorg, not "eventually."
+- **Treating platform teams as cost centers.** If you starve the platform team of headcount, every product team rebuilds the same deploy script, the same logger, the same auth wrapper. The "savings" show up as duplicated work across 50 teams. Fund platforms like products, with adoption metrics, not like overhead.
+- **Promoting your best IC into management to "reward" them.** They lose the leverage of the IC track (writing the standard, building the library, shaping the RFC) and gain a job they may not want. Make sure both ladders are real, and ask before you push.
+- **Letting TPMs fill the vacuum left by absent managers.** TPMs are coordinators, not decision-makers. If your EM is checked out and the TPM is making technical calls, you've got two problems — fix the manager, don't quietly reorg around them.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-team-structure-page" title="Did team structure stick?" sampleSize={2}>

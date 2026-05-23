@@ -90,6 +90,16 @@ Then look at the tracks above. The one that overlaps with your "lose track of ti
 The "Engineering Management" track is *not* the next rung up from Senior IC. It's a parallel track with different skills (people, projects, hiring) and a different daily life (meetings, not code). Many people switch back and forth across their career. Don't accept an EM role because it sounds like a promotion — accept it only if the work itself sounds interesting.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Picking AI engineering because it's hot, not because the problems energize you.** The track pays well right now because demand exceeds supply; if you don't actually enjoy evals, prompt iteration, and reading model release notes, you'll burn out faster than the comp premium pays back.
+- **Specializing on day one.** "I'm going to be a backend engineer" before you've ever shipped a frontend means you're picking from a list of titles, not problems. Be a generalist for 2–3 years; the curiosity audit is real signal.
+- **Refusing to specialize at all.** The mirror trap: "I'm a full-stack generalist" past the 5-year mark often means "I'm replaceable at every level by someone with depth." Senior comp is paid for depth somewhere; pick where.
+- **Treating Engineering Management as the promotion track.** Saying yes to EM because the title sounds bigger — without actually wanting the work (1:1s, hiring, performance reviews, no code) — is the most common mid-career regret. Senior IC is a real, well-paid destination.
+- **Chasing whatever specialization Twitter says is hot this quarter.** ML engineering was the headliner in 2021, AI engineering in 2024, agentic systems in 2026. The fundamentals across tracks (distributed systems, data, security) compound; trend-chasing resets your depth clock every year.
+:::
+
 ## Page checkpoint
 
 <Quiz id="career-specialization-page" title="Did specialization tracks stick?" sampleSize={2}>

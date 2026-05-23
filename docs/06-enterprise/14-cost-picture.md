@@ -65,6 +65,16 @@ The naive math: "We could run that on $400K/year of EC2." But:
 Net: self-hosting "saves $3.6M" and costs $3M+ in headcount, *plus* features lost, *plus* risk. Usually a wash or worse. Most enterprises that *do* self-host are at a scale where they need features the SaaS doesn't offer — not because it's cheaper.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Optimizing the cloud bill while ignoring the payroll bill.** A team spending two engineer-weeks to save $5K/month on EC2 just lost the company money. Always compare the saving against fully-loaded engineering time — that's the math FinOps actually cares about.
+- **Self-hosting open-source "to save money."** Every self-host story starts with the savings spreadsheet and ends with a five-engineer team running critical infrastructure on the side. If the SaaS bill terrifies you, negotiate the contract before you rebuild the product.
+- **Letting observability spend grow unbounded because "we need the data."** Petabyte-scale logging will eat your second-largest line item before you notice. Set retention policies, sample high-volume services, and treat the observability bill like the database bill — actively managed, not "whatever it costs."
+- **Chargeback without consequences.** If teams see their cloud bill on a dashboard but no one's budget is affected, the dashboard is a feel-good chart. Either tie chargeback to real budget pressure or accept that cost discipline will only happen during a panic.
+- **Cutting reserved capacity to "stay flexible."** Three-year RIs and savings plans on the workloads you genuinely won't shrink are free money you're declining. Run a quarterly review — anything stable for 12+ months should be on committed capacity.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-cost-picture-page" title="Did the cost picture stick?" sampleSize={2}>

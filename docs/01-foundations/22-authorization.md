@@ -155,6 +155,16 @@ For a web app, store auth in a **cookie** (HttpOnly, Secure, SameSite=Lax), not 
 This is the single most common mistake junior developers make in auth.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Checking authorization only in the UI.** Hiding the "Delete" button for non-admins is UX, not security. Anyone can hit the underlying endpoint with `curl`. Every mutating endpoint must check authorization on the server, regardless of what the UI shows.
+- **Trusting the `user_id` from the request body.** Accepting `POST /posts/delete { id, user_id }` and matching `user_id` against the post owner lets the attacker delete anyone's post by sending the owner's id. Always derive the current user from the *session/token*, never from the request body.
+- **Putting RBAC checks in middleware only.** Middleware can confirm "this user is an admin" but can't answer "this user owns *this* resource." For per-record decisions you need a check inside the handler or, even better, a database-level policy (RLS).
+- **Storing the auth token in `localStorage`.** Any script on the page can read it — third-party tag, supply-chain compromise, XSS, all the same. Put the session in an `HttpOnly; Secure; SameSite=Lax` cookie so JavaScript can't reach it.
+- **Letting JWTs live too long without rotation.** A 30-day JWT that you can't easily revoke is a 30-day window for an attacker who steals it. Use short-lived access tokens (~15 min) with a refresh-token rotation flow, or use server-side sessions and skip JWTs entirely.
+:::
+
 ## Page checkpoint
 
 <Quiz id="authorization-page" title="Did authorization stick?" sampleSize={2}>

@@ -93,6 +93,16 @@ flowchart TD
 
 > **Reading this diagram:** It's a debugging checklist as a flowchart. You walk *down* the pipeline asking "did this layer do its job?" until you find the broken one. You'll repeat variations of this dance dozens of times in a career. Each layer is a place to look.
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Calling "git push" a deployment strategy.** It works on a $0/month side project where Vercel handles every stage for you. The moment you outgrow that, you'll need a mental model for *all* eight stages — because something has to manage each one. "I just push" only works when someone else owns the rest of the pyramid.
+- **Skipping CI on a solo project.** It feels like overkill until the day you push a typo at 11pm that breaks production. A ten-line GitHub Actions workflow that runs `npm test && npm run build` costs nothing and catches the embarrassments.
+- **Treating the artifact as ephemeral.** If you can't redeploy the *exact* version that ran last Tuesday, you can't roll back when a regression appears Wednesday. Build the artifact once, store it in a registry, deploy *that* — don't rebuild from source on each deploy.
+- **Debugging production by guessing.** When the site is down, walk the eight stages in order: source → CI → artifact → registry → CD → runtime → CDN → DNS. The bug is in exactly one of them. Random guessing wastes the first 30 minutes; the systematic walk takes 5.
+- **Conflating "deployed" with "rolled out to users."** Pushing a new artifact to the registry, deploying to the runtime, *and* the CDN serving the new version are three different events with three different points of staleness. A green CD pipeline doesn't guarantee your users see the new code yet.
+:::
+
 ## Page checkpoint
 
 <Quiz id="deployment-pyramid-page" title="Did the deployment pyramid stick?" sampleSize={2}>

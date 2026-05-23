@@ -67,6 +67,16 @@ AI is now a standard layer in modern web apps, not an experimental novelty. The 
 
 The hard parts are cost management, evaluation, safety, and the new mental model of building with non-deterministic components. Treat AI features like any other production system — instrumented, tested, monitored — and they become reliable.
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Picking the trendy tool over the boring one.** Adopting LangGraph for a 3-step pipeline, or Pinecone for 50k vectors, spends an innovation token you didn't need to spend. Pick the boring default unless you have a concrete, written reason the boring choice fails for *your* workload.
+- **Hard-coding a single provider deep in the codebase.** Calling `anthropic.messages.create` directly all over the app means a model swap or a provider outage is a refactor. Go through the SDK's abstraction (or a thin internal wrapper) so changing models or providers is a single config edit.
+- **Skipping observability "until we have real users."** By the time you have real users, you have a quality regression you can't reproduce. Wire Langfuse/Helicone on day one — free tier, ten minutes of setup, pays for itself the first time something acts up.
+- **Treating self-hosted models as a free lunch.** "We'll save money by running Llama ourselves" sounds great until you're maintaining GPU infra, autoscaling, and a quantization pipeline. Self-host when you have a *specific* driver (data residency, sustained volume at scale), not as a default optimization.
+- **No exit strategy from the chosen stack.** Every piece in the table is replaceable, but only if you don't let provider-specific features (custom file formats, exotic tools, proprietary eval syntax) leak everywhere. Keep prompts, schemas, and eval sets in your repo as portable artifacts — the stack is rented, the artifacts are owned.
+:::
+
 ## Page checkpoint
 
 <Quiz id="ai-stack-summary-page" title="Did the AI stack summary stick?" sampleSize={2}>

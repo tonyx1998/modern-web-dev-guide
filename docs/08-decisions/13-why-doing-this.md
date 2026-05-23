@@ -52,6 +52,15 @@ The most common failure mode in tech proposals is starting with the *what* (the 
 Flip it: state the user problem or business outcome in the first paragraph. Everything else has to justify itself against that. If you can't fit the motivation into a paragraph, you haven't done the thinking yet.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Accepting "the customer asked for it" as a complete answer.** One enterprise customer asking for a feature is not a user problem — it's an account demand. Translate it back into a real problem and check whether the rest of your users have it too, or you'll build niche features that bloat the product for everyone else.
+- **Mistaking activity for impact in your "why."** "I shipped 14 PRs this sprint" answers what, not why. The honest impact question — "which user behavior changed because of those PRs?" — often reveals that half the work moved no metric. Connect work to outcome, not output.
+- **Letting "strategic priority" mean "the CEO mentioned it once."** Strategic priorities are written down, reviewed, and re-confirmed — they're not the most recent enthusiasm. If you can't point to where the strategy lives, you're working from gossip about strategy, which dies as soon as the next gossip arrives.
+- **Asking the question only at kickoff, not mid-project.** Projects accumulate purpose drift: by month four, the team is solving a different problem than the one they started on. Re-ask "why are we doing this?" every couple of months. Sometimes the answer is "we should stop" — and that's the most valuable answer the question produces.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-why-doing-this-page" title="Did 'why are we doing this?' stick?" sampleSize={2}>

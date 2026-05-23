@@ -79,6 +79,16 @@ The first time you start a SOC 2 process, it feels like a wall of acronyms. Vant
 The other 20% is policy writing (security policy, incident response policy) and the audit itself. Total cost: $10–30K plus ongoing platform fees ($300–$1,000/month). For a B2B startup chasing enterprise customers, it's table stakes.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Treating SOC 2 as security.** Compliance is checklist work; security is making sure your app actually resists attack. A SOC 2 Type II company can still have IDOR bugs, leaked API keys, and exposed admin endpoints. Pass the audit *and* do real threat modeling on critical flows.
+- **Building permissions in the UI instead of the database.** Hiding a button when `user.role !== 'admin'` is not authorization — it's a hint. Real authorization happens server-side, ideally enforced by Postgres RLS so even a buggy endpoint can't bypass it.
+- **Granting "temporary" prod database access that becomes permanent.** Engineer needs to debug something live, gets read-write access "for the day," and it's still there a year later. Every prod credential needs an expiration; use short-lived tokens from your auth provider, not static keys.
+- **Pasting secrets into Slack, Notion, or AI tools.** "Just for a sec" leaks become permanent — Slack messages get backed up, AI assistants log inputs. If a secret hits any channel that wasn't your vault, rotate it. Make this a team norm, not a SOC 2 requirement.
+- **Waiting for the first enterprise deal to think about authorization tests.** Multi-tenant leaks (tenant A seeing tenant B's data) are the highest-severity bugs you can ship. Write a "cross-tenant" test suite the day you onboard your second tenant — not the day a customer notices.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-security-page" title="Did startup security stick?" sampleSize={2}>

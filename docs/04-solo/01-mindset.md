@@ -51,6 +51,15 @@ Now ask: would the project have shipped sooner without any of those? Almost alwa
 At an enterprise, design reviews, code reviews, and architecture committees are how the company avoids catastrophe. Solo, *you are all of them.* That's a feature, not a bug — you can make a call in five seconds that would take five meetings elsewhere. The flip side: nobody will catch your bad decisions for you. The fix isn't process. The fix is shipping early, watching it break in small ways, and iterating.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Confusing "solo" with "sloppy."** The point isn't to skip discipline — it's to skip *coordination overhead*. You still want clean commits, working backups, and a deploy you trust. The fix is dropping process that exists for *other people*, not process that protects future-you.
+- **LARPing as a team of one.** Solo developers who write design docs to themselves, file Jira tickets for their own backlog, and run sprint retros with a rubber duck are simulating an org instead of building. The fix is a Notes.app file and a checkbox list — that's the whole project management layer.
+- **Treating "I'm the reviewer" as "I need no review."** You can't catch your own blind spots. The fix isn't a code-review pipeline — it's cheap external feedback: ship to one friend, post a preview link, or read your diff out loud the next morning before merging.
+- **Reading about solo dev instead of doing it.** This whole chapter is theory until you start the timer. The fix is to close the tab after one section, open a terminal, and start the project you've been putting off. The mindset doesn't stick from reading — it sticks from shipping.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-mindset-page" title="Did the solo mindset stick?" sampleSize={2}>

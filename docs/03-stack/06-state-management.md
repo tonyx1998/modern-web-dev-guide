@@ -126,6 +126,16 @@ The most common state management mistake: fetching server data, then dumping it 
 This sets you up for stale data, manual refetching logic, race conditions, and complex synchronization. *Server data is a cache, not state.* Use a server-state library (TanStack Query or RSC) and let it handle caching, refetching, and invalidation. Reserve Zustand/Redux/Context for *purely client* state — open menus, theme, draft form input.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Stuffing fetched server data into Zustand or Redux.** This is the #1 state mistake. You now own caching, refetching, deduping, and staleness manually — and you'll get all of them wrong. Server data goes in TanStack Query, SWR, or RSC. Client stores are for client-only state.
+- **Using React Context for high-frequency updates.** Context re-renders every consumer on any change. A cursor position or input field in Context will tank your app. Use Context for *infrequent* shared state (theme, auth user) and Zustand/Jotai for the rest.
+- **Reaching for Redux on a new project in 2026.** Redux Toolkit is fine in legacy code, but new projects don't need its ceremony. Zustand is ~1KB and reads like normal JS. Pick Redux only when you have a specific reason (existing team, time-travel debugging).
+- **Manually syncing URL params with `useState`.** You write a `useEffect` that reads the URL, another that writes it, and now your back button is broken. Use `useSearchParams` from your router or `nuqs` — the URL *is* the state.
+- **Validating form data twice — once with ad-hoc checks, once with Zod.** Pick one schema (Zod), derive the TypeScript types from it (`z.infer<typeof schema>`), and use the same schema in the form resolver *and* the server action. One source of truth.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-state-management-page" title="Did state management stick?" sampleSize={2}>

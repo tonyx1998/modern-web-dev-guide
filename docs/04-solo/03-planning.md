@@ -70,6 +70,15 @@ That five-minute thinking exercise just saved a month of work on a project that 
 "Plan less" is not "don't plan." It's "plan in proportion to the project." A weekend tool deserves an afternoon of thought, not three. A 6-month SaaS deserves more — but still in days, not weeks. The point is to match planning depth to project depth so you don't spend more time planning than building.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Inflating the pitch into a pitch deck.** You don't need a problem statement, market sizing, and a competitor matrix — those are artifacts for convincing other people. The fix is one paragraph in plain English. If it doesn't fit, you don't understand the idea yet.
+- **Smuggling v2 features into the v1 list.** "Just a small social layer" or "just basic notifications" or "just an export button" — each one quietly doubles the build. The fix is brutal: if a feature isn't required for the first user to get value once, it's v2. Write it down somewhere else and move on.
+- **Lying to yourself on "will I still care in 3 months."** Most solo developers say yes here automatically because the idea feels exciting *today*. The fix is to remember an idea from six months ago that excited you the same way and is now untouched. Same neurons, same trap.
+- **Sketching in Figma for two days.** Pixel-perfect mockups before code is enterprise muscle memory. The fix is rectangles on paper, photographed, dropped in a Notes file. The sketch exists to clarify *your* thinking, not to brief a designer.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-planning-page" title="Did solo planning stick?" sampleSize={2}>

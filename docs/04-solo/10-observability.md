@@ -56,6 +56,16 @@ Total time from report to root cause: under a minute. Without Sentry: you'd ask 
 Every solo developer who skips Sentry on day one regrets it the first time a real user hits a bug. The whole point of telemetry is that *you only need it after something has already broken* — at which point you can't add it retroactively. Five minutes now saves a debugging nightmare later.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Wiring up Sentry but never opening the dashboard.** Errors pile up unread in a tab you never check. The fix is the weekly maintenance window from the next chapter — block 15 minutes, scan Issues, triage one. A noisy dashboard isn't observability; a *reviewed* dashboard is.
+- **Building a Grafana + Loki + Prometheus stack for a 10-user app.** Self-hosting observability is fun, but you'll spend more time tending the dashboards than you do on the product. The fix is the three managed free tiers on this page — graduate to your own stack when (and only when) the free tiers stop fitting.
+- **Logging PII into Sentry breadcrumbs.** A `console.log(user)` in a hot path now ships every signed-in user's email to your error tracker — and possibly across borders, depending on the user. The fix is to scrub or hash anything sensitive before logging, and to enable Sentry's PII filters in the project settings.
+- **Treating PostHog as analytics theater.** You install it, fire a `pageview` event, and never look at it again. The fix is to define two or three *funnels* up front — signup, first action, first paid — and check them once a week. Vanity metrics like total events are useless; activation funnels actually change what you build.
+- **Forgetting source-map upload.** Sentry shows `(anonymous)` in `main.abc123.js:1:84231` and the trace is useless. The fix is to let the Sentry wizard configure source-map upload during install — five minutes now, every future stack trace becomes readable.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-observability-page" title="Did observability stick?" sampleSize={2}>

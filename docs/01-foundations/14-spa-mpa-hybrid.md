@@ -95,6 +95,16 @@ This page taught you the vocabulary. You don't actually need to *choose* between
 Pick a framework first; the SPA-vs-MPA decision falls out naturally from that choice.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Conflating "SPA" with "CSR" and "MPA" with "SSR."** They're orthogonal axes. SSR + SPA-style navigation is a real combo (Next.js, Remix). SSG + MPA navigation is a real combo (default Astro). Mixing the vocabulary leads to muddled architecture conversations.
+- **Breaking the browser back button.** A SPA that updates the URL but doesn't push to the History API correctly — or one that restores scroll position to the top on every back navigation — feels broken even though every page loads instantly. Test back/forward as a first-class flow, not an afterthought.
+- **Letting client-side navigation skip critical refreshes.** In a SPA, mounting a "new page" doesn't actually re-run the whole module — stale data, leftover event listeners, and persistent timers can leak between routes. Treat route changes as a lifecycle event, not a free re-mount.
+- **Adding a SPA router to a content site that doesn't need one.** A blog has nothing to gain from instant in-place transitions and everything to lose: bigger bundle, harder SEO, more bugs. If the site is essentially documents, MPA (or Hybrid with view transitions) is simpler and better.
+- **Assuming Hybrid means "no first-paint problem."** Hybrid is fast on the *first* request because the server returns real HTML, but the hydration bundle still has to load before anything is interactive. A heavy `_app.tsx` or root layout can still produce a 3-second Time-to-Interactive even though FCP looked great.
+:::
+
 ## Page checkpoint
 
 <Quiz id="spa-mpa-hybrid-page" title="Did SPA vs MPA vs Hybrid stick?" sampleSize={2}>

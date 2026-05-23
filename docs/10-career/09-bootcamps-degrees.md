@@ -52,6 +52,16 @@ Same outcome. Three legitimate routes. The common thread is shipped projects, no
 If you're about to spend $500 on an online certificate, ask: "Would $500 of domain costs + hosting + an iPad to design on do more for my portfolio?" In 2026 the answer is almost always yes. Save the certificate for after you have 2–3 projects deployed.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Treating the bootcamp tuition as the job-search insurance policy.** A $20K bootcamp doesn't substitute for the 8–12 months of post-bootcamp shipping that actually lands the job. Budget time and energy for *after* graduation, or skip it.
+- **Self-taught learners hiding the route on their resume.** "Self-taught" with three deployed projects is a stronger signal in 2026 than a generic CS degree from a no-name school. Own the path; don't pretend it was something it wasn't.
+- **Stacking online certificates as a substitute for shipping.** Five Coursera certificates is not a portfolio. If you're tempted to enroll in another course before deploying the project from the last one, that's the certificate trap.
+- **Picking a CS Master's purely "to get into tech."** The degree is a great fit for visa, ML specialization, or a deliberate pivot — it's an expensive way to learn web dev. Calculate the opportunity cost in foregone salary plus tuition before committing.
+- **Believing the prestige of the credential matters more than the work.** A Stanford CS degree with no shipped projects gets fewer interviews in 2026 than a community-college grad with three deployed apps and a small user base. Hire-time, the question is always the same.
+:::
+
 ## Page checkpoint
 
 <Quiz id="career-bootcamps-degrees-page" title="Did bootcamps vs degrees stick?" sampleSize={2}>

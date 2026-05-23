@@ -65,6 +65,15 @@ The formula also keeps you honest in the other direction. Example: a "huge migra
 The point of the calculation isn't to greenlight every refactor — it's to make both sides of the trade-off visible.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Inventing the numbers to support the conclusion you already wanted.** If you can't actually measure the slowdown — instrument CI times, count flaky reruns, track wasted hours — your numbers are vibes wearing a spreadsheet. Either get the data or admit you're guessing, but don't dress up a hunch as a calculation.
+- **Counting cost of doing as just the build.** The build cost is one engineer-week. The *actual* cost includes review, rollout, the bugs introduced, the rollback risk, and the opportunity cost of what else they'd have shipped. Compare apples to apples — full lifetime cost on both sides.
+- **Using the formula to justify endless small refactors.** Engineers love refactors and will math their way into all of them. Apply the same skepticism on the "do" side as on the "don't" side: if you're greenlighting more than one or two refactors per quarter on cost-of-inaction grounds, you're probably tilting the math.
+- **Treating "we'll fix it eventually" as a free option.** The formula's "years until fixed anyway" multiplier is the trap — teams assume they'll get to it in 12 months and then never do. If there's no concrete commitment, assume "never" and re-run the math; the answer often flips.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-cost-of-inaction-page" title="Did cost of inaction stick?" sampleSize={2}>

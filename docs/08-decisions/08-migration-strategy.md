@@ -87,6 +87,15 @@ The single worst migration outcome isn't "old system stays" or "new system ships
 Half-migrated systems double maintenance cost, double the surface area for bugs, and create a perpetual question of "which one is the truth?" If you start a migration, commit a date to finishing it. If you can't commit, don't start.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Starting a migration with no committed finish date.** "We'll get to the rest later" is how you end up in the half-migrated trap that's worse than either old or new. Before the first PR lands, write down the date by which the old system is *deleted* — not just unused, deleted — and hold yourself to it.
+- **Treating shadow mode and parallel run as the destination.** Running old and new side-by-side is a tool to build confidence, not a steady state. If you've been "running both" for more than a quarter, you've stopped migrating and started doubling your maintenance burden. Pick a side.
+- **Building a kill switch you never actually test.** Rollback plans rot fast — a flag that flips back to "old" stops working the moment the old code path drifts. Exercise the rollback at least monthly during the migration, or assume it's broken when you need it most.
+- **Migrating a system you don't fully understand yet.** Strangler fig works because you can see what the old system does at each callsite. If the legacy system has uncatalogued behaviors (cron jobs, side effects, hidden consumers), discovery happens *during* the cutover — which means outages. Map first, migrate second.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-migration-strategy-page" title="Did migration strategy stick?" sampleSize={2}>

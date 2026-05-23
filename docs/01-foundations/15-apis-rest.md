@@ -137,6 +137,16 @@ curl https://pokeapi.co/api/v2/pokemon/pikachu | jq '.types[].type.name'
 Try paginating, filtering, fetching related resources (`/pokemon/pikachu/encounters`). You'll see textbook REST design in action.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Encoding verbs in the URL.** `POST /createUser` and `POST /getUserById` aren't REST — they're RPC dressed up. The URL is the *noun* (`/users`, `/users/42`), the method is the verb. When you find yourself naming an endpoint with a verb, you've usually picked the wrong method.
+- **Returning a top-level array.** `GET /users` returning `[...]` instead of `{ "data": [...], "nextCursor": "..." }` paints you into a corner — you can't add pagination metadata, total counts, or a `meta` field later without breaking every client. Wrap collections in an object from day one.
+- **Using offset pagination on anything that changes.** `?page=2&limit=20` skips or duplicates rows when records are inserted between page loads. For feeds and anything mutating, use cursor-based pagination (`?cursor=...&limit=20`).
+- **Versioning by changing the response shape with no warning.** Renaming `user_name` to `username` in an existing field breaks every consumer overnight. Either keep both fields for a deprecation window or bump the version (`/v2/users`).
+- **Returning 200 with an `"error": "..."` body.** That's not REST — it tells every retry policy, every monitoring system, and every CDN that the request succeeded. Use the right 4xx/5xx code; put the human-readable details in the body.
+:::
+
 ## Page checkpoint
 
 <Quiz id="apis-rest-page" title="Did REST APIs stick?" sampleSize={2}>

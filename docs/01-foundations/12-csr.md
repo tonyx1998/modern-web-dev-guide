@@ -87,6 +87,16 @@ A common misconception: people think SSR and CSR are mutually exclusive. They're
 Modern frameworks (Next.js, Remix, SvelteKit) do **SSR for the first page load** (fast first paint, good SEO) and then **CSR for subsequent navigations** within the app (instant, no page reload). You get the best of both. This is why pure CSR has fallen out of favor for public apps — the alternatives give you everything CSR offered plus a faster first impression.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Picking pure CSR for a public marketing site in 2026.** It was the default in 2017. It is not in 2026. Crawlers see a blank shell, link previews break on Slack/Twitter, and LCP on a 4G phone is awful. Default to a hybrid framework (Next.js, Remix, Astro) unless the app lives entirely behind a login.
+- **Assuming "Googlebot runs JS" means SEO is solved.** Googlebot is *one* crawler. Bing, DuckDuckGo, Slack, Discord, Telegram, OpenGraph scrapers, AI training crawlers — most of them do not execute JavaScript at all. They see `<div id="root">` and index nothing.
+- **Letting the bundle grow unchecked.** "Just one more library" pushes you from 200KB to 800KB without anyone noticing. Add a bundle-size budget (`source-map-explorer`, `bundle-visualizer`) to CI so the next 100KB dependency has to be justified.
+- **Ignoring the loading state.** A CSR app shows nothing until JS loads, runs, calls APIs, and renders. Without a server-rendered shell or a skeleton, users see a multi-second blank page and assume the site is broken. At minimum, ship a meaningful HTML placeholder.
+- **Falling for "SSR vs CSR" as a binary.** Modern hybrid frameworks do SSR on the first request and CSR for subsequent navigations within the app. You don't pick one — you get both. "Pure CSR" is a specific choice with specific trade-offs, not the only alternative to SSR.
+:::
+
 ## Page checkpoint
 
 <Quiz id="csr-page" title="Did CSR stick?" sampleSize={2}>

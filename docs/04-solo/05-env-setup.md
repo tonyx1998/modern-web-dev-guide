@@ -160,6 +160,15 @@ Step 13 — `git push` to deploy an empty project — is the single most importa
 Skip this and you build for a week, try to deploy, hit five errors that all interact, and lose a day untangling them.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Committing `.env.local` to the repo.** One careless `git add .` and your Clerk secret and DB URL are now in your public history forever. The fix is to add `.env*.local` to `.gitignore` *before* you write any secrets, and to rotate any key the moment it touches git — `git rm --cached` is not enough once it's pushed.
+- **Skipping the deploy-empty-project step.** It feels like a waste of a `git push` when there's nothing to show. The fix is to do it anyway — when your first real feature breaks the build, you'll know it's the feature, not the pipeline. Compound errors are the worst kind to debug solo.
+- **Forgetting to mirror env vars into Vercel.** Local works, you push, the deploy 500s because `DATABASE_URL` isn't set in the Vercel dashboard. The fix is a checklist: every time you add a variable to `.env.local`, immediately add it to all three Vercel environments. Future-you will keep tripping on this otherwise.
+- **Treating the setup as a one-time event.** You'll do this again — next project, in six months — and forget half of it. The fix is to write the steps down *as you go* in a personal `setup.md` gist. By the third project, you have a personal playbook that beats every blog post.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-env-setup-page" title="Did environment setup stick?" sampleSize={2}>

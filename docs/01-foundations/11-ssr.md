@@ -115,6 +115,16 @@ npm run dev
 Visit `http://localhost:3000`. Then open DevTools → Network → reload. You'll see the HTML response stream in chunks rather than as one big blob — that's streaming SSR in action. Watch the "Waterfall" column in particular: each chunk lights up as it arrives, so you can literally see the page being built top-down over the wire.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Doing a slow query inside the server render and wondering why first paint is slow.** SSR is fresh, but every request blocks on the database. A 600ms query becomes a 600ms LCP. The fix is either (a) cache the query result for N seconds at the framework or Redis layer, or (b) move the slow part inside a `<Suspense>` boundary so the page streams while it loads.
+- **Forgetting that hydration ships JavaScript.** "Server-rendered" doesn't mean "no JS" — the browser still downloads and runs the framework runtime to attach event handlers. If you want SSR *without* hydration JS, you need Astro islands, HTMX, or RSC + careful client-component boundaries.
+- **Reading from `window` or `document` in a server-rendered component.** That code runs on the server first, where neither exists, and the page crashes during render. Guard with `typeof window !== 'undefined'` or move browser-only code into a `useEffect` / `"use client"` boundary.
+- **Caching personalized SSR responses at the CDN.** If your SSR page renders the logged-in user's name and the CDN caches it as `public`, the next visitor sees a stranger's name. Personalized SSR responses must be `Cache-Control: private` or skip the CDN cache entirely.
+- **Treating "I added SSR" as a security model.** Server-rendered code runs on a public endpoint just like an API. Anyone can hit `/profile/42` directly — if you forget the auth check on that route, you've leaked the data. SSR isn't a protection layer; auth checks are.
+:::
+
 ## Page checkpoint
 
 <Quiz id="ssr-page" title="Did SSR stick?" sampleSize={2}>

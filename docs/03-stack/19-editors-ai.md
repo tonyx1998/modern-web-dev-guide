@@ -52,6 +52,17 @@ A junior developer with AI but no fundamentals produces code they can't debug. A
 **The investment thesis:** keep learning the underlying concepts (the rest of this guide). AI is a power amplifier for whatever you already know. The more you know, the more leverage you get.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Accepting AI completions without reading them.** Tab-completion is fast enough that you can paste a confident-looking lie into your codebase in two seconds. The 2026 skill is *reading* what the AI wrote — especially error handling, edge cases, and any code that touches money, auth, or deletion.
+- **Using agentic coding for tasks you don't understand.** "Implement this issue" works when you can verify the diff; it's catastrophic when you can't. Don't let an agent migrate your auth or your database schema while you watch a YouTube video.
+- **Skipping fundamentals because the AI "just writes it for me."** A junior with AI produces code they can't debug when production breaks at 2 a.m. AI is a power amplifier — it compounds whatever you actually know. Keep learning the underlying concepts.
+- **Letting the AI ignore your codebase's conventions.** Out of the box, Cursor/Claude Code will produce idiomatic *generic* code, not idiomatic *yours*. Use rules files (`.cursorrules`, `CLAUDE.md`, project context) to pin style, framework versions, and patterns — otherwise every suggestion drifts.
+- **Configuring 17 editor extensions before writing any code.** Vim motions, fonts, themes, AI tools, dotfiles repos — six hours into setup, zero lines of product. Pick VS Code or Cursor with defaults, add one or two extensions only when you hit a real friction.
+- **Treating AI suggestions as a substitute for code review.** Two AIs reviewing each other's code is not code review. A human who understands the system still has to read the diff before it lands.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-editors-ai-page" title="Did editors & AI assistants stick?" sampleSize={2}>

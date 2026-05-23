@@ -61,6 +61,15 @@ Every adoption proposal should include an explicit "do nothing" option with its 
 If the cost of waiting is unclear, you're probably not at the "why now" moment yet.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Accepting a hypothetical problem as a "why now."** "We *might* need this when we scale to 10x" is not a why-now — it's a why-someday. Demand a problem that exists today and is measurable today, not a forecast that conveniently arrives whenever the proposer needs it to.
+- **Letting "we already started" function as the answer.** Sunk-cost framing sneaks in: "we've already spent two months on the spike, we should just finish." If you couldn't justify starting today, you can't justify finishing — kill the work and reallocate. The two months are gone either way.
+- **Confusing "why this tool" with "why now."** A team often picks a great tool to solve a real problem at the wrong moment. The right answer to "Postgres is hitting capacity in 18 months" might be "revisit in 6 months," not "migrate to a sharded database today." Match the timing to the urgency, not the elegance of the solution.
+- **Skipping the "do nothing" baseline because it feels lazy.** Engineers feel uncomfortable advocating inaction — it sounds unambitious. But the do-nothing option is a real proposal with real costs, and writing it out is the cheapest way to discover that the migration nobody questioned was never worth it.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-why-now-page" title="Did the 'why now?' question stick?" sampleSize={2}>

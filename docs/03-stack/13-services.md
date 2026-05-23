@@ -91,6 +91,17 @@ Before building any of the categories on this page, ask:
 The math almost always favors buying these services. Stripe charges 2.9% + 30¢ per transaction; *building* a global compliant payments system would cost ~$10M and 18 months. A weekend cost-benefit analysis isn't even close.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Building your own payment flow because Stripe "is just an API."** Stripe handles SCA, 3DS, dispute mediation, tax-ID validation, fraud signals, and a hundred jurisdictions. Six weeks into your homegrown version, you'll wish you'd used Stripe Checkout from the start.
+- **Sending transactional email from your own SMTP server or from Gmail.** Deliverability is the entire game in email, and you don't get to opt out of SPF/DKIM/DMARC, IP warming, and reputation scoring. Use Resend, Postmark, or SES — they spend full-time engineering hours on the inbox-vs-spam fight you can't win solo.
+- **Storing files in your application server's filesystem.** Works on one box, breaks the instant you scale to two, and dies on any serverless platform (ephemeral disk). Put files in R2 / S3 from day one — the API is barely more code, and you'll never have to migrate.
+- **Paying S3 egress without realizing.** S3 egress is the silent killer of cloud bills. R2 (no egress fees), Backblaze B2, or putting Cloudflare in front of S3 can drop your bill by an order of magnitude if you're shipping a lot of bytes to users.
+- **Skipping webhook signature verification on Stripe / GitHub / Slack endpoints.** Webhooks are public URLs; without signature checks, anyone can forge events. Every provider ships a verify helper — use it before you do anything with the payload.
+- **Letting one provider's outage take down your whole product.** When Stripe (or Resend, or Twilio) has a bad afternoon, your "Send invite email" button shouldn't kill the signup flow. Push side-effects through a queue with retries so a third-party hiccup is invisible to users.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-services-page" title="Did third-party services stick?" sampleSize={2}>

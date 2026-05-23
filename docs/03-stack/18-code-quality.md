@@ -88,6 +88,17 @@ For any new TypeScript project, spend 30 minutes setting up:
 You've now made it impossible for stylistically inconsistent or obviously-broken code to land. This will save you 100+ hours of code-review nit-picking over the project's lifetime.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Skipping TypeScript strict mode.** Without `"strict": true`, `null`/`undefined` slip through, `any` becomes implicit, and you're paying for TypeScript while keeping JavaScript's bug profile. Turn it on at project creation — fixing the few resulting errors is a one-evening tax for a year of caught bugs.
+- **Running both ESLint and Biome in the same repo.** They overlap, contradict, and fight on save. Pick one. If you're migrating, run a single pass, commit, then delete the loser's config and dependencies entirely.
+- **Pre-commit hooks that take 30 seconds.** People learn to bypass them with `--no-verify`, and now the hooks protect nothing. Keep pre-commit fast (lint-staged + Biome on changed files only); push slow checks (type-check, full test suite) into CI where they belong.
+- **Letting CI be the only place lint runs.** PR feedback 5 minutes later when you've already moved on is annoying and slow. Run the same checks locally on save (editor extension) and on commit (lint-staged) — CI is the final safety net, not the first.
+- **Adopting Turborepo / Nx before you have a monorepo.** A single Next.js app doesn't need a build orchestrator. Reach for monorepo tooling when you have *multiple* packages that share code and want to skip rebuilds of unchanged ones.
+- **Treating Prettier/Biome formatting choices as a personality issue.** Tabs vs spaces and semi vs no-semi are arguments past you have already lost. Accept the formatter's defaults, commit, never mention it in a PR review again.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-code-quality-page" title="Did code quality tooling stick?" sampleSize={2}>

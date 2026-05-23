@@ -106,6 +106,16 @@ At 5 people, "we trust each other to not push broken code" is reasonable. At 15,
 Branch protection makes the safe path the default path. Nobody has to remember to ask for review; nobody has to remember to wait for CI. The system enforces both. This is process earning its way in.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Letting CI grow to 25+ minutes.** Once feedback takes longer than a coffee break, engineers stop running it locally and start "fixing forward" through pushes. Split jobs, parallelize tests, cache aggressively — aim for under 10 minutes total. Speed is a feature.
+- **Adding a "skip CI" escape hatch for emergencies.** It will be used for non-emergencies within a month. The worked example proves you don't need one — branch protection plus a fast pipeline ships hot fixes in 15 minutes through the normal path.
+- **Trusting Vercel previews as the deploy gate.** Previews are great for visual review but don't run your full DB migrations against production data. Have a real staging environment or a migration dry-run step before merging schema changes.
+- **Letting one admin grant themselves bypass-protection rights.** The CTO becomes the single point of failure — and the one person nobody pushes back on at 11 PM. Branch protection should apply to everyone, founders included.
+- **Not deleting merged branches.** A repo with 300 dead branches makes `git branch -a` useless and confuses tooling. Turn on GitHub's auto-delete after merge — one toggle, recovered forever.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-cicd-page" title="Did CI/CD at startup scale stick?" sampleSize={2}>

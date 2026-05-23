@@ -135,6 +135,16 @@ The first blames a person; the second improves the system. Only the second preve
 - **No post-mortems.** Same incidents recur.
 - **Blame culture.** People hide mistakes; learning stops.
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Letting Dependabot PRs queue up unread.** After a few weeks you have 40 open PRs, no idea which are safe, and a CVE buried in the pile. Either auto-merge patch updates with passing CI, or carve out a weekly hour to triage — letting them stack is the worst option.
+- **Blaming the engineer instead of the system in post-mortems.** "Alice pushed a bad change" feels like an answer; it isn't. The real question is why CI, review, staging, and feature flags all let it through. Blameless analysis isn't being nice — it's the only mode that finds the *next* incident before it happens.
+- **Treating big rewrites as the solution to messy code.** Joel Spolsky's "Things You Should Never Do" was published in 2000 and is still right in 2026 — the rewritten version takes longer than expected, ships fewer features, and recreates most of the old bugs. Refactor incrementally; rewrite only the smallest layer that's truly intractable.
+- **Doing migrations in one big switchover.** A weekend cut-over from MySQL to Postgres, or Redux to Zustand, sounds heroic and reliably fails. Dual-write, dual-read, gradually shift traffic, then delete the old path. Boring, slow, ships.
+- **No on-call rotation, so one person quietly owns everything.** That person burns out, leaves, and takes the operational knowledge with them. Even a two-person rotation with a shared runbook spreads the knowledge and keeps the system survivable when someone takes a vacation.
+:::
+
 ## Page checkpoint
 
 <Quiz id="lifecycle-maintenance-page" title="Did maintenance stick?" sampleSize={2}>

@@ -74,6 +74,16 @@ For early-stage projects, *ship something*. Lock-in is a problem you'll have whe
 If you do hit scaling-cost issues later, the migration from Vercel to AWS is usually a 2–6 week project for a small team. That's a price worth paying for the year of velocity you got on the easier platform.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Jumping straight to AWS / GCP / Azure for a side project.** You'll spend three weekends wiring VPCs and IAM roles instead of building your product. Edge platforms (Vercel, Cloudflare) cover 95% of new projects with one `git push`. Move to a raw cloud only when you've outgrown the platform tier or have a specific compliance/cost reason.
+- **Treating "serverless" as identical across platforms.** Vercel functions, Cloudflare Workers, and AWS Lambda all have different runtimes, cold-start behaviors, and limits (Workers cap CPU but not wall clock; Vercel caps wall clock; Lambda has 15-min hard cap). Code that works on one can die on another — read the limits page before porting.
+- **Picking edge runtimes for everything.** Edge runtimes are fast and globally distributed, but they're not Node — many npm packages (anything using `fs`, `Buffer` quirks, native bindings) won't run. Use edge for read-heavy, latency-sensitive routes; use a Node runtime for anything that needs the full ecosystem.
+- **Refusing to commit to a platform because of "lock-in."** Lock-in is a problem you have when you have customers complaining about pricing — and migration from Vercel to AWS is typically a 2–6 week project. Velocity now > theoretical portability later.
+- **Putting your database on the opposite coast from your serverless functions.** A US-East Lambda calling an EU-West Postgres adds 80–100ms of round-trip per query. Co-locate the DB with the primary compute region; use read replicas if you need global reads.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-hosting-page" title="Did hosting stick?" sampleSize={2}>

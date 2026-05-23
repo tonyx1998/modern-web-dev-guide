@@ -73,6 +73,16 @@ Treat evals like unit tests for AI features:
 A team without evals can't safely change a prompt. You can't see whether you made things better or worse. An eval set of even 30–50 examples beats no eval set by a huge margin.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Logging only the final response.** When a user complains "the bot said something wrong," you also need the system prompt, the retrieved chunks, the tool calls, and the model + version that ran. Log the whole envelope — without it, every bug report is unreproducible.
+- **Storing prompts and responses with PII in plaintext forever.** Your observability store is now a privacy liability and a prime exfiltration target. Redact PII at the logging boundary, set a retention window, and treat the trace store with the same access controls as your production DB.
+- **Running evals once at launch and never again.** Provider models silently update, your prompt changes, your data shifts — a one-shot eval at launch tells you nothing six weeks later. Wire evals into CI on every prompt change and run a scheduled regression nightly.
+- **Eval set hand-picked by the prompt author.** If the same person wrote the prompt and the eval set, the eval scores the prompt's blind spots out of existence. Build the eval set from real production traffic (sampled and labeled by someone else) and refresh it as patterns shift.
+- **LLM-as-judge grading itself.** Using the same model under test to also grade the outputs leaks the model's biases into the score. Grade with a stronger, different model — and spot-check the judge against human ratings periodically to make sure it's still calibrated.
+:::
+
 ## Page checkpoint
 
 <Quiz id="ai-observability-page" title="Did AI observability stick?" sampleSize={2}>

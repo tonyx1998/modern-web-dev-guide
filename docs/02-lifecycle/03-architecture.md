@@ -113,6 +113,16 @@ Most apps don't need these patterns explicitly. A good monolith with a clean mod
 This stack scales from "weekend project" to "thousands of paying customers" without needing to be rewritten. **Boring. Effective. Recommended.**
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Conflating "modular" with "microservice."** Beginners hear "decompose your system" and immediately reach for separate repos and HTTP calls between them. A modular *monolith* gives you the same module boundaries with none of the distributed-systems pain — same process, same deploy, same debugger.
+- **Choosing the database last.** Stack pickers obsess over framework choice and then default to whatever DB the tutorial used. The database is the hardest thing to swap later (years, not weeks). Decide whether your data is relational, document, or graph-shaped *before* you choose Next.js vs Remix.
+- **Skipping the ADR because "I'll remember why I picked this."** You won't. Six months from now, you (or a teammate) will see the choice, assume it was arbitrary, and want to redo it. A four-paragraph ADR per significant decision pays for itself the first time someone asks "wait, why aren't we using X?"
+- **Designing the architecture for the team you wish you had.** Service meshes, event buses, and CQRS pay off with 50 engineers. With 3 engineers, every layer is overhead someone has to maintain at midnight. Pick the architecture your *current* team can operate, not the one in the conference talk.
+- **Treating "we'll just use Kubernetes" as a no-op.** k8s is a full-time job's worth of operational surface area. Unless you have a dedicated platform person or your scale truly demands it, a Vercel/Railway/Fly deploy is faster, cheaper, and lets the team focus on the product.
+:::
+
 ## Page checkpoint
 
 <Quiz id="lifecycle-architecture-page" title="Did architecture stick?" sampleSize={2}>

@@ -123,6 +123,16 @@ A team chasing 90% coverage will write tests for trivial getters, throwaway comp
 The actual goal is: *would I sleep through the night with the current test suite?* That depends on the critical paths — payments work, auth works, data isn't lost. Test those exhaustively. Test most other code lightly. Skip the rest.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Mocking the database in "integration" tests.** A test that mocks Drizzle, the HTTP layer, and Stripe isn't integration — it's a unit test wearing a costume, asserting that your mocks match the mocks you wrote. Run integration tests against a real Postgres (Neon branch or Docker) or skip the layer entirely.
+- **Tolerating flaky E2E tests.** A test that fails 1 in 10 runs gets re-run until green, and the team learns to mistrust CI. Quarantine flaky tests within 24 hours of the first flake; fix or delete within a week. A small reliable E2E suite beats a large unreliable one.
+- **Writing tests *after* the code is already in production.** Backfilling tests for a feature that's already live almost never happens. If a feature is risky enough to test, write the test in the same PR — otherwise the test debt just accumulates.
+- **Skipping tests entirely on "internal-only" tools.** Admin dashboards and internal scripts touch the same production data as the public app. A buggy admin delete is just as destructive as a buggy customer one. Test the critical paths regardless of who uses them.
+- **Confusing "the test passes" with "the feature works."** A green checkout test that doesn't actually verify a charge in Stripe's test mode is a vanity metric. Assert the side effect you care about (a `succeeded` Stripe event, a row in the DB) — not just that no exception was thrown.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-testing-page" title="Did the testing strategy stick?" sampleSize={2}>

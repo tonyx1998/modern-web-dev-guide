@@ -90,6 +90,15 @@ Clerk's free tier covers up to 10,000 monthly active users. The cost isn't "rent
 At $0 for the first 10K users, you'd be irrational to roll your own.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Re-checking auth only in middleware.** Middleware redirects unauthenticated users, but it doesn't stop a Server Action from running if someone POSTs to it directly. The fix is to call `await auth()` and verify `userId` inside every Server Action and Route Handler too — defense in depth, not "the middleware will catch it."
+- **Using the Clerk user ID as the database primary key directly.** It works until you migrate auth providers and discover every foreign key in your schema points at strings only Clerk understands. The fix is to store `clerkUserId` as a `text` column alongside your own `users` row, and key foreign relationships off your own ID.
+- **Hand-rolling a "just one thing" auth feature.** "Clerk handles everything but I want my own magic-link flow" — six weekends later you've built half an auth system. The fix is to live with Clerk's defaults for v1; if you genuinely need something Clerk doesn't do, that's the signal to switch to Better Auth, not to start patching.
+- **Hard-coding the user ID in dev to "skip auth for now."** It saves five minutes, then becomes a `userId === "tony-dev"` check that ships to production. The fix is to wire Clerk's dev keys on day one — sign-in takes two clicks locally and you never have to remove a stub later.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-auth-page" title="Did the auth choices stick?" sampleSize={2}>

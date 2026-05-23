@@ -146,6 +146,16 @@ Track TTFT separately from total response time. Optimize TTFT first:
 - Stream directly from your edge or origin without buffering.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Buffering the stream on the server.** Wrapping the SDK response in middleware (logging, auth wrappers, some edge runtimes) often collects all chunks before forwarding them — and your "streaming" UI silently becomes a 3-second spinner. Verify in DevTools → Network that the response is `text/event-stream` and chunks arrive incrementally.
+- **Doing RAG retrieval before you start the stream.** A 600ms vector search blocks TTFT for every request. Either run retrieval in parallel with non-dependent work, or send an immediate "thinking..." chunk so the connection is open before the model starts generating.
+- **Forgetting to handle disconnects.** If the user closes the tab mid-stream, your server keeps generating tokens you'll never deliver — and you still pay for them. Wire the request's `AbortSignal` into the model call so cancellation propagates all the way to the provider.
+- **Re-sending the whole message history every turn without bound.** It works fine in dev with 3 messages. By turn 40, every request is shipping 20k tokens of input — slow TTFT, big bill. Cap history length or roll older turns into a summary from day one.
+- **Rendering raw model output as HTML.** The model will eventually emit a `<script>` tag or a malformed Markdown link. Sanitize on render (DOMPurify, or a Markdown renderer with HTML disabled) — treat tokens as untrusted strings, not safe HTML.
+:::
+
 ## Page checkpoint
 
 <Quiz id="ai-streaming-chat-page" title="Did streaming chat stick?" sampleSize={2}>

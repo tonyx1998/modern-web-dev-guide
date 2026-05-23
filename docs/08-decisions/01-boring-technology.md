@@ -81,6 +81,15 @@ A tool is "boring" if:
 If a tool fails any of those tests, it's probably an innovation token. Decide consciously.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Reading "boring" as "outdated" or "uncool."** Boring is a compliment here — it means predictable failure modes and a deep talent pool. Postgres in 2026 is boring AND state-of-the-art for relational data. Don't confuse "boring" with "bad."
+- **Spending all your tokens on infrastructure instead of your moat.** Teams over-invest tokens in clever build pipelines, custom ORMs, and bespoke deployment systems — none of which differentiate them. Save the tokens for the user-facing thing customers actually pay for.
+- **Treating "boring" as a permanent label.** Today's hot tech is tomorrow's boring. React in 2014 was an innovation token; in 2026 it's the default. Re-evaluate when a tool crosses the 5-year-in-production threshold instead of clinging to the verdict you formed years ago.
+- **Counting tokens by team excitement instead of risk.** "We're a small team, we can afford to learn new things" is the most expensive sentence in engineering. Smaller teams have *less* slack to absorb a tech bet gone wrong, not more. Token budget shrinks with team size, not grows.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-boring-technology-page" title="Did the boring technology rule stick?" sampleSize={2}>

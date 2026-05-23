@@ -115,6 +115,16 @@ At a well-tooled enterprise:
 At a less-tooled enterprise, that same process takes 3–6 weeks of tickets to platform teams. The difference is what "good platform engineering" buys you.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Splitting services along org-chart lines instead of data boundaries.** When two teams share a domain (e.g., "users" and "auth"), one service per team usually means two services with one shared database — the worst case. Split on the data; merge if two services always change together.
+- **Skipping the schema registry "for now."** Producers ship a "small" change, a consumer breaks in production at 3 AM, and the post-mortem concludes "we should have had contracts." Bake the registry in from service one — retrofitting it across 80 services later is a year of work.
+- **Adopting a service mesh before you have service-mesh problems.** Istio with three services is the most complex thing in your system. Wait until you have 30+ services and the mTLS/retry/tracing overhead from rolling your own is genuinely worse than running the mesh.
+- **Building an IDP that mirrors your platform team's mental model.** Backstage with twenty plugins nobody installed isn't a platform — it's an internal Wikipedia. Talk to product engineers about their actual onboarding pain before adding another tab.
+- **Treating "API gateway" as the answer to internal traffic too.** Gateways are for *external* requests (auth, rate limits, routing). Sending every internal gRPC call through the gateway turns a single point of compliance into a single point of failure.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-architecture-page" title="Did enterprise architecture stick?" sampleSize={2}>

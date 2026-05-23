@@ -113,6 +113,16 @@ The lesson: the modular monolith isn't "we'll never split." It's "we'll split *i
 The "handles up to $10M ARR" claim isn't marketing — it's the actual track record of this stack. Companies you've heard of run on essentially this configuration well past 50 engineers. The architectural decisions to revisit at $10M+ are usually: read replicas, a queue + worker for heavy background work, and possibly extracting one or two modules into services. Not "rewrite everything."
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Adopting a message queue, Kafka, or event bus "for future scale."** At 10K users and 6 engineers, a synchronous function call and a Postgres row are clearer, faster to debug, and cheaper. Add async infrastructure when an actual blocking pattern hurts — not because the architecture diagram looks more impressive with arrows.
+- **Letting modules quietly reach into each other's tables.** The whole point of the modular monolith is the boundary. The day `billing/` does a raw join on `auth_sessions`, you've turned the structure back into spaghetti without renaming anything. Enforce boundaries in code review.
+- **Picking technology by GitHub star count or HN trend.** A library with 3K stars and 90 issues open is a future migration. Pick boring, supported tools — Postgres beats the new vector DB; Drizzle beats the experimental ORM — and revisit only when you hit a real wall.
+- **Writing RFCs for everything.** RFCs are for architectural changes that affect multiple modules or are expensive to reverse. Writing one for "add a new endpoint" turns the RFC process into bureaucracy and gets you ignored when something genuinely needs review.
+- **Building "platform" abstractions before the second use case exists.** Abstractions designed off one use case are wrong roughly 100% of the time. Wait until you have two or three concrete callers, then extract the common shape — not the other way around.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-architecture-page" title="Did startup architecture stick?" sampleSize={2}>

@@ -88,6 +88,16 @@ Their fix: identify clusters of services that always change together, and merge 
 The lesson: microservices weren't wrong; *too many* microservices were wrong for that team's scale. The right granularity is the one where teams can mostly ship independently — and that varies enormously by company.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Fixing process problems with more process.** Reviews are slow, so you add an approval workflow to *speed up* reviews. Now you have reviews and a workflow. The fix for too much process is almost never another layer — it's pruning the layer that already exists.
+- **Cargo-culting the cure as eagerly as you cargo-culted the disease.** "Back to monolith!" sweeps the org as breathlessly as microservices did three years earlier. The right granularity is whatever your team coordination actually needs — not whichever direction is currently trending on engineering Twitter.
+- **Anti-pattern audits that produce reports instead of changes.** A 40-page document titled "Tech Debt Inventory 2026" that lands in a Confluence space nobody reads is not a fix. Pick the top three items, give them owners and deadlines, and *delete* the rest of the inventory — visibility without accountability is theater.
+- **Letting "platform theater" replace platform engineering.** Spinning up a "Platform Excellence" team that runs roadmaps and OKRs but never ships tools is a common reaction to platform criticism. Measure adoption, not slide decks — if product engineers aren't using the platform, the team isn't doing platform engineering.
+- **Eternal migrations as the answer to tech debt avalanche.** Announcing "we're rewriting it in Rust" without a deprecation date for the old system gives you two systems to maintain forever. If you can't commit to killing the old thing on a specific date, you can't commit to the migration.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-pitfalls-page" title="Did enterprise pitfalls stick?" sampleSize={2}>

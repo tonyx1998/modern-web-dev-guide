@@ -74,6 +74,16 @@ One page; everyone reads it in five minutes; engineering opens tickets straight 
 The biggest mistake new teams make is treating the PRD as a binding spec. It's not. It's the *current best understanding* of what to build, written down so that engineering, design, and product are pointed in the same direction. Expect it to change during implementation — when engineering finds a constraint, when design discovers a UX problem, when QA notices an edge case. The PRD evolves with the work.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Writing PRDs no one reads.** A six-page PRD with three approvers is enterprise cosplay at this scale. If you can't summarize the doc in two sentences in standup, it's too long — the team will skim and you'll discover the misalignments during code review.
+- **Treating Linear tickets as the spec.** Tickets are *tasks*, not requirements. Engineers staring at a one-line ticket re-invent the PRD in their head, and you ship five different interpretations of "add bulk export." Link every ticket back to the PRD.
+- **Setting OKRs that read like project plans.** "Ship feature X by Q2" is a deliverable, not a Key Result. Real KRs are measurable outcomes (activation rate, p95 latency, trial-to-paid conversion). If you'd close the KR by merging a PR, you wrote a task in OKR clothing.
+- **Letting "no spec yet" block engineering for a week.** At startup scale, engineering doing two days of spike work usually beats waiting for a perfect PRD. Build a throwaway, learn what the real questions are, then write the spec on the way out.
+- **Carrying every uncompleted ticket into the next sprint forever.** Tickets that survive three sprints without being touched are signals — either no one actually wants the work, or the scope is wrong. Close them honestly and let priorities re-surface them if real.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-planning-page" title="Did startup planning stick?" sampleSize={2}>

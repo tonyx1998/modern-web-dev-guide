@@ -114,6 +114,16 @@ Now do it once more with card `4000 0000 0000 0002` — Stripe rejects that one,
 Always pass enough metadata in the session creation to identify the user in the webhook. It's tempting to look up by email — don't. Emails can change; Stripe customer IDs are stable; your `userId` is the bridge.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Granting access on the success_url redirect.** The user lands on `/dashboard?success=1`, you flip them to "subscribed" in the DB, and they bookmark the URL to fake a paid account forever. The fix is to grant access *only* in the webhook handler — the redirect is a UX signal, not proof of payment.
+- **Treating the webhook as a one-time event.** Stripe will redeliver the same `checkout.session.completed` if your handler 500s or times out — and you'll double-insert subscriptions. The fix is to make handlers idempotent: upsert on `stripe_session_id`, or check if the row exists before inserting.
+- **Ignoring `customer.subscription.updated` and `.deleted`.** Your code listens for the initial payment and then never updates state — so canceled subscribers still get paid features for months. The fix is to handle the full lifecycle from day one: subscription updates, payment failures, cancellations all flip the DB.
+- **Testing only with `4242 4242 4242 4242`.** That card always succeeds, so your code never sees a decline, a 3DS prompt, or a webhook arriving after the redirect. The fix is to also run `4000 0025 0000 3155` (3DS) and `4000 0000 0000 0341` (auth succeeds, charge fails later) before you go live — Stripe documents the full set.
+- **Putting Stripe live keys in your `.env.local`.** A typo with a live key is real money. The fix is test keys everywhere except Vercel's Production environment — and never paste a live `sk_live_` key into your local terminal.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-payments-page" title="Did the payments flow stick?" sampleSize={2}>

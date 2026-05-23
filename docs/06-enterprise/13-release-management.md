@@ -87,6 +87,16 @@ A team is launching a redesigned checkout flow used by millions of users daily:
 By "launch day," the new checkout has been live for months. The marketing event is a celebration, not a risk.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Rollback plans that only exist on paper.** "Just revert the deploy" is not a plan if the migration was destructive. Walk the rollback once in staging — fully, end-to-end — before treating it as real. Untested rollbacks fail on the worst night.
+- **Letting deploy freezes drift from "high-traffic events" to "the entire holiday season."** A two-week freeze is a real cost; a six-week one is a velocity catastrophe. Be explicit about exactly which days are frozen and which fixes still qualify as critical — vagueness expands the freeze.
+- **Treating the Change Advisory Board as a rubber stamp.** A CAB that approves everything in 30 seconds is theater you're paying for. If the meeting can't say no, replace it with an automated record-and-notify; if it should sometimes say no, give reviewers time to actually read the change before the room.
+- **Dark launches that never see the light.** Code that's been behind a flag at 0% for nine months isn't dark-launched — it's dead. Every flag needs an owner, a target rollout date, and a removal plan, or you accumulate untested code paths nobody dares to delete.
+- **Coordinating launches across teams via Slack threads.** Past 5 teams, you need a TPM and a written launch plan with go/no-go criteria. "Did anyone see Sarah's message about the timeline?" is not a launch process.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-release-management-page" title="Did release management stick?" sampleSize={2}>

@@ -111,6 +111,16 @@ Day 3: Build settings screen + `/api/settings` endpoint. End-to-end working.
 You discover integration issues *immediately*, not in week 3. You ship visible value every day.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Accepting AI-generated code without reading it.** Copilot/Cursor will produce code that compiles, runs, and is subtly wrong — uses a deprecated API, fabricates a function, or silently catches the error you needed to see. Read every line before you commit it; the AI is a fast junior, not a senior reviewer.
+- **Mistaking "feature complete" for "done."** A feature isn't done when the happy path renders. It's done when empty state, loading state, error state, slow network, expired auth, and the back button all behave. Most "almost shipped" tickets are missing exactly these.
+- **Hoisting logic into "utils" too early.** Two functions that look alike today often need to diverge next month. Premature `formatThing()` helpers ossify accidental similarity into a contract. Wait for the third occurrence before extracting; copy-paste twice is fine.
+- **Letting the linter or type-checker turn yellow.** Once you ignore the first warning, the rest become wallpaper. Either fix it, suppress it with a one-line comment explaining why, or change the rule — but don't let the warning count drift upward across PRs.
+- **Reaching for `useEffect`/`useState` to model server data.** A surprising amount of "implementation work" is recreating cache, loading, and error logic by hand. Reach for TanStack Query, SWR, or your framework's data loader first — it handles invalidation, retries, and request dedup you'd otherwise reinvent badly.
+:::
+
 ## Page checkpoint
 
 <Quiz id="lifecycle-implementation-page" title="Did implementation stick?" sampleSize={2}>

@@ -59,6 +59,15 @@ If two teams need to be in the same meeting every week to make progress, the bou
 The two-pizza rule is really about **conway's law**: your system architecture will end up mirroring your team structure. Get the teams right, and the architecture follows.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Splitting headcount without splitting ownership.** Two teams of 7 that share the same codebase, the same on-call, and the same backlog are just one 14-person team with extra meetings. Splitting only counts when each side owns a service or module that the other doesn't need permission to ship in.
+- **Counting only engineers in your team-size math.** Two-pizza teams include the PM, the designer, the data scientist, and anyone else in the standups. A team with 8 engineers, 2 PMs, a designer, and a data lead is already 12 — coordination cost is already biting.
+- **Treating the split as permanent.** Team boundaries should track product reality, not org-chart inertia. When two teams find themselves constantly co-deploying, the boundary is wrong; merge or redraw it. The two-pizza count is the goal, not the boundary itself.
+- **Hiring to fix throughput when coordination is the bottleneck.** Adding a tenth engineer to a struggling team of nine almost always makes it slower — see Brooks' law in the worked example. Before pitching for more headcount, audit whether the team's *coordination overhead* is what's actually slowing you down.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-two-pizza-rule-page" title="Did the two-pizza rule stick?" sampleSize={2}>

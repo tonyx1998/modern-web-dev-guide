@@ -71,6 +71,15 @@ Build saved $300/year. It cost $75k. Buy wins by ~100x.
 Before you "just build it," ask: **"Who maintains this in three years, when the author has left and no one remembers why the password reset uses base32?"** If you can't answer that question with a real name, buy.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Comparing the vendor's price to $0 instead of to the build cost.** "$25/month is so expensive!" — compared to *what*? Compared to three engineer-months of work the vendor is replacing, $25/month is essentially free. Always price the build path at fully-loaded engineer cost, not at "we'd write it anyway."
+- **Building a "thin wrapper" that becomes the whole product.** Teams convince themselves they're buying Stripe but "just wrapping it lightly for flexibility." Two years later, the wrapper has more code than the product. If you'd build a wrapper around it, you're really planning to build it — admit that now and decide deliberately.
+- **Forgetting that buying is also reversible.** Engineers anchor on switching costs and refuse to buy because "we'll be locked in." You can usually swap auth providers in a couple of weeks if you isolate the integration. The lock-in story is a defense for the build instinct, not a real constraint.
+- **Underweighting what the vendor's roadmap gives you for free.** When you build, every new feature (SSO, audit logs, passkeys, regional compliance) is your job. When you buy, the vendor ships those by default. The buy path quietly accumulates capabilities you didn't ask for — that's part of its real value.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-build-vs-buy-page" title="Did build vs buy stick?" sampleSize={2}>

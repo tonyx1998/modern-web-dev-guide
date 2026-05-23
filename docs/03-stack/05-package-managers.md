@@ -86,6 +86,16 @@ time bun add react
 You'll see a dramatic spread. Bun is usually 5–10× faster than npm on the same machine, and pnpm sits comfortably in between.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Mixing package managers in one repo.** Running `npm install` in a project with a `pnpm-lock.yaml`, or `bun install` next to a `package-lock.json`, produces a second lockfile and silently different versions. Pick one per repo, commit *its* lockfile, delete the others.
+- **Adding `node_modules` to git or `.gitignoring` the lockfile.** Exactly backwards. Lockfile in git; `node_modules` out. The lockfile is the contract; `node_modules` is regenerated from it.
+- **Running `npm install` in CI instead of `npm ci` (or `pnpm install --frozen-lockfile`).** Plain `install` is allowed to mutate the lockfile, which means CI can quietly upgrade transitive deps mid-deploy. Use the frozen/clean variant — fast, deterministic, and fails loudly if the lockfile is stale.
+- **Trusting `^1.2.3` to be safe.** Caret ranges allow any minor or patch update; a malicious or buggy 1.4.0 can land via a teammate's local `install`. The lockfile is what actually protects you — never delete it to "clean up."
+- **Switching to Bun mid-project for speed, then hitting one incompatible native module and panicking.** Bun's Node compatibility is excellent but not perfect. Migrate during a quiet week, run your full test suite first, and keep your fallback (npm/pnpm) installable for a sprint.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-package-managers-page" title="Did package managers stick?" sampleSize={2}>

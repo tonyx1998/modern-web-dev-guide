@@ -112,6 +112,16 @@ What the engineer never directly touched: Kubernetes manifests, Terraform state,
 Without that abstraction, this same flow at a less-tooled enterprise is weeks of tickets.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Adopting Kubernetes because "we'll need it eventually."** A 30-engineer team running K8s spends most of its platform budget babysitting the cluster instead of shipping product. The cost shows up as slower onboarding, mysterious YAML, and 4 AM cluster-cert renewals — not as a line item.
+- **Multi-region active-active for stateful services without confronting CAP.** Synchronous replication across regions means write latency you can't hide; eventual consistency means user-visible weirdness ("I just paid; why does it say I owe money?"). Pick the trade-off explicitly per service — don't let "active-active everywhere" be a default.
+- **Letting Terraform state become tribal knowledge.** One state file, one person who knows where it lives, no locking, no backup. The first time someone runs `terraform apply` over a stale state, you lose hours and possibly resources. State backend + locks + reviews are not optional — they're the *point*.
+- **Long-lived secrets that "we'll rotate next quarter."** A static DB password that's been in production for two years is a credential an attacker uses forever once stolen. Short-lived, rotated, audited — anything else is borrowing time.
+- **FinOps as a Q4 panic instead of a continuous discipline.** Every December, leadership notices the cloud bill, demands a 30% cut, teams scramble for two weeks, then everyone forgets until next December. Tag from day one, chargeback monthly, and the panic stops happening.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-deployment-page" title="Did enterprise deployment stick?" sampleSize={2}>

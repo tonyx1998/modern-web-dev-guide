@@ -90,6 +90,16 @@ Most beginner designers (and engineers) only design the happy path — the scree
 A well-designed empty state guides users to the *next action*. A missing empty state confuses them. Design those screens *before* the happy-path screens — they're where users live during onboarding, which is the most critical part of any product.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Treating "design" as "make the colors look nice."** Visual polish is the *last* design concern. If your information architecture is wrong, no amount of gradient or font tweaking saves the screen. Get IA and user flows right first; mockups come after.
+- **Designing on a 1440px desktop only, then "making it responsive" later.** In 2026, most traffic is mobile and most users have a tiny viewport. Design the small screen first; the desktop layout is the easier upscale, not the other way around.
+- **Trusting AI design-to-code tools to ship production UI.** v0 and Lovable produce convincing-looking output that often ignores accessibility, breaks at edge content lengths, and pulls in dependencies you don't want. Treat their output as a starting wireframe, not a finished component.
+- **Pixel-fighting with engineers over breakpoints.** Demanding the design match Figma exactly at every screen width turns into a months-long whack-a-mole. Agree on a fluid system (spacing scale, type ramp, container queries) and let the layout breathe between named breakpoints.
+- **Forgetting the "max content" state.** Designs usually show 3 nicely-spaced items. Real users have 47 items, 200-character names, and emoji in their display name. Design the realistic worst case alongside the happy path, or your layout will collapse in production.
+:::
+
 ## Page checkpoint
 
 <Quiz id="lifecycle-design-page" title="Did design stick?" sampleSize={2}>

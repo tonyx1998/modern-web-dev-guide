@@ -104,6 +104,16 @@ Embeddings *lose* to keyword search on:
 The right answer is usually **hybrid search**: run both, combine the results, and let a reranker (or simple score fusion) decide the final order.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Mixing embedding models in the same index.** Vectors from `text-embedding-3-small` and `voyage-3` live in different spaces — distances between them are meaningless. Tag every row with the model name and version, and never query across models. A migration means a full re-embed.
+- **No index on the vector column.** A 1M-row pgvector table without an HNSW or IVFFlat index does a full sequential scan on every query — fine in dev, painful in prod. Add the index up front and tune `ef_search` / `lists` to your latency target.
+- **Embedding raw HTML or boilerplate.** If your "documents" still contain nav menus, cookie banners, or 500 lines of repeated footer, the embeddings cluster around boilerplate instead of meaning. Strip chrome and normalize before embedding — garbage in, garbage neighbors.
+- **Using cosine distance when your vectors aren't normalized.** Some embedding providers return unnormalized vectors; using cosine distance assumes unit length. Either normalize at ingest or use the distance metric the provider documents — mismatched metrics produce subtly wrong rankings that look fine until they don't.
+- **Pure semantic search for exact-token lookups.** SKUs, error codes, person names, and version strings are exactly where embeddings underperform keyword search. Run hybrid (BM25 + vector) and fuse the scores — semantic for meaning, keyword for precision.
+:::
+
 ## Page checkpoint
 
 <Quiz id="ai-embeddings-page" title="Did embeddings stick?" sampleSize={2}>

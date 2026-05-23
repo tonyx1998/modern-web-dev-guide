@@ -47,6 +47,16 @@ The 8-weekend estimate became 13 weekends not because anything went wrong — bu
 "Plan for 2x your estimate" is a comfort, not a license. It doesn't mean "schedule 2x and use all of it" — it means *if* things take 2x, you won't quit. If they take 1.2x, ship faster and use the saved time on the next project. The goal is shipping, not filling time.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Counting calendar weeks instead of weekend hours.** "I've been working on this for four months" usually means six actual weekends of focused work. The fix is to track *hours*, not weeks — open a notes file and log when you actually code. The number will be smaller than you think, which is comforting.
+- **Treating the 2x rule as permission to spend 2x.** You estimate 8 weekends, give yourself 16, and somehow fill all 16. The fix is to estimate honestly, plan for 2x as psychological insurance, and *still ship at the original number when you can*. Time expands to fill the budget you allow.
+- **Counting research and learning as build time.** A weekend reading "the best Next.js 15 patterns for 2026" isn't a feature shipped. The fix is to bucket time honestly — "learning" and "building" go in different columns. Learning is fine, but don't put it on the v1 critical path.
+- **Estimating each phase in a vacuum.** You forget that switching contexts mid-weekend (auth → payments → landing) costs an hour each. The fix is to add a flat 20% to anything with three or more sub-tasks — the friction is real and predictable.
+- **Burning out at week three because you thought it was a weekend project.** This is the underlying failure mode all the others feed into. The fix is to start with an honest estimate so that finishing at week eight feels like *succeeding*, not falling behind. Expectation-setting is half the battle.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-time-investment-page" title="Did time investment stick?" sampleSize={2}>

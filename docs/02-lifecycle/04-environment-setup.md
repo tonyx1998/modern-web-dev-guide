@@ -149,6 +149,16 @@ Then open http://localhost:3000.
 Spending 15 minutes on this saves your team (and future you) hours.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Installing Node globally and pinning nothing.** Whatever version you `brew install`ed is now silently different from CI, from your teammate's laptop, and from production. Use `fnm`, `volta`, or a `.nvmrc`/`.tool-versions` file from day one so the runtime is part of the repo, not part of your machine.
+- **Mixing package managers in the same repo.** Running `npm install` once after a coworker used `pnpm` regenerates the lockfile with subtly different versions and breaks reproducibility. Commit to one (`bun`, `pnpm`, or `npm`), delete the others' lockfiles, and have CI fail the build if a foreign lockfile appears.
+- **Trusting `.gitignore` to keep secrets out of Git.** A misplaced `git add .` will happily include `.env` if you renamed it to `.env.dev` and forgot to update the ignore. Use `git-secrets`, GitHub push protection, or a pre-commit hook that greps for known token shapes — defense in depth.
+- **Thinking "I'll set up the linter later."** Later, the codebase has 800 inconsistencies and turning the rules on creates a wall of red. Set up Biome/ESLint *before the first feature commit* so style is enforced from line one and nobody ever has to do a "fix everything" PR.
+- **Treating Dev Containers / Codespaces as exotic.** A `.devcontainer/devcontainer.json` is 20 lines and means a new contributor goes from "clone repo" to "running app" in one click — no "now install Postgres 16 with this brew tap" instructions. For any project with more than one contributor, it's a serious productivity win.
+:::
+
 ## Page checkpoint
 
 <Quiz id="lifecycle-environment-setup-page" title="Did environment setup stick?" sampleSize={2}>

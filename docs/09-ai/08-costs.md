@@ -91,6 +91,16 @@ Treat cost optimization with the same seriousness as latency or correctness:
 A 10x cost regression from a prompt change is just as much a "bug" as a 10x latency regression. Catch it the same way.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **No spend dashboard until the bill arrives.** "We'll check the console weekly" turns into a $40k surprise the morning after launch. Wire usage and cost into the same dashboard as latency and errors from day one — and set an anomaly alert at a multiple of normal daily spend.
+- **Cache key includes a timestamp or session id.** Hashing the full prompt with anything that varies per request gives you a 0% cache hit rate by accident. Hash only the semantically meaningful inputs (question text + relevant context), and verify the hit rate is non-trivial.
+- **Breaking prompt caching by reordering the prompt.** Provider prompt caching keys on the static *prefix* of the prompt — putting the user's question before the long system instructions, or shuffling tool definitions, kills the cache. Keep the long static part first and append the variable parts at the end.
+- **No per-user or per-feature rate limit.** One buggy client polling your chat endpoint at 10 req/s can do four-figure damage overnight. Apply rate limits at multiple layers (user, IP, feature) and have a runbook for who gets paged when the anomaly alert fires.
+- **Optimizing the wrong axis.** Switching every call to a cheaper model when 90% of your spend is from one chatty agent's 50-step loop is rearranging deck chairs. Profile cost by feature first, fix the top contributor, then move on.
+:::
+
 ## Page checkpoint
 
 <Quiz id="ai-costs-page" title="Did cost management stick?" sampleSize={2}>

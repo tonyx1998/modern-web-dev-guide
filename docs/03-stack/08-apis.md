@@ -131,6 +131,17 @@ A webhook endpoint is, by definition, accessible to the internet. Anyone can hit
 Every payment processor sends a signature header (`Stripe-Signature`, etc.). *Always* verify it before processing the payload. This is a 5-line code change that prevents catastrophic abuse.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Adopting GraphQL for a single web client.** GraphQL pays off when many clients (web, iOS, Android, partners) need overlapping data. For a Next.js app talking to its own Postgres, you're paying schema + resolver + N+1 tax for zero benefit. Use REST, tRPC, or RSC.
+- **Picking tRPC then needing a mobile or partner client.** tRPC's magic is sharing TypeScript types between server and client — non-TS clients see a barely-documented JSON-RPC blob. If you might publish your API, start with REST + OpenAPI.
+- **Returning 200 with `{ error: "..." }`.** HTTP has status codes for a reason. 4xx for client errors, 5xx for server errors, 200 only when it worked. Consistent status codes make every monitoring tool, retry library, and `curl` user instantly correct.
+- **Using WebSockets for one-way streaming.** Chat needs two-way; LLM token streaming, live scores, and notifications are one-way. SSE is simpler, plays nicely with HTTP/2 and proxies, reconnects automatically in the browser, and skips the WebSocket upgrade dance.
+- **Trusting webhook source IPs or skipping signature verification.** A webhook endpoint is on the public internet; anyone can hit it. Always verify the provider signature (`Stripe-Signature`, `X-Hub-Signature-256`, etc.) before processing — a 5-line change that prevents strangers from triggering your "charge the user" code path.
+- **Building non-idempotent webhook handlers.** Providers will retry. If your "create order" webhook fires twice on a flaky network, you create two orders. Key off the provider's event ID and dedupe.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-apis-page" title="Did API styles stick?" sampleSize={2}>

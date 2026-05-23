@@ -108,6 +108,16 @@ We'll cover both in upcoming pages.
 Every HTTP request has the same shape: **method + path + headers + (optional) body**. Every HTTP response has the same shape: **status code + headers + (optional) body**. Memorize that shape once and you can read any HTTP exchange anywhere — in a browser, in a log file, in a Wireshark capture.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Confusing HTTPS with "no eavesdropping at all."** TLS encrypts the body and headers, but the *destination IP* and *SNI hostname* are still visible to anyone on the network — your ISP can see you visited `example.com`, just not what you read. Encryption is end-to-end between you and the server, not anonymity.
+- **Adding "state" to the server and then being surprised when it breaks.** Stashing user data in an in-memory variable on the server feels easy until a load balancer routes the next request to a different instance and the data vanishes. The fix is to put state in the cookie, the token, or a shared store (Redis/DB) — not in process memory.
+- **Picking an HTTP version manually.** You don't choose `h2` vs `h3` — your hosting platform and the client negotiate it. Spending time "forcing HTTP/2" in your code is almost always wasted; spend it on your `Cache-Control` headers instead.
+- **Reading status codes without reading headers.** A `200 OK` with `Content-Type: text/html` when you expected JSON is a bug, but the status code alone won't tell you. Read the *whole* response line + headers before reaching for the debugger.
+- **Assuming HTTPS makes your app secure.** TLS only protects the wire. XSS, CSRF, broken auth, and SQL injection all happen *inside* the encrypted tunnel. HTTPS is table stakes, not a security strategy.
+:::
+
 ## Page checkpoint
 
 <Quiz id="http-basics-page" title="Did HTTP & HTTPS stick?" sampleSize={2}>

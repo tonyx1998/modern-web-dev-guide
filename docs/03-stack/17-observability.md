@@ -83,6 +83,17 @@ Sign up for these three free tiers and you have professional-grade observability
 Total cost: $0 for most personal projects. Setup time: 15 minutes including reading the docs. This setup will catch 95% of production issues you'll hit early on.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Adding Sentry only to the frontend (or only to the backend).** Half your errors go missing. Wire Sentry into *both* the browser bundle and the server runtime; trace IDs in the SDK then link the two halves of an incident.
+- **Logging PII, tokens, or full request bodies.** It looks helpful in dev and becomes a GDPR liability the moment it lands in your log provider. Redact before logging — most observability SDKs have a `beforeSend` / `scrubber` hook for exactly this.
+- **Going straight to Datadog on a new project.** Datadog is excellent and *expensive* — and most of what makes it valuable doesn't matter until you have many services. Sentry + PostHog + Better Stack covers 95% of early needs at $0. Graduate to Datadog when your platform team can justify the line item.
+- **Alerting on every error.** A pager that fires 30 times a day stops being a pager. Alert on user-facing impact (SLO burn, 5xx rate, queue depth), not on every individual exception Sentry catches. Errors go into a dashboard; *symptoms* go to PagerDuty.
+- **Treating logs, metrics, and traces as interchangeable.** Logs are events ("user X did Y"), metrics are aggregates ("p95 latency = 200ms"), traces are causality chains ("this request touched these 5 services"). You need all three; using logs to build dashboards or metrics to find a single bug is the painful way around.
+- **Instrumenting with a vendor SDK instead of OpenTelemetry.** Two years later, you want to switch from Datadog to Honeycomb, and now you're rewriting every `dd.trace(...)` call. OTel-first lets you swap backends without touching code.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-observability-tools-page" title="Did observability tools stick?" sampleSize={2}>

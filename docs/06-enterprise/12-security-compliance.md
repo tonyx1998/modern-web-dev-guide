@@ -106,6 +106,16 @@ A team is adding a new API endpoint for issuing refunds. At enterprise scale, th
 The endpoint that takes 2 days to write takes 3 weeks to ship. The reason is not bureaucracy. It's that "issue refunds" is exactly the kind of endpoint attackers target, and the cost of getting it wrong is enormous.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Treating compliance and security as the same function.** A SOC 2 audit doesn't make you secure; it proves you wrote down what you said you'd do. Pass the audit *and* run a real AppSec program — they catch different classes of failure.
+- **AppSec as a last-mile gate instead of a design partner.** If security review only happens the week before launch, the only options are "ship anyway" or "rebuild." Pull AppSec in during threat modeling, when changing the architecture is still cheap.
+- **Standing production access "for emergencies."** Every account with permanent prod access is a permanent blast radius. JIT access plus break-glass procedures are how mature orgs handle the actual emergencies — not by giving everyone admin "just in case."
+- **Letting CVE dashboards become wallpaper.** A list of 4,000 open CVEs with no triage cadence is the same as no list. Pick an SLA (e.g., criticals in 7 days), enforce it by team, and escalate breaches to directors — otherwise the dashboard just documents the problem.
+- **Importing FAANG zero-trust architecture at 50 engineers.** mTLS-everywhere with a service-mesh policy engine and custom IAM is months of platform work. At smaller scale, network segmentation + IAM + audit logs cover most of the threat model — adopt zero-trust when the perimeter genuinely can't be trusted, not as a buzzword.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-security-compliance-page" title="Did security & compliance stick?" sampleSize={2}>

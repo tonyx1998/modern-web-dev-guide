@@ -71,6 +71,16 @@ A self-diagnostic: open your last three weeks of code. How many lines did *you* 
 The "stagnation" pitfall is often invisible from the inside. If you've been at the same job for 3+ years and your skill stack hasn't grown, that's not loyalty — it's drift. A planned move every 2–4 years is normal in tech, often comes with a meaningful comp jump, and forces the kind of new-team learning that keeps you sharp.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Treating this list as a checklist of evils to vow against.** Reading "tutorial trap" and swearing off all tutorials, or reading "FAANG-obsession" and refusing to apply to a FAANG you'd actually love — that's just over-correction. Each pitfall is a *tendency*, not a binary; the skill is calibration, not avoidance.
+- **Assuming a pitfall "doesn't apply to me."** People who say "I'd never fall into the tutorial trap" are usually the ones deepest in it. Run the self-diagnostic (lines you wrote from a blank file in the last three weeks) before deciding you're safe.
+- **Job-hopping to escape stagnation when the real problem is at home.** Switching roles every 18 months because "I need new challenges" can be drift dressed up as growth — same surface-level work at five companies. Sometimes the fix is depth in the current role, not a new logo on the resume.
+- **Calling normal hard weeks "burnout."** Real burnout is months of degraded function, not one bad sprint. Mis-labeling a tough Tuesday as burnout makes the word useless when you actually need it.
+- **Reading "imposter syndrome is normal" as license to ignore real skill gaps.** Sometimes the feeling that you don't know something is correct — and the fix is studying that something, not just reassuring yourself it's a feeling. Both interpretations are valid; the skill is telling them apart.
+:::
+
 ## Page checkpoint
 
 <Quiz id="career-pitfalls-page" title="Did career pitfalls stick?" sampleSize={2}>

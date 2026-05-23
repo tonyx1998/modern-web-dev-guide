@@ -86,6 +86,16 @@ Three weeks of planning for a feature whose code might take two weeks to write. 
 
 This planning overhead is real, but at enterprise scale, the cost of misaligned work across hundreds of engineers far exceeds the cost of planning.
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Writing RFCs nobody reads.** A 40-page RFC that lands the day before a decision is theater. Post the draft two weeks before, ping specific reviewers by name, and treat "no comments" as "nobody read it" — not as approval.
+- **Skipping the "Alternatives considered" section because the answer felt obvious.** It won't be obvious to the engineer reading this in 2028. Spend the extra hour listing the three approaches you rejected and *why* — that's the section that pays for the whole document.
+- **Treating cross-functional reviews as boxes to tick.** If you schedule security review the day before launch, the only options are "ship anyway" or "delay the launch." Pull each reviewer in during design, when they can still change the shape of the thing.
+- **Letting OKRs ladder into work nobody owns.** A team-level OKR with no on-call accountability and no operational plan is a wish. Every objective should have a named owner and a clear answer to "who pages who when it breaks?"
+- **Mistaking planning volume for planning quality.** Forty pages of PRD doesn't beat ten focused pages with a clear success metric. Length signals effort, not rigor — and at this scale, reviewers will skim either way.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-planning-page" title="Did enterprise planning stick?" sampleSize={2}>

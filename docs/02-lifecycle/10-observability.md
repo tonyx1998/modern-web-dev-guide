@@ -125,6 +125,16 @@ Most production issues need all three. A spike in error metrics tells you *somet
 - **Logs without context:** Can't tell which user, which request, which trace.
 - **No correlation IDs:** Can't follow a request across services.
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Confusing "monitoring" with "observability."** Monitoring tells you the dashboards you set up in advance; observability lets you ask new questions about a problem you didn't predict. If every investigation requires shipping new code to add a log, you have monitoring, not observability.
+- **Logging the entire request body.** It feels useful until the day a user's password, JWT, or PII shows up in your log search box. Log identifiers and the small set of fields you actually need; everything else is a leak waiting to happen.
+- **Treating `console.log` as production observability.** Vercel/Cloudflare will show you those logs for about an hour and then they're gone, ungrouped, untraceable. Pipe through a real ingest (Better Stack, Axiom, Logflare) with a `requestId` on every line so you can correlate after the fact.
+- **Alerting on causes instead of symptoms.** "CPU at 80%" or "queue depth at 1000" might be totally fine under your normal load. "p95 latency over 800ms" or "error rate above 1%" are user-visible. Alert on what users feel, debug down to causes.
+- **Skipping observability for LLM features.** AI features fail in new ways — silent quality regressions, slow upstream APIs, surprise cost spikes. Standard APM tools miss this. Wire up Langfuse, Helicone, or Braintrust from day one if any part of your product calls a model.
+:::
+
 ## Page checkpoint
 
 <Quiz id="lifecycle-observability-page" title="Did observability stick?" sampleSize={2}>

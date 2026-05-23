@@ -57,6 +57,15 @@ You should *always* think about **structural** performance choices from the star
 These are not "optimizations" — they're correctness at scale. Fixing them after the fact is much more expensive than choosing right initially.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Quoting Knuth to skip thinking about performance entirely.** "Premature optimization is the root of all evil" doesn't mean "ignore performance until users complain." Structural choices — O(n²) loops, N+1 queries, megabyte-sized bundles — are correctness decisions, not optimizations. Get those right from day one.
+- **Profiling in dev or with toy data.** The hot path on your laptop with 100 rows is almost never the hot path in production with 100 million rows. Use real-shaped data, real traffic patterns, and ideally a profile from production itself before you tune anything.
+- **Adding a cache to dodge a real problem.** Caching turns a slow query into a fast query *and* a cache-invalidation problem. If the underlying query is 200ms because it scans a table without an index, fix the index — don't paper over it with a cache that becomes its own failure mode.
+- **Treating "fast" as the last step you ever take.** "Make it work, then right, then fast" is an ordering, not a one-shot pipeline. Code that was fast at v1's data size can be unusably slow at v3's. Re-profile when the shape of the workload changes, not just when it ships.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-premature-optimization-page" title="Did premature optimization stick?" sampleSize={2}>

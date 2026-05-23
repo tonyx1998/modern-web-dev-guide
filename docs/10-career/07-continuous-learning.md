@@ -91,6 +91,16 @@ That's it. Done weekly for a year, this gives you 50 deep reads — more than en
 For *concept understanding* — not code generation — modern AI assistants are an order of magnitude better than the average tutorial. They explain at your level, answer follow-ups, and don't judge basic questions. The catch is verification: always sanity-check the answer against MDN or the actual docs before you trust it in production.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Subscribing to thirty newsletters and reading none of them.** A bulging inbox feels like learning and is not. Pick two newsletters and one quarterly book; archive everything else.
+- **Mistaking AI-generated explanations for understood concepts.** Asking Claude to explain closures and nodding along is not the same as writing a closure from scratch. After every AI explanation, force yourself to build the tiny demo without the chat open.
+- **Doomscrolling Twitter and calling it "staying current."** The release-noise-to-signal ratio on tech Twitter in 2026 is brutal — most "breakthrough" threads are marketing. The Sunday 30-minute habit beats two hours of scrolling on Wednesday.
+- **Learning the new framework instead of the underlying primitive.** Every year there's a new meta-framework; the primitive (HTTP, the DOM, SQL, the OS, the model) changes much slower. Time spent on primitives compounds across framework cycles.
+- **Stopping career audits once employed.** The yearly "am I still growing?" question is easier to dodge after the first job lands. Put it on the calendar; otherwise three years vanish in the same role.
+:::
+
 ## Page checkpoint
 
 <Quiz id="career-continuous-learning-page" title="Did continuous learning stick?" sampleSize={2}>

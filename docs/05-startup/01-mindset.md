@@ -47,6 +47,16 @@ A fully-loaded engineer at a small US startup costs roughly $15K–25K/month. Yo
 The math is brutal: choosing to build instead of buy *any* of these adds 20%+ to your headcount cost. Build what's differentiated. Buy everything else.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Copy-pasting a FAANG engineering blog as your operating model.** What works for 500 engineers will crush 12. When you read a post about platform teams, RFC councils, or eventing architectures, ask first: *would this exist if our headcount were 10x smaller?* If not, skip it.
+- **Confusing "managed services" with "no work."** Vercel and Supabase still need someone watching bills, rotating secrets, and reading the slow-query log. The savings are real, but they don't include "you can ignore infrastructure entirely."
+- **Treating the founder/CTO as the architecture committee forever.** At 5 engineers it works; at 15 it becomes a bottleneck that blocks every decision. Hand off design ownership *before* people start routing around you.
+- **Adding process in response to anxiety, not pain.** Reading a horror story on Hacker News and instituting a new policy on Monday is theater. Wait for an actual incident with your name on it before you adopt a rule.
+- **Confusing "moving fast" with "never writing things down."** Two-line ADRs in the repo cost nothing and save the team from re-litigating the same decision every six weeks.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-mindset-page" title="Did the startup mindset stick?" sampleSize={2}>

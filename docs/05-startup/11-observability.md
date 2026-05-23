@@ -72,6 +72,16 @@ After a significant incident, the team writes a short post-mortem in Notion: wha
 The reason is practical, not soft: the moment people fear post-mortems, they hide near-misses. Hidden near-misses become future incidents. Blameless writing trades the small dopamine hit of assigning fault for the much larger benefit of an honest learning culture.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Logging everything at INFO level.** Once every request emits 30 log lines, Better Stack costs spike and useful signals drown in noise. Default to WARN for "this is unusual" and INFO for state changes (signups, payments) — not for "function entered."
+- **Alerting on metrics nobody owns.** A Slack #alerts channel with 200 daily messages gets muted within a week, and the one real alert is missed. Every alert needs a name attached: who triages it, what runbook to follow, when to escalate. No owner? Delete the alert.
+- **Treating Sentry like a TODO list.** Errors pile up to 10,000+ unread, including issues that auto-resolved months ago. Spend 20 minutes weekly archiving and grouping — or the signal-to-noise of your error tracker collapses.
+- **Skipping post-mortems for "small" incidents.** A 15-minute outage feels too small to write up — until you have ten of them in a quarter and realize they're the same root cause. Write *brief* post-mortems for anything customer-visible, not just the dramatic ones.
+- **Building a custom dashboard project that nobody opens.** A grafana board with 40 panels updated weekly becomes wallpaper. Default to the platform dashboards (Sentry, PostHog, Vercel) until you have a specific question they can't answer.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-observability-page" title="Did observability stick?" sampleSize={2}>

@@ -75,6 +75,16 @@ Imagine three versions of a small SaaS app — say, a project-management tool �
 Same *product*, radically different *stack*. Each is correct for its scale; copying either of the others would be a mistake.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Copying a FAANG architecture diagram into a 5-person startup.** Microservices, service mesh, multi-region active-active, Kafka — none of that pays off until you have the team to run it. At your scale a single Next.js app on Vercel will outship the "proper" architecture every time.
+- **Treating "modular monolith" as a stepping stone you must outgrow.** Most products that reach $100M ARR are still modular monoliths. Plan to stay there. Splitting into services should be triggered by a concrete problem (team boundaries, scaling hot paths) — not by hitting an arbitrary revenue or headcount milestone.
+- **Reading the polyglot enterprise column as aspirational.** Five languages in your stack is a *cost* large companies absorb because they can't agree on one, not a feature. At small scale, TypeScript end-to-end is a competitive advantage — guard it.
+- **Self-hosting to "save money" before counting engineering hours.** A solo dev moving off Vercel to a $5 VPS saves $15/month and burns a weekend every quarter on patches and incidents. Until your hosting bill is a meaningful slice of payroll, managed wins. (See the Economics page.)
+- **Picking tools from the enterprise column for resume credibility.** Running Kubernetes, Kafka, and Istio on a 3-service product won't impress a serious interviewer — it'll raise flags about judgment. Use the tool that fits the problem and explain *why* in the interview.
+:::
+
 ## Page checkpoint
 
 <Quiz id="comparison-stack-and-hosting-page" title="Did stack and hosting across scales stick?" sampleSize={2}>

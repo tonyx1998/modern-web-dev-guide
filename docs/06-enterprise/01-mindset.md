@@ -68,6 +68,15 @@ The mindset shapes everything else in this chapter:
 
 If you've only worked at startups, the easiest way to mis-read enterprise code is to assume the verbosity is incompetence. Usually, it's scar tissue from real failures.
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Reading enterprise verbosity as incompetence.** When you see ten reviewers on a one-line PR, your instinct is "wow, what a mess." Before you ridicule it, ask which past incident each reviewer is the scar tissue from. Usually there's a real answer.
+- **Importing startup speed as the universal goal.** Joining from a fast-moving startup, you'll want to "just ship it" past the controls. Don't. The controls exist because at this revenue and headcount, a careless deploy is a regulatory event, not an embarrassing tweet.
+- **Designing for the engineers you have, not the ones you'll page in two years.** Your current team understands the system. The on-call hire who joins in 2028 won't. Optimize the docs, runbooks, and tooling for them — they're the median engineer this whole mindset is built around.
+- **Treating "minimal viable bureaucracy" as someone else's job.** Every senior engineer can prune one stale process per quarter. If you wait for leadership to do it, you'll wait forever — process accretes faster than any single VP can cut.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-mindset-page" title="Did the enterprise mindset stick?" sampleSize={2}>

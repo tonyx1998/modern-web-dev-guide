@@ -90,6 +90,16 @@ A typical small PR (changing a single function in the payments service) might tr
 Total: ~8 minutes of CI on parallel runners, plus human review time. Each individual check is fast; the combined coverage is what makes the codebase safe at scale.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Adopting trunk-based dev without feature flags.** Without flags, "always merge to main" means half-finished features in production. Trunk-based dev *requires* a flag system as the other half of the discipline — don't ship one without the other.
+- **Letting feature flags become permanent.** A flag added in 2024 and still in the code in 2026 is a fork in your codebase. Every flag needs an owner and a removal date; the platform team should track flag age and ping owners when they go stale.
+- **Stuffing CODEOWNERS with `@everyone`.** When every directory routes to the same broad team, code review becomes a hot potato and nobody actually owns anything. Be specific — narrow CODEOWNERS to the team that actually carries the pager for that code.
+- **Confusing "we have a linter" with "we have a fitness function."** A lint rule that warns is a suggestion; a fitness function that fails the build is policy. If the rule isn't blocking merges, it isn't being enforced — it's being noticed.
+- **Wrapping every open-source library "for consistency."** Sometimes the upstream library is fine and the internal wrapper just adds a layer to debug through. Wrap when you need to enforce metrics, tracing, or audit logging — not because "we always wrap."
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-development-practices-page" title="Did development practices stick?" sampleSize={2}>

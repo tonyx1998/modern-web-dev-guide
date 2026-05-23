@@ -107,6 +107,16 @@ Each has: a custom domain, a real README, a GitHub link, and at least one blog p
 If you do nothing else from this page, deploy one project to a custom domain. The gap between `localhost:3000` and `yourname-tool.com` is the entire gap between "I'm learning to code" and "I'm a developer." Free hosting + a $12 domain closes it.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Building the portfolio site before the portfolio.** Months spent perfecting a homepage with no real projects to link to is the most common form of procrastination disguised as work. Ship one real project first; the showcase site can be a single markdown page.
+- **Confusing "deployed" with "deployed somewhere a recruiter will click."** A Vercel preview URL with random hashes and a half-broken login flow is worse than no link. If a stranger lands on your domain cold, can they understand what the thing does in 10 seconds and try it without signing up? If not, fix that before adding feature #4.
+- **Wrapping every project in a thin AI layer and calling it differentiated.** A ChatGPT wrapper around a public API is now the new todo app — recruiters see twenty of them a week. The AI should be solving a real problem you understand, not the headline.
+- **Going quiet between projects.** A blog with one post from 2024 reads worse than no blog. If you can't sustain writing, delete the link rather than leaving a stale one.
+- **Open-sourcing only your own toy repos.** Five PRs to libraries the hiring team actually uses beats fifty stars on your personal repo nobody else touches.
+:::
+
 ## Page checkpoint
 
 <Quiz id="career-portfolio-page" title="Did building a portfolio stick?" sampleSize={2}>

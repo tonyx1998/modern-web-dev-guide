@@ -152,6 +152,17 @@ Run with `drizzle-kit migrate`, `prisma migrate deploy`, etc.
 ORMs are great, but they're not a substitute for understanding SQL. The moment you hit a performance problem, a complex aggregation, or a tricky join, you'll be reading raw SQL. Spend an afternoon on SQL basics. You'll thank yourself for the rest of your career.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **N+1 queries hidden by the ORM's fluent API.** `users.map(u => u.posts)` looks like JS but fires one query per user. Use `include` (Prisma) or an explicit join/`with` (Drizzle) to fetch in a single round trip. Watch the SQL log; if you see 50 queries to render one page, you have an N+1.
+- **Editing an already-applied migration.** Once a migration has run in any shared environment (staging, prod, a teammate's DB), it's immutable. Editing it puts everyone's schema out of sync with the migration history. The fix: write a *new* migration that corrects course.
+- **Branching schema and code separately, then merging.** Two PRs touch the schema; both add migration `0007`. Merge, deploy, chaos. Migrations are numbered/timestamped sequentially for a reason — rebase yours on top of `main` and renumber before merging.
+- **Reaching for raw SQL the moment the ORM gets awkward.** A 5-line raw query is fine; a 200-line one in `db.execute(sql\`...\`)` loses type safety and parameter help. Use raw SQL for genuinely complex aggregates, not to avoid learning the ORM's join syntax.
+- **Forgetting to disable lazy loading in serverless.** Some ORMs lazily resolve relations on access — fine on a long-lived server, disastrous in a Lambda that's already returned the response. Prefer explicit, eager loads (`include`/`with`) and you avoid the surprise.
+- **Skipping a backward-compatible deploy.** Renaming a column in one migration + deploying the code that uses the new name in the same release means a window where running code references a column that doesn't exist. Expand → migrate → contract: add the new column, dual-write, switch reads, drop the old.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-orms-page" title="Did ORMs stick?" sampleSize={2}>

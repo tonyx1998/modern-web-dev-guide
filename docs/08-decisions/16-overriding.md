@@ -53,6 +53,15 @@ Key frameworks to remember from this chapter:
 Decision-making is the hidden craft of senior engineering. Anyone can write code; the multiplier is making good decisions about what to build and how.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Overriding the framework before you've internalized it.** New engineers reach for the override on day one because the default "doesn't fit our situation." Almost always, the framework fits and you haven't yet seen why. Use the defaults for at least a year of real decisions before claiming the situation is special.
+- **Calling every deviation an "override" instead of a mistake.** Senior engineers protect their identities with "we deliberately chose this" — even when the choice was really expedience under pressure. An honest post-mortem distinguishes "we overrode for these reasons" from "we cut a corner and it cost us." Use the right label.
+- **Treating the worked example as the rule.** "We used Rust for our payments service" is one team's override; it's not a license for *your* team to choose Rust. The override's value lives in the specific reasoning that justified it, not in the final answer. Don't copy the answer; copy the discipline.
+- **Forgetting that "skip the framework, situation is urgent" needs a follow-up.** Skipping deliberation in a fire is fine. Not revisiting the decision once the fire is out is how technical debt is born. Log every framework-override-under-pressure as a TODO to re-evaluate when things calm down — most of them will need correcting later.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-overriding-page" title="Did overriding the frameworks stick?" sampleSize={2}>

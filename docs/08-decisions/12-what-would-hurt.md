@@ -58,6 +58,15 @@ When estimating "what would it cost to fix," include:
 That bigger number is the *real* cost. Use it to set deliberation budget.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Estimating fix cost in engineer-hours but not calendar-time.** A migration that's "two engineer-weeks" might span six months once you account for code freeze windows, customer communication, security review, and waiting for the data team. Pain isn't just hours — it's elapsed time during which the team is partially blocked.
+- **Counting only the engineers and forgetting everyone else who pays.** A breaking API change might cost your team 3 days; it might cost 40 customer engineering teams a week each. The right "what would hurt" question includes external pain, not just internal. Public APIs are expensive because everyone else also has to do work.
+- **Assuming "we can always migrate later" is free.** Later you'll have more code, more customers, more integrations, and a team that's lost the original context. The fix cost grows monotonically with time. Estimate the cost at the *point you'd actually do the migration*, not today.
+- **Letting low-stakes questions waste high-stakes time.** The point is asymmetric attention, not equal attention to every decision. If your team is bikeshedding the logger library in the same meeting where you're deciding the public API contract, stop the meeting and reorder — those two decisions deserve different rooms entirely.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-what-would-hurt-page" title="Did 'what would hurt?' stick?" sampleSize={2}>

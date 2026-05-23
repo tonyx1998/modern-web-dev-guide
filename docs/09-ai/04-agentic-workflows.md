@@ -109,6 +109,16 @@ Non-negotiable guardrails:
 Without these, an agent that worked in dev can cost real money in production.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **No hard cap on the loop.** An agent stuck in a "search → didn't find it → search again" cycle will happily burn 200 LLM calls before you notice. Enforce a max-step counter *and* a max-spend counter in the loop itself — not just a timeout — and fail loudly when either trips.
+- **Shipping the agent straight to prod with no traces.** When the agent does something weird on step 12, you need the full sequence of prompts, tool calls, and observations to debug it. Wire Langfuse (or your tracer of choice) on day one — debugging an untraced agent is essentially guesswork.
+- **Letting the agent's tools touch production directly in dev.** An agent prototype that can `sendEmail` or `chargeCard` against the live system *will* eventually do something embarrassing during a test run. Run agents against a sandbox or a `dryRun: true` mode until guardrails and evals are in place.
+- **Confusing "agentic" with "good fit."** A lot of "agents" in 2026 are really a fixed 3-step pipeline dressed up in a loop. If the steps are knowable in advance, write a deterministic workflow — it's cheaper, faster, and easier to debug. Reserve real agents for tasks where the next step genuinely depends on prior results.
+- **No human-in-the-loop for high-impact actions.** "The model is smart enough" is not a guardrail. Any external email, payment, deletion, or production write should require explicit user confirmation — implemented in regular code, not by asking the model nicely.
+:::
+
 ## Page checkpoint
 
 <Quiz id="ai-agents-page" title="Did agentic workflows stick?" sampleSize={2}>

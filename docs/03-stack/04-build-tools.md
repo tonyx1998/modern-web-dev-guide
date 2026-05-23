@@ -80,6 +80,16 @@ The dominant bundler from 2014–2022. Still around in many projects but rarely 
 Five years ago, "webpack.config.js" was where you spent half your life. Today, modern tools have such good defaults that most projects never touch their bundler config. If you find yourself deep in `vite.config.ts` or `next.config.js`, pause and ask: is this a real need, or am I tinkering? Modern defaults beat custom config 9 times out of 10.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Tinkering with your bundler config to "make it faster."** Modern defaults beat custom config 9 times out of 10. If you're deep in `vite.config.ts` and you don't have a concrete bug, you're procrastinating. Close the file.
+- **Choosing your build tool before your framework.** You don't pick Vite or Turbopack standalone for a new app — they come with Next.js, SvelteKit, Astro, etc. Pick the framework and inherit its bundler.
+- **Confusing dev speed with prod build speed.** Vite is fast in dev because it skips bundling and serves ES modules directly. Production still does a full Rollup bundle — don't be surprised when `vite build` takes minutes on a large app.
+- **Sticking with Webpack on a new project "because the team knows it."** That's the legacy tax. New work on Vite or Turbopack pays back in a week of saved dev-server time. The migration cost on an existing app is real, but a fresh repo has no excuse.
+- **Importing huge libraries without checking tree-shaking.** `import _ from 'lodash'` pulls in everything; `import debounce from 'lodash/debounce'` (or use `lodash-es`) pulls in one function. The bundler can only shake what your imports allow.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-build-tools-page" title="Did build tools stick?" sampleSize={2}>

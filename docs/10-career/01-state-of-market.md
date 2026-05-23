@@ -40,6 +40,15 @@ Same total study hours. Different signal-to-noise ratio. The 2026 market reads C
 If a job description in 2026 doesn't *explicitly* mention AI tooling, assume the team still expects you to use it. "I don't use Copilot/Cursor/Claude Code" is the 2026 equivalent of "I don't use an IDE" — technically possible, but a strong negative signal.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Reading "junior market is hard" as "don't bother."** It's harder, not closed. The same shift that culled weak juniors raised the comp ceiling for the ones who do ship. Treat the higher bar as a target, not a wall.
+- **Hearing "AI is table stakes" and over-correcting into AI-only.** Knowing how to drive Cursor or Claude Code matters; *only* knowing how to drive them is worse than knowing neither. The market wants engineers who can review and reject AI output, not relay it.
+- **Padding the resume with frameworks instead of deployed work.** "React, Vue, Svelte, Next, Astro, Remix" on a resume with no live URL reads as panic. One shipped project beats six framework names every time.
+- **Optimizing for a 2018 playbook.** Bootcamp + 50 tutorial repos + cold applications worked then; in 2026 it's the slowest path. If your strategy was someone's success story five years ago, double-check it's still the meta.
+:::
+
 ## Page checkpoint
 
 <Quiz id="career-state-of-market-page" title="Did the state of the 2026 market stick?" sampleSize={2}>

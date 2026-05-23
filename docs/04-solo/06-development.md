@@ -206,6 +206,16 @@ Total time: 20–30 minutes. Avoid the trap of refactoring six other things whil
 Most "I need state here" instincts are wrong. You only truly need a Client Component when there's user input or animation. The book list itself doesn't need to be client-side — only the *button that opens the modal* does. Pushing `'use client'` as deep into the tree as possible keeps your JS bundle small and your pages fast.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Starting three features in parallel.** "I'll just scaffold all the routes first" turns into three half-built UIs, none of which work end-to-end. The fix is one feature, schema-to-deployed, before opening the next file. The dopamine of *shipping* one beats the dopamine of *starting* three.
+- **Slapping `'use client'` on the root layout.** It "fixes" a stray `useState` error and now your whole app is a client bundle. The fix is to push the client boundary as deep into the tree as possible — only the leaf that actually needs the browser gets the directive.
+- **Trusting AI-generated auth, payment, or input-validation code.** The agent will confidently produce a Server Action that skips the `userId` check or a Zod schema with no validators. The fix is to read every line of security-sensitive code yourself — for everything else, accept the suggestion, but never for the bits that protect users or money.
+- **Forgetting `revalidatePath` and assuming the cache is broken.** You insert a row, the list doesn't update, you start debugging Drizzle. The fix is to remember Next.js caches aggressively — every mutating Server Action needs an explicit `revalidatePath` or `revalidateTag` call, or the UI shows stale data even though the DB is correct.
+- **Refactoring while you build.** You're three files deep into "while I'm in here, let me clean this up" and the original feature is still half-done. The fix is a `// TODO: cleanup` comment and a commit on the same branch — refactor *after* the feature ships, not during.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-development-page" title="Did the development workflow stick?" sampleSize={2}>

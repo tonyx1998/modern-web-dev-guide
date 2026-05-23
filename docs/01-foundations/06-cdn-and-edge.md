@@ -94,6 +94,16 @@ The trade-off: edge runtimes are usually constrained (smaller CPU/memory limits,
 **Edge-first apps** — most logic runs at the edge, with a regional database (or globally distributed database like Cloudflare D1, Turso, or Spanner) for state. This pattern dominates new green-field apps in 2026, replacing the older "single region, scale vertically" default.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Assuming the CDN caches everything by default.** Most CDNs cache static asset extensions (`.js`, `.css`, images) automatically but pass HTML straight through to your origin. If you want HTML cached, you have to send the right `Cache-Control` header (`public, max-age=...`) — silence means "do not cache."
+- **Setting `Cache-Control: no-cache` thinking it disables caching.** It doesn't — it means "cache it, but revalidate every time." If you actually want no caching, you need `no-store`. The difference catches everyone once.
+- **Caching personalized HTML.** A `Cache-Control: public` on a page that includes the user's name will serve User A's name to User B from the CDN. If a response varies per user, mark it `private` or skip caching entirely. Anything with `Set-Cookie` should generally not be CDN-cached either.
+- **Treating edge runtimes as full Node.** Workers, Edge Functions, and Lambda@Edge run a *constrained* JavaScript runtime — no filesystem, no native Node modules, tight CPU limits, no long-lived TCP connections. Code that runs fine in a regular Node server will fail at the edge in ways that are hard to spot until deploy.
+- **Forgetting cache invalidation when shipping a fix.** You deploy the fix, but users keep hitting the stale CDN copy until its TTL expires. Either tie deploys to a cache purge, or version your URLs (`/app.v123.js`) so the new deploy fetches a new file path.
+:::
+
 ## Page checkpoint
 
 <Quiz id="cdn-edge-page" title="Did CDNs & the edge stick?" sampleSize={2}>

@@ -78,6 +78,16 @@ Fifteen minutes, once a week. That's the whole maintenance routine for a small S
 At a big company, one customer is one of millions. For your indie project, one of your first ten users is *ten percent of your user base*. Reply to their emails. Ask them questions. Ship the feature they asked about. Treat them like co-founders, because that's basically what they are.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Auto-merging every Dependabot PR.** It feels productive until a minor bump to a transitive dep takes prod down on a Sunday morning. The fix is to merge security patches quickly but treat every major-version PR like a real change — read the changelog, run it on a preview deploy, then merge.
+- **Ignoring user emails for "a week or two."** Early users who get silence churn permanently — and they were your free product research. The fix is a same-day acknowledgment (even just "got it, looking into it") and a real reply within the week. Email is your highest-signal feedback channel; treat it that way.
+- **Adding indexes you don't need.** "Performance maintenance" turns into indexing every column "just in case," and now every write is slower. The fix is to add indexes only when the slow query log actually flags the query — measure first, then index the column you're filtering on.
+- **Not watching the bill until it surprises you.** A runaway loop calling the OpenAI API or a Neon compute spike from a misbehaving cron job turns "$1/month" into "$240 next Tuesday." The fix is a monthly spend alert on every paid service (Stripe Radar, OpenAI, AWS) — caught at $20, not $200.
+- **Skipping the weekly tending block "because nothing is broken."** That's exactly when problems compound silently. The fix is to run the 15-minute routine even when everything looks fine — Sentry trends, slow query log, failed Stripe charges. The point of a routine is that you do it before you need to.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-maintenance-page" title="Did the maintenance routine stick?" sampleSize={2}>

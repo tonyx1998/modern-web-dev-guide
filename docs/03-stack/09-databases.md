@@ -147,6 +147,17 @@ flowchart LR
 That's it. One DB to back up. One mental model. One ops burden. Add specialized databases only when Postgres genuinely can't handle the job — which, in 2026, is rare.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Reaching for MongoDB because "my data is unstructured."** It almost never is. Users, orders, posts, and comments are relational — and Postgres has a `jsonb` column for the genuinely schemaless bits. You get joins, transactions, and constraints *for free*; in Mongo you'd hand-roll them.
+- **Adding a dedicated vector database before you've shipped one AI feature.** pgvector inside the Postgres you already run is the right starting point. Pinecone/Qdrant/Weaviate add a service to operate, a second source of truth, and another bill. Move to one only when pgvector hits a real wall.
+- **Treating Redis as durable storage.** Redis is in-memory; a restart or eviction can drop your data. Use it for caches, sessions, rate limits, queues — never as the system of record. If you need persistence, that's Postgres's job.
+- **Connecting to Postgres from a serverless function without a connection pooler.** Each cold start opens a fresh connection; under load you hit the connection limit and the whole DB falls over. Use a pooler (PgBouncer, Supabase's pooler, Neon's connection pooling) for serverless workloads.
+- **Skipping indexes until the query is slow.** By then, "slow" means a customer-facing outage. Index foreign keys and any column you filter or sort by — that's table stakes, not optimization.
+- **Picking DynamoDB because it "scales infinitely."** It does, but only along the access patterns you designed for. Add a new query shape later and you're rebuilding tables. If you can't enumerate every query up front, you want Postgres.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-databases-page" title="Did databases stick?" sampleSize={2}>

@@ -116,14 +116,13 @@ flowchart TD
 
 ## Common mistakes
 
-Beginner pitfalls that show up over and over in real codebases:
-
-- **Using CSR for public SEO pages.** Google can index CSR pages in some cases, but most crawlers (and link previews on Slack/Discord/Twitter) can't. If a real-life human will arrive via Google, don't ship them a blank `<div id="root">`.
-- **Using SSR for pages that could be static.** "Just make it server-rendered" is the lazy answer for blog/about/marketing. SSG would be cheaper, faster, and easier to scale.
-- **Thinking "server-rendered" means "no JavaScript."** Almost every React/Vue/Svelte SSR setup still ships a hydration bundle. If you actually need *zero JS*, look at Astro or HTMX.
-- **Thinking rendering strategy is a one-time, whole-app decision.** It's a per-page (and increasingly per-component) decision in modern frameworks.
-- **Treating RSC, SSR, ISR, and PPR as competing options.** They stack on the same page (see the highlight above).
-- **Optimizing for a problem you don't have.** PPR is cool, but if you have 50 users a day on a startup MVP, vanilla Next.js defaults are fine. Pick the simpler tool until the simpler tool fails.
+:::caution[Where people commonly trip up]
+- **Using CSR for public SEO pages.** Google's crawler runs JS inconsistently, and most other crawlers — Slack, Discord, Twitter link previews — don't run it at all. If a human will arrive via search or a shared link, don't ship them a blank `<div id="root">`.
+- **Treating "server-rendered" as "no JavaScript."** Almost every React/Vue/Svelte SSR setup still ships a hydration bundle the same size as a SPA. If you actually need zero JS, look at Astro or HTMX — vanilla SSR is *not* that.
+- **Treating RSC, SSR, ISR, and PPR as competing options.** They stack on the same page — a static shell, a streamed server component, a cached server component, and a client island can all live in one route. The question is which mode fits each *section*, not the whole app.
+- **Picking a strategy before picking a framework.** The framework you adopt makes most of these choices for you — Next.js App Router defaults to server components with streaming, Astro defaults to SSG, Remix defaults to SSR. Choose the framework first; the strategy falls out.
+- **Optimizing for a problem you don't have.** PPR and selective caching are real wins at scale, but if you have 50 users a day, vanilla framework defaults will be fine for years. Don't burn complexity on traffic you don't yet see.
+:::
 
 :::info[Highlight: this is the single most-overcomplicated topic in modern web dev]
 You'll see endless blog posts, conference talks, and Twitter threads arguing about rendering strategies. **You don't need a strong opinion on day one.** Pick what your framework defaults to:

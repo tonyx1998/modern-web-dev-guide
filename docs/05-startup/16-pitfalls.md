@@ -79,6 +79,16 @@ Process theater (standups, retros, JIRA fields) doesn't get added by a villain �
 The fix is institutional: every retro should include "what process should we kill?" The list of accepted process should be *shorter than you'd expect*, with each item earning its place.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Over-engineering the anti-microservices stance.** "No microservices" is a heuristic, not a religion. When the auth team genuinely needs to deploy on a different cadence at 60 engineers, refusing to extract a service "because monoliths win" is the *same* dogma in the opposite direction. Re-evaluate at real triggers.
+- **Treating this whole pitfalls list as a checklist to audit on day one.** A 6-engineer team that spends a quarter on observability, SOC 2 prep, RFC processes, and tech-debt budgets has built process to avoid theoretical pain instead of shipping. Solve pitfalls as they actually appear — not in advance.
+- **Doom-scrolling postmortems from other companies and adopting their fixes.** A war story about Kubernetes failures at a 500-engineer org is interesting; it's not a blueprint for your 12-person team. Filter learnings by "does this match our actual scale?" before importing the cure.
+- **Paralysis from picking the "right" thing.** Endless evaluation of Drizzle vs Prisma, tRPC vs Server Actions, Trigger.dev vs Inngest. Each pair is *fine* at this scale. The cost of choosing wrong (a future migration) is less than the cost of three weeks of evaluation. Pick, ship, revisit if it bites.
+- **Over-correcting from one pitfall straight into another.** A team burned by "premature scaling" rejects all caching for two years and ships a 4-second dashboard. A team burned by "no review" institutes 3-reviewer gates and stalls velocity. The middle is always less satisfying than swinging — find it anyway.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-pitfalls-page" title="Did the pitfalls stick?" sampleSize={2}>

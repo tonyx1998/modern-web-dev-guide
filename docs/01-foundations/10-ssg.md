@@ -106,6 +106,16 @@ ls dist/       # see your generated static site
 Open one of the generated `.html` files in your editor. There's no JavaScript framework runtime in there. It's just HTML. That's SSG.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Trying to put per-user data on a static page.** "Hi, Tony" can't live in pre-built HTML — every visitor would see "Tony." Either render that section on the client after the static shell loads, or move the page to SSR. Don't try to bend SSG into personalization.
+- **Letting build times balloon silently.** 200 markdown files build in 8 seconds; 50,000 product pages take 35 minutes and your CI starts failing on timeout. Watch your build time per page like you watch P95 latency — if it's trending up, plan the move to ISR or on-demand rendering before the next CMS dump kills you.
+- **Forgetting that "any data change requires a redeploy."** A marketing team that wants to fix a typo at 9pm on a Friday cannot if the site is pure SSG and no one knows how to trigger the build. Either give them an on-demand revalidation hook (Vercel, Netlify) or accept the manual deploy cost — but make that choice consciously.
+- **Shipping a fat JS bundle on a static site.** SSG sites are often *theoretically* zero-JS but in practice they ship a 250KB React runtime because that's the framework default. If you picked SSG for speed, audit `Network → JS` and consider Astro for genuinely-tiny pages.
+- **Skipping a sitemap and `<link rel="canonical">`.** SSG gives you SEO-friendly HTML for free, but search engines still need to find the URLs and know which is canonical when query strings vary. Most static frameworks have a plugin — turn it on.
+:::
+
 ## Page checkpoint
 
 <Quiz id="ssg-page" title="Did SSG stick?" sampleSize={2}>

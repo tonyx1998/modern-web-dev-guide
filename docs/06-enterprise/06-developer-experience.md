@@ -89,6 +89,16 @@ A platform team wants to retire `acme-logger-v1` in favor of OpenTelemetry-based
 This is what "deprecating safely at scale" actually looks like — codemods to do the work, dashboards to show progress, deadlines with teeth.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Picking monorepo vs polyrepo by religion instead of by tooling reality.** Monorepos without Bazel-class build infra become a single slow CI nightmare; polyrepos without a service catalog become a maze. The right answer is whichever your platform team can actually fund to a high standard — pick the one you'll invest in.
+- **Building an internal CLI that wraps `kubectl` 1:1.** A wrapper that just re-exports every flag isn't an abstraction — it's a re-export. The point of `acme deploy` is that it encodes policy: canary, approver, rollback. If yours doesn't, you've added a tool nobody learns and gained nothing.
+- **Treating Backstage adoption as the goal.** Standing up Backstage with three plugins and no service owners is "the platform team did something." Real adoption looks like product engineers visiting Backstage during incidents — measure that, not "did the page load?"
+- **Running an eternal migration with no deadline.** "We're migrating off the v1 logger" two years in is a permanent state. Codemod 90%, escalate the laggards to their directors, and set a removal date. Without a date, nobody migrates.
+- **Investing in DevEx only for the engineers who shout.** The senior engineer who already knows the tricks isn't the customer. The bored new hire on day three is — and the best DevEx metric is "minutes from `git clone` to first green PR."
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-developer-experience-page" title="Did developer experience stick?" sampleSize={2}>

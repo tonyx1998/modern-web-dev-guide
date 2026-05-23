@@ -312,6 +312,16 @@ Open any logged-in website you use. In DevTools, go to **Application → Storage
   />
 </Quiz>
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Storing JWTs in `localStorage`.** Every script on the page can read `localStorage`, including any compromised third-party tag. Put auth tokens in an `HttpOnly; Secure; SameSite=Lax` cookie instead — JavaScript literally can't see it, so XSS can't exfiltrate it.
+- **Mixing up `Content-Type` and `Accept`.** `Content-Type` describes what you're *sending* in the body. `Accept` describes what you'll *receive*. Setting `Content-Type: application/json` on a GET request is meaningless (no body) and won't make the server respond in JSON.
+- **Setting `SameSite=None` "to be safe."** `None` is *less* safe — it allows cross-site CSRF. It's only needed when you genuinely embed your cookie-bearing endpoint inside someone else's site (third-party widgets). For your own app, `Lax` is the right default.
+- **Treating JWTs as logout-friendly.** A JWT is valid until it expires, signature alone. "Logging out" by deleting the token client-side does nothing if a copy already leaked — the server will still accept it. If you need real revocation, use server-side sessions or maintain a deny-list.
+- **Forgetting that cookies are sent on *every* request to the domain.** Setting a 4KB cookie means every image, every CSS file, every API call ships those 4KB upstream. Cookies are for identity, not for app state — for app state, use `localStorage`, IndexedDB, or in-memory.
+:::
+
 ## Quick check
 
 <Quiz id="http-headers-cookies-page" title="Did headers & cookies stick?" sampleSize={3}>

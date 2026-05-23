@@ -56,6 +56,16 @@ That's above the junior range, near the mid-level range — strong for a first j
 At pre-IPO startups, equity is worth roughly $0 until a liquidity event. Don't take an offer with weak base + huge "equity upside" unless you can afford to be wrong. At public companies, RSUs are nearly cash — but the *grant date* price is what counts; subsequent stock movement is its own bet. Negotiate in dollars, not percentages.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Anchoring on base salary alone.** A $160K base with no equity at a stagnant company is often worse than a $130K base with $80K/yr RSUs at a growing one. Compare total comp at the 1-year mark, not the offer headline.
+- **Believing the four-year vesting graph.** Most engineers don't make it to year 4 at the same company in 2026 — average tenure is closer to 2 years. Value equity assuming you leave at year 2, and any years 3–4 are bonus, not plan.
+- **Treating private-company "valuation" math as real money.** A startup telling you "your 0.1% equity is worth $400K at our last round" is quoting a paper number that depends on a liquidity event that may never happen. Discount aggressively, or insist on cash.
+- **Chasing the FAANG comp peak too early.** Going to FAANG as a junior to maximize Year-1 TC often locks you into narrow, well-defined work that slows your skill compounding. The engineers who make Staff at FAANG by year 8 usually got broader exposure at scale-ups first.
+- **Not benchmarking before each job change.** Comp moves yearly. The number you negotiated three years ago is no longer market rate; checking levels.fyi before your next conversation is a 15-minute task that's worth tens of thousands of dollars.
+:::
+
 ## Page checkpoint
 
 <Quiz id="career-compensation-page" title="Did compensation stick?" sampleSize={2}>

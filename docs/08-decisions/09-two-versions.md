@@ -56,6 +56,15 @@ These are byte-for-byte identical today. Extracting a `formatFullName` helper fe
 Extract duplication when the *concept* is the same. Leave it alone when only the *code* is.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Extracting on the first duplication.** The "rule of three" exists for a reason — two similar functions might genuinely be different concerns; three is when the shared concept becomes visible. Wait for the third instance before extracting, or you'll bake in the wrong abstraction and pay coupling cost forever.
+- **Inheriting your way out of duplication.** A `BaseUser` class that both `ApiUser` and `DbUser` extend feels DRY but is usually the worst answer: you've coupled two unrelated lifecycles together. Prefer composition, generation, or explicit duplication over shared base classes that don't reflect a real "is-a" relationship.
+- **Picking a canonical source and then editing the derived versions by hand.** Once you decide the DB schema is canonical, that means the TypeScript type and the Zod schema are *generated* — not hand-edited "just this once." Every manual edit to the derived version silently breaks the contract. Treat generated artifacts as read-only.
+- **Calling something "DRY" when it's really just "less code."** Stuffing six conditionals into one function to avoid two slightly-different functions isn't DRY — it's *clever*. DRY is about a single source of truth for a concept, not minimizing line count. If your "deduplicated" version is harder to read, you've made things worse.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-two-versions-page" title="Did the two-versions rule stick?" sampleSize={2}>

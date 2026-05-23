@@ -108,6 +108,16 @@ Two days later: blameless post-mortem. Root cause documented. Action items: impr
 That's enterprise incident management working as intended — fast detection, fast mitigation, durable learning.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Setting SLOs that nobody can actually breach.** A 99% SLO for a service that's been at 99.95% for two years isn't a target — it's wallpaper. The whole point of SLOs is that they sometimes fail and force a real conversation about reliability vs. velocity. Set them tight enough to be informative.
+- **Logging everything because storage is cheap.** Petabyte-scale log retention turns observability into your second-biggest line item and your search-times into "how was your weekend?" Sample aggressively for high-volume services, retain selectively, and treat log volume as a budget — not as free.
+- **Post-mortems that are only blameless on paper.** If the post-mortem document says "no blame" but the engineer who pushed the change gets passed over at promo, the next post-mortem will be filled with carefully edited half-truths. Blamelessness has to be enforced by the people who run calibrations, not just by the template.
+- **Burning the error budget on toil and calling it "investment."** An on-call engineer firefighting the same alert every week isn't restoring reliability — they're paying interest forever. When the budget burns, *the team* pauses feature work to fix the underlying cause, not just patches the symptom.
+- **Instrumenting straight to a vendor SDK instead of OpenTelemetry.** Vendor-specific instrumentation is fine until the vendor doubles prices or a regulator forces a regional change. Migrating instrumentation across 200 services later is a year of work — start with OTel and keep the option open.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-observability-page" title="Did observability stick?" sampleSize={2}>

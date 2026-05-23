@@ -54,6 +54,16 @@ That's a clear graduation moment. The fix isn't "try harder solo." It's: add Pla
 The fastest-growing 5-to-50-person companies still feel scrappy — but they've added the *specific* process that the previous stage's pain demanded. Code review came in because of one too many silly bugs. Tests came in because manual checking stopped scaling. Observability came in because you can't watch 400 customers manually. Each piece of process *earned its way in*. Don't add anything that hasn't earned its way in.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Graduating too early because revenue feels real.** Hitting $200/month and immediately adding CI gates, design reviews, and a staging environment is process cosplay. The fix is the worked-example bar: real users hurt by real outages, on-call you can't escape, work-hours you can't sustain. Until then, keep shipping like a solo dev.
+- **Refusing to graduate when you obviously should.** Solo identity becomes a hill to die on, and you keep firefighting 2am pages instead of writing the first Playwright test. The fix is to notice the *specific pain* (silent outage, vacation-blocking, billing bug) and add the *one piece of process that addresses it*. Not a framework — a single intervention.
+- **Adopting enterprise practices wholesale instead of one at a time.** Reading the startup chapter and immediately introducing pull-request templates, RFCs, on-call rotations, and design docs at once. The fix is to add one piece of process per quarter, only when its absence is currently costing you something. Each new policy needs a specific bug it's preventing.
+- **Hiring before the work is well-defined enough to hand off.** You bring on a contractor to "help" and spend more time explaining the codebase than you save. The fix is to write a runbook first — if a friend couldn't investigate a Stripe webhook failure with your docs, no contractor can either.
+- **Treating graduation as an identity change.** "I'm a solo dev" becomes "I'm a founder now" overnight, and the scrappy habits that worked die alongside the bad ones. The fix is to keep what's working — one platform, default stack, ship continuously — and add only what's earned its way in.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-graduating-page" title="Did graduating from solo stick?" sampleSize={2}>

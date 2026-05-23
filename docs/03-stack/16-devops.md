@@ -92,6 +92,17 @@ You'll see senior engineers talk passionately about Kubernetes, Terraform, and s
 Everything else (K8s, service meshes, custom Helm charts) is a *solution looking for a problem* at small scale. Resist adopting them prematurely.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Adopting Kubernetes "because we'll need it someday."** K8s is a tax you pay every day — manifests, RBAC, ingress controllers, secrets management. Most teams under ~50 engineers should run on a managed platform (Vercel, Fly.io, Railway, Cloud Run) and reach for K8s when scaling pain is concrete.
+- **Bloated Docker images.** `FROM node:20` pulls in 1GB of OS you don't need. Use `node:20-alpine` or distroless, multi-stage builds (compile in one stage, copy artifacts into a slim runtime), and a `.dockerignore` that excludes `node_modules` and `.git`. Slim images deploy faster and have a smaller CVE surface.
+- **Click-ops in the cloud console, then "documenting" it in a wiki.** Six months later, nobody can reproduce the setup and the staging environment drifts from prod. Define every resource in Terraform (or Pulumi/SST) from the start — even if it feels like overkill, future-you will thank present-you.
+- **Editing infrastructure manually after Terraform applied it.** Now `terraform plan` shows diffs you didn't write, and the next apply may revert your manual change *or* destroy the resource. Either bring the change into code or import the existing state — never both manage and click.
+- **Committing secrets to git "just for now."** They live in git history forever, get scraped within hours of any public push, and rotating them after a leak is painful. Use the platform's secret store (Vercel/Cloudflare env vars, Doppler, Vault) from line one.
+- **Skipping the `.dockerignore`.** Without it, your `node_modules` and `.next/` end up in the build context, blowing up image size and build time. Always pair `.gitignore` with a `.dockerignore`.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-devops-page" title="Did DevOps tooling stick?" sampleSize={2}>

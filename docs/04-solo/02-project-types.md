@@ -81,6 +81,15 @@ The labels matter because they imply wildly different effort. Confuse "blog with
 For the rest of this chapter, the workflow focuses on **Type 3 (hobby SaaS)** as the most complete example. Simpler project types just skip steps — a portfolio doesn't need [auth](./auth) or [payments](./payments), a learning project doesn't need [observability](./observability) or [a launch](./launching). Read the whole chapter, then mentally cross out what doesn't apply to your shape.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Picking the SaaS stack for a portfolio.** Bootstrapping a portfolio with Next.js + Postgres + Clerk because "I might add features later" wastes a weekend on infrastructure for five static pages. The fix is to start at the shape you actually need — Astro for a portfolio — and migrate *if* the project genuinely grows. It almost never does.
+- **Mistaking a learning project for a product.** Two weeks in, you've built half a Stripe integration "just in case." If nobody's going to use it, you don't need payments — you need to finish the part you wanted to learn. Be honest with yourself at week one which type this really is.
+- **Skipping the "would I use this weekly" check on a tool.** Cute one-off utilities feel motivating to build and then sit unused on a subdomain. The fix is to confirm there's a recurring problem in your own week before picking up Type 4 — otherwise it's really a Type 5 learning project, which is fine but changes the budget.
+- **Treating the type as fixed forever.** Projects mutate — your portfolio sprouts a blog, your blog sprouts a paywall, your tool sprouts accounts. The fix is to re-classify when scope shifts, then explicitly accept (or refuse) the new effort budget. Don't sleepwalk a Type 1 into a Type 3.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-project-types-page" title="Did the project types stick?" sampleSize={2}>

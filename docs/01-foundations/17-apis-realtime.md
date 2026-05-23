@@ -143,6 +143,16 @@ Each protocol fits a specific role; together they make the app feel instant.
 For most personal/startup projects, **plain REST with periodic polling is fine** until you have a real performance problem. WebSockets and SSE are "you'll know when you need them" tools. Don't add a WebSocket server to a static blog because it sounds cool.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Reaching for WebSockets when SSE would do.** If the server pushes and the client only acknowledges, that's one-way — SSE is simpler, auto-reconnects, multiplexes on HTTP/2, and survives proxies that mangle WebSockets. Use WebSockets when you genuinely need *both directions* to push (chat, multiplayer, collaboration).
+- **Forgetting to reconnect.** A WebSocket dies when a laptop sleeps, a phone switches towers, or a load balancer cycles. Without exponential-backoff reconnection logic, your "real-time" feature silently goes dead after the first network blip. Either use a library that handles this (Socket.io, Pusher, Liveblocks) or build it explicitly.
+- **Treating gRPC as a browser API.** Browsers don't speak gRPC natively — you need gRPC-Web and a proxy (Envoy or similar), and even then you lose features like bidirectional streaming. gRPC is fantastic for service-to-service; for browser-to-server, REST or SSE is almost always better.
+- **Sending sensitive data in SSE URL parameters.** `EventSource` doesn't support custom headers, so people tend to put the auth token in the query string — which then appears in server logs and proxy logs. Use a cookie for auth, or switch to fetch + readable streams when you need custom headers.
+- **Scaling WebSockets like HTTP.** A horizontally-scaled WebSocket server can't broadcast to clients on other nodes without a pub/sub layer (Redis, NATS, or a managed service like Ably/Pusher). Adding a second instance behind a load balancer without that backplane silently breaks "user A's message reaching user B."
+:::
+
 ## Page checkpoint
 
 <Quiz id="apis-realtime-page" title="Did real-time APIs stick?" sampleSize={2}>

@@ -89,6 +89,15 @@ Most engineers err on the side of too much deliberation on reversible decisions 
 If the answer is "a 10-line PR," move fast. If it's "a year of migration work," slow down.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Using "it's reversible" as a license to never decide.** Two-way doors are meant to be walked *through*, not stood in. If your team has been "experimenting" with three frontend frameworks for six months, the cost of indecision now exceeds the cost of being wrong. Pick one and move.
+- **Misjudging reversibility by looking at the code, not the consumers.** A database swap looks like a code change; in reality it's coordinating with every team that writes a query, every dashboard, every cron job. The reversibility cost lives in the *dependencies*, not the lines of code.
+- **Conflating "hard to reverse" with "needs a committee."** Slow deliberation isn't the same as good deliberation. A one-way door benefits from one or two people doing deep research, not from a Slack thread with 30 opinions. Match the depth, not just the duration.
+- **Forgetting that early-stage two-way doors become one-way later.** Your auth provider is reversible at week two and nearly fixed by year two — customer integrations, audit trails, and admin tooling have all baked it in. Re-classify decisions as the codebase ages instead of trusting the original label.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-reversibility-page" title="Did reversibility stick?" sampleSize={2}>

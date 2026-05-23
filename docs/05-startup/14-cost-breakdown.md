@@ -53,6 +53,16 @@ This pattern repeats across every managed service.
 Infra costs become non-noise once you're at hundreds of thousands of MAUs *or* when a specific service has a runaway line item (Vercel bandwidth spikes, PostHog event volume). The trigger isn't "we should save money in general" — it's "this one bill grew 5x and we can't explain it." Then you investigate and optimize the specific line. The rest you leave alone.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Spending an engineer-week to shave $80/month off Vercel.** A senior engineer's time is roughly $1,000/day. A multi-week migration to save under $100/month never pays back at this stage. Track hours-spent-saving-dollars and you'll catch this fast.
+- **Not setting *any* billing alerts.** The first time you'll learn about runaway costs is the invoice — usually two weeks after the spike started. Every paid service should have alerts at 2x, 5x, and 10x your normal spend, on day one.
+- **Confusing seat-based costs for usage costs.** Adding 10 engineers triples your Linear, GitHub, Notion, and Vanta bills overnight in a way Vercel's per-request pricing never will. Plan headcount with a "tooling cost per seat" line item.
+- **Optimizing the cheap bills and ignoring the expensive ones.** Founders love agonizing over a $40 Sentry tier while a $1,800/month observability vendor renews quietly. Sort the bills by absolute dollars, not by emotional weight, before deciding what to cut.
+- **Reading the AI bill as fixed.** GenAI line items (OpenAI, Anthropic, embeddings) are increasingly the largest variable cost in a 2026 startup. Treat them like compute — cache aggressively, choose smaller models for routine work, and audit token spend quarterly the same way you audit Postgres.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-cost-breakdown-page" title="Did the cost breakdown stick?" sampleSize={2}>

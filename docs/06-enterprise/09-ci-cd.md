@@ -90,6 +90,16 @@ Total user impact: 1% of users for 4 minutes. The whole thing happens before any
 At a startup, the same scenario plays out at 100% of users for 45 minutes until someone notices. The engineering investment in canary deploys and auto-rollback is what turns hours of customer pain into minutes for a tiny slice of traffic.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Canary windows too short to be useful.** A 30-second canary catches almost nothing — most regressions only show up under real load with real traffic patterns. Bake in long enough that you'd actually see the regression you're afraid of, even if it slows the pipeline.
+- **Auto-rollback that watches the wrong metrics.** If your rollback trigger is "CPU > 80%," you'll miss the increase in 401 errors that just broke checkout for half your users. Tie rollback to business-shaped SLOs (error rate, p99 latency on key endpoints), not infrastructure proxies.
+- **Building CI/CD as a side project on top of someone's day job.** At enterprise scale, the CI/CD platform is a real product with a real on-call. If it's owned by "whoever happened to write the Jenkinsfile," every build outage becomes an org-wide outage with no clear owner.
+- **Skipping the migration from "deploy" to "deploy + release."** If your deploys still flip user-visible behavior, every deploy is a release and every release is risky. Get a feature-flag system in before you scale canary deploys — otherwise canaries are protecting you from the wrong thing.
+- **Treating GitOps as "we use Git and we deploy."** GitOps means the cluster reconciles to what's in Git, automatically. If humans still `kubectl apply` in production, you have version-controlled YAML, not GitOps — and your audit trail has gaps.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-ci-cd-page" title="Did enterprise CI/CD stick?" sampleSize={2}>

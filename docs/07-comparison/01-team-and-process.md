@@ -74,6 +74,16 @@ A typical "we need to add Postgres FTS support" decision:
 The enterprise process looks absurd if you stop at the single decision. It looks reasonable once you remember that *thousands* of database decisions happen across the company every year, and the same RFC framework keeps them all aligned.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Importing an enterprise hiring loop into a startup.** A 7-round, 6-week process at a 12-person company doesn't make your hires better — it just hands the strongest candidates to your competitors. Match your loop length to your alternatives and brand pull, not to what Google does.
+- **Writing RFCs for a 5-person team.** At small scale, a Slack thread and a PR description *are* the decision record. Forcing a template adds ceremony without the durability benefit RFCs exist for. Wait until decisions actually outlive their decision-makers.
+- **Reading the team-structure table as a roadmap.** The columns are *snapshots of different companies*, not stages every team passes through. Most products never need a platform team, an SRE org, or design-system engineers — adding those roles "because we're growing" is how startups die of overhead.
+- **Mistaking "the founder decides" for an absence of process.** When your CTO greenlights libraries by gut, that *is* the process — it's just fast and undocumented. The trap is keeping it past ~20 engineers, when the founder becomes a bottleneck instead of an accelerator.
+- **Romanticizing enterprise rigor from the outside.** RFC-and-review looks principled in a blog post and feels like sludge from the inside. Before adopting any enterprise process, ask: what specific failure mode am I preventing, and have I actually hit it yet?
+:::
+
 ## Page checkpoint
 
 <Quiz id="comparison-team-and-process-page" title="Did team and process across scales stick?" sampleSize={2}>

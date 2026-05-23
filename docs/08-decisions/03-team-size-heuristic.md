@@ -89,6 +89,15 @@ The *opposite* mistake — a 200-person org running with no process because "we 
 Process should scale up with team size. A team of 1 doesn't write RFCs; a team of 500 cannot survive without them.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Anchoring on the practices of your last job.** The "this is just how engineering works" instinct is almost always wrong — it's how engineering worked at *your previous size*. When you join a new team, run an explicit audit of which practices serve the current headcount and which were imported from elsewhere.
+- **Adding process to fix a hiring or trust problem.** RFCs don't make junior engineers more senior, and architecture review boards don't fix a team that doesn't trust each other. If you're tempted to add process, ask whether the underlying issue is actually team composition or interpersonal — process won't patch either.
+- **Refusing to add process at 50+ because "we're still a startup."** Identity-based resistance is the symmetric failure to cargo-culting. Once you can't fit everyone in one room, ad-hoc coordination *is* chaos. The right move is deliberately introducing the lightest process that lets ownership stay clear.
+- **Picking the architecture for the team size you wish you had.** Building microservices "because we'll need them at 100 engineers" when you have 8 is the same mistake as a 500-person org running with no process. Build for the team you have today plus the next 12 months, not the org chart on the slide deck.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-team-size-heuristic-page" title="Did the team size heuristic stick?" sampleSize={2}>

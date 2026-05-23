@@ -100,6 +100,16 @@ For solo / startup projects, you almost certainly fit in someone's free tier:
 You should not be building your own auth from scratch to "save money." The free tiers are extremely generous and the engineering cost is enormous.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Rolling your own auth "to save money."** The free tiers cover 10k–50k MAU. The engineering hours you save are worth more than the subscription, *and* you avoid the entire class of session-fixation, timing-attack, and password-hashing bugs.
+- **Storing the auth provider's JWT in `localStorage`.** Vulnerable to any XSS bug on your domain. Use httpOnly, Secure, SameSite=Lax cookies (which all these providers default to). If a tutorial tells you to copy a token into `localStorage`, it's outdated.
+- **Treating Clerk as both your auth *and* your user database.** Clerk is the source of truth for *identity*; your `users` table is the source of truth for *application data*. Mirror the Clerk user ID into your DB on first sign-in and join from there — don't try to store orders, preferences, or relationships in Clerk's user metadata.
+- **Locking in too early without an export plan.** Auth providers are stickier than they look — sessions, password hashes, OAuth connections all live there. Before committing, confirm there's an export API (Clerk, Auth0, Better Auth all have one). If a vendor won't let you leave with your users, that's a flag.
+- **Confusing authentication with authorization.** The auth provider tells you *who* the user is. *What* they're allowed to do (roles, permissions, row-level access) is your app's job. Don't expect Clerk or Auth0 to enforce "this user can edit this document" — you check that on the server, every request.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-authentication-tools-page" title="Did auth tools stick?" sampleSize={2}>

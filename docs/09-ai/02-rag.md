@@ -193,6 +193,16 @@ The most common RAG failure isn't bad embeddings — it's **bad chunks**. If you
 Before you optimize anything else, look at the chunks you're feeding the model. If you wouldn't be able to answer the question from those chunks alone, the model won't either.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Embedding queries with a different model than the documents.** Vector spaces from different embedding models aren't comparable — your "similarity" search returns noise. Pin the exact embedding model name (and version) in config and refuse to mix. If you migrate models, re-embed the entire corpus.
+- **Chunking by token count and ignoring structure.** A 500-token window that slices through the middle of a code block, a table row, or a heading produces garbage chunks. Chunk on natural boundaries first (sections, paragraphs, functions), then enforce the token cap.
+- **Returning the chunk text but not its source.** When the model cites "the docs" you have no way to verify or build a citations UI. Always store and return `document_id`, `title`, and `url` alongside the chunk — bake it into the schema so you can't forget.
+- **Treating top-K as a knob to turn up.** Bumping K from 5 to 50 usually makes answers *worse*: the model drowns in marginally relevant context and the signal-to-noise ratio collapses. Fix retrieval quality (chunking, reranking, hybrid search) before reaching for more chunks.
+- **No "I don't know" path.** If the system prompt doesn't explicitly tell the model what to do when the context doesn't contain the answer, it confabulates. Spell out the fallback ("say you don't have that information and point them to support") and verify in evals.
+:::
+
 ## Page checkpoint
 
 <Quiz id="ai-rag-page" title="Did RAG stick?" sampleSize={2}>

@@ -139,6 +139,16 @@ A common worry: "If I write `bg-blue-500` everywhere, what happens when I want t
 The answer: define **design tokens** in your Tailwind config (or CSS variables in Tailwind v4) and use semantic names — `bg-primary`, `text-foreground`, `border-muted`. Then you change the token in one place and everything updates. shadcn/ui ships with this pattern out of the box.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Hardcoding raw Tailwind colors everywhere, then needing to rebrand.** `bg-blue-500` scattered across 300 components is a slow find-and-replace nightmare. Use design tokens (`bg-primary`, `text-foreground`) from day one — shadcn/ui ships them by default.
+- **Treating shadcn/ui as an npm dependency.** It isn't. The components are *your code* in `components/ui/`. Don't avoid editing them "to stay upgradable" — customizing is the whole point. There's nothing to upgrade.
+- **Following a v3 Tailwind tutorial in v4.** v4 moved config from `tailwind.config.js` into CSS (`@theme`, `@import`). Mixing the two breaks things subtly. Check the version on the docs site before copy-pasting setup steps.
+- **Adding styled-components or Emotion to a new RSC project.** Runtime CSS-in-JS needs client JS to inject styles — RSCs don't ship any. You'll get flash-of-unstyled-content and hydration mismatches. Use Tailwind, CSS Modules, or build-time CSS-in-JS (Vanilla Extract) instead.
+- **Building a custom design system before you've shipped anything.** Six weeks of token taxonomy and Storybook setup before a single user sees the product. Use shadcn/ui + Tailwind defaults, ship, *then* harden the system once you know what you actually need.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-styling-page" title="Did styling stick?" sampleSize={2}>

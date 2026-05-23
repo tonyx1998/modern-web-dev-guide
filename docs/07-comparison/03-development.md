@@ -84,6 +84,16 @@ A typo in a button label causes a small UX bug. Three teams' workflows:
 Each workflow is *correct for its risk profile*. The solo dev has nothing to lose if the typo fix breaks something; the enterprise has a regulatory paper trail to maintain and millions of users.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Adopting canary rollouts before you can read the signal.** Progressive 1% → 10% → 100% deploys only help if you have SLOs and dashboards that can detect a regression at 1% of traffic. Without them, you've just added wait time. Earn the canary by building the observability first.
+- **Mandating two reviewers on a 4-person team.** All you've done is invent a deadlock — every PR is now blocked on the one person who's heads-down. At startup scale, "one reviewer who actually understands the area" beats two warm bodies clicking approve.
+- **Confusing test *coverage* with test *value*.** Chasing the enterprise column's "90% coverage target" at a startup produces lots of trivial tests that slow CI and never catch a bug. Cover the critical user paths with Playwright, the tricky pure functions with unit tests, and stop.
+- **Letting CI duration creep past 10 minutes without fighting it.** Once CI is slow, engineers batch changes into mega-PRs to amortize the wait, and review quality collapses. Treat CI duration as a tier-one metric — shard, cache, or cut tests before it bleeds into review behavior.
+- **Believing "trunk-based" means "no branches."** Trunk-based means *short-lived* branches that merge to main daily, behind flags if needed. A team that interprets it as "push to main" learns the hard way why startups outgrow that around hire #3.
+:::
+
 ## Page checkpoint
 
 <Quiz id="comparison-development-page" title="Did development across scales stick?" sampleSize={2}>

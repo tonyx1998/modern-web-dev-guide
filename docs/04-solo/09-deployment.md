@@ -66,6 +66,16 @@ The most common solo deployment incident: shipping a test charge to a real custo
 Vercel's per-environment env vars make this trivial — just toggle which env vars apply to which environment in the dashboard.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Pushing directly to `main` for everything.** It works until a half-finished commit takes prod down at 11pm on a Tuesday. The fix is a branch + preview URL for anything riskier than a typo — preview deploys are free, and the 30-second click-through catches most regressions.
+- **Using the production database from the Preview environment.** Your preview branch points `DATABASE_URL` at prod, you test a schema migration, and now real users see the half-applied state. The fix is a Neon branch (or a separate test database) wired to the Preview environment — Neon makes spinning one up a single click.
+- **Pointing the apex domain straight at Vercel and forgetting `www`.** Half your users type `www.yourapp.com` and hit a stranger's NXDOMAIN page. The fix is to add both `yourapp.com` and `www.yourapp.com` in Vercel and pick one as the canonical redirect target.
+- **Letting failed builds sit red for days.** "I'll fix it later" turns into a week of "main is broken but I'm working on a branch." The fix is to treat a red build like a phone alarm — fix or revert within the hour, even if the fix is `git revert`. A green `main` is non-negotiable.
+- **Never reading the build log.** Vercel reports "Deployment Ready" but the function bundle is 250MB and timing out. The fix is to actually open the build output once a month — bundle size, slow steps, warnings — before they become incidents.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-deployment-page" title="Did the deployment flow stick?" sampleSize={2}>

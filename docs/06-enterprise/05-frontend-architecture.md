@@ -79,6 +79,16 @@ A design system team wants to ship a major upgrade (v3 with new tokens, new acce
 Six months end-to-end for what would take an afternoon at a startup. But the cost of forcing 200 engineers to fix breaking changes simultaneously would be far higher than the cost of a careful rollout.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Treating the design system as a Figma file shared with engineering.** Without versioned packages, codemods, deprecation warnings, and adoption dashboards, "the design system" is just a wiki. Components drift, divergent forks appear in three repos, and the "shared UI" turns into a 200-engineer telephone game.
+- **Reaching for micro-frontends to fix a slow deploy.** Slow deploys are usually a CI problem, not an architecture problem. Splitting your frontend into ten independently deployed shells adds bundle duplication, auth complexity, and cross-cutting upgrade pain — and your CI is still slow.
+- **Setting performance budgets nobody is on the hook for.** A budget without a named owner per metric is just a graph. Pick a team that owns LCP for the home page, give them a real lever (codemods, infrastructure changes), and let them say "no" to PRs that regress it.
+- **Letting each team pick its own framework "for now."** Five years later you're maintaining React 17, React 19, Vue 3, and someone's Svelte experiment, plus four routers, four data layers, and four sets of accessibility bugs. Pick the menu; let teams choose from it.
+- **Versioning the design system without owning the migration.** Shipping v3 with breaking changes and emailing teams to "please upgrade" produces a permanently fragmented codebase. The design system team owns the codemods *and* the dashboard *and* the deadline — not just the new components.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-frontend-architecture-page" title="Did frontend architecture stick?" sampleSize={2}>

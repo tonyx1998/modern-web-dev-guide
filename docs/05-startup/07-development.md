@@ -102,6 +102,16 @@ A branch that lives more than a week becomes its own special kind of pain — ev
 When a feature is too big to fit in a 1–3 day branch, that's a signal to either (a) decompose it into smaller mergeable steps, or (b) merge it incrementally behind a feature flag. Almost never the right answer: keep working on the long branch.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Letting feature flags accumulate forever.** Each unflipped flag is a `if` statement and a cognitive tax. After a feature ships at 100% for two weeks, *delete the flag and the old branch* — a flag debt of 50+ stale entries is a real maintenance burden by the time you notice.
+- **Treating PR review as a green-check ritual.** "LGTM" within 90 seconds on a 600-line PR isn't review. Either the diffs are too big (decompose them) or reviewers are skipping the work (call it out). At this scale, real review is one of the cheapest defenses you have.
+- **Cherry-picking around a broken `main`.** When CI on `main` breaks, the temptation is to push more commits and hope it stabilizes. Don't — stop the line, fix `main`, then resume. A broken main blocks every PR and erodes trust in CI.
+- **Skipping a regression test on hot fixes.** Every emergency fix should ship with a test that would have caught it. Otherwise the same bug returns in three months and you'll re-discover it the same way.
+- **Squashing thoughtfully-crafted commits into "fix stuff."** Squash-merge is fine, but the *PR title* becomes the permanent commit message. A PR titled "address feedback" leaves future engineers (and `git bisect`) with no signal. Edit the squash message at merge time.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-development-page" title="Did the development workflow stick?" sampleSize={2}>

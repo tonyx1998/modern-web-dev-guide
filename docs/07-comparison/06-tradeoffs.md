@@ -80,6 +80,16 @@ A made-up but plausible 15-year arc:
 Each stage was the right place for what they were learning at the time. The career didn't *climb a ladder* — it *cycled through scales*, picking up different skills at each.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Assuming "bigger = better career."** A staff-level role at a 30-person company is often a deeper learning experience than an L4 seat at a 30,000-person one. Pick the scale by what skill you want next, not by logo prestige or comp band alone.
+- **Bringing enterprise habits to a Series A and calling it "raising the bar."** Mandating RFCs, CODEOWNERS, and a two-week canary at a 12-person startup doesn't make engineering better — it stalls the company that hired you to ship. The skill is importing *selective* enterprise practices, not the whole playbook.
+- **Romanticizing startup scrappiness from inside an enterprise.** The same engineer who chafes at process at BigCo often forgets that "no process" at 5 engineers means you're also the on-call, the recruiter, the support team, and the one rolling back at 2am. Both sides look greener from across the fence.
+- **Treating your current scale's risks as universal.** "Bureaucratic paralysis" is an enterprise risk; "premature scaling" is a startup risk; "never finishing" is a personal-project risk. Diagnosing your project with the wrong column's failure mode leads to the wrong fix — and usually the wrong cure makes things worse.
+- **Mistaking one career arc for the career arc.** The made-up 15-year trajectory above is one valid shape; many great engineers stay at one scale their whole career and go very deep. Cycling scales is a useful default, not a mandate. Pick by what you want to learn, not by what a blog post claims you should do next.
+:::
+
 ## Wrapping up Part 7
 
 These comparisons aren't normative — there's no "right" scale. Each works well for its context. The skill is recognizing your scale and applying appropriate practices.

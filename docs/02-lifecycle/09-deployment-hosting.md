@@ -115,6 +115,16 @@ Modern continuous-deployment teams break this rule routinely *because their roll
 - **No staging for big changes:** Direct-to-prod for risky changes.
 - **Untested migrations:** Run on production data without testing on a copy first.
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Picking the hosting tier the conference talk used.** Watching Netflix engineers talk about multi-region Kubernetes and choosing the same for your 200-MAU side project means weeks of yak-shaving instead of features. Match hosting complexity to *your* scale, not to someone else's case study.
+- **Forgetting that "serverless" is not free.** Edge functions look like they cost nothing — until a runaway loop, a noisy bot, or an infinite-redirect bug racks up six figures of invocations over a weekend. Set spending caps and rate limits before launch, not after the first bill.
+- **Running migrations as part of the same deploy as the code that uses them.** If the migration finishes but the code deploy fails (or vice versa), prod is broken in a weird, partial way. Decouple: deploy backward-compatible schema first, then deploy code, then deploy a follow-up to drop old columns.
+- **Treating "preview deploys passed" as full QA.** Preview URLs use seeded dev data, often a smaller DB, and no production secrets. They prove the build works — they don't prove your change handles real traffic, real auth, or real data volume.
+- **Not testing the rollback.** Teams write "rollback plan: revert the commit" in the runbook and never try it. When you actually need it at 3am, you discover the rollback breaks because of a one-way migration. Practice rollback in staging before you need it in prod.
+:::
+
 ## Page checkpoint
 
 <Quiz id="lifecycle-deployment-hosting-page" title="Did deployment & hosting stick?" sampleSize={2}>

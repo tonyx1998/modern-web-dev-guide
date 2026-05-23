@@ -110,6 +110,16 @@ Most LCP problems trace to violating #1, #2, or #3.
 Open any site and run Chrome DevTools → **Lighthouse** → Analyze page load. The "Performance" section will tell you your LCP, FID, CLS, and TBT scores, and *exactly* which resources are blocking rendering. Run it on your own site (or any side project) — the suggestions are often the highest-leverage performance wins you'll find.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Animating `top`, `left`, `width`, or `height` for motion.** Each frame triggers full layout, so the animation stutters on anything slower than a top-end laptop. Use `transform: translate()` / `scale()` and `opacity` — they're composite-only and the GPU handles them at 60fps.
+- **Adding `will-change` to everything "just in case."** `will-change` promotes the element to its own GPU layer, which is great for the one element you're animating and a memory disaster when applied to every card on the page. Add it just before an animation starts and remove it after.
+- **Treating LCP and FCP as the same metric.** **FCP** (First Contentful Paint) is when *anything* shows up. **LCP** (Largest Contentful Paint) is when the *biggest above-the-fold element* shows up. A page with a fast spinner and a slow hero has good FCP and terrible LCP — and only LCP is what Google ranks on.
+- **Lazy-loading the hero image.** `loading="lazy"` on your above-the-fold image *delays* it, hurting LCP badly. Lazy-load images that are below the fold; eagerly load (or even `<link rel="preload">`) the LCP element.
+- **Putting `<script>` in the `<head>` without `defer`.** A synchronous script in the head blocks HTML parsing — no first paint until the script downloads and executes. `<script defer>` or `<script type="module">` (deferred by default) is what you want for almost every script you ship.
+:::
+
 ## Page checkpoint
 
 <Quiz id="rendering-pipeline-page" title="Did the rendering pipeline stick?" sampleSize={2}>

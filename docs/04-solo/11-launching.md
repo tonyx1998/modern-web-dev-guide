@@ -68,6 +68,16 @@ The pattern: clear problem, clear solution, honest stack/effort, specific feedba
 A great launch of a mediocre product gets you a spike of traffic and then crickets. A mediocre launch of a great product gets you slow but compounding growth. If you have limited weekend time, spend the bulk of it on the product, not on launch-day choreography.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Treating launch day as a one-shot event.** You burn a Saturday on a Show HN, get 80 visitors, no signups, and conclude the project flopped. The fix is to schedule three or four soft-launches a few weeks apart — different channels, different angles. Each one teaches you what the landing page is missing.
+- **Posting Show HN with marketing copy.** "Revolutionizing the way readers track their books" gets buried in seven minutes. The fix is the format on this page: one-line problem, one-line solution, honest stack and effort, a specific feedback ask. HN reliably rewards plain talk and punishes spin.
+- **Launching with no pricing page.** A free product looks fine until someone asks "is this going to stay free?" and bounces because the answer is unclear. The fix is to ship a pricing page on day one even if you're 100% free — say "free during beta, paid tier coming" and put the future price on the page.
+- **Going dark after launch.** You post on a Saturday, get fifteen comments by Sunday morning, sleep in, and the thread is cold by noon. The fix is to set aside the first 24 hours to *reply* — answer every question, thank every signup, post about bugs you fix. Engagement during the window is the whole point.
+- **Counting traffic instead of activation.** 2,000 visitors and three signups means your landing page is the problem, not the product. The fix is to instrument signup-to-first-action *before* you launch, so the post-mortem points at a specific funnel step instead of a vague "it didn't work."
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-launching-page" title="Did the launching advice stick?" sampleSize={2}>

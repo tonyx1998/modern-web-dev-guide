@@ -84,6 +84,17 @@ The biggest 2026 surprise for new AI feature developers: cost. A single user wit
 One viral tweet about your app + no spend limit = an awful Monday morning.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Shipping a chat feature with no spend cap.** One viral post + an unbounded conversation loop + Opus on every turn = a five-figure bill before lunch. Set hard monthly limits in the provider dashboard *before* you launch, not after.
+- **Routing every task through the biggest model.** Classifying a sentence, rewriting a title, extracting JSON — these don't need Opus or GPT-5. Use Haiku / Mini / Flash tier models for cheap deterministic work; reserve the heavy models for genuine reasoning.
+- **Calling your provider key from the browser.** Any key shipped to the client is public — anyone can pull it out of DevTools and burn your account. Always proxy through your backend; never put `OPENAI_API_KEY` in a `NEXT_PUBLIC_*` env var.
+- **Skipping prompt caching when the provider supports it.** Anthropic and OpenAI both let you mark long, stable prefixes as cached — system prompts, retrieved context, conversation history — and bill the cached portion at a fraction of the cost. If you ignore this, you're paying full price to re-encode the same tokens every turn.
+- **Building RAG with a separate vector DB on day one.** pgvector inside the Postgres you already operate is the right starting point. Pinecone/Qdrant/Weaviate add a service, a sync problem, and a bill. Move to one only when pgvector hits a measured wall.
+- **Treating embeddings from one model as compatible with another.** OpenAI's `text-embedding-3-large` lives in a different vector space than Voyage's or Cohere's. Switching embedding models means re-embedding your entire corpus — pick deliberately, store which model produced each vector, and plan migrations.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-ai-infrastructure-page" title="Did AI infrastructure stick?" sampleSize={2}>

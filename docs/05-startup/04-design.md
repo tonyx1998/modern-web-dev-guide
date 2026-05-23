@@ -45,6 +45,16 @@ At 5–10 people, you don't have time to build a design system. shadcn/ui gives 
 As you grow, you wrap shadcn components in your own primitives, then eventually graduate to a fully owned design system in Storybook. But the path from "no design system" to "full Storybook" goes through shadcn — not around it.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Forking shadcn into a "custom design system" at 8 engineers.** You don't have the throughput to own a real component library yet. Customize tokens, customize specific components when you must, but resist the urge to rename everything and turn it into "your" system before there's a designer-engineer pairing to own it.
+- **Skipping engineering review on Figma files.** You ship the mock, then discover halfway through implementation that the gradient requires a Client Component or the chart library can't render that shape. Five minutes of "is this feasible?" before designs go to engineers saves days.
+- **Treating Figma fidelity as the acceptance criterion.** Pixel-perfect is the wrong goal at this stage. The right goal is "the experience matches the intent" — which sometimes means ignoring 4px of padding to save a day of engineering work.
+- **Hiring a second designer before the first one has a design system to point to.** Two designers without a shared library produce two visual languages. Lock the foundation (tokens, primitives, common patterns) before adding the next seat.
+- **Letting design debt grow invisibly.** Engineers route around the design system with one-off components when shadcn doesn't fit. Without a quarterly audit, you wake up with 14 button variants. Track exceptions explicitly.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-design-page" title="Did startup-scale design stick?" sampleSize={2}>

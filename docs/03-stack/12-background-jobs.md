@@ -77,6 +77,17 @@ You don't need a job queue on day one. For a side project, you can:
 Add a real job queue when you have *multiple* background tasks, need retries with backoff, or need to monitor failures. Until then, simpler is better.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Calling slow APIs inline in the HTTP handler "just for now."** The user waits 12 seconds for the email service to respond, the request times out, and you've also blocked a worker the whole time. Push it to a job from the start — it's a 5-line change later you'll wish you'd made earlier.
+- **Non-idempotent job handlers.** Queues retry. If your "charge the customer" job runs twice on a transient failure, you charge twice. Always key off an idempotency token (the order ID, the event ID) and check before doing the side effect.
+- **Setting up BullMQ + Redis for a side project that runs one nightly cron.** That's wildly overkill — a platform cron + a route handler is enough. Reach for a real queue when you have retries, fan-out, scheduling, *and* monitoring needs.
+- **Skipping a dead-letter queue / failure dashboard.** Jobs fail silently — a worker dies, a payload is malformed, an external API throws — and you don't notice until a user complains a week later. Trigger.dev/Inngest dashboards show this for free; with BullMQ you have to wire it up.
+- **Running long jobs inside serverless functions with short timeouts.** A Vercel function dies at 15s (or 5m on Pro); a Cloudflare Worker has tight CPU limits. If your job runs for minutes, use Trigger.dev/Inngest (durable, long-running by design) rather than fighting the platform.
+- **Mutating job payloads in-place.** Treat payloads as immutable inputs. If you need to track progress, write to your DB — not the job record.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-background-jobs-page" title="Did background jobs stick?" sampleSize={2}>

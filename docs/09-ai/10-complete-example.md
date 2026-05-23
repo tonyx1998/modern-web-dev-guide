@@ -131,6 +131,16 @@ The 60-line snippet is honest about the happy path. Real production deployments 
 The patterns scale to all of those. The core is unchanged.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Treating the 60-line snippet as production-ready.** It's a *shape*, not a finished feature. Before shipping, add the items the page calls out — auth on the endpoint, an eval set, retrieval-miss fallback, citation UI, and PII redaction — none of which the snippet implements.
+- **Rate-limiting by `x-session-id` from the client.** That header is attacker-controlled: a malicious client just rotates session IDs to dodge the limit. Anchor the key on something the server controls (authenticated user id, then IP as a fallback) — never on a value the client sets.
+- **Logging the full prompt and response with PII in plaintext.** The `onFinish` log is convenient and dangerous: customer questions often contain account numbers, addresses, or emails. Redact at the logging boundary and set a retention window — your trace store should not be a long-term PII archive.
+- **Pinning Haiku forever "because the docs said it was cheap."** The right model depends on your eval, not on the example. Re-run evals when models update (which happens silently) and when your retrieval quality changes — sometimes the cheap model stops being good enough; sometimes a newer cheap model becomes great.
+- **Skipping a "no relevant chunks" path.** When the retrieval returns nothing useful, the model still tries to answer — usually by inventing something plausible. Check the top chunk's distance score; if it's above a threshold, short-circuit to a "I don't have that information, here's how to reach support" response instead of generating.
+:::
+
 ## Page checkpoint
 
 <Quiz id="ai-example-page" title="Did the complete example stick?" sampleSize={2}>

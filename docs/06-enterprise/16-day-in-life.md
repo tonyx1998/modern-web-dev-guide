@@ -77,6 +77,16 @@ A useful frame: **the more senior you are, the more your time is fragmented**. A
 That's not "growing into a worse job" — it's "growing into a higher-leverage job." But it does mean senior ICs have to actively manage their calendars and protect focus time, or they'll never code at all.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Chasing the old "lines of code shipped" metric into a senior role.** If you grade yourself on personal output after promotion to staff, you'll feel like you're failing every week — and you'll skip the reviews and design feedback that are actually your job now. The metric changes; your sense of progress has to change with it.
+- **Saying yes to every meeting "for visibility."** A calendar with twelve 30-minute meetings is a calendar that ships nothing. Accept meetings where you can either make a decision or unblock someone — decline the rest, even if it feels socially awkward.
+- **Mentoring as Slack support instead of structured time.** Drive-by questions are fine, but real mentoring needs scheduled 1:1s with a growth plan. Without that structure, "mentoring" becomes ad-hoc Slack debugging and the junior engineer never gets the harder conversations they need.
+- **Treating on-call as someone else's problem once you're senior.** Senior engineers who skip rotation lose touch with how the system actually fails. The post-mortems you used to learn from now happen to other people — and your architectural opinions slowly drift from reality.
+- **Hoarding undisturbed focus time and ghosting reviews.** The other extreme — closing Slack and locking your calendar to "code more" — produces a senior engineer whose PRs sit in five other engineers' queues. Your reviews are part of the throughput; balance them with focus time, don't pick one over the other.
+:::
+
 ## Page checkpoint
 
 <Quiz id="enterprise-day-in-life-page" title="Did the day-in-the-life stick?" sampleSize={2}>

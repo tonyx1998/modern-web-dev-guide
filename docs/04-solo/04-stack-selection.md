@@ -59,6 +59,15 @@ Be honest with yourself about which goal is primary. Both are legitimate — jus
 The whole point of picking the default stack is that it carries you across the entire personal-project lifecycle. From day-one empty deploy to ~10K active users, you make zero architectural changes. By the time you'd outgrow it, you'll either (a) have real revenue to fund a rewrite, or (b) have learned enough about the actual workload to make a smart next call. Either way, you've earned that decision instead of pre-paying for it.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Comparison-shopping the stack for a week.** Solo devs spend Saturday reading "Bun vs Deno vs Node in 2026" threads and Sunday reading "Drizzle vs Prisma" benchmarks. The fix is to take the defaults on this page as if they were chosen for you, and ship. Even a *slightly worse* stack you actually used beats the perfect one you never started.
+- **Picking the AI-native framework du jour.** Every six months a hot new framework promises to obsolete Next.js. The fix is to wait two release cycles before adopting — your project lasts longer than the hype curve, and migrating mid-build costs weeks.
+- **Splitting hosts to "save money."** Putting the frontend on Cloudflare Pages, the API on Fly.io, the DB on Railway, and auth on Supabase to shave $10/month creates four dashboards, four CLIs, and four ways for prod to break. The fix is one platform until the bills actually hurt — usually never.
+- **Locking yourself into something exotic for "the learning."** A custom Rust backend or self-hosted Postgres is great for a learning project, terrible for a SaaS you want users on. The fix is to separate the goals: pick the boring stack for the SaaS, pick the exotic thing for a separate learning repo.
+:::
+
 ## Page checkpoint
 
 <Quiz id="solo-stack-selection-page" title="Did stack selection stick?" sampleSize={2}>

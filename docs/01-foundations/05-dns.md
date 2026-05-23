@@ -89,6 +89,16 @@ The catch: a low TTL means changes propagate fast, but also that every resolver 
 You almost certainly didn't change anything wrong. DNS just hasn't *propagated* yet — the old answer is still cached at intermediate resolvers around the world, and they won't refresh until the old TTL expires. Tools like `dig` will show you the cached answer until it does. Patience or a TTL of 60s before the change is the only fix.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Trying to put a CNAME at the apex (`example.com`).** The DNS spec forbids it because the apex must also hold NS and SOA records. Use an A/AAAA record, an `ALIAS`/`ANAME` (provider-specific), or your provider's "CNAME flattening" — never a literal CNAME at the root.
+- **Mixing an A record and a CNAME on the same name.** DNS treats this as a configuration error and one will be ignored, often silently. A given subdomain gets *either* an A/AAAA *or* a CNAME — never both.
+- **Lowering TTL after the change instead of before.** Lowering TTL only affects records cached *after* the change. To make a migration propagate fast, drop the TTL to 60s a day *before* the switch, then raise it back once the dust settles.
+- **Blaming "DNS propagation" for everything.** If a record is wrong on your authoritative nameservers, no amount of waiting will fix it — resolvers are happily caching the wrong answer. Check the authoritative server first (`dig @ns1.yourprovider.com example.com`) before assuming caches are the issue.
+- **Forgetting the CAA record when issuing certs.** If `example.com` has a CAA record listing only `digicert.com`, Let's Encrypt will refuse to issue you a cert and the error message is cryptic. When you migrate certificate authorities, update CAA *first*.
+:::
+
 ## Page checkpoint
 
 <Quiz id="dns-page" title="Did DNS stick?" sampleSize={2}>

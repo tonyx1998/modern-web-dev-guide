@@ -95,6 +95,16 @@ If your JS blocks the thread for 200ms, nothing else can happen — the page bec
 A 60fps animation needs the browser to render a frame every **16.6 milliseconds**. If a JavaScript callback takes longer than 16ms on the main thread, you'll *drop a frame* — the animation visibly stutters. This is why performance engineers obsess over keeping callbacks short and moving heavy work to Web Workers, requestIdleCallback, or the server.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Confusing Service Workers with Web Workers.** They sound similar and they're nothing alike. **Web Workers** run JS on a background thread (for CPU work). **Service Workers** are a programmable network proxy that survives the page closing (for offline, push, caching). Picking the wrong one wastes a day.
+- **Storing large or sensitive data in `localStorage`.** It's ~5MB max, synchronous (blocks the main thread), and readable by any script on the page. For anything bigger or richer than tiny preferences, use IndexedDB. For secrets, use an HttpOnly cookie — `localStorage` is fully exposed to XSS.
+- **Reaching for `setTimeout(fn, 0)` to "yield to the browser."** It mostly works but it's a stale pattern. Modern code uses `queueMicrotask`, `requestAnimationFrame`, `requestIdleCallback`, or `scheduler.postTask` depending on whether you need "before next paint," "during idle," or "next tick." Each has different timing guarantees.
+- **Mutating the DOM in a hot loop.** Each `el.style.left = ...` can trigger layout, and the cost compounds. Read all the layout values first, *then* write — or batch updates with `requestAnimationFrame`. Tools like the Performance panel will flag "forced reflow" warnings when you get this wrong.
+- **Assuming `window.crypto.randomUUID()` and friends work everywhere.** Most modern Web APIs require a **secure context** (HTTPS or `localhost`). Open the page over `http://` from a LAN IP and half the APIs silently disappear. If something works on `localhost` but not your staging URL, check HTTPS first.
+:::
+
 ## Page checkpoint
 
 <Quiz id="browser-runtime-page" title="Did the browser runtime stick?" sampleSize={2}>

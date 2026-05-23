@@ -148,6 +148,16 @@ Most modern hosting providers offer a free Postgres tier:
 Sign up, create a database, run `SELECT 1;` in the web SQL editor. You're now a database operator.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Forgetting to index foreign keys and common `WHERE` columns.** Postgres does *not* automatically index foreign keys. A `posts.user_id` column without an index makes "show this user's posts" a full table scan that gets slower with every signup. Add the index; verify with `EXPLAIN ANALYZE`.
+- **Querying inside a loop (the N+1 problem).** Fetching 100 posts then looping `SELECT user FROM users WHERE id = ...` for each one is 101 queries. Use a `JOIN`, an `IN (...)` batch, or your ORM's eager-loading equivalent. This is the #1 cause of slow web apps that "worked fine on my machine."
+- **Storing money as `FLOAT`.** Floating point can't represent `0.1` exactly — `0.1 + 0.2 !== 0.3`. Use `NUMERIC`/`DECIMAL`, or store amounts as integer cents. Every accounting bug in this category is preventable.
+- **Skipping migrations and editing the schema by hand in production.** Works once, then a teammate's local schema diverges from prod, then a deploy breaks, then nobody remembers which column was added when. Use a migration tool (Drizzle, Prisma, knex, Alembic) and treat the migration files as the source of truth.
+- **Storing dates without time zones.** `TIMESTAMP WITHOUT TIME ZONE` looks innocent and explodes the first time you have a user in another country. Default to `TIMESTAMPTZ` (Postgres) and store everything in UTC; convert at the edges.
+:::
+
 ## Page checkpoint
 
 <Quiz id="databases-sql-page" title="Did SQL databases stick?" sampleSize={2}>

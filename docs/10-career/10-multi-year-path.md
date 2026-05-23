@@ -96,6 +96,16 @@ That cadence — sustained for 12 months — is what gets you to "real projects,
 A single week of work is barely visible on your portfolio. A year of weeks is a transformation. The engineers who succeed are not the ones who sprinted for three months — they're the ones who showed up most weeks for three years. **Consistency beats intensity at every stage.**
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Comparing your Year 1 to someone else's Year 6.** Every "I went from zero to senior in 18 months" thread on Twitter is either a lie, an outlier, or someone with a hidden head start. The compounding curve is real, and it takes years; the curve, not the spike, is the point.
+- **Skipping the consistency for occasional sprints.** A two-week 80-hour learning binge followed by three months of nothing nets less than 10 hours/week sustained. Your future self cares about the area under the curve.
+- **Pausing the side projects the moment you land the first job.** Year 3 to Year 6 is exactly when continued side shipping multiplies — both for skill growth and for the next job switch's portfolio refresh. The "I'll relax now" instinct is what causes the mid-level plateau.
+- **Treating the timeline as a deadline.** Some people land the first job in Year 2, some in Year 5. Off-schedule isn't off-track; abandoning the plan because you missed an arbitrary month is.
+- **Optimizing every year for the next job, never for skill compounding.** Job-hopping for 20% raises four times in a row makes Year 1–4 comp look great and Year 5+ comp stagnate, because depth never built. Sometimes the best career move is two years in one place going deep.
+:::
+
 ## Page checkpoint
 
 <Quiz id="career-multi-year-path-page" title="Did the multi-year path stick?" sampleSize={2}>

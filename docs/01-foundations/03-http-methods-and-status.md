@@ -120,6 +120,16 @@ curl -i https://httpbin.org/redirect/2
 `-i` includes the response headers, so you'll see the status line clearly: `HTTP/2 200`, `HTTP/2 404`, etc. Try a few different codes — they're all valid HTTP responses, just different categories of news.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Using POST for everything because "it's the safe default."** A search form that posts is a search form that can't be bookmarked, shared, or cached by the CDN. If the request *reads* data and doesn't change state, it's a GET — even when the parameters feel "too many" for a query string.
+- **PUT vs PATCH confusion.** PUT *replaces* the entire resource — sending `{ "city": "NYC" }` will wipe the name and email. PATCH merges. When in doubt, you almost certainly want PATCH.
+- **Returning 200 for errors.** A handler that catches an exception, logs it, and returns `200 OK` with `{ "error": "..." }` in the body breaks every client retry policy, every monitoring tool, and every CDN. Use the right 4xx/5xx code; the body is for *details*, not the verdict.
+- **Treating 401 and 403 as synonyms.** 401 = "I don't know who you are, send credentials." 403 = "I know who you are, and no." Mixing them leaks information *and* confuses clients about whether to redirect to login. The fix is mechanical: not-logged-in → 401, logged-in-but-not-allowed → 403.
+- **Auto-retrying POSTs on failure.** POST isn't idempotent. A retry after a network blip can double-charge a credit card or create duplicate orders. Either make the endpoint idempotent (with an `Idempotency-Key` header) or never auto-retry it.
+:::
+
 ## Page checkpoint
 
 <Quiz id="http-methods-page" title="Did HTTP methods & status codes stick?" sampleSize={2}>

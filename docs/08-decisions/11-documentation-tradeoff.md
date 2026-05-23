@@ -70,6 +70,15 @@ Defenses:
 - When in doubt, delete the doc rather than leave it stale.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Writing the doc to satisfy a process, not a reader.** ADRs filed because the template demands one — but written by someone who doesn't actually believe the decision needs documenting — read like compliance theater. If you can't name the future engineer who'll thank you for this doc, don't write it.
+- **Documenting *what* instead of *why* in ADRs.** "We chose Postgres" is not an ADR; it's a fact. The doc only earns its keep if it captures the alternatives that lost, the constraints in force at the time, and the things that would make you reconsider. Future-you needs the reasoning, not the verdict.
+- **Treating wiki pages as immortal.** A page from 2023 that says "we use Pulumi for IaC" is wrong if the team migrated to Terraform last year, but newcomers still find it via search. Put an "owner" and "last reviewed" date on every long-lived doc, and delete docs whose owner has left without a successor.
+- **Letting AI tools generate prose docs and treating them as authoritative.** A doc generated from "summarize this codebase" looks confident and is wrong in subtle ways the model can't see. Generated reference (OpenAPI, TypeDoc) is great because the runtime keeps it honest; generated narrative is just plausible-sounding fiction unless a human verifies every claim.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-documentation-tradeoff-page" title="Did the documentation tradeoff stick?" sampleSize={2}>

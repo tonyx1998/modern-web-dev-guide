@@ -70,6 +70,16 @@ A rough adoption pattern for security investment:
 Each step is triggered by a specific business event — a customer requirement, a regulatory deadline, a security incident — not by general aspiration.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Starting a SOC 2 project before a customer is asking.** A 6–12 month, $20K–$100K compliance program with no specific deal attached is dead weight — it expires, the controls drift, and you redo it when a real customer eventually shows up. Wait for the email that says "we need your SOC 2 report."
+- **Adopting formal SLOs and error budgets at 5 engineers.** Without enough traffic, your SLO math is statistical noise — a single bad hour torches the budget. At startup scale, "we want >99.5% uptime and we'll write a quick post-mortem when something burns" beats the full Google SRE ceremony.
+- **Buying Datadog at startup scale "to be ready."** Datadog at full enterprise volume is $4M/year, and at 5 engineers you're paying $2K/month for a tool whose value comes from features you can't yet use. Sentry + Better Stack + Vercel Analytics covers the same ground for ~$100/month until you actually have services to trace.
+- **Confusing "we have alerts" with "we have on-call."** A Slack channel with notifications that everyone mutes after the third false positive is not an on-call rotation. Either commit to PagerDuty with a real schedule and runbook, or be honest that recovery is "whoever notices first" — both are valid at small scale.
+- **Reading the enterprise security column as a checklist to copy.** Bug bounty, AppSec team, threat modeling, continuous pen testing — every line costs real money and only pays back at corresponding scale. At startup scale, MFA + a secrets manager + Dependabot covers 95% of realistic threats for ~$100/month.
+:::
+
 ## Page checkpoint
 
 <Quiz id="comparison-ops-page" title="Did ops across scales stick?" sampleSize={2}>

@@ -106,6 +106,16 @@ The single most common source of onboarding pain: "the app runs but it crashes w
 Treat `.env.example` as a contract. Every variable the app reads from the environment must appear there with a placeholder value. CI should fail if a referenced env var isn't in `.env.example`. Five minutes of discipline saves new hires hours of frustration.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Sharing one staging database across all preview environments.** Two engineers run migrations on the same DB, schemas drift, mysterious failures appear in PRs. Use per-PR ephemeral databases (Neon branches, Supabase preview branches) so previews are actually isolated.
+- **Letting the README rot.** Onboarding works for the first three hires, then the script silently depends on a `gcloud` install nobody documented. The fix: every new hire updates the README on day one with whatever tripped them up. The first PR they ship is the docs fix.
+- **Committing real `.env` files "just this once."** Even private repos get cloned to contractor laptops, ex-employee machines, and AI coding tools. Once a secret hits git history, it's compromised — rotate it. Set up pre-commit hooks that block `.env*` files except `.env.example`.
+- **Premature monorepo.** Turborepo is worth it when you have 2-3 deployable apps sharing real code. Spinning up `packages/utils` and `packages/types` on day one with one app inside slows you down for months before it pays off. Start with a single app; add the monorepo when the second app actually exists.
+- **Treating secrets rotation as a SOC 2 problem to deal with later.** A founder leaving with credentials in their terminal history is a real risk at any size. At minimum, rotate after every departure — not just at audit time.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-env-setup-page" title="Did environment setup stick?" sampleSize={2}>

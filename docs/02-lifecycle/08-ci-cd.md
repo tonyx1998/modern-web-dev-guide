@@ -138,6 +138,16 @@ Treat CI time as a budget. Over 10 minutes = problem to solve.
 - **No staging environment:** Deploy straight to prod with crossed fingers.
 - **Manual deployment steps:** "First SSH in, then run this script..." Should be one button (or zero).
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Conflating "deploy" with "release."** Code can be deployed (running in production) without being released (visible to users). Feature flags decouple the two. Treating them as the same forces big-bang launches and makes rollback mean a revert+redeploy cycle instead of a flag flip.
+- **Using `npm install` (not `npm ci`) in CI.** `install` happily updates your lockfile mid-pipeline, so CI runs against versions your local machine never saw. Always use the frozen-lockfile variant (`npm ci`, `bun install --frozen-lockfile`, `pnpm install --frozen-lockfile`).
+- **Retrying flaky jobs until they go green.** Once "just rerun it" becomes a habit, your CI is no longer a quality gate — it's a slot machine. Either fix the flake or quarantine the test; never normalize the retry.
+- **Burying secrets in workflow YAML.** A workflow that prints `$API_KEY` in a log line, or passes it to a curl that echoes the headers, leaks it to anyone who can see the build. Use the platform's secret masking, prefer `GITHUB_TOKEN` over long-lived PATs, and assume every log is read by an attacker.
+- **Optimizing CI before measuring it.** Engineers parallelize, cache, and shard for a week — and the real bottleneck was a 90-second `apt-get` or one Playwright test waiting on a 30s timeout. Look at the timing breakdown in the run summary first; speed up the actual long pole.
+:::
+
 ## Page checkpoint
 
 <Quiz id="lifecycle-ci-cd-page" title="Did CI/CD stick?" sampleSize={2}>

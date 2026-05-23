@@ -168,6 +168,16 @@ If you're brand new to web dev, **don't** start with PPR or even RSC. Start with
 The industry oscillates between simplifying and complicating. The frameworks will look different in 2030 too. The fundamentals from the [client-server model](./client-server) won't.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Setting `revalidate: 60` and treating the page as "live."** ISR is *eventually* consistent — a user can see data up to 60 seconds stale, and during a rebuild different POPs may serve different versions for a few seconds. If "live" matters (price, inventory, auth state), use SSR or pull that one piece into a dynamic hole.
+- **Calling everything "RSC" because it's on the server.** Streaming SSR is framework-agnostic — Remix `loader`, SvelteKit `+page.server.ts`, Nuxt `useFetch` are *not* React Server Components. RSC is the specific React feature where the component itself never ships to the browser. Mixing the vocabulary will confuse code reviews.
+- **Putting `"use client"` at the top of every file "to be safe."** That defeats the entire RSC benefit — the component now ships JS to the browser, can't directly query the database, and you've turned an RSC app back into a hybrid SSR + CSR app. Default to server components; opt into client only where you need state, effects, or browser APIs.
+- **Forgetting that `<Suspense>` boundaries gate the stream.** A heavy component without a Suspense boundary blocks the entire page from streaming until its data resolves. The whole point of streaming is to wrap slow sections in Suspense so fast sections can flush early.
+- **Adopting PPR on day one of a project.** PPR is a Next.js-specific opt-in that builds on RSCs. If you don't yet understand the server/client component boundary, layering PPR on top just makes the bugs harder to track down. Get the basics working first; reach for PPR when you have a *specific* page with a clear static-shell-plus-dynamic-hole shape.
+:::
+
 ## Page checkpoint
 
 <Quiz id="isr-streaming-ppr-page" title="Did ISR, streaming & PPR stick?" sampleSize={2}>

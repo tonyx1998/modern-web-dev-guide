@@ -62,6 +62,16 @@ At every size in this range, *the actual work* doesn't fit cleanly inside role b
 Treat the org chart as a rough guide to ownership and rotation, not a description of what people can and can't do. Specialization is a tendency at this scale, not a fence.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Hiring the first manager before the first IC who'd be managed.** At 8 engineers, a "Director of Engineering" with no direct reports invents work to feel useful. Hire the people first, then the manager once span-of-control actually demands it.
+- **Locking down team boundaries the day you draw them.** The first org chart at 20 people is a guess. Treat it like a 90-day experiment — name an owner per area, then redraw after the next quarter when reality has voted.
+- **Hiring a "Head of X" to fix a problem nobody currently owns.** A senior hire can't fix a culture where infrastructure or security is everyone's hobby. Make someone on the existing team own the area for a month first — only then bring in the senior leader to scale what's working.
+- **Letting the founding CTO keep writing the most critical code at 25 engineers.** What looked like leverage at 5 people becomes a bus-factor-of-one as you grow. Their job changes from "best coder" to "force multiplier" — and most CTOs need a nudge to make the switch.
+- **Treating "we hired a DevOps engineer" as permission for everyone else to stop caring.** Platform people are accelerators, not janitors. If product engineers stop deploying their own services, you've created the next bottleneck.
+:::
+
 ## Page checkpoint
 
 <Quiz id="startup-team-structure-page" title="Did team structure stick?" sampleSize={2}>

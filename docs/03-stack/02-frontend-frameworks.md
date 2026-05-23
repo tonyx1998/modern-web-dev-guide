@@ -153,6 +153,16 @@ const posts = await fetch('/api/posts').then(r => r.json());
 You'll find passionate Reddit and Twitter threads telling you React is "old" or "bloated" and that you should pick Svelte/Solid/Qwik. **Ignore them on day one.** React + Next.js gives you the largest pool of jobs, tutorials, components, AI assistance, and Stack Overflow answers. You can switch frameworks later — but you won't, because once you ship 2 or 3 projects in one stack, the marginal value of switching is tiny.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Starting a new Next.js project on the Pages Router because a 2022 tutorial said to.** App Router is the path forward — Server Components, Server Actions, streaming, and PPR all live there. If a tutorial uses `pages/api/...`, find a newer one.
+- **Sprinkling `"use client"` at the top of every file.** That defeats the point of React Server Components. The default is server; mark `"use client"` only at the leaves that genuinely need interactivity (state, effects, browser APIs). Keep data-fetching and rendering on the server.
+- **Treating React as a framework.** React is a UI library. It has no router, no data layer, no build system on its own. If you find yourself wiring Webpack + a router + SSR by hand, stop — pick Next.js, Remix, or a Vite-based React template instead.
+- **Picking Svelte/Solid/Qwik for your first job project because it benchmarks well.** Performance is rarely the wall on a first app; ecosystem, hiring, and AI assistance are. Use the framework with the most answers when you search a bug.
+- **Reaching for Astro on a highly interactive app.** Astro is content-first — when most of your UI is dashboards, dialogs, and live state, you're fighting the framework. Astro shines for blogs, docs, marketing; Next/Nuxt/SvelteKit shine for apps.
+:::
+
 ## Page checkpoint
 
 <Quiz id="stack-frontend-frameworks-page" title="Did frontend frameworks stick?" sampleSize={2}>

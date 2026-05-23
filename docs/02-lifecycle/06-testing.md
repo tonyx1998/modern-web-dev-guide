@@ -171,6 +171,16 @@ This gives you ~20% of the testing effort for ~80% of the value. As your project
 | **Chromatic / Percy**| Visual regression.                                     |
 | **Storybook**        | Component development + interaction testing.           |
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Testing the implementation, not the behavior.** Asserting that a component calls `useState` three times means the test breaks the day you refactor it. Test what the user (or caller) sees — rendered text, returned values, network requests made — so refactors stay free.
+- **Stuffing every test into the E2E layer.** Playwright tests are tempting because they "test the real thing," but they're slow, flaky, and brutal to debug. Push logic down into unit/integration tests where each failure points to one file, not to "checkout flow broken somewhere."
+- **Mocking the thing under test.** If your test mocks the function it's supposed to verify, it's testing the mock. Mock the dependencies *around* your subject (DB, HTTP, time, random), then let the real code run.
+- **Snapshot-testing everything.** Snapshots default to `toMatchSnapshot()` recording whatever output you produced — including bugs — and then asserting "stay this way." A snapshot only tests what its reviewer thought about; for most components, an explicit `expect(...)` is better.
+- **Asking AI to "add tests" to a file.** It will obediently add tests that re-assert what the code does, including its bugs. Tests have to encode *intent*, which the AI doesn't know. Use it for boilerplate scaffolding; write the assertions yourself.
+:::
+
 ## Page checkpoint
 
 <Quiz id="lifecycle-testing-page" title="Did testing stick?" sampleSize={2}>

@@ -109,6 +109,16 @@ That's it. Done.
 
 The pattern: complexity grows with scale, not with ambition. Start small. Earn each addition.
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Picking a database from a blog post rather than the workload.** "Discord uses ScyllaDB" is interesting; it's also irrelevant to your todo app. Match the database to the *shape and scale of your data*, not to the company you admire.
+- **Adding a second database before fully using the first.** Many "we need a vector DB" or "we need a search engine" decisions go away when you discover Postgres already does it (`pgvector`, `tsvector`, JSONB). Try the Postgres extension before adopting a whole new system.
+- **Treating Redis as a primary store.** Redis is fast because it's in-memory; it's also lossy unless you carefully configure persistence — and even then, replication and durability are weaker than Postgres. Use it as a cache or coordination layer, not the source of truth.
+- **Locking into a managed DB without an exit plan.** "Just use DynamoDB" is fine until you want to leave AWS, or rebuild a feature in a way that doesn't fit single-table design. Prefer hosted *standards* (Postgres on Supabase/Neon/RDS) where the protocol is portable.
+- **Optimizing the database before profiling the query.** "We need to switch databases" is almost never the right next step. The right next step is `EXPLAIN ANALYZE`, an index, or a 60-second Redis cache. A real Postgres install on a $20 VPS will outlast the average startup.
+:::
+
 ## Page checkpoint
 
 <Quiz id="databases-choosing-page" title="Did choosing a database stick?" sampleSize={2}>

@@ -56,6 +56,15 @@ The questions on the list aren't meant to *answer* the decision. They're meant t
 Half of good decision-making is realizing which question you can't answer yet.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Running the checklist on decisions that don't deserve it.** A 10-question ritual for "which lint rule should we use" is exactly the process bloat the team-size chapter warned about. Reserve the full pass for high-stakes calls; for the rest, two or three questions are plenty.
+- **Treating filled-out cells as actual answers.** Writing "Yes, we have a rollback plan" in a table cell isn't a rollback plan — it's a sentence. If you can't describe the actual steps in a meeting tomorrow, the cell is decoration. Pressure-test the answers before accepting them.
+- **Skipping question 8 (success metric) because the work "obviously helps."** "Obviously" is where projects go to be unmeasurable. If you can't name the metric that moves, you can't tell whether you succeeded — and your next "why now" question for related work will have no data to draw from.
+- **Letting the checklist become a gate that blocks everything.** Some teams turn the checklist into a mandatory document for every change, then watch shipping velocity collapse. The checklist is a thinking tool, not a CAB process. Use it to clarify your own decision, not to demand approval before anyone can act.
+:::
+
 ## Page checkpoint
 
 <Quiz id="decisions-checklist-page" title="Did the decision checklist stick?" sampleSize={2}>

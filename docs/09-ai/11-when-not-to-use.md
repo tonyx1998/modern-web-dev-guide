@@ -60,6 +60,16 @@ Before you reach for an LLM, ask the substitution question: **"If I replaced thi
 If a simpler tool exists, default to it. AI's strengths are language, ambiguity, and open-endedness — not deterministic transformations.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Using an LLM as a deterministic formatter.** "Make this date look like MM/DD/YYYY" or "trim this to 200 chars" through a model call introduces non-determinism, latency, and cost for a problem `date-fns` and `String.slice` solve for free. If the rule fits on a sticky note, write the function.
+- **AI for arithmetic.** Models are great at *describing* numbers and terrible at *computing* them, especially across many rows or with currency. Always compute totals, percentages, taxes, and aggregations in code; let the model write the narrative around the numbers, never produce them.
+- **Reaching for AI because it's faster to prototype, then never going back.** "I'll replace this with real code later" rarely happens — the AI version ships, the costs accumulate, and nobody owns the migration. Set the bar upfront: if a simple tool would work, build the simple tool, even if the AI version is 30 minutes faster to demo.
+- **Ignoring the latency floor.** Even a fast frontier model adds 300-800ms minimum. For autocomplete, keystroke validation, or anything inside a tight render budget, that's disqualifying. Use a local heuristic or a small classifier; reserve the model call for the slower, higher-value paths.
+- **Underrating privacy implications.** "We'll just send the row to the LLM and have it decide" can quietly route customer data, internal documents, or regulated content through a third party. Even with enterprise no-training tiers, every AI call is a data-egress decision — apply the same review you'd apply to adding any new vendor.
+:::
+
 ## Page checkpoint
 
 <Quiz id="ai-when-not-to-use-page" title="Did 'when not to use AI' stick?" sampleSize={2}>

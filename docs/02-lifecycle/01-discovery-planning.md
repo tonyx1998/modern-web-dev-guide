@@ -103,6 +103,16 @@ You don't need a $50/seat research tool to start. The most valuable user researc
 Three honest conversations are worth ten weeks of solo brainstorming.
 :::
 
+## Common mistakes
+
+:::caution[Where people commonly trip up]
+- **Confusing "the problem" with "your idea for solving it."** "Users need a Slack bot" is already a solution. Strip it back to the actual pain ("our team loses track of who owns which doc") before you commit to any shape of fix — otherwise discovery just rubber-stamps your initial guess.
+- **Talking to friends instead of target users.** Friends are polite and will say your idea is great. Strangers in the actual user segment will tell you what they currently do, where it hurts, and what they'd never pay for. Five strangers beat fifty supportive friends.
+- **Treating the PRD as a contract instead of a hypothesis.** Beginners freeze when reality diverges from the spec; experienced PMs revise the doc weekly as they learn. Write your plan in pencil — discovery continues into design and implementation.
+- **Letting AI brainstorming substitute for talking to humans.** Claude or ChatGPT will happily generate a 20-page user research report from your prompt — and none of it is grounded in a real person's behavior. Use AI to summarize real interviews, not to invent fake ones.
+- **Picking a success metric you can't actually measure.** "Increase engagement" without a defined event, source, and baseline is a wish, not a target. Pick a number you could pull from PostHog or your DB tomorrow, or your launch will have no honest verdict.
+:::
+
 ## Page checkpoint
 
 <Quiz id="lifecycle-discovery-planning-page" title="Did discovery & planning stick?" sampleSize={2}>
