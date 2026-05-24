@@ -13,7 +13,10 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "lectures": "node scripts/generate-lectures.mjs",
+    "lectures:dry": "node scripts/generate-lectures.mjs --dry-run",
+    "lectures:script-only": "node scripts/generate-lectures.mjs --script-only"
   },
   "dependencies": {
     "@docusaurus/core": "3.10.1",

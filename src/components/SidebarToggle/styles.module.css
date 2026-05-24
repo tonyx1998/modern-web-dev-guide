@@ -66,7 +66,10 @@
   to { opacity: 1; }
 }
 
-@media (max-width: 768px) {
+/* Match Docusaurus's mobile navbar breakpoint (996px). Below that, the
+ * built-in mobile hamburger appears top-left, so move our trigger to
+ * bottom-left to avoid two ≡ icons stacking on each other. */
+@media (max-width: 996px) {
   .trigger {
     top: auto;
     bottom: 1rem;

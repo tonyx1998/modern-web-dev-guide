@@ -33,3 +33,9 @@ desktop.ini
 
 # Claude / Agent state
 .claude/
+
+# Generated lecture audio — regenerate with `npm run lectures`.
+# Audio files are large (~15 MB per chapter, ~3 GB full guide) and
+# should live on object storage, not in git.
+static/lectures/**/*.mp3
+static/lectures/**/*.wav

@@ -8,6 +8,12 @@ description: Every interaction on the web is a request from a client and a respo
 
 # The Client–Server Model
 
+<AudioPlayer
+  src="/lectures/foundations/01-client-server.mp3"
+  transcript="/lectures/foundations/01-client-server.txt"
+  title="Listen: The Client–Server Model"
+/>
+
 > **In one line:** The web is just two computers talking — one asks ("client"), one answers ("server"). Everything else is decoration.
 
 :::tip[In plain English]
