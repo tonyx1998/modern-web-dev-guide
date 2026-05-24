@@ -48,7 +48,7 @@ The tabs below pick your reading *path* — *which chapters* to read and in *wha
 
 → **Start with** [The Client–Server Model](/docs/foundations/client-server), then work through the [Roadmap stages](/docs/roadmap/part-1-from-zero).
 
-**Build path:** read chapters 1.1–1.4 for the mental model → start [Roadmap Stage 0](/docs/roadmap/part-1-from-zero/stage-0-setup) and follow the stages in order. Reach for [5. Solo Workflow](/docs/solo) when you're ready to deploy. *Plan for 4–9 months of part-time effort.*
+**Build path:** read chapters 1.1–1.4 for the mental model → start [Roadmap Stage 0](/docs/roadmap/part-1-from-zero/stage-0-setup) and follow the stages in order. Skim [Stage 0+ — Set up like a pro](/docs/roadmap/part-1-from-zero/pro-environment) now to know what's there; come back for upgrades as defaults start to annoy you. Reach for [5. Solo Workflow](/docs/solo) when you're ready to deploy. *Plan for 4–9 months of part-time effort.*
 
 :::tip[Two ground-truth facts before you start]
 1. **A "website" is just files (HTML, CSS, JavaScript, images) served from a computer on the internet to your browser.** Everything else — frameworks, databases, deployment pipelines, AI features — is layered on top of that one basic idea.
@@ -66,15 +66,16 @@ If you ever hit jargon: open the [Glossary](/docs/glossary) in a side tab. Every
 
 | Order | Read                                              | Why                                              |
 |-------|---------------------------------------------------|--------------------------------------------------|
-| 1     | [Lifecycle](/docs/lifecycle)                      | Plan, build, ship, monitor                       |
-| 2     | [Tech Stack](/docs/stack)                         | Every major 2026 tool decoded                    |
-| 3     | [Roadmap — Modern Stack](/docs/roadmap/part-2-modern-stack) | Opinionated picks: Tier 1/2/3 |
-| 4     | [Startup workflow](/docs/startup)                 | Managed services, balance speed & quality        |
-| 5     | [Decision Frameworks](/docs/decisions)            | How to actually choose technologies              |
+| 1     | [Pro dev environment](/docs/roadmap/part-1-from-zero/pro-environment) | Set up like a working web dev (½ day)        |
+| 2     | [Lifecycle](/docs/lifecycle)                      | Plan, build, ship, monitor                       |
+| 3     | [Tech Stack](/docs/stack)                         | Every major 2026 tool decoded                    |
+| 4     | [Roadmap — Modern Stack](/docs/roadmap/part-2-modern-stack) | Opinionated picks: Tier 1/2/3 |
+| 5     | [Startup workflow](/docs/startup)                 | Managed services, balance speed & quality        |
+| 6     | [Decision Frameworks](/docs/decisions)            | How to actually choose technologies              |
 
 → **Jump to** [Roadmap — Tier 1 picks](/docs/roadmap/part-2-modern-stack/tier-1)
 
-**Build path:** scan [Tech Stack](/docs/stack) for the reference view → read [Roadmap Part II](/docs/roadmap/part-2-modern-stack) for the opinionated picks → ship a SaaS MVP → reach for [Decisions](/docs/decisions) when you face your first real "Should we add X?" debate.
+**Build path:** spend half a day on [Pro dev environment](/docs/roadmap/part-1-from-zero/pro-environment) so your machine stops fighting you → scan [Tech Stack](/docs/stack) for the reference view → read [Roadmap Part II](/docs/roadmap/part-2-modern-stack) for the opinionated picks → ship a SaaS MVP → reach for [Decisions](/docs/decisions) when you face your first real "Should we add X?" debate.
 
 </TabItem>
 
@@ -102,12 +103,13 @@ If you ever hit jargon: open the [Glossary](/docs/glossary) in a side tab. Every
 |-------|---------------------------------------------------|--------------------------------------------------|
 | 1     | [Roadmap — Trends](/docs/roadmap/part-2-modern-stack/trends) | The six 2026 directional shifts |
 | 2     | [Tech Stack](/docs/stack)                         | What's new since you last looked                 |
-| 3     | [AI Integration](/docs/ai)                        | The new layer in every modern app                |
-| 4     | [Roadmap — Beyond the Stack](/docs/roadmap/part-3-beyond) | The skills the stack hides |
+| 3     | [Pro dev environment](/docs/roadmap/part-1-from-zero/pro-environment) | Skim as a checklist — most working devs are missing one or two |
+| 4     | [AI Integration](/docs/ai)                        | The new layer in every modern app                |
+| 5     | [Roadmap — Beyond the Stack](/docs/roadmap/part-3-beyond) | The skills the stack hides |
 
 → **Skim** [Roadmap — Trends](/docs/roadmap/part-2-modern-stack/trends)
 
-**Build path:** read [Trends](/docs/roadmap/part-2-modern-stack/trends) in 15 minutes → check the [Tier 1 picks](/docs/roadmap/part-2-modern-stack/tier-1) against what you already use → pick one new tool that looks interesting → build a small spike with it → revisit [chapter 10 (AI)](/docs/ai) since it didn't exist as a layer two years ago.
+**Build path:** read [Trends](/docs/roadmap/part-2-modern-stack/trends) in 15 minutes → check the [Tier 1 picks](/docs/roadmap/part-2-modern-stack/tier-1) against what you already use → skim [Pro dev environment](/docs/roadmap/part-1-from-zero/pro-environment) as a checklist (Starship, fzf, `gh`, signed commits — pick what's missing) → pick one new tool that looks interesting → build a small spike with it → revisit [chapter 10 (AI)](/docs/ai) since it didn't exist as a layer two years ago.
 
 </TabItem>
 
