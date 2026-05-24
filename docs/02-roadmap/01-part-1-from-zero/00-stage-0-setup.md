@@ -84,6 +84,10 @@ You should see two lines print. Congratulations — you're a programmer now.
 - **"Permission denied"** on Mac/Linux — never use `sudo` with `npm`; it causes permission chaos later. Fix by installing Node via [nvm](https://github.com/nvm-sh/nvm) instead.
 - **Don't fight your OS.** If something obscure breaks, search the exact error message — someone has hit it before, the answer is on Stack Overflow.
 
+:::tip[Want to set up like a pro?]
+This page is the minimum. [Stage 0+ — Set up like a pro](./pro-environment) is the optional upgrade: a real terminal, a modern shell, replacement CLI tools (ripgrep, fzf, bat), a Node version manager, a properly configured git, the `gh` CLI, and VS Code tuned the way working developers actually use it. Skim it now to see what's there; come back for upgrades as the default tools start to annoy you.
+:::
+
 ## Where to go deeper
 
 - [Node.js Learn](https://nodejs.org/en/learn) — short, official, covers the basics.
