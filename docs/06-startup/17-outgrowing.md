@@ -1,4 +1,4 @@
----
+﻿---
 id: outgrowing
 title: When You're Outgrowing This Scale
 sidebar_position: 18
@@ -25,9 +25,9 @@ Signs you're approaching the next stage:
 - **Compliance work is consuming significant time.** SOC 2, HIPAA, PCI all stack up.
 - **You have on-call but it's exhausting.** A single engineer can't reasonably understand the whole system.
 
-That's when [Chapter 6: Large Company Workflow](/docs/enterprise) becomes relevant.
+That's when [Chapter 7: Large Company Workflow](/docs/enterprise) becomes relevant.
 
-## Wrapping Up Part 5
+## Wrapping Up Part 6
 
 Small-company web development in 2026 is a sweet spot. The tooling is mature, the patterns are well-understood, and a small team can ship genuinely impressive software:
 
@@ -50,7 +50,7 @@ A startup hits 55 engineers. The CTO notices three signals over one quarter:
 
 Instead of waiting for things to get worse, the CTO starts a deliberate transition: spin up a small platform team, extract two services from the monolith (the two that scale very differently), and hire a security lead. None of these moves are "we became an enterprise overnight" — they're surgical responses to specific signals.
 
-Three months later, the team is operating under more of the patterns in [Chapter 6](/docs/enterprise). The transition was uncomfortable but not catastrophic.
+Three months later, the team is operating under more of the patterns in [Chapter 7](/docs/enterprise). The transition was uncomfortable but not catastrophic.
 :::
 
 :::info[Highlight: graduating gracefully beats graduating in crisis]
@@ -129,4 +129,4 @@ The signals listed above are the leading indicators. Watch them quarterly. When 
 
 ## What's next
 
-→ Continue to [Chapter 6: Large Company Workflow](/docs/enterprise) — what changes when you scale to enterprise: hundreds of engineers, regulatory compliance, massive infrastructure.
+→ Continue to [Chapter 7: Large Company Workflow](/docs/enterprise) — what changes when you scale to enterprise: hundreds of engineers, regulatory compliance, massive infrastructure.

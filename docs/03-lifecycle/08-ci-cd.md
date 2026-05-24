@@ -1,12 +1,12 @@
----
+﻿---
 id: ci-cd
-title: 'Phase 8: CI/CD'
+title: 'Phase 9: CI/CD'
 sidebar_position: 9
 sidebar_label: 8. CI/CD
 description: Automate the path from "code committed" to "code in production." The factory assembly line for software.
 ---
 
-# Phase 8: CI/CD
+# Phase 9: CI/CD
 
 > **In one line:** CI runs tests automatically on every commit. CD ships passing builds to production automatically. Together: the factory assembly line for software.
 
@@ -208,4 +208,4 @@ Treat CI time as a budget. Over 10 minutes = problem to solve.
 
 ## What's next
 
-→ Continue to [Phase 9: Deployment & Hosting](./deployment-hosting) where we get the code running on the public internet, reliably.
+→ Continue to [Phase 10: Deployment & Hosting](./deployment-hosting) where we get the code running on the public internet, reliably.

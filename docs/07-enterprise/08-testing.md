@@ -1,12 +1,12 @@
----
+﻿---
 id: testing
-title: 'Phase 5: Testing at Scale'
+title: 'Phase 6: Testing at Scale'
 sidebar_position: 9
 sidebar_label: 8. Testing
 description: Contract tests, load tests, chaos engineering, security testing (SAST/DAST/SCA), and compliance testing for enterprises.
 ---
 
-# Phase 5: Testing at Scale
+# Phase 6: Testing at Scale
 
 > **In one line:** The testing pyramid expands dramatically — tens of thousands of unit tests, contract tests between services, chaos engineering against production, plus dedicated security and compliance testing pipelines.
 
@@ -141,4 +141,4 @@ Once they fixed every break Chaos Monkey found, they had genuinely resilient sys
 
 ## What's next
 
-→ Continue to [Phase 6: CI/CD at Scale](./ci-cd) — how all these tests actually run, in parallel, across tens of thousands of builds a day.
+→ Continue to [Phase 7: CI/CD at Scale](./ci-cd) — how all these tests actually run, in parallel, across tens of thousands of builds a day.

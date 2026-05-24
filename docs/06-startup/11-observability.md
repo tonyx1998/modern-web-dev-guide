@@ -1,12 +1,12 @@
----
+﻿---
 id: observability
-title: 'Phase 9: Observability'
+title: 'Phase 10: Observability'
 sidebar_position: 12
 sidebar_label: 11. Observability
 description: Sentry for errors, Better Stack or Axiom for logs, uptime monitoring, PostHog for product analytics, Vercel Analytics for performance, and a simple on-call rotation.
 ---
 
-# Phase 9: Observability
+# Phase 10: Observability
 
 > **In one line:** Errors in Sentry. Logs in Better Stack or Axiom. Uptime via Better Stack. Behavior in PostHog. Performance in Vercel Analytics. On-call rotates weekly.
 
@@ -142,4 +142,4 @@ The reason is practical, not soft: the moment people fear post-mortems, they hid
 
 ## What's next
 
-→ Continue to [Phase 10: Security and Compliance](./security) where daily hygiene, SOC 2, and pen testing become real concerns.
+→ Continue to [Phase 11: Security and Compliance](./security) where daily hygiene, SOC 2, and pen testing become real concerns.

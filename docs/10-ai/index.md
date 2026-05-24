@@ -1,12 +1,12 @@
----
+﻿---
 id: ai-integration
-title: 9. AI Integration — Overview
+title: 10. AI Integration — Overview
 sidebar_position: 1
 sidebar_label: AI layer intro
 description: AI as a standard layer in web apps — streaming chat, RAG, function calling, agents, production operation.
 ---
 
-# Part 9: AI Integration Patterns
+# Part 10: AI Integration Patterns
 
 *The new layer in modern web applications.*
 
@@ -135,4 +135,4 @@ Each page focuses on a single AI pattern or production concern. Read in order th
 
 ---
 
-When you finish all 12 pages, move on to [Chapter 10: Career Path](/docs/career).
+When you finish all 12 pages, move on to [Chapter 11: Career Path](/docs/career).

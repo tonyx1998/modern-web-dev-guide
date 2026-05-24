@@ -1,4 +1,4 @@
----
+﻿---
 id: observability-tools
 title: Monitoring & Observability (Tools)
 sidebar_position: 18
@@ -11,7 +11,7 @@ description: The tooling for errors (Sentry), logs (Datadog, Axiom), metrics (Pr
 > **In one line:** Sentry for errors, PostHog for analytics, Better Stack for uptime + logs. Reach for Datadog / Honeycomb / OpenTelemetry when you outgrow the basics.
 
 :::tip[In plain English]
-This page is the *tools* for observability. For the *concepts* (logs vs. metrics vs. traces, SLOs, alerting), see [Chapter 2 Phase 10](../lifecycle/observability).
+This page is the *tools* for observability. For the *concepts* (logs vs. metrics vs. traces, SLOs, alerting), see [Chapter 3 Phase 11](../lifecycle/observability).
 :::
 
 ## Errors

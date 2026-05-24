@@ -1,12 +1,12 @@
----
+﻿---
 id: deployment
-title: 'Phase 7: Deployment & Infrastructure'
+title: 'Phase 8: Deployment & Infrastructure'
 sidebar_position: 11
 sidebar_label: 10. Deployment
 description: Kubernetes, IaC, multi-region active-active, service mesh, secrets management, and FinOps at enterprise scale.
 ---
 
-# Phase 7: Deployment & Infrastructure
+# Phase 8: Deployment & Infrastructure
 
 > **In one line:** Kubernetes on AWS/GCP/Azure, everything provisioned via Terraform, multi-region active-active for disaster recovery, secrets in Vault, costs governed by a FinOps discipline.
 
@@ -182,4 +182,4 @@ Without that abstraction, this same flow at a less-tooled enterprise is weeks of
 
 ## What's next
 
-→ Continue to [Phase 8: Observability at Scale](./observability) — once everything's running, how do you actually know what's going on?
+→ Continue to [Phase 9: Observability at Scale](./observability) — once everything's running, how do you actually know what's going on?

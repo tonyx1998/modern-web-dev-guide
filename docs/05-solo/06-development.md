@@ -1,12 +1,12 @@
----
+﻿---
 id: development
-title: 'Phase 4: Development'
+title: 'Phase 5: Development'
 sidebar_position: 7
 sidebar_label: 6. Development
 description: The development loop — Server Components, Client Components, Server Actions, loading and error states, styling, AI assistance.
 ---
 
-# Phase 4: Development
+# Phase 5: Development
 
 > **In one line:** Build features one at a time, end-to-end. Default to Server Components; reach for `'use client'` only when you need interactivity.
 
@@ -276,4 +276,4 @@ Most "I need state here" instincts are wrong. You only truly need a Client Compo
 
 ## What's next
 
-→ Continue to [Phase 5: Adding Auth](./auth) where Clerk lets you skip building user accounts entirely.
+→ Continue to [Phase 6: Adding Auth](./auth) where Clerk lets you skip building user accounts entirely.

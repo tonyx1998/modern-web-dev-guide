@@ -1,12 +1,12 @@
----
+﻿---
 id: tech-stack-decoded
-title: 3. The 2026 Tech Stack — Overview
+title: 4. The 2026 Tech Stack — Overview
 sidebar_position: 1
 sidebar_label: Stack at a glance
 description: Every major tool in the 2026 web stack, organized by layer. Skim once; refer back when choosing.
 ---
 
-# Part 3: The 2026 Tech Stack Decoded
+# Part 4: The 2026 Tech Stack Decoded
 
 *Every major tool in modern web development — what it does, when to use it, why it exists.*
 
@@ -70,4 +70,4 @@ This is the "boring" path. It's boring because it works. Save creativity for you
 
 ---
 
-When you finish, move on to [Chapter 4: Personal Website Workflow](/docs/solo).
+When you finish, move on to [Chapter 5: Personal Website Workflow](/docs/solo).

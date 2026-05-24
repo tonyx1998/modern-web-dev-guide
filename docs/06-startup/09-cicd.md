@@ -1,12 +1,12 @@
----
+﻿---
 id: cicd
-title: 'Phase 7: CI/CD with GitHub Actions'
+title: 'Phase 8: CI/CD with GitHub Actions'
 sidebar_position: 10
 sidebar_label: 9. CI/CD
 description: A typical GitHub Actions workflow that lints, type-checks, tests, and builds. Vercel handles deployment separately. Branch protection enforces review.
 ---
 
-# Phase 7: CI/CD with GitHub Actions
+# Phase 8: CI/CD with GitHub Actions
 
 > **In one line:** GitHub Actions lints, type-checks, tests, and builds on every PR. Vercel handles deployment. Branch protection makes the green-CI requirement non-optional.
 
@@ -176,4 +176,4 @@ Branch protection makes the safe path the default path. Nobody has to remember t
 
 ## What's next
 
-→ Continue to [Phase 8: Deployment & Infrastructure](./deployment) where we compare three popular hosting patterns.
+→ Continue to [Phase 9: Deployment & Infrastructure](./deployment) where we compare three popular hosting patterns.

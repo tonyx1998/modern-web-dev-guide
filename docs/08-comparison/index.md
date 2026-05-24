@@ -1,12 +1,12 @@
----
+﻿---
 id: comparison
-title: 7. Side-by-Side Comparison — Overview
+title: 8. Side-by-Side Comparison — Overview
 sidebar_position: 1
 sidebar_label: All three scales
 description: Solo / startup / enterprise compared side by side across tools, processes, and costs.
 ---
 
-# Part 7: Side-by-Side Comparison
+# Part 8: Side-by-Side Comparison
 
 *Quick-reference tables showing how all three scales differ across every dimension.*
 
@@ -41,11 +41,11 @@ Where do you sit?
 ```mermaid
 flowchart TD
     Start{"Are you working alone?"}
-    Start -->|Yes| Solo["Personal Project workflow (Chapter 4)"]
+    Start -->|Yes| Solo["Personal Project workflow (Chapter 5)"]
     Start -->|No| Size{"How many engineers in your org?"}
-    Size -->|2–50| Startup["Small Company workflow (Chapter 5)"]
+    Size -->|2–50| Startup["Small Company workflow (Chapter 6)"]
     Size -->|50+| Q2{"Many product teams shipping independently?"}
-    Q2 -->|Yes| Ent["Large Company workflow (Chapter 6)"]
+    Q2 -->|Yes| Ent["Large Company workflow (Chapter 7)"]
     Q2 -->|Still feels like one team| Startup
 ```
 
@@ -76,4 +76,4 @@ The biggest mistake is **applying the wrong scale's practices**:
 
 ---
 
-When you finish, move on to [Chapter 8: Decision Frameworks](/docs/decisions).
+When you finish, move on to [Chapter 9: Decision Frameworks](/docs/decisions).

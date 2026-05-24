@@ -1,12 +1,12 @@
----
+﻿---
 id: deployment
-title: 'Phase 8: Deployment & Infrastructure'
+title: 'Phase 9: Deployment & Infrastructure'
 sidebar_position: 11
 sidebar_label: 10. Deployment
 description: Three popular hosting patterns — Vercel + Supabase, Railway / Render, Cloudflare-first — and when to pick which.
 ---
 
-# Phase 8: Deployment & Infrastructure
+# Phase 9: Deployment & Infrastructure
 
 > **In one line:** Three popular hosting patterns — Vercel + Supabase (easy), Railway/Render (predictable bills), Cloudflare-first (global edge). Pick by your traffic shape and bill tolerance.
 
@@ -180,4 +180,4 @@ None is "wrong." But this is the kind of decision that lives on the boundary bet
 
 ## What's next
 
-→ Continue to [Phase 9: Observability](./observability) where Sentry, logs, uptime, and product analytics combine into a real production-monitoring story.
+→ Continue to [Phase 10: Observability](./observability) where Sentry, logs, uptime, and product analytics combine into a real production-monitoring story.

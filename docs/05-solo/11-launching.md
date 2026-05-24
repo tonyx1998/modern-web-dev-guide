@@ -1,12 +1,12 @@
----
+﻿---
 id: launching
-title: 'Phase 9: Launching'
+title: 'Phase 10: Launching'
 sidebar_position: 12
 sidebar_label: 11. Launching
 description: Personal projects don't need formal launches. Soft-launch to friends, then social media, then the indie hacker forums. Pricing and landing pages matter more.
 ---
 
-# Phase 9: Launching
+# Phase 10: Launching
 
 > **In one line:** Personal projects don't need formal launches. Tell friends, post a few places, write about why you built it. The product matters more than the launch.
 
@@ -138,4 +138,4 @@ A great launch of a mediocre product gets you a spike of traffic and then cricke
 
 ## What's next
 
-→ Continue to [Phase 10: Maintenance](./maintenance) where the work changes from "build" to "watch, respond, iterate."
+→ Continue to [Phase 11: Maintenance](./maintenance) where the work changes from "build" to "watch, respond, iterate."

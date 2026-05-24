@@ -1,12 +1,12 @@
----
+﻿---
 id: architecture
-title: 'Phase 3: Architecture & Technical Design'
+title: 'Phase 4: Architecture & Technical Design'
 sidebar_position: 4
 sidebar_label: 3. Architecture
 description: Decide how to build it — stack selection, data model, system decomposition, hosting model. The decisions that are hard to reverse.
 ---
 
-# Phase 3: Architecture & Technical Design
+# Phase 4: Architecture & Technical Design
 
 > **In one line:** Decide *how* to build it — language, framework, database, hosting, system structure. These are the decisions you'll pay for (or benefit from) for years.
 
@@ -183,4 +183,4 @@ This stack scales from "weekend project" to "thousands of paying customers" with
 
 ## What's next
 
-→ Continue to [Phase 4: Environment Setup](./environment-setup) where we set up the workshop — runtimes, editors, version control, linters, secrets, the boring stuff that makes building possible.
+→ Continue to [Phase 5: Environment Setup](./environment-setup) where we set up the workshop — runtimes, editors, version control, linters, secrets, the boring stuff that makes building possible.

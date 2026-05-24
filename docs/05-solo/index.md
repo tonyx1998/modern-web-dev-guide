@@ -1,12 +1,12 @@
----
+﻿---
 id: personal-website-workflow
-title: 4. Personal Website Workflow — Overview
+title: 5. Personal Website Workflow — Overview
 sidebar_position: 1
 sidebar_label: Solo workflow intro
 description: Solo developers, personal sites, side projects. Free tiers, minimal ops, maximum shipping speed.
 ---
 
-# Part 4: Personal Website / Side Project Workflow
+# Part 5: Personal Website / Side Project Workflow
 
 *Solo developer, low budget, maximum shipping speed.*
 
@@ -44,15 +44,15 @@ Each page focuses on a single phase or topic of the solo workflow. Read them in 
 1. [The Personal Project Mindset](/docs/solo/mindset) — Why enterprise patterns destroy personal projects.
 2. [Common Personal Project Types](/docs/solo/project-types) — Portfolios, blogs, hobby SaaS, tools, learning projects.
 3. [Phase 1: Planning](/docs/solo/planning) — An afternoon, not a month.
-4. [Phase 2: Stack Selection](/docs/solo/stack-selection) — The 2026 default stack, and why.
-5. [Phase 3: Environment Setup](/docs/solo/env-setup) — One hour to a deployed empty project.
-6. [Phase 4: Development](/docs/solo/development) — Server/Client Components, Server Actions, the inner loop.
-7. [Phase 5: Adding Auth](/docs/solo/auth) — Clerk in twenty minutes.
-8. [Phase 6: Payments](/docs/solo/payments) — Stripe Checkout + a webhook.
-9. [Phase 7: Deployment](/docs/solo/deployment) — Custom domain, preview URLs, environments.
-10. [Phase 8: Observability](/docs/solo/observability) — Sentry, Vercel Analytics, PostHog, uptime.
-11. [Phase 9: Launching](/docs/solo/launching) — Soft launches, pricing, marketing pages.
-12. [Phase 10: Maintenance](/docs/solo/maintenance) — Weekly cadence, performance, costs.
+4. [Phase 3: Stack Selection](/docs/solo/stack-selection) — The 2026 default stack, and why.
+5. [Phase 4: Environment Setup](/docs/solo/env-setup) — One hour to a deployed empty project.
+6. [Phase 5: Development](/docs/solo/development) — Server/Client Components, Server Actions, the inner loop.
+7. [Phase 6: Adding Auth](/docs/solo/auth) — Clerk in twenty minutes.
+8. [Phase 7: Payments](/docs/solo/payments) — Stripe Checkout + a webhook.
+9. [Phase 8: Deployment](/docs/solo/deployment) — Custom domain, preview URLs, environments.
+10. [Phase 9: Observability](/docs/solo/observability) — Sentry, Vercel Analytics, PostHog, uptime.
+11. [Phase 10: Launching](/docs/solo/launching) — Soft launches, pricing, marketing pages.
+12. [Phase 11: Maintenance](/docs/solo/maintenance) — Weekly cadence, performance, costs.
 13. [Realistic Time Investment](/docs/solo/time-investment) — How long an indie SaaS v1 actually takes.
 14. [Common Pitfalls](/docs/solo/pitfalls) — Over-engineering, stack churn, not shipping.
 15. [Pre-Built Templates Worth Knowing](/docs/solo/templates) — When not to start from scratch.
@@ -61,4 +61,4 @@ Each page focuses on a single phase or topic of the solo workflow. Read them in 
 
 ---
 
-When you finish all 17 pages, move on to [Chapter 5: Small Company Workflow](/docs/startup).
+When you finish all 17 pages, move on to [Chapter 6: Small Company Workflow](/docs/startup).

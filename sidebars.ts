@@ -261,7 +261,7 @@ const sidebars: SidebarsConfig = {
             title: 'Services & integrations',
             description:
               'Auth-as-a-service, background jobs, payments/email/files/video, and the AI layer.',
-            slug: '/stack/services',
+            slug: '/stack/services-integrations',
           },
           items: [
             'stack/authentication-tools',

@@ -1,12 +1,12 @@
----
+﻿---
 id: maintenance
-title: 'Phase 10: Maintenance'
+title: 'Phase 11: Maintenance'
 sidebar_position: 13
 sidebar_label: 12. Maintenance
 description: Once shipped, the work changes — watch Sentry, reply to users, merge Dependabot, watch the bills. Performance and costs both stay small if you let them.
 ---
 
-# Phase 10: Maintenance
+# Phase 11: Maintenance
 
 > **In one line:** Once shipped, the work shifts from building to watching, replying, and iterating. The hardest discipline is *not* accumulating a half-built backlog.
 

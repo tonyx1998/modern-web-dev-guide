@@ -1,12 +1,12 @@
----
+﻿---
 id: testing
-title: 'Phase 6: Testing Strategy'
+title: 'Phase 7: Testing Strategy'
 sidebar_position: 9
 sidebar_label: 8. Testing
 description: Vitest for unit and integration tests, Playwright for ~10–30 critical E2E flows, manual QA on top. No formal coverage target — test what would break the business.
 ---
 
-# Phase 6: Testing Strategy
+# Phase 7: Testing Strategy
 
 > **In one line:** Hundreds of Vitest unit tests, dozens of integration tests, a handful of Playwright E2E tests on the critical flows, and manual QA for the rest. Test what would break the business if it failed.
 
@@ -193,4 +193,4 @@ The actual goal is: *would I sleep through the night with the current test suite
 
 ## What's next
 
-→ Continue to [Phase 7: CI/CD](./cicd) where GitHub Actions ties the testing strategy to the deploy pipeline.
+→ Continue to [Phase 8: CI/CD](./cicd) where GitHub Actions ties the testing strategy to the deploy pipeline.

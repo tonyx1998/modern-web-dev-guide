@@ -1,12 +1,12 @@
----
+﻿---
 id: frontend-architecture
-title: 'Phase 2.5: Frontend Architecture at Scale'
+title: 'Phase 3.5: Frontend Architecture at Scale'
 sidebar_position: 6
 sidebar_label: 5. Frontend at Scale
 description: Design systems, micro-frontends, shared infrastructure, and performance budgets for enterprise frontends.
 ---
 
-# Phase 2.5: Frontend Architecture at Scale
+# Phase 3.5: Frontend Architecture at Scale
 
 > **In one line:** Enterprise frontend is its own discipline — a versioned design system, micro-frontends owned by independent teams, shared SSR and analytics infrastructure, and strict performance budgets.
 
@@ -149,4 +149,4 @@ Six months end-to-end for what would take an afternoon at a startup. But the cos
 
 ## What's next
 
-→ Continue to [Phase 3: Developer Experience](./developer-experience) to see how internal platforms make this whole machine usable.
+→ Continue to [Phase 4: Developer Experience](./developer-experience) to see how internal platforms make this whole machine usable.

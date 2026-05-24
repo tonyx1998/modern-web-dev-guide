@@ -1,12 +1,12 @@
----
+﻿---
 id: ci-cd
-title: 'Phase 6: CI/CD at Scale'
+title: 'Phase 7: CI/CD at Scale'
 sidebar_position: 10
 sidebar_label: 9. CI/CD
 description: Distributed builds, test sharding, progressive delivery, GitOps, and the engineering investment behind enterprise CI/CD.
 ---
 
-# Phase 6: CI/CD at Scale
+# Phase 7: CI/CD at Scale
 
 > **In one line:** Enterprise CI/CD pipelines are themselves engineered products — distributed builds with smart caching, tests sharded across hundreds of runners, progressive delivery with automated rollback, and GitOps for Kubernetes.
 
@@ -160,4 +160,4 @@ At a startup, the same scenario plays out at 100% of users for 45 minutes until 
 
 ## What's next
 
-→ Continue to [Phase 7: Deployment & Infrastructure](./deployment) — what's actually running once the CD pipeline ships your code.
+→ Continue to [Phase 8: Deployment & Infrastructure](./deployment) — what's actually running once the CD pipeline ships your code.

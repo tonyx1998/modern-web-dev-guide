@@ -1,12 +1,12 @@
----
+﻿---
 id: environment-setup
-title: 'Phase 4: Environment Setup'
+title: 'Phase 5: Environment Setup'
 sidebar_position: 5
 sidebar_label: 4. Environment Setup
 description: Prepare the workshop before construction — runtimes, editors, version control, linters, secrets, the foundation that makes building possible.
 ---
 
-# Phase 4: Environment Setup
+# Phase 5: Environment Setup
 
 > **In one line:** Set up the workshop before the build. The hours you spend on a good local environment save you weeks of fighting your tools later.
 
@@ -219,4 +219,4 @@ Spending 15 minutes on this saves your team (and future you) hours.
 
 ## What's next
 
-→ Continue to [Phase 5: Implementation](./implementation) where we *finally* start writing the actual feature code.
+→ Continue to [Phase 6: Implementation](./implementation) where we *finally* start writing the actual feature code.

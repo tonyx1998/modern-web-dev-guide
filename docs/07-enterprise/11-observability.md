@@ -1,12 +1,12 @@
----
+﻿---
 id: observability
-title: 'Phase 8: Observability at Scale'
+title: 'Phase 9: Observability at Scale'
 sidebar_position: 12
 sidebar_label: 11. Observability
 description: Metrics, logs, traces, SLOs, OpenTelemetry, incident management, post-mortems, and error budgets at enterprise scale.
 ---
 
-# Phase 8: Observability at Scale
+# Phase 9: Observability at Scale
 
 > **In one line:** Metrics, logs, and distributed traces — collected via OpenTelemetry, stored in Datadog/Splunk/Honeycomb, tied to formal SLOs and error budgets, with blameless post-mortems for every major incident.
 
@@ -178,4 +178,4 @@ That's enterprise incident management working as intended — fast detection, fa
 
 ## What's next
 
-→ Continue to [Phase 9: Security and Compliance](./security-compliance) — the discipline that overlays everything you've seen so far.
+→ Continue to [Phase 10: Security and Compliance](./security-compliance) — the discipline that overlays everything you've seen so far.

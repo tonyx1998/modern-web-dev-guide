@@ -1,4 +1,4 @@
----
+﻿---
 id: stack-and-hosting
 title: Stack, Architecture, and Hosting
 sidebar_position: 3
@@ -42,7 +42,7 @@ A handful of patterns hold across every row:
 - **Small company** is mostly SaaS-glued-together; the goal is to never operate anything you can rent.
 - **Large company** runs internal versions of most of the above, customized for scale and compliance.
 
-For the deep dive on enterprise architecture, see [Phase 2: Architecture](/docs/enterprise/architecture).
+For the deep dive on enterprise architecture, see [Phase 3: Architecture](/docs/enterprise/architecture).
 
 ## Hosting and Infrastructure
 

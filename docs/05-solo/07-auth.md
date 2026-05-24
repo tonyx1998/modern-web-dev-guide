@@ -1,12 +1,12 @@
----
+﻿---
 id: auth
-title: 'Phase 5: Adding Auth'
+title: 'Phase 6: Adding Auth'
 sidebar_position: 8
 sidebar_label: 7. Auth
 description: With Clerk, adding auth to a personal project takes about twenty minutes. Passkeys, social login, MFA, and password reset come for free.
 ---
 
-# Phase 5: Adding Auth
+# Phase 6: Adding Auth
 
 > **In one line:** Don't build auth. Use Clerk (or Better Auth) and spend the saved month on the actual product.
 
@@ -159,4 +159,4 @@ At $0 for the first 10K users, you'd be irrational to roll your own.
 
 ## What's next
 
-→ Continue to [Phase 6: Payments](./payments) where Stripe Checkout + a webhook handle the entire money flow.
+→ Continue to [Phase 7: Payments](./payments) where Stripe Checkout + a webhook handle the entire money flow.

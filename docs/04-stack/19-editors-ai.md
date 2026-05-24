@@ -1,4 +1,4 @@
----
+﻿---
 id: editors-ai
 title: Editors & AI Coding Assistants
 sidebar_position: 20
@@ -121,7 +121,7 @@ A junior developer with AI but no fundamentals produces code they can't debug. A
 
 </Quiz>
 
-## Wrapping up Part 3
+## Wrapping up Part 4
 
 This is the working vocabulary of modern web development. You don't need every tool — you need to know *what exists* so you can reach for the right one.
 
@@ -139,4 +139,4 @@ The key choices in 2026 for a new full-stack app:
 
 This is the "boring" path. It's boring because it works. Save creativity for your product.
 
-→ **Next chapter:** [Part 4: Personal Website Workflow](/docs/solo) — how all this comes together for a solo developer's first project.
+→ **Next chapter:** [Part 5: Personal Website Workflow](/docs/solo) — how all this comes together for a solo developer's first project.

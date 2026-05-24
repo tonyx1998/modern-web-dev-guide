@@ -1,12 +1,12 @@
----
+﻿---
 id: design
-title: 'Phase 2: Design'
+title: 'Phase 3: Design'
 sidebar_position: 5
 sidebar_label: 4. Design
 description: Figma plus a growing design system. Engineering and design collaborate closely — reviews, stand-ups, and shadcn/ui as the shared vocabulary.
 ---
 
-# Phase 2: Design
+# Phase 3: Design
 
 > **In one line:** Figma plus a design system. Designers and engineers collaborate closely and share a component library — usually shadcn/ui at first.
 
@@ -115,4 +115,4 @@ As you grow, you wrap shadcn components in your own primitives, then eventually 
 
 ## What's next
 
-→ Continue to [Phase 3: Architecture](./architecture) where the modular monolith and the 2026 stack come together.
+→ Continue to [Phase 4: Architecture](./architecture) where the modular monolith and the 2026 stack come together.

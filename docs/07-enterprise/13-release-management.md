@@ -1,12 +1,12 @@
----
+﻿---
 id: release-management
-title: 'Phase 10: Release Management'
+title: 'Phase 11: Release Management'
 sidebar_position: 14
 sidebar_label: 13. Release Management
 description: Deployment freezes, coordinated release trains, change advisory boards, dark launches, and rollback procedures.
 ---
 
-# Phase 10: Release Management
+# Phase 11: Release Management
 
 > **In one line:** Release management is the discipline that turns "code is in production" into "the launch went well" — freezes during high-traffic events, coordinated release trains for big launches, change advisory boards in regulated industries, and rehearsed rollback procedures.
 

@@ -1,4 +1,4 @@
----
+﻿---
 id: devops
 title: DevOps & Infrastructure
 sidebar_position: 17
@@ -73,7 +73,7 @@ resource "aws_lambda_function" "api" {
 
 ## CI/CD
 
-(Covered in detail in [Chapter 2 Phase 8](../lifecycle/ci-cd).) GitHub Actions dominates for most teams; CircleCI, GitLab CI, Buildkite are alternatives.
+(Covered in detail in [Chapter 3 Phase 9](../lifecycle/ci-cd).) GitHub Actions dominates for most teams; CircleCI, GitLab CI, Buildkite are alternatives.
 
 ## Secret management
 

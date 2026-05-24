@@ -1,18 +1,18 @@
----
+﻿---
 id: decisions-checkpoint
-title: Chapter 8 Checkpoint
+title: Chapter 9 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 8 — Decision Frameworks. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 9.
+description: Mandatory checkpoint quiz for Chapter 9 — Decision Frameworks. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 10.
 ---
 
-# Chapter 8 Checkpoint
+# Chapter 9 Checkpoint
 
 You've finished the Decisions chapter. Make sure the frameworks actually stuck — these are the highest-leverage ideas in the whole guide.
 
 There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit, and the link highlights the paragraph for you.
 
-You must pass (≥ 60%) to unlock the Next button and Chapter 9 in the sidebar.
+You must pass (≥ 60%) to unlock the Next button and Chapter 10 in the sidebar.
 
 <Quiz id="decisions-checkpoint" title="Decisions checkpoint" sampleSize={5}>
 
@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 9 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 9: AI Integration](/docs/ai) — the new layer in every modern app.
+→ Continue to [Chapter 10: AI Integration](/docs/ai) — the new layer in every modern app.

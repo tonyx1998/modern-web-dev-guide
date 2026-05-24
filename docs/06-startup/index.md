@@ -1,12 +1,12 @@
----
+﻿---
 id: small-company-workflow
-title: 5. Small Company Workflow — Overview
+title: 6. Small Company Workflow — Overview
 sidebar_position: 1
 sidebar_label: Startup workflow intro
 description: Startups and small companies (5–50 people). Real product, paying customers, managed services.
 ---
 
-# Part 5: Small Company / Startup Workflow (5–50 People)
+# Part 6: Small Company / Startup Workflow (5–50 People)
 
 *Real product, paying customers, small team, balancing speed and quality.*
 
@@ -51,16 +51,16 @@ Each page focuses on a single topic or phase. Read them in order the first time;
 1. [The Small Company Mindset](/docs/startup/mindset) — Between personal-project sloppiness and enterprise heaviness.
 2. [Team Structure at This Scale](/docs/startup/team-structure) — 5, 25, and 50 person org shapes.
 3. [Phase 1: Discovery & Planning](/docs/startup/planning) — PRDs, sprints, OKRs at startup scale.
-4. [Phase 2: Design](/docs/startup/design) — Figma, design systems, engineering collaboration.
-5. [Phase 3: Architecture](/docs/startup/architecture) — The modular monolith, the 2026 stack, RFCs.
-6. [Phase 4: Environment Setup](/docs/startup/env-setup) — Monorepo, onboarding, three environments, secrets.
-7. [Phase 5: Development Practices](/docs/startup/development) — Trunk-based development, conventional commits, feature flags, migrations.
-8. [Phase 6: Testing Strategy](/docs/startup/testing) — Vitest, Playwright, the testing pyramid, manual QA.
-9. [Phase 7: CI/CD](/docs/startup/cicd) — GitHub Actions, branch protection, hot fixes.
-10. [Phase 8: Deployment & Infrastructure](/docs/startup/deployment) — Three popular hosting patterns and how to pick.
-11. [Phase 9: Observability](/docs/startup/observability) — Sentry, logs, uptime, product analytics, on-call.
-12. [Phase 10: Security and Compliance](/docs/startup/security) — Daily hygiene, SOC 2, pen testing.
-13. [Phase 11: Maintenance and Scaling](/docs/startup/maintenance) — Weekly cadence, scaling Postgres, cost optimization.
+4. [Phase 3: Design](/docs/startup/design) — Figma, design systems, engineering collaboration.
+5. [Phase 4: Architecture](/docs/startup/architecture) — The modular monolith, the 2026 stack, RFCs.
+6. [Phase 5: Environment Setup](/docs/startup/env-setup) — Monorepo, onboarding, three environments, secrets.
+7. [Phase 6: Development Practices](/docs/startup/development) — Trunk-based development, conventional commits, feature flags, migrations.
+8. [Phase 7: Testing Strategy](/docs/startup/testing) — Vitest, Playwright, the testing pyramid, manual QA.
+9. [Phase 8: CI/CD](/docs/startup/cicd) — GitHub Actions, branch protection, hot fixes.
+10. [Phase 9: Deployment & Infrastructure](/docs/startup/deployment) — Three popular hosting patterns and how to pick.
+11. [Phase 10: Observability](/docs/startup/observability) — Sentry, logs, uptime, product analytics, on-call.
+12. [Phase 11: Security and Compliance](/docs/startup/security) — Daily hygiene, SOC 2, pen testing.
+13. [Phase 12: Maintenance and Scaling](/docs/startup/maintenance) — Weekly cadence, scaling Postgres, cost optimization.
 14. [A Realistic Cost Breakdown](/docs/startup/cost-breakdown) — What a $1M ARR startup actually spends.
 15. [Sample Day-in-the-Life](/docs/startup/day-in-life) — A concrete startup engineer's day.
 16. [Common Pitfalls at This Scale](/docs/startup/pitfalls) — Microservices too early, premature scaling, process theater.
@@ -68,4 +68,4 @@ Each page focuses on a single topic or phase. Read them in order the first time;
 
 ---
 
-When you finish all 17 pages, move on to [Chapter 6: Large Company Workflow](/docs/enterprise).
+When you finish all 17 pages, move on to [Chapter 7: Large Company Workflow](/docs/enterprise).

@@ -1,12 +1,12 @@
----
+﻿---
 id: career-path
-title: 10. Career Path — Overview
+title: 11. Career Path — Overview
 sidebar_position: 1
 sidebar_label: Career intro
 description: For students and developers building toward a career — skills, portfolios, specializations, 2026 comp.
 ---
 
-# Part 10: Career Path & Learning Resources
+# Part 11: Career Path & Learning Resources
 
 *For students and developers building toward a career in web development.*
 
@@ -82,4 +82,4 @@ Each page focuses on **one topic** with worked examples and beginner callouts. R
 
 ---
 
-When you finish, move on to [Chapter 11: Glossary](/docs/glossary).
+When you finish, move on to [Chapter 12: Glossary](/docs/glossary).

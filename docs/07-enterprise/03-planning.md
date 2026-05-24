@@ -1,4 +1,4 @@
----
+﻿---
 id: planning
 title: 'Phase 1: Discovery & Planning'
 sidebar_position: 4
@@ -156,4 +156,4 @@ This planning overhead is real, but at enterprise scale, the cost of misaligned 
 
 ## What's next
 
-→ Continue to [Phase 2: Architecture](./architecture) to see what gets built once the planning machinery hands off to engineers.
+→ Continue to [Phase 3: Architecture](./architecture) to see what gets built once the planning machinery hands off to engineers.

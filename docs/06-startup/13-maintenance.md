@@ -1,12 +1,12 @@
----
+﻿---
 id: maintenance
-title: 'Phase 11: Maintenance and Scaling'
+title: 'Phase 12: Maintenance and Scaling'
 sidebar_position: 14
 sidebar_label: 13. Maintenance
 description: Weekly cadence (bug triage, sprint planning, perf review, cost review), scaling Postgres with indexes, replicas, pooling, and caching.
 ---
 
-# Phase 11: Maintenance and Scaling
+# Phase 12: Maintenance and Scaling
 
 > **In one line:** A weekly cadence of triage, sprint, performance, and cost reviews. When growth bites, scale Postgres first (indexes, replicas, pooling), then add caching, *then* re-architect.
 

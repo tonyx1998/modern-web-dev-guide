@@ -1,4 +1,4 @@
----
+﻿---
 id: discovery-planning
 title: 'Phase 1: Discovery & Planning'
 sidebar_position: 2
@@ -173,4 +173,4 @@ Three honest conversations are worth ten weeks of solo brainstorming.
 
 ## What's next
 
-→ Continue to [Phase 2: Design](./design) where the question shifts from *what* to build to *how it should look and feel*.
+→ Continue to [Phase 3: Design](./design) where the question shifts from *what* to build to *how it should look and feel*.
