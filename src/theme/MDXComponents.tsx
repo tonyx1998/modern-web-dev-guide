@@ -2,6 +2,7 @@ import MDXComponents from '@theme-original/MDXComponents';
 import ReaderLevel from '@site/src/components/ReaderLevel';
 import PageAudience from '@site/src/components/PageAudience';
 import Quiz, {Question} from '@site/src/components/Quiz';
+import AudioPlayer from '@site/src/components/AudioPlayer';
 
 /**
  * Register components that should be available in every MDX file
@@ -13,4 +14,5 @@ export default {
   PageAudience,
   Quiz,
   Question,
+  AudioPlayer,
 };
