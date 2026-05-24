@@ -1,4 +1,4 @@
----
+﻿---
 id: ops
 title: Observability, Security, and Compliance
 sidebar_position: 5
@@ -31,7 +31,7 @@ A solo dev who misses a Sentry alert ships a bug to themselves. A startup that m
 | **Post-mortems**         | None                  | For big incidents         | Formal for SEV1/SEV2           |
 | **SLOs**                 | None                  | Loose targets             | Formal SLO + error budget      |
 
-For enterprise specifics, see [Phase 8: Observability at Scale](/docs/enterprise/observability).
+For enterprise specifics, see [Phase 9: Observability at Scale](/docs/enterprise/observability).
 
 :::info[Highlight: distributed tracing is the dividing line]
 The single observability tool that most clearly separates "small company" from "large company" is **distributed tracing**. A trace follows a single user request through every service it touches, with timing for each hop.
@@ -56,7 +56,7 @@ You don't need tracing when you have one or two services — log timestamps and 
 | **Threat modeling**     | None                  | For sensitive features   | Required for new services       |
 | **AppSec team**         | No                    | No                       | Yes                             |
 
-For enterprise specifics, see [Phase 9: Security and Compliance](/docs/enterprise/security-compliance).
+For enterprise specifics, see [Phase 10: Security and Compliance](/docs/enterprise/security-compliance).
 
 :::note[Worked example: when does each tier of security investment become worth it?]
 A rough adoption pattern for security investment:

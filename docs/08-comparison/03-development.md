@@ -1,4 +1,4 @@
----
+﻿---
 id: development
 title: Development Workflow, Testing, and CI/CD
 sidebar_position: 4
@@ -29,7 +29,7 @@ The same change can take minutes, hours, or days depending purely on the surroun
 
 Trunk-based development becomes universal once you're past solo work — long-lived branches are the single biggest source of integration pain at any team scale.
 
-For enterprise specifics, see [Phase 4: Development Practices](/docs/enterprise/development-practices).
+For enterprise specifics, see [Phase 5: Development Practices](/docs/enterprise/development-practices).
 
 ## Testing
 
@@ -47,7 +47,7 @@ For enterprise specifics, see [Phase 4: Development Practices](/docs/enterprise/
 
 The testing pyramid expands at every scale. A solo dev's "unit test the tricky function" becomes a startup's "Playwright covers the critical paths" becomes an enterprise's "tens of thousands of tests + chaos engineering + bug bounty."
 
-For enterprise specifics, see [Phase 5: Testing at Scale](/docs/enterprise/testing).
+For enterprise specifics, see [Phase 6: Testing at Scale](/docs/enterprise/testing).
 
 :::info[Highlight: contract tests are the unsung enterprise tool]
 Most public testing advice focuses on unit and E2E tests. But the most distinctive thing about enterprise testing is **contract tests** — automated checks that two services keep their promises to each other.
@@ -72,7 +72,7 @@ At solo and startup scale, contract tests are overkill. At enterprise scale, the
 
 CI duration shapes everything else. A 5-minute loop encourages many small changes; a 30-minute loop creates batched mega-PRs that are slower to review and riskier to deploy. The enterprise investment in distributed builds and test sharding exists to keep CI fast despite the volume.
 
-For enterprise specifics, see [Phase 6: CI/CD at Scale](/docs/enterprise/ci-cd).
+For enterprise specifics, see [Phase 7: CI/CD at Scale](/docs/enterprise/ci-cd).
 
 :::note[Worked example: same one-line bug fix, three workflows]
 A typo in a button label causes a small UX bug. Three teams' workflows:

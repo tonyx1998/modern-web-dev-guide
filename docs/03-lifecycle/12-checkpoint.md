@@ -1,18 +1,18 @@
----
+﻿---
 id: lifecycle-checkpoint
-title: Chapter 2 Checkpoint
+title: Chapter 3 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 2 — Lifecycle. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 3.
+description: Mandatory checkpoint quiz for Chapter 3 — Lifecycle. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 4.
 ---
 
-# Chapter 2 Checkpoint
+# Chapter 3 Checkpoint
 
 You've finished the Lifecycle chapter. Take a minute to make sure the core ideas stuck.
 
 There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit, and the link highlights the paragraph for you.
 
-You must pass (≥ 60%) to unlock the Next button and Chapter 3 in the sidebar.
+You must pass (≥ 60%) to unlock the Next button and Chapter 4 in the sidebar.
 
 <Quiz id="lifecycle-checkpoint" title="Lifecycle checkpoint" sampleSize={5}>
 
@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 3 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 3: Tech Stack](/docs/stack) to see what specific tools you'd reach for at each phase.
+→ Continue to [Chapter 4: Tech Stack](/docs/stack) to see what specific tools you'd reach for at each phase.

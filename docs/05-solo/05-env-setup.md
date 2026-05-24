@@ -1,12 +1,12 @@
----
+﻿---
 id: env-setup
-title: 'Phase 3: Environment Setup (One Hour)'
+title: 'Phase 4: Environment Setup (One Hour)'
 sidebar_position: 6
 sidebar_label: 5. Environment Setup
 description: From empty folder to deployed empty project in about an hour. Next.js, Drizzle, Clerk, Vercel, all wired together.
 ---
 
-# Phase 3: Environment Setup (One Hour)
+# Phase 4: Environment Setup (One Hour)
 
 > **In one line:** In ~60 minutes you can go from empty folder to a real URL with auth, a database, error tracking, and `git push` deploys. A decade ago this took a week.
 
@@ -229,4 +229,4 @@ Skip this and you build for a week, try to deploy, hit five errors that all inte
 
 ## What's next
 
-→ Continue to [Phase 4: Development](./development) where we build features end-to-end with Server Components, Server Actions, and Tailwind.
+→ Continue to [Phase 5: Development](./development) where we build features end-to-end with Server Components, Server Actions, and Tailwind.

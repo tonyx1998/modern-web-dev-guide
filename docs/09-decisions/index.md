@@ -1,12 +1,12 @@
----
+﻿---
 id: decision-frameworks
-title: 8. Decision Frameworks — Overview
+title: 9. Decision Frameworks — Overview
 sidebar_position: 1
 sidebar_label: Frameworks at a glance
 description: How to actually choose. Boring-technology rule, reversibility, team-size heuristics, cost of inaction.
 ---
 
-# Part 8: Decision Frameworks
+# Part 9: Decision Frameworks
 
 *How to actually make technology and architecture choices well.*
 
@@ -88,4 +88,4 @@ Each page focuses on **one framework** with concrete examples and applicable adv
 
 ---
 
-When you finish all 16 pages, move on to [Chapter 9: AI Integration](/docs/ai).
+When you finish all 16 pages, move on to [Chapter 10: AI Integration](/docs/ai).

@@ -1,12 +1,12 @@
----
+﻿---
 id: large-company-workflow
-title: 6. Large Company Workflow — Overview
+title: 7. Large Company Workflow — Overview
 sidebar_position: 1
 sidebar_label: Enterprise intro
 description: Enterprises (500+ engineers). Microservices, Kubernetes, compliance, 99.99% uptime, SRE.
 ---
 
-# Part 6: Large Company / Enterprise Workflow (500+ Engineers)
+# Part 7: Large Company / Enterprise Workflow (500+ Engineers)
 
 *Hundreds of engineers, regulatory scrutiny, 99.99% uptime, massive infrastructure.*
 
@@ -53,16 +53,16 @@ Each page focuses on one slice of enterprise engineering with worked examples an
 ### Phase-by-phase walkthrough
 
 3. [Phase 1: Discovery & Planning](/docs/enterprise/planning) — OKRs, PRDs, RFCs, cross-functional reviews.
-4. [Phase 2: Architecture](/docs/enterprise/architecture) — Microservices, API gateways, service meshes, event buses.
-5. [Phase 2.5: Frontend Architecture at Scale](/docs/enterprise/frontend-architecture) — Design systems, micro-frontends, performance budgets.
-6. [Phase 3: Developer Experience](/docs/enterprise/developer-experience) — Monorepos, internal CLIs, Backstage, service catalogs.
-7. [Phase 4: Development Practices](/docs/enterprise/development-practices) — Trunk-based development, code review, fitness functions.
-8. [Phase 5: Testing at Scale](/docs/enterprise/testing) — Contract tests, chaos engineering, security testing, compliance testing.
-9. [Phase 6: CI/CD at Scale](/docs/enterprise/ci-cd) — Distributed builds, test sharding, progressive delivery, GitOps.
-10. [Phase 7: Deployment & Infrastructure](/docs/enterprise/deployment) — Kubernetes, IaC, multi-region, secrets management.
-11. [Phase 8: Observability at Scale](/docs/enterprise/observability) — Metrics, logs, traces, SLOs, post-mortems.
-12. [Phase 9: Security and Compliance](/docs/enterprise/security-compliance) — AppSec, SOC 2, HIPAA, PCI, threat modeling.
-13. [Phase 10: Release Management](/docs/enterprise/release-management) — Freezes, release trains, change advisory, rollback.
+4. [Phase 3: Architecture](/docs/enterprise/architecture) — Microservices, API gateways, service meshes, event buses.
+5. [Phase 3.5: Frontend Architecture at Scale](/docs/enterprise/frontend-architecture) — Design systems, micro-frontends, performance budgets.
+6. [Phase 4: Developer Experience](/docs/enterprise/developer-experience) — Monorepos, internal CLIs, Backstage, service catalogs.
+7. [Phase 5: Development Practices](/docs/enterprise/development-practices) — Trunk-based development, code review, fitness functions.
+8. [Phase 6: Testing at Scale](/docs/enterprise/testing) — Contract tests, chaos engineering, security testing, compliance testing.
+9. [Phase 7: CI/CD at Scale](/docs/enterprise/ci-cd) — Distributed builds, test sharding, progressive delivery, GitOps.
+10. [Phase 8: Deployment & Infrastructure](/docs/enterprise/deployment) — Kubernetes, IaC, multi-region, secrets management.
+11. [Phase 9: Observability at Scale](/docs/enterprise/observability) — Metrics, logs, traces, SLOs, post-mortems.
+12. [Phase 10: Security and Compliance](/docs/enterprise/security-compliance) — AppSec, SOC 2, HIPAA, PCI, threat modeling.
+13. [Phase 11: Release Management](/docs/enterprise/release-management) — Freezes, release trains, change advisory, rollback.
 
 ### Reality check
 
@@ -74,4 +74,4 @@ Each page focuses on one slice of enterprise engineering with worked examples an
 
 ---
 
-When you finish, move on to [Chapter 7: Side-by-Side Comparison](/docs/comparison).
+When you finish, move on to [Chapter 8: Side-by-Side Comparison](/docs/comparison).

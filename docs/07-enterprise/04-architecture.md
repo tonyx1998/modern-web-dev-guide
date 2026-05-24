@@ -1,12 +1,12 @@
----
+﻿---
 id: architecture
-title: 'Phase 2: Architecture'
+title: 'Phase 3: Architecture'
 sidebar_position: 5
 sidebar_label: 4. Architecture
 description: Microservices, API gateways, service meshes, event buses, and internal developer platforms at enterprise scale.
 ---
 
-# Phase 2: Architecture
+# Phase 3: Architecture
 
 > **In one line:** At enterprise scale, the system is a fleet of microservices behind an API gateway, glued together by a service mesh and an event bus, supported by an internal developer platform that hides the complexity from product engineers.
 
@@ -185,4 +185,4 @@ At a less-tooled enterprise, that same process takes 3–6 weeks of tickets to p
 
 ## What's next
 
-→ Continue to [Phase 2.5: Frontend Architecture at Scale](./frontend-architecture) — frontend at this scale is its own discipline, with design systems and micro-frontends.
+→ Continue to [Phase 3.5: Frontend Architecture at Scale](./frontend-architecture) — frontend at this scale is its own discipline, with design systems and micro-frontends.

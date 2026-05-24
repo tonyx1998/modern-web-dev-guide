@@ -1,12 +1,12 @@
----
+﻿---
 id: design
-title: 'Phase 2: Design'
+title: 'Phase 3: Design'
 sidebar_position: 3
 sidebar_label: 2. Design
 description: Decide how the product looks and feels before writing code. Changing pixels in Figma takes minutes; in code, hours.
 ---
 
-# Phase 2: Design
+# Phase 3: Design
 
 > **In one line:** Decide how the product looks and feels in design tools first, where changes cost minutes — not in code, where they cost hours.
 
@@ -160,4 +160,4 @@ A well-designed empty state guides users to the *next action*. A missing empty s
 
 ## What's next
 
-→ Continue to [Phase 3: Architecture](./architecture) where the question shifts from *how it looks* to *how it works under the hood*.
+→ Continue to [Phase 4: Architecture](./architecture) where the question shifts from *how it looks* to *how it works under the hood*.

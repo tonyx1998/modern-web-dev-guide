@@ -1,4 +1,4 @@
----
+﻿---
 id: career-for-tony
 title: For Tony Specifically (or Anyone in His Position)
 sidebar_position: 12
@@ -53,7 +53,7 @@ The plan is intentionally light — most of the work happens *outside* coursewor
 Of all the leverage points in a USC CS Master's, the CSCI571 final project (the Flask/Ticketmaster/GCP one) is the highest. It's the project recruiters can most easily evaluate: full-stack, deployed, real third-party API. **Make it excellent, deploy it well, and write about how you built it.** That single project, done well, opens more interview doors than three average ones.
 :::
 
-## Wrapping Up Part 10
+## Wrapping Up Part 11
 
 The career of a modern web developer is shaped by:
 - **Real, deployed projects** more than credentials.
@@ -131,11 +131,11 @@ Good luck building.
   ]}
   correct={1}
   explanation="The 'Wrapping Up' section names five shaping forces: real deployed projects, continuous learning, specialization that comes after broad exposure, public presence, and relationships. Credentials are notably absent from the list."
-  revisit={{ to: "/docs/career/career-for-tony#wrapping-up-part-10", label: "Wrapping up Part 10" }}
+  revisit={{ to: "/docs/career/career-for-tony#wrapping-up-part-11", label: "Wrapping up Part 11" }}
 />
 
 </Quiz>
 
 ## What's next
 
-→ Continue to [Chapter 11: Glossary](/docs/glossary) for definitions of every term used in this guide.
+→ Continue to [Chapter 12: Glossary](/docs/glossary) for definitions of every term used in this guide.

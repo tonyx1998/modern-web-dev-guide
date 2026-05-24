@@ -1,12 +1,12 @@
----
+﻿---
 id: developer-experience
-title: 'Phase 3: Developer Experience'
+title: 'Phase 4: Developer Experience'
 sidebar_position: 7
 sidebar_label: 6. Developer Experience
 description: Monorepos, bootstrapped dev environments, internal CLIs, Backstage, service catalogs, and migration tooling.
 ---
 
-# Phase 3: Developer Experience
+# Phase 4: Developer Experience
 
 > **In one line:** The defining feature of mature enterprise engineering is internal platforms that make engineers productive — monorepos, bootstrapped dev environments, internal CLIs, Backstage, and code search across the whole org.
 
@@ -159,4 +159,4 @@ This is what "deprecating safely at scale" actually looks like — codemods to d
 
 ## What's next
 
-→ Continue to [Phase 4: Development Practices](./development-practices) — once the tooling is in place, what does daily coding actually look like?
+→ Continue to [Phase 5: Development Practices](./development-practices) — once the tooling is in place, what does daily coding actually look like?

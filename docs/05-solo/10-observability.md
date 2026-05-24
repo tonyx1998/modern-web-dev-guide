@@ -1,12 +1,12 @@
----
+﻿---
 id: observability
-title: 'Phase 8: Observability (Minimal)'
+title: 'Phase 9: Observability (Minimal)'
 sidebar_position: 11
 sidebar_label: 10. Observability
 description: Three free tools — Sentry for errors, Vercel Analytics for traffic, PostHog for product analytics — cover almost all solo needs.
 ---
 
-# Phase 8: Observability (Minimal)
+# Phase 9: Observability (Minimal)
 
 > **In one line:** Errors in Sentry, traffic in Vercel Analytics, product behavior in PostHog. Free tiers. Set it up before you need it.
 
@@ -126,4 +126,4 @@ Every solo developer who skips Sentry on day one regrets it the first time a rea
 
 ## What's next
 
-→ Continue to [Phase 9: Launching](./launching) where we'll soft-launch to friends, Hacker News, and Indie Hackers.
+→ Continue to [Phase 10: Launching](./launching) where we'll soft-launch to friends, Hacker News, and Indie Hackers.

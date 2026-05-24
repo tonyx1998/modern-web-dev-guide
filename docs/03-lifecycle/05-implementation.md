@@ -1,12 +1,12 @@
----
+﻿---
 id: implementation
-title: 'Phase 5: Implementation'
+title: 'Phase 6: Implementation'
 sidebar_position: 6
 sidebar_label: 5. Implementation
 description: Write code that solves the problem. The largest single phase — but still only 20-30% of total project time.
 ---
 
-# Phase 5: Implementation
+# Phase 6: Implementation
 
 > **In one line:** Write code that solves the problem. This is the phase everyone *thinks* is most of the job. It's actually only about a quarter of it.
 
@@ -181,4 +181,4 @@ You discover integration issues *immediately*, not in week 3. You ship visible v
 
 ## What's next
 
-→ Continue to [Phase 6: Testing](./testing) where we prove the code actually works (and stays working as it changes).
+→ Continue to [Phase 7: Testing](./testing) where we prove the code actually works (and stays working as it changes).

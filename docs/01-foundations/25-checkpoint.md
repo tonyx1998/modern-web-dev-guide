@@ -1,9 +1,9 @@
----
+﻿---
 id: foundations-checkpoint
 title: Chapter 1 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 1 — Foundations. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 2.
+description: Mandatory checkpoint quiz for Chapter 1 — Foundations. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 3.
 ---
 
 # Chapter 1 Checkpoint
@@ -219,6 +219,6 @@ You must pass (≥ 60%) to unlock the Next button at the bottom.
 
 If you passed, you're ready to keep going.
 
-→ Continue to [Chapter 2: The Lifecycle](/docs/lifecycle) to see how a real project moves from idea to production.
+→ Continue to [Chapter 3: The Lifecycle](/docs/lifecycle) to see how a real project moves from idea to production.
 
 If you didn't pass, take the revisit links above seriously — those pages are short, and the rest of the guide builds directly on them. Click **Retake with new questions** for a fresh sample.

@@ -1,12 +1,12 @@
----
+﻿---
 id: development
-title: 'Phase 5: Development Practices'
+title: 'Phase 6: Development Practices'
 sidebar_position: 8
 sidebar_label: 7. Development
 description: Trunk-based development, short-lived branches, conventional commits, feature flags, and Drizzle Kit for migrations.
 ---
 
-# Phase 5: Development Practices
+# Phase 6: Development Practices
 
 > **In one line:** Short-lived feature branches off `main`, conventional commits, feature flags for risky launches, and Drizzle Kit for every schema change.
 
@@ -172,4 +172,4 @@ When a feature is too big to fit in a 1–3 day branch, that's a signal to eithe
 
 ## What's next
 
-→ Continue to [Phase 6: Testing Strategy](./testing) where Vitest unit/integration tests and a handful of Playwright E2E tests do most of the work.
+→ Continue to [Phase 7: Testing Strategy](./testing) where Vitest unit/integration tests and a handful of Playwright E2E tests do most of the work.

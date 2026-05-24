@@ -1,18 +1,18 @@
----
+﻿---
 id: comparison-checkpoint
-title: Chapter 7 Checkpoint
+title: Chapter 8 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 7 — Comparison. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 8.
+description: Mandatory checkpoint quiz for Chapter 8 — Comparison. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 9.
 ---
 
-# Chapter 7 Checkpoint
+# Chapter 8 Checkpoint
 
 You've finished the Comparison chapter. Take a minute to make sure the comparative ideas stuck — across solo / startup / enterprise.
 
 There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit, and the link highlights the paragraph for you.
 
-You must pass (≥ 60%) to unlock the Next button and Chapter 8 in the sidebar.
+You must pass (≥ 60%) to unlock the Next button and Chapter 9 in the sidebar.
 
 <Quiz id="comparison-checkpoint" title="Comparison checkpoint" sampleSize={5}>
 
@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 8 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 8: Decision Frameworks](/docs/decisions) for the META layer — how to actually CHOOSE among these options.
+→ Continue to [Chapter 9: Decision Frameworks](/docs/decisions) for the META layer — how to actually CHOOSE among these options.

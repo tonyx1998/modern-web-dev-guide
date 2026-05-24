@@ -1,12 +1,12 @@
----
+﻿---
 id: code-review
-title: 'Phase 7: Code Review'
+title: 'Phase 8: Code Review'
 sidebar_position: 8
 sidebar_label: 7. Code Review
 description: A second pair of eyes on every change before it merges. Catches bugs, spreads knowledge, and forces clearer thinking.
 ---
 
-# Phase 7: Code Review
+# Phase 8: Code Review
 
 > **In one line:** Every change is read by at least one other person before it merges. Catches what tests miss; spreads knowledge across the team.
 
@@ -189,4 +189,4 @@ This single habit dramatically improves solo code quality over time.
 
 ## What's next
 
-→ Continue to [Phase 8: CI/CD](./ci-cd) where we automate the path from "code merged" to "code in production."
+→ Continue to [Phase 9: CI/CD](./ci-cd) where we automate the path from "code merged" to "code in production."

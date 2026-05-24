@@ -1,12 +1,12 @@
----
+﻿---
 id: security-compliance
-title: 'Phase 9: Security and Compliance'
+title: 'Phase 10: Security and Compliance'
 sidebar_position: 13
 sidebar_label: 12. Security & Compliance
 description: AppSec, zero-trust networking, SOC 2, HIPAA, PCI, threat modeling, and continuous penetration testing.
 ---
 
-# Phase 9: Security and Compliance
+# Phase 10: Security and Compliance
 
 > **In one line:** Security at enterprise scale is a full discipline — dedicated AppSec teams, zero-trust networking, multi-regulation compliance (SOC 2, HIPAA, PCI, GDPR), continuous vulnerability scanning, and required threat modeling for new services.
 
@@ -176,4 +176,4 @@ The endpoint that takes 2 days to write takes 3 weeks to ship. The reason is not
 
 ## What's next
 
-→ Continue to [Phase 10: Release Management](./release-management) — how all these pieces come together into a coordinated launch.
+→ Continue to [Phase 11: Release Management](./release-management) — how all these pieces come together into a coordinated launch.

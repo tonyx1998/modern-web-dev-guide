@@ -1,12 +1,12 @@
----
+﻿---
 id: deployment
-title: 'Phase 7: Deployment'
+title: 'Phase 8: Deployment'
 sidebar_position: 10
 sidebar_label: 9. Deployment
 description: Pushing to GitHub triggers Vercel to build and deploy automatically. Preview URLs for every branch, custom domain in ten minutes.
 ---
 
-# Phase 7: Deployment
+# Phase 8: Deployment
 
 > **In one line:** `git push` is now the entire deployment process. Vercel detects Next.js, builds, deploys, and gives you a URL — including a preview URL per branch.
 
@@ -16,7 +16,7 @@ description: Pushing to GitHub triggers Vercel to build and deploy automatically
 
 ## What `git push` actually does
 
-You set this up in [Phase 3](./env-setup). Pushing to GitHub triggers Vercel to:
+You set this up in [Phase 4](./env-setup). Pushing to GitHub triggers Vercel to:
 1. Detect Next.js.
 2. Install dependencies (with Bun if you set it up).
 3. Run the build.
@@ -136,4 +136,4 @@ Vercel's per-environment env vars make this trivial — just toggle which env va
 
 ## What's next
 
-→ Continue to [Phase 8: Observability](./observability) where three free tools cover almost all your monitoring needs.
+→ Continue to [Phase 9: Observability](./observability) where three free tools cover almost all your monitoring needs.

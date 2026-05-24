@@ -1,12 +1,12 @@
----
+﻿---
 id: career-checkpoint
-title: Chapter 10 Checkpoint
+title: Chapter 11 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 10 — Career Path. 5 random questions drawn from a 15-question bank. Last chapter of the guide.
+description: Mandatory checkpoint quiz for Chapter 11 — Career Path. 5 random questions drawn from a 15-question bank. Last chapter of the guide.
 ---
 
-# Chapter 10 Checkpoint
+# Chapter 11 Checkpoint
 
 You've finished the Career Path chapter — and the whole guide. Make sure the practical career advice stuck.
 

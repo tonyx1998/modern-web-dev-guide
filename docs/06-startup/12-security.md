@@ -1,12 +1,12 @@
----
+﻿---
 id: security
-title: 'Phase 10: Security and Compliance'
+title: 'Phase 11: Security and Compliance'
 sidebar_position: 13
 sidebar_label: 12. Security
 description: Daily security hygiene, authentication and authorization patterns, data handling, SOC 2, pen testing, and bug bounties at startup scale.
 ---
 
-# Phase 10: Security and Compliance
+# Phase 11: Security and Compliance
 
 > **In one line:** HTTPS everywhere, validated inputs, server-side authorization checks, secrets in a vault, and SOC 2 once enterprise customers ask. Don't wait for a breach.
 
@@ -149,4 +149,4 @@ The other 20% is policy writing (security policy, incident response policy) and 
 
 ## What's next
 
-→ Continue to [Phase 11: Maintenance and Scaling](./maintenance) where the weekly cadence and Postgres scaling come into focus.
+→ Continue to [Phase 12: Maintenance and Scaling](./maintenance) where the weekly cadence and Postgres scaling come into focus.

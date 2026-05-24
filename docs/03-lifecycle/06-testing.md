@@ -1,12 +1,12 @@
----
+﻿---
 id: testing
-title: 'Phase 6: Testing'
+title: 'Phase 7: Testing'
 sidebar_position: 7
 sidebar_label: 6. Testing
 description: Prove the code works and stays working. The testing pyramid, the types of tests, and why 100% coverage is a misleading goal.
 ---
 
-# Phase 6: Testing
+# Phase 7: Testing
 
 > **In one line:** Tests prove your code works, document what it's supposed to do, and let you refactor without fear. Without them, every change is a gamble.
 
@@ -241,4 +241,4 @@ This gives you ~20% of the testing effort for ~80% of the value. As your project
 
 ## What's next
 
-→ Continue to [Phase 7: Code Review](./code-review) where we add a second pair of human eyes to catch what tests miss.
+→ Continue to [Phase 8: Code Review](./code-review) where we add a second pair of human eyes to catch what tests miss.

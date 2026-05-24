@@ -320,7 +320,7 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **Linter** — A tool that analyzes code for potential errors and style violations.
 
-**LLM (Large Language Model)** — Neural network trained on huge text datasets to generate text. Examples: GPT, Claude, Gemini, Llama. *See: [AI Integration overview](/docs/ai/ai-integration).*
+**LLM (Large Language Model)** — Neural network trained on huge text datasets to generate text. Examples: GPT, Claude, Gemini, Llama. *See: [AI Integration overview](/docs/ai).*
 
 **Load Balancer** — A server that distributes incoming requests across multiple backend servers.
 

@@ -1,12 +1,12 @@
----
+﻿---
 id: stack-selection
-title: 'Phase 2: Stack Selection'
+title: 'Phase 3: Stack Selection'
 sidebar_position: 5
 sidebar_label: 4. Stack Selection
 description: For a 2026 personal SaaS, the stack is basically pre-decided. Pick it, ship, and only revisit if you outgrow it.
 ---
 
-# Phase 2: Stack Selection
+# Phase 3: Stack Selection
 
 > **In one line:** For a 2026 personal SaaS, the stack is essentially pre-decided. Use the defaults; ship the product.
 
@@ -128,4 +128,4 @@ The whole point of picking the default stack is that it carries you across the e
 
 ## What's next
 
-→ Continue to [Phase 3: Environment Setup](./env-setup) where we'll go from empty folder to deployed empty project in about an hour.
+→ Continue to [Phase 4: Environment Setup](./env-setup) where we'll go from empty folder to deployed empty project in about an hour.

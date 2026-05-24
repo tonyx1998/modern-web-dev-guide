@@ -1,12 +1,12 @@
----
+﻿---
 id: development-practices
-title: 'Phase 4: Development Practices'
+title: 'Phase 5: Development Practices'
 sidebar_position: 8
 sidebar_label: 7. Dev Practices
 description: Trunk-based development, strict code review, automated checks, architectural fitness functions, and internal libraries.
 ---
 
-# Phase 4: Development Practices
+# Phase 5: Development Practices
 
 > **In one line:** Daily coding at enterprise scale means trunk-based development with feature flags, multiple reviewers, automated everything (lint, type-check, tests, security, performance), and fitness functions that enforce architecture rules in CI.
 
@@ -160,4 +160,4 @@ Total: ~8 minutes of CI on parallel runners, plus human review time. Each indivi
 
 ## What's next
 
-→ Continue to [Phase 5: Testing at Scale](./testing) — how the testing pyramid expands dramatically once you have hundreds of services.
+→ Continue to [Phase 6: Testing at Scale](./testing) — how the testing pyramid expands dramatically once you have hundreds of services.

@@ -1,12 +1,12 @@
----
+﻿---
 id: payments
-title: 'Phase 6: Payments (If Building SaaS)'
+title: 'Phase 7: Payments (If Building SaaS)'
 sidebar_position: 9
 sidebar_label: 8. Payments
 description: Stripe Checkout plus a webhook handler is the minimal payments flow. You never touch a credit card number.
 ---
 
-# Phase 6: Payments (If Building SaaS)
+# Phase 7: Payments (If Building SaaS)
 
 > **In one line:** Stripe Checkout takes the user to Stripe's site for payment, then a webhook tells your server they paid. You never see a credit card number.
 
@@ -184,4 +184,4 @@ Always pass enough metadata in the session creation to identify the user in the 
 
 ## What's next
 
-→ Continue to [Phase 7: Deployment](./deployment) where pushing to GitHub is now the entire deployment process.
+→ Continue to [Phase 8: Deployment](./deployment) where pushing to GitHub is now the entire deployment process.

@@ -1,12 +1,12 @@
----
+﻿---
 id: architecture
-title: 'Phase 3: Architecture'
+title: 'Phase 4: Architecture'
 sidebar_position: 6
 sidebar_label: 5. Architecture
 description: The modular monolith, the dominant 2026 stack, and RFCs for major architectural changes.
 ---
 
-# Phase 3: Architecture
+# Phase 4: Architecture
 
 > **In one line:** The reigning 2026 pattern for small companies is the *modular monolith* — one Next.js app, internally organized so modules can later be split if (rarely) needed.
 
@@ -183,4 +183,4 @@ The "handles up to $10M ARR" claim isn't marketing — it's the actual track rec
 
 ## What's next
 
-→ Continue to [Phase 4: Environment Setup](./env-setup) where we cover monorepo structure, onboarding scripts, and secrets.
+→ Continue to [Phase 5: Environment Setup](./env-setup) where we cover monorepo structure, onboarding scripts, and secrets.

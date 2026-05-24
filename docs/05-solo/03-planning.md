@@ -1,4 +1,4 @@
----
+﻿---
 id: planning
 title: 'Phase 1: Planning (An Afternoon, Not a Month)'
 sidebar_position: 4
@@ -139,4 +139,4 @@ That five-minute thinking exercise just saved a month of work on a project that 
 
 ## What's next
 
-→ Continue to [Phase 2: Stack Selection](./stack-selection) where the 2026 default stack is basically pre-decided.
+→ Continue to [Phase 3: Stack Selection](./stack-selection) where the 2026 default stack is basically pre-decided.

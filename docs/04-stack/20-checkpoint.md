@@ -1,18 +1,18 @@
----
+﻿---
 id: stack-checkpoint
-title: Chapter 3 Checkpoint
+title: Chapter 4 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 3 — Tech Stack. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 4.
+description: Mandatory checkpoint quiz for Chapter 4 — Tech Stack. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 5.
 ---
 
-# Chapter 3 Checkpoint
+# Chapter 4 Checkpoint
 
 You've finished the Tech Stack chapter. Take a minute to make sure the core ideas stuck.
 
 There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit, and the link highlights the paragraph for you.
 
-You must pass (≥ 60%) to unlock the Next button and Chapter 4 in the sidebar.
+You must pass (≥ 60%) to unlock the Next button and Chapter 5 in the sidebar.
 
 <Quiz id="stack-checkpoint" title="Tech Stack checkpoint" sampleSize={5}>
 
@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 4 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 4: Solo / Personal](/docs/solo) to see how these pieces come together at the smallest scale.
+→ Continue to [Chapter 5: Solo / Personal](/docs/solo) to see how these pieces come together at the smallest scale.

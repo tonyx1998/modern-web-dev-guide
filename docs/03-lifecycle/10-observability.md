@@ -1,12 +1,12 @@
----
+﻿---
 id: observability
-title: 'Phase 10: Observability'
+title: 'Phase 11: Observability'
 sidebar_position: 11
 sidebar_label: 10. Observability
 description: Know what your software is doing in production, especially when it's misbehaving. Logs, metrics, traces, error tracking, alerting.
 ---
 
-# Phase 10: Observability
+# Phase 11: Observability
 
 > **In one line:** Observability is your software's *senses* in production. Without it, you only know things broke when angry users tell you.
 
@@ -195,4 +195,4 @@ Most production issues need all three. A spike in error metrics tells you *somet
 
 ## What's next
 
-→ Continue to [Phase 11: Maintenance & Iteration](./maintenance) where we cover the longest phase by far — the years of work after launch.
+→ Continue to [Phase 12: Maintenance & Iteration](./maintenance) where we cover the longest phase by far — the years of work after launch.

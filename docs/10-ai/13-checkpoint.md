@@ -1,18 +1,18 @@
----
+﻿---
 id: ai-checkpoint
-title: Chapter 9 Checkpoint
+title: Chapter 10 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 9 — AI Layer. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 10.
+description: Mandatory checkpoint quiz for Chapter 10 — AI Layer. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 11.
 ---
 
-# Chapter 9 Checkpoint
+# Chapter 10 Checkpoint
 
 You've finished the AI Layer chapter. Make sure the practical patterns stuck — RAG, tool calling, agents, costs, observability.
 
 There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit, and the link highlights the paragraph for you.
 
-You must pass (≥ 60%) to unlock the Next button and Chapter 10 in the sidebar.
+You must pass (≥ 60%) to unlock the Next button and Chapter 11 in the sidebar.
 
 <Quiz id="ai-checkpoint" title="AI Layer checkpoint" sampleSize={5}>
 
@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 10 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 10: Career Path](/docs/career) for the personal layer — how to actually grow as a developer in 2026.
+→ Continue to [Chapter 11: Career Path](/docs/career) for the personal layer — how to actually grow as a developer in 2026.

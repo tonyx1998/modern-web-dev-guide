@@ -1,4 +1,4 @@
----
+﻿---
 id: planning
 title: 'Phase 1: Discovery & Planning'
 sidebar_position: 4
@@ -144,4 +144,4 @@ The biggest mistake new teams make is treating the PRD as a binding spec. It's n
 
 ## What's next
 
-→ Continue to [Phase 2: Design](./design) where Figma, the design system, and engineering collaboration take over.
+→ Continue to [Phase 3: Design](./design) where Figma, the design system, and engineering collaboration take over.

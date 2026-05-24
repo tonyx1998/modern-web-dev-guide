@@ -1,12 +1,12 @@
----
+﻿---
 id: deployment-hosting
-title: 'Phase 9: Deployment & Hosting'
+title: 'Phase 10: Deployment & Hosting'
 sidebar_position: 10
 sidebar_label: 9. Deployment & Hosting
 description: Get your code running on the public internet, reliably. Hosting categories, environments, and database migration patterns.
 ---
 
-# Phase 9: Deployment & Hosting
+# Phase 10: Deployment & Hosting
 
 > **In one line:** Run your code on a computer your users can reach. Modern hosting platforms make this trivial; the trick is picking the right category for your needs.
 
@@ -185,4 +185,4 @@ Modern continuous-deployment teams break this rule routinely *because their roll
 
 ## What's next
 
-→ Continue to [Phase 10: Observability](./observability) where we add the eyes and ears that tell us how the deployed system is actually behaving.
+→ Continue to [Phase 11: Observability](./observability) where we add the eyes and ears that tell us how the deployed system is actually behaving.

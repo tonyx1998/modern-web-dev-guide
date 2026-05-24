@@ -1,12 +1,12 @@
----
+﻿---
 id: env-setup
-title: 'Phase 4: Environment Setup'
+title: 'Phase 5: Environment Setup'
 sidebar_position: 7
 sidebar_label: 6. Environment Setup
 description: Monorepo with Turborepo, onboarding script that gets a new engineer running in under a day, three environments (local, preview, production), and managed secrets.
 ---
 
-# Phase 4: Environment Setup
+# Phase 5: Environment Setup
 
 > **In one line:** A monorepo with Turborepo, a one-script onboarding flow, three environments, and a real secrets manager. New hires running locally in under a day.
 
@@ -176,4 +176,4 @@ Treat `.env.example` as a contract. Every variable the app reads from the enviro
 
 ## What's next
 
-→ Continue to [Phase 5: Development Practices](./development) where trunk-based development, conventional commits, and feature flags shape the daily workflow.
+→ Continue to [Phase 6: Development Practices](./development) where trunk-based development, conventional commits, and feature flags shape the daily workflow.

@@ -1,12 +1,12 @@
----
+﻿---
 id: maintenance
-title: 'Phase 11: Maintenance, Iteration & Scaling'
+title: 'Phase 12: Maintenance, Iteration & Scaling'
 sidebar_position: 12
 sidebar_label: 11. Maintenance
 description: Keep the product working and improving over time. The longest phase by far — often 80% of total engineering effort.
 ---
 
-# Phase 11: Maintenance, Iteration & Scaling
+# Phase 12: Maintenance, Iteration & Scaling
 
 > **In one line:** Once a product exists, the *real* work begins. Bug fixes, security patches, dependency updates, refactors, migrations, incident response — for years. This is what most working developers spend most of their time on.
 
@@ -203,7 +203,7 @@ The first blames a person; the second improves the system. Only the second preve
 
 </Quiz>
 
-## Wrapping up Part 2
+## Wrapping up Part 3
 
 The eleven phases — discovery, design, architecture, setup, implementation, testing, review, CI/CD, deployment, observability, maintenance — are present in every project. The scale of each phase varies dramatically, but the rhythm is universal.
 
@@ -213,4 +213,4 @@ Internalizing this lifecycle gives you a mental model for *any* project:
 - "We're spending too long on planning; ship something and iterate."
 - "We're missing observability; we need to fix that before scaling."
 
-→ **Next chapter:** [Part 3: The Tech Stack, Decoded](/docs/stack) — every major piece of the 2026 tech stack, explained in detail.
+→ **Next chapter:** [Part 4: The Tech Stack, Decoded](/docs/stack) — every major piece of the 2026 tech stack, explained in detail.

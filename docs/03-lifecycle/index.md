@@ -1,12 +1,12 @@
----
+﻿---
 id: development-lifecycle
-title: 2. The Development Lifecycle — Overview
+title: 3. The Development Lifecycle — Overview
 sidebar_position: 1
 sidebar_label: The 11 phases
 description: The eleven phases every software project goes through, from planning to maintenance.
 ---
 
-# Part 2: The Universal Development Lifecycle
+# Part 3: The Universal Development Lifecycle
 
 *The phases every project moves through — from one-person blogs to billion-user platforms.*
 
@@ -43,24 +43,24 @@ flowchart TD
     P11 -. feedback .-> P1
 ```
 
-> **Reading this diagram:** The dotted line back from phase 11 to phase 1 is the most important arrow on the page. These aren't strictly sequential — modern development is iterative, with constant feedback loops. But every feature, every bug fix, every refactor goes through these stages in some form.
+> **Reading this diagram:** The dotted line back from Phase 12 to phase 1 is the most important arrow on the page. These aren't strictly sequential — modern development is iterative, with constant feedback loops. But every feature, every bug fix, every refactor goes through these stages in some form.
 
 ## Pages in this chapter
 
 1. [Phase 1: Discovery & Planning](/docs/lifecycle/discovery-planning)
-2. [Phase 2: Design](/docs/lifecycle/design)
-3. [Phase 3: Architecture](/docs/lifecycle/architecture)
-4. [Phase 4: Environment Setup](/docs/lifecycle/environment-setup)
-5. [Phase 5: Implementation](/docs/lifecycle/implementation)
-6. [Phase 6: Testing](/docs/lifecycle/testing)
-7. [Phase 7: Code Review](/docs/lifecycle/code-review)
-8. [Phase 8: CI/CD](/docs/lifecycle/ci-cd)
-9. [Phase 9: Deployment & Hosting](/docs/lifecycle/deployment-hosting)
-10. [Phase 10: Observability](/docs/lifecycle/observability)
-11. [Phase 11: Maintenance & Iteration](/docs/lifecycle/maintenance)
+2. [Phase 3: Design](/docs/lifecycle/design)
+3. [Phase 4: Architecture](/docs/lifecycle/architecture)
+4. [Phase 5: Environment Setup](/docs/lifecycle/environment-setup)
+5. [Phase 6: Implementation](/docs/lifecycle/implementation)
+6. [Phase 7: Testing](/docs/lifecycle/testing)
+7. [Phase 8: Code Review](/docs/lifecycle/code-review)
+8. [Phase 9: CI/CD](/docs/lifecycle/ci-cd)
+9. [Phase 10: Deployment & Hosting](/docs/lifecycle/deployment-hosting)
+10. [Phase 11: Observability](/docs/lifecycle/observability)
+11. [Phase 12: Maintenance & Iteration](/docs/lifecycle/maintenance)
 
 Each page covers one phase with worked examples, anti-patterns, and concrete tooling recommendations for 2026.
 
 ---
 
-When you finish, move on to [Chapter 3: The Tech Stack, Decoded](/docs/stack).
+When you finish, move on to [Chapter 4: The Tech Stack, Decoded](/docs/stack).
