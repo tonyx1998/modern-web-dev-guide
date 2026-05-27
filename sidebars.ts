@@ -101,6 +101,8 @@ const sidebars: SidebarsConfig = {
             'foundations/apis-rest',
             'foundations/apis-graphql-trpc',
             'foundations/apis-realtime',
+            'foundations/webrtc',
+            'foundations/message-queues',
           ],
         },
         {
@@ -112,44 +114,157 @@ const sidebars: SidebarsConfig = {
             type: 'generated-index',
             title: 'Data',
             description:
-              'Where your data lives — relational vs NoSQL, and how to choose without overthinking.',
+              'Where your data lives — relational vs NoSQL, search, file storage, and how to choose without overthinking.',
             slug: '/foundations/data',
           },
           items: [
             'foundations/databases-sql',
             'foundations/databases-nosql',
             'foundations/databases-choosing',
+            'foundations/search',
+            'foundations/files-and-media',
           ],
         },
         {
           type: 'category',
-          label: 'Auth',
+          label: 'Auth & security',
           collapsible: true,
           collapsed: true,
           link: {
             type: 'generated-index',
-            title: 'Auth',
+            title: 'Auth & security',
             description:
-              'Who can do what — authentication (proving identity) and authorization (controlling access).',
+              'Who can do what — authentication, authorization, and the broader web security surface (XSS, CSRF, CSP, SQLi, SSRF, supply chain).',
             slug: '/foundations/auth',
           },
-          items: ['foundations/authentication', 'foundations/authorization'],
+          items: [
+            'foundations/authentication',
+            'foundations/authorization',
+            'foundations/web-security',
+          ],
         },
         {
           type: 'category',
-          label: 'Deployment',
+          label: 'Deployment & infrastructure',
           collapsible: true,
           collapsed: true,
           link: {
             type: 'generated-index',
-            title: 'Deployment',
+            title: 'Deployment & infrastructure',
             description:
-              'Source → CI → artifact → registry → deploy → runtime → CDN → user. The eight stages, in detail.',
+              'Source → CI → artifact → registry → deploy → runtime → CDN → user. Plus containers, orchestration, and the edge.',
             slug: '/foundations/deployment',
           },
           items: [
             'foundations/deployment-pyramid',
             'foundations/deployment-stages',
+            'foundations/containers',
+            'foundations/edge-computing',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Programming concepts',
+          collapsible: true,
+          collapsed: true,
+          link: {
+            type: 'generated-index',
+            title: 'Programming concepts',
+            description:
+              'The conceptual layer beneath everything else — the event loop, concurrency primitives, idempotency, and the distributed-systems realities you cannot ignore once you scale past one machine.',
+            slug: '/foundations/programming-concepts',
+          },
+          items: [
+            'foundations/concurrency',
+            'foundations/distributed-systems',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Production patterns',
+          collapsible: true,
+          collapsed: true,
+          link: {
+            type: 'generated-index',
+            title: 'Production patterns',
+            description:
+              'The "make it survive real users" toolkit — rate limiting, caching, secrets/keys, observability, testing, debugging. The things you wish you had the first time something burned down at 3am.',
+            slug: '/foundations/production-patterns',
+          },
+          items: [
+            'foundations/rate-limiting',
+            'foundations/caching',
+            'foundations/secrets-and-keys',
+            'foundations/observability-fundamentals',
+            'foundations/testing',
+            'foundations/debugging',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Quality, performance & a11y',
+          collapsible: true,
+          collapsed: true,
+          link: {
+            type: 'generated-index',
+            title: 'Quality, performance & a11y',
+            description:
+              'How a product feels — Core Web Vitals, accessibility (WCAG, ARIA, keyboard, screen readers), and the perceived-performance tricks.',
+            slug: '/foundations/quality',
+          },
+          items: [
+            'foundations/performance',
+            'foundations/accessibility',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Realtime collaboration',
+          collapsible: true,
+          collapsed: true,
+          link: {
+            type: 'generated-index',
+            title: 'Realtime collaboration',
+            description:
+              'How multiple users edit the same state simultaneously — CRDTs, Yjs, the Google-Docs problem solved.',
+            slug: '/foundations/realtime-collab',
+          },
+          items: [
+            'foundations/crdts',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Localization & SEO',
+          collapsible: true,
+          collapsed: true,
+          link: {
+            type: 'generated-index',
+            title: 'Localization & SEO',
+            description:
+              'Reaching users where they are — internationalization (i18n / l10n) and the technical SEO foundations developers actually own.',
+            slug: '/foundations/localization-seo',
+          },
+          items: [
+            'foundations/i18n',
+            'foundations/seo',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Commerce & comms',
+          collapsible: true,
+          collapsed: true,
+          link: {
+            type: 'generated-index',
+            title: 'Commerce & comms',
+            description:
+              'Taking money on the internet (Stripe, subscriptions, webhooks, PCI scope) and reaching inboxes (SPF/DKIM/DMARC, deliverability).',
+            slug: '/foundations/commerce-comms',
+          },
+          items: [
+            'foundations/payments',
+            'foundations/email',
           ],
         },
         'foundations/foundations-checkpoint',
