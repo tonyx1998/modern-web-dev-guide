@@ -37,35 +37,14 @@ Why? Because at this scale, no single team can know the whole codebase, and any 
 ```mermaid
 flowchart TB
     Users["External users"]
-    CDN["CDN / Edge — Cloudflare, Akamai, Fastly"]
-    LB["Load balancers — regional, multi-AZ"]
-    GW["API Gateway — auth, rate limit, routing"]
-    subgraph BFFs["Backend-for-Frontend layer"]
-        WebBFF["Web BFF"]
-        MobBFF["Mobile BFF"]
-        PartGW["Partner API Gateway"]
-    end
-    Mesh["Service Mesh — Istio / Linkerd — mTLS, retries, circuit breakers, tracing"]
-    subgraph Services["Microservices — each with its own DB, cache, queue"]
-        UserSvc["User"]
-        OrderSvc["Order"]
-        PaySvc["Payments"]
-        CatSvc["Catalog"]
-        SearchSvc["Search"]
-        NotifSvc["Notifications"]
-    end
-    subgraph Shared["Shared infrastructure"]
-        Kafka["Kafka — event bus"]
-        Schema["Schema registry"]
-        Vault["Vault — secrets"]
-        Obs["Datadog — observability"]
-        Flags["LaunchDarkly / Statsig — flags"]
-        IDP["Internal developer platform"]
-        DW[("Snowflake / BigQuery — warehouse")]
-    end
-    Users --> CDN --> LB --> GW --> BFFs --> Mesh --> Services
-    Services --> Kafka
-    Services --> Obs
+    CDN["CDN / Edge"]
+    LB["Load balancers"]
+    GW["API Gateway<br/>auth · rate limit · routing"]
+    BFF["Backend-for-Frontend layer<br/>Web · Mobile · Partner API"]
+    Mesh["Service Mesh<br/>mTLS · retries · circuit breakers"]
+    Services["Microservices<br/>User · Order · Payments<br/>Catalog · Search · Notifications<br/>(each owns its DB, cache, queue)"]
+    Shared["Shared infrastructure<br/>Kafka · schema registry · Vault<br/>Datadog · feature flags<br/>internal dev platform · warehouse"]
+    Users --> CDN --> LB --> GW --> BFF --> Mesh --> Services --> Shared
 ```
 
 ## Key architectural components

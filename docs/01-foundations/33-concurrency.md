@@ -25,9 +25,9 @@ Answer: **the event loop**.
 ```mermaid
 flowchart LR
     Call[Call stack<br/>currently running code] -->|sync| Call
-    Call -->|"Promise / setTimeout / fetch / fs.read"| Async[Browser/Node async APIs<br/>(work happens elsewhere)]
-    Async -->|"when done"| Q1[Microtask queue<br/>(Promise callbacks)]
-    Async -->|"timer fires / I/O done"| Q2[Macrotask queue<br/>(setTimeout, network)]
+    Call -->|"Promise / setTimeout / fetch / fs.read"| Async["Browser/Node async APIs<br/>(work happens elsewhere)"]
+    Async -->|"when done"| Q1["Microtask queue<br/>(Promise callbacks)"]
+    Async -->|"timer fires / I/O done"| Q2["Macrotask queue<br/>(setTimeout, network)"]
     Q1 -->|"drained after each task"| Call
     Q2 -->|"one per loop iteration"| Call
 ```
