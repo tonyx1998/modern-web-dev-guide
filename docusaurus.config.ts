@@ -81,17 +81,22 @@ const config: Config = {
     mermaid: {
       theme: {light: 'neutral', dark: 'dark'},
       options: {
+        fontFamily: "'Inter', ui-sans-serif, system-ui, sans-serif",
+        flowchart: {curve: 'basis', htmlLabels: true, padding: 16, nodeSpacing: 55, rankSpacing: 55},
+        sequence: {useMaxWidth: true, mirrorActors: false},
         themeVariables: {
           // Dark-mode contrast tweaks
           darkMode: true,
           primaryColor: '#1e3a8a',
           primaryTextColor: '#f1f5f9',
           primaryBorderColor: '#60a5fa',
-          lineColor: '#94a3b8',
+          lineColor: '#a5b4cb',
           secondaryColor: '#334155',
-          tertiaryColor: '#0f172a',
+          tertiaryColor: '#1c2535',
           fontSize: '15px',
+          fontFamily: "'Inter', ui-sans-serif, system-ui, sans-serif",
         },
+        themeCSS: '.node rect{rx:8px;ry:8px} .node rect,.node polygon{stroke-width:1.5px} .edgePath .path{stroke-width:1.5px} .cluster rect{rx:10px;ry:10px}',
       },
     },
     docs: {
