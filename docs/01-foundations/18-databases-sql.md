@@ -10,6 +10,8 @@ description: Tables, rows, columns, foreign keys, joins, ACID guarantees. The do
 
 > **In one line:** Data lives in **tables** with **rows** and **columns**. Tables reference each other with **foreign keys**. You query with **SQL**. This boring tech is the best decision you'll make on most projects.
 
+→ **Going deeper:** [Advanced Databases](/docs/stack/databases-advanced) covers indexes and the query planner (`EXPLAIN`), transaction isolation, the N+1 problem, and safe schema migrations.
+
 :::tip[In plain English]
 A relational database is a glorified spreadsheet system. Each "table" is a sheet with rows (records) and columns (fields). Tables can reference each other — a `posts` table has a `user_id` column pointing at the `users` table. You ask questions in **SQL**, a 50-year-old query language that's still the lingua franca of data. The "boring" choice has won for half a century because it's *correct, predictable, and well-understood*.
 :::

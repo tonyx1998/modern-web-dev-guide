@@ -12,6 +12,8 @@ description: Utility-first CSS — compose single-purpose classes directly in JS
 
 > **In one line:** A vocabulary of single-purpose utility classes you compose directly in your HTML/JSX — feels weird for 20 minutes, natural forever after.
 
+> **Going deeper:** for the CSS *underneath* the utilities — the cascade, specificity, stacking contexts, modern layout, and design tokens — see [Advanced CSS & Styling](/docs/stack/styling-advanced).
+
 Tailwind is a CSS framework, but not the kind you're used to. Instead of giving you pre-built components like Bootstrap, it gives you a vocabulary of single-purpose utility classes (`px-4`, `text-lg`, `flex`, `rounded-lg`) that you compose directly in your HTML/JSX. It feels weird for 20 minutes and natural forever after.
 
 For Tailwind's place in the broader styling landscape, see [Styling](/docs/stack/styling).
@@ -51,6 +53,32 @@ Categories worth memorising:
 - **Color**: `bg-blue-500`, `text-red-600`, `border-gray-200`.
 - **Borders / rounding**: `rounded`, `rounded-lg`, `border`, `border-2`.
 - **Effects**: `shadow`, `shadow-lg`, `opacity-50`, `transition`.
+
+**Try it live** — real Tailwind running in the preview (via the Tailwind Play CDN). Edit the classes — `bg-blue-600`, `rounded-xl`, `p-6`, `hover:` — and watch the design change instantly:
+
+<Sandbox
+  template="static"
+  editorHeight={320}
+  files={{
+    '/index.html': `<!doctype html>
+<html>
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-100 p-8">
+    <div class="max-w-sm mx-auto bg-white rounded-xl shadow-md p-6">
+      <h2 class="text-xl font-bold text-slate-800">Edit my classes</h2>
+      <p class="mt-2 text-slate-600">
+        Change any Tailwind class and the preview updates live.
+      </p>
+      <button class="mt-4 px-4 py-2 rounded-lg bg-blue-600 text-white font-medium hover:bg-blue-700">
+        A button
+      </button>
+    </div>
+  </body>
+</html>`,
+  }}
+/>
 
 ### 4. Responsive prefixes
 

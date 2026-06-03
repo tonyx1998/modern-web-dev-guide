@@ -16,6 +16,10 @@ The whole arc is **4–9 months of part-time effort**. If a stage feels easy, sk
 Each stage assumes everything before it. JavaScript before React. Git before deployment. HTTP before backends. Skipping is the most common way beginners stall — they grind on a stage they're not ready for and conclude "I'm bad at coding."
 :::
 
+:::note[Why these stages link to outside courses]
+You can't learn to *code* from summaries — only from doing reps. So while every stage below **explains its concepts and gives you a project to build, right here**, each also recommends a top free course or reference (javascript.info, MDN, The Odin Project…) for the *hours of hands-on practice* that actually build the skill. That's the one place the guide deliberately points off-site — and it's a recommendation for practice, not a gap you're meant to fill elsewhere to understand the material.
+:::
+
 ## The thirteen stages
 
 | Stage | Topic | Time | Project |

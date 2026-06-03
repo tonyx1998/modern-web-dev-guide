@@ -1,12 +1,12 @@
 ---
 id: glossary
-title: 12. Glossary
-sidebar_position: 12
-sidebar_label: 12. Glossary
+title: 16. Glossary
+sidebar_position: 16
+sidebar_label: 16. Glossary
 description: Quick-reference definitions for every term used in the series.
 ---
 
-# Part 12: Glossary
+# Part 16: Glossary
 
 *Quick-reference definitions for every term used throughout this series.*
 

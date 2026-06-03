@@ -143,4 +143,4 @@ Key takeaways:
 
 ## What's next
 
-→ Continue to [Chapter 8: Side-by-Side Comparison](/docs/comparison), which puts all three workflows (personal, small, large) into one reference for easy lookup.
+→ Continue to [Chapter 13: Side-by-Side Comparison](/docs/comparison), which puts all three workflows (personal, small, large) into one reference for easy lookup.

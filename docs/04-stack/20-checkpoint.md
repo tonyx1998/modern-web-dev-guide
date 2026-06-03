@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 5 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 5: Solo / Personal](/docs/solo) to see how these pieces come together at the smallest scale.
+→ Continue to [Chapter 5: Cloud Platforms](/docs/cloud) — the infrastructure your stack actually runs on, from VMs and containers to networking, identity, and cost.

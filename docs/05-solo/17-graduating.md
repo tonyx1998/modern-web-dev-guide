@@ -26,7 +26,7 @@ If your side project becomes meaningful (revenue, users, importance), you'll sta
 
 At that point, read the [Small Company Workflow chapter](/docs/startup). The transition isn't dramatic — many of the same tools apply — but you'll start adding process, testing, and observability you skipped at the personal stage.
 
-## Wrapping Up Part 5
+## Wrapping Up Part 10
 
 The personal project workflow in 2026 is essentially:
 
@@ -108,7 +108,7 @@ The fastest-growing 5-to-50-person companies still feel scrappy — but they've 
 />
 
 <Question
-  prompt="What's the one-line summary of the personal project workflow at the end of Part 5?"
+  prompt="What's the one-line summary of the personal project workflow at the end of Part 10?"
   options={[
     { text: "Adopt every enterprise practice from day one" },
     { text: "Plan briefly, use defaults, ship continuously, iterate on feedback" },
@@ -116,12 +116,12 @@ The fastest-growing 5-to-50-person companies still feel scrappy — but they've 
     { text: "Switch frameworks every quarter" }
   ]}
   correct={1}
-  explanation="The wrap-up boils Part 5 down to six steps: plan briefly, use the default stack, set up quickly, build one feature end-to-end at a time, ship continuously, and iterate on real feedback. The biggest enemy is over-thinking."
-  revisit={{ to: "/docs/solo/graduating#wrapping-up-part-5", label: "Wrapping up Part 5" }}
+  explanation="The wrap-up boils Part 10 down to six steps: plan briefly, use the default stack, set up quickly, build one feature end-to-end at a time, ship continuously, and iterate on real feedback. The biggest enemy is over-thinking."
+  revisit={{ to: "/docs/solo/graduating#wrapping-up-part-10", label: "Wrapping up Part 10" }}
 />
 
 </Quiz>
 
 ## What's next
 
-→ Continue to [Chapter 6: Small Company Workflow](/docs/startup) — what changes when you graduate to a small company / startup environment.
+→ Continue to [Chapter 11: Small Company Workflow](/docs/startup) — what changes when you graduate to a small company / startup environment.

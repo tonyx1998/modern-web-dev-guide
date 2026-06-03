@@ -10,6 +10,8 @@ description: The component-based UI scaffolding around your app. React, Vue, Sve
 
 > **In one line:** Frontend frameworks turn your language (TypeScript) into a full UI scaffolding — components, routing, data fetching, build pipeline. Next.js + React is the dominant 2026 default.
 
+→ **Going deeper:** once components and hooks click, [Advanced React](/docs/stack/frontend-frameworks-advanced) covers the render model, the rules of hooks, Server Components, and performance.
+
 :::tip[Beginner: what is a "framework," really?]
 A **library** is code you call. A **framework** is code that calls you.
 

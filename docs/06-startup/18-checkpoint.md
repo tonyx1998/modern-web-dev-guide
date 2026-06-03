@@ -1,18 +1,18 @@
 ﻿---
 id: startup-checkpoint
-title: Chapter 6 Checkpoint
+title: Chapter 11 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 6 — Startup / Small Co. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 7.
+description: Mandatory checkpoint quiz for Chapter 11 — Startup / Small Co. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 12.
 ---
 
-# Chapter 6 Checkpoint
+# Chapter 11 Checkpoint
 
 You've finished the Startup chapter. Take a minute to make sure the core ideas stuck.
 
 There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit, and the link highlights the paragraph for you.
 
-You must pass (≥ 60%) to unlock the Next button and Chapter 7 in the sidebar.
+You must pass (≥ 60%) to unlock the Next button and Chapter 12 in the sidebar.
 
 <Quiz id="startup-checkpoint" title="Startup checkpoint" sampleSize={5}>
 
@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 7 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 7: Enterprise](/docs/enterprise) for a contrast: same problems, very different solutions at 500+ engineers.
+→ Continue to [Chapter 12: Enterprise](/docs/enterprise) for a contrast: same problems, very different solutions at 500+ engineers.

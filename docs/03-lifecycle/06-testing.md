@@ -10,6 +10,8 @@ description: Prove the code works and stays working. The testing pyramid, the ty
 
 > **In one line:** Tests prove your code works, document what it's supposed to do, and let you refactor without fear. Without them, every change is a gamble.
 
+→ **Going deeper:** the senior strategy — pyramid vs trophy, testing behavior not implementation, the over-mocking trap, and why flaky tests are bugs — is in [Testing, Properly](/docs/roadmap/part-3-beyond/testing-deep).
+
 :::tip[In plain English]
 Testing is the practice of writing code that *checks your code*. You write a function that adds two numbers. You write a test that calls it with `2, 3` and expects `5`. The test runs automatically every time you save or push. If you ever break the function, the test fails and tells you. Multiply that by a few hundred tests and you have a safety net that lets you change code confidently.
 :::

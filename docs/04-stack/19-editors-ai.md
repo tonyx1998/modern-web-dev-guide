@@ -139,4 +139,4 @@ The key choices in 2026 for a new full-stack app:
 
 This is the "boring" path. It's boring because it works. Save creativity for your product.
 
-→ **Next chapter:** [Part 5: Personal Website Workflow](/docs/solo) — how all this comes together for a solo developer's first project.
+→ **Next chapter:** [Part 5: Cloud Platforms](/docs/cloud) — the infrastructure your stack runs on, from VMs to serverless to networking and IAM.

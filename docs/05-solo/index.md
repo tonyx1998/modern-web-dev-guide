@@ -1,12 +1,12 @@
 ﻿---
 id: personal-website-workflow
-title: 5. Personal Website Workflow — Overview
+title: 10. Personal Website Workflow — Overview
 sidebar_position: 1
 sidebar_label: Solo workflow intro
 description: Solo developers, personal sites, side projects. Free tiers, minimal ops, maximum shipping speed.
 ---
 
-# Part 5: Personal Website / Side Project Workflow
+# Part 10: Personal Website / Side Project Workflow
 
 *Solo developer, low budget, maximum shipping speed.*
 
@@ -61,4 +61,4 @@ Each page focuses on a single phase or topic of the solo workflow. Read them in 
 
 ---
 
-When you finish all 17 pages, move on to [Chapter 6: Small Company Workflow](/docs/startup).
+When you finish all 17 pages, move on to [Chapter 11: Small Company Workflow](/docs/startup).

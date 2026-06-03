@@ -1,0 +1,7 @@
+{
+  "label": "12. Cloud Platforms",
+  "position": 12,
+  "collapsible": true,
+  "collapsed": true,
+  "link": { "type": "doc", "id": "cloud-platforms" }
+}

@@ -3,6 +3,9 @@ import ReaderLevel from '@site/src/components/ReaderLevel';
 import PageAudience from '@site/src/components/PageAudience';
 import Quiz, {Question} from '@site/src/components/Quiz';
 import AudioPlayer from '@site/src/components/AudioPlayer';
+import CodeChallenge from '@site/src/components/CodeChallenge';
+import SqlPlayground from '@site/src/components/SqlPlayground';
+import Sandbox from '@site/src/components/Sandbox';
 
 /**
  * Register components that should be available in every MDX file
@@ -15,4 +18,7 @@ export default {
   Quiz,
   Question,
   AudioPlayer,
+  CodeChallenge,
+  SqlPlayground,
+  Sandbox,
 };

@@ -10,6 +10,8 @@ description: How frontends and backends actually talk. REST, tRPC, GraphQL, gRPC
 
 > **In one line:** Pick REST by default. Upgrade to tRPC if you're full-TypeScript. Use GraphQL only with many clients and overlapping data. SSE for AI streaming; WebSockets for chat; webhooks for "tell me when X happens."
 
+→ **Going deeper:** [Advanced API Design](/docs/stack/apis-advanced) covers contracts and versioning, cursor pagination, idempotency keys, and choosing between REST/GraphQL/gRPC/tRPC.
+
 :::tip[In plain English]
 The "API" question is *how* your client and server talk. Several styles exist, each for a different shape of conversation:
 

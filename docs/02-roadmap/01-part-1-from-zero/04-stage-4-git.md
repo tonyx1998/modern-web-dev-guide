@@ -12,6 +12,8 @@ description: Version control with Git and collaboration on GitHub — the eight 
 
 > **In one line:** Every change to your code becomes a saved snapshot you can return to — and your work lives somewhere other than just your laptop.
 
+> **Going deeper:** once these basics are second nature, [Git Beyond the Basics](/docs/roadmap/part-3-beyond/git-advanced) covers the commit-DAG model, rebase vs merge, the reflog safety net, and bisect.
+
 Git is version control — every change to your code becomes a saved snapshot you can return to. GitHub is the most popular site for hosting Git repositories online. Together they're how every team in the world ships software. Learn them now even though you're working solo: future-you will thank you when "I broke something three days ago" stops meaning "I lost three days of work."
 
 ### 1. The mental model

@@ -10,6 +10,8 @@ description: The classes of attack that aren't about identity — injection (XSS
 
 > **In one line:** Auth answers "who are you." This page answers "even after auth, how do we stop attackers from injecting code, forging requests, exfiltrating data, or compromising your dependencies?"
 
+→ **Going deeper:** [Security Beyond HTTPS](/docs/roadmap/part-3-beyond/security) walks the threat model end to end — authz/IDOR, injection, SSRF, secret handling, and a pre-ship checklist.
+
 :::tip[In plain English]
 A user logs in (auth ✓). Now they paste a comment that contains `<script>` — XSS. Now an attacker tricks them into clicking a link that triggers a payment from their account — CSRF. Now an unrelated dependency in your package.json runs a postinstall script that exfiltrates your env vars — supply chain. Auth doesn't stop any of these. Each has its own defense, and modern web frameworks bake most of them in *if you don't fight them*.
 :::

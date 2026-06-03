@@ -1,0 +1,144 @@
+.sql {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 10px;
+  padding: 1rem 1.1rem 1.1rem;
+  margin: 1.5rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ifm-color-primary);
+}
+
+.title {
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.editor {
+  width: 100%;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  tab-size: 2;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  background: var(--ifm-pre-background, #1e1e1e);
+  color: var(--ifm-font-color-base);
+  resize: vertical;
+  white-space: pre;
+  overflow-x: auto;
+}
+.editor:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 1px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.run {
+  font-weight: 600;
+  color: #fff;
+  background: var(--ifm-color-primary);
+  border: none;
+  border-radius: 6px;
+  padding: 0.4rem 1.1rem;
+  cursor: pointer;
+}
+.run:hover {
+  background: var(--ifm-color-primary-dark);
+}
+.run:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.secondary {
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+  background: transparent;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+}
+.secondary:hover {
+  background: var(--ifm-color-emphasis-100);
+}
+
+.loading {
+  margin-top: 0.75rem;
+  font-size: 0.88rem;
+  color: var(--ifm-color-emphasis-700);
+  font-style: italic;
+}
+
+.error {
+  margin-top: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  background: var(--ifm-color-danger-contrast-background, #fdecea);
+  border-left: 3px solid var(--ifm-color-danger, #e5534b);
+  font-size: 0.88rem;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.notice {
+  margin-top: 0.75rem;
+  font-size: 0.88rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.plan {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.tableWrap {
+  margin-top: 0.75rem;
+  overflow-x: auto;
+}
+
+.table {
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  width: auto;
+}
+.table th,
+.table td {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  padding: 0.3rem 0.6rem;
+  text-align: left;
+  white-space: nowrap;
+}
+.table th {
+  background: var(--ifm-color-emphasis-100);
+  font-weight: 700;
+}
+
+.more {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--ifm-color-emphasis-600);
+}

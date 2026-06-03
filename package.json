@@ -19,11 +19,14 @@
     "lectures:script-only": "node scripts/generate-lectures.mjs --script-only"
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^2.20.0",
     "@docusaurus/core": "3.10.1",
     "@docusaurus/faster": "3.10.1",
     "@docusaurus/preset-classic": "3.10.1",
+    "@docusaurus/theme-live-codeblock": "^3.10.1",
     "@docusaurus/theme-mermaid": "^3.10.1",
     "@easyops-cn/docusaurus-search-local": "^0.55.1",
+    "@electric-sql/pglite": "^0.5.1",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
