@@ -122,4 +122,4 @@ Decision-making is the hidden craft of senior engineering. Anyone can write code
 
 ## What's next
 
-→ Continue to [Chapter 10: AI Integration](/docs/ai) — the new layer in modern web applications, from streaming chat to RAG to agents.
+→ Continue to [Chapter 15: Career Path](/docs/career) — paths and learning resources for growing as a web developer in the AI era.

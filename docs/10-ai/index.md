@@ -1,12 +1,12 @@
 ﻿---
 id: ai-integration
-title: 10. AI Integration — Overview
+title: 8. AI Integration — Overview
 sidebar_position: 1
 sidebar_label: AI layer intro
 description: AI as a standard layer in web apps — streaming chat, RAG, function calling, agents, production operation.
 ---
 
-# Part 10: AI Integration Patterns
+# Part 8: AI Integration Patterns
 
 *The new layer in modern web applications.*
 
@@ -14,6 +14,12 @@ description: AI as a standard layer in web apps — streaming chat, RAG, functio
 
 :::tip[In plain English]
 Five years ago, "AI" meant a separate ML research project. In 2026, AI features — chat, summarization, search, generation — are as standard in a web app as user login. Many products are *built around* AI. The patterns are layered: streaming chat is the simplest; RAG hands the model relevant documents; function calling gives it tools; agents let it work multi-step. Each builds on the previous.
+:::
+
+:::note[New to web dev? How to read this chapter]
+**Level: friendly to read, intermediate to build.** The concepts here are approachable even if you're early in your journey — the patterns (streaming chat → RAG → function calling → agents) deliberately layer on top of each other, so **read the pages in order** and each one builds on the last.
+
+The *explanations* assume very little, but the *code* assumes the basic API and backend comfort from the earlier chapters — so if a snippet feels dense, read it for shape and circle back after you've built a small backend. Keep the [Glossary](/docs/glossary) handy for terms like *token*, *embedding*, and *RAG* (each chapter also opens with a jargon box).
 :::
 
 ## Why AI is now a "layer"
@@ -135,4 +141,4 @@ Each page focuses on a single AI pattern or production concern. Read in order th
 
 ---
 
-When you finish all 12 pages, move on to [Chapter 11: Career Path](/docs/career).
+When you finish all 12 pages, move on to [Chapter 9: Mobile & Other Ecosystems](/docs/ecosystems).

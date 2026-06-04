@@ -90,7 +90,7 @@ Each stage was the right place for what they were learning at the time. The care
 - **Mistaking one career arc for the career arc.** The made-up 15-year trajectory above is one valid shape; many great engineers stay at one scale their whole career and go very deep. Cycling scales is a useful default, not a mandate. Pick by what you want to learn, not by what a blog post claims you should do next.
 :::
 
-## Wrapping up Part 8
+## Wrapping up Part 13
 
 These comparisons aren't normative — there's no "right" scale. Each works well for its context. The skill is recognizing your scale and applying appropriate practices.
 
@@ -161,4 +161,4 @@ The biggest mistake is **applying the wrong scale's practices**:
 
 ## What's next
 
-→ Continue to [Chapter 9: Decision Frameworks](/docs/decisions) — the principles that help you make sound architectural and technology decisions at *any* scale.
+→ Continue to [Chapter 14: Decision Frameworks](/docs/decisions) — the principles that help you make sound architectural and technology decisions at *any* scale.

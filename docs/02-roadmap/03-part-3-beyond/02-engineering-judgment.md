@@ -11,7 +11,7 @@ description: Hypothesis-driven debugging, the rule of three, trade-off thinking,
 > **In one line:** The meta-skills that decide whether the code you write is *good*, regardless of stack.
 
 :::tip[This pairs with the Decisions chapter]
-This page pairs deeply with [Chapter 9: Decisions](/docs/decisions) — the judgment page covers the *skills* (how senior engineers actually think and debug), that chapter covers the *frameworks* (specific decision tools like ADRs, reversibility tests, and trade-off matrices). Read them together.
+This page pairs deeply with [Chapter 14: Decisions](/docs/decisions) — the judgment page covers the *skills* (how senior engineers actually think and debug), that chapter covers the *frameworks* (specific decision tools like ADRs, reversibility tests, and trade-off matrices). Read them together.
 :::
 
 None of these are taught in tutorials — they're how senior engineers actually think.
@@ -66,7 +66,7 @@ A worked example — "should I add Redis to cache user sessions?":
 For solomock with 5 concurrent users, DB sessions is the right answer — adding Redis is pure complexity. For an app with 50,000 concurrent users, Redis becomes worth the operational cost. The skill is matching the answer to the actual scale, not the imagined one.
 
 :::note[Habit worth keeping]
-When you make a non-trivial decision, write down (in the commit message or a one-line note) *the alternative you rejected and why*. Six months later you'll have a journal of your own judgment to learn from. This is the lightweight version of the formal ADR pattern covered in [Chapter 9: Decisions](/docs/decisions).
+When you make a non-trivial decision, write down (in the commit message or a one-line note) *the alternative you rejected and why*. Six months later you'll have a journal of your own judgment to learn from. This is the lightweight version of the formal ADR pattern covered in [Chapter 14: Decisions](/docs/decisions).
 :::
 
 ## 4. Reading code

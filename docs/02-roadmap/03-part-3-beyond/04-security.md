@@ -147,7 +147,9 @@ For every new route, walk through this 30-second checklist:
 
 `all-in-one-URL`, `personal-site`, and `roofing-site` are all internet-facing. `solomock` will be soon. The threat isn't a targeted hacker — it's bots that scan the entire internet for the same five known vulnerability classes. Closing those classes once means the bots find nothing and move on.
 
-## How to practice
+## Going further (optional)
+
+*This page plus the **First step** below are self-contained — you don't need to leave the site to learn or apply this. If you want hands-on labs and the canonical references, these are the best:*
 
 [PortSwigger's Web Security Academy](https://portswigger.net/web-security) is free, hands-on, and the gold standard. Work through the SQL injection, XSS, and access-control labs — they take an hour each and you'll never write those bugs again. Read the [OWASP Top 10](https://owasp.org/Top10/) once a year. Run `npm audit` in every project monthly and actually read what comes back.
 
@@ -235,4 +237,4 @@ flowchart LR
 
 ---
 
-→ Next: [Part IV — Meta-skills](/docs/roadmap/part-4-meta) · [Back to Part III overview](/docs/roadmap/part-3-beyond)
+→ Next: [Testing, Properly](./testing-deep) · [Back to Part III overview](/docs/roadmap/part-3-beyond)

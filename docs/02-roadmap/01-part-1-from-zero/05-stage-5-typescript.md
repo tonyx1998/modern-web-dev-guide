@@ -149,6 +149,7 @@ This is TypeScript saving you from real crashes. Don't reach for `!` — handle 
 ## Deeper in this guide
 
 - [Languages](/docs/stack/languages) — where TypeScript sits in the broader language landscape and why it became the default.
+- [Advanced TypeScript](/docs/stack/typescript-advanced) — once you've shipped a project or two, the type-level features (discriminated unions, generics, conditional/mapped types, `satisfies`, branded types) that take you from competent to expert. Don't rush here — it's the "beginner → expert" deep end.
 
 ## Project
 

@@ -121,6 +121,43 @@ for (const n of nums) {
 
 `.map`, `.filter`, `.reduce`, and `for...of` cover 95% of array work in modern JS. You'll almost never write a traditional `for (let i = 0; ...)` loop again.
 
+**Try it live** — this runs in your browser. Edit the array or the methods and the output updates instantly:
+
+```jsx live
+function ArrayMethods() {
+  const nums = [1, 2, 3, 4, 5];
+
+  const doubled = nums.map((n) => n * 2);
+  const evens = nums.filter((n) => n % 2 === 0);
+  const sum = nums.reduce((acc, n) => acc + n, 0);
+
+  return <pre>{JSON.stringify({ doubled, evens, sum }, null, 2)}</pre>;
+}
+```
+
+**Challenge — write it yourself, then run the tests.** This is practice (the checkpoint quiz at the bottom is what unlocks Next). It runs in your browser:
+
+<CodeChallenge
+  id="stage1-sum-evens"
+  fnName="sumEvens"
+  prompt="Write sumEvens(nums) that returns the sum of only the even numbers in the array. Use the array methods from this section."
+  starter={`function sumEvens(nums) {
+  // your code here
+}`}
+  solution={`function sumEvens(nums) {
+  return nums
+    .filter((n) => n % 2 === 0)
+    .reduce((sum, n) => sum + n, 0);
+}`}
+  tests={[
+    {args: [[1, 2, 3, 4, 5, 6]], expected: 12},
+    {args: [[1, 3, 5]], expected: 0},
+    {args: [[]], expected: 0},
+    {args: [[2, 4, 8]], expected: 14},
+  ]}
+  hint="filter the array down to evens (n % 2 === 0), then reduce to add them up, starting at 0."
+/>
+
 ### 6. Objects: the most-used data structure in JS
 
 ```js
@@ -166,6 +203,21 @@ console.log(x.count); // 99 — x is untouched this time
 ```
 
 This becomes critical in React, where mutating state objects directly (instead of creating new ones) silently fails to trigger re-renders.
+
+**Try it live** — `sameRef` shares the original object (so mutating it changes `original` too); `copy` is independent. Edit the values and watch which ones move together:
+
+```jsx live
+function ReferenceDemo() {
+  const original = { count: 1 };
+  const sameRef = original;      // same object, two names
+  const copy = { ...original };  // an independent copy
+
+  sameRef.count = 99;            // also changes `original`
+  copy.count = 0;                // does NOT change `original`
+
+  return <pre>{JSON.stringify({ original, sameRef, copy }, null, 2)}</pre>;
+}
+```
 
 ### 8. Modules: `import` / `export`
 

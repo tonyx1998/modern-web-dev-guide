@@ -10,6 +10,8 @@ description: How to measure and improve real-world web performance — Core Web 
 
 > **In one line:** Performance is what the user *feels* between clicking a link and being able to use the page — and the difference between a "fast" app and a "slow" one is rarely a single bottleneck; it's a handful of measurable signals (LCP, INP, CLS, TTFB, bundle size) that you can track and improve.
 
+→ **Going deeper:** the engineering method — profile-first, the latency numbers, the database bottleneck, caching as the biggest lever — is in [Performance Engineering](/docs/roadmap/part-3-beyond/performance-deep).
+
 :::tip[In plain English]
 Users don't care about your server's p50 latency. They care about three things: (1) when does the page show something useful (LCP)? (2) when can I actually interact (INP)? (3) does it stop jumping around (CLS)? Google made these into the Core Web Vitals because they correlate with bounce rate, conversion rate, and SEO ranking. Optimizing them is concrete: trim the bundle, defer the non-critical stuff, reserve space for images, stop hydrating things that don't need to hydrate.
 :::

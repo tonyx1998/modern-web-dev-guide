@@ -10,6 +10,8 @@ description: The store of truth for your application. Postgres dominates; SQLite
 
 > **In one line:** Postgres for the data. Redis for the cache. SQLite at the edge. Specialized databases (search, vector, graph) only when Postgres can't.
 
+→ **Going deeper:** [Advanced Databases](/docs/stack/databases-advanced) covers indexes and the query planner (`EXPLAIN`), transaction isolation, the N+1 problem, and safe schema migrations.
+
 :::tip[In plain English]
 The database is where your app's data actually lives. The 2026 default is **PostgreSQL** — open-source, mature, has extensions for almost every specialized need (vectors, time-series, geospatial, full-text search). Add **Redis** when you need fast caching. Reach for anything else only when you have a *specific* problem Postgres can't solve.
 :::

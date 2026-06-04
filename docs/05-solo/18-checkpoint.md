@@ -1,18 +1,18 @@
 ﻿---
 id: solo-checkpoint
-title: Chapter 5 Checkpoint
+title: Chapter 10 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 5 — Solo / Personal. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 6.
+description: Mandatory checkpoint quiz for Chapter 10 — Solo / Personal. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 11.
 ---
 
-# Chapter 5 Checkpoint
+# Chapter 10 Checkpoint
 
 You've finished the Solo / Personal chapter. Take a minute to make sure the core ideas stuck.
 
 There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit, and the link highlights the paragraph for you.
 
-You must pass (≥ 60%) to unlock the Next button and Chapter 6 in the sidebar.
+You must pass (≥ 60%) to unlock the Next button and Chapter 11 in the sidebar.
 
 <Quiz id="solo-checkpoint" title="Solo workflow checkpoint" sampleSize={5}>
 
@@ -30,7 +30,7 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 6 in the sidebar.
 />
 
 <Question
-  prompt="A friend describes their idea: 'a website where running friends log in, draw shared routes on a map, and comment on each other's runs.' Which project type from Chapter 5 does that actually map to?"
+  prompt="A friend describes their idea: 'a website where running friends log in, draw shared routes on a map, and comment on each other's runs.' Which project type from Chapter 10 does that actually map to?"
   options={[
     { text: "Type 1 (Portfolio Site)" },
     { text: "Type 2 (Personal Blog / Content Site)" },
@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 6 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 6: Startup / Small Co.](/docs/startup) to see how the workflow scales when you're not alone anymore.
+→ Continue to [Chapter 11: Startup / Small Co.](/docs/startup) to see how the workflow scales when you're not alone anymore.

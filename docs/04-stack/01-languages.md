@@ -45,7 +45,7 @@ Still everywhere — runs in every browser. Plain JS is fine for:
 - Legacy codebases
 - Quick prototypes you'll throw away
 
-For anything that ships, prefer TypeScript.
+For anything that ships, prefer TypeScript. Once you're fluent with the basics, [Advanced TypeScript](/docs/stack/typescript-advanced) covers the type-level features (discriminated unions, generics, conditional/mapped types, `satisfies`, branded types) that separate competent from expert.
 
 ## Python
 

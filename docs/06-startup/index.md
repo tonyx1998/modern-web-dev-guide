@@ -1,12 +1,12 @@
 ﻿---
 id: small-company-workflow
-title: 6. Small Company Workflow — Overview
+title: 11. Small Company Workflow — Overview
 sidebar_position: 1
 sidebar_label: Startup workflow intro
 description: Startups and small companies (5–50 people). Real product, paying customers, managed services.
 ---
 
-# Part 6: Small Company / Startup Workflow (5–50 People)
+# Part 11: Small Company / Startup Workflow (5–50 People)
 
 *Real product, paying customers, small team, balancing speed and quality.*
 
@@ -68,4 +68,4 @@ Each page focuses on a single topic or phase. Read them in order the first time;
 
 ---
 
-When you finish all 17 pages, move on to [Chapter 7: Large Company Workflow](/docs/enterprise).
+When you finish all 17 pages, move on to [Chapter 12: Large Company Workflow](/docs/enterprise).

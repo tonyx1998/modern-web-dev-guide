@@ -10,6 +10,8 @@ description: How you write CSS shapes the entire development experience. Tailwin
 
 > **In one line:** Tailwind CSS + shadcn/ui is the dominant 2026 styling stack. Old-school CSS Modules still work fine; CSS-in-JS is fading.
 
+→ **Going deeper:** [Advanced CSS & Styling](/docs/stack/styling-advanced) covers the cascade and specificity, stacking contexts, modern layout, and design tokens.
+
 :::tip[In plain English]
 "Styling" is the layer that makes things look right — colors, spacing, fonts, hover states. Modern frontend has converged on **utility-first CSS** (Tailwind) — instead of writing custom class names like `.primary-button`, you compose pre-made utility classes (`px-4 py-2 bg-blue-500 rounded`). Combined with a component collection like shadcn/ui, you go from "blank canvas" to "professional-looking UI" in an afternoon.
 :::

@@ -59,6 +59,38 @@ form.addEventListener("submit", (event) => {
 
 Common event names: `click`, `submit`, `input` (fires on every keystroke), `change` (fires when the value is committed), `keydown`, `mouseenter`, `scroll`.
 
+**Try it live** — a real page with your JS running. Click the button and type in the box, then edit the code and watch the preview re-run:
+
+<Sandbox
+  template="static"
+  editorHeight={300}
+  files={{
+    '/index.html': `<!doctype html>
+<html>
+  <body style="font-family: system-ui; padding: 1rem;">
+    <button id="btn">Click me</button>
+    <p id="count">Clicks: 0</p>
+    <input id="name" placeholder="Type your name" />
+    <p id="echo"></p>
+
+    <script>
+      let n = 0;
+      const count = document.querySelector('#count');
+      document.querySelector('#btn').addEventListener('click', () => {
+        n += 1;
+        count.textContent = 'Clicks: ' + n;
+      });
+
+      const echo = document.querySelector('#echo');
+      document.querySelector('#name').addEventListener('input', (e) => {
+        echo.textContent = e.target.value ? 'Hello, ' + e.target.value : '';
+      });
+    </script>
+  </body>
+</html>`,
+  }}
+/>
+
 ### 4. Changing the page
 
 ```js

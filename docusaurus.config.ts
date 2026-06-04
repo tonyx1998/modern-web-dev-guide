@@ -34,6 +34,7 @@ const config: Config = {
 
   themes: [
     '@docusaurus/theme-mermaid',
+    '@docusaurus/theme-live-codeblock',
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
@@ -50,6 +51,21 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
+  plugins: [
+    // Enable WebAssembly so pglite (Postgres-in-WASM, used by the SQL
+    // playground on the Advanced Databases page) can load its module.
+    function wasmSupportPlugin() {
+      return {
+        name: 'wasm-support',
+        configureWebpack() {
+          return {
+            experiments: {asyncWebAssembly: true},
+          };
+        },
+      };
+    },
+  ],
 
   presets: [
     [
@@ -137,7 +153,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Foundations',
+          title: 'Fundamentals',
           items: [
             {label: 'Introduction', to: '/'},
             {label: '1. Foundations', to: '/docs/foundations'},
@@ -147,21 +163,25 @@ const config: Config = {
           ],
         },
         {
-          title: 'Workflows',
+          title: 'Infrastructure & Scale',
           items: [
-            {label: '5. Solo / Personal', to: '/docs/solo'},
-            {label: '6. Startup / Small Co.', to: '/docs/startup'},
-            {label: '7. Enterprise', to: '/docs/enterprise'},
-            {label: '8. Comparison', to: '/docs/comparison'},
+            {label: '5. Cloud Platforms', to: '/docs/cloud'},
+            {label: '6. SRE & Operations', to: '/docs/operations'},
+            {label: '7. Distributed Systems', to: '/docs/distributed-systems'},
+            {label: '8. AI Integration', to: '/docs/ai'},
+            {label: '9. Mobile & Ecosystems', to: '/docs/ecosystems'},
           ],
         },
         {
-          title: 'Applied',
+          title: 'Workflows & Growth',
           items: [
-            {label: '9. Decisions', to: '/docs/decisions'},
-            {label: '10. AI Layer', to: '/docs/ai'},
-            {label: '11. Career', to: '/docs/career'},
-            {label: '12. Glossary', to: '/docs/glossary'},
+            {label: '10. Solo / Personal', to: '/docs/solo'},
+            {label: '11. Startup / Small Co.', to: '/docs/startup'},
+            {label: '12. Enterprise', to: '/docs/enterprise'},
+            {label: '13. Comparison', to: '/docs/comparison'},
+            {label: '14. Decisions', to: '/docs/decisions'},
+            {label: '15. Career', to: '/docs/career'},
+            {label: '16. Glossary', to: '/docs/glossary'},
           ],
         },
         {

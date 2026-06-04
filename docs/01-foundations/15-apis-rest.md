@@ -10,6 +10,8 @@ description: The dominant style for web APIs. Resources addressed by URLs, manip
 
 > **In one line:** Treat your data as **resources** addressed by URLs, and use HTTP methods (GET/POST/PATCH/DELETE) as the verbs. That's REST.
 
+→ **Going deeper:** [Advanced API Design](/docs/stack/apis-advanced) covers contracts and versioning, cursor pagination, idempotency keys, and choosing between REST/GraphQL/gRPC/tRPC.
+
 :::tip[In plain English]
 A "REST API" is just a polite naming convention for web servers. URLs name *things* (`/users`, `/orders/42`). HTTP methods name *actions* on those things (GET = read, POST = create, PATCH = update, DELETE = delete). Almost every public web API in the last 15 years has used this pattern. If you can describe what you want as "do this *verb* on this *thing*," REST is a natural fit.
 :::

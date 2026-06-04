@@ -10,6 +10,8 @@ description: The test pyramid in practice — unit, integration, e2e, contract, 
 
 > **In one line:** Tests are the safety net that lets you change code without breaking everything else. The hard part isn't writing them — it's writing the *right ones at the right level*, keeping them fast, and trusting them when they pass.
 
+→ **Going deeper:** the senior strategy — pyramid vs trophy, testing behavior not implementation, the over-mocking trap — is in [Testing, Properly](/docs/roadmap/part-3-beyond/testing-deep).
+
 :::tip[In plain English]
 A unit test asks "does this one function do its job?" An integration test asks "do these pieces work together?" An end-to-end test asks "does the whole app do the user's job?" You need some of each, in roughly the right proportions, and you need them to be fast and deterministic. A team without tests is brave. A team with bad tests is exhausted — they spend hours chasing flakes for no real signal.
 :::

@@ -12,6 +12,8 @@ description: Components, JSX, props, state, useEffect — and the mental shift f
 
 > **In one line:** Describe what the UI should look like for a given state — React figures out the DOM changes.
 
+> **Going deeper:** once components, props, state, and effects click, [Advanced React](/docs/stack/frontend-frameworks-advanced) covers the render model, the rules of hooks, Server Components, and performance.
+
 React is a library for building user interfaces out of components. Instead of imperatively writing "find this DOM element, change its text" (Stage 3), you declaratively describe what the UI should look like for a given **state**, and React figures out the DOM changes for you. Once it clicks, you'll never want to go back to vanilla DOM manipulation.
 
 For where React sits among other UI libraries, see [Frontend Frameworks](/docs/stack/frontend-frameworks). For the architectural style React originated, see [SPA / MPA / Hybrid](/docs/foundations/spa-mpa-hybrid).
@@ -105,6 +107,22 @@ function Counter() {
 
 The mental model: `useState` gives you a value and a setter. Calling the setter tells React "re-run my component function and produce new JSX with this new value." React diffs the new JSX against the old and updates only what changed in the DOM.
 
+**Try it live** — click the buttons, then edit the code (try changing `+1` to `+5`, or the starting value) and watch it re-render instantly:
+
+```jsx live
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>+1</button>
+      <button onClick={() => setCount(0)} style={{ marginLeft: 8 }}>reset</button>
+    </div>
+  );
+}
+```
+
 ### 5. The rules of state that bite newcomers
 
 ```tsx
@@ -121,6 +139,26 @@ setCount(prev => prev + 1);    // safe against race conditions
 
 This is the *reference vs value* distinction from Stage 1 in action. React compares state by reference: if you mutate the same array, the reference is unchanged, no re-render.
 
+**Challenge — immutable update.** React only re-renders when state changes by *reference*, so you must return a *new* array, never mutate the old one. Write it and run the tests (mutating the input fails on purpose):
+
+<CodeChallenge
+  id="stage6-add-todo"
+  fnName="addTodo"
+  noMutate
+  prompt="Write addTodo(todos, text) that returns a NEW array with { text } appended — without mutating the original todos array."
+  starter={`function addTodo(todos, text) {
+  // return a new array; do NOT mutate todos
+}`}
+  solution={`function addTodo(todos, text) {
+  return [...todos, { text }];
+}`}
+  tests={[
+    {args: [[], "buy milk"], expected: [{text: "buy milk"}]},
+    {args: [[{text: "a"}], "b"], expected: [{text: "a"}, {text: "b"}]},
+  ]}
+  hint="spread the existing array into a new one and append the todo: [...todos, { text }]."
+/>
+
 ### 6. Rendering lists
 
 ```tsx
@@ -136,6 +174,28 @@ function TodoList({ todos }: { todos: Todo[] }) {
 ```
 
 `key` is non-optional — it's how React tracks which item is which across re-renders. Use a stable unique id (the database id, a UUID). **Never use the array index as the key** in lists that can reorder or have items inserted/removed — it causes mysterious bugs.
+
+**Challenge — immutable update of one item in a list.** This is the single most common React state operation. Return a *new* array where only the matching todo changes:
+
+<CodeChallenge
+  id="stage6-toggle-done"
+  fnName="toggleDone"
+  noMutate
+  prompt="Write toggleDone(todos, id) that returns a NEW array where the todo with the matching id has its done flipped — without mutating the originals."
+  starter={`function toggleDone(todos, id) {
+  // return a new array; flip done on the matching todo only
+}`}
+  solution={`function toggleDone(todos, id) {
+  return todos.map((t) =>
+    t.id === id ? { ...t, done: !t.done } : t
+  );
+}`}
+  tests={[
+    {args: [[{id: 1, done: false}, {id: 2, done: true}], 1], expected: [{id: 1, done: true}, {id: 2, done: true}]},
+    {args: [[{id: 1, done: false}], 99], expected: [{id: 1, done: false}]},
+  ]}
+  hint="map over the array; for the matching id return a NEW object { ...t, done: !t.done }, otherwise return t unchanged."
+/>
 
 ### 7. Forms (controlled inputs)
 
@@ -162,6 +222,25 @@ function SignupForm() {
 ```
 
 A "controlled" input is one where React holds the value, not the DOM. The input *reflects* the state, and every keystroke updates the state. It feels like extra work for a single input but pays off the moment you need validation, derived state, or a programmatic reset.
+
+**Try it live** — type in the box and watch React's state mirror every keystroke. Then try deriving from it (e.g. show `name.length`):
+
+```jsx live
+function NameField() {
+  const [name, setName] = useState("");
+
+  return (
+    <div>
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Type your name"
+      />
+      <p>React state holds: <strong>{name || "(empty)"}</strong></p>
+    </div>
+  );
+}
+```
 
 ### 8. `useEffect`: side effects (and why you should avoid it)
 

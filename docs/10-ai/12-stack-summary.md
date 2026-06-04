@@ -55,7 +55,7 @@ Most teams should follow the table. Reasonable reasons to deviate:
 Every deviation is an *innovation token* (see [the boring technology rule](/docs/decisions/boring-technology)) — spend it deliberately.
 :::
 
-## Wrapping up Part 10
+## Wrapping up Part 8
 
 AI is now a standard layer in modern web apps, not an experimental novelty. The patterns are clear:
 
@@ -130,11 +130,11 @@ The hard parts are cost management, evaluation, safety, and the new mental model
   ]}
   correct={1}
   explanation="The mental shift is treating the LLM as a non-deterministic production dependency. Once you instrument, eval, monitor, and guardrail it like any other critical system, AI features become reliable."
-  revisit={{ to: "/docs/ai/ai-stack-summary#wrapping-up-part-10", label: "Wrapping up Part 10" }}
+  revisit={{ to: "/docs/ai/ai-stack-summary#wrapping-up-part-8", label: "Wrapping up Part 8" }}
 />
 
 </Quiz>
 
 ## What's next
 
-→ Continue to [Chapter 11: Career Path](/docs/career) — paths and learning resources for becoming (or staying) a great web developer in the AI era.
+→ Continue to [Chapter 9: Mobile & Other Ecosystems](/docs/ecosystems) — stepping beyond the web stack to mobile platforms and the major backend language ecosystems.

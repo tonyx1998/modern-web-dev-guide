@@ -13,7 +13,7 @@ description: The new layer in modern web apps — model providers, SDKs, vector 
 :::tip[In plain English]
 Every modern app in 2026 has at least one AI feature — chat assistance, summarization, semantic search, content generation. The AI infrastructure layer is the set of tools that makes those features practical: who you call for the model, the SDK that handles streaming and tool calls, the database that stores embeddings, and the dashboards that track cost and latency.
 
-For deep coverage of *patterns* for AI features, see [Chapter 10: AI Integration](/docs/ai).
+For deep coverage of *patterns* for AI features, see [Chapter 8: AI Integration](/docs/ai).
 :::
 
 ## Model APIs

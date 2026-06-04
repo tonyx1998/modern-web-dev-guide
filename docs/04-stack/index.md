@@ -70,4 +70,4 @@ This is the "boring" path. It's boring because it works. Save creativity for you
 
 ---
 
-When you finish, move on to [Chapter 5: Personal Website Workflow](/docs/solo).
+When you finish, move on to [Chapter 5: Cloud Platforms](/docs/cloud) — the infrastructure your stack actually runs on.
