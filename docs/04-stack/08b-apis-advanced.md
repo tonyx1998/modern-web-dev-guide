@@ -14,6 +14,8 @@ description: Beyond "return JSON" — resource modeling, versioning, pagination,
 You've built endpoints that read and write data. This is the layer that decides whether your API is still pleasant (and unbroken) two years and a hundred clients later. It pairs with the Foundations API pages and the [Distributed Systems](/docs/distributed-systems/idempotency) idempotency material.
 :::
 
+← New here? Start with the on-ramp: [REST APIs](/docs/foundations/apis-rest).
+
 :::tip[In plain English]
 The hard part of APIs isn't making one work today — it's that *other people build on it*, and once they do, you can't casually change it without breaking them. So API design is really *contract design*: pick shapes you can live with, make changes additive, and handle the messy realities (huge result sets, retried requests, partial failures) with established patterns instead of inventing your own. Get those right and your API scales from one caller to thousands without a painful rewrite.
 :::

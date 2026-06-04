@@ -14,6 +14,8 @@ description: Beyond components — reconciliation, the rules of hooks and why th
 This assumes you've done the React stage and shipped UI with `useState`/`useEffect`. It's the "competent → expert" layer: the mental model of rendering, the modern Server-Component split, and the performance discipline. You don't need it to build your first apps — reach for it when an app gets big enough to feel slow or tangled.
 :::
 
+← New here? Start with the on-ramp: [Frontend Frameworks](/docs/stack/frontend-frameworks).
+
 :::tip[In plain English]
 Beginners think of React as "I write components and they show up." Experts think of it as "*state changes, and React figures out the minimum DOM updates*" — and they know exactly what causes that to happen. The single most useful upgrade is being able to answer "why did this component just re-render?" instantly: a parent re-rendered, its props/state changed, or its context value changed. Get that, plus where code runs (server vs browser) in modern React, and most performance mysteries and stale-data bugs evaporate.
 :::

@@ -14,6 +14,8 @@ description: The type-level TypeScript that Stage 5 deferred — narrowing, disc
 This page assumes you've done [Stage 5 — TypeScript](/docs/roadmap/part-1-from-zero/stage-5-typescript) and shipped a project or two with it. It's the "competent → expert" step: the type-level features that make libraries pleasant, refactors fearless, and bugs impossible to express. If you're brand new, bookmark this and come back — you won't need any of it to build your first apps, and reaching for it too early is its own anti-pattern (covered at the end).
 :::
 
+← New here? Start with the on-ramp: [Languages](/docs/stack/languages).
+
 :::tip[In plain English]
 Most people use TypeScript at about 20% of its power — they annotate variables and move on. The other 80% is *describing the rules of your domain so precisely that wrong code won't compile*. If an order can be `pending`, `paid`, or `shipped`, and a shipped order *always* has a tracking number while a pending one *never* does, you can encode that so the compiler rejects "a pending order with a tracking number" — you literally cannot write the bug. That's the mindset shift: stop thinking of types as labels, start thinking of them as a *machine-checked specification* of what's allowed. This page is the toolkit for doing that, plus the judgment to know when clever types help and when they just make your teammates cry.
 :::

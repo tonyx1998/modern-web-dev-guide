@@ -152,7 +152,7 @@ At $0 for the first 10K users, you'd be irrational to roll your own.
   ]}
   correct={1}
   explanation="The page lists everything that comes after the login form: password reset, email verification, social logins, MFA, sessions, account recovery, breach notifications, passkeys, OAuth flows. Each defends against subtle attacks. Hosted auth services have spent millions getting these right."
-  revisit={{ to: "/docs/solo/auth#phase-5-adding-auth", label: "Why use hosted auth" }}
+  revisit={{ to: "/docs/solo/auth#phase-6-adding-auth", label: "Why use hosted auth" }}
 />
 
 </Quiz>
