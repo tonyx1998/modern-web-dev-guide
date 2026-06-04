@@ -14,6 +14,8 @@ description: Beyond CRUD — how indexes and the query planner work, transaction
 You can write `SELECT`/`INSERT`/`UPDATE` and you've used an ORM. This is the layer that separates "queries work" from "queries stay fast and correct under real load." It builds on the Foundations SQL pages and pairs with [Cloud → Managed Data](/docs/cloud/cloud-managed-data) and [Distributed Systems → Consistency](/docs/distributed-systems/ds-consistency).
 :::
 
+← New here? Start with the on-ramp: [Relational (SQL) Databases](/docs/foundations/databases-sql).
+
 :::tip[In plain English]
 A database does two things you need to reason about: it *finds rows* (fast if there's an index, painfully slow if it has to scan the whole table) and it *coordinates concurrent changes* (so two people editing the same data don't corrupt it). Almost every "the app got slow" story is a query with no index doing a full scan, or one screen firing hundreds of tiny queries. Almost every "the data is wrong sometimes" story is a misunderstanding of transactions. You don't need to be a DBA — you need these few models, and you'll fix the problems that actually occur.
 :::

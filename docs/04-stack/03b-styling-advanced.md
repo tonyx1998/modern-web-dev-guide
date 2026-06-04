@@ -14,6 +14,8 @@ description: Beyond utility classes — the cascade and specificity, stacking co
 You've used Tailwind or written component styles and hit the moments where CSS feels arbitrary. This page is the model underneath that makes it predictable. Beginners can skip it; it pays off once you're building a design system or debugging a layout that "should work."
 :::
 
+← New here? Start with the on-ramp: [Styling](/docs/stack/styling).
+
 :::tip[In plain English]
 CSS feels random until you internalize that it's a system of *resolution rules*. When two rules target the same element, one wins — by specificity, then source order, with `!important` and inline styles as overrides. When something appears behind something it shouldn't, that's a *stacking context*, not a bug. When a layout collapses, it's the box model or a flex/grid property doing exactly what it was told. None of it is magic; it's a small set of rules applied consistently. Learn the rules and you stop fighting CSS.
 :::
