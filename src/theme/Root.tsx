@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import type {ReactNode} from 'react';
 import BrowserOnly from '@docusaurus/BrowserOnly';
-import SidebarToggle from '@site/src/components/SidebarToggle';
+import SuggestionsPill from '@site/src/components/SuggestionsPill';
 import RevisitHighlight from '@site/src/components/RevisitHighlight';
 import SidebarLockGate from '@site/src/components/SidebarLockGate';
 
@@ -23,7 +23,7 @@ export default function Root({children}: RootProps): ReactNode {
       <BrowserOnly>
         {() => (
           <>
-            <SidebarToggle />
+            <SuggestionsPill />
             <RevisitHighlight />
             <SidebarLockGate />
           </>

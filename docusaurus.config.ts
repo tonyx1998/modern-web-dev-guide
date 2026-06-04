@@ -8,7 +8,11 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   stylesheets: [
-    'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap',
+    // Reading-experience type system:
+    //   · IBM Plex Sans  — body text & UI (warmer/more characterful than Inter, equally legible)
+    //   · Newsreader     — editorial serif for large headings, so section structure reads clearly
+    //   · IBM Plex Mono  — code blocks & inline code
+    'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap',
   ],
 
   future: {
@@ -97,7 +101,7 @@ const config: Config = {
     mermaid: {
       theme: {light: 'neutral', dark: 'dark'},
       options: {
-        fontFamily: "'Inter', ui-sans-serif, system-ui, sans-serif",
+        fontFamily: "'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif",
         flowchart: {curve: 'basis', htmlLabels: true, padding: 16, nodeSpacing: 55, rankSpacing: 55, useMaxWidth: false},
         sequence: {useMaxWidth: false, mirrorActors: false},
         gantt: {useMaxWidth: false},
@@ -111,7 +115,7 @@ const config: Config = {
           secondaryColor: '#334155',
           tertiaryColor: '#1c2535',
           fontSize: '15px',
-          fontFamily: "'Inter', ui-sans-serif, system-ui, sans-serif",
+          fontFamily: "'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif",
         },
         themeCSS: '.node rect{rx:8px;ry:8px} .node rect,.node polygon{stroke-width:1.5px} .edgePath .path{stroke-width:1.5px} .cluster rect{rx:10px;ry:10px}',
       },
@@ -138,14 +142,14 @@ const config: Config = {
           position: 'left',
         },
         {
-          to: '/suggestions',
-          label: 'Suggestions',
-          position: 'right',
-        },
-        {
+          // "Suggestions" now lives in a floating bottom-right pill
+          // (see src/components/SuggestionsPill) so it's reachable from
+          // every page without cluttering the navbar.
           href: 'https://github.com/tonyx1998/modern-web-dev-guide',
           label: 'GitHub',
           position: 'right',
+          className: 'navbar-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
