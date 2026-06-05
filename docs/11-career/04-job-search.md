@@ -56,6 +56,10 @@ A typical web dev interview process:
 - **Behavioral:** *STAR* format — **S**ituation, **T**ask, **A**ction, **R**esult — the standard structure for narrative interview answers. Have 5–10 stories ready.
 - **Frontend-specific:** Build something live. Be able to explain your past work clearly.
 
+:::tip[Rehearse it out loud]
+Reading the round list isn't the same as doing it under pressure. The next page — [Mock interviews (SoloMock)](./career-mock-interviews) — maps each frontend round (build-a-component, React debugging, JS depth, frontend system design) to a specific verbal mock you can practice solo.
+:::
+
 ## Negotiating
 
 When you get an offer:
