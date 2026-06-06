@@ -1,0 +1,76 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.default {
+  background: var(--ifm-color-primary);
+  color: var(--ifm-color-primary-contrast-foreground, #fff);
+  border-color: var(--ifm-color-primary);
+}
+
+.default:hover {
+  background: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+  color: #fff;
+  text-decoration: none;
+}
+
+.outline {
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  border-color: var(--ifm-color-emphasis-300);
+}
+
+.outline:hover {
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.ghost {
+  background: transparent;
+  color: var(--ifm-color-emphasis-700);
+  border-color: transparent;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.ghost:hover {
+  background: var(--ifm-color-emphasis-100);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+.sm {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.md {
+  padding: 0.5rem 1rem;
+  font-size: 0.92rem;
+}
+
+.lg {
+  padding: 0.65rem 1.25rem;
+  font-size: 1rem;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}

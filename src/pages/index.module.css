@@ -1,0 +1,7 @@
+.main {
+  min-height: calc(100vh - var(--ifm-navbar-height));
+}
+
+.overview {
+  margin-bottom: 2rem;
+}

@@ -4,6 +4,7 @@ title: The Client–Server Model
 sidebar_position: 2
 sidebar_label: Client–Server
 description: Every interaction on the web is a request from a client and a response from a server. Master this and the rest of the web makes sense.
+estimatedMinutes: 12
 ---
 
 # The Client–Server Model

@@ -1,0 +1,108 @@
+.headerRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--ifm-color-primary);
+  flex-shrink: 0;
+}
+
+.description {
+  font-size: 0.88rem;
+  color: var(--guide-muted);
+  margin: 0.35rem 0 0;
+  line-height: 1.45;
+}
+
+.progressRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.progressLabel {
+  color: var(--guide-muted);
+}
+
+.progressCount {
+  font-weight: 500;
+}
+
+.progressBar {
+  margin-bottom: 1rem;
+}
+
+.moduleLink {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.moduleLink:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cta {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: transparent;
+  color: var(--ifm-font-color-base);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.moduleLink:hover .cta {
+  background: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.continueRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.continueLabel {
+  font-size: 0.85rem;
+  color: var(--guide-muted);
+  margin: 0 0 0.25rem;
+}
+
+.continueTitle {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.continueChapter {
+  font-size: 0.85rem;
+  color: var(--guide-muted);
+  margin: 0.25rem 0 0;
+}
+
+.continueIcon {
+  color: var(--ifm-color-primary);
+}
+
+@media (max-width: 600px) {
+  .continueRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
