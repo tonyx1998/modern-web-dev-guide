@@ -4,6 +4,7 @@ title: 'DNS: The Internet''s Phone Book'
 sidebar_position: 6
 sidebar_label: DNS
 description: How a name like google.com becomes the IP address 142.250.190.78, and why this happens in milliseconds despite being a multi-step lookup.
+estimatedMinutes: 12
 ---
 
 # DNS: The Internet's Phone Book

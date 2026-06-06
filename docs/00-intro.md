@@ -10,6 +10,10 @@ toc_max_heading_level: 2
 
 # Modern Web Development: A Comprehensive Guide (2026)
 
+:::tip[Prefer the visual dashboard?]
+The [home page →](/) shows your learning progress, achievements, and chapter cards — then links here for reading.
+:::
+
 *How websites are actually built in 2026 — for absolute beginners and beyond.*
 
 **What it is** — A 2026 reference on how modern web apps are designed, built, shipped, scaled, and operated, paired with a step-by-step roadmap for getting there from zero. **16 chapters plus this introduction**, grouped into six parts and split into ~250 focused single-topic pages.

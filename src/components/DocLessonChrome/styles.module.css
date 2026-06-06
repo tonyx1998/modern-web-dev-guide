@@ -1,0 +1,91 @@
+.chrome {
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  color: var(--guide-muted);
+  margin-bottom: 1rem;
+}
+
+.breadcrumbLink {
+  color: var(--guide-muted);
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.breadcrumbLink:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.breadcrumbSep {
+  color: var(--ifm-color-emphasis-400);
+}
+
+.breadcrumbCurrent {
+  color: var(--ifm-font-color-base);
+}
+
+.progressCard {
+  margin-bottom: 1rem;
+}
+
+.progressRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.progressLabel {
+  font-weight: 500;
+}
+
+.progressMeta {
+  color: var(--guide-muted);
+}
+
+.headerBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.lessonTitle {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.description {
+  color: var(--guide-muted);
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  color: var(--guide-muted);
+}
+
+.completedIcon {
+  width: 0.875rem;
+  height: 0.875rem;
+}

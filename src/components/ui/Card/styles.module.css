@@ -1,0 +1,44 @@
+.card {
+  background: var(--guide-card-bg);
+  border: 1px solid var(--guide-card-border);
+  border-radius: var(--guide-card-radius);
+  box-shadow: var(--guide-card-shadow);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.interactive {
+  cursor: pointer;
+}
+
+.interactive:hover {
+  box-shadow: var(--guide-card-shadow-hover);
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 35%, var(--guide-card-border));
+  transform: translateY(-2px);
+}
+
+.accent {
+  background: var(--guide-accent-bg);
+  border-color: var(--guide-accent-border);
+}
+
+.header {
+  padding: 1.25rem 1.25rem 0;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+  color: var(--ifm-heading-color);
+}
+
+.content {
+  padding: 1.25rem;
+}
+
+.header + .content {
+  padding-top: 0.75rem;
+}

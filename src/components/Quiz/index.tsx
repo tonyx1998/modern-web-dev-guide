@@ -381,15 +381,13 @@ export function Quiz({
       >
         <header className={`${styles.header} ${isMicro ? styles.headerMicro : ''}`}>
           <span className={`${styles.badge} ${isMicro ? styles.badgeMicro : ''}`}>
-            {isMicro ? '🤔 Quick check' : isRequired ? 'Required checkpoint' : 'Checkpoint'}
+            {isMicro ? '🤔 Quick check' : 'Checkpoint Quiz'}
           </span>
           {!isMicro && (
-            <h3 className={styles.title}>{title ?? 'Quick check'}</h3>
+            <h3 className={styles.title}>{title ?? 'Checkpoint Quiz'}</h3>
           )}
           {!isMicro && isRequired && (
-            <span className={styles.requiredHint}>
-              Pass to unlock the Next button below
-            </span>
+            <span className={styles.requiredHint}>Required</span>
           )}
           {isMicro && title && (
             <span className={styles.microTitle}>{title}</span>

@@ -1055,3 +1055,129 @@ div[class*='codeBlockTitle'] {
     bottom: 4rem;
   }
 }
+
+/* ============================================================
+   FIGMA DESIGN LANGUAGE — level colors, cards, badges, progress
+   Adapted from the Web Developer Guide Website Figma Make template.
+   Used by landing page components and available site-wide.
+   ============================================================ */
+
+:root {
+  --level-beginner: #22c55e;
+  --level-intermediate: #3b82f6;
+  --level-advanced: #a855f7;
+  --level-expert: #f97316;
+
+  --guide-card-radius: 12px;
+  --guide-card-border: var(--ifm-color-emphasis-200);
+  --guide-card-bg: var(--ifm-background-surface-color);
+  --guide-card-shadow: 0 1px 2px rgba(20, 30, 60, 0.04), 0 4px 16px -8px rgba(20, 30, 60, 0.12);
+  --guide-card-shadow-hover: 0 8px 24px -8px rgba(37, 99, 235, 0.18);
+  --guide-muted: var(--ifm-color-emphasis-600);
+  --guide-accent-bg: color-mix(in srgb, var(--ifm-color-primary) 6%, transparent);
+  --guide-accent-border: color-mix(in srgb, var(--ifm-color-primary) 22%, transparent);
+  --guide-progress-bg: var(--ifm-color-emphasis-200);
+  --guide-progress-fill: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] {
+  --guide-card-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 6px 20px -10px rgba(0, 0, 0, 0.5);
+  --guide-card-shadow-hover: 0 10px 28px -8px rgba(96, 165, 250, 0.25);
+  --guide-accent-bg: rgba(96, 165, 250, 0.08);
+  --guide-accent-border: rgba(96, 165, 250, 0.22);
+}
+
+/* Level badge utility classes */
+.level-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  letter-spacing: 0.02em;
+  color: #fff;
+  line-height: 1.4;
+}
+.level-badge--beginner { background: var(--level-beginner); }
+.level-badge--intermediate { background: var(--level-intermediate); }
+.level-badge--advanced { background: var(--level-advanced); }
+.level-badge--expert { background: var(--level-expert); }
+
+/* Shared guide card surface (also used via CSS modules) */
+.guide-card-surface {
+  background: var(--guide-card-bg);
+  border: 1px solid var(--guide-card-border);
+  border-radius: var(--guide-card-radius);
+  box-shadow: var(--guide-card-shadow);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+.guide-card-surface--interactive:hover {
+  box-shadow: var(--guide-card-shadow-hover);
+  border-color: color-mix(in srgb, var(--ifm-color-primary) 35%, var(--guide-card-border));
+  transform: translateY(-2px);
+  cursor: pointer;
+  text-decoration: none;
+}
+.guide-card-surface--accent {
+  background: var(--guide-accent-bg);
+  border-color: var(--guide-accent-border);
+}
+
+/* Progress bar track/fill */
+.guide-progress {
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--guide-progress-bg);
+  overflow: hidden;
+}
+.guide-progress--lg {
+  height: 0.75rem;
+}
+.guide-progress__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--guide-progress-fill);
+  transition: width 0.35s ease;
+}
+
+/* Hide duplicate h1 when DocLessonChrome renders the title */
+.doc-with-lesson-chrome + .theme-doc-markdown.markdown > h1:first-child {
+  display: none;
+}
+
+/* Landing page layout helpers */
+.landing-page {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+.landing-section {
+  margin-bottom: 2.5rem;
+}
+.landing-section-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+.landing-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .landing-grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .landing-grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .landing-grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
