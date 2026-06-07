@@ -1,4 +1,4 @@
-﻿---
+---
 id: stage-6-react
 title: Stage 6 — React fundamentals
 sidebar_position: 7

@@ -1,4 +1,4 @@
-﻿---
+---
 id: too-big
 title: When You're "Too Big" for This Workflow
 sidebar_position: 19

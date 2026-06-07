@@ -1,4 +1,4 @@
-﻿---
+---
 id: stage-0-setup
 title: Stage 0 — Get set up
 sidebar_position: 1

@@ -1,4 +1,4 @@
-﻿---
+---
 id: ai-stack-summary
 title: The 2026 AI Stack Summary
 sidebar_position: 13

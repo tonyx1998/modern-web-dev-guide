@@ -1,4 +1,4 @@
-﻿---
+---
 id: testing
 title: 'Phase 7: Testing Strategy'
 sidebar_position: 9

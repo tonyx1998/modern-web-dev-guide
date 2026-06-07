@@ -1,4 +1,4 @@
-﻿---
+---
 id: tutorial-trap
 title: Escaping the Tutorial Trap
 sidebar_position: 5

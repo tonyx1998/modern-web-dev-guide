@@ -1,4 +1,4 @@
-﻿---
+---
 id: career-path
 title: 15. Career Path — Overview
 sidebar_position: 1
@@ -56,29 +56,29 @@ Each page focuses on **one topic** with worked examples and beginner callouts. R
 
 ### The lay of the land
 
-1. [The State of the Market (2026)](./state-of-market) — Three patterns shaping the current job market.
-2. [Foundational Skills](./foundational-skills) — The nine skill areas you must build, in priority order.
+1. [The State of the Market (2026)](/docs/career/state-of-market) — Three patterns shaping the current job market.
+2. [Foundational Skills](/docs/career/foundational-skills) — The nine skill areas you must build, in priority order.
 
 ### Becoming visible
 
-3. [Building a Portfolio](./career-portfolio) — Real projects, deployed, written about, shared.
-4. [The Job Search](./career-job-search) — Applications, interview prep, negotiation.
+3. [Building a Portfolio](/docs/career/career-portfolio) — Real projects, deployed, written about, shared.
+4. [The Job Search](/docs/career/career-job-search) — Applications, interview prep, negotiation.
 
 ### Growing over time
 
-5. [Specialization Tracks](./career-specialization) — Ten common paths after 2–3 years of generalist work.
-6. [Compensation Context (US, 2026)](./career-compensation) — Rough total comp ranges and what shifts them.
-7. [Continuous Learning](./career-continuous-learning) — Information diet, books, courses, AI as a learning tool.
+5. [Specialization Tracks](/docs/career/career-specialization) — Ten common paths after 2–3 years of generalist work.
+6. [Compensation Context (US, 2026)](/docs/career/career-compensation) — Rough total comp ranges and what shifts them.
+7. [Continuous Learning](/docs/career/career-continuous-learning) — Information diet, books, courses, AI as a learning tool.
 
 ### Avoiding traps
 
-8. [Career Pitfalls and Patterns](./career-pitfalls) — The tutorial trap, the job lottery, burnout, imposter syndrome.
-9. [What About Bootcamps and Degrees?](./career-bootcamps-degrees) — The honest 2026 take on each route.
+8. [Career Pitfalls and Patterns](/docs/career/career-pitfalls) — The tutorial trap, the job lottery, burnout, imposter syndrome.
+9. [What About Bootcamps and Degrees?](/docs/career/career-bootcamps-degrees) — The honest 2026 take on each route.
 
 ### Putting it together
 
-10. [A Realistic Multi-Year Path](./career-multi-year-path) — Year-by-year from "decide to learn" to senior IC.
-11. [For Tony Specifically (or Anyone in His Position)](./career-for-tony) — Ten pieces of specific advice for a CS Master's student.
+10. [A Realistic Multi-Year Path](/docs/career/career-multi-year-path) — Year-by-year from "decide to learn" to senior IC.
+11. [For Tony Specifically (or Anyone in His Position)](/docs/career/career-for-tony) — Ten pieces of specific advice for a CS Master's student.
 
 ---
 

@@ -1,4 +1,4 @@
-﻿---
+---
 id: stage-4-git
 title: Stage 4 — Git & GitHub
 sidebar_position: 5

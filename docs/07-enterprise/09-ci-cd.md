@@ -1,4 +1,4 @@
-﻿---
+---
 id: ci-cd
 title: 'Phase 7: CI/CD at Scale'
 sidebar_position: 10

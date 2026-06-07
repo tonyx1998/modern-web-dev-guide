@@ -1,4 +1,4 @@
-﻿---
+---
 id: planning
 title: 'Phase 1: Discovery & Planning'
 sidebar_position: 4

@@ -1,4 +1,4 @@
-﻿---
+---
 id: devops
 title: DevOps & Infrastructure
 sidebar_position: 17

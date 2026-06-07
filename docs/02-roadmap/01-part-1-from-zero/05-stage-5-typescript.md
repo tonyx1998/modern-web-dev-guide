@@ -1,4 +1,4 @@
-﻿---
+---
 id: stage-5-typescript
 title: Stage 5 — TypeScript
 sidebar_position: 6

@@ -1,4 +1,4 @@
-﻿---
+---
 id: personal-website-workflow
 title: 10. Personal Website Workflow — Overview
 sidebar_position: 1

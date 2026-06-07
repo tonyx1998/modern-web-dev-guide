@@ -1,4 +1,4 @@
-﻿---
+---
 id: observability-tools
 title: Monitoring & Observability (Tools)
 sidebar_position: 18

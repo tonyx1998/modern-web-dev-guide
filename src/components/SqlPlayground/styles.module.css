@@ -36,7 +36,7 @@
   padding: 0.75rem 0.85rem;
   border: 1px solid var(--ifm-color-emphasis-300);
   border-radius: 8px;
-  background: var(--ifm-pre-background, #1e1e1e);
+  background: var(--ifm-color-emphasis-100);
   color: var(--ifm-font-color-base);
   resize: vertical;
   white-space: pre;
@@ -104,6 +104,13 @@
 .notice {
   margin-top: 0.75rem;
   font-size: 0.88rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.resultLabel {
+  margin-bottom: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 600;
   color: var(--ifm-color-emphasis-700);
 }
 

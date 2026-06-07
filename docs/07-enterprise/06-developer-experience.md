@@ -1,4 +1,4 @@
-﻿---
+---
 id: developer-experience
 title: 'Phase 4: Developer Experience'
 sidebar_position: 7

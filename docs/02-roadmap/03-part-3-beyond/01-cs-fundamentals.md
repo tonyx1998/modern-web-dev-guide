@@ -1,4 +1,4 @@
-﻿---
+---
 id: cs-fundamentals
 title: Computer-Science Fundamentals
 sidebar_position: 2

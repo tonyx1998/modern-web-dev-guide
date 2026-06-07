@@ -48,25 +48,25 @@ You might think "distributed systems" means Google-scale infrastructure with tho
 ## How this chapter is organized
 
 ### The ground truth
-1. [The fallacies & why it's hard](./ds-fallacies) — the eight false assumptions that sink naive distributed code.
-2. [Consistency & CAP](./ds-consistency) — the consistency spectrum, CAP, and PACELC; the central tradeoff.
+1. [The fallacies & why it's hard](/docs/distributed-systems/ds-fallacies) — the eight false assumptions that sink naive distributed code.
+2. [Consistency & CAP](/docs/distributed-systems/ds-consistency) — the consistency spectrum, CAP, and PACELC; the central tradeoff.
 
 ### Spreading data across machines
-3. [Replication](./ds-replication) — leader/follower, multi-leader, quorums, and the consistency knobs.
-4. [Partitioning & sharding](./partitioning) — splitting data, partition strategies, hot spots, and rebalancing.
+3. [Replication](/docs/distributed-systems/ds-replication) — leader/follower, multi-leader, quorums, and the consistency knobs.
+4. [Partitioning & sharding](/docs/distributed-systems/partitioning) — splitting data, partition strategies, hot spots, and rebalancing.
 
 ### Agreeing on reality
-5. [Time & ordering](./ds-time) — why clocks lie, and logical/vector clocks that don't need them.
-6. [Consensus](./ds-consensus) — Raft and Paxos, leader election, and what consensus is actually for.
+5. [Time & ordering](/docs/distributed-systems/ds-time) — why clocks lie, and logical/vector clocks that don't need them.
+6. [Consensus](/docs/distributed-systems/ds-consensus) — Raft and Paxos, leader election, and what consensus is actually for.
 
 ### Getting work done correctly
-7. [Distributed transactions & sagas](./ds-transactions) — why 2PC is avoided, and the saga/outbox patterns that replace it.
-8. [Idempotency & exactly-once](./idempotency) — the "exactly-once delivery" illusion and how to actually get correct effects.
+7. [Distributed transactions & sagas](/docs/distributed-systems/ds-transactions) — why 2PC is avoided, and the saga/outbox patterns that replace it.
+8. [Idempotency & exactly-once](/docs/distributed-systems/idempotency) — the "exactly-once delivery" illusion and how to actually get correct effects.
 
 ### Moving data between systems
-9. [Messaging patterns](./messaging-patterns) — delivery semantics, deduplication, and ordering.
-10. [Event streaming](./event-streaming) — the log as a primitive; Kafka and its model in depth.
+9. [Messaging patterns](/docs/distributed-systems/messaging-patterns) — delivery semantics, deduplication, and ordering.
+10. [Event streaming](/docs/distributed-systems/event-streaming) — the log as a primitive; Kafka and its model in depth.
 
 ---
 
-When you finish, take the [checkpoint](./distributed-systems-checkpoint), then continue to [Chapter 8: AI Integration](/docs/ai).
+When you finish, take the [checkpoint](/docs/distributed-systems/distributed-systems-checkpoint), then continue to [Chapter 8: AI Integration](/docs/ai).

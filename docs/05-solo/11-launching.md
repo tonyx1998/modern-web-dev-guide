@@ -1,4 +1,4 @@
-﻿---
+---
 id: launching
 title: 'Phase 10: Launching'
 sidebar_position: 12

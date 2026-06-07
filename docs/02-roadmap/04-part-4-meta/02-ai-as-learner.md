@@ -1,4 +1,4 @@
-﻿---
+---
 id: ai-as-learner
 title: Using AI Tools as a Learner
 sidebar_position: 3

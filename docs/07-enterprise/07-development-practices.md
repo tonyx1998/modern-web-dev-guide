@@ -1,4 +1,4 @@
-﻿---
+---
 id: development-practices
 title: 'Phase 5: Development Practices'
 sidebar_position: 8

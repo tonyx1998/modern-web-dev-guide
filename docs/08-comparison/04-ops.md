@@ -1,4 +1,4 @@
-﻿---
+---
 id: ops
 title: Observability, Security, and Compliance
 sidebar_position: 5

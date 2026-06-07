@@ -1,4 +1,4 @@
-﻿---
+---
 id: overriding
 title: When to Override These Frameworks
 sidebar_position: 17

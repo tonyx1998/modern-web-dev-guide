@@ -1,4 +1,4 @@
-﻿---
+---
 id: stack-and-hosting
 title: Stack, Architecture, and Hosting
 sidebar_position: 3

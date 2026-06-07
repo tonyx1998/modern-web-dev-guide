@@ -1,4 +1,4 @@
-﻿---
+---
 id: testing
 title: 'Phase 7: Testing'
 sidebar_position: 7

@@ -53,21 +53,21 @@ The central insight of SRE is counterintuitive: **your reliability target should
 ## How this chapter is organized
 
 ### The framework
-1. [The SRE mindset](./sre-mindset) — SLIs, SLOs, error budgets, toil, and "reliability as a feature you budget."
+1. [The SRE mindset](/docs/operations/sre-mindset) — SLIs, SLOs, error budgets, toil, and "reliability as a feature you budget."
 
 ### Seeing and surviving
-2. [Observability](./ops-observability) — metrics, logs, and traces; the three pillars, OpenTelemetry, and how to debug what you can't see.
-3. [Reliability patterns](./reliability-patterns) — timeouts, retries with backoff, circuit breakers, bulkheads, load shedding, graceful degradation.
+2. [Observability](/docs/operations/ops-observability) — metrics, logs, and traces; the three pillars, OpenTelemetry, and how to debug what you can't see.
+3. [Reliability patterns](/docs/operations/reliability-patterns) — timeouts, retries with backoff, circuit breakers, bulkheads, load shedding, graceful degradation.
 
 ### Responding
-4. [On-call & alerting](./on-call-alerting) — alert on symptoms, not causes; fighting alert fatigue; runbooks.
-5. [Incident response & postmortems](./incident-response) — incident command, severity levels, comms, and blameless learning.
+4. [On-call & alerting](/docs/operations/on-call-alerting) — alert on symptoms, not causes; fighting alert fatigue; runbooks.
+5. [Incident response & postmortems](/docs/operations/incident-response) — incident command, severity levels, comms, and blameless learning.
 
 ### Changing safely
-6. [Deploys & rollbacks](./ops-deploys) — progressive delivery, canaries, blue-green, feature flags, and the DORA metrics.
-7. [Capacity & scaling](./capacity-scaling) — load testing, autoscaling, capacity planning, the USE and RED methods.
-8. [Chaos & resilience](./chaos-engineering) — chaos engineering, game days, and disaster recovery (RTO/RPO, backups you've actually tested).
+6. [Deploys & rollbacks](/docs/operations/ops-deploys) — progressive delivery, canaries, blue-green, feature flags, and the DORA metrics.
+7. [Capacity & scaling](/docs/operations/capacity-scaling) — load testing, autoscaling, capacity planning, the USE and RED methods.
+8. [Chaos & resilience](/docs/operations/chaos-engineering) — chaos engineering, game days, and disaster recovery (RTO/RPO, backups you've actually tested).
 
 ---
 
-When you finish, take the [checkpoint](./operations-checkpoint), then continue to [Chapter 7: Distributed Systems](/docs/distributed-systems).
+When you finish, take the [checkpoint](/docs/operations/operations-checkpoint), then continue to [Chapter 7: Distributed Systems](/docs/distributed-systems).

@@ -64,10 +64,14 @@ export default function SidebarLockGate(): null {
         if (unmet.length === 0) {
           link.removeAttribute('data-locked');
           link.removeAttribute('data-lock-reason');
+          link.removeAttribute('aria-disabled');
+          link.removeAttribute('tabindex');
           return;
         }
         if (chapter) chapterStats[chapter].locked += 1;
         link.setAttribute('data-locked', 'true');
+        link.setAttribute('aria-disabled', 'true');
+        link.setAttribute('tabindex', '-1');
         const reasons = unmet.map((q) => describeQuiz(q)).join(' • ');
         link.setAttribute('title', `🔒 ${reasons} to unlock this page`);
         link.setAttribute('data-lock-reason', reasons);
@@ -95,10 +99,17 @@ export default function SidebarLockGate(): null {
         const stats = chapterStats[chapter];
         const allLocked =
           enforce && stats && stats.total > 0 && stats.locked === stats.total;
+        const catLink = cat.querySelector<HTMLAnchorElement>(
+          '.menu__list-item-collapsible > .menu__link',
+        );
         if (allLocked) {
           cat.setAttribute('data-locked', 'true');
+          catLink?.setAttribute('aria-disabled', 'true');
+          catLink?.setAttribute('tabindex', '-1');
         } else {
           cat.removeAttribute('data-locked');
+          catLink?.removeAttribute('aria-disabled');
+          catLink?.removeAttribute('tabindex');
         }
       });
     }

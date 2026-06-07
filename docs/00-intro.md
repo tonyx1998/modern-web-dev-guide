@@ -16,13 +16,13 @@ The [home page →](/) shows your learning progress, achievements, and chapter c
 
 *How websites are actually built in 2026 — for absolute beginners and beyond.*
 
-**What it is** — A 2026 reference on how modern web apps are designed, built, shipped, scaled, and operated, paired with a step-by-step roadmap for getting there from zero. **16 chapters plus this introduction**, grouped into six parts and split into ~250 focused single-topic pages.
+**What it is** — A 2026 reference on how modern web apps are designed, built, shipped, scaled, and operated, paired with a step-by-step roadmap for getting there from zero. **16 chapters plus this introduction**, grouped into six parts and split into ~290 focused single-topic pages.
 
 **Who it's for** — Complete beginners. No prior experience is assumed: it's written to be read straight through, in order, from the first page. (Experienced developers can still skim it — the depth holds up — but the guide is written for someone starting from zero.)
 
 **Where to start** — Right at the beginning: [the first lesson →](/docs/foundations/client-server). Then keep clicking "Next" at the bottom of each page. Everything is sequenced so each page builds on the ones before it.
 
-*Last reviewed: May 2026. Tool recommendations, prices, and "current state" claims are accurate as of that date — the web moves fast, so confirm specifics before relying on any single recommendation.*
+*Last reviewed: June 2026. Tool recommendations, prices, and "current state" claims are accurate as of that date — the web moves fast, so confirm specifics before relying on any single recommendation.*
 
 ---
 

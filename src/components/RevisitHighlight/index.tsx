@@ -28,6 +28,7 @@ export default function RevisitHighlight(): null {
 
     // Wait one tick for the page to render before scrolling/highlighting.
     let cancelled = false;
+    let highlighted: HTMLElement[] = [];
     const tryHighlight = (attempt = 0) => {
       if (cancelled) return;
       const el = document.getElementById(hash);
@@ -47,6 +48,7 @@ export default function RevisitHighlight(): null {
       el.scrollIntoView({behavior: 'smooth', block: 'start'});
 
       // Add highlight class to every element in the range.
+      highlighted = target;
       target.forEach((node) => node.classList.add('revisit-highlight'));
 
       // Strip the ?revisit=1 from the URL after a beat so a normal
@@ -67,6 +69,7 @@ export default function RevisitHighlight(): null {
     tryHighlight();
     return () => {
       cancelled = true;
+      highlighted.forEach((node) => node.classList.remove('revisit-highlight'));
     };
   }, [location.pathname, location.search, location.hash]);
 

@@ -1,4 +1,4 @@
-﻿---
+---
 id: engineering-judgment
 title: Engineering Judgment
 sidebar_position: 3

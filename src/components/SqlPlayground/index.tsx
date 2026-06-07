@@ -25,6 +25,11 @@ interface ExecResult {
   fields: {name: string}[];
 }
 
+interface ResultSet {
+  columns: string[];
+  rows: Record<string, Cell>[];
+}
+
 interface SqlPlaygroundProps {
   id: string;
   /** Setup SQL (schema + seed). Run once when the DB is first created. */
@@ -40,15 +45,23 @@ function fmt(v: Cell): string {
   return String(v);
 }
 
+function toResultSet(result: ExecResult): ResultSet | null {
+  if (result.fields?.length && result.rows?.length) {
+    return {
+      columns: result.fields.map((f) => f.name),
+      rows: result.rows,
+    };
+  }
+  return null;
+}
+
 export default function SqlPlayground({
-  id,
   schema,
   initialQuery,
   title,
 }: SqlPlaygroundProps): ReactNode {
   const [query, setQuery] = useState(initialQuery);
-  const [rows, setRows] = useState<Record<string, Cell>[] | null>(null);
-  const [columns, setColumns] = useState<string[]>([]);
+  const [resultSets, setResultSets] = useState<ResultSet[]>([]);
   const [notice, setNotice] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [running, setRunning] = useState(false);
@@ -56,52 +69,66 @@ export default function SqlPlayground({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const dbRef = useRef<any>(null);
 
-  const ensureDb = useCallback(async () => {
-    if (dbRef.current) return dbRef.current;
+  const createDb = useCallback(async () => {
     setLoadingMsg('Downloading Postgres (WASM, ~3 MB) — first run only…');
     const {PGlite} = await import('@electric-sql/pglite');
     const db = new PGlite();
     await db.exec(schema);
-    dbRef.current = db;
     setLoadingMsg(null);
     return db;
   }, [schema]);
+
+  const ensureDb = useCallback(async () => {
+    if (dbRef.current) return dbRef.current;
+    const db = await createDb();
+    dbRef.current = db;
+    return db;
+  }, [createDb]);
 
   const run = useCallback(async () => {
     setRunning(true);
     setError(null);
     setNotice(null);
+    setResultSets([]);
     try {
       const db = await ensureDb();
       const results: ExecResult[] = await db.exec(query);
-      const last = results[results.length - 1];
-      if (last && last.fields?.length && last.rows?.length) {
-        setColumns(last.fields.map((f) => f.name));
-        setRows(last.rows);
+      const sets = results.map(toResultSet).filter((r): r is ResultSet => r !== null);
+      if (sets.length > 0) {
+        setResultSets(sets);
+        if (sets.length > 1) {
+          setNotice(`${sets.length} result sets returned (showing all).`);
+        }
       } else {
-        setRows(null);
-        setColumns([]);
         setNotice('Statement executed — no rows returned.');
       }
     } catch (err) {
       setError(String((err as Error)?.message ?? err));
-      setRows(null);
-      setColumns([]);
+      setResultSets([]);
     } finally {
       setRunning(false);
       setLoadingMsg(null);
     }
   }, [ensureDb, query]);
 
-  const resetDb = useCallback(() => {
-    dbRef.current = null;
-    setRows(null);
-    setColumns([]);
+  const resetDb = useCallback(async () => {
+    if (dbRef.current) {
+      try {
+        await dbRef.current.close();
+      } catch {
+        /* ignore */
+      }
+      dbRef.current = null;
+    }
+    setResultSets([]);
     setError(null);
     setNotice('Database reset to its seeded state (your CREATE INDEX etc. are gone).');
-  }, []);
-
-  const isPlan = columns.length === 1 && columns[0] === 'QUERY PLAN';
+    try {
+      dbRef.current = await createDb();
+    } catch (err) {
+      setError(String((err as Error)?.message ?? err));
+    }
+  }, [createDb]);
 
   return (
     <section className={styles.sql} aria-label={title ?? 'SQL playground'}>
@@ -136,41 +163,50 @@ export default function SqlPlayground({
 
       {loadingMsg && <div className={styles.loading}>{loadingMsg}</div>}
       {error && (
-        <div className={styles.error}>
+        <div className={styles.error} role="alert">
           <strong>SQL error:</strong> {error}
         </div>
       )}
       {notice && !error && <div className={styles.notice}>{notice}</div>}
 
-      {rows && isPlan && (
-        <pre className={styles.plan}>{rows.map((r) => fmt(r['QUERY PLAN'])).join('\n')}</pre>
-      )}
-
-      {rows && !isPlan && (
-        <div className={styles.tableWrap}>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                {columns.map((c) => (
-                  <th key={c}>{c}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {rows.slice(0, 50).map((r, i) => (
-                <tr key={i}>
-                  {columns.map((c) => (
-                    <td key={c}>{fmt(r[c])}</td>
+      {resultSets.map((set, setIdx) => {
+        const isPlan = set.columns.length === 1 && set.columns[0] === 'QUERY PLAN';
+        if (isPlan) {
+          return (
+            <pre key={setIdx} className={styles.plan}>
+              {set.rows.map((r) => fmt(r['QUERY PLAN'])).join('\n')}
+            </pre>
+          );
+        }
+        return (
+          <div key={setIdx} className={styles.tableWrap}>
+            {resultSets.length > 1 && (
+              <div className={styles.resultLabel}>Result set {setIdx + 1}</div>
+            )}
+            <table className={styles.table}>
+              <thead>
+                <tr>
+                  {set.columns.map((c) => (
+                    <th key={c}>{c}</th>
                   ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
-          {rows.length > 50 && (
-            <div className={styles.more}>…and {rows.length - 50} more rows</div>
-          )}
-        </div>
-      )}
+              </thead>
+              <tbody>
+                {set.rows.slice(0, 50).map((r, i) => (
+                  <tr key={i}>
+                    {set.columns.map((c) => (
+                      <td key={c}>{fmt(r[c])}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {set.rows.length > 50 && (
+              <div className={styles.more}>…and {set.rows.length - 50} more rows</div>
+            )}
+          </div>
+        );
+      })}
     </section>
   );
 }

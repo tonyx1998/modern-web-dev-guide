@@ -1,4 +1,4 @@
-﻿---
+---
 id: comparison-checkpoint
 title: Chapter 13 Checkpoint
 sidebar_position: 30

@@ -1,4 +1,4 @@
-﻿---
+---
 id: observability
 title: 'Phase 9: Observability (Minimal)'
 sidebar_position: 11

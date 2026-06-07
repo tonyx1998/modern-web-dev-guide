@@ -1,4 +1,4 @@
-﻿---
+---
 id: payments
 title: 'Phase 7: Payments (If Building SaaS)'
 sidebar_position: 9

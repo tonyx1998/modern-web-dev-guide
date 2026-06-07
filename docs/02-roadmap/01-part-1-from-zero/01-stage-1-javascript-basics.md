@@ -1,4 +1,4 @@
-﻿---
+---
 id: stage-1-javascript-basics
 title: Stage 1 — JavaScript basics
 sidebar_position: 2

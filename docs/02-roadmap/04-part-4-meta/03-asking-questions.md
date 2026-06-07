@@ -1,4 +1,4 @@
-﻿---
+---
 id: asking-questions
 title: Asking Good Questions
 sidebar_position: 4

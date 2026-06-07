@@ -1,4 +1,4 @@
-﻿---
+---
 id: stack-selection
 title: 'Phase 3: Stack Selection'
 sidebar_position: 5

@@ -21,7 +21,8 @@ function fmt(t: number): string {
 
 export default function AudioPlayer({src, transcript, title}: Props): ReactNode {
   const audioSrc = useBaseUrl(src);
-  const transcriptHref = transcript ? useBaseUrl(transcript) : null;
+  const transcriptBase = useBaseUrl(transcript ?? '');
+  const transcriptHref = transcript ? transcriptBase : null;
   const ref = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const [cur, setCur] = useState(0);

@@ -1,4 +1,4 @@
-﻿---
+---
 id: lifecycle-checkpoint
 title: Chapter 3 Checkpoint
 sidebar_position: 30

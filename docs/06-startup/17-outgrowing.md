@@ -1,4 +1,4 @@
-﻿---
+---
 id: outgrowing
 title: When You're Outgrowing This Scale
 sidebar_position: 18

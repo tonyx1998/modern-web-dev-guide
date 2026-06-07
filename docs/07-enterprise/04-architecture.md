@@ -1,4 +1,4 @@
-﻿---
+---
 id: architecture
 title: 'Phase 3: Architecture'
 sidebar_position: 5

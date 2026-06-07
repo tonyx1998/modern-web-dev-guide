@@ -1,4 +1,4 @@
-﻿---
+---
 id: architecture
 title: 'Phase 4: Architecture & Technical Design'
 sidebar_position: 4

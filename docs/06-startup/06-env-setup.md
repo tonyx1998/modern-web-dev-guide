@@ -1,4 +1,4 @@
-﻿---
+---
 id: env-setup
 title: 'Phase 5: Environment Setup'
 sidebar_position: 7

@@ -1,4 +1,4 @@
-﻿---
+---
 id: frontend-architecture
 title: 'Phase 3.5: Frontend Architecture at Scale'
 sidebar_position: 6

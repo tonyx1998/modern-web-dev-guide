@@ -1,4 +1,4 @@
-﻿---
+---
 id: stage-12-going-pro
 title: Stage 12 — Going professional
 sidebar_position: 13

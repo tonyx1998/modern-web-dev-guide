@@ -1,4 +1,4 @@
-﻿---
+---
 id: development
 title: Development Workflow, Testing, and CI/CD
 sidebar_position: 4

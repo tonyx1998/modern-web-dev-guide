@@ -1,4 +1,4 @@
-﻿---
+---
 id: observability
 title: 'Phase 9: Observability at Scale'
 sidebar_position: 12

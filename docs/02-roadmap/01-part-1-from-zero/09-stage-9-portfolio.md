@@ -1,4 +1,4 @@
-﻿---
+---
 id: stage-9-portfolio
 title: Stage 9 — Ship a real portfolio
 sidebar_position: 10

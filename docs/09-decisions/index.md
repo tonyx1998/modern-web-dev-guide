@@ -1,4 +1,4 @@
-﻿---
+---
 id: decision-frameworks
 title: 14. Decision Frameworks — Overview
 sidebar_position: 1
@@ -51,40 +51,40 @@ Each page focuses on **one framework** with concrete examples and applicable adv
 
 ### The big-picture frameworks
 
-1. [The Boring Technology Rule](./boring-technology) — Save innovation tokens for the thing that differentiates your product.
-2. [The Reversibility Test](./reversibility) — Deliberate proportionally to how hard a decision is to reverse.
-3. [The Team Size Heuristic](./team-size-heuristic) — Your team's size constrains what's optimal.
+1. [The Boring Technology Rule](/docs/decisions/boring-technology) — Save innovation tokens for the thing that differentiates your product.
+2. [The Reversibility Test](/docs/decisions/reversibility) — Deliberate proportionally to how hard a decision is to reverse.
+3. [The Team Size Heuristic](/docs/decisions/team-size-heuristic) — Your team's size constrains what's optimal.
 
 ### Build, buy, and team shape
 
-4. [The Build vs Buy Decision](./build-vs-buy) — Default to buying for non-core capabilities.
-5. [The Two-Pizza Rule](./two-pizza-rule) — Small teams ship faster.
+4. [The Build vs Buy Decision](/docs/decisions/build-vs-buy) — Default to buying for non-core capabilities.
+5. [The Two-Pizza Rule](/docs/decisions/two-pizza-rule) — Small teams ship faster.
 
 ### Why and when
 
-6. [The "Why Now?" Question](./why-now) — A concrete problem, not "it would be cool."
-7. [The Cost-of-Inaction Calculation](./cost-of-inaction) — The hidden cost of *not* deciding.
+6. [The "Why Now?" Question](/docs/decisions/why-now) — A concrete problem, not "it would be cool."
+7. [The Cost-of-Inaction Calculation](/docs/decisions/cost-of-inaction) — The hidden cost of *not* deciding.
 
 ### Refactors and rewrites
 
-8. [The Migration Strategy Framework](./migration-strategy) — Incremental migrations work; big-bang rewrites usually don't.
-9. [The "Two Versions of the Same Code" Principle](./two-versions) — When to extract, when to leave duplication alone.
-10. [The Premature Optimization Principle](./premature-optimization) — Work, right, fast — in that order.
+8. [The Migration Strategy Framework](/docs/decisions/migration-strategy) — Incremental migrations work; big-bang rewrites usually don't.
+9. [The "Two Versions of the Same Code" Principle](/docs/decisions/two-versions) — When to extract, when to leave duplication alone.
+10. [The Premature Optimization Principle](/docs/decisions/premature-optimization) — Work, right, fast — in that order.
 
 ### Communicating and revisiting decisions
 
-11. [The Documentation Trade-Off](./documentation-tradeoff) — Document what doesn't change, not what does.
-12. [The "What Would Hurt to Change" Question](./what-would-hurt) — Practical reversibility check.
-13. [The "Why Are You Doing This?" Question](./why-doing-this) — Connect every change to a real outcome.
+11. [The Documentation Trade-Off](/docs/decisions/documentation-tradeoff) — Document what doesn't change, not what does.
+12. [The "What Would Hurt to Change" Question](/docs/decisions/what-would-hurt) — Practical reversibility check.
+13. [The "Why Are You Doing This?" Question](/docs/decisions/why-doing-this) — Connect every change to a real outcome.
 
 ### Practical constraints
 
-14. [The Hiring-Constraint Principle](./hiring-constraint) — Pick technologies your future self can hire for.
+14. [The Hiring-Constraint Principle](/docs/decisions/hiring-constraint) — Pick technologies your future self can hire for.
 
 ### Putting it together
 
-15. [A Decision-Making Checklist](./checklist) — Ten questions for any significant decision.
-16. [When to Override These Frameworks](./overriding) — Heuristics, not laws.
+15. [A Decision-Making Checklist](/docs/decisions/checklist) — Ten questions for any significant decision.
+16. [When to Override These Frameworks](/docs/decisions/overriding) — Heuristics, not laws.
 
 ---
 

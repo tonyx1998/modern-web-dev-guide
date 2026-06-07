@@ -1,4 +1,4 @@
-﻿---
+---
 id: maintenance
 title: 'Phase 11: Maintenance'
 sidebar_position: 13

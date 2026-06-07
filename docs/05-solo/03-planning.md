@@ -1,4 +1,4 @@
-﻿---
+---
 id: planning
 title: 'Phase 1: Planning (An Afternoon, Not a Month)'
 sidebar_position: 4

@@ -1,4 +1,4 @@
-﻿---
+---
 id: auth
 title: 'Phase 6: Adding Auth'
 sidebar_position: 8

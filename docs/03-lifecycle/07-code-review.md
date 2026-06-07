@@ -1,4 +1,4 @@
-﻿---
+---
 id: code-review
 title: 'Phase 8: Code Review'
 sidebar_position: 8

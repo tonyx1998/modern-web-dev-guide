@@ -2,6 +2,7 @@ import React, {
   createContext,
   useContext,
   useEffect,
+  useId,
   useMemo,
   useState,
 } from 'react';
@@ -453,7 +454,7 @@ function ResultSummary({
     ? passed
       ? total === 1
         ? 'Got it.'
-        : 'Nice — both right.'
+        : `Nice — all ${total} right.`
       : 'Worth re-reading the section above.'
     : passed
     ? ratio >= 0.8
@@ -550,6 +551,8 @@ function revisitTo(to: string): string {
 
 export function Question(props: QuestionProps): ReactNode {
   const ctx = useContext(QuizContext);
+  const promptId = useId();
+  const [focusIdx, setFocusIdx] = useState(0);
 
   // Register on mount. Re-registers are idempotent (prompt is the key).
   useEffect(() => {
@@ -586,15 +589,31 @@ export function Question(props: QuestionProps): ReactNode {
   const chosen = ctx.answers[props.prompt];
   const submitted = ctx.submitted;
 
+  function onOptionKeyDown(e: React.KeyboardEvent<HTMLUListElement>) {
+    if (submitted) return;
+    const count = props.options.length;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      setFocusIdx((i) => (i + 1) % count);
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      setFocusIdx((i) => (i - 1 + count) % count);
+    }
+  }
+
   return (
     <div className={styles.question}>
-      <div className={styles.prompt}>
+      <div id={promptId} className={styles.prompt}>
         <span className={styles.questionNumber}>
           {position >= 0 ? `Q${position + 1}.` : ''}
         </span>{' '}
         {props.prompt}
       </div>
-      <ul className={styles.options} role="radiogroup">
+      <ul
+        className={styles.options}
+        role="radiogroup"
+        aria-labelledby={promptId}
+        onKeyDown={onOptionKeyDown}>
         {props.options.map((opt, i) => {
           const isChosen = chosen === i;
           const isCorrect = i === props.correct;
@@ -606,7 +625,9 @@ export function Question(props: QuestionProps): ReactNode {
                 type="button"
                 role="radio"
                 aria-checked={isChosen}
+                tabIndex={submitted ? -1 : i === focusIdx ? 0 : -1}
                 disabled={submitted}
+                onFocus={() => setFocusIdx(i)}
                 onClick={() => ctx.recordAnswer(props.prompt, i)}
                 className={[
                   styles.option,
