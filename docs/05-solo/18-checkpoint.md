@@ -1,4 +1,4 @@
-﻿---
+---
 id: solo-checkpoint
 title: Chapter 10 Checkpoint
 sidebar_position: 30

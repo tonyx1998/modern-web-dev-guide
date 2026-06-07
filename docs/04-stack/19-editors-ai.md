@@ -1,4 +1,4 @@
-﻿---
+---
 id: editors-ai
 title: Editors & AI Coding Assistants
 sidebar_position: 20

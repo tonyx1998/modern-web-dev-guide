@@ -1,4 +1,4 @@
-﻿---
+---
 id: stage-2-html-css
 title: Stage 2 — HTML & CSS
 sidebar_position: 3

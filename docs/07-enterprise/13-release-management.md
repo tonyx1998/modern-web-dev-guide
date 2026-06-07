@@ -1,4 +1,4 @@
-﻿---
+---
 id: release-management
 title: 'Phase 11: Release Management'
 sidebar_position: 14

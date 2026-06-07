@@ -1,4 +1,4 @@
-﻿---
+---
 id: implementation
 title: 'Phase 6: Implementation'
 sidebar_position: 6

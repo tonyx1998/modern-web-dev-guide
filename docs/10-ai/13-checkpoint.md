@@ -1,4 +1,4 @@
-﻿---
+---
 id: ai-checkpoint
 title: Chapter 8 Checkpoint
 sidebar_position: 30

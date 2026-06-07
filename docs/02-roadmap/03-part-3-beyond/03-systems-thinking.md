@@ -1,4 +1,4 @@
-﻿---
+---
 id: systems-thinking
 title: Systems Thinking
 sidebar_position: 4

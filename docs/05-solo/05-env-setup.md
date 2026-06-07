@@ -1,4 +1,4 @@
-﻿---
+---
 id: env-setup
 title: 'Phase 4: Environment Setup (One Hour)'
 sidebar_position: 6

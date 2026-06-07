@@ -1,4 +1,4 @@
-﻿---
+---
 id: graduating
 title: When to Graduate Beyond "Personal Project"
 sidebar_position: 18

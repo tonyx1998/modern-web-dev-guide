@@ -1,4 +1,4 @@
-﻿---
+---
 id: comparison
 title: 13. Side-by-Side Comparison — Overview
 sidebar_position: 1

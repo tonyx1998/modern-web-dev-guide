@@ -1,4 +1,4 @@
-﻿---
+---
 id: deployment
 title: 'Phase 8: Deployment & Infrastructure'
 sidebar_position: 11

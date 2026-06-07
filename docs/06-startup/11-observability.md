@@ -1,4 +1,4 @@
-﻿---
+---
 id: observability
 title: 'Phase 10: Observability'
 sidebar_position: 12

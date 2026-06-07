@@ -1,4 +1,4 @@
-﻿---
+---
 id: stage-3-js-in-browser
 title: Stage 3 — JavaScript in the browser
 sidebar_position: 4

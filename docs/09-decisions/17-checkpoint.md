@@ -1,4 +1,4 @@
-﻿---
+---
 id: decisions-checkpoint
 title: Chapter 14 Checkpoint
 sidebar_position: 30

@@ -1,4 +1,4 @@
-﻿---
+---
 id: stack-checkpoint
 title: Chapter 4 Checkpoint
 sidebar_position: 30

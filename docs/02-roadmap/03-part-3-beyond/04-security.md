@@ -1,4 +1,4 @@
-﻿---
+---
 id: security
 title: Security Beyond HTTPS
 sidebar_position: 5

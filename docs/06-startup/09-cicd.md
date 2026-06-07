@@ -1,4 +1,4 @@
-﻿---
+---
 id: cicd
 title: 'Phase 8: CI/CD with GitHub Actions'
 sidebar_position: 10

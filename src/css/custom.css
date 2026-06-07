@@ -435,6 +435,12 @@ html[data-reader-level="advanced"] [data-reader-show]:not([data-reader-show~="ad
   100% { box-shadow: inset 3px 0 0 #f59e0b, 0 0 0 0 rgba(245, 158, 11, 0); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .revisit-highlight {
+    animation: none;
+  }
+}
+
 /* ============================================================
    Mandatory quiz gating (Beginner mode only)
    When the page has at least one required quiz that hasn't been
@@ -452,8 +458,7 @@ html[data-reader-level="beginner"] body.quiz-required-pending .pagination-nav__l
   transform: none !important;
 }
 
-html[data-reader-level="beginner"] body.quiz-required-pending .pagination-nav__link--next::before {
-  content: "🔒 Pass the quiz above to continue";
+.quiz-gate-banner {
   display: block;
   font-size: 0.78rem;
   font-weight: 700;
@@ -462,11 +467,11 @@ html[data-reader-level="beginner"] body.quiz-required-pending .pagination-nav__l
   background: rgba(245, 158, 11, 0.18);
   border-radius: 8px;
   padding: 0.3rem 0.55rem;
-  margin: -0.3rem -0.3rem 0.6rem;
+  margin: 0 0 0.6rem;
   text-align: center;
 }
 
-[data-theme='dark'] html[data-reader-level="beginner"] body.quiz-required-pending .pagination-nav__link--next::before {
+[data-theme='dark'] .quiz-gate-banner {
   background: rgba(245, 158, 11, 0.16);
   color: #fbbf24;
 }
@@ -540,9 +545,8 @@ html[data-reader-level="beginner"] .theme-doc-sidebar-container::before {
 }
 */
 
-/* Small "guided mode" banner so the reader understands what changed */
-html[data-reader-level="beginner"] .markdown::before {
-  content: "👶 Guided mode — read top to bottom and use the big Prev/Next buttons at the bottom of each page. The full chapter menu is on the left.";
+/* Guided mode banner (injected by ReaderStatusBanners with role="status") */
+.guided-mode-banner {
   display: block;
   font-size: 0.82rem;
   line-height: 1.45;
@@ -554,7 +558,7 @@ html[data-reader-level="beginner"] .markdown::before {
   margin: 0 0 1.3rem;
 }
 
-[data-theme='dark'] html[data-reader-level="beginner"] .markdown::before {
+[data-theme='dark'] .guided-mode-banner {
   background: rgba(245, 158, 11, 0.1);
   color: var(--ifm-color-emphasis-800);
 }

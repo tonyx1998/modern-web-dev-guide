@@ -161,6 +161,7 @@ export default function CodeChallenge({
     workerRef.current = worker;
 
     timerRef.current = setTimeout(() => {
+      URL.revokeObjectURL(blobUrl);
       cleanup();
       setRunning(false);
       setError(
@@ -196,6 +197,7 @@ export default function CodeChallenge({
 
     worker.onerror = (ev) => {
       if (timerRef.current) clearTimeout(timerRef.current);
+      URL.revokeObjectURL(blobUrl);
       setRunning(false);
       setError(ev.message || 'Something went wrong running your code.');
       worker.terminate();
@@ -255,6 +257,12 @@ export default function CodeChallenge({
             setCode(starter);
             setResults(null);
             setError(null);
+            setSolved(false);
+            try {
+              window.localStorage.removeItem(`challenge-${id}`);
+            } catch {
+              /* ignore */
+            }
           }}>
           Reset
         </button>
@@ -277,7 +285,7 @@ export default function CodeChallenge({
       {showHint && hint && <div className={styles.hint}>💡 {hint}</div>}
 
       {error && (
-        <div className={styles.error}>
+        <div className={styles.error} role="alert">
           <strong>Error:</strong> {error}
         </div>
       )}

@@ -1,4 +1,4 @@
-﻿---
+---
 id: foundations-checkpoint
 title: Chapter 1 Checkpoint
 sidebar_position: 30

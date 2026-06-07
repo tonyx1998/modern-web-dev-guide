@@ -1,4 +1,4 @@
-﻿---
+---
 id: design
 title: 'Phase 3: Design'
 sidebar_position: 3

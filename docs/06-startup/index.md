@@ -1,4 +1,4 @@
-﻿---
+---
 id: small-company-workflow
 title: 11. Small Company Workflow — Overview
 sidebar_position: 1

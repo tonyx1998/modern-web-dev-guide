@@ -1,4 +1,4 @@
-﻿---
+---
 id: maintenance
 title: 'Phase 12: Maintenance, Iteration & Scaling'
 sidebar_position: 12

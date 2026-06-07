@@ -1,4 +1,4 @@
-﻿---
+---
 id: foundational-concepts
 title: 1. Foundational Concepts — Overview
 sidebar_position: 1
@@ -61,23 +61,65 @@ Each page focuses on **one topic** with worked examples and beginner callouts. R
 15. [REST APIs](/docs/foundations/apis-rest) — The most common style.
 16. [GraphQL & tRPC](/docs/foundations/apis-graphql-trpc) — Newer styles, when they help.
 17. [Real-Time: gRPC, WebSockets, SSE](/docs/foundations/apis-realtime) — When request/response isn't enough.
+18. [WebRTC](/docs/foundations/webrtc) — Peer-to-peer audio, video, and data channels.
+19. [Message Queues](/docs/foundations/message-queues) — Async work between services.
 
 ### Storing data
 
-18. [Relational (SQL) Databases](/docs/foundations/databases-sql) — The dominant default.
-19. [NoSQL & Specialized Databases](/docs/foundations/databases-nosql) — Document, key-value, search, vector.
-20. [Choosing a Database](/docs/foundations/databases-choosing) — A pragmatic 2026 decision guide.
+20. [Relational (SQL) Databases](/docs/foundations/databases-sql) — The dominant default.
+21. [NoSQL & Specialized Databases](/docs/foundations/databases-nosql) — Document, key-value, search, vector.
+22. [Choosing a Database](/docs/foundations/databases-choosing) — A pragmatic 2026 decision guide.
+23. [Search](/docs/foundations/search) — Full-text search beyond SQL `LIKE`.
+24. [Files & Media](/docs/foundations/files-and-media) — Uploads, object storage, CDNs for assets.
 
 ### Who can do what
 
-21. [Authentication: Proving Identity](/docs/foundations/authentication) — Passwords, OAuth, magic links, passkeys.
-22. [Authorization: Permissions & Tokens](/docs/foundations/authorization) — Sessions, JWTs, RBAC, RLS.
+25. [Authentication: Proving Identity](/docs/foundations/authentication) — Passwords, OAuth, magic links, passkeys.
+26. [Authorization: Permissions & Tokens](/docs/foundations/authorization) — Sessions, JWTs, RBAC, RLS.
+27. [Web Security](/docs/foundations/web-security) — XSS, CSRF, CSP, SQLi, SSRF, supply chain.
 
 ### Getting code to users
 
-23. [The Deployment Pyramid](/docs/foundations/deployment-pyramid) — Source → CI → artifact → registry → deploy → runtime → CDN → user.
-24. [Deployment Stages, Explained](/docs/foundations/deployment-stages) — Each stage in detail.
+28. [The Deployment Pyramid](/docs/foundations/deployment-pyramid) — Source → CI → artifact → registry → deploy → runtime → CDN → user.
+29. [Deployment Stages, Explained](/docs/foundations/deployment-stages) — Each stage in detail.
+30. [Containers](/docs/foundations/containers) — Docker images, registries, orchestration basics.
+31. [Edge Computing](/docs/foundations/edge-computing) — Running code close to users.
+
+### Programming concepts
+
+32. [Concurrency](/docs/foundations/concurrency) — Event loop, threads, async primitives.
+33. [Distributed Systems (intro)](/docs/foundations/distributed-systems) — What changes past one machine.
+
+### Production patterns
+
+34. [Rate Limiting](/docs/foundations/rate-limiting) — Protecting APIs from abuse.
+35. [Caching](/docs/foundations/caching) — Layers, invalidation, CDN vs in-memory.
+36. [Secrets & Keys](/docs/foundations/secrets-and-keys) — Env vars, vaults, rotation.
+37. [Observability Fundamentals](/docs/foundations/observability-fundamentals) — Logs, metrics, traces.
+38. [Testing](/docs/foundations/testing) — Unit, integration, E2E at a conceptual level.
+39. [Debugging](/docs/foundations/debugging) — Systematic troubleshooting in the browser and on the server.
+
+### Quality, performance & a11y
+
+40. [Performance](/docs/foundations/performance) — Core Web Vitals and perceived speed.
+41. [Accessibility](/docs/foundations/accessibility) — WCAG, ARIA, keyboard, screen readers.
+
+### Realtime collaboration
+
+42. [CRDTs](/docs/foundations/crdts) — Conflict-free replicated data types.
+
+### Localization & SEO
+
+43. [Internationalization](/docs/foundations/i18n) — i18n, l10n, RTL, locale routing.
+44. [SEO](/docs/foundations/seo) — Technical SEO developers actually own.
+
+### Commerce & comms
+
+45. [Payments](/docs/foundations/payments) — Stripe, subscriptions, webhooks, PCI scope.
+46. [Email](/docs/foundations/email) — SPF/DKIM/DMARC and deliverability.
+
+47. [Chapter 1 Checkpoint](/docs/foundations/foundations-checkpoint) — Pass to unlock Chapter 2.
 
 ---
 
-When you finish all 24 pages, move on to [Chapter 3: The Development Lifecycle](/docs/lifecycle).
+When you finish this chapter, move on to [Chapter 2: Roadmap](/docs/roadmap).

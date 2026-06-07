@@ -1,4 +1,4 @@
-﻿---
+---
 id: career-for-tony
 title: For Tony Specifically (or Anyone in His Position)
 sidebar_position: 12

@@ -5,6 +5,7 @@ import SuggestionsPill from '@site/src/components/SuggestionsPill';
 import RevisitHighlight from '@site/src/components/RevisitHighlight';
 import SidebarLockGate from '@site/src/components/SidebarLockGate';
 import DocPageTracker from '@site/src/components/DocPageTracker';
+import ReaderStatusBanners from '@site/src/components/ReaderStatusBanners';
 
 interface RootProps {
   children: ReactNode;
@@ -28,6 +29,7 @@ export default function Root({children}: RootProps): ReactNode {
             <RevisitHighlight />
             <SidebarLockGate />
             <DocPageTracker />
+            <ReaderStatusBanners />
           </>
         )}
       </BrowserOnly>

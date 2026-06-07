@@ -1,4 +1,4 @@
-﻿---
+---
 id: development
 title: 'Phase 5: Development'
 sidebar_position: 7

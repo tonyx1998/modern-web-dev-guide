@@ -1,4 +1,4 @@
-﻿---
+---
 id: security
 title: 'Phase 11: Security and Compliance'
 sidebar_position: 13

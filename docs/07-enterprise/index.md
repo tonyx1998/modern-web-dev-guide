@@ -1,4 +1,4 @@
-﻿---
+---
 id: large-company-workflow
 title: 12. Large Company Workflow — Overview
 sidebar_position: 1

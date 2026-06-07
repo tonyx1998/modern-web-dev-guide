@@ -1,4 +1,4 @@
-﻿---
+---
 id: ai-infrastructure
 title: AI Infrastructure
 sidebar_position: 15

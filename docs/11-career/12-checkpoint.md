@@ -1,4 +1,4 @@
-﻿---
+---
 id: career-checkpoint
 title: Chapter 15 Checkpoint
 sidebar_position: 30

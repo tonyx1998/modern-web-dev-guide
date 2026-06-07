@@ -1,4 +1,4 @@
-﻿---
+---
 id: enterprise-checkpoint
 title: Chapter 12 Checkpoint
 sidebar_position: 30

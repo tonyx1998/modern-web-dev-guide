@@ -1,4 +1,4 @@
-﻿---
+---
 id: deployment-hosting
 title: 'Phase 10: Deployment & Hosting'
 sidebar_position: 10

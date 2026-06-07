@@ -232,8 +232,8 @@ P1 (user-facing, business-impacting). Page #incidents.
 - Due: 5 business days.
 
 ## Related runbooks
-- [DB-connection-exhaustion](./db-connection-exhaustion.md)
-- [Deploy-rollback](./deploy-rollback.md)
+- [DB-connection-exhaustion](#db-connection-exhaustion-runbook)
+- [Deploy-rollback](#deploy-rollback-runbook)
 ```
 
 ### Properties
@@ -481,4 +481,4 @@ Most docs fail by mixing modes — a "tutorial" that pauses for two pages of exp
 
 ## What's next
 
-→ Continue to [Open source](./open-source).
+→ Continue to [Open source](/docs/lifecycle/open-source).

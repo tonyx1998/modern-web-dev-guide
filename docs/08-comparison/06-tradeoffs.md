@@ -1,4 +1,4 @@
-﻿---
+---
 id: tradeoffs
 title: Trade-Offs and Career Implications
 sidebar_position: 7

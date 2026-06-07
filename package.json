@@ -16,7 +16,10 @@
     "typecheck": "tsc",
     "lectures": "node scripts/generate-lectures.mjs",
     "lectures:dry": "node scripts/generate-lectures.mjs --dry-run",
-    "lectures:script-only": "node scripts/generate-lectures.mjs --script-only"
+    "lectures:script-only": "node scripts/generate-lectures.mjs --script-only",
+    "sync-prereqs": "node scripts/sync-prereqs-data.mjs",
+    "apply-prereqs": "node scripts/sync-prereqs-data.mjs && node scripts/apply-prereqs.mjs",
+    "validate-prereqs": "node scripts/validate-prereqs.mjs"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.20.0",

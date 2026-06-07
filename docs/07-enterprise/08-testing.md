@@ -1,4 +1,4 @@
-﻿---
+---
 id: testing
 title: 'Phase 6: Testing at Scale'
 sidebar_position: 9

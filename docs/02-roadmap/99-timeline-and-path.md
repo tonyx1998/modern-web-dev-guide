@@ -1,4 +1,4 @@
-﻿---
+---
 id: timeline-and-path
 title: Timeline & Suggested Order
 sidebar_position: 99

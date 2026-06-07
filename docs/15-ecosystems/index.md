@@ -37,20 +37,20 @@ Nothing here retracts the guide's core recommendation. For a typical new web pro
 ## How this chapter is organized
 
 ### Mobile
-1. [The mobile landscape](./mobile-landscape) — native vs cross-platform vs PWA, the app-store reality, and the decision framework.
-2. [React Native](./react-native) — bring your React/TS skills to native apps; Expo, the bridge, and the limits.
-3. [Flutter](./flutter) — Dart, a single rendering engine, and where it wins over React Native.
-4. [PWAs & offline](./pwa) — how far a web app can go (service workers, installability, offline) and when that's enough to skip native entirely.
+1. [The mobile landscape](/docs/ecosystems/mobile-landscape) — native vs cross-platform vs PWA, the app-store reality, and the decision framework.
+2. [React Native](/docs/ecosystems/react-native) — bring your React/TS skills to native apps; Expo, the bridge, and the limits.
+3. [Flutter](/docs/ecosystems/flutter) — Dart, a single rendering engine, and where it wins over React Native.
+4. [PWAs & offline](/docs/ecosystems/pwa) — how far a web app can go (service workers, installability, offline) and when that's enough to skip native entirely.
 
 ### Backend language ecosystems
-5. [JVM & Spring](./jvm-ecosystem) — Java/Kotlin and Spring Boot: the enterprise backbone.
-6. [.NET & C#](./dotnet-ecosystem) — Microsoft's modern, fast, cross-platform stack.
-7. [Go](./go-ecosystem) — simplicity and concurrency for cloud-native infrastructure and services.
-8. [Python backends](./python-ecosystem) — Django/FastAPI, and Python's grip on data and AI.
+5. [JVM & Spring](/docs/ecosystems/jvm-ecosystem) — Java/Kotlin and Spring Boot: the enterprise backbone.
+6. [.NET & C#](/docs/ecosystems/dotnet-ecosystem) — Microsoft's modern, fast, cross-platform stack.
+7. [Go](/docs/ecosystems/go-ecosystem) — simplicity and concurrency for cloud-native infrastructure and services.
+8. [Python backends](/docs/ecosystems/python-ecosystem) — Django/FastAPI, and Python's grip on data and AI.
 
 ### Choosing
-9. [Choosing an ecosystem](./choosing-ecosystem) — when to leave the Node/TS default, and how to decide.
+9. [Choosing an ecosystem](/docs/ecosystems/choosing-ecosystem) — when to leave the Node/TS default, and how to decide.
 
 ---
 
-When you finish, take the [checkpoint](./ecosystems-checkpoint), then continue to [Chapter 10: Solo / Personal](/docs/solo) — the first of the workflow-by-scale chapters, which show the same kind of product built at three very different company sizes.
+When you finish, take the [checkpoint](/docs/ecosystems/ecosystems-checkpoint), then continue to [Chapter 10: Solo / Personal](/docs/solo) — the first of the workflow-by-scale chapters, which show the same kind of product built at three very different company sizes.

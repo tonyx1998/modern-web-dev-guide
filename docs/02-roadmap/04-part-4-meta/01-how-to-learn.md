@@ -1,4 +1,4 @@
-﻿---
+---
 id: how-to-learn
 title: How to Actually Learn
 sidebar_position: 2

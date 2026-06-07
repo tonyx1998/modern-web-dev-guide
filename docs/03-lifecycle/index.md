@@ -1,4 +1,4 @@
-﻿---
+---
 id: development-lifecycle
 title: 3. The Development Lifecycle — Overview
 sidebar_position: 1

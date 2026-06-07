@@ -1,4 +1,4 @@
-﻿---
+---
 id: startup-checkpoint
 title: Chapter 11 Checkpoint
 sidebar_position: 30

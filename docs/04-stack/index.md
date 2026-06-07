@@ -1,4 +1,4 @@
-﻿---
+---
 id: tech-stack-decoded
 title: 4. The 2026 Tech Stack — Overview
 sidebar_position: 1

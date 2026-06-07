@@ -1,4 +1,4 @@
-﻿---
+---
 id: part-2-overview
 title: Part II — Modern Stack
 sidebar_position: 1
