@@ -10,13 +10,13 @@ description: The test pyramid in practice — unit, integration, e2e, contract, 
 
 > **In one line:** Tests are the safety net that lets you change code without breaking everything else. The hard part isn't writing them — it's writing the *right ones at the right level*, keeping them fast, and trusting them when they pass.
 
-→ **Going deeper:** the senior strategy — pyramid vs trophy, testing behavior not implementation, the over-mocking trap — is in [Testing, Properly](/docs/roadmap/part-3-beyond/testing-deep).
-
 :::tip[In plain English]
 A unit test asks "does this one function do its job?" An integration test asks "do these pieces work together?" An end-to-end test asks "does the whole app do the user's job?" You need some of each, in roughly the right proportions, and you need them to be fast and deterministic. A team without tests is brave. A team with bad tests is exhausted — they spend hours chasing flakes for no real signal.
 :::
 
-This page is the taxonomy plus the discipline. Pages on [code review](../lifecycle/code-review) and [implementation](../lifecycle/implementation) assume you have a testing culture; this is how to build one.
+**This page is self-contained.** Read it top to bottom and you can design a test suite, write unit/integration/e2e tests, avoid the common traps, and wire tests into CI. Links at the bottom are optional if you want senior strategy nuance or startup/enterprise specifics.
+
+This page is the taxonomy plus the discipline — how to build a testing culture on any web project.
 
 ## The test pyramid
 
@@ -43,11 +43,41 @@ The shape isn't dogma — it's a cost/value heuristic. A complex distributed sys
 
 The anti-pattern is the **ice cream cone**: lots of e2e tests, no unit tests. Slow, flaky, and when a test fails you don't know which line broke it.
 
+**Senior refinement (included here — no other page required):** Kent C. Dodds' **testing trophy** argues that for web apps, **integration tests are the sweet spot** — they catch real bugs (route doesn't validate, query returns wrong shape) at a fraction of E2E fragility. Practical 2026 default: thick integration layer, units for genuinely tricky logic, thin E2E for two or three money paths (signup, checkout). And the rule that matters most: **test behavior, not implementation** — assert what callers/users observe; a good test fails only when behavior changes, not when you refactor internals.
+
+:::info[Industry jargon — what you'll hear on the job]
+| In plain English | What engineers call it |
+|---|---|
+| Code that checks your code | **Automated tests**; the whole collection is the **test suite** or **tests** |
+| Tests all passing | **Green** — "CI is green", "the suite is green" |
+| Tests failing | **Red** — "PR is red", "main is red" |
+| Fast tests on one function | **Unit tests** (sometimes **pure tests** when there's no I/O) |
+| Route + real database | **Integration tests** — in web teams often **API tests** or **service tests** |
+| Full browser click-through | **E2E** (*end-to-end*), **browser tests**, **UI tests**; a tiny critical subset is **smoke tests** |
+| Only the normal success case | The **happy path** — "we only tested the happy path" |
+| Error/empty/boundary cases | **Unhappy path**, **edge cases**, **negative tests** |
+| Test that catches a bug coming back | **Regression test** — write it **red then green** |
+| Test that sometimes fails alone | A **flake** / **flaky test** — **quarantine** or **`@flaky`** while fixing |
+| Fake Stripe/OpenAI in tests | **Mock** (or **stub** if it only returns canned data); umbrella term: **test double** |
+| In-memory fake database | **Fake** or **test DB** — Testcontainers = **real DB in Docker for CI** |
+| Too many browser tests, few unit tests | **Ice cream cone** (anti-pattern); healthy shape = **test pyramid** or **testing trophy** |
+| Asserting internal method calls | Testing **implementation details** — opposite is **testing behavior** / **black-box testing** |
+| `expect(x).toBe(y)` | An **assertion** — "the **assert** failed" |
+| Run tests on every push | **CI** (*continuous integration*) — "the **pipeline**", "**checks**", "**GitHub Actions**" |
+| Percent of lines executed | **Coverage** — "**line coverage**"; better signal: **mutation testing** |
+| Saved output compared to last run | **Snapshot test** — sometimes **golden file** |
+| Generate random inputs to find bugs | **Property-based** / **generative** tests — cousin of **fuzzing** |
+| Consumer/provider API agreement tests | **Contract tests** — **Pact** is the common tool name |
+| AI wrote tests that pass but test nothing | **Testing the mock** or **mirror testing** — tests that **re-assert the bug** |
+:::
+
 ## The six test types you'll meet
 
 ### 1. Unit tests
 
 > "Does this one function/class/module produce the right output for the inputs?"
+
+On the job: **"unit tests"**, **"unit suite"**, or **"fast tests"** (when contrasted with slow integration/E2E).
 
 ```typescript
 // math.ts
@@ -78,6 +108,8 @@ Tools: Jest, Vitest (the 2026 default for new TS projects, faster than Jest), No
 ### 2. Integration tests
 
 > "Do these components work together correctly?"
+
+On the job: **integration tests**; web/backend teams often say **API tests**, **service tests**, or **"tests against the test DB"**.
 
 Examples:
 - API route handler + real Postgres (in Docker or in-memory).
@@ -114,6 +146,8 @@ This is where most production bugs hide — wiring between components, schema mi
 ### 3. End-to-end (e2e) tests
 
 > "Does the whole app, from browser click to DB write to browser update, work?"
+
+On the job: **E2E**, **browser tests**, **UI tests**, **Playwright tests** (after the dominant tool). A small set on every deploy is the **smoke suite** — "did we break login/checkout?"
 
 ```typescript
 // Playwright
@@ -268,7 +302,7 @@ Sources of flake:
 | Race conditions in code | Fix the code — tests exposed a real bug |
 | Browser timing in e2e | Use Playwright's auto-waiting (`expect(locator).toBeVisible()`) not `sleep` |
 
-**Rule:** quarantine flakes in a "flaky" tag, fix them in a week, or delete them. A flaky test that "usually passes" is worse than no test.
+**Rule:** quarantine flakes in a "flaky" tag, fix them in a week, or delete them. A flaky test that "usually passes" is worse than no test. Teams say **"don't `@skip` it forever"** or **"flake quarantine"** — same idea: isolate until fixed.
 
 ## Speed: the tax that decides whether tests get run
 
@@ -337,6 +371,21 @@ For larger repos: run unit + lint + typecheck on every PR, run integration night
 | **Database migrations** | Run forward + rollback; assert schema state |
 | **CLI tools** | Run the binary in a subprocess; assert exit code + stdout |
 | **AI features** | [Evals](../ai/ai-evals), not traditional tests — the output is non-deterministic |
+
+## Testing AI-generated code
+
+When Cursor or Copilot drafts a feature, tests are how you **verify** the output — same role as code review, but automated. The traps are specific:
+
+| Trap | Fix |
+|---|---|
+| AI writes tests that re-assert the buggy code | **You** write the assertion — encode *intent* ("empty cart returns 400"), not "whatever the function returns today" |
+| AI adds happy-path-only coverage | Ask for edge cases explicitly, or add them yourself: empty, null, max length, unauthorized |
+| AI mocks everything | Same rule as always: mock at the trust boundary (Stripe, OpenAI); use a real test DB for your routes |
+| Bug fixed without a regression test | **Every bug fix starts with a failing test** — red before the fix, green after; that's the highest-ROI test you'll write |
+
+Workflow that works: AI scaffolds test file structure → you define the cases that matter → run the suite → fix code until green. Never merge AI-generated tests you didn't read — they often pass while testing nothing (`expect(true).toBe(true)` patterns, mocks of the subject under test — engineers call that **testing the mock** or **mirror testing**).
+
+When the AI drafts application code *and* tests together, treat the tests as suspect until you've traced one failure manually. The test and the bug often share the same wrong assumption.
 
 ## Common mistakes
 
@@ -409,7 +458,30 @@ For larger repos: run unit + lint + typecheck on every PR, run integration night
   revisit={{ to: "/docs/foundations/testing#coverage-a-number-with-a-complicated-relationship-to-quality", label: "Coverage as signal, not target" }}
 />
 
+<Question
+  prompt="Copilot adds 20 tests for a new API route. All pass, but the route still returns 500 on empty input. What went wrong?"
+  options={[
+    { text: "Need more tests — 20 isn't enough" },
+    { text: "The AI likely tested the happy path only and/or re-asserted current behavior without encoding the missing edge case — add a failing test for empty input first, then fix" },
+    { text: "Switch to Playwright instead of Vitest" },
+    { text: "Tests can't catch this kind of bug" }
+  ]}
+  correct={1}
+  explanation="AI-generated tests often mirror the code's assumptions, including its bugs. You define intent (empty input → 400); the test fails; then you fix. That's regression testing — the same discipline as debugging."
+  revisit={{ to: "/docs/foundations/testing#testing-ai-generated-code", label: "Testing AI-generated code" }}
+/>
+
 </Quiz>
+
+## Going deeper (optional)
+
+Everything above is enough to ship with a trustworthy suite. If you want more:
+
+- [Testing, Properly](/docs/roadmap/part-3-beyond/testing-deep) — trophy vs pyramid nuance, test doubles, TDD as design tool
+- [Testing in the lifecycle](../lifecycle/testing) — where testing fits in the dev process (TDD, 80/20 starter suite)
+- [Debugging methodology](./debugging) — when tests fail or flakes appear; hypothesis-driven investigation
+- [AI Evals](../ai/ai-evals) — testing non-deterministic LLM features (different from unit tests)
+- [SWE Interview Guide — testing fluency](https://swe-interview-guide.vercel.app/#/lesson/testing) — interview framing of the same pyramid
 
 ## What's next
 

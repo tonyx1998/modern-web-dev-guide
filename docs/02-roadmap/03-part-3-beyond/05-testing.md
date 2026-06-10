@@ -10,12 +10,12 @@ description: The senior view of testing — the pyramid vs the trophy, testing b
 
 > **In one line:** Tests exist for exactly one reason — to let you *change* code without fear — so the skill isn't writing more tests or chasing 100% coverage, it's testing the right things at the right level so a green suite actually means "safe to ship."
 
+**This page is self-contained for testing *strategy*.** It assumes you can write a Vitest or Playwright test (covered in [Testing (Foundations)](/docs/foundations/testing) if you need syntax) — but you do not need to read that page first to apply everything here. The judgment sections below stand alone.
+
 You learned *how* to write a test early on. This is *what* to test, at *which* level, and *why* — the judgment that separates a suite people trust from one they ignore.
 
-:::info[Where this connects in the rest of the guide]
-- The basics — what a unit/integration/e2e test *is*, and the tools (Vitest, Playwright) — live in [Testing (Foundations)](/docs/foundations/testing) and [Testing in the lifecycle](/docs/lifecycle/testing).
-
-This page is the *strategy*: how a senior engineer decides what's worth testing and why.
+:::info[Optional context — same guide]
+[Testing (Foundations)](/docs/foundations/testing) has the full taxonomy (unit/integration/e2e, tools, CI YAML). [Testing in the lifecycle](/docs/lifecycle/testing) places testing in Phase 7. This page is the senior *strategy* layer — read it when you want judgment, not syntax.
 :::
 
 ## 1. The pyramid, the trophy, and what each level buys you
@@ -28,7 +28,7 @@ Tests trade off **speed/cost** against **confidence/realism**:
 | **Integration** | fast-ish | units work *together* (route + DB + validation) | medium — best value |
 | **End-to-end (E2E)** | slow | the real user flow works in a real browser | high, and flakier |
 
-The classic **testing pyramid** says "mostly unit, some integration, few E2E." The modern refinement — the **testing trophy** (Kent C. Dodds) — argues *integration tests are the sweet spot* for web apps: they catch the bugs that actually happen (a route that doesn't validate, a query that returns the wrong shape) at a fraction of E2E's fragility. The practical default in 2026: **a thick layer of integration tests, units for genuinely tricky logic, and a thin layer of E2E for your two or three critical money paths** (sign-up, checkout).
+The classic **testing pyramid** says "mostly unit, some integration, few E2E." The modern refinement — the **testing trophy** (Kent C. Dodds) — argues *integration tests are the sweet spot* for web apps: they catch the bugs that actually happen (a route that doesn't validate, a query that returns the wrong shape) at a fraction of E2E's fragility. The practical default in 2026: **a thick layer of integration tests, units for genuinely tricky logic, and a thin layer of E2E for your two or three critical money paths** (sign-up, checkout). Teams describe that shape as **"fat middle"** or **"integration-heavy"** — opposite of the **ice cream cone** (too many E2E, not enough unit/integration).
 
 ## 2. Test behavior, not implementation
 
@@ -59,7 +59,16 @@ What's usually *not* worth testing: framework code (React already works), trivia
 
 ## 4. Test doubles — and the over-mocking trap
 
-A **test double** stands in for a real dependency: a **stub** returns canned data, a **mock** also asserts it was called a certain way, a **fake** is a working lightweight implementation (an in-memory DB), a **spy** records calls. You reach for them to control the *uncontrollable*: the network, the clock, randomness, third-party APIs.
+A **test double** stands in for a real dependency — the umbrella term engineers use instead of saying "mock" for everything:
+
+| Name | What it does | When people say it |
+|---|---|---|
+| **Stub** | Returns canned data, no behavior check | "Stub the API to return 404" |
+| **Mock** | Returns data *and* asserts it was called correctly | "Mock the email service" (often overloaded — means any fake) |
+| **Fake** | Working lightweight impl (in-memory DB) | "Use a fake repository" |
+| **Spy** | Real object, but records calls | "Spy on `fetch`" |
+
+You reach for doubles to control the *uncontrollable*: the network, the clock, randomness, third-party APIs.
 
 ```ts
 // Control time so a "token expires in 60s" test is deterministic, not a coin flip.
@@ -69,7 +78,7 @@ vi.setSystemTime(new Date("2026-01-01T00:00:00Z"));
 ```
 
 :::caution[The over-mocking trap]
-The seductive failure mode: mock so much that the test passes while production breaks. If you mock the database, the HTTP layer, and the service it calls, your test verifies that *your mocks return what you told them to* — not that the system works. The more you mock, the more your test asserts about a fictional world. The senior balance: **mock at the true boundaries** (external network, time, randomness, paid third-party APIs) and use **real (or in-memory/fake) implementations** for things you own — a real test database via Testcontainers beats a hand-mocked query layer that drifts from reality. A test that mocks the thing under test is theater.
+The seductive failure mode: mock so much that the test passes while production breaks. Engineers call that **over-mocking** or **testing in a vacuum** — the test verifies *your mocks return what you told them to*, not that the system works. The senior balance: **mock at the true boundaries** (external network, time, randomness, paid third-party APIs) and use **real (or in-memory/fake) implementations** for things you own — a real test database via Testcontainers beats a hand-mocked query layer that drifts from reality. A test that mocks the thing under test is **theater** (same idea as **testing the mock**).
 :::
 
 ## 5. Flaky tests are bugs — treat them as P1
@@ -81,21 +90,25 @@ A **flaky** test passes and fails without the code changing. It is *worse than n
 - **Async races** — asserting before an async update settles. Fix: `await`/`findBy*` the expected state instead of fixed waits.
 - **Real network** — hitting a live service. Fix: stub it.
 
-The rule: **a flaky test is a bug in the test (or the code's nondeterminism); quarantine it immediately and fix it, never "just re-run."** This ties directly to [chaos/reliability thinking](/docs/operations/chaos-engineering) — nondeterminism you can't reproduce in a test is nondeterminism you can't debug in prod.
+The rule: **a flaky test is a bug in the test (or the code's nondeterminism); quarantine it immediately and fix it, never "just re-run."** Nondeterminism you can't reproduce in a test is nondeterminism you can't debug in production — treat flakes with the same seriousness as [debugging methodology](/docs/foundations/debugging#intermittent--flaky) demands.
 
 ## 6. TDD as a design tool (even if you're not dogmatic)
 
 Test-Driven Development — write the failing test, make it pass, refactor (red → green → refactor) — is divisive as a religion but valuable as a *design technique*. Writing the test first forces you to use your own API before it exists, which surfaces awkward signatures *before* you've built around them. You don't have to TDD everything; reach for it when designing a tricky module or fixing a bug (the bug repro is the failing test). The lasting insight: **hard-to-test code is usually badly-designed code** — if you can't test it without a dozen mocks, the units are too coupled.
 
+## 7. AI-generated tests: verify intent, not volume
+
+When an assistant "adds tests" to a PR, the risk isn't too few — it's **tests that lie**. Common failure modes:
+
+- **Re-asserting the bug** — `expect(brokenFn()).toBe(brokenFn())` or happy-path-only coverage while the edge case that users hit is untested.
+- **Testing the mock** — the subject is mocked; the test verifies the mock was called, not that the system works.
+- **Implementation coupling** — asserts on private methods or internal call order; breaks on every refactor.
+
+Senior discipline: AI scaffolds structure; **you** write the assertions that encode business intent. Every bug fix starts red (failing test reproducing the bug) then green. If you wouldn't trust an AI's code without reading the diff, don't trust its tests without reading the assertions.
+
 ## Why this matters for you
 
-A test suite is what lets you move fast *later*. Early on, manual testing ("does it work when I click it?") is fine. But the moment a project has real users and you're afraid to refactor because you might break something invisible, you've hit the wall a good suite removes. Tests are how velocity *survives* a growing codebase — they're the [reversibility](/docs/decisions/reversibility) principle made executable.
-
-## Going further (optional)
-
-*This page plus the **First step** below are self-contained — you don't need to leave the site to learn or apply this. If you want to go even deeper, these are the best external resources:*
-
-[Testing Library docs](https://testing-library.com/) (the "guiding principles" page is the whole philosophy in five minutes). Kent C. Dodds' [Testing JavaScript](https://testingjavascript.com/) for the trophy model. For the deep version, *Working Effectively with Legacy Code* (Feathers) is the canonical book on testing code that wasn't built to be tested.
+A test suite is what lets you move fast *later*. Early on, manual testing ("does it work when I click it?") is fine. But the moment a project has real users and you're afraid to refactor because you might break something invisible, you've hit the wall a good suite removes. Tests are how velocity *survives* a growing codebase — they're the reversibility principle made executable: small changes you can undo because tests tell you what broke.
 
 ## First step
 
@@ -156,6 +169,16 @@ Take your most recent bug. Write a test that *fails* because of it (reproducing 
 />
 
 </Quiz>
+
+## Going deeper (optional)
+
+This page is complete for testing *judgment*. Optional next steps:
+
+- [Testing (Foundations)](/docs/foundations/testing) — syntax, tools, CI pipeline, full type taxonomy
+- [Testing in the lifecycle](/docs/lifecycle/testing) — Phase 7 workflow, 80/20 starter suite
+- [Debugging methodology](/docs/foundations/debugging) — when tests fail or flake
+- [Chaos engineering](/docs/operations/chaos-engineering) — production nondeterminism beyond the test suite
+- External: [Testing Library guiding principles](https://testing-library.com/docs/guiding-principles/), Kent C. Dodds' [Testing JavaScript](https://testingjavascript.com/), *Working Effectively with Legacy Code* (Feathers)
 
 ---
 

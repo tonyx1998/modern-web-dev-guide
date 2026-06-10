@@ -10,11 +10,11 @@ description: Prove the code works and stays working. The testing pyramid, the ty
 
 > **In one line:** Tests prove your code works, document what it's supposed to do, and let you refactor without fear. Without them, every change is a gamble.
 
-→ **Going deeper:** the senior strategy — pyramid vs trophy, testing behavior not implementation, the over-mocking trap, and why flaky tests are bugs — is in [Testing, Properly](/docs/roadmap/part-3-beyond/testing-deep).
-
 :::tip[In plain English]
 Testing is the practice of writing code that *checks your code*. You write a function that adds two numbers. You write a test that calls it with `2, 3` and expects `5`. The test runs automatically every time you save or push. If you ever break the function, the test fails and tells you. Multiply that by a few hundred tests and you have a safety net that lets you change code confidently.
 :::
+
+**This page is self-contained for Phase 7.** You get the pyramid, all three test types with examples, TDD, coverage pitfalls, tools, and anti-patterns — enough to test a real project. The [foundations testing page](/docs/foundations/testing) goes wider (contracts, snapshots, property-based, CI YAML); links at the bottom are optional.
 
 ## Why test?
 
@@ -38,6 +38,12 @@ flowchart TB
 ```
 
 > **Reading this diagram:** Stacked top-down because the *shape* is the point — narrow at the top (few slow E2E tests, in orange/red), wide at the bottom (many fast unit tests, in green). Inverting the pyramid (many slow E2E tests) makes CI take hours and tests flake constantly.
+
+**Behavior, not implementation:** assert what users/callers *observe* (HTTP status, rendered text, return value) — not internal method calls or private state. A good test fails only when behavior breaks; refactor-friendly tests survive rewrites. In PR comments you'll hear **"this is testing implementation details"** or **"assert on behavior, not internals"** — same rule.
+
+:::info[Quick jargon for Phase 7]
+**Happy path** = normal success case. **Regression test** = test that locks a fixed bug. **Flake** = test that fails randomly. **Green CI** = all checks passed. **Smoke test** = one E2E on the critical flow before/after deploy. **Red-green-refactor** = TDD cycle (failing test → pass → clean up).
+:::
 
 ## Test types in depth
 
@@ -120,12 +126,12 @@ test('user can sign up and create a project', async ({ page }) => {
 
 A discipline where you write the test first:
 
-1. Write a failing test.
-2. Write the minimum code to make it pass.
+1. Write a failing test (**red**).
+2. Write the minimum code to make it pass (**green**).
 3. Refactor.
 4. Repeat.
 
-TDD enforces small, testable units and high coverage. It's valuable but not universally adopted; many great codebases are tested after the fact.
+Engineers shorthand the cycle **red-green-refactor**. TDD enforces small, testable units and high coverage. It's valuable but not universally adopted; many great codebases are tested after the fact (**test-after** or **characterization tests** when adding tests to legacy code).
 
 ## Coverage is misleading
 
@@ -172,6 +178,17 @@ This gives you ~20% of the testing effort for ~80% of the value. As your project
 | **k6**               | Load testing.                                          |
 | **Chromatic / Percy**| Visual regression.                                     |
 | **Storybook**        | Component development + interaction testing.           |
+
+## Testing AI-generated code in this phase
+
+AI assistants are useful for scaffolding test files — `describe` blocks, factory setup, Playwright boilerplate. They are **not** reliable for deciding *what* to assert. The failure mode: tests that pass while encoding the bug (happy-path only, or `expect` on whatever the broken code returns).
+
+Discipline for Phase 7:
+
+1. **You define the cases** — especially unhappy paths (400 on bad input, empty list, unauthorized).
+2. **Bug fix = failing test first** — reproduce in a test, then fix code until green.
+3. **Read AI-generated assertions** — reject tests that mock the function under test or assert implementation details.
+4. **Run the suite locally** before opening a PR — same verification habit as [debugging AI-generated code](/docs/foundations/debugging#debugging-ai-generated-code).
 
 ## Common mistakes
 
@@ -240,6 +257,12 @@ This gives you ~20% of the testing effort for ~80% of the value. As your project
 />
 
 </Quiz>
+
+## Going deeper (optional)
+
+- [Testing: foundations](/docs/foundations/testing) — full taxonomy (contracts, snapshots, property-based), mock heuristics, CI pipeline YAML
+- [Testing, Properly](/docs/roadmap/part-3-beyond/testing-deep) — trophy model, test doubles, flaky-test P1 discipline
+- [Debugging methodology](/docs/foundations/debugging) — investigating failures and flakes
 
 ## What's next
 

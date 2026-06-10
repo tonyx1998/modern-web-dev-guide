@@ -14,6 +14,8 @@ description: Bug-finding as a discipline — hypothesis-driven debugging, bisect
 The slowest debuggers are the ones who poke at random — change a thing, see if it works, change another. The fastest are scientists: they form a hypothesis ("I think the issue is X"), design an experiment that distinguishes X from not-X (a print statement, a binary search, a controlled test), run it, update the hypothesis, repeat. The technique is general; the discipline is "don't skip steps because you're sure."
 :::
 
+**This page is self-contained.** Read it top to bottom and you have the full methodology for debugging web apps — local dev, production, unfamiliar repos, and AI-drafted code. Links at the bottom are optional if you want interview practice or ops tooling in more depth.
+
 This page is the meta-skill. The tools change (browser devtools, debuggers, log queries, traces); the method doesn't.
 
 ## The scientific debugging loop
@@ -37,7 +39,31 @@ The loop:
 4. **Run it.** Don't run five tests at once; you won't know which was the signal.
 5. **Update.** Hypothesis confirmed → narrow further. Hypothesis disconfirmed → form a new one.
 
-Most failed debugging is skipping step 2 (no hypothesis, just poking) or step 3 (changing many things at once, can't tell what worked).
+Most failed debugging is skipping step 2 (no hypothesis, just poking) or step 3 (changing many things at once, can't tell what worked). Random edits without a theory is what engineers call **shotgun debugging** — and it's the habit interviewers and teammates penalize first.
+
+:::info[Industry jargon — what you'll hear in standup and Slack]
+Plain English on the left; what practitioners actually say on the right. Same concepts — learn both so code review comments and incident channels make sense.
+
+| In plain English | What engineers call it |
+|---|---|
+| Make the bug happen on command | **Get a repro** (short for *reproduction*); **minimal repro** when you've stripped it to the smallest case |
+| "I think X causes Y" before you edit | **Hypothesis-driven debugging**; narrating it out loud is **thinking in public** |
+| Change five things and hope | **Shotgun debugging** (also **random tweaking**) |
+| Change one thing, observe, repeat | **Scientific debugging**; Agans' book calls it **divide and conquer** |
+| Cut the search space in half | **Bisect** / **binary search the problem**; on commits: **`git bisect`** |
+| "It worked yesterday" | A **regression** — something that *regressed* (got worse); hunt the **regression range** |
+| What actually broke vs. what users see | **Root cause** vs. **symptom**; postmortems ask for **RCA** (*root cause analysis*) |
+| Test that fails before your fix, passes after | **Regression test** (sometimes **lock test** or **guard test**) |
+| Error printout with file + line chain | **Stack trace** (Python: **traceback**); "read the **stack**" |
+| Pause and inspect variables | **Breakpoint** — "throw a **break** on line 42" |
+| `console.log` to see state | **Printf debugging** or **logging** (adding **instrumentation**) |
+| Bug vanishes when you add logs | **Heisenbug** (observer effect) |
+| Test passes 9/10 times for no code change | **Flaky** test — "that's a **flake**"; fix or **quarantine** it |
+| Production logs/metrics/traces | **Observability** — "check **o11y**"; one request's trail is a **trace** |
+| Roll back before you understand | **Stop the bleeding** — **mitigate** first, **root-cause** second |
+| Explain the bug to a rubber duck | **Rubber-duck debugging** |
+| AI code that looks right but isn't | **Confidently wrong** output — **hallucinated API** when it invents a method |
+:::
 
 ## The most important question: what changed?
 
@@ -50,13 +76,13 @@ Most bugs that appear in production were introduced by a change. Before forming 
 - **What data changed?** New customer, larger scale, edge-case input.
 - **What environment changed?** Browser update, mobile OS update, library bump.
 
-Status pages first. Git log second. The bug *almost certainly* correlates with something that moved.
+Status pages first. Git log second. The bug *almost certainly* correlates with something that moved. In incident chat you'll hear **"what's the diff?"**, **"last known good"** (the last version that worked — **LKG**), or **"correlate with deploy"**.
 
 For "this worked yesterday and broke today" — start with the deploy. For "this never worked" — start with the assumption that broke first.
 
 ## The bisection technique
 
-When you have a wide search space, **bisect**.
+When you have a wide search space, **bisect** (engineers also say **binary search** or **divide and conquer**).
 
 ### Git bisect
 
@@ -163,7 +189,38 @@ Breakpoints aren't sexy. They're the fastest way to see what's actually happenin
 
 ### Tracing for distributed systems
 
-When a request crosses services, traces are how you debug. OpenTelemetry + your backend (see [Observability](./observability-fundamentals)). When a bug crosses an API call, find the trace ID, follow the spans.
+When a request crosses services, traces are how you debug. **Observability** means instrumenting your app so you can see what happened in production — logs (text records of events), metrics (numbers over time, like error rate), and traces (one request's path across services). When a bug crosses an API call, find the trace ID in the logs and follow the spans. (Your ops chapter goes deeper on tooling; the debugging move is: don't guess which service failed — follow the trace.)
+
+## Usual suspects: the bugs that show up again and again
+
+Before exotic theories, match the symptom to a category. These recur in web apps, interview snippets, and AI-drafted code alike:
+
+| Category | What it looks like | What to check |
+|---|---|---|
+| **Off-by-one** | Wrong count, missing first/last element, fence-post errors | Loop bounds: `<` vs `<=`, `range(1, n)` skipping index 0, `arr.length - 1` |
+| **Type coercion** | `"10" < "9"` is true; string + number silently weird | Log `typeof` / use strict equality (`===`); explicit `parseInt` |
+| **Null / undefined** | `Cannot read property 'x' of null` | Trace where the value became null — often one hop upstream |
+| **Stale closure** | Callback sees an old variable (classic in React `useEffect`) | Log the captured value inside the callback |
+| **Async ordering** | "Sometimes works" — race between two async calls | Who finishes first? Add `await`; log order of resolution |
+| **Mutation aliasing** | "I copied it but the original changed too" | Did you mutate a shared object? Use spread / deep copy |
+| **Silent error swallow** | Error vanishes; behavior is wrong with no message | Empty `catch {}` — log or rethrow first |
+| **Wrong layer fix** | Patch at the symptom; bug returns | Follow data upstream: where did the bad value originate? (**symptom fix** vs **root-cause fix**) |
+
+Match symptom → suspect → one cheap test. That is hypothesis-driven debugging in practice. In code review you'll hear **"classic off-by-one"**, **"stale closure"**, **"works on my machine"**, or **"swallowed exception"** — same categories, shorthand labels.
+
+## Debugging in an unfamiliar codebase
+
+Most real bugs live in code you did not write — a teammate's module, a dependency, or something AI drafted ten minutes ago. You do not read the whole repo; you **navigate by the failure**:
+
+1. **Reproduce.** Run the failing test or minimal script. No repro = guessing.
+2. **Let the error name the file.** The stack trace's top frame is your starting point.
+3. **Search, don't scroll.** Grep the exact error message or a distinctive symbol (`rg -n "User not found"`). Engineers say **"grep for it"** or **"ripgrep the error string"** — same move.
+4. **Follow the data upstream.** "Where did this wrong value come from?" — **trace the data flow** or **follow the call chain**.
+5. **Check what changed.** `git log --oneline -- path/to/file` and **`git blame`** on the suspicious line ( **`blame`** = "who last touched this line and in which commit?").
+6. **Fix at the right layer.** The crash may be in `render()` but the cause is bad data from `fetch()`. Fixing only the symptom is a **band-aid** or **symptom patch**; fixing the invariant is addressing **root cause**.
+7. **Lock with a regression test.** Red before your change, green after — engineers call that **red-green** (borrowed from TDD).
+
+This is the same loop as single-file debugging; the only addition is orientation tools (grep, git, stack trace) to shrink a large repo down to a small suspect surface fast.
 
 ## Bug taxonomy: what kind is this?
 
@@ -274,6 +331,45 @@ Explain the bug, out loud, to a rubber duck (or a colleague, or a journal). The 
 
 Costs nothing; works.
 
+## Debugging AI-generated code
+
+In 2026, a growing share of the code you debug was drafted by Cursor, Copilot, Claude, or an agent — including code *you* accepted ten minutes ago. The debugging **method** does not change: reproduce, hypothesize, test one thing at a time. What changes is the **failure profile**. AI output fails in predictable shapes that human-written code rarely does, and the hardest trap is debugging code you never fully understood in the first place.
+
+:::tip[In plain English]
+Treat AI-generated code like a pull request from a very fast junior who has read every Stack Overflow answer but never ran your app. The bug is still found the same way — reproduce it, form a guess, test the guess — but your first suspects are different: invented APIs, missing edge cases, and logic that *looks* right on a quick read. Never ask the AI to "fix the bug" until you can say what the bug actually is.
+:::
+
+### The same loop — different default suspects
+
+Run the scientific debugging loop from above. When the diff came from AI, check these **before** exotic theories:
+
+| Symptom | Likely AI cause | First check |
+|---|---|---|
+| `undefined is not a function` / import error | Hallucinated API or wrong import path | Grep the repo and the language docs — does this method exist? |
+| Works on happy path, crashes on empty/null | Edge case never in the prompt | Trace empty input, `null`, `0`, `""` by hand |
+| "It worked once, then broke" | Partial edit — AI changed one file but not its caller | Read the full diff; grep for the changed symbol across the repo |
+| Subtle wrong number / wrong sort order | Type coercion, off-by-one, wrong comparator | Log types and values at the boundary |
+| Test passes locally, fails in CI | Environment assumption baked in (path, env var, timing) | Compare env; read what the AI assumed about config |
+| Everything compiles, behavior is nonsense | Wrong mental model — plausible code solving the wrong problem | Re-state the spec: what *should* happen vs. what *does* |
+
+When *writing* with AI, the prevention checklist is the same as the debugging suspect list: read every diff, run tests, trace one edge case. On the job you'll hear **"review the diff"**, **"don't ship unread"**, **"verify before merge"**, and **"confidently wrong"** when the model looks sure but isn't.
+
+### Rules that keep AI from making debugging worse
+
+1. **Reproduce before you re-prompt.** "Fix this bug" with no reproducer makes the model guess. You get a new plausible wrong answer. Reproduce → name the failure → *then* optionally ask the AI for hypotheses.
+2. **Use AI to generate hypotheses, not to apply fixes blindly.** Good: "Here is the failing test and stack trace — what are three plausible causes?" Bad: accepting a 40-line rewrite you cannot explain.
+3. **Read the diff like a code review, not like prose.** Skim for invented calls, swallowed `catch` blocks, `TODO` stubs, and dependencies that were not in the project before the AI touched it.
+4. **Assume you do not understand code you did not write by hand.** If you cannot explain what a function does in one sentence, read it first — entry point → data flow → side effects, one function at a time.
+5. **Lock fixes with a regression test.** AI-suggested patches are especially good at fixing the symptom while leaving the root cause. A test that failed before and passes after is how you know you actually fixed something.
+
+### When AI helps debugging — and when it hurts
+
+**Helps:** unfamiliar libraries ("what does this error mean in Prisma?"), generating minimal repro scripts, suggesting what to log, explaining a stack trace in plain English, rubber-ducking a hypothesis list.
+
+**Hurts:** "just fix it" without context; rewriting modules you have not read; patching around a bug instead of finding the cause; accepting a fix you cannot defend in code review.
+
+The skill that separates senior from junior in the AI era is not *generating* code — it is **verifying** it under the same discipline you would apply to a human teammate's PR, then debugging with evidence when verification fails.
+
 ## Common mistakes
 
 :::caution[Where people commonly trip up]
@@ -350,7 +446,30 @@ Costs nothing; works.
   revisit={{ to: "/docs/foundations/debugging#intermittent--flaky", label: "Flaky tests" }}
 />
 
+<Question
+  prompt="AI-generated code crashes on empty input but works on the happy path. Best first move?"
+  options={[
+    { text: "Re-prompt the AI to fix the bug" },
+    { text: "Reproduce with empty input, trace what the code actually receives, then form a hypothesis — same loop as any bug; AI code just fails on edge cases more often" },
+    { text: "Rewrite the whole function from scratch without reading it" },
+    { text: "Add a try/catch so the crash stops" }
+  ]}
+  correct={1}
+  explanation="Re-prompting without a reproducer produces another plausible wrong answer. Reproduce, trace the empty case, then debug with evidence — and add a regression test once fixed."
+  revisit={{ to: "/docs/foundations/debugging#debugging-ai-generated-code", label: "Debugging AI-generated code" }}
+/>
+
 </Quiz>
+
+## Going deeper (optional)
+
+Everything above is enough to debug web apps, production incidents, and AI-drafted code on the job. If you want more:
+
+- [Reading code / onboarding](../lifecycle/reading-code) — extended playbook for your first week in a large repo
+- [Observability fundamentals](./observability-fundamentals) — logs, metrics, traces in depth
+- [Editors & AI](/docs/stack/editors-ai) — preventing bugs while pair-programming with AI
+- [Testing: foundations](/docs/foundations/testing) — regression tests, CI, testing AI-generated code
+- [SWE Interview Guide — debugging rounds](https://swe-interview-guide.vercel.app/#/lesson/debugging-round) — the same methodology under interview time pressure
 
 ## What's next
 
