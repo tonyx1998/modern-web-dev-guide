@@ -46,6 +46,12 @@ Three modes of AI-assisted work, in increasing autonomy:
 
 The bigger the task, the more you need to *review* what the AI produced. The skills that matter most in 2026 are reading code, judging design, debugging, and architectural taste — not raw typing speed.
 
+### When AI-drafted code breaks
+
+The debugging method does not change — reproduce, hypothesize, test one thing at a time. AI output just fails in predictable shapes: **hallucinated APIs**, **happy-path-only logic**, **partial multi-file edits**, **symptom patches** that hide root causes. Before re-prompting "fix this bug," reproduce the failure and name it. Use AI to brainstorm hypotheses; apply fixes only when you can explain and verify them. Lock every fix with a regression test.
+
+Everything you need to recover is in [Debugging methodology](/docs/foundations/debugging) (including the full AI suspect table). That page is self-contained; read it when something breaks.
+
 :::info[Highlight: AI doesn't replace fundamentals — it amplifies them]
 A junior developer with AI but no fundamentals produces code they can't debug. A senior developer with AI produces 2–5× more high-quality code.
 
