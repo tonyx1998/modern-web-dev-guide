@@ -121,7 +121,7 @@ The pattern: complexity grows with scale, not with ambition. Start small. Earn e
 
 ## Page checkpoint
 
-<Quiz id="databases-choosing-page" title="Did choosing a database stick?" sampleSize={2}>
+<Quiz id="databases-choosing-page" title="Did choosing a database stick?" sampleSize={3}>
 
 <Question
   prompt="A new project in 2026 needs a database. What's the recommended starting point?"

@@ -1,14 +1,18 @@
 ---
 id: career-path
-title: 15. Career Path — Overview
+title: 16. Career Path — Overview
 sidebar_position: 1
 sidebar_label: Career intro
 description: For students and developers building toward a career — skills, portfolios, specializations, 2026 comp.
 ---
 
-# Part 15: Career Path & Learning Resources
+# Part 16: Career Path & Learning Resources
 
 *For students and developers building toward a career in web development.*
+
+:::note[New to web dev? How to read this chapter]
+Read [Foundational skills](/docs/career/foundational-skills) and [Portfolio](/docs/career/career-portfolio) after [Roadmap Stage 9](/docs/roadmap/part-1-from-zero/stage-9-portfolio). Skim compensation and job-search pages when you're actively applying.
+:::
 
 :::tip[Beginner orientation]
 **If you're a complete beginner reading this chapter first:** Welcome. This chapter is structured as a roadmap, not a syllabus — you don't need to know any of the things in it yet. Use it to know *what to aim for*, then circle back to the foundation chapters to start learning.
@@ -82,4 +86,4 @@ Each page focuses on **one topic** with worked examples and beginner callouts. R
 
 ---
 
-When you finish, move on to [Chapter 16: Glossary](/docs/glossary).
+When you finish, take the [Final Capstone](/docs/capstone), then use the [Glossary](/docs/glossary) as your standing reference.

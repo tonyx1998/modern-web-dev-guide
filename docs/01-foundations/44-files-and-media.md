@@ -379,7 +379,7 @@ For most use cases: signed URLs. For audit-heavy compliance contexts: proxy.
 
 ## Page checkpoint
 
-<Quiz id="foundations-files-and-media-page" title="Did file & media handling stick?" sampleSize={2}>
+<Quiz id="foundations-files-and-media-page" title="Did file & media handling stick?" sampleSize={3}>
 
 <Question
   prompt="Why is the 'browser POSTs file to your server, server forwards to S3' pattern usually wrong?"

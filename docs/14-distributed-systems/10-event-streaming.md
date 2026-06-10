@@ -89,7 +89,7 @@ Distributed systems are the theory under everything the cloud and operations cha
 
 ## Page checkpoint
 
-<Quiz id="event-streaming-page" title="Did event streaming stick?" sampleSize={2}>
+<Quiz id="event-streaming-page" title="Did event streaming stick?" sampleSize={3}>
 
 <Question
   prompt="What fundamentally distinguishes a log (event stream) from a queue?"
@@ -134,4 +134,4 @@ Distributed systems are the theory under everything the cloud and operations cha
 
 ## What's next
 
-→ You've finished the distributed-systems pillars. Take the [Chapter 7 checkpoint](./distributed-systems-checkpoint), then continue to [Chapter 8: AI Integration](/docs/ai) — the new standard layer in modern apps, and one that puts this chapter's reliability ideas to work in production.
+→ You've finished the distributed-systems pillars. Take the [Chapter 8 checkpoint](./distributed-systems-checkpoint), then continue to [Chapter 9: AI Integration](/docs/ai) — the new standard layer in modern apps, and one that puts this chapter's reliability ideas to work in production.

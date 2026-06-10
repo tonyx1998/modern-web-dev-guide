@@ -82,7 +82,7 @@ You now have the four deep concepts that make any cloud legible — compute mode
 
 ## Page checkpoint
 
-<Quiz id="cloud-choosing-page" title="Did choosing a cloud stick?" sampleSize={2}>
+<Quiz id="cloud-choosing-page" title="Did choosing a cloud stick?" sampleSize={3}>
 
 <Question
   prompt="For a brand-new indie/startup web app, what does the chapter recommend regarding cloud choice?"
@@ -127,4 +127,4 @@ You now have the four deep concepts that make any cloud legible — compute mode
 
 ## What's next
 
-→ You've finished the cloud pillars. Take the [Chapter 5 checkpoint](./cloud-checkpoint), then continue to [Chapter 6: Site Reliability & Operations](/docs/operations) — keeping all of this alive and healthy in production.
+→ You've finished the cloud pillars. Take the [Chapter 6 checkpoint](./cloud-checkpoint), then continue to [Chapter 7: SRE & Operations](/docs/operations) — keeping all of this alive and healthy in production.

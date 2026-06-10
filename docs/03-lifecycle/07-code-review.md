@@ -131,7 +131,7 @@ This single habit dramatically improves solo code quality over time.
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-code-review-page" title="Did code review stick?" sampleSize={2}>
+<Quiz id="lifecycle-code-review-page" title="Did code review stick?" sampleSize={3}>
 
 <Question
   prompt="The page lists several benefits of code review. Which one is NOT one of them?"

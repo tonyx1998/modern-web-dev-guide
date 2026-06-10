@@ -66,7 +66,7 @@ If you can't articulate a *specific* reason the niche tech is worth all of that,
 
 ## Page checkpoint
 
-<Quiz id="decisions-hiring-constraint-page" title="Did the hiring constraint stick?" sampleSize={2}>
+<Quiz id="decisions-hiring-constraint-page" title="Did the hiring constraint stick?" sampleSize={3}>
 
 <Question
   prompt="A B2B SaaS picks Haskell 'for correctness.' Two years in, one engineer knows it well, three can mostly work around it, and recruiting is constant grind. The chapter's verdict:"

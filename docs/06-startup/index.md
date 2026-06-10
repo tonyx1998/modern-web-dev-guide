@@ -1,14 +1,18 @@
 ---
 id: small-company-workflow
-title: 11. Small Company Workflow — Overview
+title: 12. Small Company Workflow — Overview
 sidebar_position: 1
 sidebar_label: Startup workflow intro
 description: Startups and small companies (5–50 people). Real product, paying customers, managed services.
 ---
 
-# Part 11: Small Company / Startup Workflow (5–50 People)
+# Part 12: Small Company / Startup Workflow (5–50 People)
 
 *Real product, paying customers, small team, balancing speed and quality.*
+
+:::note[New to web dev? How to read this chapter]
+Read after the [Solo](/docs/solo) chapter or when you join a small team. Skim mindset and planning now; return for CI/CD, security, and observability when you have paying users and teammates.
+:::
 
 This chapter covers the workflow for actual companies — startups and small businesses with engineering teams between five and fifty people. There's a real product, real customers, and real money involved, but the operational scale doesn't yet justify enterprise-grade infrastructure.
 
@@ -68,4 +72,4 @@ Each page focuses on a single topic or phase. Read them in order the first time;
 
 ---
 
-When you finish all 17 pages, move on to [Chapter 12: Large Company Workflow](/docs/enterprise).
+When you finish all 17 pages, move on to [Chapter 13: Enterprise](/docs/enterprise).

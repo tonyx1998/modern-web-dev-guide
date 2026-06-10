@@ -1,14 +1,18 @@
 ---
 id: comparison
-title: 13. Side-by-Side Comparison — Overview
+title: 14. Side-by-Side Comparison — Overview
 sidebar_position: 1
 sidebar_label: All three scales
 description: Solo / startup / enterprise compared side by side across tools, processes, and costs.
 ---
 
-# Part 13: Side-by-Side Comparison
+# Part 14: Side-by-Side Comparison
 
 *Quick-reference tables showing how all three scales differ across every dimension.*
+
+:::note[New to web dev? How to read this chapter]
+Best after skimming [Solo](/docs/solo), [Startup](/docs/startup), and [Enterprise](/docs/enterprise). Use as a lookup table when deciding what practices fit your team size.
+:::
 
 :::tip[Beginner orientation]
 **How to read this chapter:** Each table shows the same dimension (e.g., "How do they deploy code?") at three scales — solo, startup, enterprise. Reading them side-by-side is the fastest way to grasp how engineering culture changes with team size.
@@ -41,11 +45,11 @@ Where do you sit?
 ```mermaid
 flowchart TD
     Start{"Are you working alone?"}
-    Start -->|Yes| Solo["Personal Project workflow (Chapter 10)"]
+    Start -->|Yes| Solo["Personal Project workflow (Chapter 11)"]
     Start -->|No| Size{"How many engineers in your org?"}
-    Size -->|2–50| Startup["Small Company workflow (Chapter 11)"]
+    Size -->|2–50| Startup["Small Company workflow (Chapter 12)"]
     Size -->|50+| Q2{"Many product teams shipping independently?"}
-    Q2 -->|Yes| Ent["Large Company workflow (Chapter 12)"]
+    Q2 -->|Yes| Ent["Large Company workflow (Chapter 13)"]
     Q2 -->|Still feels like one team| Startup
 ```
 
@@ -76,4 +80,4 @@ The biggest mistake is **applying the wrong scale's practices**:
 
 ---
 
-When you finish, move on to [Chapter 14: Decision Frameworks](/docs/decisions).
+When you finish, move on to [Chapter 15: Decision Frameworks](/docs/decisions).

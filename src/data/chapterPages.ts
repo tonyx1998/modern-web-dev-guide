@@ -45,55 +45,58 @@ export const chapterPages: Record<ChapterId, string[]> = {
     "/docs/foundations/apis-rest",
     "/docs/foundations/apis-graphql-trpc",
     "/docs/foundations/apis-realtime",
+    "/docs/foundations/webrtc",
+    "/docs/foundations/message-queues",
     "/docs/foundations/databases-sql",
     "/docs/foundations/databases-nosql",
     "/docs/foundations/databases-choosing",
+    "/docs/foundations/search",
+    "/docs/foundations/files-and-media",
     "/docs/foundations/authentication",
     "/docs/foundations/authorization",
+    "/docs/foundations/web-security",
     "/docs/foundations/deployment-pyramid",
     "/docs/foundations/deployment-stages",
-    "/docs/foundations/foundations-checkpoint",
-    "/docs/foundations",
-    "/docs/foundations/webrtc",
+    "/docs/foundations/containers",
+    "/docs/foundations/edge-computing",
+    "/docs/foundations/performance",
+    "/docs/foundations/accessibility",
+    "/docs/foundations/crdts",
+    "/docs/foundations/i18n",
+    "/docs/foundations/seo",
+    "/docs/foundations/payments",
+    "/docs/foundations/email",
+    "/docs/foundations/foundations-mid-checkpoint",
+    "/docs/foundations/concurrency",
+    "/docs/foundations/distributed-systems",
     "/docs/foundations/rate-limiting",
     "/docs/foundations/caching",
     "/docs/foundations/secrets-and-keys",
     "/docs/foundations/observability-fundamentals",
     "/docs/foundations/testing",
-    "/docs/foundations/web-security",
-    "/docs/foundations/concurrency",
-    "/docs/foundations/distributed-systems",
-    "/docs/foundations/performance",
-    "/docs/foundations/accessibility",
-    "/docs/foundations/message-queues",
-    "/docs/foundations/containers",
-    "/docs/foundations/search",
-    "/docs/foundations/seo",
-    "/docs/foundations/i18n",
-    "/docs/foundations/payments",
-    "/docs/foundations/email",
-    "/docs/foundations/files-and-media",
-    "/docs/foundations/crdts",
-    "/docs/foundations/edge-computing",
-    "/docs/foundations/debugging"
+    "/docs/foundations/debugging",
+    "/docs/foundations/foundations-checkpoint",
+    "/docs/foundations"
   ],
   "roadmap": [
+    "/docs/roadmap/roadmap-checkpoint",
     "/docs/roadmap/part-1-from-zero/stage-0-setup",
     "/docs/roadmap/part-1-from-zero/pro-environment",
     "/docs/roadmap/part-1-from-zero",
     "/docs/roadmap/part-2-modern-stack",
     "/docs/roadmap/part-3-beyond",
     "/docs/roadmap/part-4-meta",
-    "/docs/roadmap",
+    "/docs/roadmap/roadmap-how-to-use",
     "/docs/roadmap/part-1-from-zero/stage-1-javascript-basics",
     "/docs/roadmap/part-2-modern-stack/trends",
     "/docs/roadmap/part-3-beyond/cs-fundamentals",
     "/docs/roadmap/part-4-meta/how-to-learn",
-    "/docs/roadmap/roadmap-how-to-use",
+    "/docs/roadmap/timeline-and-path",
     "/docs/roadmap/part-1-from-zero/stage-2-html-css",
     "/docs/roadmap/part-2-modern-stack/tier-1",
     "/docs/roadmap/part-3-beyond/engineering-judgment",
     "/docs/roadmap/part-4-meta/ai-as-learner",
+    "/docs/roadmap",
     "/docs/roadmap/part-1-from-zero/stage-3-js-in-browser",
     "/docs/roadmap/part-2-modern-stack/tier-2",
     "/docs/roadmap/part-3-beyond/systems-thinking",
@@ -112,9 +115,7 @@ export const chapterPages: Record<ChapterId, string[]> = {
     "/docs/roadmap/part-1-from-zero/stage-9-portfolio",
     "/docs/roadmap/part-1-from-zero/stage-10-backend",
     "/docs/roadmap/part-1-from-zero/stage-11-fullstack",
-    "/docs/roadmap/part-1-from-zero/stage-12-going-pro",
-    "/docs/roadmap/roadmap-checkpoint",
-    "/docs/roadmap/timeline-and-path"
+    "/docs/roadmap/part-1-from-zero/stage-12-going-pro"
   ],
   "lifecycle": [
     "/docs/lifecycle/discovery-planning",
@@ -128,24 +129,31 @@ export const chapterPages: Record<ChapterId, string[]> = {
     "/docs/lifecycle/deployment-hosting",
     "/docs/lifecycle/observability",
     "/docs/lifecycle/maintenance",
-    "/docs/lifecycle/lifecycle-checkpoint",
-    "/docs/lifecycle",
     "/docs/lifecycle/reading-code",
     "/docs/lifecycle/legacy-code",
     "/docs/lifecycle/estimation",
     "/docs/lifecycle/documentation",
-    "/docs/lifecycle/open-source"
+    "/docs/lifecycle/open-source",
+    "/docs/lifecycle/lifecycle-checkpoint",
+    "/docs/lifecycle"
   ],
   "stack": [
     "/docs/stack/languages",
+    "/docs/stack/typescript-advanced",
     "/docs/stack/frontend-frameworks",
+    "/docs/stack/frontend-frameworks-advanced",
     "/docs/stack/styling",
+    "/docs/stack/styling-advanced",
+    "/docs/stack/state-management",
     "/docs/stack/build-tools",
     "/docs/stack/package-managers",
-    "/docs/stack/state-management",
+    "/docs/stack/code-quality",
+    "/docs/stack/editors-ai",
     "/docs/stack/backend-frameworks",
     "/docs/stack/apis",
+    "/docs/stack/apis-advanced",
     "/docs/stack/databases",
+    "/docs/stack/databases-advanced",
     "/docs/stack/orms",
     "/docs/stack/authentication-tools",
     "/docs/stack/background-jobs",
@@ -154,15 +162,8 @@ export const chapterPages: Record<ChapterId, string[]> = {
     "/docs/stack/hosting",
     "/docs/stack/devops",
     "/docs/stack/observability-tools",
-    "/docs/stack/code-quality",
-    "/docs/stack/editors-ai",
     "/docs/stack/stack-checkpoint",
-    "/docs/stack",
-    "/docs/stack/typescript-advanced",
-    "/docs/stack/frontend-frameworks-advanced",
-    "/docs/stack/styling-advanced",
-    "/docs/stack/apis-advanced",
-    "/docs/stack/databases-advanced"
+    "/docs/stack"
   ],
   "solo": [
     "/docs/solo/mindset",
@@ -265,17 +266,17 @@ export const chapterPages: Record<ChapterId, string[]> = {
     "/docs/ai/ai-agents",
     "/docs/ai/ai-embeddings",
     "/docs/ai/ai-multimodal",
+    "/docs/ai/ai-realtime-voice",
     "/docs/ai/ai-observability",
+    "/docs/ai/ai-evals",
     "/docs/ai/ai-costs",
     "/docs/ai/ai-safety",
+    "/docs/ai/ai-system-prompt-engineering",
     "/docs/ai/ai-example",
     "/docs/ai/ai-when-not-to-use",
     "/docs/ai/ai-stack-summary",
     "/docs/ai/ai-checkpoint",
-    "/docs/ai",
-    "/docs/ai/ai-realtime-voice",
-    "/docs/ai/ai-evals",
-    "/docs/ai/ai-system-prompt-engineering"
+    "/docs/ai"
   ],
   "career": [
     "/docs/career/state-of-market",
@@ -293,7 +294,6 @@ export const chapterPages: Record<ChapterId, string[]> = {
     "/docs/career"
   ],
   "cloud": [
-    "/docs/cloud",
     "/docs/cloud/cloud-mental-model",
     "/docs/cloud/cloud-compute",
     "/docs/cloud/cloud-networking",
@@ -304,10 +304,10 @@ export const chapterPages: Record<ChapterId, string[]> = {
     "/docs/cloud/cloud-serverless",
     "/docs/cloud/cloud-cost",
     "/docs/cloud/cloud-choosing",
-    "/docs/cloud/cloud-checkpoint"
+    "/docs/cloud/cloud-checkpoint",
+    "/docs/cloud"
   ],
   "operations": [
-    "/docs/operations",
     "/docs/operations/sre-mindset",
     "/docs/operations/ops-observability",
     "/docs/operations/reliability-patterns",
@@ -316,7 +316,8 @@ export const chapterPages: Record<ChapterId, string[]> = {
     "/docs/operations/ops-deploys",
     "/docs/operations/capacity-scaling",
     "/docs/operations/chaos-engineering",
-    "/docs/operations/operations-checkpoint"
+    "/docs/operations/operations-checkpoint",
+    "/docs/operations"
   ],
   "distributed-systems": [
     "/docs/distributed-systems",
@@ -333,7 +334,6 @@ export const chapterPages: Record<ChapterId, string[]> = {
     "/docs/distributed-systems/distributed-systems-checkpoint"
   ],
   "ecosystems": [
-    "/docs/ecosystems",
     "/docs/ecosystems/mobile-landscape",
     "/docs/ecosystems/react-native",
     "/docs/ecosystems/flutter",
@@ -343,7 +343,8 @@ export const chapterPages: Record<ChapterId, string[]> = {
     "/docs/ecosystems/go-ecosystem",
     "/docs/ecosystems/python-ecosystem",
     "/docs/ecosystems/choosing-ecosystem",
-    "/docs/ecosystems/ecosystems-checkpoint"
+    "/docs/ecosystems/ecosystems-checkpoint",
+    "/docs/ecosystems"
   ]
 };
 
@@ -368,12 +369,12 @@ export function getPageIndex(chapterId: ChapterId, pagePath: string): number {
 }
 
 export function getTotalTrackablePages(): number {
-  return 273;
+  return 274;
 }
 
 /** Content pages only (excludes chapter index landing pages). */
 export const chapterPageCounts: Record<ChapterId, number> = {
-  "foundations": 47,
+  "foundations": 48,
   "roadmap": 36,
   "lifecycle": 17,
   "stack": 25,

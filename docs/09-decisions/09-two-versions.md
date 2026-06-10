@@ -67,7 +67,7 @@ Extract duplication when the *concept* is the same. Leave it alone when only the
 
 ## Page checkpoint
 
-<Quiz id="decisions-two-versions-page" title="Did the two-versions rule stick?" sampleSize={2}>
+<Quiz id="decisions-two-versions-page" title="Did the two-versions rule stick?" sampleSize={3}>
 
 <Question
   prompt="`formatUserName(user)` and `formatLegalName(person)` are byte-for-byte identical today. The chapter argues you should:"

@@ -279,7 +279,7 @@ Mapped type for the handler store, generic methods keyed by `keyof M`, indexed a
 
 ## Page checkpoint
 
-<Quiz id="stack-typescript-advanced-page" title="Did advanced TypeScript stick?" sampleSize={2}>
+<Quiz id="stack-typescript-advanced-page" title="Did advanced TypeScript stick?" sampleSize={3}>
 
 <Question
   prompt="What's the core goal that discriminated unions, branded types, and exhaustiveness checks all serve?"

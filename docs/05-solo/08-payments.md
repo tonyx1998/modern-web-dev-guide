@@ -126,7 +126,7 @@ Always pass enough metadata in the session creation to identify the user in the 
 
 ## Page checkpoint
 
-<Quiz id="solo-payments-page" title="Did the payments flow stick?" sampleSize={2}>
+<Quiz id="solo-payments-page" title="Did the payments flow stick?" sampleSize={3}>
 
 <Question
   prompt="Why does the Checkout session include metadata: { userId }?"

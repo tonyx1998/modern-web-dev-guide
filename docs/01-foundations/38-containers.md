@@ -291,7 +291,7 @@ See [Observability fundamentals](./observability-fundamentals).
 
 ## Page checkpoint
 
-<Quiz id="foundations-containers-page" title="Did containers & orchestration stick?" sampleSize={2}>
+<Quiz id="foundations-containers-page" title="Did containers & orchestration stick?" sampleSize={3}>
 
 <Question
   prompt="What's the right way to think about a Docker container in terms of OS-level mechanisms?"
@@ -349,4 +349,4 @@ See [Observability fundamentals](./observability-fundamentals).
 
 ## What's next
 
-→ Continue to [Search](./search).
+→ Continue to [Edge computing](./edge-computing).

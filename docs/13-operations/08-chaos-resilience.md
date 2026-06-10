@@ -77,7 +77,7 @@ Operations is where software meets reality and keeps working anyway. The through
 
 ## Page checkpoint
 
-<Quiz id="chaos-resilience-page" title="Did chaos & resilience stick?" sampleSize={2}>
+<Quiz id="chaos-resilience-page" title="Did chaos & resilience stick?" sampleSize={3}>
 
 <Question
   prompt="What is the purpose of chaos engineering?"
@@ -122,4 +122,4 @@ Operations is where software meets reality and keeps working anyway. The through
 
 ## What's next
 
-→ You've finished the operations pillars. Take the [Chapter 6 checkpoint](./operations-checkpoint), then continue to [Chapter 7: Distributed Systems](/docs/distributed-systems) — the deep theory of why systems that span many machines behave the way they do.
+→ You've finished the operations pillars. Take the [Chapter 7 checkpoint](./operations-checkpoint), then continue to [Chapter 8: Distributed Systems](/docs/distributed-systems) — the deep theory of why systems that span many machines behave the way they do.

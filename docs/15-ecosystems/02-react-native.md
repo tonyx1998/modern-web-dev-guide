@@ -81,7 +81,7 @@ Be honest about *why* you'd pick React Native. It is not (usually) because it's 
 
 ## Page checkpoint
 
-<Quiz id="react-native-page" title="Did React Native stick?" sampleSize={2}>
+<Quiz id="react-native-page" title="Did React Native stick?" sampleSize={3}>
 
 <Question
   prompt="How does React Native render its UI, and why does that matter?"

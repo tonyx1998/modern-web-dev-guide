@@ -77,7 +77,7 @@ Net: self-hosting "saves $3.6M" and costs $3M+ in headcount, *plus* features los
 
 ## Page checkpoint
 
-<Quiz id="enterprise-cost-picture-page" title="Did the cost picture stick?" sampleSize={2}>
+<Quiz id="enterprise-cost-picture-page" title="Did the cost picture stick?" sampleSize={3}>
 
 <Question
   prompt="At enterprise scale, how does engineering payroll compare to cloud infrastructure spend?"

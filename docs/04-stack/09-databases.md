@@ -162,7 +162,7 @@ That's it. One DB to back up. One mental model. One ops burden. Add specialized 
 
 ## Page checkpoint
 
-<Quiz id="stack-databases-page" title="Did databases stick?" sampleSize={2}>
+<Quiz id="stack-databases-page" title="Did databases stick?" sampleSize={3}>
 
 <Question
   prompt="What's the page's default database recommendation for almost every new project in 2026?"

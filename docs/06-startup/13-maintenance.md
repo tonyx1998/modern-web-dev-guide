@@ -85,7 +85,7 @@ In that order. Most "we need to re-architect" pain at this scale dissolves once 
 
 ## Page checkpoint
 
-<Quiz id="startup-maintenance-page" title="Did maintenance and scaling stick?" sampleSize={2}>
+<Quiz id="startup-maintenance-page" title="Did maintenance and scaling stick?" sampleSize={3}>
 
 <Question
   prompt="What weekly cadence does the page describe at this scale?"

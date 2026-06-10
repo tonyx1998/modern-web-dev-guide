@@ -98,7 +98,7 @@ Half-migrated systems double maintenance cost, double the surface area for bugs,
 
 ## Page checkpoint
 
-<Quiz id="decisions-migration-strategy-page" title="Did migration strategy stick?" sampleSize={2}>
+<Quiz id="decisions-migration-strategy-page" title="Did migration strategy stick?" sampleSize={3}>
 
 <Question
   prompt="Your team wants to replace a tangled legacy billing system. Which approach does the chapter explicitly call 'almost always disastrous'?"

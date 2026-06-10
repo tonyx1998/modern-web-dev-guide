@@ -10,7 +10,7 @@ const expected = JSON.parse(
 
 const CHAPTER_PREREQS = {
   foundations: [],
-  roadmap: ['foundations-checkpoint'],
+  roadmap: ['foundations-mid-checkpoint'],
   lifecycle: ['roadmap-checkpoint'],
   stack: ['lifecycle-checkpoint'],
   cloud: ['stack-checkpoint'],
@@ -24,25 +24,31 @@ const CHAPTER_PREREQS = {
   comparison: ['enterprise-checkpoint'],
   decisions: ['comparison-checkpoint'],
   career: ['decisions-checkpoint'],
+  capstone: ['career-checkpoint'],
   glossary: [],
 };
 
 const CHECKPOINT_DESCRIPTIONS = {
-  'foundations-checkpoint': 'Pass the Chapter 1 (Foundations) checkpoint quiz',
-  'roadmap-checkpoint': 'Pass the Chapter 2 (Roadmap) checkpoint quiz',
-  'lifecycle-checkpoint': 'Pass the Chapter 3 (Lifecycle) checkpoint quiz',
-  'stack-checkpoint': 'Pass the Chapter 4 (Tech Stack) checkpoint quiz',
-  'cloud-checkpoint': 'Pass the Chapter 5 (Cloud Platforms) checkpoint quiz',
-  'operations-checkpoint': 'Pass the Chapter 6 (SRE & Operations) checkpoint quiz',
-  'distributed-systems-checkpoint': 'Pass the Chapter 7 (Distributed Systems) checkpoint quiz',
-  'ai-checkpoint': 'Pass the Chapter 8 (AI Integration) checkpoint quiz',
-  'ecosystems-checkpoint': 'Pass the Chapter 9 (Mobile & Ecosystems) checkpoint quiz',
-  'solo-checkpoint': 'Pass the Chapter 10 (Solo) checkpoint quiz',
-  'startup-checkpoint': 'Pass the Chapter 11 (Startup) checkpoint quiz',
-  'enterprise-checkpoint': 'Pass the Chapter 12 (Enterprise) checkpoint quiz',
-  'comparison-checkpoint': 'Pass the Chapter 13 (Comparison) checkpoint quiz',
-  'decisions-checkpoint': 'Pass the Chapter 14 (Decisions) checkpoint quiz',
-  'career-checkpoint': 'Pass the Chapter 15 (Career) checkpoint quiz',
+  'foundations-mid-checkpoint':
+    'Pass the Chapter 1 (Web Fundamentals) checkpoint quiz',
+  'foundations-checkpoint':
+    'Pass the Chapter 2 (Production Engineering) checkpoint quiz',
+  'roadmap-checkpoint': 'Pass the Chapter 3 (Roadmap) checkpoint quiz',
+  'lifecycle-checkpoint': 'Pass the Chapter 4 (Lifecycle) checkpoint quiz',
+  'stack-checkpoint': 'Pass the Chapter 5 (Tech Stack) checkpoint quiz',
+  'cloud-checkpoint': 'Pass the Chapter 6 (Cloud Platforms) checkpoint quiz',
+  'operations-checkpoint': 'Pass the Chapter 7 (SRE & Operations) checkpoint quiz',
+  'distributed-systems-checkpoint':
+    'Pass the Chapter 8 (Distributed Systems) checkpoint quiz',
+  'ai-checkpoint': 'Pass the Chapter 9 (AI Integration) checkpoint quiz',
+  'ecosystems-checkpoint':
+    'Pass the Chapter 10 (Mobile & Ecosystems) checkpoint quiz',
+  'solo-checkpoint': 'Pass the Chapter 11 (Solo) checkpoint quiz',
+  'startup-checkpoint': 'Pass the Chapter 12 (Startup) checkpoint quiz',
+  'enterprise-checkpoint': 'Pass the Chapter 13 (Enterprise) checkpoint quiz',
+  'comparison-checkpoint': 'Pass the Chapter 14 (Comparison) checkpoint quiz',
+  'decisions-checkpoint': 'Pass the Chapter 15 (Decisions) checkpoint quiz',
+  'career-checkpoint': 'Pass the Chapter 16 (Career) checkpoint quiz',
 };
 
 function formatChapterPrereqs() {

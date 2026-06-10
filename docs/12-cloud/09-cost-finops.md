@@ -84,7 +84,7 @@ The mistake in both directions: migrating off a platform too early (you trade a 
 
 ## Page checkpoint
 
-<Quiz id="cloud-cost-page" title="Did cost & FinOps stick?" sampleSize={2}>
+<Quiz id="cloud-cost-page" title="Did cost & FinOps stick?" sampleSize={3}>
 
 <Question
   prompt="A media app's cloud bill spikes after launching a video feature served directly from object storage to users. What's the most likely culprit and the fix?"

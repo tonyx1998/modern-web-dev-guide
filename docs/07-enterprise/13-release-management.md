@@ -99,7 +99,7 @@ By "launch day," the new checkout has been live for months. The marketing event 
 
 ## Page checkpoint
 
-<Quiz id="enterprise-release-management-page" title="Did release management stick?" sampleSize={2}>
+<Quiz id="enterprise-release-management-page" title="Did release management stick?" sampleSize={3}>
 
 <Question
   prompt="What does 'dark launching' mean at enterprise scale?"

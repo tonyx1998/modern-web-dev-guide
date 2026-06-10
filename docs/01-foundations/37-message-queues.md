@@ -278,7 +278,7 @@ A queue health dashboard saves hours during incidents.
 
 ## Page checkpoint
 
-<Quiz id="foundations-message-queues-page" title="Did message queues stick?" sampleSize={2}>
+<Quiz id="foundations-message-queues-page" title="Did message queues stick?" sampleSize={3}>
 
 <Question
   prompt="A web request must charge a card, send confirmation, update inventory, and notify shipping. Currently it does all four synchronously and users wait 8s. What's the right architectural change?"
@@ -336,4 +336,4 @@ A queue health dashboard saves hours during incidents.
 
 ## What's next
 
-→ Continue to [Containers & orchestration](./containers).
+→ Continue to [Relational (SQL) Databases](./databases-sql).

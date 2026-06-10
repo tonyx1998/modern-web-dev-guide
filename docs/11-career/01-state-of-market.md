@@ -51,7 +51,7 @@ If a job description in 2026 doesn't *explicitly* mention AI tooling, assume the
 
 ## Page checkpoint
 
-<Quiz id="career-state-of-market-page" title="Did the state of the 2026 market stick?" sampleSize={2}>
+<Quiz id="career-state-of-market-page" title="Did the state of the 2026 market stick?" sampleSize={3}>
 
 <Question
   prompt="Why is the junior web-dev job market harder in 2026 than in 2018?"

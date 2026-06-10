@@ -127,7 +127,7 @@ Modern continuous-deployment teams break this rule routinely *because their roll
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-deployment-hosting-page" title="Did deployment & hosting stick?" sampleSize={2}>
+<Quiz id="lifecycle-deployment-hosting-page" title="Did deployment & hosting stick?" sampleSize={3}>
 
 <Question
   prompt="A solo developer wants to host a Next.js side project. Which hosting category does the page recommend?"

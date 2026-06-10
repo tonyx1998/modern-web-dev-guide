@@ -80,7 +80,7 @@ A great launch of a mediocre product gets you a spike of traffic and then cricke
 
 ## Page checkpoint
 
-<Quiz id="solo-launching-page" title="Did the launching advice stick?" sampleSize={2}>
+<Quiz id="solo-launching-page" title="Did the launching advice stick?" sampleSize={3}>
 
 <Question
   prompt="What does the highlight 'the product is the launch' actually mean?"

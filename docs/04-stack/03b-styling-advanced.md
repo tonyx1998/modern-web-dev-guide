@@ -91,7 +91,7 @@ Now dark mode is one attribute on `<html>`; a rebrand is a token file. Tailwind'
 
 ## Page checkpoint
 
-<Quiz id="stack-css-advanced-page" title="Did advanced CSS stick?" sampleSize={2}>
+<Quiz id="stack-css-advanced-page" title="Did advanced CSS stick?" sampleSize={3}>
 
 <Question
   prompt="Two rules target the same element. How does CSS decide which wins?"

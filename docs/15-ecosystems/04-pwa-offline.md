@@ -89,7 +89,7 @@ Most teams over-shoot — jumping straight to native for an app a PWA would have
 
 ## Page checkpoint
 
-<Quiz id="pwa-page" title="Did PWAs & offline stick?" sampleSize={2}>
+<Quiz id="pwa-page" title="Did PWAs & offline stick?" sampleSize={3}>
 
 <Question
   prompt="What does a service worker provide that turns a normal website into an app-like PWA?"

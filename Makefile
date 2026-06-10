@@ -14,4 +14,6 @@ test:
 	npm run typecheck
 
 verify:
-	@command -v node >/dev/null
+	npm run validate-prereqs
+	npm run typecheck
+	npm run build

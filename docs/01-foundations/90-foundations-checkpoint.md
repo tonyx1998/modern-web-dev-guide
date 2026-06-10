@@ -1,18 +1,18 @@
 ---
 id: foundations-checkpoint
-title: Chapter 1 Checkpoint
-sidebar_position: 30
-sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 1 — Foundations. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 3.
+title: Chapter 2 Checkpoint — Production Engineering
+sidebar_position: 90
+sidebar_label: ✅ Production engineering checkpoint
+description: Checkpoint after production patterns — rate limiting, caching, observability, testing, debugging. Pass to complete the Foundations arc.
 ---
 
-# Chapter 1 Checkpoint
+# Chapter 2 Checkpoint — Production Engineering
 
-You've finished the Foundations chapter. Take a minute to make sure the core ideas stuck.
+You've finished the production-engineering arc: concurrency, distributed realities, rate limiting, caching, secrets, observability, testing, and debugging.
 
-There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit, and the link highlights the paragraph for you.
+There are **15 questions in the bank** — each visit picks 5 at random. Pass (≥ 67%) to complete the Foundations chapters. The Roadmap unlocks after the Web Fundamentals checkpoint earlier in the path.
 
-You must pass (≥ 60%) to unlock the Next button at the bottom.
+You must pass to unlock the Next button at the bottom.
 
 <Quiz id="foundations-checkpoint" title="Foundations checkpoint" sampleSize={5}>
 
@@ -219,6 +219,6 @@ You must pass (≥ 60%) to unlock the Next button at the bottom.
 
 If you passed, you're ready to keep going.
 
-→ Continue to [Chapter 3: The Lifecycle](/docs/lifecycle) to see how a real project moves from idea to production.
+→ Continue to [Chapter 3: Roadmap](/docs/roadmap) — the build track from zero to shipped.
 
 If you didn't pass, take the revisit links above seriously — those pages are short, and the rest of the guide builds directly on them. Click **Retake with new questions** for a fresh sample.

@@ -308,7 +308,7 @@ A web app is **not negligently slow** if it:
 
 ## Page checkpoint
 
-<Quiz id="foundations-performance-page" title="Did performance stick?" sampleSize={2}>
+<Quiz id="foundations-performance-page" title="Did performance stick?" sampleSize={3}>
 
 <Question
   prompt="Why is LCP (Largest Contentful Paint) on field data (CrUX/RUM) more important than the Lighthouse LCP score in a lab?"

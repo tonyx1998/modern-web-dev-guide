@@ -147,7 +147,7 @@ Default to **REST**. Upgrade to **tRPC** if your stack is full-TypeScript and yo
 
 ## Page checkpoint
 
-<Quiz id="apis-graphql-trpc-page" title="Did GraphQL & tRPC stick?" sampleSize={2}>
+<Quiz id="apis-graphql-trpc-page" title="Did GraphQL & tRPC stick?" sampleSize={3}>
 
 <Question
   prompt="What's the main thing GraphQL lets the client do that REST does not?"

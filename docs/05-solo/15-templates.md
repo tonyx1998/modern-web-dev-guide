@@ -52,7 +52,7 @@ Before you `npm install` a paid SaaS kit, spend an evening reading its source. I
 
 ## Page checkpoint
 
-<Quiz id="solo-templates-page" title="Did the templates advice stick?" sampleSize={2}>
+<Quiz id="solo-templates-page" title="Did the templates advice stick?" sampleSize={3}>
 
 <Question
   prompt="What is the single biggest danger of using a paid SaaS starter kit?"

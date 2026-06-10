@@ -70,7 +70,7 @@ The clearest signal that .NET is the right call is **existing Microsoft-ecosyste
 
 ## Page checkpoint
 
-<Quiz id="dotnet-ecosystem-page" title="Did the .NET ecosystem stick?" sampleSize={2}>
+<Quiz id="dotnet-ecosystem-page" title="Did the .NET ecosystem stick?" sampleSize={3}>
 
 <Question
   prompt="What's the most important correction to the common outdated impression of .NET?"

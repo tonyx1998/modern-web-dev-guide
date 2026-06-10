@@ -155,7 +155,7 @@ For most personal/startup projects, **plain REST with periodic polling is fine**
 
 ## Page checkpoint
 
-<Quiz id="apis-realtime-page" title="Did real-time APIs stick?" sampleSize={2}>
+<Quiz id="apis-realtime-page" title="Did real-time APIs stick?" sampleSize={3}>
 
 <Question
   prompt="What's the key difference between WebSockets and Server-Sent Events?"
@@ -213,4 +213,4 @@ For most personal/startup projects, **plain REST with periodic polling is fine**
 
 ## What's next
 
-→ Continue to [Relational (SQL) Databases](./databases-sql) where we leave APIs behind and look at *where the data lives* — starting with the dominant default, Postgres.
+→ Continue to [WebRTC](./webrtc) where we leave APIs behind and look at *where the data lives* — starting with the dominant default, Postgres.

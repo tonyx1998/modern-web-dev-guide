@@ -91,7 +91,7 @@ Six months end-to-end for what would take an afternoon at a startup. But the cos
 
 ## Page checkpoint
 
-<Quiz id="enterprise-frontend-architecture-page" title="Did frontend architecture stick?" sampleSize={2}>
+<Quiz id="enterprise-frontend-architecture-page" title="Did frontend architecture stick?" sampleSize={3}>
 
 <Question
   prompt="The page argues micro-frontends primarily solve which kind of problem?"

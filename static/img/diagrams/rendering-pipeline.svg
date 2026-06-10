@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 160" role="img" aria-label="Browser rendering pipeline">
+  <rect width="720" height="160" fill="#0f172a"/>
+  <text x="360" y="24" fill="#93c5fd" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">Rendering pipeline (simplified)</text>
+  <g font-family="system-ui,sans-serif" font-size="11" fill="#e2e8f0">
+    <rect x="20" y="50" width="90" height="50" rx="6" fill="#1e293b" stroke="#64748b"/>
+    <text x="65" y="80" text-anchor="middle">HTML</text>
+    <text x="65" y="65" text-anchor="middle" fill="#94a3b8">parse</text>
+    <rect x="130" y="50" width="90" height="50" rx="6" fill="#1e293b" stroke="#64748b"/>
+    <text x="175" y="80" text-anchor="middle">DOM</text>
+    <rect x="240" y="50" width="90" height="50" rx="6" fill="#1e293b" stroke="#64748b"/>
+    <text x="285" y="80" text-anchor="middle">CSSOM</text>
+    <rect x="350" y="50" width="100" height="50" rx="6" fill="#1e293b" stroke="#64748b"/>
+    <text x="400" y="80" text-anchor="middle">Render tree</text>
+    <rect x="470" y="50" width="90" height="50" rx="6" fill="#1e293b" stroke="#64748b"/>
+    <text x="515" y="80" text-anchor="middle">Layout</text>
+    <rect x="580" y="50" width="90" height="50" rx="6" fill="#1e3a5f" stroke="#3b82f6"/>
+    <text x="625" y="80" text-anchor="middle">Paint</text>
+  </g>
+  <text x="360" y="130" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="system-ui">CSR/SSR differ in *when* HTML/JS arrive  the pipeline is the same once bytes hit the browser</text>
+</svg>

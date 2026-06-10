@@ -127,7 +127,9 @@ function computeEarnedBadges(progress: GuideProgress): Set<string> {
     totalChapters > 0 ? (completedCount / totalChapters) * 100 : 0;
 
   for (const badge of badges) {
-    if (badge.chapterId && progress.completedChapters.has(badge.chapterId)) {
+    if (badge.quizId && isQuizPassed(badge.quizId)) {
+      earned.add(badge.id);
+    } else if (badge.chapterId && progress.completedChapters.has(badge.chapterId)) {
       earned.add(badge.id);
     } else if (badge.threshold !== undefined) {
       if (badge.threshold <= 1 && completedCount >= 1) {

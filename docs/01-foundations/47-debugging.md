@@ -392,7 +392,7 @@ The skill that separates senior from junior in the AI era is not *generating* co
 
 ## Page checkpoint
 
-<Quiz id="foundations-debugging-page" title="Did debugging methodology stick?" sampleSize={2}>
+<Quiz id="foundations-debugging-page" title="Did debugging methodology stick?" sampleSize={3}>
 
 <Question
   prompt="A bug appeared in production. What's the first question a senior debugger asks (almost always)?"
@@ -473,4 +473,4 @@ Everything above is enough to debug web apps, production incidents, and AI-draft
 
 ## What's next
 
-→ Continue to [Reading code / onboarding](../lifecycle/reading-code).
+→ Continue to [Production Engineering Checkpoint](./foundations-checkpoint).

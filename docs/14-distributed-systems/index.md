@@ -1,12 +1,12 @@
 ---
 id: distributed-systems
-title: 7. Distributed Systems — Overview
+title: 8. Distributed Systems — Overview
 sidebar_position: 1
 sidebar_label: Distributed systems intro
 description: The deep theory of systems that span many machines — the fallacies, consistency and CAP, replication, partitioning, time and ordering, consensus, distributed transactions, and idempotency.
 ---
 
-# Part 7: Distributed Systems
+# Part 8: Distributed Systems
 
 *Why everything gets harder the moment your system spans more than one machine — and the concepts that let you reason about it instead of being surprised by it.*
 
@@ -24,7 +24,7 @@ When you do read it, you can still get the *intuition* on a first pass without t
 
 ## Why this is hard (and worth a chapter)
 
-There's a foundational intro to distributed systems back in [Chapter 1](/docs/foundations/distributed-systems) — the realities you can't ignore once you pass one machine. This chapter goes deep: it's the theory that turns "the cache and the database disagree and a user saw stale data" from a baffling bug into a named, understood, *designed-for* property of your system.
+← **On-ramp:** [Distributed systems primer](/docs/foundations/distributed-systems) in Production Engineering (Chapter 2) covers fallacies, CAP, and idempotency in working-engineer terms. This chapter goes deep: it's the theory that turns "the cache and the database disagree and a user saw stale data" from a baffling bug into a named, understood, *designed-for* property of your system.
 
 The reason it deserves serious study: **distributed-systems problems are invisible until they aren't, and then they're brutal.** Your code works perfectly in development (one machine, no real network) and in the demo. Then in production, under load, with real network partitions and concurrent writes and clock skew, you hit the failure modes — double charges, lost updates, split brain, data that's stale in ways you didn't think possible. Engineers who don't know this material treat each one as a unique mystery; engineers who do recognize them instantly ("that's a read-after-write consistency problem," "that's a missing idempotency key," "that's a partition tolerance tradeoff") and reach for the standard solution.
 
@@ -69,4 +69,4 @@ You might think "distributed systems" means Google-scale infrastructure with tho
 
 ---
 
-When you finish, take the [checkpoint](/docs/distributed-systems/distributed-systems-checkpoint), then continue to [Chapter 8: AI Integration](/docs/ai).
+When you finish, take the [checkpoint](/docs/distributed-systems/distributed-systems-checkpoint), then continue to [Chapter 9: AI Integration](/docs/ai).

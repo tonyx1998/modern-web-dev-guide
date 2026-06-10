@@ -57,7 +57,7 @@ As you grow, you wrap shadcn components in your own primitives, then eventually 
 
 ## Page checkpoint
 
-<Quiz id="startup-design-page" title="Did startup-scale design stick?" sampleSize={2}>
+<Quiz id="startup-design-page" title="Did startup-scale design stick?" sampleSize={3}>
 
 <Question
   prompt="Why does the page recommend shadcn/ui as the default component library for a 5-10 person startup?"

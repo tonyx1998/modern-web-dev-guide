@@ -59,7 +59,7 @@ The 8-weekend estimate became 13 weekends not because anything went wrong — bu
 
 ## Page checkpoint
 
-<Quiz id="solo-time-investment-page" title="Did time investment stick?" sampleSize={2}>
+<Quiz id="solo-time-investment-page" title="Did time investment stick?" sampleSize={3}>
 
 <Question
   prompt="What's the realistic weekend budget for an indie SaaS v1?"

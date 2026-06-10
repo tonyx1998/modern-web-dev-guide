@@ -118,7 +118,7 @@ Branch protection makes the safe path the default path. Nobody has to remember t
 
 ## Page checkpoint
 
-<Quiz id="startup-cicd-page" title="Did CI/CD at startup scale stick?" sampleSize={2}>
+<Quiz id="startup-cicd-page" title="Did CI/CD at startup scale stick?" sampleSize={3}>
 
 <Question
   prompt="What two halves make up the typical small-company CI/CD stack on this page?"

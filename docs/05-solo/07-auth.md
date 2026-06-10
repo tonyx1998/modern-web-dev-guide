@@ -101,7 +101,7 @@ At $0 for the first 10K users, you'd be irrational to roll your own.
 
 ## Page checkpoint
 
-<Quiz id="solo-auth-page" title="Did the auth choices stick?" sampleSize={2}>
+<Quiz id="solo-auth-page" title="Did the auth choices stick?" sampleSize={3}>
 
 <Question
   prompt="What is a passkey, per the page's plain-English definition?"

@@ -151,7 +151,7 @@ Try paginating, filtering, fetching related resources (`/pokemon/pikachu/encount
 
 ## Page checkpoint
 
-<Quiz id="apis-rest-page" title="Did REST APIs stick?" sampleSize={2}>
+<Quiz id="apis-rest-page" title="Did REST APIs stick?" sampleSize={3}>
 
 <Question
   prompt="In REST, what's the typical way to update only the 'done' field of an existing todo without replacing the whole record?"

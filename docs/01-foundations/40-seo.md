@@ -299,7 +299,7 @@ Frameworks that get this right by default: Next.js (App Router), Remix, SvelteKi
 
 ## Page checkpoint
 
-<Quiz id="foundations-seo-page" title="Did SEO stick?" sampleSize={2}>
+<Quiz id="foundations-seo-page" title="Did SEO stick?" sampleSize={3}>
 
 <Question
   prompt="A team's marketing pages are a React SPA — empty `<div id='root'>` in HTML, content rendered by JS after load. Why is this a problem for SEO?"

@@ -3,7 +3,7 @@ id: ecosystems-checkpoint
 title: Chapter 9 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 9 — Mobile & Other Ecosystems. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 10.
+description: Mandatory checkpoint quiz for Chapter 9 — Mobile & Other Ecosystems. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 11.
 ---
 
 # Chapter 9 Checkpoint
@@ -12,7 +12,7 @@ You've finished the Mobile & Other Ecosystems chapter. Make sure the map stuck: 
 
 There are **15 questions in the bank** — each visit picks 5 at random. Miss one and the result card links you back to the exact section.
 
-You must pass (≥ 60%) to unlock the Next button and Chapter 10 in the sidebar.
+You must pass (≥ 67%) to unlock the Next button and Chapter 10 in the sidebar.
 
 <Quiz id="ecosystems-checkpoint" title="Mobile & Other Ecosystems checkpoint" sampleSize={5}>
 
@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 10 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 10: Solo / Personal](/docs/solo) — the first of the workflow-by-scale chapters, where the same kind of product is built at three very different company sizes.
+→ Continue to [Chapter 11: Solo / Personal](/docs/solo) — the first of the workflow-by-scale chapters, where the same kind of product is built at three very different company sizes.

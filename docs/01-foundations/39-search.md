@@ -307,7 +307,7 @@ A team picking between lexical and vector usually picks the wrong answer. Lexica
 
 ## Page checkpoint
 
-<Quiz id="foundations-search-page" title="Did search stick?" sampleSize={2}>
+<Quiz id="foundations-search-page" title="Did search stick?" sampleSize={3}>
 
 <Question
   prompt="Why is BM25 (with an inverted index) usually better than `WHERE body LIKE '%query%'` for search?"

@@ -122,7 +122,7 @@ resource "aws_s3_bucket_public_access_block" "uploads" {
 
 ## Page checkpoint
 
-<Quiz id="cloud-storage-page" title="Did storage stick?" sampleSize={2}>
+<Quiz id="cloud-storage-page" title="Did storage stick?" sampleSize={3}>
 
 <Question
   prompt="A web app needs to store user-uploaded images and serve them to other users. Which storage type, and how should uploads flow?"

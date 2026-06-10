@@ -73,7 +73,7 @@ You'll use it daily forever.
 
 ## 4. HTTP and How the Web Works
 
-You can't debug what you don't understand. This is covered in detail in [Chapter 1: Foundations](/docs/foundations).
+You can't debug what you don't understand. This is covered in detail in [Foundations (Chapters 1–2)](/docs/foundations).
 
 ## 5. SQL and Databases
 
@@ -174,7 +174,7 @@ The list above is roughly in dependency order. HTML/CSS/JS unlocks everything el
 
 ## Page checkpoint
 
-<Quiz id="career-foundational-skills-page" title="Did the foundational skills stick?" sampleSize={2}>
+<Quiz id="career-foundational-skills-page" title="Did the foundational skills stick?" sampleSize={3}>
 
 <Question
   prompt="Why does the page put HTML/CSS/JS fundamentals at the top of the priority list — above 'one framework deeply'?"

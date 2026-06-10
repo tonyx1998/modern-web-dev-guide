@@ -333,7 +333,7 @@ If you only think "WebRTC = video calls" you'll miss the 2026 thing it actually 
 
 ## Page checkpoint
 
-<Quiz id="foundations-webrtc-page" title="Did WebRTC stick?" sampleSize={2}>
+<Quiz id="foundations-webrtc-page" title="Did WebRTC stick?" sampleSize={3}>
 
 <Question
   prompt="Why does realtime audio use WebRTC (UDP-based) instead of WebSockets (TCP)?"
@@ -404,4 +404,4 @@ If you only think "WebRTC = video calls" you'll miss the 2026 thing it actually 
 
 ## What's next
 
-→ Continue to [Relational (SQL) Databases](./databases-sql) to leave realtime transport behind and look at *where the data lives*. Or skip ahead to [Rate Limiting](./rate-limiting) if you want to keep building production-engineering muscle.
+→ Continue to [Message queues & event-driven](./message-queues).

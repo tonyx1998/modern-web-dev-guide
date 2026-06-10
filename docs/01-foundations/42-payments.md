@@ -385,7 +385,7 @@ For a starter SaaS: Stripe. For "I don't want to deal with VAT and tax complianc
 
 ## Page checkpoint
 
-<Quiz id="foundations-payments-page" title="Did payments stick?" sampleSize={2}>
+<Quiz id="foundations-payments-page" title="Did payments stick?" sampleSize={3}>
 
 <Question
   prompt="A user closes the browser tab during the post-payment redirect. The team's code fulfilled the order from `useEffect` on the success page. What happens?"

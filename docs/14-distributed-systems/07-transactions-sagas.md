@@ -84,7 +84,7 @@ Without sagas/outbox: an order service charges the card, then tries to call the 
 
 ## Page checkpoint
 
-<Quiz id="ds-transactions-page" title="Did transactions & sagas stick?" sampleSize={2}>
+<Quiz id="ds-transactions-page" title="Did transactions & sagas stick?" sampleSize={3}>
 
 <Question
   prompt="Why is the saga pattern preferred over two-phase commit for multi-service operations?"

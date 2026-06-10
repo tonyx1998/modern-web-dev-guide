@@ -331,7 +331,7 @@ React doesn't render `<script>` from user input. Prisma doesn't accept string-in
 
 ## Page checkpoint
 
-<Quiz id="foundations-web-security-page" title="Did web security stick?" sampleSize={2}>
+<Quiz id="foundations-web-security-page" title="Did web security stick?" sampleSize={3}>
 
 <Question
   prompt="A React app interpolates a user's profile bio with `<div dangerouslySetInnerHTML={{ __html: bio }} />`. Why is this dangerous?"
@@ -389,4 +389,4 @@ React doesn't render `<script>` from user input. Prisma doesn't accept string-in
 
 ## What's next
 
-→ Continue to [Concurrency & async](./concurrency).
+→ Continue to [The Deployment Pyramid](./deployment-pyramid).

@@ -80,7 +80,7 @@ Choose Flutter when: you have **no existing React investment** (so RN's skill-re
 
 ## Page checkpoint
 
-<Quiz id="flutter-page" title="Did Flutter stick?" sampleSize={2}>
+<Quiz id="flutter-page" title="Did Flutter stick?" sampleSize={3}>
 
 <Question
   prompt="What is the fundamental architectural difference between Flutter and React Native?"

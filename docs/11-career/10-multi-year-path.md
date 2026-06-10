@@ -108,7 +108,7 @@ A single week of work is barely visible on your portfolio. A year of weeks is a 
 
 ## Page checkpoint
 
-<Quiz id="career-multi-year-path-page" title="Did the multi-year path stick?" sampleSize={2}>
+<Quiz id="career-multi-year-path-page" title="Did the multi-year path stick?" sampleSize={3}>
 
 <Question
   prompt="What's the core principle the Highlight box names as the 'real model' for a multi-year career?"

@@ -161,7 +161,7 @@ Spending 15 minutes on this saves your team (and future you) hours.
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-environment-setup-page" title="Did environment setup stick?" sampleSize={2}>
+<Quiz id="lifecycle-environment-setup-page" title="Did environment setup stick?" sampleSize={3}>
 
 <Question
   prompt="What's the main problem that lockfiles, Docker, and Node version managers all try to solve?"

@@ -1,12 +1,12 @@
 ---
 id: roadmap-overview
-title: 2. Roadmap — Overview
-sidebar_position: 1
+title: 3. Roadmap — Overview
+sidebar_position: 3
 sidebar_label: Roadmap at a glance
 description: The complete learning path. From zero, through the 2026 stack, into the fundamentals every framework cycle leaves untouched, ending with the meta-skills that let you keep learning.
 ---
 
-# Part 2: The Roadmap
+# Chapter 3: The Roadmap
 
 *From zero to production engineer — the ordered curriculum that pairs with this guide.*
 

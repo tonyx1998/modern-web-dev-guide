@@ -12,7 +12,7 @@ You've finished the Cloud Platforms chapter. Make sure the four deep concepts st
 
 There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit.
 
-You must pass (≥ 60%) to unlock the Next button and Chapter 6 in the sidebar.
+You must pass (≥ 67%) to unlock the Next button and Chapter 6 in the sidebar.
 
 <Quiz id="cloud-checkpoint" title="Cloud Platforms checkpoint" sampleSize={5}>
 
@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 6 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 6: Site Reliability & Operations](/docs/operations) — the discipline of keeping everything you just learned to build actually running, healthy, and recoverable at 3am.
+→ Continue to [Chapter 7: SRE & Operations](/docs/operations) — the discipline of keeping everything you just learned to build actually running, healthy, and recoverable at 3am.

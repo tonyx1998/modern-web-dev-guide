@@ -79,7 +79,7 @@ If you've only worked at startups, the easiest way to mis-read enterprise code i
 
 ## Page checkpoint
 
-<Quiz id="enterprise-mindset-page" title="Did the enterprise mindset stick?" sampleSize={2}>
+<Quiz id="enterprise-mindset-page" title="Did the enterprise mindset stick?" sampleSize={3}>
 
 <Question
   prompt="The page says enterprise systems are designed for which kind of engineer?"

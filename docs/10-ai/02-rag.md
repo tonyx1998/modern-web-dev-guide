@@ -205,7 +205,7 @@ Before you optimize anything else, look at the chunks you're feeding the model. 
 
 ## Page checkpoint
 
-<Quiz id="ai-rag-page" title="Did RAG stick?" sampleSize={2}>
+<Quiz id="ai-rag-page" title="Did RAG stick?" sampleSize={3}>
 
 <Question
   prompt="What problem is RAG primarily solving?"

@@ -85,7 +85,7 @@ You're not vulnerable to all nine equally. Most indie developers have *one* pet 
 
 ## Page checkpoint
 
-<Quiz id="solo-pitfalls-page" title="Did the pitfalls stick?" sampleSize={2}>
+<Quiz id="solo-pitfalls-page" title="Did the pitfalls stick?" sampleSize={3}>
 
 <Question
   prompt="According to the page, what's the biggest failure mode of personal projects?"

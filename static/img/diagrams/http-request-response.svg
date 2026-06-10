@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-label="HTTP request response flow">
+  <rect width="720" height="200" fill="#0f172a"/>
+  <text x="360" y="28" fill="#93c5fd" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">HTTP request / response</text>
+  <rect x="40" y="70" width="120" height="60" rx="8" fill="#1e3a5f" stroke="#3b82f6"/>
+  <text x="100" y="105" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Browser</text>
+  <text x="100" y="122" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="11" text-anchor="middle">(client)</text>
+  <rect x="560" y="70" width="120" height="60" rx="8" fill="#1e3a5f" stroke="#3b82f6"/>
+  <text x="620" y="105" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="13" text-anchor="middle">Server</text>
+  <text x="620" y="122" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="11" text-anchor="middle">(origin)</text>
+  <line x1="165" y1="90" x2="555" y2="90" stroke="#22c55e" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="360" y="82" fill="#86efac" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">GET /api/users  í  request</text>
+  <line x1="555" y1="120" x2="165" y2="120" stroke="#fbbf24" stroke-width="2" marker-end="url(#arrow2)"/>
+  <text x="360" y="145" fill="#fde68a" font-family="system-ui,sans-serif" font-size="12" text-anchor="middle">200 OK + JSON body  ê  response</text>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#22c55e"/></marker>
+    <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#fbbf24"/></marker>
+  </defs>
+</svg>

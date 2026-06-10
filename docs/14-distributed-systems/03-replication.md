@@ -82,7 +82,7 @@ A single-leader system's leader appears to die, so the system promotes a followe
 
 ## Page checkpoint
 
-<Quiz id="ds-replication-page" title="Did replication stick?" sampleSize={2}>
+<Quiz id="ds-replication-page" title="Did replication stick?" sampleSize={3}>
 
 <Question
   prompt="A user updates their profile and immediately reloads, but sees the old value. The system uses single-leader replication with async followers. What's happening?"

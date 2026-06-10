@@ -163,7 +163,7 @@ Is it a stateless web service / API / background task?
 
 ## Page checkpoint
 
-<Quiz id="cloud-compute-page" title="Did compute stick?" sampleSize={2}>
+<Quiz id="cloud-compute-page" title="Did compute stick?" sampleSize={3}>
 
 <Question
   prompt="A stateless Node API has outgrown Vercel on cost and the team wants cloud-level control without managing servers or a cluster. What's the chapter's default recommendation?"

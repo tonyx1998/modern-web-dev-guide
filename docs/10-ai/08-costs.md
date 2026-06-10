@@ -103,7 +103,7 @@ A 10x cost regression from a prompt change is just as much a "bug" as a 10x late
 
 ## Page checkpoint
 
-<Quiz id="ai-costs-page" title="Did cost management stick?" sampleSize={2}>
+<Quiz id="ai-costs-page" title="Did cost management stick?" sampleSize={3}>
 
 <Question
   prompt="What's the single highest-leverage cost optimization in most LLM apps?"

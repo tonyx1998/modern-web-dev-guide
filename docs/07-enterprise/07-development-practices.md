@@ -102,7 +102,7 @@ Total: ~8 minutes of CI on parallel runners, plus human review time. Each indivi
 
 ## Page checkpoint
 
-<Quiz id="enterprise-development-practices-page" title="Did development practices stick?" sampleSize={2}>
+<Quiz id="enterprise-development-practices-page" title="Did development practices stick?" sampleSize={3}>
 
 <Question
   prompt="Why do enterprises mandate trunk-based development with feature flags instead of long-lived branches?"

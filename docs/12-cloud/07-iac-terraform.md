@@ -148,7 +148,7 @@ Once infrastructure is code, every good software practice applies to it: pull re
 
 ## Page checkpoint
 
-<Quiz id="cloud-iac-page" title="Did IaC stick?" sampleSize={2}>
+<Quiz id="cloud-iac-page" title="Did IaC stick?" sampleSize={3}>
 
 <Question
   prompt="What does `terraform plan` do, and why is reading it the core safety discipline of IaC?"

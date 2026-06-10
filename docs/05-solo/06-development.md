@@ -218,7 +218,7 @@ Most "I need state here" instincts are wrong. You only truly need a Client Compo
 
 ## Page checkpoint
 
-<Quiz id="solo-development-page" title="Did the development workflow stick?" sampleSize={2}>
+<Quiz id="solo-development-page" title="Did the development workflow stick?" sampleSize={3}>
 
 <Question
   prompt="When should you reach for 'use client' in Next.js App Router?"

@@ -145,7 +145,7 @@ At every step the previous code version still works against the schema, so deplo
 
 ## Page checkpoint
 
-<Quiz id="stack-databases-advanced-page" title="Did advanced databases stick?" sampleSize={2}>
+<Quiz id="stack-databases-advanced-page" title="Did advanced databases stick?" sampleSize={3}>
 
 <Question
   prompt="A query filtering on `customer_id` is slow and `EXPLAIN` shows 'Seq Scan'. What does that mean and what's the fix?"

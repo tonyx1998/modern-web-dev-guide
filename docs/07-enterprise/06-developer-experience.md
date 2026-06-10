@@ -101,7 +101,7 @@ This is what "deprecating safely at scale" actually looks like — codemods to d
 
 ## Page checkpoint
 
-<Quiz id="enterprise-developer-experience-page" title="Did developer experience stick?" sampleSize={2}>
+<Quiz id="enterprise-developer-experience-page" title="Did developer experience stick?" sampleSize={3}>
 
 <Question
   prompt="What is the deepest benefit of an internal CLI like 'acme deploy production'?"

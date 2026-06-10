@@ -118,7 +118,7 @@ The endpoint that takes 2 days to write takes 3 weeks to ship. The reason is not
 
 ## Page checkpoint
 
-<Quiz id="enterprise-security-compliance-page" title="Did security & compliance stick?" sampleSize={2}>
+<Quiz id="enterprise-security-compliance-page" title="Did security & compliance stick?" sampleSize={3}>
 
 <Question
   prompt="What is the core idea behind zero-trust networking?"

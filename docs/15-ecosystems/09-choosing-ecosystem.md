@@ -68,7 +68,7 @@ This chapter widened the map beyond the guide's web/TypeScript core: the mobile 
 
 ## Page checkpoint
 
-<Quiz id="choosing-ecosystem-page" title="Did choosing an ecosystem stick?" sampleSize={2}>
+<Quiz id="choosing-ecosystem-page" title="Did choosing an ecosystem stick?" sampleSize={3}>
 
 <Question
   prompt="For a typical new web product built by a small team, what's the chapter's default recommendation, and when should you leave it?"
@@ -113,4 +113,4 @@ This chapter widened the map beyond the guide's web/TypeScript core: the mobile 
 
 ## What's next
 
-→ Take the [Chapter 9 checkpoint](./ecosystems-checkpoint), then continue to [Chapter 10: Solo / Personal](/docs/solo) to begin the workflow-by-scale chapters.
+→ Take the [Chapter 10 checkpoint](./ecosystems-checkpoint), then continue to [Chapter 11: Solo / Personal](/docs/solo) to begin the workflow-by-scale chapters.

@@ -202,7 +202,7 @@ Discipline for Phase 7:
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-testing-page" title="Did testing stick?" sampleSize={2}>
+<Quiz id="lifecycle-testing-page" title="Did testing stick?" sampleSize={3}>
 
 <Question
   prompt="What's the shape of the testing pyramid the page recommends?"

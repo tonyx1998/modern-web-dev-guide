@@ -76,7 +76,7 @@ The point of the calculation isn't to greenlight every refactor — it's to make
 
 ## Page checkpoint
 
-<Quiz id="decisions-cost-of-inaction-page" title="Did cost of inaction stick?" sampleSize={2}>
+<Quiz id="decisions-cost-of-inaction-page" title="Did cost of inaction stick?" sampleSize={3}>
 
 <Question
   prompt="Your CI takes 15 minutes instead of 3. Ten engineers run it 4x/day. The chapter calculates roughly $24,000/month of lost productivity. A one-engineer-week fix costs ~$3,000. The chapter's recommendation:"

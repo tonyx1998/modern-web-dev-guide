@@ -63,7 +63,7 @@ Flip it: state the user problem or business outcome in the first paragraph. Ever
 
 ## Page checkpoint
 
-<Quiz id="decisions-why-doing-this-page" title="Did 'why are we doing this?' stick?" sampleSize={2}>
+<Quiz id="decisions-why-doing-this-page" title="Did 'why are we doing this?' stick?" sampleSize={3}>
 
 <Question
   prompt="A new engineering manager asks each engineer on a two-quarter 'platform redesign' project: 'What problem does this solve, in one sentence?' Per the worked example, what does she learn?"

@@ -103,7 +103,7 @@ For *concept understanding* — not code generation — modern AI assistants are
 
 ## Page checkpoint
 
-<Quiz id="career-continuous-learning-page" title="Did continuous learning stick?" sampleSize={2}>
+<Quiz id="career-continuous-learning-page" title="Did continuous learning stick?" sampleSize={3}>
 
 <Question
   prompt="What is the page's overall philosophy on staying current in a fast-changing field?"

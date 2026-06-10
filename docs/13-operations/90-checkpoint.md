@@ -12,7 +12,7 @@ You've finished the SRE & Operations chapter. Make sure the operational toolkit 
 
 There are **15 questions in the bank** — each visit picks 5 at random. Miss one and the result card links you back to the exact section.
 
-You must pass (≥ 60%) to unlock the Next button and Chapter 7 in the sidebar.
+You must pass (≥ 67%) to unlock the Next button and Chapter 7 in the sidebar.
 
 <Quiz id="operations-checkpoint" title="SRE & Operations checkpoint" sampleSize={5}>
 
@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 7 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 7: Distributed Systems](/docs/distributed-systems) — the deep theory underneath why multi-machine systems need everything you just learned.
+→ Continue to [Chapter 8: Distributed Systems](/docs/distributed-systems) — the deep theory underneath why multi-machine systems need everything you just learned.

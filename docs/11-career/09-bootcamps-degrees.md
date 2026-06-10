@@ -64,7 +64,7 @@ If you're about to spend $500 on an online certificate, ask: "Would $500 of doma
 
 ## Page checkpoint
 
-<Quiz id="career-bootcamps-degrees-page" title="Did bootcamps vs degrees stick?" sampleSize={2}>
+<Quiz id="career-bootcamps-degrees-page" title="Did bootcamps vs degrees stick?" sampleSize={3}>
 
 <Question
   prompt="According to the page, what's the common thread across CS degrees, bootcamps, and self-taught paths in 2026?"

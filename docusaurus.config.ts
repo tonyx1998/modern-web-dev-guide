@@ -19,6 +19,7 @@ const config: Config = {
     v4: true,
   },
 
+  // Canonical deploy: GitHub Pages. Some cross-guide links use modern-web-dev-guide.vercel.app — treat this URL as source of truth.
   url: 'https://tonyx1998.github.io',
   baseUrl: '/modern-web-dev-guide/',
 
@@ -161,32 +162,33 @@ const config: Config = {
           title: 'Fundamentals',
           items: [
             {label: 'Introduction', to: '/'},
-            {label: '1. Foundations', to: '/docs/foundations'},
-            {label: '2. Roadmap', to: '/docs/roadmap'},
-            {label: '3. Lifecycle', to: '/docs/lifecycle'},
-            {label: '4. Tech Stack', to: '/docs/stack'},
+            {label: '1. Web Fundamentals', to: '/docs/foundations'},
+            {label: '3. Roadmap', to: '/docs/roadmap'},
+            {label: '4. Lifecycle', to: '/docs/lifecycle'},
+            {label: '5. Tech Stack', to: '/docs/stack'},
           ],
         },
         {
           title: 'Infrastructure & Scale',
           items: [
-            {label: '5. Cloud Platforms', to: '/docs/cloud'},
-            {label: '6. SRE & Operations', to: '/docs/operations'},
-            {label: '7. Distributed Systems', to: '/docs/distributed-systems'},
-            {label: '8. AI Integration', to: '/docs/ai'},
-            {label: '9. Mobile & Ecosystems', to: '/docs/ecosystems'},
+            {label: '6. Cloud Platforms', to: '/docs/cloud'},
+            {label: '7. SRE & Operations', to: '/docs/operations'},
+            {label: '8. Distributed Systems', to: '/docs/distributed-systems'},
+            {label: '9. AI Integration', to: '/docs/ai'},
+            {label: '10. Mobile & Ecosystems', to: '/docs/ecosystems'},
           ],
         },
         {
           title: 'Workflows & Growth',
           items: [
-            {label: '10. Solo / Personal', to: '/docs/solo'},
-            {label: '11. Startup / Small Co.', to: '/docs/startup'},
-            {label: '12. Enterprise', to: '/docs/enterprise'},
-            {label: '13. Comparison', to: '/docs/comparison'},
-            {label: '14. Decisions', to: '/docs/decisions'},
-            {label: '15. Career', to: '/docs/career'},
-            {label: '16. Glossary', to: '/docs/glossary'},
+            {label: '11. Solo / Personal', to: '/docs/solo'},
+            {label: '12. Startup / Small Co.', to: '/docs/startup'},
+            {label: '13. Enterprise', to: '/docs/enterprise'},
+            {label: '14. Comparison', to: '/docs/comparison'},
+            {label: '15. Decisions', to: '/docs/decisions'},
+            {label: '16. Career', to: '/docs/career'},
+            {label: '17. Final Capstone', to: '/docs/capstone'},
+            {label: '18. Glossary', to: '/docs/glossary'},
           ],
         },
         {

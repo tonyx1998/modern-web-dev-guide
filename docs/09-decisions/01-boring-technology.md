@@ -92,7 +92,7 @@ If a tool fails any of those tests, it's probably an innovation token. Decide co
 
 ## Page checkpoint
 
-<Quiz id="decisions-boring-technology-page" title="Did the boring technology rule stick?" sampleSize={2}>
+<Quiz id="decisions-boring-technology-page" title="Did the boring technology rule stick?" sampleSize={3}>
 
 <Question
   prompt="Your AI-first note-taking app needs to ship. Which of these is the right place to spend an innovation token?"

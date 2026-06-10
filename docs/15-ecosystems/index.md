@@ -1,12 +1,12 @@
 ---
 id: ecosystems
-title: 9. Mobile & Other Ecosystems — Overview
+title: 10. Mobile & Other Ecosystems — Overview
 sidebar_position: 1
 sidebar_label: Ecosystems intro
 description: Stepping beyond the web/TypeScript default — mobile (native, React Native, Flutter, PWA) and the major backend language ecosystems (JVM/Spring, .NET, Go, Python) the rest of the guide names but doesn't develop.
 ---
 
-# Part 9: Mobile & Other Ecosystems
+# Part 10: Mobile & Other Ecosystems
 
 *The rest of the guide is (deliberately) a TypeScript-and-web story. This chapter is the world next door — mobile apps, and the backend language ecosystems that run a huge share of the industry.*
 
@@ -53,4 +53,4 @@ Nothing here retracts the guide's core recommendation. For a typical new web pro
 
 ---
 
-When you finish, take the [checkpoint](/docs/ecosystems/ecosystems-checkpoint), then continue to [Chapter 10: Solo / Personal](/docs/solo) — the first of the workflow-by-scale chapters, which show the same kind of product built at three very different company sizes.
+When you finish, take the [checkpoint](/docs/ecosystems/ecosystems-checkpoint), then continue to [Chapter 11: Solo / Personal](/docs/solo) — the first of the workflow-by-scale chapters, which show the same kind of product built at three very different company sizes.

@@ -270,7 +270,7 @@ Bun isn't itself an edge platform yet, but its dev-time speed makes Workers deve
 
 ## Page checkpoint
 
-<Quiz id="foundations-edge-computing-page" title="Did edge computing stick?" sampleSize={2}>
+<Quiz id="foundations-edge-computing-page" title="Did edge computing stick?" sampleSize={3}>
 
 <Question
   prompt="Why do Cloudflare Workers / Vercel Edge cold-start in single-digit ms when AWS Lambda takes 100ms-2s?"
@@ -328,4 +328,4 @@ Bun isn't itself an edge platform yet, but its dev-time speed makes Workers deve
 
 ## What's next
 
-→ Continue to [Debugging methodology](./debugging).
+→ Continue to [Performance & Core Web Vitals](./performance).

@@ -12,7 +12,7 @@ You've worked through the Roadmap — the stages, the modern-stack picks, the fu
 
 There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit, and the link highlights the paragraph for you.
 
-You must pass (≥ 60%) to unlock the Next button at the bottom.
+You must pass (≥ 67%) to unlock the Next button at the bottom.
 
 <Quiz id="roadmap-checkpoint" title="Roadmap checkpoint" sampleSize={5}>
 

@@ -107,7 +107,7 @@ On a self-hosted DB on a VM, you own everything above the hypervisor — OS, pat
 
 ## Page checkpoint
 
-<Quiz id="cloud-managed-data-page" title="Did managed data stick?" sampleSize={2}>
+<Quiz id="cloud-managed-data-page" title="Did managed data stick?" sampleSize={3}>
 
 <Question
   prompt="A team routes all reads to a new async read replica and users start seeing stale data right after saving changes. What's the correct fix?"

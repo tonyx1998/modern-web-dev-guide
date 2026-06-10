@@ -78,7 +78,7 @@ A team shards their orders table by `order_id` (hashed — nicely even). Writes 
 
 ## Page checkpoint
 
-<Quiz id="partitioning-page" title="Did partitioning stick?" sampleSize={2}>
+<Quiz id="partitioning-page" title="Did partitioning stick?" sampleSize={3}>
 
 <Question
   prompt="What's the difference between replication and partitioning, and how are they used together?"

@@ -1,18 +1,18 @@
 ---
 id: enterprise-checkpoint
-title: Chapter 12 Checkpoint
+title: Chapter 13 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 12 — Enterprise. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 13.
+description: Mandatory checkpoint quiz for Chapter 12 — Enterprise. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 14.
 ---
 
-# Chapter 12 Checkpoint
+# Chapter 13 Checkpoint
 
 You've finished the Enterprise chapter. Take a minute to make sure the core ideas stuck.
 
 There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit, and the link highlights the paragraph for you.
 
-You must pass (≥ 60%) to unlock the Next button and Chapter 13 in the sidebar.
+You must pass (≥ 67%) to unlock the Next button and Chapter 13 in the sidebar.
 
 <Quiz id="enterprise-checkpoint" title="Enterprise checkpoint" sampleSize={5}>
 
@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 13 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 13: Comparison](/docs/comparison) where we'll lay solo / startup / enterprise side-by-side.
+→ Continue to [Chapter 14: Comparison](/docs/comparison) where we'll lay solo / startup / enterprise side-by-side.

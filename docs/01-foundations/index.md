@@ -1,16 +1,20 @@
 ---
 id: foundational-concepts
-title: 1. Foundational Concepts — Overview
+title: 1–2. Foundations — Overview
 sidebar_position: 1
 sidebar_label: Foundations at a glance
-description: How the web actually works under the hood. Read this chapter first.
+description: How the web actually works under the hood. Split into Web Fundamentals (Ch 1) and Production Engineering (Ch 2).
 ---
 
-# Part 1: Foundational Concepts
+# Foundations — Web Fundamentals & Production Engineering
 
-*How the web actually works under the hood.*
+*How the web actually works under the hood — split into two sidebar chapters.*
 
-This chapter covers the bedrock concepts every web developer must understand. These ideas haven't fundamentally changed in twenty years and won't change in the next twenty. Frameworks come and go; HTTP and the DOM remain.
+The sidebar divides this material into **Chapter 1 (Web Fundamentals)** through payments/email, then **Chapter 2 (Production Engineering)** for concurrency, production patterns, and debugging. Same directory, two arcs.
+
+**Parallel build track:** If you're following the [Roadmap](/docs/roadmap) stages, use this chapter as lookup — see [How to use this roadmap](/docs/roadmap/roadmap-how-to-use).
+
+This material covers the bedrock concepts every web developer must understand. These ideas haven't fundamentally changed in twenty years and won't change in the next twenty. Frameworks come and go; HTTP and the DOM remain.
 
 If you can explain everything in this chapter confidently, you have a stronger foundation than most working developers.
 
@@ -118,8 +122,9 @@ Each page focuses on **one topic** with worked examples and beginner callouts. R
 45. [Payments](/docs/foundations/payments) — Stripe, subscriptions, webhooks, PCI scope.
 46. [Email](/docs/foundations/email) — SPF/DKIM/DMARC and deliverability.
 
-47. [Chapter 1 Checkpoint](/docs/foundations/foundations-checkpoint) — Pass to unlock Chapter 2.
+47. [Web Fundamentals Checkpoint](/docs/foundations/foundations-mid-checkpoint) — Pass to unlock the Roadmap (build track) or continue to Production Engineering.
+48. [Production Engineering Checkpoint](/docs/foundations/foundations-checkpoint) — Completes the Foundations arc.
 
 ---
 
-When you finish this chapter, move on to [Chapter 2: Roadmap](/docs/roadmap).
+When you finish **Web Fundamentals**, you can continue to **Production Engineering** (sidebar Chapter 2) or jump to [Chapter 3: Roadmap](/docs/roadmap) after passing the mid-checkpoint.

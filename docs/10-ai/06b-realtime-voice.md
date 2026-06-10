@@ -351,7 +351,7 @@ If you're coming from a "ship a chat UI" background, realtime voice will feel al
 
 ## Page checkpoint
 
-<Quiz id="ai-realtime-voice-page" title="Did realtime voice stick?" sampleSize={2}>
+<Quiz id="ai-realtime-voice-page" title="Did realtime voice stick?" sampleSize={3}>
 
 <Question
   prompt="Why does the OpenAI Realtime API default to WebRTC instead of WebSocket for browser-based voice agents?"

@@ -99,7 +99,7 @@ Modern frameworks (Next.js, Remix, SvelteKit) do **SSR for the first page load**
 
 ## Page checkpoint
 
-<Quiz id="csr-page" title="Did CSR stick?" sampleSize={2}>
+<Quiz id="csr-page" title="Did CSR stick?" sampleSize={3}>
 
 <Question
   prompt="On a pure CSR app, what does the server actually return for /products/42?"

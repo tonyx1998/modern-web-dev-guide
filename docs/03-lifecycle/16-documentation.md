@@ -423,7 +423,7 @@ Most docs fail by mixing modes — a "tutorial" that pauses for two pages of exp
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-documentation-page" title="Did documentation craft stick?" sampleSize={2}>
+<Quiz id="lifecycle-documentation-page" title="Did documentation craft stick?" sampleSize={3}>
 
 <Question
   prompt="What's the difference between a README and an ADR?"

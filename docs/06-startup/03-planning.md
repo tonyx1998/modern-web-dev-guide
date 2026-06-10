@@ -86,7 +86,7 @@ The biggest mistake new teams make is treating the PRD as a binding spec. It's n
 
 ## Page checkpoint
 
-<Quiz id="startup-planning-page" title="Did startup planning stick?" sampleSize={2}>
+<Quiz id="startup-planning-page" title="Did startup planning stick?" sampleSize={3}>
 
 <Question
   prompt="What is the recommended size and format of a startup PRD on this page?"

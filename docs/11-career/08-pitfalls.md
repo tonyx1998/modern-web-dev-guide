@@ -83,7 +83,7 @@ The "stagnation" pitfall is often invisible from the inside. If you've been at t
 
 ## Page checkpoint
 
-<Quiz id="career-pitfalls-page" title="Did career pitfalls stick?" sampleSize={2}>
+<Quiz id="career-pitfalls-page" title="Did career pitfalls stick?" sampleSize={3}>
 
 <Question
   prompt="What is the 'Tutorial Trap' and what's the fix?"

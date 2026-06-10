@@ -86,7 +86,7 @@ If you do hit scaling-cost issues later, the migration from Vercel to AWS is usu
 
 ## Page checkpoint
 
-<Quiz id="stack-hosting-page" title="Did hosting stick?" sampleSize={2}>
+<Quiz id="stack-hosting-page" title="Did hosting stick?" sampleSize={3}>
 
 <Question
   prompt="What's the difference between an edge platform (Vercel, Cloudflare) and a cloud provider (AWS, GCP, Azure) in this page's framing?"

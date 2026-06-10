@@ -91,7 +91,7 @@ The other 20% is policy writing (security policy, incident response policy) and 
 
 ## Page checkpoint
 
-<Quiz id="startup-security-page" title="Did startup security stick?" sampleSize={2}>
+<Quiz id="startup-security-page" title="Did startup security stick?" sampleSize={3}>
 
 <Question
   prompt="What does the page recommend for authorization checks on protected endpoints?"

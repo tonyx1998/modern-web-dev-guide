@@ -1,12 +1,14 @@
 ---
 id: roadmap-how-to-use
 title: How to Use This Roadmap
-sidebar_position: 2
+sidebar_position: 1
 sidebar_label: How to use this roadmap
 description: The playbook — read top-to-bottom, build at every stage, slow down when stuck.
 ---
 
 # How to Use This Roadmap
+
+This chapter is the **build track** — it runs parallel to the sidebar **concept track** (Chapters 1–17). You don't have to finish every concept chapter before Stage 1; when a stage links to [Foundations](/docs/foundations) or [Stack](/docs/stack), read that page and return. See [Timeline & order](/docs/roadmap/timeline-and-path) for the full overlapping schedule.
 
 ## If you're a complete beginner
 

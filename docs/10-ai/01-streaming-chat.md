@@ -158,7 +158,7 @@ Track TTFT separately from total response time. Optimize TTFT first:
 
 ## Page checkpoint
 
-<Quiz id="ai-streaming-chat-page" title="Did streaming chat stick?" sampleSize={2}>
+<Quiz id="ai-streaming-chat-page" title="Did streaming chat stick?" sampleSize={3}>
 
 <Question
   prompt="Why does streaming a 3-second LLM response feel faster than waiting 3 seconds for a single chunk?"

@@ -12,7 +12,7 @@ You've finished the AI Layer chapter. Make sure the practical patterns stuck —
 
 There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit, and the link highlights the paragraph for you.
 
-You must pass (≥ 60%) to unlock the Next button and Chapter 9 in the sidebar.
+You must pass (≥ 67%) to unlock the Next button and Chapter 9 in the sidebar.
 
 <Quiz id="ai-checkpoint" title="AI Layer checkpoint" sampleSize={5}>
 
@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 9 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 9: Mobile & Other Ecosystems](/docs/ecosystems) — stepping beyond the web to mobile platforms and the major backend language ecosystems.
+→ Continue to [Chapter 10: Mobile & Other Ecosystems](/docs/ecosystems) — stepping beyond the web to mobile platforms and the major backend language ecosystems.

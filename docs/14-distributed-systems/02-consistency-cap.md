@@ -78,7 +78,7 @@ Notice nobody picks "strong consistency for everything" — it would make the wh
 
 ## Page checkpoint
 
-<Quiz id="ds-consistency-page" title="Did consistency & CAP stick?" sampleSize={2}>
+<Quiz id="ds-consistency-page" title="Did consistency & CAP stick?" sampleSize={3}>
 
 <Question
   prompt="What is the actual decision the CAP theorem forces, correcting the common 'pick 2 of 3' misreading?"

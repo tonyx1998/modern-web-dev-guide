@@ -100,7 +100,7 @@ If the answer is "a 10-line PR," move fast. If it's "a year of migration work," 
 
 ## Page checkpoint
 
-<Quiz id="decisions-reversibility-page" title="Did reversibility stick?" sampleSize={2}>
+<Quiz id="decisions-reversibility-page" title="Did reversibility stick?" sampleSize={3}>
 
 <Question
   prompt="In Bezos's framing, what is a Type 1 decision?"

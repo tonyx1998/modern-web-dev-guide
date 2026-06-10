@@ -171,7 +171,7 @@ Skip this and you build for a week, try to deploy, hit five errors that all inte
 
 ## Page checkpoint
 
-<Quiz id="solo-env-setup-page" title="Did environment setup stick?" sampleSize={2}>
+<Quiz id="solo-env-setup-page" title="Did environment setup stick?" sampleSize={3}>
 
 <Question
   prompt="Why is step 13 — git push to deploy an empty project — called the single most important step?"

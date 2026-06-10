@@ -160,9 +160,37 @@ Sign up, create a database, run `SELECT 1;` in the web SQL editor. You're now a 
 - **Storing dates without time zones.** `TIMESTAMP WITHOUT TIME ZONE` looks innocent and explodes the first time you have a user in another country. Default to `TIMESTAMPTZ` (Postgres) and store everything in UTC; convert at the edges.
 :::
 
+## Try it — SQL in your browser
+
+<SqlPlayground
+  id="foundations-sql-basics"
+  schema={`CREATE TABLE users (
+  id serial PRIMARY KEY,
+  name text NOT NULL,
+  email text UNIQUE NOT NULL
+);
+CREATE TABLE posts (
+  id serial PRIMARY KEY,
+  user_id int NOT NULL REFERENCES users(id),
+  title text NOT NULL,
+  body text
+);
+INSERT INTO users (name, email) VALUES
+  ('Ada', 'ada@example.com'),
+  ('Grace', 'grace@example.com');
+INSERT INTO posts (user_id, title, body) VALUES
+  (1, 'Hello SQL', 'My first post'),
+  (1, 'Joins', 'Users and posts'),
+  (2, 'Indexes', 'Why they matter');`}
+  initialQuery={`SELECT u.name, p.title
+FROM users u
+JOIN posts p ON p.user_id = u.id
+ORDER BY p.id;`}
+/>
+
 ## Page checkpoint
 
-<Quiz id="databases-sql-page" title="Did SQL databases stick?" sampleSize={2}>
+<Quiz id="databases-sql-page" title="Did SQL databases stick?" sampleSize={3}>
 
 <Question
   prompt="In a posts table, the user_id column references the users table's id column. What is user_id called?"

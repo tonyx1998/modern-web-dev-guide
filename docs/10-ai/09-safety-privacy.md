@@ -104,7 +104,7 @@ Treat the LLM like an untrusted user. Build the same defenses you'd build agains
 
 ## Page checkpoint
 
-<Quiz id="ai-safety-page" title="Did AI safety stick?" sampleSize={2}>
+<Quiz id="ai-safety-page" title="Did AI safety stick?" sampleSize={3}>
 
 <Question
   prompt="What is the cardinal rule of AI security?"

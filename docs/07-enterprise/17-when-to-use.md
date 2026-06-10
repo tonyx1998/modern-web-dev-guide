@@ -82,7 +82,7 @@ Each step is triggered by a real pain. Skipping ahead — Kubernetes at 30 engin
 
 ## Page checkpoint
 
-<Quiz id="enterprise-when-to-use-page" title="Did when-to-use stick?" sampleSize={2}>
+<Quiz id="enterprise-when-to-use-page" title="Did when-to-use stick?" sampleSize={3}>
 
 <Question
   prompt="What's the common mistake when reading about enterprise practices?"

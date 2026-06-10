@@ -12,7 +12,7 @@ You've finished the Distributed Systems chapter. Make sure the deep concepts stu
 
 There are **15 questions in the bank** — each visit picks 5 at random. Miss one and the result card links you back to the exact section.
 
-You must pass (≥ 60%) to unlock the Next button and Chapter 8 in the sidebar.
+You must pass (≥ 67%) to unlock the Next button and Chapter 8 in the sidebar.
 
 <Quiz id="distributed-systems-checkpoint" title="Distributed Systems checkpoint" sampleSize={5}>
 
@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 8 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 8: AI Integration](/docs/ai) — the now-standard AI layer in modern web apps, which leans on this chapter's ideas (idempotency, retries, eventual consistency) once it runs in production.
+→ Continue to [Chapter 9: AI Integration](/docs/ai) — the now-standard AI layer in modern web apps, which leans on this chapter's ideas (idempotency, retries, eventual consistency) once it runs in production.

@@ -167,7 +167,7 @@ You'll find passionate Reddit and Twitter threads telling you React is "old" or 
 
 ## Page checkpoint
 
-<Quiz id="stack-frontend-frameworks-page" title="Did frontend frameworks stick?" sampleSize={2}>
+<Quiz id="stack-frontend-frameworks-page" title="Did frontend frameworks stick?" sampleSize={3}>
 
 <Question
   prompt="What's the key distinction between a library and a framework, as the page describes it?"

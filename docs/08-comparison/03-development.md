@@ -96,7 +96,7 @@ Each workflow is *correct for its risk profile*. The solo dev has nothing to los
 
 ## Page checkpoint
 
-<Quiz id="comparison-development-page" title="Did development across scales stick?" sampleSize={2}>
+<Quiz id="comparison-development-page" title="Did development across scales stick?" sampleSize={3}>
 
 <Question
   prompt="Which branching strategy becomes universal once a team is past solo work, and why?"

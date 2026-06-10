@@ -148,7 +148,7 @@ This is the single piece of advice with the strongest consensus across the indus
 
 ## Page checkpoint
 
-<Quiz id="authentication-page" title="Did authentication stick?" sampleSize={2}>
+<Quiz id="authentication-page" title="Did authentication stick?" sampleSize={3}>
 
 <Question
   prompt="What's the correct way to store user passwords on the server?"

@@ -68,7 +68,7 @@ These are not "optimizations" — they're correctness at scale. Fixing them afte
 
 ## Page checkpoint
 
-<Quiz id="decisions-premature-optimization-page" title="Did premature optimization stick?" sampleSize={2}>
+<Quiz id="decisions-premature-optimization-page" title="Did premature optimization stick?" sampleSize={3}>
 
 <Question
   prompt="An engineer spends a week hand-rolling a buffer pool to shave allocations from an inner loop. Total speedup: ~3%. Meanwhile a profiler shows the real hot path is a database call inside a `.map()` over user IDs. The chapter's lesson:"

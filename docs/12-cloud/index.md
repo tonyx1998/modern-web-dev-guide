@@ -1,12 +1,12 @@
 ---
 id: cloud-platforms
-title: 5. Cloud Platforms — Overview
+title: 6. Cloud Platforms — Overview
 sidebar_position: 1
 sidebar_label: Cloud layer intro
 description: AWS, GCP, and Azure as the substrate under everything — compute, networking, identity, storage, managed data, IaC, and cost. The layer Vercel/Railway hide from you until you outgrow them.
 ---
 
-# Part 5: Cloud Platforms
+# Part 6: Cloud Platforms
 
 *The substrate under everything — what Vercel, Railway, and Fly.io are running on top of.*
 
@@ -104,4 +104,4 @@ Read in order the first time — each page assumes the previous one's vocabulary
 
 ---
 
-When you finish, move on to [Chapter 6: Site Reliability & Operations](/docs/operations) — how to keep all of this running at 3am.
+When you finish, move on to [Chapter 7: SRE & Operations](/docs/operations) — how to keep all of this running at 3am.

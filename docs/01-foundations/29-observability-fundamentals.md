@@ -285,7 +285,7 @@ Modern wisdom: **page on SLO burn rate**. If you're burning your monthly error b
 
 ## Page checkpoint
 
-<Quiz id="foundations-observability-fundamentals-page" title="Did observability fundamentals stick?" sampleSize={2}>
+<Quiz id="foundations-observability-fundamentals-page" title="Did observability fundamentals stick?" sampleSize={3}>
 
 <Question
   prompt="Which question does a TRACE answer that LOGS and METRICS alone struggle with?"
@@ -356,4 +356,4 @@ Modern wisdom: **page on SLO burn rate**. If you're burning your monthly error b
 
 ## What's next
 
-→ Continue to [Foundations Checkpoint](./foundations-checkpoint) — the chapter recap and self-assessment.
+→ Continue to [Testing](./testing) — how to verify your app works before users find the bugs.

@@ -138,7 +138,7 @@ This sets you up for stale data, manual refetching logic, race conditions, and c
 
 ## Page checkpoint
 
-<Quiz id="stack-state-management-page" title="Did state management stick?" sampleSize={2}>
+<Quiz id="stack-state-management-page" title="Did state management stick?" sampleSize={3}>
 
 <Question
   prompt="What's the single most common state-management mistake the page calls out?"

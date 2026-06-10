@@ -137,7 +137,7 @@ Most production issues need all three. A spike in error metrics tells you *somet
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-observability-page" title="Did observability stick?" sampleSize={2}>
+<Quiz id="lifecycle-observability-page" title="Did observability stick?" sampleSize={3}>
 
 <Question
   prompt="The page's rule of thumb for the three pillars. Which signal best answers 'why was this single request slow?'"

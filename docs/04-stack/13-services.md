@@ -104,7 +104,7 @@ The math almost always favors buying these services. Stripe charges 2.9% + 30¢ 
 
 ## Page checkpoint
 
-<Quiz id="stack-services-page" title="Did third-party services stick?" sampleSize={2}>
+<Quiz id="stack-services-page" title="Did third-party services stick?" sampleSize={3}>
 
 <Question
   prompt="What's the 'buy decision tree' the page recommends for any service category like payments or email?"

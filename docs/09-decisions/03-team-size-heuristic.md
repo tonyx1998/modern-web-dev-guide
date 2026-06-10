@@ -100,7 +100,7 @@ Process should scale up with team size. A team of 1 doesn't write RFCs; a team o
 
 ## Page checkpoint
 
-<Quiz id="decisions-team-size-heuristic-page" title="Did the team size heuristic stick?" sampleSize={2}>
+<Quiz id="decisions-team-size-heuristic-page" title="Did the team size heuristic stick?" sampleSize={3}>
 
 <Question
   prompt="A new senior hire at a 12-person startup introduces a formal RFC process for any change over 100 lines, plus a weekly architecture review. Six months later velocity has halved. What's the diagnosis?"

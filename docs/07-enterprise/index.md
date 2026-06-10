@@ -1,14 +1,18 @@
 ---
 id: large-company-workflow
-title: 12. Large Company Workflow — Overview
+title: 13. Large Company Workflow — Overview
 sidebar_position: 1
 sidebar_label: Enterprise intro
 description: Enterprises (500+ engineers). Microservices, Kubernetes, compliance, 99.99% uptime, SRE.
 ---
 
-# Part 12: Large Company / Enterprise Workflow (500+ Engineers)
+# Part 13: Large Company / Enterprise Workflow (500+ Engineers)
 
 *Hundreds of engineers, regulatory scrutiny, 99.99% uptime, massive infrastructure.*
+
+:::note[New to web dev? How to read this chapter]
+Optional on first pass. Read the "In plain English" boxes for culture context, then return after 2+ years in industry or when interviewing at large companies. Pair with [Comparison](/docs/comparison) for side-by-side tables.
+:::
 
 :::tip[Beginner orientation]
 **Why enterprise feels alien:** When you read about enterprise engineering, every decision seems to take five times longer than it should and require ten times the meetings. That's not because enterprise engineers are slow — it's because the cost of getting things wrong is enormous. A 30-minute outage at a startup is embarrassing. A 30-minute outage at a bank, a hospital, or a stock exchange can violate regulations, lose millions of dollars, or harm people.
@@ -74,4 +78,4 @@ Each page focuses on one slice of enterprise engineering with worked examples an
 
 ---
 
-When you finish, move on to [Chapter 13: Side-by-Side Comparison](/docs/comparison).
+When you finish, move on to [Chapter 14: Comparison](/docs/comparison).

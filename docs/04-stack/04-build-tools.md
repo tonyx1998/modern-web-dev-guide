@@ -92,7 +92,7 @@ Five years ago, "webpack.config.js" was where you spent half your life. Today, m
 
 ## Page checkpoint
 
-<Quiz id="stack-build-tools-page" title="Did build tools stick?" sampleSize={2}>
+<Quiz id="stack-build-tools-page" title="Did build tools stick?" sampleSize={3}>
 
 <Question
   prompt="Why do browsers need a build tool between your source code and the page?"

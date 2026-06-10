@@ -69,7 +69,7 @@ That bigger number is the *real* cost. Use it to set deliberation budget.
 
 ## Page checkpoint
 
-<Quiz id="decisions-what-would-hurt-page" title="Did 'what would hurt?' stick?" sampleSize={2}>
+<Quiz id="decisions-what-would-hurt-page" title="Did 'what would hurt?' stick?" sampleSize={3}>
 
 <Question
   prompt="In a 1-hour planning meeting with 5 decisions, the chapter says you should spend the most time on:"

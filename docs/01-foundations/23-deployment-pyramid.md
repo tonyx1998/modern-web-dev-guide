@@ -14,6 +14,8 @@ description: A bird's-eye view of how code becomes a live website. Source → CI
 "Deploying" is just the word for *putting your code somewhere users can run it*. It's not a single action — it's a multi-step process where each step has a specific job. The pyramid below is the same shape used by everyone from a teenager building their first Astro site (`git push` and Vercel handles the rest) to Google rolling out a global change (the same eight stages, just way more automation at each one).
 :::
 
+![Deployment pyramid](/img/diagrams/deployment-pyramid.svg)
+
 ## The pyramid
 
 How does code reach users? Every project, from one-person blogs to Google, uses some variation of this pipeline. A few terms before the diagram:
@@ -105,7 +107,7 @@ flowchart TD
 
 ## Page checkpoint
 
-<Quiz id="deployment-pyramid-page" title="Did the deployment pyramid stick?" sampleSize={2}>
+<Quiz id="deployment-pyramid-page" title="Did the deployment pyramid stick?" sampleSize={3}>
 
 <Question
   prompt="What does it mean that the SAME 8-stage pyramid applies to both a solo blog and a Google-scale deployment?"

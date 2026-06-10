@@ -73,7 +73,7 @@ This schedule works for a "small tool" — a focused, narrow product. A more amb
 
 ## Page checkpoint
 
-<Quiz id="solo-sample-project-page" title="Did the sample project stick?" sampleSize={2}>
+<Quiz id="solo-sample-project-page" title="Did the sample project stick?" sampleSize={3}>
 
 <Question
   prompt="What's the expected state at the end of Weekend 1?"

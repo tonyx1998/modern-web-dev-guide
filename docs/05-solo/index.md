@@ -1,14 +1,18 @@
 ---
 id: personal-website-workflow
-title: 10. Personal Website Workflow — Overview
+title: 11. Personal Website Workflow — Overview
 sidebar_position: 1
 sidebar_label: Solo workflow intro
 description: Solo developers, personal sites, side projects. Free tiers, minimal ops, maximum shipping speed.
 ---
 
-# Part 10: Personal Website / Side Project Workflow
+# Part 11: Personal Website / Side Project Workflow
 
 *Solo developer, low budget, maximum shipping speed.*
+
+:::note[New to web dev? How to read this chapter]
+Read this after [Roadmap Stage 9](/docs/roadmap/part-1-from-zero/stage-9-portfolio) when you're ready to ship your own project. Skim planning and stack-selection now if you're curious; return for payments, auth, and observability when your project needs them.
+:::
 
 This chapter walks through how an individual developer plans, builds, ships, and maintains a personal website or side project in 2026. The principles here apply to portfolios, blogs, hobby SaaS, indie tools, learning projects, and any other one-person endeavor.
 
@@ -61,4 +65,4 @@ Each page focuses on a single phase or topic of the solo workflow. Read them in 
 
 ---
 
-When you finish all 17 pages, move on to [Chapter 11: Small Company Workflow](/docs/startup).
+When you finish all 17 pages, move on to [Chapter 12: Startup Workflow](/docs/startup).

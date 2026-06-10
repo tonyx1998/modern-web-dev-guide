@@ -66,7 +66,7 @@ Beyond a certain team size, coordination cost is unavoidable. The lever is *how*
 
 ## Page checkpoint
 
-<Quiz id="startup-day-in-life-page" title="Did the day-in-life picture stick?" sampleSize={2}>
+<Quiz id="startup-day-in-life-page" title="Did the day-in-life picture stick?" sampleSize={3}>
 
 <Question
   prompt="What rough split between deep code and other work does the page describe for a typical startup engineer?"

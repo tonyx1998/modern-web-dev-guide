@@ -59,7 +59,7 @@ The math is brutal: choosing to build instead of buy *any* of these adds 20%+ to
 
 ## Page checkpoint
 
-<Quiz id="startup-mindset-page" title="Did the startup mindset stick?" sampleSize={2}>
+<Quiz id="startup-mindset-page" title="Did the startup mindset stick?" sampleSize={3}>
 
 <Question
   prompt="The page summarizes the startup mindset as a balance between which two extremes?"
