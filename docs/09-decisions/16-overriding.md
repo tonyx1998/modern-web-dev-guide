@@ -64,7 +64,7 @@ Decision-making is the hidden craft of senior engineering. Anyone can write code
 
 ## Page checkpoint
 
-<Quiz id="decisions-overriding-page" title="Did overriding the frameworks stick?" sampleSize={2}>
+<Quiz id="decisions-overriding-page" title="Did overriding the frameworks stick?" sampleSize={3}>
 
 <Question
   prompt="A team picks Rust over TypeScript for a new payments service — overriding the 'boring technology' default. Per the chapter, which of these makes this a JUSTIFIED override?"
@@ -122,4 +122,4 @@ Decision-making is the hidden craft of senior engineering. Anyone can write code
 
 ## What's next
 
-→ Continue to [Chapter 15: Career Path](/docs/career) — paths and learning resources for growing as a web developer in the AI era.
+→ Continue to [Chapter 16: Career Path](/docs/career) — paths and learning resources for growing as a web developer in the AI era.

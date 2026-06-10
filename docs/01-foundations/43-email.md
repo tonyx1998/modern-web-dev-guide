@@ -247,7 +247,7 @@ When deliverability drops:
 
 ## Page checkpoint
 
-<Quiz id="foundations-email-page" title="Did email deliverability stick?" sampleSize={2}>
+<Quiz id="foundations-email-page" title="Did email deliverability stick?" sampleSize={3}>
 
 <Question
   prompt="A team's password reset emails go to spam in Gmail. Their SendGrid setup uses default DKIM signing (with SendGrid's domain). What's the likely fix?"
@@ -305,4 +305,4 @@ When deliverability drops:
 
 ## What's next
 
-→ Continue to [File & media handling](./files-and-media).
+→ Continue to [Web Fundamentals Checkpoint](./foundations-mid-checkpoint) — recap before Production Engineering.

@@ -262,7 +262,7 @@ Now you can apply your own correction factor. Most engineers are surprised by ho
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-estimation-page" title="Did estimation stick?" sampleSize={2}>
+<Quiz id="lifecycle-estimation-page" title="Did estimation stick?" sampleSize={3}>
 
 <Question
   prompt="Why does breaking a feature into smaller pieces reliably improve estimate accuracy?"

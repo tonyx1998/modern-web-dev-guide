@@ -82,7 +82,7 @@ A team's on-call gets ~40 pages a week; most are "CPU high" and "pod restarted,"
 
 ## Page checkpoint
 
-<Quiz id="on-call-alerting-page" title="Did on-call & alerting stick?" sampleSize={2}>
+<Quiz id="on-call-alerting-page" title="Did on-call & alerting stick?" sampleSize={3}>
 
 <Question
   prompt="Which alert should page a human at 3am, per the 'symptoms not causes' principle?"

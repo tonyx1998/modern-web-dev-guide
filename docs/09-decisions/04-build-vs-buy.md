@@ -82,7 +82,7 @@ Before you "just build it," ask: **"Who maintains this in three years, when the 
 
 ## Page checkpoint
 
-<Quiz id="decisions-build-vs-buy-page" title="Did build vs buy stick?" sampleSize={2}>
+<Quiz id="decisions-build-vs-buy-page" title="Did build vs buy stick?" sampleSize={3}>
 
 <Question
   prompt="In the worked example, the team estimates 2 weeks to build auth in-house vs paying ~$300/year for Clerk. Over 2 years, the chapter calculates the realistic build cost as roughly:"

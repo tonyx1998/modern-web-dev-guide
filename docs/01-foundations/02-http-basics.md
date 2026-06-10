@@ -15,6 +15,8 @@ estimatedMinutes: 14
 HTTP is a strict format for sending messages between a client and a server — like a fill-in-the-blank form. The client writes "I want X" on one form; the server writes "here's X, or here's why I can't" on another form. HTTPS is identical, except the forms are sealed in an envelope only the recipient can open.
 :::
 
+![HTTP request and response flow](/img/diagrams/http-request-response.svg)
+
 ## What HTTP is
 
 **HTTP (HyperText Transfer Protocol)** is the language clients and servers use to talk. It's a text-based protocol that defines exactly how a request and response are structured.
@@ -121,7 +123,7 @@ Every HTTP request has the same shape: **method + path + headers + (optional) bo
 
 ## Page checkpoint
 
-<Quiz id="http-basics-page" title="Did HTTP & HTTPS stick?" sampleSize={2}>
+<Quiz id="http-basics-page" title="Did HTTP & HTTPS stick?" sampleSize={3}>
 
 <Question
   prompt="What's the shape of every HTTP request?"

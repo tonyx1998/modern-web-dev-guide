@@ -87,7 +87,7 @@ Same *product*, radically different *stack*. Each is correct for its scale; copy
 
 ## Page checkpoint
 
-<Quiz id="comparison-stack-and-hosting-page" title="Did stack and hosting across scales stick?" sampleSize={2}>
+<Quiz id="comparison-stack-and-hosting-page" title="Did stack and hosting across scales stick?" sampleSize={3}>
 
 <Question
   prompt="What architectural pattern is typical at each of the three scales?"

@@ -297,7 +297,7 @@ The HTML report shows the 6 cases where "stayed-in-role" dropped, with the user 
 
 ## Page checkpoint
 
-<Quiz id="ai-evals-page" title="Did AI evals stick?" sampleSize={2}>
+<Quiz id="ai-evals-page" title="Did AI evals stick?" sampleSize={3}>
 
 <Question
   prompt="Why doesn't `expect(output).toBe(expectedString)` work as a test for AI features?"

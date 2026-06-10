@@ -115,7 +115,7 @@ Three honest conversations are worth ten weeks of solo brainstorming.
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-discovery-planning-page" title="Did discovery & planning stick?" sampleSize={2}>
+<Quiz id="lifecycle-discovery-planning-page" title="Did discovery & planning stick?" sampleSize={3}>
 
 <Question
   prompt="Why does the page argue that discovery is 'the cheapest place to fix mistakes'?"

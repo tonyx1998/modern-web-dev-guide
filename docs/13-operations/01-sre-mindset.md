@@ -83,7 +83,7 @@ Two reliability levers: reduce how *often* things break (MTBF, mean time between
 
 ## Page checkpoint
 
-<Quiz id="sre-mindset-page" title="Did the SRE mindset stick?" sampleSize={2}>
+<Quiz id="sre-mindset-page" title="Did the SRE mindset stick?" sampleSize={3}>
 
 <Question
   prompt="What is an error budget, and what should a team do while there's budget remaining?"

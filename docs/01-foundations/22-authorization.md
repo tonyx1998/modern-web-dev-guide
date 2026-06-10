@@ -167,7 +167,7 @@ This is the single most common mistake junior developers make in auth.
 
 ## Page checkpoint
 
-<Quiz id="authorization-page" title="Did authorization stick?" sampleSize={2}>
+<Quiz id="authorization-page" title="Did authorization stick?" sampleSize={3}>
 
 <Question
   prompt="A user's session was compromised and you need to log them out RIGHT NOW. Which token model makes this trivial?"

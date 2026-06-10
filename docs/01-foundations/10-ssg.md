@@ -118,7 +118,7 @@ Open one of the generated `.html` files in your editor. There's no JavaScript fr
 
 ## Page checkpoint
 
-<Quiz id="ssg-page" title="Did SSG stick?" sampleSize={2}>
+<Quiz id="ssg-page" title="Did SSG stick?" sampleSize={3}>
 
 <Question
   prompt="When is HTML actually generated in a pure SSG setup?"

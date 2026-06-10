@@ -119,7 +119,7 @@ If you do nothing else from this page, deploy one project to a custom domain. Th
 
 ## Page checkpoint
 
-<Quiz id="career-portfolio-page" title="Did building a portfolio stick?" sampleSize={2}>
+<Quiz id="career-portfolio-page" title="Did building a portfolio stick?" sampleSize={3}>
 
 <Question
   prompt="The page calls one thing 'the single biggest signal' in a 2026 portfolio. What is it?"

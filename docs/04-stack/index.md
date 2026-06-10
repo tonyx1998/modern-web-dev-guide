@@ -1,14 +1,18 @@
 ---
 id: tech-stack-decoded
-title: 4. The 2026 Tech Stack — Overview
+title: 5. The 2026 Tech Stack — Overview
 sidebar_position: 1
 sidebar_label: Stack at a glance
 description: Every major tool in the 2026 web stack, organized by layer. Skim once; refer back when choosing.
 ---
 
-# Part 4: The 2026 Tech Stack Decoded
+# Part 5: The 2026 Tech Stack Decoded
 
 *Every major tool in modern web development — what it does, when to use it, why it exists.*
+
+:::note[New to web dev? How to read this chapter]
+Don't read front-to-back yet. Finish [Roadmap](/docs/roadmap) Stages 5–8 (TypeScript, React, Next.js) first, then return here to decode the tools you're using. Skim Advanced companion pages (`01b`, `02b`, etc.) only when the on-ramp page points you there.
+:::
 
 :::tip[Absolute-beginner orientation]
 **Why this chapter looks overwhelming:** It is overwhelming — there are hundreds of tools in modern web development, and this chapter catalogs the important ones. **Don't read it front-to-back like a novel. Skim once to know what exists, then come back to specific sections when you need to make a decision.**
@@ -70,4 +74,4 @@ This is the "boring" path. It's boring because it works. Save creativity for you
 
 ---
 
-When you finish, move on to [Chapter 5: Cloud Platforms](/docs/cloud) — the infrastructure your stack actually runs on.
+When you finish, move on to [Chapter 6: Cloud Platforms](/docs/cloud) — the infrastructure your stack actually runs on.

@@ -91,7 +91,7 @@ The fix is institutional: every retro should include "what process should we kil
 
 ## Page checkpoint
 
-<Quiz id="startup-pitfalls-page" title="Did the pitfalls stick?" sampleSize={2}>
+<Quiz id="startup-pitfalls-page" title="Did the pitfalls stick?" sampleSize={3}>
 
 <Question
   prompt="What does the page call the single biggest mistake of growing startups?"

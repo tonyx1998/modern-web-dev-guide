@@ -82,7 +82,7 @@ Each step is triggered by a specific business event — a customer requirement, 
 
 ## Page checkpoint
 
-<Quiz id="comparison-ops-page" title="Did ops across scales stick?" sampleSize={2}>
+<Quiz id="comparison-ops-page" title="Did ops across scales stick?" sampleSize={3}>
 
 <Question
   prompt="Which observability tool most clearly separates 'small company' from 'large company'?"

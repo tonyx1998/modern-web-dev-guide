@@ -98,7 +98,7 @@ The mature view: serverless is a *tool*, not a religion. Many great systems are 
 
 ## Page checkpoint
 
-<Quiz id="cloud-serverless-page" title="Did serverless patterns stick?" sampleSize={2}>
+<Quiz id="cloud-serverless-page" title="Did serverless patterns stick?" sampleSize={3}>
 
 <Question
   prompt="Cloud queues and event sources guarantee at-least-once delivery. What does this force every side-effecting handler to be?"

@@ -68,7 +68,7 @@ A payments team uses a FIFO queue to process account events and sets the de-dup/
 
 ## Page checkpoint
 
-<Quiz id="messaging-patterns-page" title="Did messaging patterns stick?" sampleSize={2}>
+<Quiz id="messaging-patterns-page" title="Did messaging patterns stick?" sampleSize={3}>
 
 <Question
   prompt="Why do strict message ordering and high throughput conflict, and what's the standard compromise?"

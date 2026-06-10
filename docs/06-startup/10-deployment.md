@@ -122,7 +122,7 @@ None is "wrong." But this is the kind of decision that lives on the boundary bet
 
 ## Page checkpoint
 
-<Quiz id="startup-deployment-page" title="Did deployment patterns stick?" sampleSize={2}>
+<Quiz id="startup-deployment-page" title="Did deployment patterns stick?" sampleSize={3}>
 
 <Question
   prompt="Which hosting pattern does the page describe as the most popular default for a small SaaS in 2026?"

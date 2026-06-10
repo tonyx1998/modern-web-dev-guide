@@ -1,14 +1,18 @@
 ---
 id: decision-frameworks
-title: 14. Decision Frameworks — Overview
+title: 15. Decision Frameworks — Overview
 sidebar_position: 1
 sidebar_label: Frameworks at a glance
 description: How to actually choose. Boring-technology rule, reversibility, team-size heuristics, cost of inaction.
 ---
 
-# Part 14: Decision Frameworks
+# Part 15: Decision Frameworks
 
 *How to actually make technology and architecture choices well.*
+
+:::note[New to web dev? How to read this chapter]
+Skim the boring-technology and reversibility pages now for the mindset. Read the full chapter after you've made at least one real stack choice on a project ([Roadmap Stage 4+](/docs/roadmap/part-1-from-zero/stage-4-git)). The checklists land best when you have a decision you actually face.
+:::
 
 > **In one line:** Engineering decisions are mostly about restraint — preferring proven tools, deliberating proportionally to reversibility, and quantifying the cost of doing *nothing*.
 
@@ -88,4 +92,4 @@ Each page focuses on **one framework** with concrete examples and applicable adv
 
 ---
 
-When you finish all 16 pages, move on to [Chapter 15: Career Path](/docs/career).
+When you finish all 16 pages, move on to [Chapter 16: Career Path](/docs/career).

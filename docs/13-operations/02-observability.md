@@ -112,7 +112,7 @@ Instrument every service with RED and every resource with USE and you've covered
 
 ## Page checkpoint
 
-<Quiz id="ops-observability-page" title="Did observability stick?" sampleSize={2}>
+<Quiz id="ops-observability-page" title="Did observability stick?" sampleSize={3}>
 
 <Question
   prompt="You get a metric alert that p99 latency spiked. What's the fastest path to root cause using the three pillars?"

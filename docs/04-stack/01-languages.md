@@ -129,7 +129,7 @@ Pick TypeScript. Ship 3 projects. *Then* learn a second language if curiosity or
 
 ## Page checkpoint
 
-<Quiz id="stack-languages-page" title="Did languages stick?" sampleSize={2}>
+<Quiz id="stack-languages-page" title="Did languages stick?" sampleSize={3}>
 
 <Question
   prompt="Why is TypeScript the default for new web projects in 2026 over plain JavaScript?"

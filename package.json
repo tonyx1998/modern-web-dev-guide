@@ -19,7 +19,10 @@
     "lectures:script-only": "node scripts/generate-lectures.mjs --script-only",
     "sync-prereqs": "node scripts/sync-prereqs-data.mjs",
     "apply-prereqs": "node scripts/sync-prereqs-data.mjs && node scripts/apply-prereqs.mjs",
-    "validate-prereqs": "node scripts/validate-prereqs.mjs"
+    "validate-prereqs": "node scripts/validate-prereqs.mjs",
+    "audit-lessons": "node scripts/audit-lesson-skeleton.mjs",
+    "diff-glossary": "node scripts/diff-glossary.mjs",
+    "sync-chapters": "node scripts/write-chapter-pages.mjs"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.20.0",

@@ -175,7 +175,7 @@ Specialized for timestamped data (metrics, sensor readings, logs).
 
 ## Page checkpoint
 
-<Quiz id="databases-nosql-page" title="Did NoSQL databases stick?" sampleSize={2}>
+<Quiz id="databases-nosql-page" title="Did NoSQL databases stick?" sampleSize={3}>
 
 <Question
   prompt="What's the typical use case where Redis adds the most value?"

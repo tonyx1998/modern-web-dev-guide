@@ -92,7 +92,7 @@ For the rest of this chapter, the workflow focuses on **Type 3 (hobby SaaS)** as
 
 ## Page checkpoint
 
-<Quiz id="solo-project-types-page" title="Did the project types stick?" sampleSize={2}>
+<Quiz id="solo-project-types-page" title="Did the project types stick?" sampleSize={3}>
 
 <Question
   prompt="Which project type does the rest of the chapter focus on as the most complete example?"

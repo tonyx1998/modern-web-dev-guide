@@ -81,7 +81,7 @@ Bluetooth, background location, ARKit, etc.) OR offline-first?
 
 ## Page checkpoint
 
-<Quiz id="mobile-landscape-page" title="Did the mobile landscape stick?" sampleSize={2}>
+<Quiz id="mobile-landscape-page" title="Did the mobile landscape stick?" sampleSize={3}>
 
 <Question
   prompt="A four-person web team needs an MVP for a content/dashboard product. Which approach does the chapter recommend starting with, and why?"

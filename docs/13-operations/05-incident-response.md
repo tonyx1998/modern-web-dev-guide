@@ -102,7 +102,7 @@ The action items are the whole point — a postmortem with no tracked, owned, da
 
 ## Page checkpoint
 
-<Quiz id="incident-response-page" title="Did incident response stick?" sampleSize={2}>
+<Quiz id="incident-response-page" title="Did incident response stick?" sampleSize={3}>
 
 <Question
   prompt="A deploy 20 minutes ago correlates with a spike in checkout errors. What should the responders do FIRST?"

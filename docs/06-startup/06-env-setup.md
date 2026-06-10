@@ -118,7 +118,7 @@ Treat `.env.example` as a contract. Every variable the app reads from the enviro
 
 ## Page checkpoint
 
-<Quiz id="startup-env-setup-page" title="Did environment setup stick?" sampleSize={2}>
+<Quiz id="startup-env-setup-page" title="Did environment setup stick?" sampleSize={3}>
 
 <Question
   prompt="What is the page's stated bar for a new engineer's first day?"

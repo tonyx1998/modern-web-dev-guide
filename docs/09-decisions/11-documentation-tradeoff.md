@@ -81,7 +81,7 @@ Defenses:
 
 ## Page checkpoint
 
-<Quiz id="decisions-documentation-tradeoff-page" title="Did the documentation tradeoff stick?" sampleSize={2}>
+<Quiz id="decisions-documentation-tradeoff-page" title="Did the documentation tradeoff stick?" sampleSize={3}>
 
 <Question
   prompt="The chapter contrasts two comments. Which one ages well?"

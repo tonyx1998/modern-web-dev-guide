@@ -106,7 +106,7 @@ At a less-tooled enterprise, that same process takes 3–6 weeks of tickets to p
 
 ## Page checkpoint
 
-<Quiz id="enterprise-architecture-page" title="Did enterprise architecture stick?" sampleSize={2}>
+<Quiz id="enterprise-architecture-page" title="Did enterprise architecture stick?" sampleSize={3}>
 
 <Question
   prompt="What is the single most important discipline in a microservices architecture?"

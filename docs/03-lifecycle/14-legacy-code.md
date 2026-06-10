@@ -265,7 +265,7 @@ Legacy modernization is a multi-year project. Treat it like a marathon, not a sp
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-legacy-code-page" title="Did legacy code stick?" sampleSize={2}>
+<Quiz id="lifecycle-legacy-code-page" title="Did legacy code stick?" sampleSize={3}>
 
 <Question
   prompt="Why does the 'just rewrite it' approach to legacy code so often fail?"

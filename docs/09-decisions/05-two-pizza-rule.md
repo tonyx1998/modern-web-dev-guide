@@ -70,7 +70,7 @@ The two-pizza rule is really about **conway's law**: your system architecture wi
 
 ## Page checkpoint
 
-<Quiz id="decisions-two-pizza-rule-page" title="Did the two-pizza rule stick?" sampleSize={2}>
+<Quiz id="decisions-two-pizza-rule-page" title="Did the two-pizza rule stick?" sampleSize={3}>
 
 <Question
   prompt="The chapter says communication overhead grows quadratically with team size. Going from 10 to 20 people roughly takes the number of communication pairs from 45 to:"

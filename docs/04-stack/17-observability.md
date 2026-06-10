@@ -96,7 +96,7 @@ Total cost: $0 for most personal projects. Setup time: 15 minutes including read
 
 ## Page checkpoint
 
-<Quiz id="stack-observability-tools-page" title="Did observability tools stick?" sampleSize={2}>
+<Quiz id="stack-observability-tools-page" title="Did observability tools stick?" sampleSize={3}>
 
 <Question
   prompt="What is Sentry's core job in your stack?"

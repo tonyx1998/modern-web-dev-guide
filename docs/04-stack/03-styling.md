@@ -153,7 +153,7 @@ The answer: define **design tokens** in your Tailwind config (or CSS variables i
 
 ## Page checkpoint
 
-<Quiz id="stack-styling-page" title="Did styling stick?" sampleSize={2}>
+<Quiz id="stack-styling-page" title="Did styling stick?" sampleSize={3}>
 
 <Question
   prompt="What does 'utility-first CSS' (Tailwind's approach) mean in practice?"

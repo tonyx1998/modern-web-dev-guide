@@ -219,6 +219,29 @@ Build a Hono API for a "links" app: `POST /links` creates a new link (validates 
 - **Forgetting CORS until the frontend can't talk to you.** When the frontend at `localhost:3000` calls the backend at `localhost:8787`, the browser blocks it by default. Add `cors()` middleware with the explicit allowed origin — and never `origin: "*"` on an authenticated API.
 :::
 
+## Practice — REST status codes
+
+<CodeChallenge
+  id="stage10-http-status"
+  fnName="statusForMethod"
+  prompt="Write statusForMethod(method) returning the conventional HTTP status: POST → 201, DELETE → 204, everything else → 200."
+  starter={`function statusForMethod(method) {
+  // your code
+}`}
+  solution={`function statusForMethod(method) {
+  if (method === 'POST') return 201;
+  if (method === 'DELETE') return 204;
+  return 200;
+}`}
+  tests={[
+    {args: ['GET'], expected: 200},
+    {args: ['POST'], expected: 201},
+    {args: ['DELETE'], expected: 204},
+    {args: ['PATCH'], expected: 200},
+  ]}
+  hint="Compare method strings; return the right number."
+/>
+
 ## Page checkpoint
 
 <Quiz id="stage-10-page" title="Did Stage 10 stick?" sampleSize={3}>

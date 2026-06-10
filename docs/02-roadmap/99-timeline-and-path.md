@@ -1,7 +1,7 @@
 ---
 id: timeline-and-path
 title: Timeline & Suggested Order
-sidebar_position: 99
+sidebar_position: 2
 sidebar_label: Timeline & order
 description: How long does this take, and in what order should you actually do it? Honest version.
 ---
@@ -10,7 +10,7 @@ description: How long does this take, and in what order should you actually do i
 
 ## The suggested order
 
-Don't read the parts strictly in order. Use them as overlapping tracks:
+This schedule complements the sidebar **concept track** (Chapters 1–17 in order). The two tracks overlap — that's intentional. Use them as overlapping tracks:
 
 1. **Always-on track — Part IV (Meta-skills).** Read [How to actually learn](/docs/roadmap/part-4-meta/how-to-learn) and [Tutorial trap](/docs/roadmap/part-4-meta/tutorial-trap) *before* you start Stage 1. They change how everything after them sticks.
 2. **Primary track — Part I, in order.** Stages 0 → 12, no skipping. This is 4–9 months.

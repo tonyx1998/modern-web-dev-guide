@@ -180,7 +180,7 @@ The industry oscillates between simplifying and complicating. The frameworks wil
 
 ## Page checkpoint
 
-<Quiz id="isr-streaming-ppr-page" title="Did ISR, streaming & PPR stick?" sampleSize={2}>
+<Quiz id="isr-streaming-ppr-page" title="Did ISR, streaming & PPR stick?" sampleSize={3}>
 
 <Question
   prompt="With ISR using revalidate: 60, what does a user who arrives 61 seconds after the last build experience?"

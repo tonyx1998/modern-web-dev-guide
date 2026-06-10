@@ -89,7 +89,7 @@ That's not "growing into a worse job" — it's "growing into a higher-leverage j
 
 ## Page checkpoint
 
-<Quiz id="enterprise-day-in-life-page" title="Did the day-in-the-life stick?" sampleSize={2}>
+<Quiz id="enterprise-day-in-life-page" title="Did the day-in-the-life stick?" sampleSize={3}>
 
 <Question
   prompt="Roughly what fraction of a senior enterprise engineer's day is spent writing code?"

@@ -84,7 +84,7 @@ The actual *coding* takes the same 2–4 hours at every scale. The 30x slowdown 
 
 ## Page checkpoint
 
-<Quiz id="comparison-economics-page" title="Did economics across scales stick?" sampleSize={2}>
+<Quiz id="comparison-economics-page" title="Did economics across scales stick?" sampleSize={3}>
 
 <Question
   prompt="At every scale, what is the dominant cost — and what does that imply for infra decisions?"

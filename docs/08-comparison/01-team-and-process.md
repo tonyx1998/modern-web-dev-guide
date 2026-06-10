@@ -86,7 +86,7 @@ The enterprise process looks absurd if you stop at the single decision. It looks
 
 ## Page checkpoint
 
-<Quiz id="comparison-team-and-process-page" title="Did team and process across scales stick?" sampleSize={2}>
+<Quiz id="comparison-team-and-process-page" title="Did team and process across scales stick?" sampleSize={3}>
 
 <Question
   prompt="What is the biggest cultural divide in team structure between small companies and large companies?"

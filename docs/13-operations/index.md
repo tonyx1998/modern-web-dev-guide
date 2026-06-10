@@ -1,12 +1,12 @@
 ---
 id: operations
-title: 6. Site Reliability & Operations — Overview
+title: 7. Site Reliability & Operations — Overview
 sidebar_position: 1
 sidebar_label: Operations intro
 description: The discipline of keeping software running — SRE, SLOs and error budgets, observability, reliability patterns, on-call, incident response, safe deploys, capacity, and chaos engineering.
 ---
 
-# Part 6: Site Reliability & Operations
+# Part 7: Site Reliability & Operations
 
 *Building software is half the job. Keeping it running — correct, fast, and available, at 3am, while it changes every day — is the other half.*
 
@@ -70,4 +70,4 @@ The central insight of SRE is counterintuitive: **your reliability target should
 
 ---
 
-When you finish, take the [checkpoint](/docs/operations/operations-checkpoint), then continue to [Chapter 7: Distributed Systems](/docs/distributed-systems).
+When you finish, take the [checkpoint](/docs/operations/operations-checkpoint), then continue to [Chapter 8: Distributed Systems](/docs/distributed-systems).

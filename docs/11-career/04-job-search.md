@@ -96,7 +96,7 @@ A referral converts to an interview at roughly 5–10x the rate of a cold applic
 
 ## Page checkpoint
 
-<Quiz id="career-job-search-page" title="Did the job search stick?" sampleSize={2}>
+<Quiz id="career-job-search-page" title="Did the job search stick?" sampleSize={3}>
 
 <Question
   prompt="The page calls one thing 'the single biggest lever' in a junior job search. What is it?"

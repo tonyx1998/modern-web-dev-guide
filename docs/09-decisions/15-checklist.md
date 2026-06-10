@@ -67,7 +67,7 @@ Half of good decision-making is realizing which question you can't answer yet.
 
 ## Page checkpoint
 
-<Quiz id="decisions-checklist-page" title="Did the decision checklist stick?" sampleSize={2}>
+<Quiz id="decisions-checklist-page" title="Did the decision checklist stick?" sampleSize={3}>
 
 <Question
   prompt="Per the chapter, when should you reach for the full 10-question checklist?"

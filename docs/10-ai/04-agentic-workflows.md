@@ -121,7 +121,7 @@ Without these, an agent that worked in dev can cost real money in production.
 
 ## Page checkpoint
 
-<Quiz id="ai-agents-page" title="Did agentic workflows stick?" sampleSize={2}>
+<Quiz id="ai-agents-page" title="Did agentic workflows stick?" sampleSize={3}>
 
 <Question
   prompt="What separates an 'agent' from a single function-calling request?"

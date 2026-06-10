@@ -79,7 +79,7 @@ A team sets up a 2-node etcd cluster "for redundancy." It's *worse* than one nod
 
 ## Page checkpoint
 
-<Quiz id="ds-consensus-page" title="Did consensus stick?" sampleSize={2}>
+<Quiz id="ds-consensus-page" title="Did consensus stick?" sampleSize={3}>
 
 <Question
   prompt="Why does requiring a majority to approve any decision prevent two conflicting decisions (e.g. two leaders)?"

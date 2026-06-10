@@ -72,7 +72,7 @@ If the cost of waiting is unclear, you're probably not at the "why now" moment y
 
 ## Page checkpoint
 
-<Quiz id="decisions-why-now-page" title="Did the 'why now?' question stick?" sampleSize={2}>
+<Quiz id="decisions-why-now-page" title="Did the 'why now?' question stick?" sampleSize={3}>
 
 <Question
   prompt="An engineer pitches migrating from Express to Fastify 'for performance.' Per the chapter, which response best applies the 'why now?' framework?"

@@ -101,7 +101,7 @@ You've now made it impossible for stylistically inconsistent or obviously-broken
 
 ## Page checkpoint
 
-<Quiz id="stack-code-quality-page" title="Did code quality tooling stick?" sampleSize={2}>
+<Quiz id="stack-code-quality-page" title="Did code quality tooling stick?" sampleSize={3}>
 
 <Question
   prompt="What does Biome combine into a single tool that previously required ESLint + Prettier?"

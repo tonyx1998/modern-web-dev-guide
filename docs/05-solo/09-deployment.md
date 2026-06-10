@@ -78,7 +78,7 @@ Vercel's per-environment env vars make this trivial — just toggle which env va
 
 ## Page checkpoint
 
-<Quiz id="solo-deployment-page" title="Did the deployment flow stick?" sampleSize={2}>
+<Quiz id="solo-deployment-page" title="Did the deployment flow stick?" sampleSize={3}>
 
 <Question
   prompt="What single command effectively performs deployment in this setup?"

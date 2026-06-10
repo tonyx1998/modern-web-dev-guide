@@ -104,7 +104,7 @@ Why it matters to you as a developer: when you get cloud access at a real compan
 
 ## Page checkpoint
 
-<Quiz id="cloud-mental-model-page" title="Did the mental model stick?" sampleSize={2}>
+<Quiz id="cloud-mental-model-page" title="Did the mental model stick?" sampleSize={3}>
 
 <Question
   prompt="What is the relationship between a Region and an Availability Zone?"

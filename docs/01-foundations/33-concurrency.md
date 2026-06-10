@@ -353,7 +353,7 @@ Propagate `AbortSignal` through your stack so when the user closes the tab, ever
 
 ## Page checkpoint
 
-<Quiz id="foundations-concurrency-page" title="Did concurrency & async stick?" sampleSize={2}>
+<Quiz id="foundations-concurrency-page" title="Did concurrency & async stick?" sampleSize={3}>
 
 <Question
   prompt="A function reads `user.balance`, checks it's ≥ `amount`, then writes `balance - amount`. Two concurrent requests both succeed with insufficient real funds. What's the class of bug?"

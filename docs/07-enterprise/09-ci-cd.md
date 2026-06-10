@@ -102,7 +102,7 @@ At a startup, the same scenario plays out at 100% of users for 45 minutes until 
 
 ## Page checkpoint
 
-<Quiz id="enterprise-ci-cd-page" title="Did enterprise CI/CD stick?" sampleSize={2}>
+<Quiz id="enterprise-ci-cd-page" title="Did enterprise CI/CD stick?" sampleSize={3}>
 
 <Question
   prompt="At enterprise scale, what is the key conceptual split that feature flags enable?"

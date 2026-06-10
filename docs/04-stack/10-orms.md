@@ -165,7 +165,7 @@ ORMs are great, but they're not a substitute for understanding SQL. The moment y
 
 ## Page checkpoint
 
-<Quiz id="stack-orms-page" title="Did ORMs stick?" sampleSize={2}>
+<Quiz id="stack-orms-page" title="Did ORMs stick?" sampleSize={3}>
 
 <Question
   prompt="What problem does an ORM primarily solve for application code?"

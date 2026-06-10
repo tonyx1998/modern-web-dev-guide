@@ -103,7 +103,7 @@ The biggest mistake is **applying the wrong scale's practices**:
 
 ## Page checkpoint
 
-<Quiz id="comparison-tradeoffs-page" title="Did scale tradeoffs stick?" sampleSize={2}>
+<Quiz id="comparison-tradeoffs-page" title="Did scale tradeoffs stick?" sampleSize={3}>
 
 <Question
   prompt="What does a large company optimize for, and what does it sacrifice in return?"
@@ -161,4 +161,4 @@ The biggest mistake is **applying the wrong scale's practices**:
 
 ## What's next
 
-→ Continue to [Chapter 14: Decision Frameworks](/docs/decisions) — the principles that help you make sound architectural and technology decisions at *any* scale.
+→ Continue to [Chapter 15: Decision Frameworks](/docs/decisions) — the principles that help you make sound architectural and technology decisions at *any* scale.

@@ -135,7 +135,7 @@ The actual goal is: *would I sleep through the night with the current test suite
 
 ## Page checkpoint
 
-<Quiz id="startup-testing-page" title="Did the testing strategy stick?" sampleSize={2}>
+<Quiz id="startup-testing-page" title="Did the testing strategy stick?" sampleSize={3}>
 
 <Question
   prompt="What shape does the page recommend for the test suite at startup scale?"

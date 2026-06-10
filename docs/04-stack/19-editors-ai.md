@@ -71,7 +71,7 @@ A junior developer with AI but no fundamentals produces code they can't debug. A
 
 ## Page checkpoint
 
-<Quiz id="stack-editors-ai-page" title="Did editors & AI assistants stick?" sampleSize={2}>
+<Quiz id="stack-editors-ai-page" title="Did editors & AI assistants stick?" sampleSize={3}>
 
 <Question
   prompt="How has the 2026 editor question shifted, according to the page?"

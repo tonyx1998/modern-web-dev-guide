@@ -106,7 +106,7 @@ The trade-off: edge runtimes are usually constrained (smaller CPU/memory limits,
 
 ## Page checkpoint
 
-<Quiz id="cdn-edge-page" title="Did CDNs & the edge stick?" sampleSize={2}>
+<Quiz id="cdn-edge-page" title="Did CDNs & the edge stick?" sampleSize={3}>
 
 <Question
   prompt="What problem does a CDN primarily solve?"

@@ -112,7 +112,7 @@ You should not be building your own auth from scratch to "save money." The free 
 
 ## Page checkpoint
 
-<Quiz id="stack-authentication-tools-page" title="Did auth tools stick?" sampleSize={2}>
+<Quiz id="stack-authentication-tools-page" title="Did auth tools stick?" sampleSize={3}>
 
 <Question
   prompt="Why does the page tell you not to build your own auth?"

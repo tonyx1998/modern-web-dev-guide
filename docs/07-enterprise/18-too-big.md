@@ -85,7 +85,7 @@ Key takeaways:
 
 ## Page checkpoint
 
-<Quiz id="enterprise-too-big-page" title="Did when-you're-too-big stick?" sampleSize={2}>
+<Quiz id="enterprise-too-big-page" title="Did when-you're-too-big stick?" sampleSize={3}>
 
 <Question
   prompt="Why do FAANG-tier companies (Google, Meta, Amazon) sometimes fork or build their own versions of critical open-source infrastructure?"
@@ -143,4 +143,4 @@ Key takeaways:
 
 ## What's next
 
-→ Continue to [Chapter 13: Side-by-Side Comparison](/docs/comparison), which puts all three workflows (personal, small, large) into one reference for easy lookup.
+→ Continue to [Chapter 14: Comparison](/docs/comparison), which puts all three workflows (personal, small, large) into one reference for easy lookup.

@@ -123,7 +123,7 @@ You discover integration issues *immediately*, not in week 3. You ship visible v
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-implementation-page" title="Did implementation stick?" sampleSize={2}>
+<Quiz id="lifecycle-implementation-page" title="Did implementation stick?" sampleSize={3}>
 
 <Question
   prompt="What does the page mean by 'vertical slices, not horizontal layers'?"

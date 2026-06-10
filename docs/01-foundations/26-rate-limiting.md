@@ -334,7 +334,7 @@ Roll your own when:
 
 ## Page checkpoint
 
-<Quiz id="foundations-rate-limiting-page" title="Did rate limiting stick?" sampleSize={2}>
+<Quiz id="foundations-rate-limiting-page" title="Did rate limiting stick?" sampleSize={3}>
 
 <Question
   prompt="A team uses a per-process in-memory `Map` to track per-user request counts. They scale from 1 to 4 server instances behind a load balancer. What happens?"

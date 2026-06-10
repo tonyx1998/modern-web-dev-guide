@@ -275,7 +275,7 @@ If your company has internal OSS culture (Google, Stripe, Shopify), participatin
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-open-source-page" title="Did open source stick?" sampleSize={2}>
+<Quiz id="lifecycle-open-source-page" title="Did open source stick?" sampleSize={3}>
 
 <Question
   prompt="A new contributor wants to add a 500-line feature to a popular library. What's the right first step?"

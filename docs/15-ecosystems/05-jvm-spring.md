@@ -82,7 +82,7 @@ The honest summary: Node/TS wins for web product teams who value velocity and en
 
 ## Page checkpoint
 
-<Quiz id="jvm-ecosystem-page" title="Did the JVM ecosystem stick?" sampleSize={2}>
+<Quiz id="jvm-ecosystem-page" title="Did the JVM ecosystem stick?" sampleSize={3}>
 
 <Question
   prompt="Why do large enterprises predominantly run backends on the JVM (Java/Kotlin + Spring)?"

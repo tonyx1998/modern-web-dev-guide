@@ -79,7 +79,7 @@ The hard parts are cost management, evaluation, safety, and the new mental model
 
 ## Page checkpoint
 
-<Quiz id="ai-stack-summary-page" title="Did the AI stack summary stick?" sampleSize={2}>
+<Quiz id="ai-stack-summary-page" title="Did the AI stack summary stick?" sampleSize={3}>
 
 <Question
   prompt="In the 2026 'boring' AI stack, what's the default choice for vector storage in most apps?"
@@ -137,4 +137,4 @@ The hard parts are cost management, evaluation, safety, and the new mental model
 
 ## What's next
 
-→ Continue to [Chapter 9: Mobile & Other Ecosystems](/docs/ecosystems) — stepping beyond the web stack to mobile platforms and the major backend language ecosystems.
+→ Continue to [Chapter 10: Mobile & Other Ecosystems](/docs/ecosystems) — stepping beyond the web stack to mobile platforms and the major backend language ecosystems.

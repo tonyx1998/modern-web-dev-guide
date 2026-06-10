@@ -81,7 +81,7 @@ That five-minute thinking exercise just saved a month of work on a project that 
 
 ## Page checkpoint
 
-<Quiz id="solo-planning-page" title="Did solo planning stick?" sampleSize={2}>
+<Quiz id="solo-planning-page" title="Did solo planning stick?" sampleSize={3}>
 
 <Question
   prompt="How long should the entire solo planning phase take?"

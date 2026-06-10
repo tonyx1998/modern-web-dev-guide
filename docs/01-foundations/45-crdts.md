@@ -321,7 +321,7 @@ CRDTs are the right answer for "two or more users actively editing the same blob
 
 ## Page checkpoint
 
-<Quiz id="foundations-crdts-page" title="Did CRDTs stick?" sampleSize={2}>
+<Quiz id="foundations-crdts-page" title="Did CRDTs stick?" sampleSize={3}>
 
 <Question
   prompt="Why are CRDTs (rather than naive last-write-wins) needed for collaborative editing?"

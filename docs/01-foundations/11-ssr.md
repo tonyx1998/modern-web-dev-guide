@@ -127,7 +127,7 @@ Visit `http://localhost:3000`. Then open DevTools → Network → reload. You'll
 
 ## Page checkpoint
 
-<Quiz id="ssr-page" title="Did SSR stick?" sampleSize={2}>
+<Quiz id="ssr-page" title="Did SSR stick?" sampleSize={3}>
 
 <Question
   prompt="In a typical React SSR setup, what does 'hydration' refer to?"

@@ -125,7 +125,7 @@ The "handles up to $10M ARR" claim isn't marketing — it's the actual track rec
 
 ## Page checkpoint
 
-<Quiz id="startup-architecture-page" title="Did startup architecture stick?" sampleSize={2}>
+<Quiz id="startup-architecture-page" title="Did startup architecture stick?" sampleSize={3}>
 
 <Question
   prompt="How does the page define a modular monolith?"

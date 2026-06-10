@@ -89,7 +89,7 @@ Some load you can *see coming*: a launch, a marketing campaign, a seasonal peak,
 
 ## Page checkpoint
 
-<Quiz id="capacity-scaling-page" title="Did capacity & scaling stick?" sampleSize={2}>
+<Quiz id="capacity-scaling-page" title="Did capacity & scaling stick?" sampleSize={3}>
 
 <Question
   prompt="You autoscale your stateless app tier to handle more load, but performance still collapses under traffic. What's the usual real bottleneck?"

@@ -8,6 +8,8 @@ description: The conceptual primer — why distributed systems are different fro
 
 # Distributed systems primer: CAP, consistency, idempotency, sagas
 
+← **Primer only.** For the full chapter (replication, partitioning, consensus, sagas, event streaming), see [Distributed Systems — Overview](/docs/distributed-systems).
+
 > **In one line:** A distributed system is anything where two or more computers cooperate over an unreliable network — and that unreliability fundamentally changes what's possible, forcing tradeoffs (consistency vs availability), patterns (idempotency, leader election, sagas), and a new vocabulary every backend engineer needs.
 
 :::tip[In plain English]
@@ -222,7 +224,7 @@ Within a process, function calls succeed or throw. Across a network, they succee
 
 ## Page checkpoint
 
-<Quiz id="foundations-distributed-systems-page" title="Did distributed systems stick?" sampleSize={2}>
+<Quiz id="foundations-distributed-systems-page" title="Did distributed systems stick?" sampleSize={3}>
 
 <Question
   prompt="A common mis-statement of CAP is 'you can have any two of consistency, availability, partition tolerance.' What's the right phrasing?"
@@ -280,4 +282,4 @@ Within a process, function calls succeed or throw. Across a network, they succee
 
 ## What's next
 
-→ Continue to [Performance & Core Web Vitals](./performance).
+→ Continue to [Rate Limiting](./rate-limiting). → **Going deeper:** [Distributed Systems chapter](/docs/distributed-systems).

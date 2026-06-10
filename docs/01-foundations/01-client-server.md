@@ -135,7 +135,7 @@ The web is a **conversation between computers**. Every problem you'll ever debug
 
 ## Page checkpoint
 
-<Quiz id="client-server-page" title="Did client/server stick?" sampleSize={2}>
+<Quiz id="client-server-page" title="Did client/server stick?" sampleSize={3}>
 
 <Question
   prompt="In the client/server model, what initiates the conversation?"

@@ -146,7 +146,7 @@ Every payment processor sends a signature header (`Stripe-Signature`, etc.). *Al
 
 ## Page checkpoint
 
-<Quiz id="stack-apis-page" title="Did API styles stick?" sampleSize={2}>
+<Quiz id="stack-apis-page" title="Did API styles stick?" sampleSize={3}>
 
 <Question
   prompt="When is tRPC the right pick over REST?"

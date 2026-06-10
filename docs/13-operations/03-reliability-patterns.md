@@ -103,7 +103,7 @@ A retailer's entire site goes down during a sale. Root cause: a *non-critical* "
 
 ## Page checkpoint
 
-<Quiz id="reliability-patterns-page" title="Did reliability patterns stick?" sampleSize={2}>
+<Quiz id="reliability-patterns-page" title="Did reliability patterns stick?" sampleSize={3}>
 
 <Question
   prompt="A non-critical recommendations widget with no timeout takes down an entire site, including checkout. What's the core mechanism of that cascade?"

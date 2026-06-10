@@ -102,7 +102,7 @@ A well-designed empty state guides users to the *next action*. A missing empty s
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-design-page" title="Did design stick?" sampleSize={2}>
+<Quiz id="lifecycle-design-page" title="Did design stick?" sampleSize={3}>
 
 <Question
   prompt="What's the page's central argument for designing in Figma (or on paper) before writing code?"

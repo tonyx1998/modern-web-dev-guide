@@ -90,7 +90,7 @@ Add a real job queue when you have *multiple* background tasks, need retries wit
 
 ## Page checkpoint
 
-<Quiz id="stack-background-jobs-page" title="Did background jobs stick?" sampleSize={2}>
+<Quiz id="stack-background-jobs-page" title="Did background jobs stick?" sampleSize={3}>
 
 <Question
   prompt="Why push slow work (sending email, generating PDFs, syncing slow APIs) into a background job instead of doing it inside the HTTP request?"

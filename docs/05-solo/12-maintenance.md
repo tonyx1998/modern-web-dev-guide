@@ -90,7 +90,7 @@ At a big company, one customer is one of millions. For your indie project, one o
 
 ## Page checkpoint
 
-<Quiz id="solo-maintenance-page" title="Did the maintenance routine stick?" sampleSize={2}>
+<Quiz id="solo-maintenance-page" title="Did the maintenance routine stick?" sampleSize={3}>
 
 <Question
   prompt="What's the suggested weekly maintenance routine for a small solo SaaS?"

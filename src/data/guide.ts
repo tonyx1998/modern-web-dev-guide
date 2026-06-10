@@ -16,6 +16,8 @@ export interface GuideBadge {
   description: string;
   icon: string;
   chapterId?: string;
+  /** Earned when this quiz id is passed (localStorage). */
+  quizId?: string;
   threshold?: number;
 }
 
@@ -37,7 +39,7 @@ export const chapters: GuideChapter[] = [
     icon: 'Map',
     level: 'intermediate',
     to: '/docs/roadmap',
-    lessonCount: 37,
+    lessonCount: 36,
   },
   {
     id: 'lifecycle',
@@ -46,7 +48,7 @@ export const chapters: GuideChapter[] = [
     icon: 'RefreshCw',
     level: 'intermediate',
     to: '/docs/lifecycle',
-    lessonCount: 18,
+    lessonCount: 17,
   },
   {
     id: 'stack',
@@ -55,7 +57,7 @@ export const chapters: GuideChapter[] = [
     icon: 'Code2',
     level: 'intermediate',
     to: '/docs/stack',
-    lessonCount: 26,
+    lessonCount: 25,
   },
   {
     id: 'cloud',
@@ -64,7 +66,7 @@ export const chapters: GuideChapter[] = [
     icon: 'Cloud',
     level: 'advanced',
     to: '/docs/cloud',
-    lessonCount: 12,
+    lessonCount: 11,
   },
   {
     id: 'operations',
@@ -73,7 +75,7 @@ export const chapters: GuideChapter[] = [
     icon: 'Activity',
     level: 'advanced',
     to: '/docs/operations',
-    lessonCount: 10,
+    lessonCount: 9,
   },
   {
     id: 'distributed-systems',
@@ -82,7 +84,7 @@ export const chapters: GuideChapter[] = [
     icon: 'Network',
     level: 'expert',
     to: '/docs/distributed-systems',
-    lessonCount: 12,
+    lessonCount: 11,
   },
   {
     id: 'ai',
@@ -91,7 +93,7 @@ export const chapters: GuideChapter[] = [
     icon: 'Sparkles',
     level: 'advanced',
     to: '/docs/ai',
-    lessonCount: 17,
+    lessonCount: 16,
   },
   {
     id: 'ecosystems',
@@ -100,7 +102,7 @@ export const chapters: GuideChapter[] = [
     icon: 'Smartphone',
     level: 'advanced',
     to: '/docs/ecosystems',
-    lessonCount: 11,
+    lessonCount: 10,
   },
   {
     id: 'solo',
@@ -109,7 +111,7 @@ export const chapters: GuideChapter[] = [
     icon: 'User',
     level: 'intermediate',
     to: '/docs/solo',
-    lessonCount: 19,
+    lessonCount: 18,
   },
   {
     id: 'startup',
@@ -118,7 +120,7 @@ export const chapters: GuideChapter[] = [
     icon: 'Rocket',
     level: 'intermediate',
     to: '/docs/startup',
-    lessonCount: 19,
+    lessonCount: 18,
   },
   {
     id: 'enterprise',
@@ -127,7 +129,7 @@ export const chapters: GuideChapter[] = [
     icon: 'Building2',
     level: 'expert',
     to: '/docs/enterprise',
-    lessonCount: 20,
+    lessonCount: 19,
   },
   {
     id: 'comparison',
@@ -136,7 +138,7 @@ export const chapters: GuideChapter[] = [
     icon: 'GitCompare',
     level: 'intermediate',
     to: '/docs/comparison',
-    lessonCount: 8,
+    lessonCount: 7,
   },
   {
     id: 'decisions',
@@ -145,7 +147,7 @@ export const chapters: GuideChapter[] = [
     icon: 'Scale',
     level: 'expert',
     to: '/docs/decisions',
-    lessonCount: 18,
+    lessonCount: 17,
   },
   {
     id: 'career',
@@ -154,7 +156,7 @@ export const chapters: GuideChapter[] = [
     icon: 'TrendingUp',
     level: 'intermediate',
     to: '/docs/career',
-    lessonCount: 13,
+    lessonCount: 12,
   },
 ];
 
@@ -207,6 +209,13 @@ export const badges: GuideBadge[] = [
     description: 'Complete all chapters',
     icon: 'Trophy',
     threshold: 100,
+  },
+  {
+    id: 'capstone-certified',
+    name: 'Guide Certified',
+    description: 'Pass the final capstone assessment',
+    icon: 'Trophy',
+    quizId: 'final-capstone',
   },
 ];
 

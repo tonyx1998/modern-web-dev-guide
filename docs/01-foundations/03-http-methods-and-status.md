@@ -133,7 +133,7 @@ curl -i https://httpbin.org/redirect/2
 
 ## Page checkpoint
 
-<Quiz id="http-methods-page" title="Did HTTP methods & status codes stick?" sampleSize={2}>
+<Quiz id="http-methods-page" title="Did HTTP methods & status codes stick?" sampleSize={3}>
 
 <Question
   prompt="Which HTTP method is NOT idempotent — meaning sending it twice can cause two different effects?"

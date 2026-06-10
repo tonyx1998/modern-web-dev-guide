@@ -100,7 +100,7 @@ The lesson: microservices weren't wrong; *too many* microservices were wrong for
 
 ## Page checkpoint
 
-<Quiz id="enterprise-pitfalls-page" title="Did enterprise pitfalls stick?" sampleSize={2}>
+<Quiz id="enterprise-pitfalls-page" title="Did enterprise pitfalls stick?" sampleSize={3}>
 
 <Question
   prompt="What is a 'distributed monolith,' according to the page?"

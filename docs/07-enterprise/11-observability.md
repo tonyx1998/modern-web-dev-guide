@@ -120,7 +120,7 @@ That's enterprise incident management working as intended — fast detection, fa
 
 ## Page checkpoint
 
-<Quiz id="enterprise-observability-page" title="Did observability stick?" sampleSize={2}>
+<Quiz id="enterprise-observability-page" title="Did observability stick?" sampleSize={3}>
 
 <Question
   prompt="How do the three pillars of observability complement each other?"

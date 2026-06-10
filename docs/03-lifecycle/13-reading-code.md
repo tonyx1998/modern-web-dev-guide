@@ -237,7 +237,7 @@ It's *the* compounding skill. Every codebase you read makes the next one easier.
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-reading-code-page" title="Did reading code stick?" sampleSize={2}>
+<Quiz id="lifecycle-reading-code-page" title="Did reading code stick?" sampleSize={3}>
 
 <Question
   prompt="What's the recommended approach when reading a large unfamiliar codebase for the first time?"

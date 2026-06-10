@@ -114,7 +114,7 @@ When a feature is too big to fit in a 1–3 day branch, that's a signal to eithe
 
 ## Page checkpoint
 
-<Quiz id="startup-development-page" title="Did the development workflow stick?" sampleSize={2}>
+<Quiz id="startup-development-page" title="Did the development workflow stick?" sampleSize={3}>
 
 <Question
   prompt="What branching pattern does the page recommend at startup scale?"

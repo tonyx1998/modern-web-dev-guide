@@ -137,7 +137,7 @@ Each is a reasonable default. Only optimize away from the default when you have 
 
 ## Page checkpoint
 
-<Quiz id="rendering-strategies-page" title="Did rendering strategies stick?" sampleSize={2}>
+<Quiz id="rendering-strategies-page" title="Did rendering strategies stick?" sampleSize={3}>
 
 <Question
   prompt="What are the three baseline moments at which HTML can be built?"

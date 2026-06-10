@@ -99,7 +99,7 @@ A team's payment provider sends a webhook on successful payment, which their han
 
 ## Page checkpoint
 
-<Quiz id="idempotency-page" title="Did idempotency stick?" sampleSize={2}>
+<Quiz id="idempotency-page" title="Did idempotency stick?" sampleSize={3}>
 
 <Question
   prompt="Why is 'exactly-once delivery' impossible, and what's achievable instead?"

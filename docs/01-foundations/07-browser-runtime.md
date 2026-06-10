@@ -107,7 +107,7 @@ A 60fps animation needs the browser to render a frame every **16.6 milliseconds*
 
 ## Page checkpoint
 
-<Quiz id="browser-runtime-page" title="Did the browser runtime stick?" sampleSize={2}>
+<Quiz id="browser-runtime-page" title="Did the browser runtime stick?" sampleSize={3}>
 
 <Question
   prompt="What is the DOM, in concrete terms?"

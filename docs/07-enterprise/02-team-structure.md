@@ -114,7 +114,7 @@ That's 10+ people on a "two-engineer feature." This is not bureaucracy — every
 
 ## Page checkpoint
 
-<Quiz id="enterprise-team-structure-page" title="Did team structure stick?" sampleSize={2}>
+<Quiz id="enterprise-team-structure-page" title="Did team structure stick?" sampleSize={3}>
 
 <Question
   prompt="What's the defining feature of a healthy platform/infrastructure team?"

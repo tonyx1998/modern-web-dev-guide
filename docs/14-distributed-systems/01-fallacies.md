@@ -68,7 +68,7 @@ A team builds a checkout that calls a payment service: `const result = await pay
 
 ## Page checkpoint
 
-<Quiz id="ds-fallacies-page" title="Did the fundamentals stick?" sampleSize={2}>
+<Quiz id="ds-fallacies-page" title="Did the fundamentals stick?" sampleSize={3}>
 
 <Question
   prompt="A checkout calls a payment service, gets no response, assumes failure, and retries — resulting in a double charge. What distributed-systems truth was violated?"

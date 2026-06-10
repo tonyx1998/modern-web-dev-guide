@@ -71,7 +71,7 @@ If physical clocks are unreliable, why not make them reliable? That's exactly wh
 
 ## Page checkpoint
 
-<Quiz id="ds-time-page" title="Did time & ordering stick?" sampleSize={2}>
+<Quiz id="ds-time-page" title="Did time & ordering stick?" sampleSize={3}>
 
 <Question
   prompt="Why can't you reliably order events on different machines by their wall-clock timestamps?"

@@ -124,7 +124,7 @@ Without that abstraction, this same flow at a less-tooled enterprise is weeks of
 
 ## Page checkpoint
 
-<Quiz id="enterprise-deployment-page" title="Did enterprise deployment stick?" sampleSize={2}>
+<Quiz id="enterprise-deployment-page" title="Did enterprise deployment stick?" sampleSize={3}>
 
 <Question
   prompt="Why does the page argue Infrastructure as Code is essential for compliance, not just engineering convenience?"

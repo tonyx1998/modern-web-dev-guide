@@ -85,7 +85,7 @@ A team without evals can't safely change a prompt. You can't see whether you mad
 
 ## Page checkpoint
 
-<Quiz id="ai-observability-page" title="Did AI observability stick?" sampleSize={2}>
+<Quiz id="ai-observability-page" title="Did AI observability stick?" sampleSize={3}>
 
 <Question
   prompt="Why does AI need its own observability layer beyond regular APM/logging?"

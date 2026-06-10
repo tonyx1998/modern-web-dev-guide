@@ -116,7 +116,7 @@ The right answer is usually **hybrid search**: run both, combine the results, an
 
 ## Page checkpoint
 
-<Quiz id="ai-embeddings-page" title="Did embeddings stick?" sampleSize={2}>
+<Quiz id="ai-embeddings-page" title="Did embeddings stick?" sampleSize={3}>
 
 <Question
   prompt="What does an embedding actually represent?"

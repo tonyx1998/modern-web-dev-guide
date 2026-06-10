@@ -150,7 +150,7 @@ Treat CI time as a budget. Over 10 minutes = problem to solve.
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-ci-cd-page" title="Did CI/CD stick?" sampleSize={2}>
+<Quiz id="lifecycle-ci-cd-page" title="Did CI/CD stick?" sampleSize={3}>
 
 <Question
   prompt="What's the actual difference between Continuous Delivery and Continuous Deployment?"

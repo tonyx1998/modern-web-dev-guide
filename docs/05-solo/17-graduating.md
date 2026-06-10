@@ -66,7 +66,7 @@ The fastest-growing 5-to-50-person companies still feel scrappy — but they've 
 
 ## Page checkpoint
 
-<Quiz id="solo-graduating-page" title="Did graduating from solo stick?" sampleSize={2}>
+<Quiz id="solo-graduating-page" title="Did graduating from solo stick?" sampleSize={3}>
 
 <Question
   prompt="Which of the following is NOT listed as a sign you've graduated beyond solo?"
@@ -124,4 +124,4 @@ The fastest-growing 5-to-50-person companies still feel scrappy — but they've 
 
 ## What's next
 
-→ Continue to [Chapter 11: Small Company Workflow](/docs/startup) — what changes when you graduate to a small company / startup environment.
+→ Continue to [Chapter 12: Startup Workflow](/docs/startup) — what changes when you graduate to a small company / startup environment.

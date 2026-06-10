@@ -75,7 +75,7 @@ interface QuizProps {
   title?: string;
   /** How many of the registered questions to show. Undefined = show all. */
   sampleSize?: number;
-  /** Pass threshold (0-1). Default 0.6. */
+  /** Pass threshold (0-1). Default 0.67 (~2 of 3). */
   passingScore?: number;
   /**
    * "checkpoint" (default): big card, end-of-page gating quiz. Required
@@ -243,7 +243,7 @@ export function Quiz({
   id,
   title,
   sampleSize,
-  passingScore = 0.6,
+  passingScore = 0.67,
   variant = 'checkpoint',
   required,
   children,

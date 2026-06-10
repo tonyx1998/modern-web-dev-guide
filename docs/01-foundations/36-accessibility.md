@@ -299,7 +299,7 @@ The expensive accessibility bugs are baked in at design time: low-contrast brand
 
 ## Page checkpoint
 
-<Quiz id="foundations-accessibility-page" title="Did accessibility stick?" sampleSize={2}>
+<Quiz id="foundations-accessibility-page" title="Did accessibility stick?" sampleSize={3}>
 
 <Question
   prompt="Why is `<div onclick='submit()'>Submit</div>` an accessibility failure?"
@@ -357,4 +357,4 @@ The expensive accessibility bugs are baked in at design time: low-contrast brand
 
 ## What's next
 
-→ Continue to [Message queues & event-driven](./message-queues).
+→ Continue to [Realtime collaboration / CRDTs](./crdts).

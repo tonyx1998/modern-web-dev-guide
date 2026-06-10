@@ -325,7 +325,7 @@ Three caches, three TTLs (deploy / forever-pinned / 5-minute prefix), three inva
 
 ## Page checkpoint
 
-<Quiz id="foundations-caching-page" title="Did caching stick?" sampleSize={2}>
+<Quiz id="foundations-caching-page" title="Did caching stick?" sampleSize={3}>
 
 <Question
   prompt="What's the standard trick for caching static JS/CSS/font assets forever in the browser and CDN?"

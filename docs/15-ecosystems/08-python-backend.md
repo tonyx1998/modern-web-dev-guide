@@ -80,7 +80,7 @@ The deepest reason to run a Python backend is frequently *not* about web framewo
 
 ## Page checkpoint
 
-<Quiz id="python-ecosystem-page" title="Did Python backends stick?" sampleSize={2}>
+<Quiz id="python-ecosystem-page" title="Did Python backends stick?" sampleSize={3}>
 
 <Question
   prompt="What's the difference in philosophy between Django and FastAPI?"

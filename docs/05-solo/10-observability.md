@@ -68,7 +68,7 @@ Every solo developer who skips Sentry on day one regrets it the first time a rea
 
 ## Page checkpoint
 
-<Quiz id="solo-observability-page" title="Did observability stick?" sampleSize={2}>
+<Quiz id="solo-observability-page" title="Did observability stick?" sampleSize={3}>
 
 <Question
   prompt="Which tool covers which job in the three-tool solo stack?"

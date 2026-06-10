@@ -404,7 +404,7 @@ When the AI drafts application code *and* tests together, treat the tests as sus
 
 ## Page checkpoint
 
-<Quiz id="foundations-testing-page" title="Did testing taxonomy stick?" sampleSize={2}>
+<Quiz id="foundations-testing-page" title="Did testing taxonomy stick?" sampleSize={3}>
 
 <Question
   prompt="Why is the 'ice cream cone' (many e2e tests, few unit tests) an anti-pattern?"
@@ -485,4 +485,4 @@ Everything above is enough to ship with a trustworthy suite. If you want more:
 
 ## What's next
 
-→ Continue to [Web security beyond auth](./web-security).
+→ Continue to [Debugging methodology](./debugging).

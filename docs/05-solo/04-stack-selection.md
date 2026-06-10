@@ -70,7 +70,7 @@ The whole point of picking the default stack is that it carries you across the e
 
 ## Page checkpoint
 
-<Quiz id="solo-stack-selection-page" title="Did stack selection stick?" sampleSize={2}>
+<Quiz id="solo-stack-selection-page" title="Did stack selection stick?" sampleSize={3}>
 
 <Question
   prompt="Up to roughly how many active users does the default 2026 stack handle without architectural changes?"

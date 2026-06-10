@@ -98,7 +98,7 @@ You'll see a dramatic spread. Bun is usually 5–10× faster than npm on the sam
 
 ## Page checkpoint
 
-<Quiz id="stack-package-managers-page" title="Did package managers stick?" sampleSize={2}>
+<Quiz id="stack-package-managers-page" title="Did package managers stick?" sampleSize={3}>
 
 <Question
   prompt="Why is committing the lockfile (package-lock.json, pnpm-lock.yaml, bun.lock, etc.) more important than which package manager produced it?"

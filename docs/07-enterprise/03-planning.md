@@ -98,7 +98,7 @@ This planning overhead is real, but at enterprise scale, the cost of misaligned 
 
 ## Page checkpoint
 
-<Quiz id="enterprise-planning-page" title="Did enterprise planning stick?" sampleSize={2}>
+<Quiz id="enterprise-planning-page" title="Did enterprise planning stick?" sampleSize={3}>
 
 <Question
   prompt="According to the page, which section of an enterprise RFC is the single most valuable?"

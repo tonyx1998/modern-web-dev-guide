@@ -88,7 +88,7 @@ A team deploys v2, which renames a DB column and updates the code to use the new
 
 ## Page checkpoint
 
-<Quiz id="ops-deploys-page" title="Did deploys & rollbacks stick?" sampleSize={2}>
+<Quiz id="ops-deploys-page" title="Did deploys & rollbacks stick?" sampleSize={3}>
 
 <Question
   prompt="What is a canary deployment and why is it the gold standard for risk control?"

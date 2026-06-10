@@ -1,12 +1,12 @@
 ---
 id: career-checkpoint
-title: Chapter 15 Checkpoint
+title: Chapter 16 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 15 — Career Path. 5 random questions drawn from a 15-question bank. Last chapter of the guide.
+description: Mandatory checkpoint quiz for Chapter 15 — Career Path. 5 random questions drawn from a 15-question bank. Last career chapter — then take the Final Capstone.
 ---
 
-# Chapter 15 Checkpoint
+# Chapter 16 Checkpoint
 
 You've finished the Career Path chapter — and the whole guide. Make sure the practical career advice stuck.
 
@@ -215,8 +215,8 @@ This is the last chapter — passing this quiz doesn't unlock anything more, but
 
 ---
 
-## You finished the guide
+## What's next
 
-→ Look back at the [Introduction](/) and notice how much more those tabs make sense now. Then pick a project from your portfolio idea list and ship it.
+→ Take the [Final Capstone](/docs/capstone) when you're ready to certify the whole arc.
 
 → The [Glossary](/docs/glossary) is always available as a reference for terms you encounter in the wild.

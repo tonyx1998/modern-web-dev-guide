@@ -105,7 +105,7 @@ Everything else (K8s, service meshes, custom Helm charts) is a *solution looking
 
 ## Page checkpoint
 
-<Quiz id="stack-devops-page" title="Did DevOps tooling stick?" sampleSize={2}>
+<Quiz id="stack-devops-page" title="Did DevOps tooling stick?" sampleSize={3}>
 
 <Question
   prompt="What problem does Docker (or Podman) solve for application deployment?"

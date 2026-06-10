@@ -65,7 +65,7 @@ Infra costs become non-noise once you're at hundreds of thousands of MAUs *or* w
 
 ## Page checkpoint
 
-<Quiz id="startup-cost-breakdown-page" title="Did the cost breakdown stick?" sampleSize={2}>
+<Quiz id="startup-cost-breakdown-page" title="Did the cost breakdown stick?" sampleSize={3}>
 
 <Question
   prompt="What range does the page give for a typical $1M ARR startup's total monthly infrastructure bill?"

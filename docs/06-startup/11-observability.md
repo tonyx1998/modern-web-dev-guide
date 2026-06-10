@@ -84,7 +84,7 @@ The reason is practical, not soft: the moment people fear post-mortems, they hid
 
 ## Page checkpoint
 
-<Quiz id="startup-observability-page" title="Did observability stick?" sampleSize={2}>
+<Quiz id="startup-observability-page" title="Did observability stick?" sampleSize={3}>
 
 <Question
   prompt="Which tool does the page assign to which dimension of observability at this scale?"

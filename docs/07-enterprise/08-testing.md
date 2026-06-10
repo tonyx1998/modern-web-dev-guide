@@ -83,7 +83,7 @@ Once they fixed every break Chaos Monkey found, they had genuinely resilient sys
 
 ## Page checkpoint
 
-<Quiz id="enterprise-testing-page" title="Did enterprise testing stick?" sampleSize={2}>
+<Quiz id="enterprise-testing-page" title="Did enterprise testing stick?" sampleSize={3}>
 
 <Question
   prompt="What is the core idea behind chaos engineering?"

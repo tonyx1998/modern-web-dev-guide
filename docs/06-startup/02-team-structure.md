@@ -74,7 +74,7 @@ Treat the org chart as a rough guide to ownership and rotation, not a descriptio
 
 ## Page checkpoint
 
-<Quiz id="startup-team-structure-page" title="Did team structure stick?" sampleSize={2}>
+<Quiz id="startup-team-structure-page" title="Did team structure stick?" sampleSize={3}>
 
 <Question
   prompt="How does the page describe the engineering org at a 5-10 person company?"

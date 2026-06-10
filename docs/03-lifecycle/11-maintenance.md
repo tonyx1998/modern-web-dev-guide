@@ -147,7 +147,7 @@ The first blames a person; the second improves the system. Only the second preve
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-maintenance-page" title="Did maintenance stick?" sampleSize={2}>
+<Quiz id="lifecycle-maintenance-page" title="Did maintenance stick?" sampleSize={3}>
 
 <Question
   prompt="Roughly what share of total engineering effort does the page say happens after a product's launch?"

@@ -162,7 +162,7 @@ You don't need to wield all of these on day one, but knowing they exist explains
 
 ## Page checkpoint
 
-<Quiz id="cloud-iam-page" title="Did IAM stick?" sampleSize={2}>
+<Quiz id="cloud-iam-page" title="Did IAM stick?" sampleSize={3}>
 
 <Question
   prompt="Why should an application running on a VM use an instance role rather than a stored access key?"

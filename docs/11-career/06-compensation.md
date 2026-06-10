@@ -68,7 +68,7 @@ At pre-IPO startups, equity is worth roughly $0 until a liquidity event. Don't t
 
 ## Page checkpoint
 
-<Quiz id="career-compensation-page" title="Did compensation stick?" sampleSize={2}>
+<Quiz id="career-compensation-page" title="Did compensation stick?" sampleSize={3}>
 
 <Question
   prompt="The page defines Total Compensation (TC). What does it include?"

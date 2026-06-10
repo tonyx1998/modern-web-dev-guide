@@ -125,7 +125,7 @@ This stack scales from "weekend project" to "thousands of paying customers" with
 
 ## Page checkpoint
 
-<Quiz id="lifecycle-architecture-page" title="Did architecture stick?" sampleSize={2}>
+<Quiz id="lifecycle-architecture-page" title="Did architecture stick?" sampleSize={3}>
 
 <Question
   prompt="Why does the page urge you to deliberate more carefully over architecture decisions than over feature decisions?"

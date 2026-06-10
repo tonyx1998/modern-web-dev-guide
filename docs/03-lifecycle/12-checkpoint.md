@@ -12,7 +12,7 @@ You've finished the Lifecycle chapter. Take a minute to make sure the core ideas
 
 There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit, and the link highlights the paragraph for you.
 
-You must pass (≥ 60%) to unlock the Next button and Chapter 4 in the sidebar.
+You must pass (≥ 67%) to unlock the Next button and Chapter 4 in the sidebar.
 
 <Quiz id="lifecycle-checkpoint" title="Lifecycle checkpoint" sampleSize={5}>
 
@@ -217,4 +217,4 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 4 in the sidebar.
 
 ## What's next
 
-→ Continue to [Chapter 4: Tech Stack](/docs/stack) to see what specific tools you'd reach for at each phase.
+→ Continue to [Chapter 5: Tech Stack](/docs/stack) to see what specific tools you'd reach for at each phase.

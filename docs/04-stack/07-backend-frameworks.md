@@ -164,7 +164,7 @@ This single integration eliminates a *lot* of complexity — no separate auth se
 
 ## Page checkpoint
 
-<Quiz id="stack-backend-frameworks-page" title="Did backend frameworks stick?" sampleSize={2}>
+<Quiz id="stack-backend-frameworks-page" title="Did backend frameworks stick?" sampleSize={3}>
 
 <Question
   prompt="What's the page's first question to ask before picking a backend framework for a new full-stack app in 2026?"

@@ -62,7 +62,7 @@ At an enterprise, design reviews, code reviews, and architecture committees are 
 
 ## Page checkpoint
 
-<Quiz id="solo-mindset-page" title="Did the solo mindset stick?" sampleSize={2}>
+<Quiz id="solo-mindset-page" title="Did the solo mindset stick?" sampleSize={3}>
 
 <Question
   prompt="What is the biggest mistake solo developers make, according to this page?"

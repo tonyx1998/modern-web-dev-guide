@@ -107,7 +107,7 @@ The decision is about *who consumes it*: a public API → REST; a TS frontend ta
 
 ## Page checkpoint
 
-<Quiz id="stack-apis-advanced-page" title="Did advanced API design stick?" sampleSize={2}>
+<Quiz id="stack-apis-advanced-page" title="Did advanced API design stick?" sampleSize={3}>
 
 <Question
   prompt="Why must API changes be backward-compatible (additive) by default?"

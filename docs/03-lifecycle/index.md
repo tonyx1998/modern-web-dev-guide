@@ -1,14 +1,18 @@
 ---
 id: development-lifecycle
-title: 3. The Development Lifecycle — Overview
+title: 4. The Development Lifecycle — Overview
 sidebar_position: 1
 sidebar_label: The 11 phases
 description: The eleven phases every software project goes through, from planning to maintenance.
 ---
 
-# Part 3: The Universal Development Lifecycle
+# Part 4: The Universal Development Lifecycle
 
 *The phases every project moves through — from one-person blogs to billion-user platforms.*
+
+:::note[New to web dev? How to read this chapter]
+Read the first five phases (planning → implementation) now — they frame how real projects work. Skim CI/CD, observability, and maintenance until you've shipped something; they'll make more sense after [Roadmap Stage 9](/docs/roadmap/part-1-from-zero/stage-9-portfolio). Return for legacy code and estimation once you've maintained a project for a few months.
+:::
 
 :::tip[Absolute-beginner orientation]
 **What this chapter is really about:** Real software isn't written in one go. It moves through phases — somebody decides what to build, somebody designs it, somebody writes the code, somebody else reviews it, automated systems test it, it gets shipped to users, and then it gets monitored and maintained forever.
@@ -63,4 +67,4 @@ Each page covers one phase with worked examples, anti-patterns, and concrete too
 
 ---
 
-When you finish, move on to [Chapter 4: The Tech Stack, Decoded](/docs/stack).
+When you finish, move on to [Chapter 5: Tech Stack, Decoded](/docs/stack).

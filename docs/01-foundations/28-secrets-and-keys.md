@@ -275,7 +275,7 @@ A useful exercise: pick a real secret in your app, talk through what happens if 
 
 ## Page checkpoint
 
-<Quiz id="foundations-secrets-and-keys-page" title="Did secrets & keys stick?" sampleSize={2}>
+<Quiz id="foundations-secrets-and-keys-page" title="Did secrets & keys stick?" sampleSize={3}>
 
 <Question
   prompt="Why is `NEXT_PUBLIC_OPENAI_API_KEY=sk-…` in your `.env` a serious leak?"

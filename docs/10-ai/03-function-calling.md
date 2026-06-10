@@ -171,7 +171,7 @@ The Zod (or Pydantic) `.parse()` call is your boundary between the unpredictable
 
 ## Page checkpoint
 
-<Quiz id="ai-function-calling-page" title="Did function calling stick?" sampleSize={2}>
+<Quiz id="ai-function-calling-page" title="Did function calling stick?" sampleSize={3}>
 
 <Question
   prompt="Conceptually, what does function calling turn the LLM into?"

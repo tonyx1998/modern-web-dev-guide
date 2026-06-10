@@ -209,3 +209,19 @@ export function isChapterIndexPage(path: string, chapterId: ChapterId): boolean 
 
 fs.writeFileSync(OUT, output);
 console.log(`Wrote ${OUT} (${totalPages} pages across ${chapterIds.length} chapters)`);
+
+/** Sync lessonCount fields in src/data/guide.ts from generated counts. */
+const GUIDE_TS = path.join(ROOT, 'src/data/guide.ts');
+let guideSrc = fs.readFileSync(GUIDE_TS, 'utf8');
+for (const [id, count] of Object.entries(pageCounts)) {
+  const re = new RegExp(
+    `(id:\\s*'${id}'[\\s\\S]*?lessonCount:\\s*)\\d+`,
+  );
+  if (re.test(guideSrc)) {
+    guideSrc = guideSrc.replace(re, `$1${count}`);
+  } else {
+    console.warn(`warn: no lessonCount for chapter id "${id}" in guide.ts`);
+  }
+}
+fs.writeFileSync(GUIDE_TS, guideSrc);
+console.log(`Synced lessonCount in ${GUIDE_TS}`);

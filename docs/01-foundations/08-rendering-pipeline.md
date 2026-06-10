@@ -21,6 +21,8 @@ Imagine the browser is a chef preparing a meal:
 A small recipe change (color of the parsley) only redoes step 4. A big change (size of the main dish) sends you back to step 3. The same is true in browsers, and it determines whether your UI feels smooth or stutters.
 :::
 
+![Browser rendering pipeline](/img/diagrams/rendering-pipeline.svg)
+
 ## The pipeline
 
 When a browser receives HTML, it executes a multi-step pipeline. Quick jargon: **DOM** = Document Object Model (an in-memory tree of HTML elements); **CSSOM** = the same idea for CSS rules; **composite** = stitching together pre-painted layers, typically on the GPU.
@@ -122,7 +124,7 @@ Open any site and run Chrome DevTools → **Lighthouse** → Analyze page load. 
 
 ## Page checkpoint
 
-<Quiz id="rendering-pipeline-page" title="Did the rendering pipeline stick?" sampleSize={2}>
+<Quiz id="rendering-pipeline-page" title="Did the rendering pipeline stick?" sampleSize={3}>
 
 <Question
   prompt="You're animating a card sliding across the screen. Which CSS property gives the smoothest 60fps result?"

@@ -130,7 +130,7 @@ When your private app calls AWS services (S3, DynamoDB), by default that traffic
 
 ## Page checkpoint
 
-<Quiz id="cloud-networking-page" title="Did VPC networking stick?" sampleSize={2}>
+<Quiz id="cloud-networking-page" title="Did VPC networking stick?" sampleSize={3}>
 
 <Question
   prompt="What single configuration difference makes a subnet 'public' rather than 'private'?"

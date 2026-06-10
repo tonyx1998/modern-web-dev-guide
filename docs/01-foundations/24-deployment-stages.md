@@ -181,7 +181,7 @@ The right pyramid for your project depends on **what failure costs**, not on wha
 
 ## Page checkpoint
 
-<Quiz id="deployment-stages-page" title="Did deployment stages stick?" sampleSize={2}>
+<Quiz id="deployment-stages-page" title="Did deployment stages stick?" sampleSize={3}>
 
 <Question
   prompt="What does the CI stage typically do on every push?"

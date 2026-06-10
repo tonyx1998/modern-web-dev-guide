@@ -130,7 +130,7 @@ Almost every React performance problem reduces to unnecessary renders, and almos
 
 ## Page checkpoint
 
-<Quiz id="stack-react-advanced-page" title="Did advanced React stick?" sampleSize={2}>
+<Quiz id="stack-react-advanced-page" title="Did advanced React stick?" sampleSize={3}>
 
 <Question
   prompt="What are the three things that cause a React component to re-render?"

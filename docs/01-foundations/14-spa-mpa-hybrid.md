@@ -107,7 +107,7 @@ Pick a framework first; the SPA-vs-MPA decision falls out naturally from that ch
 
 ## Page checkpoint
 
-<Quiz id="spa-mpa-hybrid-page" title="Did SPA vs MPA vs Hybrid stick?" sampleSize={2}>
+<Quiz id="spa-mpa-hybrid-page" title="Did SPA vs MPA vs Hybrid stick?" sampleSize={3}>
 
 <Question
   prompt="What question does the SPA-vs-MPA distinction actually answer?"

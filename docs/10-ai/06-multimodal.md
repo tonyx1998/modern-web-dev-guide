@@ -113,7 +113,7 @@ Multimodal is a fantastic *prototype-quality* tool that scales further than peop
 
 ## Page checkpoint
 
-<Quiz id="ai-multimodal-page" title="Did multimodal stick?" sampleSize={2}>
+<Quiz id="ai-multimodal-page" title="Did multimodal stick?" sampleSize={3}>
 
 <Question
   prompt="In the Vercel AI SDK, how is an image attached to a user message?"

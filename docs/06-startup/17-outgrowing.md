@@ -25,7 +25,7 @@ Signs you're approaching the next stage:
 - **Compliance work is consuming significant time.** SOC 2, HIPAA, PCI all stack up.
 - **You have on-call but it's exhausting.** A single engineer can't reasonably understand the whole system.
 
-That's when [Chapter 12: Large Company Workflow](/docs/enterprise) becomes relevant.
+That's when [Chapter 13: Enterprise](/docs/enterprise) becomes relevant.
 
 ## Wrapping Up Part 11
 
@@ -71,7 +71,7 @@ The signals listed above are the leading indicators. Watch them quarterly. When 
 
 ## Page checkpoint
 
-<Quiz id="startup-outgrowing-page" title="Did the outgrowing signals stick?" sampleSize={2}>
+<Quiz id="startup-outgrowing-page" title="Did the outgrowing signals stick?" sampleSize={3}>
 
 <Question
   prompt="Around what engineering-org size does the page say the small-company workflow starts to break down?"
@@ -129,4 +129,4 @@ The signals listed above are the leading indicators. Watch them quarterly. When 
 
 ## What's next
 
-→ Continue to [Chapter 12: Large Company Workflow](/docs/enterprise) — what changes when you scale to enterprise: hundreds of engineers, regulatory compliance, massive infrastructure.
+→ Continue to [Chapter 13: Enterprise](/docs/enterprise) — what changes when you scale to enterprise: hundreds of engineers, regulatory compliance, massive infrastructure.

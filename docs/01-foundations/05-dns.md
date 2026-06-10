@@ -15,6 +15,8 @@ estimatedMinutes: 12
 You don't memorize your friends' phone numbers — you tap their name in your contacts and your phone looks the number up. DNS is the world's biggest, most distributed contact list. When you type `google.com`, the network whispers "what's that number again?" to a chain of DNS servers and gets back something like `142.250.190.78`. *Then* the actual request begins.
 :::
 
+![DNS resolution flow](/img/diagrams/dns-resolution.svg)
+
 ## What DNS does
 
 **DNS (Domain Name System)** translates human-readable names (`google.com`) into IP addresses (`142.250.190.78`). Without DNS, you'd memorize numbers.
@@ -102,7 +104,7 @@ You almost certainly didn't change anything wrong. DNS just hasn't *propagated* 
 
 ## Page checkpoint
 
-<Quiz id="dns-page" title="Did DNS stick?" sampleSize={2}>
+<Quiz id="dns-page" title="Did DNS stick?" sampleSize={3}>
 
 <Question
   prompt="In one sentence, what does DNS actually do?"

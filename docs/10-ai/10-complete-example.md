@@ -143,7 +143,7 @@ The patterns scale to all of those. The core is unchanged.
 
 ## Page checkpoint
 
-<Quiz id="ai-example-page" title="Did the complete example stick?" sampleSize={2}>
+<Quiz id="ai-example-page" title="Did the complete example stick?" sampleSize={3}>
 
 <Question
   prompt="In the support bot, why is rate-limiting checked BEFORE the embedding and LLM calls — not after?"

@@ -102,7 +102,7 @@ The "Engineering Management" track is *not* the next rung up from Senior IC. It'
 
 ## Page checkpoint
 
-<Quiz id="career-specialization-page" title="Did specialization tracks stick?" sampleSize={2}>
+<Quiz id="career-specialization-page" title="Did specialization tracks stick?" sampleSize={3}>
 
 <Question
   prompt="When does the page suggest most engineers should start specializing?"

@@ -72,7 +72,7 @@ If a simpler tool exists, default to it. AI's strengths are language, ambiguity,
 
 ## Page checkpoint
 
-<Quiz id="ai-when-not-to-use-page" title="Did 'when not to use AI' stick?" sampleSize={2}>
+<Quiz id="ai-when-not-to-use-page" title="Did 'when not to use AI' stick?" sampleSize={3}>
 
 <Question
   prompt="What is the 'substitution test' for deciding whether to use AI?"
