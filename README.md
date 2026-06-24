@@ -97,4 +97,4 @@ GitHub Pages via `.github/workflows/deploy.yml` on push to `main`. PRs run `test
 
 ## License
 
-Content **CC BY 4.0**. Site code **MIT**.
+**© 2026 To Yin Yu. All rights reserved.** This project is **source-available, not open-source**: you're welcome to read it and run it locally to learn, but it may not be copied, redistributed, modified, used commercially, or rebranded without permission. See [LICENSE](LICENSE) for full terms.
