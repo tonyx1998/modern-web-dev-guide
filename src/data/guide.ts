@@ -48,7 +48,7 @@ export const chapters: GuideChapter[] = [
     icon: 'RefreshCw',
     level: 'intermediate',
     to: '/docs/lifecycle',
-    lessonCount: 17,
+    lessonCount: 18,
   },
   {
     id: 'stack',
@@ -93,7 +93,7 @@ export const chapters: GuideChapter[] = [
     icon: 'Sparkles',
     level: 'advanced',
     to: '/docs/ai',
-    lessonCount: 16,
+    lessonCount: 17,
   },
   {
     id: 'ecosystems',
