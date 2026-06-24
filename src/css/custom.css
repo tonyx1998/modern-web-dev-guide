@@ -4,13 +4,15 @@
  */
 
 :root {
-  --ifm-color-primary: #2563eb;
-  --ifm-color-primary-dark: #1d4ed8;
-  --ifm-color-primary-darker: #1e40af;
-  --ifm-color-primary-darkest: #1e3a8a;
-  --ifm-color-primary-light: #3b82f6;
-  --ifm-color-primary-lighter: #60a5fa;
-  --ifm-color-primary-lightest: #93c5fd;
+  /* Crisp, deliberate sky-blue accent (#3da5ff) — gives this guide its own
+     identity within the family while keeping the shared IBM Plex structure. */
+  --ifm-color-primary: #1f8de8;
+  --ifm-color-primary-dark: #1b7fd1;
+  --ifm-color-primary-darker: #1978c5;
+  --ifm-color-primary-darkest: #1463a2;
+  --ifm-color-primary-light: #3da5ff;
+  --ifm-color-primary-lighter: #5fb4ff;
+  --ifm-color-primary-lightest: #a9d6ff;
   --ifm-code-font-size: 92%;
 
   /* Type system — body sans, mono for code, serif for big headings */
@@ -37,9 +39,9 @@
   /* Code surfaces */
   --code-bg: #f5f3ee;
   --code-border: rgba(20, 30, 60, 0.10);
-  --inline-code-bg: rgba(37, 99, 235, 0.08);
-  --inline-code-color: #1e40af;
-  --inline-code-border: rgba(37, 99, 235, 0.16);
+  --inline-code-bg: rgba(31, 141, 232, 0.09);
+  --inline-code-color: #1463a2;
+  --inline-code-border: rgba(31, 141, 232, 0.18);
 
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.06);
   --ifm-navbar-shadow: 0 1px 0 0 rgba(20, 30, 60, 0.06);
@@ -47,13 +49,15 @@
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #6aa8ff;
-  --ifm-color-primary-dark: #3b82f6;
-  --ifm-color-primary-darker: #2563eb;
-  --ifm-color-primary-darkest: #1d4ed8;
-  --ifm-color-primary-light: #93c5fd;
-  --ifm-color-primary-lighter: #bfdbfe;
-  --ifm-color-primary-lightest: #dbeafe;
+  /* On the deep slate background the crisp #3da5ff reads as the accent; the
+     ladder climbs to softer sky tints for hovers and active states. */
+  --ifm-color-primary: #3da5ff;
+  --ifm-color-primary-dark: #2496fa;
+  --ifm-color-primary-darker: #1f8de8;
+  --ifm-color-primary-darkest: #1463a2;
+  --ifm-color-primary-light: #6fbcff;
+  --ifm-color-primary-lighter: #9bd0ff;
+  --ifm-color-primary-lightest: #c9e4ff;
 
   /* Deeper, slightly warmer slate — calmer for long reading than flat navy */
   --ifm-background-color: #0e131c;
@@ -63,9 +67,9 @@
 
   --code-bg: #11161f;
   --code-border: rgba(120, 160, 255, 0.12);
-  --inline-code-bg: rgba(106, 168, 255, 0.12);
-  --inline-code-color: #bcd4ff;
-  --inline-code-border: rgba(106, 168, 255, 0.20);
+  --inline-code-bg: rgba(61, 165, 255, 0.13);
+  --inline-code-color: #bfe0ff;
+  --inline-code-border: rgba(61, 165, 255, 0.22);
 
   --docusaurus-highlighted-code-line-bg: rgba(255, 255, 255, 0.08);
 }
@@ -939,13 +943,15 @@ div[class*='codeBlockTitle'] {
 .navbar__title::before {
   content: '';
   display: inline-block;
-  width: 9px;
-  height: 9px;
+  width: 10px;
+  height: 10px;
   margin-right: 0.55rem;
   border-radius: 3px;
   vertical-align: baseline;
-  background: linear-gradient(135deg, var(--ifm-color-primary-light), var(--ifm-color-primary-darker));
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ifm-color-primary) 14%, transparent);
+  /* Crisp sky-blue brand mark — the deliberate accent that sets this
+     guide apart from its siblings. */
+  background: linear-gradient(135deg, #3da5ff, var(--ifm-color-primary-darker));
+  box-shadow: 0 0 0 3px color-mix(in srgb, #3da5ff 18%, transparent);
 }
 
 /* Nav links: quieter default, soft-pill hover + active */
@@ -1068,7 +1074,7 @@ div[class*='codeBlockTitle'] {
 
 :root {
   --level-beginner: #22c55e;
-  --level-intermediate: #3b82f6;
+  --level-intermediate: #3da5ff;
   --level-advanced: #a855f7;
   --level-expert: #f97316;
 

@@ -110,9 +110,9 @@ const config: Config = {
         themeVariables: {
           // Dark-mode contrast tweaks
           darkMode: true,
-          primaryColor: '#1e3a8a',
+          primaryColor: '#13456f',
           primaryTextColor: '#f1f5f9',
-          primaryBorderColor: '#60a5fa',
+          primaryBorderColor: '#3da5ff',
           lineColor: '#a5b4cb',
           secondaryColor: '#334155',
           tertiaryColor: '#1c2535',
