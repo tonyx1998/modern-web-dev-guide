@@ -422,4 +422,4 @@ If you're coming from a "ship a chat UI" background, realtime voice will feel al
 
 ## What's next
 
-→ Continue to [AI Observability](./ai-observability) — how to instrument all of these patterns so you can debug, evaluate, and control costs in production.
+→ Continue to [On-Device AI](./ai-on-device) — running models in the browser itself, for privacy, offline, and zero cost-per-call.

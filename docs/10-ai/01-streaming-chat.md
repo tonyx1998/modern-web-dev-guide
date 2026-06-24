@@ -40,41 +40,52 @@ sequenceDiagram
 
 > **Jargon:** A **token** is the unit the model produces — usually a short piece of a word, on average ~4 characters of English text. **SSE (Server-Sent Events)** is a one-way HTTP streaming protocol where the server keeps the connection open and pushes chunks as it generates them.
 
-## Implementation with Vercel AI SDK
+## Implementation with the AI SDK
 
 The Vercel AI SDK is the dominant TypeScript abstraction for AI in 2026. It handles streaming, message history, tool calling, and provider switching.
+
+:::note[Version stamp: AI SDK 5 — as of mid-2026]
+The code below targets **AI SDK 5** (the breaking release that landed in 2025). If you read an older tutorial, the shape is different — see the "what changed since v4" box after the example so you can recognize stale code. The *concepts* (stream tokens over SSE, a hook drives the UI) are durable; the exact function names move.
+:::
+
+The SDK splits messages into two typed shapes, and this distinction is the thing to internalize:
+
+> **Jargon:** A **`UIMessage`** is the rich object your UI holds — id, role, and a `parts` array (text parts, tool-call parts, file parts, reasoning parts). A **`ModelMessage`** is the trimmed shape the model actually needs. You render `UIMessage`s; you send `ModelMessage`s to the model. `convertToModelMessages()` bridges them.
 
 **Server side (Next.js Route Handler):**
 
 ```typescript
 // app/api/chat/route.ts
 import { anthropic } from '@ai-sdk/anthropic';
-import { streamText } from 'ai';
+import { streamText, convertToModelMessages, type UIMessage } from 'ai';
 
 export async function POST(req: Request) {
-  const { messages } = await req.json();
+  const { messages }: { messages: UIMessage[] } = await req.json();
 
   const result = streamText({
     model: anthropic('claude-sonnet-4-5'),
     system: 'You are a helpful assistant for a personal finance app.',
-    messages,
+    messages: convertToModelMessages(messages),
   });
 
-  return result.toDataStreamResponse();
+  return result.toUIMessageStreamResponse();
 }
 ```
 
-> **In English:** Read the chat history from the request body, ask Claude to continue the conversation with a fixed *system prompt* ("you are a helpful assistant for X"), and return the result as a streaming HTTP response. `toDataStreamResponse()` handles all the SSE plumbing so the client just sees tokens trickle in.
+> **In English:** Read the chat history (an array of `UIMessage`s) from the request body, convert it to the slimmer `ModelMessage` shape the model wants, ask Claude to continue with a fixed *system prompt* ("you are a helpful assistant for X"), and return the result as a streaming HTTP response. `toUIMessageStreamResponse()` handles all the SSE plumbing *and* re-encodes the stream as typed `UIMessage` parts so the client renders them directly.
 
 **Client side (React):**
 
 ```typescript
 // app/chat/page.tsx
 'use client';
+import { useState } from 'react';
 import { useChat } from '@ai-sdk/react';
 
 export default function Chat() {
-  const { messages, input, handleInputChange, handleSubmit } = useChat();
+  // In AI SDK 5, useChat NO LONGER manages the input — you own it.
+  const [input, setInput] = useState('');
+  const { messages, sendMessage } = useChat();
 
   return (
     <div className="flex flex-col h-screen p-4">
@@ -82,16 +93,27 @@ export default function Chat() {
         {messages.map(m => (
           <div key={m.id} className={m.role === 'user' ? 'text-right' : ''}>
             <div className="inline-block bg-gray-100 rounded p-3">
-              {m.content}
+              {/* A message is a list of parts; render the text parts */}
+              {m.parts.map((part, i) =>
+                part.type === 'text' ? <span key={i}>{part.text}</span> : null
+              )}
             </div>
           </div>
         ))}
       </div>
 
-      <form onSubmit={handleSubmit} className="flex gap-2 mt-4">
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          if (!input.trim()) return;
+          sendMessage({ text: input });   // typed send, not handleSubmit
+          setInput('');
+        }}
+        className="flex gap-2 mt-4"
+      >
         <input
           value={input}
-          onChange={handleInputChange}
+          onChange={e => setInput(e.target.value)}
           className="flex-1 border rounded p-2"
           placeholder="Ask anything..."
         />
@@ -104,9 +126,28 @@ export default function Chat() {
 }
 ```
 
-> **In English:** The `useChat` hook from the AI SDK manages everything — the running message list, the input field, the form submission, and the SSE stream from the server. Your component just renders messages and a form; the hook handles state and network.
+> **In English:** The `useChat` hook manages the running message list and the SSE stream from the server. In AI SDK 5 it deliberately **stopped owning the input field** — you keep your own `useState` and call `sendMessage({ text })` to submit. Each message is a list of `parts` (so a single turn can mix text, a tool call, and a file); you map over the parts and render the text ones.
 
 That's a working chat in about 50 lines.
+
+:::caution[What changed since AI SDK v4 (so you can spot stale tutorials)]
+Most pre-2025 examples will not compile against a current install. The breaking renames:
+
+- `useChat()` **no longer returns** `input` / `handleInputChange` / `handleSubmit` — you manage input yourself and call **`sendMessage({ text })`**.
+- A message's text moved from `m.content` (a string) to **`m.parts`** (a typed array). This is what makes multi-modal/tool turns first-class.
+- The server one-liner `result.toDataStreamResponse()` became **`result.toUIMessageStreamResponse()`**, and you wrap incoming messages with **`convertToModelMessages()`**.
+
+If a snippet uses `handleSubmit` or `toDataStreamResponse`, it's v3/v4 — translate it.
+:::
+
+:::info[Highlight: the frontier — AI SDK 6, Agents, and MCP (as of mid-2026)]
+AI SDK **6** (released Dec 2025) is the current frontier. Two additions matter for where this is heading:
+
+- **`Agent` as a first-class abstraction** (the `ToolLoopAgent`): define a model + instructions + tools + a stop condition *once*, then reuse that agent across a route handler, a background job, or a UI — instead of hand-writing the tool-call loop each time. (You'll meet the loop itself in [Pattern 4: Agents](./ai-agents).)
+- **A stable `@ai-sdk/mcp` package** so an agent can pull in tools from any **MCP** server (Model Context Protocol — the standard way to hand a model tools and data; covered in [Agentic Workflows](./ai-agents#mcp-model-context-protocol)).
+
+You don't need v6 to ship streaming chat — v5 is the stable floor. But when a task grows past "one prompt" into "an agent with tools," v6's `Agent` + MCP is the durable shape to reach for.
+:::
 
 ## The streaming protocol
 
@@ -200,16 +241,16 @@ Track TTFT separately from total response time. Optimize TTFT first:
 />
 
 <Question
-  prompt="In the Vercel AI SDK example, what does the server's `toDataStreamResponse()` do?"
+  prompt="In the AI SDK 5 example, what does the server's `toUIMessageStreamResponse()` do?"
   options={[
     { text: "Buffers all tokens and returns one JSON blob at the end" },
-    { text: "Returns an HTTP response that streams tokens over SSE so the client's useChat hook can render incrementally" },
+    { text: "Returns an HTTP response that streams typed UIMessage parts over SSE so the client's useChat hook can render incrementally" },
     { text: "Opens a WebSocket to the browser" },
     { text: "Sends the response to a queue for background processing" }
   ]}
   correct={1}
-  explanation="It wires the model's token stream onto an SSE-style HTTP response. The client's useChat hook reads chunks and appends them to the rendered message as they arrive."
-  revisit={{ to: "/docs/ai/ai-streaming-chat#implementation-with-vercel-ai-sdk", label: "Vercel AI SDK setup" }}
+  explanation="It wires the model's token stream onto an SSE-style HTTP response, encoded as typed UIMessage parts. The client's useChat hook reads chunks and appends them to the rendered message as they arrive. (The v4 name for this was `toDataStreamResponse()`.)"
+  revisit={{ to: "/docs/ai/ai-streaming-chat#implementation-with-the-ai-sdk", label: "AI SDK 5 setup" }}
 />
 
 </Quiz>

@@ -54,6 +54,41 @@ In words:
 - **Inngest / Trigger.dev** — Durable execution (agents that survive crashes).
 - **Temporal** — Heavy-duty workflow orchestration.
 
+## MCP (Model Context Protocol)
+
+An agent is only as useful as the tools it can reach. Early on, every team hand-wrote those tools — a `searchTwitter` function here, a `lookupInvoice` function there — and re-wrote them for every framework. **MCP (Model Context Protocol)** is the standard that fixes that: a single open protocol for handing a model **tools, data, and prompts**, so a capability you expose once works with any MCP-aware client (Claude, Claude Code, Cursor, and — as of mid-2026 — the AI SDK).
+
+:::tip[In plain English]
+Think of MCP as **USB for AI tools.** Before USB, every device had its own connector; after it, one port fits everything. Before MCP, every "give the model access to my database / Slack / files" integration was bespoke per app. With MCP, you run (or install) an *MCP server* that exposes those capabilities in a standard shape, and any MCP-aware agent can plug into it. Introduced by Anthropic in late 2024; by 2026 it's a widely adopted standard (OpenAI, Google, and Microsoft support it too).
+:::
+
+An MCP server exposes three kinds of things — this distinction is the durable part:
+
+- **Tools** — functions the model can *call* to take an action or fetch live data (query a DB, search the web, file a ticket). This is the agent's hands.
+- **Resources** — data the model can *read* for context (a file's contents, a record, a doc). This is the agent's reference material.
+- **Prompts** — reusable, parameterized prompt templates the server offers to guide a workflow.
+
+```typescript
+// AI SDK 6: connect to an MCP server and let an agent use its tools
+// as if they were defined locally. (@ai-sdk/mcp is stable as of mid-2026.)
+import { experimental_createMCPClient as createMCPClient } from 'ai';
+
+const mcp = await createMCPClient({
+  transport: { type: 'http', url: 'https://example.com/mcp' },
+});
+
+const tools = await mcp.tools();   // the server's tools, ready for the model
+
+// Pass `tools` into your agent / streamText call — the loop from this page,
+// but the tool definitions came from the MCP server, not your codebase.
+```
+
+> **In English:** Instead of defining each tool by hand, you connect to an MCP server and ask it for its tools. The agent loop is unchanged — it still calls a tool, observes, and decides the next step — but the *catalog* of tools is now a standard, swappable thing. Switch providers or add a new data source by pointing at a different MCP server.
+
+:::note[Version stamp — as of mid-2026]
+The *idea* (a standard protocol for model↔tools/data) is durable. The dated specifics: MCP is stable and broadly adopted, the AI SDK ships a stable `@ai-sdk/mcp` package (v6), remote MCP servers authenticate with OAuth 2.1, and the transport moved from the old SSE style to **Streamable HTTP**. Hundreds of public MCP servers exist (Postgres, Slack, Google Drive, GitHub, …). Expect the transport and auth details to keep evolving; the tools/resources/prompts model is the stable core.
+:::
+
 ## Agent challenges
 
 **Cost.** Agents make many LLM calls. A complex task might cost $5–50.
@@ -173,6 +208,19 @@ Without these, an agent that worked in dev can cost real money in production.
   correct={1}
   explanation="When an agent fails on step 7, you need to see steps 1-6 — the prompts, the tool calls, and their outputs — to understand why it made the choice it did. Without traces, every bug is a guessing game."
   revisit={{ to: "/docs/ai/ai-agents#agent-challenges", label: "Why agents need traces" }}
+/>
+
+<Question
+  prompt="What problem does MCP (Model Context Protocol) solve for agents?"
+  options={[
+    { text: "It makes the model itself reason better" },
+    { text: "It's a standard protocol for exposing tools, resources, and prompts to a model — so a capability built once works with any MCP-aware client instead of being hand-wired per app" },
+    { text: "It replaces the agent loop with a fixed pipeline" },
+    { text: "It's a vector database for storing tool outputs" }
+  ]}
+  correct={1}
+  explanation="MCP is 'USB for AI tools': a single open standard (Anthropic, late 2024; widely adopted by 2026) for handing a model tools (actions/live data), resources (readable context), and prompts. Build the integration once; any MCP-aware agent — Claude, Cursor, the AI SDK — can use it."
+  revisit={{ to: "/docs/ai/ai-agents#mcp-model-context-protocol", label: "MCP" }}
 />
 
 </Quiz>

@@ -19,7 +19,7 @@ There's a "boring stack" that's quietly settled across the indie web — Next.js
 For a 2026 personal SaaS, the stack is basically pre-decided:
 
 ```
-Frontend + Backend:  Next.js 15 (App Router)
+Frontend + Backend:  Next.js 16 (App Router)
 Language:            TypeScript
 Styling:             Tailwind + shadcn/ui
 Database:            Postgres on Neon (or Supabase)

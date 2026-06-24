@@ -22,25 +22,29 @@ When you use a *framework* (Next.js, Django, Rails), the framework is in charge.
 This is why people say "you don't pick libraries lightly, but you really don't pick frameworks lightly" — switching frameworks means rewriting the structure of your whole app.
 :::
 
-## React 19 + Next.js 15 — the dominant combination
+## React 19 + Next.js — the dominant combination
 
 **React** is a library for building UIs from components. It's not a framework — it has no built-in router, data fetching, or build system. It's almost always used inside a framework.
 
 **Next.js** is the dominant React framework. Maintained by Vercel. Includes routing, SSR, RSC, image optimization, font handling, and deployment integration.
+
+:::note[Version stamp — as of mid-2026]
+The durable idea (component UI library + a framework that runs it) doesn't change; the version numbers do. Current as of mid-2026: **React 19.2**, **Next.js 16**. Treat the bullet specifics below as the dated layer.
+:::
 
 **What's new in React 19:**
 
 - **React Server Components (RSCs)** — Components that render only on the server. They can `await` data directly, and they ship zero JavaScript to the client.
 - **`use()` hook** — Read promises and contexts inline.
 - **Actions** — First-class form handling, with optimistic updates.
-- **React Compiler** — Automatic memoization (no more manual `useMemo`/`useCallback`).
+- **React Compiler — 1.0 GA (Oct 2025).** Automatic memoization (no more hand-written `useMemo`/`useCallback`). It's **opt-in**: you add the compiler (a Babel plugin / framework flag) deliberately; it isn't on by default yet. The durable takeaway — *write straightforward components and let the compiler handle memoization* — is the direction the whole ecosystem is moving.
 
-**What's new in Next.js 15:**
+**What's new in Next.js 16:**
 
-- App Router is mature (vs Pages Router which is legacy).
-- **Partial Prerendering (PPR)** — Static shell + dynamic streaming holes.
+- App Router is the default (Pages Router is legacy).
+- **Turbopack is now the default bundler for *both* `next dev` and `next build`** (Rust, the Webpack successor) — it's no longer dev-only or opt-in.
+- **Cache Components + `"use cache"`.** Next 16 made rendering **dynamic by default at request time** and introduced an explicit **`"use cache"`** directive to opt pages/components/functions back into caching. This *replaces* the old experimental Partial Prerendering (PPR) flag, which was **removed** — Cache Components is the finished form of the same "static shell + dynamic holes" idea.
 - **Server Actions** — Call server functions from client components without writing API routes.
-- **Turbopack** stable for dev (Webpack replacement, written in Rust).
 
 **Why this stack dominates:**
 
@@ -131,6 +135,17 @@ const posts = await fetch('/api/posts').then(r => r.json());
 
 **Why it's special in 2026:** It produces faster, lighter sites than any JS-framework competitor for content-heavy use cases.
 
+## TanStack Start — the type-safe React alternative
+
+If Next.js is the "batteries-included, server-first" React framework, **TanStack Start** (v1.0, March 2026) is its main type-safe alternative. It's built on **TanStack Router + Vite + Nitro**, and its pitch is a different mental model: *an SPA that gains SSR benefits*, rather than a server app with client exceptions.
+
+The headline is **end-to-end type safety**:
+
+- **Routes are type-checked at compile time.** In Next.js, a route is a string (`/users/[id]`) with no compile-time validation — a typo'd link fails at runtime. In TanStack Start, the whole route tree (and its params) is typed, so a wrong route or a missing param is a TypeScript error before you run anything.
+- **Server functions give you typed RPC** — call a server function from the client and the argument/return types flow through automatically, no hand-written API contract or schema.
+
+**When to reach for it (as of mid-2026):** data-driven apps — dashboards, admin panels, internal tools — and teams that value explicit control and Vite's speed over Next's conventions. It's production-ready, but its ecosystem and hiring market are still much smaller than Next's, so for a *first* job-oriented project Next.js is still the safer default.
+
 ## Other notable frameworks
 
 | Framework            | Notes                                                              |
@@ -145,6 +160,7 @@ const posts = await fetch('/api/posts').then(r => r.json());
 | Need                                | Recommendation              |
 |-------------------------------------|-----------------------------|
 | New full-stack web app              | Next.js (React)             |
+| Type-safe, data-heavy app (dashboards, internal tools) | TanStack Start |
 | Content-heavy site (blog, docs)     | Astro                       |
 | Vue shop building a new app         | Nuxt                        |
 | Maximum performance, small bundle   | Svelte / SolidJS            |
@@ -158,7 +174,7 @@ You'll find passionate Reddit and Twitter threads telling you React is "old" or 
 ## Common mistakes
 
 :::caution[Where people commonly trip up]
-- **Starting a new Next.js project on the Pages Router because a 2022 tutorial said to.** App Router is the path forward — Server Components, Server Actions, streaming, and PPR all live there. If a tutorial uses `pages/api/...`, find a newer one.
+- **Starting a new Next.js project on the Pages Router because a 2022 tutorial said to.** App Router is the path forward — Server Components, Server Actions, streaming, and Cache Components (`"use cache"`) all live there. If a tutorial uses `pages/api/...`, find a newer one.
 - **Sprinkling `"use client"` at the top of every file.** That defeats the point of React Server Components. The default is server; mark `"use client"` only at the leaves that genuinely need interactivity (state, effects, browser APIs). Keep data-fetching and rendering on the server.
 - **Treating React as a framework.** React is a UI library. It has no router, no data layer, no build system on its own. If you find yourself wiring Webpack + a router + SSR by hand, stop — pick Next.js, Remix, or a Vite-based React template instead.
 - **Picking Svelte/Solid/Qwik for your first job project because it benchmarks well.** Performance is rarely the wall on a first app; ecosystem, hiring, and AI assistance are. Use the framework with the most answers when you search a bug.
@@ -179,7 +195,7 @@ You'll find passionate Reddit and Twitter threads telling you React is "old" or 
   ]}
   correct={1}
   explanation="With a library you decide when to invoke its functions. With a framework, the framework runs your app and calls into the pieces you wrote — which is why switching frameworks is so expensive."
-  revisit={{ to: "/docs/stack/frontend-frameworks#react-19--nextjs-15--the-dominant-combination", label: "Library vs framework" }}
+  revisit={{ to: "/docs/stack/frontend-frameworks#react-19--nextjs--the-dominant-combination", label: "Library vs framework" }}
 />
 
 <Question
@@ -192,7 +208,7 @@ You'll find passionate Reddit and Twitter threads telling you React is "old" or 
   ]}
   correct={2}
   explanation="RSCs render only on the server, can await data directly, and ship zero JS to the browser — moving data-fetching and rendering off the client entirely."
-  revisit={{ to: "/docs/stack/frontend-frameworks#react-19--nextjs-15--the-dominant-combination", label: "React 19 features" }}
+  revisit={{ to: "/docs/stack/frontend-frameworks#react-19--nextjs--the-dominant-combination", label: "React 19 features" }}
 />
 
 <Question

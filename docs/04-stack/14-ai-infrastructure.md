@@ -33,20 +33,26 @@ You'll often use *multiple* providers in production — different models for dif
 - **LangChain.js / LlamaIndex** — More complex agentic workflows.
 
 ```typescript
-// Vercel AI SDK — streaming chat in 10 lines:
-import { streamText } from 'ai';
+// AI SDK 5 — streaming chat in a few lines:
+import { streamText, convertToModelMessages, type UIMessage } from 'ai';
 import { anthropic } from '@ai-sdk/anthropic';
+
+const messages: UIMessage[] = [/* chat history from the request */];
 
 const result = streamText({
   model: anthropic('claude-opus-4-7'),
-  messages: [{ role: 'user', content: 'Hello!' }],
+  messages: convertToModelMessages(messages),
 });
 
-// Stream to the browser:
-return result.toDataStreamResponse();
+// Stream to the browser as typed UIMessage parts:
+return result.toUIMessageStreamResponse();
 ```
 
-> **In English:** `streamText` calls the Anthropic API and returns a streaming result object — *not* a finished string. `toDataStreamResponse()` wraps that stream in an HTTP response using Server-Sent Events so the browser sees tokens land one at a time. That "typewriter" effect every ChatGPT-style chat UI has is just this one-liner under the hood.
+> **In English:** `streamText` calls the Anthropic API and returns a streaming result object — *not* a finished string. `toUIMessageStreamResponse()` wraps that stream in an HTTP response using Server-Sent Events so the browser sees tokens land one at a time. That "typewriter" effect every ChatGPT-style chat UI has is just this one-liner under the hood. (The full client/server pattern — and what changed from the older `toDataStreamResponse()` / `handleSubmit` API — is in [Chapter 8 → Streaming Chat](/docs/ai/ai-streaming-chat).)
+
+:::note[Version stamp: AI SDK 5/6 — as of mid-2026]
+The stable floor is **AI SDK 5** (typed `UIMessage`/`ModelMessage`, transport-based `useChat`). **AI SDK 6** (Dec 2025) adds a first-class `Agent` abstraction and a stable `@ai-sdk/mcp` package for [MCP](/docs/ai/ai-agents#mcp-model-context-protocol) — reach for it once a feature grows past a single prompt into a tool-using agent.
+:::
 
 ## Vector databases
 
@@ -108,7 +114,7 @@ One viral tweet about your app + no spend limit = an awful Monday morning.
     { text: "It's a billing dashboard for AI spend" }
   ]}
   correct={1}
-  explanation="The Vercel AI SDK is a thin, dominant TypeScript wrapper over providers like Anthropic and OpenAI. Calls like `streamText` + `toDataStreamResponse()` give you token-by-token streaming to the browser in a few lines."
+  explanation="The Vercel AI SDK is a thin, dominant TypeScript wrapper over providers like Anthropic and OpenAI. Calls like `streamText` + `toUIMessageStreamResponse()` (AI SDK 5) give you token-by-token streaming to the browser in a few lines."
   revisit={{ to: "/docs/stack/ai-infrastructure#sdks", label: "SDKs section" }}
 />
 
@@ -147,7 +153,7 @@ One viral tweet about your app + no spend limit = an awful Monday morning.
     { text: "Because SSE is the only way to send file uploads" }
   ]}
   correct={1}
-  explanation="LLM responses come token-by-token, and SSE — one-way streaming over HTTP with automatic reconnection — is the natural fit. `toDataStreamResponse()` in the Vercel AI SDK wraps the model's token stream in an SSE response."
+  explanation="LLM responses come token-by-token, and SSE — one-way streaming over HTTP with automatic reconnection — is the natural fit. `toUIMessageStreamResponse()` in the AI SDK wraps the model's token stream in an SSE response."
   revisit={{ to: "/docs/stack/ai-infrastructure#streaming", label: "Streaming section" }}
 />
 

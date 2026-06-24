@@ -46,6 +46,8 @@ Three modes of AI-assisted work, in increasing autonomy:
 
 The bigger the task, the more you need to *review* what the AI produced. The skills that matter most in 2026 are reading code, judging design, debugging, and architectural taste — not raw typing speed.
 
+→ **Going deeper:** for the actual workflow of driving these tools well — spec-first prompting, rules files, parallel/background agents, and the review-the-diff loop — see [Working with Coding Agents](/docs/lifecycle/working-with-coding-agents).
+
 ### When AI-drafted code breaks
 
 The debugging method does not change — reproduce, hypothesize, test one thing at a time. AI output just fails in predictable shapes: **hallucinated APIs**, **happy-path-only logic**, **partial multi-file edits**, **symptom patches** that hide root causes. Before re-prompting "fix this bug," reproduce the failure and name it. Use AI to brainstorm hypotheses; apply fixes only when you can explain and verify them. Lock every fix with a regression test.
@@ -64,7 +66,7 @@ A junior developer with AI but no fundamentals produces code they can't debug. A
 - **Accepting AI completions without reading them.** Tab-completion is fast enough that you can paste a confident-looking lie into your codebase in two seconds. The 2026 skill is *reading* what the AI wrote — especially error handling, edge cases, and any code that touches money, auth, or deletion.
 - **Using agentic coding for tasks you don't understand.** "Implement this issue" works when you can verify the diff; it's catastrophic when you can't. Don't let an agent migrate your auth or your database schema while you watch a YouTube video.
 - **Skipping fundamentals because the AI "just writes it for me."** A junior with AI produces code they can't debug when production breaks at 2 a.m. AI is a power amplifier — it compounds whatever you actually know. Keep learning the underlying concepts.
-- **Letting the AI ignore your codebase's conventions.** Out of the box, Cursor/Claude Code will produce idiomatic *generic* code, not idiomatic *yours*. Use rules files (`.cursorrules`, `CLAUDE.md`, project context) to pin style, framework versions, and patterns — otherwise every suggestion drifts.
+- **Letting the AI ignore your codebase's conventions.** Out of the box, Cursor/Claude Code will produce idiomatic *generic* code, not idiomatic *yours*. Use rules files (`.cursor/rules/*.mdc`, `CLAUDE.md` / `AGENTS.md`, project context) to pin style, framework versions, and patterns — otherwise every suggestion drifts. (Full workflow: [Working with Coding Agents](/docs/lifecycle/working-with-coding-agents).)
 - **Configuring 17 editor extensions before writing any code.** Vim motions, fonts, themes, AI tools, dotfiles repos — six hours into setup, zero lines of product. Pick VS Code or Cursor with defaults, add one or two extensions only when you hit a real friction.
 - **Treating AI suggestions as a substitute for code review.** Two AIs reviewing each other's code is not code review. A human who understands the system still has to read the diff before it lands.
 :::

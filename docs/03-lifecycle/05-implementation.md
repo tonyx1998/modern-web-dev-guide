@@ -181,4 +181,4 @@ You discover integration issues *immediately*, not in week 3. You ship visible v
 
 ## What's next
 
-→ Continue to [Phase 7: Testing](./testing) where we prove the code actually works (and stays working as it changes).
+→ Continue to [Working with Coding Agents](./working-with-coding-agents) — how to actually drive AI coding tools so the output is something you'd ship, before we move on to testing it.
