@@ -120,24 +120,24 @@ Each page focuses on a single AI pattern or production concern. Read in order th
 
 ### The patterns (in order of complexity)
 
-1. [Pattern 1: Streaming Chat](./ai-streaming-chat) — The most common AI feature; ChatGPT-style interfaces.
-2. [Pattern 2: Retrieval-Augmented Generation (RAG)](./ai-rag) — Hand the model relevant documents before it answers.
-3. [Pattern 3: Function Calling / Structured Output](./ai-function-calling) — Let the model call your code or return structured data.
-4. [Pattern 4: Agentic Workflows](./ai-agents) — Multi-step planning and execution.
-5. [Pattern 5: Embeddings for Semantic Search](./ai-embeddings) — Search, recommendations, deduplication.
-6. [Pattern 6: Multimodal AI](./ai-multimodal) — Vision, audio, video.
+1. [Pattern 1: Streaming Chat](/docs/ai/ai-streaming-chat) — The most common AI feature; ChatGPT-style interfaces.
+2. [Pattern 2: Retrieval-Augmented Generation (RAG)](/docs/ai/ai-rag) — Hand the model relevant documents before it answers.
+3. [Pattern 3: Function Calling / Structured Output](/docs/ai/ai-function-calling) — Let the model call your code or return structured data.
+4. [Pattern 4: Agentic Workflows](/docs/ai/ai-agents) — Multi-step planning and execution.
+5. [Pattern 5: Embeddings for Semantic Search](/docs/ai/ai-embeddings) — Search, recommendations, deduplication.
+6. [Pattern 6: Multimodal AI](/docs/ai/ai-multimodal) — Vision, audio, video.
 
 ### Operating AI in production
 
-7. [AI Observability](./ai-observability) — Logging, evals, drift detection.
-8. [Costs and Optimization](./ai-costs) — Tiered models, caching, prompt caching, rate limits.
-9. [Safety and Privacy](./ai-safety) — Prompt injection, hallucinations, authorization.
+7. [AI Observability](/docs/ai/ai-observability) — Logging, evals, drift detection.
+8. [Costs and Optimization](/docs/ai/ai-costs) — Tiered models, caching, prompt caching, rate limits.
+9. [Safety and Privacy](/docs/ai/ai-safety) — Prompt injection, hallucinations, authorization.
 
 ### Putting it together
 
-10. [A Complete Mini-Example: Customer Support RAG Bot](./ai-example) — End-to-end code.
-11. [When Not to Use AI](./ai-when-not-to-use) — Not everything is a nail.
-12. [The 2026 AI Stack Summary](./ai-stack-summary) — A pragmatic reference.
+10. [A Complete Mini-Example: Customer Support RAG Bot](/docs/ai/ai-example) — End-to-end code.
+11. [When Not to Use AI](/docs/ai/ai-when-not-to-use) — Not everything is a nail.
+12. [The 2026 AI Stack Summary](/docs/ai/ai-stack-summary) — A pragmatic reference.
 
 ---
 

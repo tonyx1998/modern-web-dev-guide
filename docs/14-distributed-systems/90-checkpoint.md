@@ -3,14 +3,14 @@ id: distributed-systems-checkpoint
 title: Chapter 7 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 7 — Distributed Systems. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 8.
+description: Mandatory checkpoint quiz for Chapter 7 — Distributed Systems. 5 random questions drawn from a 19-question bank. Pass to unlock Chapter 8.
 ---
 
 # Chapter 7 Checkpoint
 
-You've finished the Distributed Systems chapter. Make sure the deep concepts stuck — partial failure, consistency/CAP, replication, partitioning, time/ordering, consensus, sagas, and idempotency.
+You've finished the Distributed Systems chapter. Make sure the deep concepts stuck — partial failure, consistency/CAP, replication, partitioning, time/ordering, consensus, sagas, idempotency, storage engines, and consensus in motion.
 
-There are **15 questions in the bank** — each visit picks 5 at random. Miss one and the result card links you back to the exact section.
+There are **19 questions in the bank** — each visit picks 5 at random. Miss one and the result card links you back to the exact section.
 
 You must pass (≥ 60%) to unlock the Next button and Chapter 8 in the sidebar.
 
@@ -209,6 +209,58 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 8 in the sidebar.
   correct={1}
   explanation="Parallel workers finish out of order; global order forces serialization. Per-key ordering (e.g. by account_id) keeps order where it matters while letting different entities process in parallel."
   revisit={{ to: "/docs/distributed-systems/messaging-patterns#ordering-the-guarantee-that-fights-throughput", label: "Ordering vs throughput" }}
+/>
+
+<Question
+  prompt="Why does a storage engine write to a write-ahead log (and fsync it) before updating its main data?"
+  options={[
+    { text: "To compress the data first" },
+    { text: "A sequential log append + fsync is fast and durable immediately, decoupling the durability point from the slower reorganization of the main data; on a crash the log is replayed (from the last checkpoint) to recover anything not yet applied" },
+    { text: "Because the WAL is encrypted and the data isn't" },
+    { text: "To avoid disk I/O entirely" }
+  ]}
+  correct={1}
+  explanation="Sequential appends are cheap, so log-then-fsync gives durability fast while the random-I/O reorganization happens lazily. Recovery replays the WAL forward from the last checkpoint, so no acked write is lost and no half-applied change corrupts data."
+  revisit={{ to: "/docs/distributed-systems/ds-storage-internals#the-write-ahead-log-durability-decoupled-from-layout", label: "Write-ahead log" }}
+/>
+
+<Question
+  prompt="What's the core trade-off between a B-tree and an LSM-tree storage engine?"
+  options={[
+    { text: "B-trees are simply newer and better" },
+    { text: "A B-tree updates pages in place (read-optimized, pays write amplification and dead-version bloat); an LSM-tree only appends — memtable → immutable SSTables merged by compaction — (write-optimized, pays read and space amplification)" },
+    { text: "LSM-trees can't survive a crash" },
+    { text: "B-trees are for NoSQL, LSM-trees for SQL" }
+  ]}
+  correct={1}
+  explanation="B-trees keep sorted pages modified in place: crisp reads, but page rewrites (write amplification) and dead versions to reclaim. LSM-trees turn writes into sequential appends (great ingest) but reads probe multiple SSTables (read amplification) and compaction costs I/O/space. You pick the amplification you can afford."
+  revisit={{ to: "/docs/distributed-systems/ds-storage-internals#the-two-storage-engine-families", label: "B-tree vs LSM" }}
+/>
+
+<Question
+  prompt="A leader pauses (GC/VM freeze), is replaced, then wakes and tries to write to an external store. What stops this 'zombie' write, and why isn't a lease enough?"
+  options={[
+    { text: "Nothing can stop it; you accept the corruption" },
+    { text: "A fencing token — a monotonically increasing number stamped on each external operation; the resource rejects any token lower than the highest it has seen. A lease alone fails because a paused holder can outlive its lease without knowing it was replaced" },
+    { text: "A faster heartbeat interval" },
+    { text: "Encrypting the write payload" }
+  ]}
+  correct={1}
+  explanation="Leases can be silently outlived by a paused holder. Fencing tokens make external resources reject stale operations, closing the zombie-leader window that consensus alone doesn't cover for side effects outside the cluster."
+  revisit={{ to: "/docs/distributed-systems/ds-consensus-internals#fencing-tokens-stopping-a-zombie-leaders-late-writes", label: "Fencing tokens" }}
+/>
+
+<Question
+  prompt="What is Jepsen and why does it matter for distributed systems?"
+  options={[
+    { text: "A faster replacement for Raft" },
+    { text: "A black-box testing harness that runs a real cluster under injected partitions, clock skew, and pauses, records what clients observed, and checks that history against a consistency model — catching correctness bugs that violate a system's claimed guarantees under failure" },
+    { text: "A dashboard for production metrics" },
+    { text: "A compression format for logs" }
+  ]}
+  correct={1}
+  explanation="Jepsen adversarially injects faults and verifies the recorded client history against a formal consistency model. It has repeatedly found real violations of 'linearizable'/'consistent' claims under partition — evidence you test distributed correctness rather than trust it."
+  revisit={{ to: "/docs/distributed-systems/ds-consensus-internals#proving-it-correct-jepsen-simulation-and-chaos", label: "Jepsen & testing" }}
 />
 
 </Quiz>

@@ -3,14 +3,14 @@ id: cloud-checkpoint
 title: Chapter 5 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 5 — Cloud Platforms. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 6.
+description: Mandatory checkpoint quiz for Chapter 5 — Cloud Platforms. 5 random questions drawn from an 18-question bank. Pass to unlock Chapter 6.
 ---
 
 # Chapter 5 Checkpoint
 
-You've finished the Cloud Platforms chapter. Make sure the four deep concepts stuck — compute models, VPC networking, IAM, and IaC — plus storage, managed data, serverless patterns, and cost.
+You've finished the Cloud Platforms chapter. Make sure the four deep concepts stuck — compute models, VPC networking, IAM, and IaC — plus storage, managed data, serverless patterns, cost, and the senior layer: Kubernetes, GitOps, and resilient multi-region architecture.
 
-There are **15 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit.
+There are **18 questions in the bank** — each visit picks 5 at random, so retaking gives you different ones. If you miss one, the result card tells you exactly which page section to revisit.
 
 You must pass (≥ 60%) to unlock the Next button and Chapter 6 in the sidebar.
 
@@ -209,6 +209,45 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 6 in the sidebar.
   correct={1}
   explanation="Egress is the invisible line item that blows up for media/high-traffic apps. A CDN caches at the edge with far cheaper egress and avoids routing traffic through billed NAT gateways."
   revisit={{ to: "/docs/cloud/cloud-cost#the-five-bills-that-surprise-everyone", label: "Egress" }}
+/>
+
+<Question
+  prompt="What is the single core idea behind how Kubernetes operates?"
+  options={[
+    { text: "You SSH into each node and start containers by hand" },
+    { text: "You declare a desired state and controllers run a continuous reconcile loop — observe actual, diff against desired, act to converge — so crashes, scale changes, and node failures self-correct" },
+    { text: "It compiles your app to a single binary" },
+    { text: "It only runs stateless websites" }
+  ]}
+  correct={1}
+  explanation="Kubernetes is a control loop: you describe the world you want (replicas, image, exposure) and controllers relentlessly drive reality toward it. You change the spec; the system does the work, including self-healing and rolling updates — and for small footprints a PaaS often beats running a cluster."
+  revisit={{ to: "/docs/cloud/cloud-kubernetes#the-one-idea-desired-state-and-the-reconcile-loop", label: "Reconcile loop" }}
+/>
+
+<Question
+  prompt="In GitOps, what happens when someone changes live infrastructure by hand?"
+  options={[
+    { text: "The change is permanent and overrides Git" },
+    { text: "Git is the source of truth, so the reconciliation agent detects the drift (live ≠ Git) and reverts the hand-edit; durable changes must go through a reviewed commit" },
+    { text: "The agent emails you but does nothing" },
+    { text: "GitOps disables console access entirely" }
+  ]}
+  correct={1}
+  explanation="A GitOps controller continuously reconciles live state to match Git. A manual console edit is detected as drift and reverted — so the fix must be a reviewed PR, which is exactly the discipline that eliminates configuration drift."
+  revisit={{ to: "/docs/cloud/cloud-gitops#gitops-git-as-the-source-of-truth", label: "GitOps drift" }}
+/>
+
+<Question
+  prompt="What do RPO and RTO measure in disaster-recovery planning?"
+  options={[
+    { text: "Request latency and request throughput" },
+    { text: "RPO (Recovery Point Objective) = how much DATA you can lose, in time (set by replication lag/backup frequency); RTO (Recovery Time Objective) = how long you can be DOWN, in time (set by how automated failover is)" },
+    { text: "CPU and memory headroom during failover" },
+    { text: "The number of regions and availability zones" }
+  ]}
+  correct={1}
+  explanation="RPO bounds acceptable data loss (drive it down with more frequent/synchronous replication); RTO bounds acceptable downtime (drive it down with automated failover). Naming both per system turns 'be resilient' into a priced engineering target."
+  revisit={{ to: "/docs/cloud/cloud-platform-engineering#rpo-and-rto-decide-your-loss-before-the-outage", label: "RPO / RTO" }}
 />
 
 </Quiz>

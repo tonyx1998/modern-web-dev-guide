@@ -3,14 +3,14 @@ id: operations-checkpoint
 title: Chapter 6 Checkpoint
 sidebar_position: 30
 sidebar_label: ✅ Checkpoint quiz
-description: Mandatory checkpoint quiz for Chapter 6 — SRE & Operations. 5 random questions drawn from a 15-question bank. Pass to unlock Chapter 7.
+description: Mandatory checkpoint quiz for Chapter 6 — SRE & Operations. 5 random questions drawn from an 18-question bank. Pass to unlock Chapter 7.
 ---
 
 # Chapter 6 Checkpoint
 
-You've finished the SRE & Operations chapter. Make sure the operational toolkit stuck — SLOs and error budgets, observability, reliability patterns, alerting, incidents, safe deploys, capacity, and chaos.
+You've finished the SRE & Operations chapter. Make sure the operational toolkit stuck — SLOs and error budgets, observability, reliability patterns, alerting, incidents, safe deploys, capacity, chaos, plus the engineering depth: observability stacks/cardinality and the SLO/burn-rate/capacity math.
 
-There are **15 questions in the bank** — each visit picks 5 at random. Miss one and the result card links you back to the exact section.
+There are **18 questions in the bank** — each visit picks 5 at random. Miss one and the result card links you back to the exact section.
 
 You must pass (≥ 60%) to unlock the Next button and Chapter 7 in the sidebar.
 
@@ -209,6 +209,45 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 7 in the sidebar.
   correct={1}
   explanation="RPO bounds acceptable data loss; RTO bounds acceptable downtime. Tighter targets cost exponentially more (hot standby vs. nightly restore), so set them per system by business value — and test that backups actually restore within RTO."
   revisit={{ to: "/docs/operations/chaos-engineering#disaster-recovery-rto-and-rpo", label: "RTO vs RPO" }}
+/>
+
+<Question
+  prompt="Why is putting a user ID as a Prometheus metric label dangerous?"
+  options={[
+    { text: "User IDs are private and can't be stored anywhere" },
+    { text: "Prometheus creates one time series per unique combination of label values, and the total is the PRODUCT of each label's distinct values — an unbounded label like user_id multiplies series into the millions/billions, melting the metrics database and the bill" },
+    { text: "Labels must be numeric" },
+    { text: "It makes queries return wrong values" }
+  ]}
+  correct={1}
+  explanation="Series count multiplies across labels. Low-cardinality dimensions (method, status, route) are fine; an unbounded identifier explodes the product. Keep high-cardinality detail in traces and logs, which are designed for it."
+  revisit={{ to: "/docs/operations/ops-observability-engineering#metrics--the-cardinality-trap", label: "Cardinality trap" }}
+/>
+
+<Question
+  prompt="Why do mature teams use multi-window, multi-burn-rate alerting instead of a single error-rate threshold?"
+  options={[
+    { text: "To generate more alerts overall" },
+    { text: "Requiring a high burn rate over BOTH a short and a long window pages fast on a real budget-threatening outage while staying quiet on brief blips, and a separate slow, low-rate window files a ticket for steady bleeds instead of a 3am page" },
+    { text: "Because Prometheus mandates exactly two windows" },
+    { text: "It removes the need for SLOs" }
+  ]}
+  correct={1}
+  explanation="Burn rate measures how fast you're consuming the error budget. Confirming a fast burn across a short AND long window reacts quickly without paging on noise; a long low-rate window catches slow bleeds as tickets. This is what keeps on-call calm and trusted."
+  revisit={{ to: "/docs/operations/ops-slo-math#burn-rate-alerting-fast-on-outages-quiet-on-noise", label: "Burn-rate alerting" }}
+/>
+
+<Question
+  prompt="Using Little's Law, if 500 requests/sec each take 50ms, how many are in flight at once — and why does it matter?"
+  options={[
+    { text: "0.05, and it doesn't affect capacity" },
+    { text: "L = λ × W = 500 × 0.05 = 25 concurrent requests, so a connection/thread pool needs ≳25 slots; slow downstream calls (large W) demand surprisingly high concurrency even at modest request rates" },
+    { text: "500 — one per request per second regardless of latency" },
+    { text: "10,000 — latency multiplies the rate by 1000" }
+  ]}
+  correct={1}
+  explanation="Little's Law (L = λW) gives 500 × 0.05 = 25 in flight, which sizes the pool. The key intuition: concurrency scales with latency, so a slow dependency needs far more pool slots than its request rate alone suggests."
+  revisit={{ to: "/docs/operations/ops-slo-math#capacity-littles-law-and-load-tests", label: "Little's Law" }}
 />
 
 </Quiz>

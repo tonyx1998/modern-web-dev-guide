@@ -127,4 +127,4 @@ You now have the four deep concepts that make any cloud legible — compute mode
 
 ## What's next
 
-→ You've finished the cloud pillars. Take the [Chapter 5 checkpoint](./cloud-checkpoint), then continue to [Chapter 6: Site Reliability & Operations](/docs/operations) — keeping all of this alive and healthy in production.
+→ The cloud fundamentals are in place. Now go deeper into running it at a senior level: [Kubernetes without the hand-waving](./cloud-kubernetes) — the orchestration layer, its reconcile loop, autoscaling, and when *not* to reach for it.

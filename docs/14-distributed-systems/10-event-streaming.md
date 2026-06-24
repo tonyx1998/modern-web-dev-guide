@@ -83,10 +83,6 @@ An e-commerce platform publishes a single `order_placed` event to a Kafka topic.
 - **Setting retention without thinking about replay needs.** Too short and you lose the ability to backfill/replay; too long (uncompacted) and storage balloons. Match retention to how far back you'd ever need to replay.
 :::
 
-## Chapter wrap-up
-
-Distributed systems are the theory under everything the cloud and operations chapters had you build. The throughline: **the network is unreliable and partial failure is normal, so you can't trust clocks or assume single delivery; you choose consistency deliberately per data type (CAP/PACELC), spread data with replication and partitioning, agree on reality through consensus, get multi-step work done with sagas instead of distributed transactions, and make every retryable side effect idempotent.** Master these and the production mysteries — stale reads, double charges, split brain, lost updates — become named, understood, designed-for properties instead of 3am surprises.
-
 ## Page checkpoint
 
 <Quiz id="event-streaming-page" title="Did event streaming stick?" sampleSize={2}>
@@ -134,4 +130,4 @@ Distributed systems are the theory under everything the cloud and operations cha
 
 ## What's next
 
-→ You've finished the distributed-systems pillars. Take the [Chapter 7 checkpoint](./distributed-systems-checkpoint), then continue to [Chapter 8: AI Integration](/docs/ai) — the new standard layer in modern apps, and one that puts this chapter's reliability ideas to work in production.
+→ The conceptual pillars are done. Now go one layer deeper into how the systems behind them actually work: [Storage engines & the write-ahead log](./ds-storage-internals) — B-trees vs LSM-trees, the WAL that underpins both durability and replication.

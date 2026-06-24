@@ -1,12 +1,12 @@
 ---
 id: glossary
-title: 16. Glossary
-sidebar_position: 16
-sidebar_label: 16. Glossary
+title: 17. Glossary
+sidebar_position: 17
+sidebar_label: 17. Glossary
 description: Quick-reference definitions for every term used in the series.
 ---
 
-# Part 16: Glossary
+# Part 17: Glossary
 
 *Quick-reference definitions for every term used throughout this series.*
 
@@ -33,6 +33,8 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 **Agent (AI)** — An LLM-based system that plans and executes multi-step actions by calling tools, observing results, and continuing until a task is complete. *See: [Pattern 4: Agentic Workflows](/docs/ai/ai-agents).*
 
 **Algorithm** — A defined sequence of steps to solve a problem. In CS interviews, often refers to standard techniques like binary search, BFS/DFS, dynamic programming.
+
+**Amplification (write / read / space)** — In storage engines, the ratio of work done to logical work needed: *write* (bytes written vs bytes changed), *read* (disk reads per lookup), *space* (bytes on disk vs live data). Every engine trades one against the others. *See: [Storage Engines & the Write-Ahead Log](/docs/distributed-systems/ds-storage-internals).*
 
 **API (Application Programming Interface)** — A defined contract that lets one piece of software interact with another. On the web, usually HTTP-based.
 
@@ -68,7 +70,11 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **BFS (Breadth-First Search)** — Graph traversal algorithm; visits nearest neighbors first.
 
+**Bloom Filter** — A compact probabilistic index that answers "definitely not present" or "maybe present" — never a false negative. Lets an *LSM-Tree* skip SSTables that can't contain a key.
+
 **Blue/Green Deployment** — A strategy where two identical environments run; traffic switches between them for zero-downtime deploys and easy rollback.
+
+**B-tree** — A storage-engine structure that keeps data sorted in fixed-size pages and updates them in place; read-optimized. Used by Postgres, MySQL/InnoDB, SQLite. Contrast with *LSM-Tree*. *See: [Storage Engines & the Write-Ahead Log](/docs/distributed-systems/ds-storage-internals).*
 
 **Bun** — A JavaScript runtime, package manager, bundler, and test runner. Faster than Node + npm.
 
@@ -87,6 +93,8 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 **CDN (Content Delivery Network)** — A globally distributed network of servers that caches content close to users. Examples: Cloudflare, Akamai, Fastly.
 
 **Chaos Engineering** — Deliberately breaking things in production to verify resilience. Pioneered by Netflix's Chaos Monkey.
+
+**Checkpoint (database)** — A periodic flush of in-memory/dirty state to durable files, recording a safe point so crash recovery only replays the *WAL* written after it.
 
 **Chunking (in RAG)** — Splitting large documents into smaller pieces for embedding and retrieval.
 
@@ -108,7 +116,11 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **Cohort Analysis** — Analyzing groups of users defined by shared characteristics (e.g., users who signed up in the same month).
 
+**Compaction** — Background merging of an *LSM-Tree*'s SSTables to drop superseded keys and *tombstones*, reclaiming space and shortening reads. Strategies: size-tiered vs leveled.
+
 **Compositing** — In browser rendering, combining layers into the final image (often on the GPU).
+
+**Consensus** — Getting multiple nodes to agree on a value (e.g., who is the leader) despite failures, via a majority *quorum*. Algorithms include *Raft* and Paxos.
 
 **CORS (Cross-Origin Resource Sharing)** — HTTP mechanism for letting one domain's JS access resources on another domain.
 
@@ -204,6 +216,8 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **FERPA** — US law protecting student education records.
 
+**Fencing Token** — A monotonically increasing number handed out on each leadership/lock change; external resources reject any lower token, blocking a paused "zombie" leader's late writes.
+
 **Figma** — The dominant collaborative design tool.
 
 **FinOps** — Financial operations for cloud spending; a discipline of cost management.
@@ -213,6 +227,8 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 **FOIT (Flash of Invisible Text)** — When custom fonts cause text to be invisible until the font loads. Mitigate with `font-display: swap`.
 
 **Fly.io** — A platform for running apps in containers across many global regions.
+
+**fsync** — The OS call that forces buffered bytes onto physical storage. Durability means a *WAL* entry was `fsync`'d — not merely that the write call returned.
 
 **Function Calling** — Pattern where an LLM produces structured calls to predefined functions/tools. *See: [Pattern 3: Function Calling](/docs/ai/ai-function-calling).*
 
@@ -290,6 +306,8 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 ## J
 
+**Jepsen** — A black-box testing harness that hammers a real distributed system with partitions, clock skew, and pauses, then checks the recorded client history against a consistency model. Has found many real correctness bugs. *See: [Consensus in Motion](/docs/distributed-systems/ds-consensus-internals).*
+
 **JIT (Just-In-Time) Compilation** — Compiling code at runtime rather than ahead of time. Used by V8 and other JS engines.
 
 **JSX** — JavaScript extension that lets you write HTML-like syntax in React.
@@ -326,6 +344,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **Lockfile** — A file (e.g., `package-lock.json`, `bun.lock`) that records exact dependency versions for reproducible installs.
 
+**LSM-Tree (Log-Structured Merge-Tree)** — A storage engine that turns all writes into sequential appends (*memtable* → immutable SSTables, merged by *compaction*); write-optimized. Used by RocksDB, Cassandra. Contrast with *B-tree*. *See: [Storage Engines & the Write-Ahead Log](/docs/distributed-systems/ds-storage-internals).*
+
 ---
 
 ## M
@@ -335,6 +355,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 **MCP (Model Context Protocol)** — Open protocol introduced in late 2024 for exposing tools, resources, and prompts to AI clients in a standard way. By 2026, MCP servers are a common way to give AI assistants (Claude Code, Cursor, etc.) access to external data and actions.
 
 **Meilisearch** — An open-source, fast search engine.
+
+**Memtable** — The in-memory sorted buffer of an *LSM-Tree* where writes land (after the *WAL*) before being flushed to an SSTable.
 
 **Mesh (Service Mesh)** — Infrastructure layer that handles service-to-service concerns transparently. Istio, Linkerd.
 
@@ -400,6 +422,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **pgvector** — Postgres extension for vector similarity search; popular for RAG applications. *See: [Pattern 2: RAG](/docs/ai/ai-rag).*
 
+**Phi-Accrual Failure Detector** — An adaptive failure detector that outputs a suspicion level (φ) from heartbeat-arrival history instead of a hard timeout, reducing false positives (flapping). Used by Cassandra and Akka.
+
 **PHP** — Server-side scripting language; powers WordPress and a large portion of the web.
 
 **PII (Personally Identifiable Information)** — Information that can identify a specific individual.
@@ -434,9 +458,13 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **QUIC** — Transport protocol underlying HTTP/3; runs over UDP.
 
+**Quorum** — A majority of nodes (more than half). Requiring a quorum to elect a leader or commit a write is what prevents split-brain — and why consensus clusters are sized odd (3, 5, 7).
+
 ---
 
 ## R
+
+**Raft** — A widely used, understandability-focused *consensus* algorithm using monotonic terms, leader election via randomized timeouts, and a replicated log. Runs etcd, Consul, CockroachDB. *See: [Consensus in Motion](/docs/distributed-systems/ds-consensus-internals).*
 
 **RAG (Retrieval-Augmented Generation)** — Pattern of giving an LLM relevant retrieved context to help it answer a question. *See: [Pattern 2: RAG](/docs/ai/ai-rag).*
 
@@ -540,6 +568,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **SSR (Server-Side Rendering)** — Rendering HTML on the server for each request.
 
+**SSTable (Sorted String Table)** — An immutable, sorted on-disk file in an *LSM-Tree*; never edited, only superseded and later merged by *compaction*.
+
 **Staging** — Pre-production environment for final testing.
 
 **Stripe** — Dominant payments platform for developers.
@@ -565,6 +595,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 **TLS (Transport Layer Security)** — Encryption protocol for network traffic; HTTPS uses TLS.
 
 **Token (auth)** — A string representing authentication; usually a *JWT* or a *session* identifier.
+
+**Tombstone** — A marker written to record a deletion in an *LSM-Tree* (since SSTables are immutable); it must outlive older copies of the key, or the deleted value can resurrect.
 
 **Trigger.dev** — A modern, TypeScript-native background job platform.
 
@@ -621,6 +653,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 ## W
 
 **WAF (Web Application Firewall)** — Filters HTTP traffic to block attacks; Cloudflare offers one.
+
+**WAL (Write-Ahead Log)** — An append-only log written and *fsync*'d *before* the main data changes; the basis of database durability and crash recovery, and typically what gets shipped to replicas.
 
 **WASM (WebAssembly)** — Binary instruction format that runs in browsers at near-native speed. Languages like Rust, C++, and Go can compile to WASM.
 

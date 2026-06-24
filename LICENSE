@@ -1,21 +1,23 @@
-MIT License
+Copyright © 2026 To Yin Yu. All rights reserved.
 
-Copyright (c) 2026 tonyx1998
+SOURCE-AVAILABLE LICENSE
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This repository is published publicly as "source-available" so that others may read it,
+learn from it, and run it locally for personal, non-commercial evaluation. That is the only
+permission granted. This is NOT open-source software and NOT a Creative Commons work.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+Without prior written permission from the copyright holder, you may NOT:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+  1. copy, redistribute, mirror, host, or re-publish this work or any substantial portion
+     of it (code OR written content);
+  2. use this work, or any derivative of it, for any commercial purpose;
+  3. create, publish, or distribute modified or derivative versions;
+  4. rebrand, relicense, sublicense, or present this work (in whole or in part) as your own.
+
+All rights not expressly granted above are reserved by the copyright holder.
+
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO EVENT
+SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM,
+OUT OF, OR IN CONNECTION WITH THE WORK OR THE USE OR OTHER DEALINGS IN THE WORK.
+
+For permissions beyond the scope of this license, contact the copyright holder.

@@ -28,7 +28,7 @@ When you *do* read this chapter: take the **"In plain English"** box and the **h
 
 You can have a great career and never write a line of Terraform — if you stay on platforms. But three forces push web developers into the cloud:
 
-1. **Cost at scale.** Vercel's convenience premium is real. Somewhere between $2K and $20K/month of platform spend, the math flips and a small team on AWS/GCP is cheaper *even after* paying for the operational time. (See [Cost & FinOps](./cloud-cost).)
+1. **Cost at scale.** Vercel's convenience premium is real. Somewhere between $2K and $20K/month of platform spend, the math flips and a small team on AWS/GCP is cheaper *even after* paying for the operational time. (See [Cost & FinOps](/docs/cloud/cloud-cost).)
 2. **Capabilities platforms don't expose.** Long-running jobs, GPUs, private networking to a corporate data center, fine-grained compliance (HIPAA, FedRAMP, SOC 2 with data-residency guarantees), exotic databases. The platform tier caps out; the cloud doesn't.
 3. **Where the jobs are.** Most companies above ~50 engineers run on a cloud directly. "Comfortable in AWS/GCP" is on a large fraction of senior web-dev job descriptions. The guide's earlier chapters made you dangerous on the indie/startup stack; this one makes you employable at the enterprise tier.
 
@@ -85,22 +85,22 @@ The line **moves** depending on the service. On a raw VM (EC2) you patch the OS.
 Read in order the first time — each page assumes the previous one's vocabulary.
 
 ### The four pillars
-1. [Cloud mental model](./cloud-mental-model) — regions, AZs, the console-vs-API truth, and how to think about 200 services without drowning.
-2. [Compute](./cloud-compute) — VMs vs containers vs serverless, and the cost/control tradeoff that drives everything.
-3. [Networking (VPC)](./cloud-networking) — the part that breaks everyone: subnets, route tables, security groups, NAT, load balancers.
-4. [Identity & access (IAM)](./cloud-iam) — least privilege, roles vs users, and why you should almost never use long-lived keys.
+1. [Cloud mental model](/docs/cloud/cloud-mental-model) — regions, AZs, the console-vs-API truth, and how to think about 200 services without drowning.
+2. [Compute](/docs/cloud/cloud-compute) — VMs vs containers vs serverless, and the cost/control tradeoff that drives everything.
+3. [Networking (VPC)](/docs/cloud/cloud-networking) — the part that breaks everyone: subnets, route tables, security groups, NAT, load balancers.
+4. [Identity & access (IAM)](/docs/cloud/cloud-iam) — least privilege, roles vs users, and why you should almost never use long-lived keys.
 
 ### Storage & data
-5. [Storage](./cloud-storage) — object (S3), block (EBS), file (EFS), and the CDN tie-in.
-6. [Managed data services](./cloud-managed-data) — RDS/Aurora, DynamoDB, caches, and managed queues/streams.
+5. [Storage](/docs/cloud/cloud-storage) — object (S3), block (EBS), file (EFS), and the CDN tie-in.
+6. [Managed data services](/docs/cloud/cloud-managed-data) — RDS/Aurora, DynamoDB, caches, and managed queues/streams.
 
 ### Operating it
-7. [Infrastructure as Code](./cloud-iac) — Terraform end-to-end, state, modules, and the "never click in prod" rule.
-8. [Serverless & event-driven patterns](./cloud-serverless) — Lambda done right, cold starts, fan-out, and the gotchas.
-9. [Cost & FinOps](./cloud-cost) — the pricing model, the five bills that surprise everyone, and how to actually control spend.
+7. [Infrastructure as Code](/docs/cloud/cloud-iac) — Terraform end-to-end, state, modules, and the "never click in prod" rule.
+8. [Serverless & event-driven patterns](/docs/cloud/cloud-serverless) — Lambda done right, cold starts, fan-out, and the gotchas.
+9. [Cost & FinOps](/docs/cloud/cloud-cost) — the pricing model, the five bills that surprise everyone, and how to actually control spend.
 
 ### Choosing
-10. [Choosing a cloud](./cloud-choosing) — AWS vs GCP vs Azure vs "stay on a platform," for real decisions.
+10. [Choosing a cloud](/docs/cloud/cloud-choosing) — AWS vs GCP vs Azure vs "stay on a platform," for real decisions.
 
 ---
 

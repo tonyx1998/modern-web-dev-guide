@@ -333,4 +333,4 @@ If your company has internal OSS culture (Google, Stripe, Shopify), participatin
 
 ## What's next
 
-→ Continue to [Maintenance](./maintenance) (the original lifecycle page), or back to the [Lifecycle overview](./development-lifecycle).
+→ Continue to [Maintenance](./maintenance) (the original lifecycle page), or back to the [Lifecycle overview](/docs/lifecycle).

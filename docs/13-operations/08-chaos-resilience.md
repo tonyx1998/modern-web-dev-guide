@@ -122,4 +122,4 @@ Operations is where software meets reality and keeps working anyway. The through
 
 ## What's next
 
-→ You've finished the operations pillars. Take the [Chapter 6 checkpoint](./operations-checkpoint), then continue to [Chapter 7: Distributed Systems](/docs/distributed-systems) — the deep theory of why systems that span many machines behave the way they do.
+→ The operations fundamentals are in place. Now go deeper: [Observability engineering — building the stack](./ops-observability-engineering) — operating Prometheus/OpenTelemetry/tracing as a system, taming cardinality, and finding the needle.
