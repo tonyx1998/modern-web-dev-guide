@@ -302,17 +302,17 @@ A TypeScript library that abstracts over LLM providers (OpenAI, Anthropic, Googl
 ### How it looks
 
 ```ts
-// app/api/chat/route.ts
-import { streamText } from "ai";
+// app/api/chat/route.ts  (AI SDK 5)
+import { streamText, convertToModelMessages, type UIMessage } from "ai";
 import { openai } from "@ai-sdk/openai";
 
 export async function POST(req: Request) {
-  const { messages } = await req.json();
-  const result = await streamText({
+  const { messages }: { messages: UIMessage[] } = await req.json();
+  const result = streamText({
     model: openai("gpt-4o"),
-    messages,
+    messages: convertToModelMessages(messages),
   });
-  return result.toDataStreamResponse();
+  return result.toUIMessageStreamResponse();
 }
 ```
 

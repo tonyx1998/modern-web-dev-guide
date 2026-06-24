@@ -104,7 +104,7 @@ Almost every React performance problem reduces to unnecessary renders, and almos
 1. **State colocation** — the cheapest, biggest win. State that lives lower re-renders less.
 2. **`children` / composition** — pass expensive subtrees as `children` so a stateful wrapper doesn't re-render them.
 3. **Keys** — stable, meaningful `key`s (never array index for dynamic lists) so reconciliation reuses DOM instead of recreating it.
-4. **`memo` / `useMemo` / `useCallback`** — *only* on a proven-hot path. Each has its own cost; sprinkling them everywhere can be net-negative.
+4. **`memo` / `useMemo` / `useCallback`** — *only* on a proven-hot path. Each has its own cost; sprinkling them everywhere can be net-negative. As of mid-2026, the **React Compiler (1.0 GA, opt-in)** auto-inserts this memoization for you from plain code — so on a compiler-enabled project, hand-written `useMemo`/`useCallback` should be the rare exception the profiler asks for, not the default reflex.
 5. **Virtualization** — for long lists, render only what's visible (TanStack Virtual).
 6. **Suspense + streaming** — show meaningful UI while data loads, stream from the server.
 

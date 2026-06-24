@@ -14,7 +14,7 @@ description: The engines that turn your source code (TypeScript, JSX, CSS) into 
 Browsers don't understand TypeScript or JSX directly. Someone has to translate that source code into plain JavaScript and bundle it together with your CSS and images into files the browser can load. That translator is your **build tool**. In 2026, build tools have gotten so fast that you barely notice them — the dev server starts in milliseconds and updates instantly when you save a file.
 :::
 
-## Vite 6 — the dominant bundler
+## Vite — the dominant standalone bundler
 
 Vite uses native ES modules during development (no bundling needed, instant updates) and Rollup for production builds.
 
@@ -34,11 +34,17 @@ npm install
 npm run dev   # Starts in ~200ms
 ```
 
+:::note[Version stamp — as of mid-2026]
+Current line is **Vite 7**. The durable part — *native ES modules in dev, a bundler for prod* — is unchanged; the engine underneath is being swapped. Vite's team is moving production builds from Rollup to **Rolldown** (a Rust bundler in the same family as esbuild/Turbopack). You can opt in today via the `rolldown-vite` package; **Vite 8** (in beta as of late 2025) makes Rolldown the default. You won't change your config — it's a faster engine behind the same interface.
+:::
+
 ## Turbopack
 
-Vercel's Rust-based bundler, designed as a Webpack replacement. Used inside Next.js for dev (stable in v15) and increasingly for production builds.
+Vercel's Rust-based bundler, designed as a Webpack replacement. It ships inside Next.js — you don't choose it directly, it comes with the framework.
 
-You don't choose Turbopack directly — it comes with Next.js.
+:::note[Version stamp — as of mid-2026]
+As of **Next.js 16**, Turbopack is the **default bundler for both `next dev` *and* `next build`** — it's no longer dev-only or behind a flag. Webpack still works in Next.js for now, but new projects get Turbopack out of the box. (Earlier in v15 it was stable for dev but opt-in for production builds.)
+:::
 
 ## Bun — runtime + bundler + package manager
 
@@ -104,7 +110,7 @@ Five years ago, "webpack.config.js" was where you spent half your life. Today, m
   ]}
   correct={1}
   explanation="Browsers only run plain JavaScript and CSS. A build tool translates TypeScript/JSX into JS and bundles everything (including CSS and images) into files the browser can load."
-  revisit={{ to: "/docs/stack/build-tools#vite-6--the-dominant-bundler", label: "Why build tools exist" }}
+  revisit={{ to: "/docs/stack/build-tools#vite--the-dominant-standalone-bundler", label: "Why build tools exist" }}
 />
 
 <Question
@@ -117,11 +123,11 @@ Five years ago, "webpack.config.js" was where you spent half your life. Today, m
   ]}
   correct={1}
   explanation="Vite serves files as native ES modules in dev — the browser pulls modules on demand instead of waiting for a full bundle. That's why the dev server starts in milliseconds and HMR is instant."
-  revisit={{ to: "/docs/stack/build-tools#vite-6--the-dominant-bundler", label: "Vite section" }}
+  revisit={{ to: "/docs/stack/build-tools#vite--the-dominant-standalone-bundler", label: "Vite section" }}
 />
 
 <Question
-  prompt="Which build tool ships inside Next.js as its default dev bundler in v15?"
+  prompt="Which build tool ships inside Next.js 16 as the default bundler for both dev and production builds?"
   options={[
     { text: "esbuild" },
     { text: "Webpack" },
@@ -129,7 +135,7 @@ Five years ago, "webpack.config.js" was where you spent half your life. Today, m
     { text: "Rollup" }
   ]}
   correct={2}
-  explanation="Turbopack is Vercel's Rust-based Webpack successor. It's stable for Next.js dev in v15 and is increasingly used for production builds too — you don't choose it directly, it comes with Next.js."
+  explanation="Turbopack is Vercel's Rust-based Webpack successor. As of Next.js 16 it's the default for both `next dev` and `next build` — no longer dev-only or opt-in. You don't choose it directly; it comes with Next.js."
   revisit={{ to: "/docs/stack/build-tools#turbopack", label: "Turbopack section" }}
 />
 

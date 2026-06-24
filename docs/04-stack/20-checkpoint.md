@@ -90,7 +90,7 @@ You must pass (≥ 60%) to unlock the Next button and Chapter 5 in the sidebar.
     { text: "gRPC streams, because they're the fastest" }
   ]}
   correct={2}
-  explanation="LLM responses are one-way (server → client), token by token. SSE is the natural fit — plain HTTP with automatic reconnect — and the Vercel AI SDK's `toDataStreamResponse()` wraps the model stream in an SSE response. WebSockets are bidirectional overkill for this; gRPC is awkward from browsers."
+  explanation="LLM responses are one-way (server → client), token by token. SSE is the natural fit — plain HTTP with automatic reconnect — and the Vercel AI SDK's `toUIMessageStreamResponse()` (AI SDK 5) wraps the model stream in an SSE response. WebSockets are bidirectional overkill for this; gRPC is awkward from browsers."
   revisit={{ to: "/docs/stack/apis#server-sent-events-sse", label: "Server-Sent Events" }}
 />
 

@@ -37,8 +37,10 @@ async function ingestDocs() {
 // 2. Chat endpoint
 // app/api/support/route.ts
 export async function POST(req: Request) {
-  const { messages } = await req.json();
-  const userQuestion = messages[messages.length - 1].content;
+  // AI SDK 5: `messages` are typed UIMessages (a `parts` array, not `.content`).
+  const { messages }: { messages: UIMessage[] } = await req.json();
+  const last = messages[messages.length - 1];
+  const userQuestion = last.parts.map(p => (p.type === 'text' ? p.text : '')).join('');
 
   // Rate-limit per session
   const sessionId = req.headers.get('x-session-id');
@@ -71,7 +73,8 @@ contact support@acme.com for help."
 
 Always cite sources by mentioning the document name.`,
     messages: [
-      ...messages.slice(0, -1),
+      // Convert prior UIMessages → ModelMessages, then append the RAG-augmented turn.
+      ...convertToModelMessages(messages.slice(0, -1)),
       {
         role: 'user',
         content: `Documentation:\n${context}\n\n---\n\nQuestion: ${userQuestion}`,
@@ -89,7 +92,7 @@ Always cite sources by mentioning the document name.`,
     },
   });
 
-  return result.toDataStreamResponse();
+  return result.toUIMessageStreamResponse();
 }
 ```
 
@@ -110,7 +113,7 @@ Each piece of the snippet maps directly to a previous chapter:
 | `ingestDocs()`                     | [RAG ingestion](./ai-rag)           |
 | `rateLimiter.check(...)`           | [Cost control](./ai-costs)          |
 | `embed(userQuestion) + ORDER BY <=>` | [Embeddings + RAG retrieval](./ai-embeddings) |
-| `streamText(...)` + `toDataStreamResponse()` | [Streaming chat](./ai-streaming-chat) |
+| `streamText(...)` + `toUIMessageStreamResponse()` | [Streaming chat](./ai-streaming-chat) |
 | `system: 'Answer using ONLY...'`   | [Safety: anti-hallucination](./ai-safety) |
 | `onFinish: logInteraction(...)`    | [Observability](./ai-observability) |
 | Choice of `claude-haiku-4-5`       | [Tiered models](./ai-costs)         |

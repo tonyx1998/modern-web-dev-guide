@@ -60,6 +60,8 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **BaaS (Backend as a Service)** — Services like Supabase or Firebase that provide ready-made backends.
 
+**Baseline** — A cross-browser support label (Web Platform / MDN): a feature is "Baseline" once all major engines (Chromium, Safari/WebKit, Firefox/Gecko) ship it — "newly available" when it just cleared the bar, "widely available" after ~2.5 years. The practical signal for "safe to use this CSS/JS feature without a fallback." *See: [Advanced CSS → Modern CSS that's now Baseline](/docs/stack/styling-advanced#modern-css-thats-now-baseline).*
+
 **Bazel** — Google's monorepo build system. Used by many large companies.
 
 **bcrypt** — A widely-used password hashing algorithm. Older than *Argon2* but still common.
@@ -332,6 +334,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **Laravel** — A popular PHP web framework.
 
+**Local-first** — An app architecture where reads/writes happen instantly against a local copy of the data and a sync engine reconciles with the server in the background — so the UI feels 0ms and keeps working offline. Generalizes the CRDT/collaboration idea to ordinary apps. *See: [Realtime collaboration & CRDTs → the local-first / sync-engine pattern](/docs/foundations/crdts#the-local-first--sync-engine-pattern).*
+
 **Latency** — Time delay between a request and a response.
 
 **LCP (Largest Contentful Paint)** — Core Web Vital measuring when the largest visible element renders.
@@ -396,6 +400,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **OAuth** — Authorization framework; powers "Sign in with Google" and similar flows.
 
+**On-device AI** — Running model inference in the browser/device itself (via *WebGPU* + a library like transformers.js) instead of calling a server API. Trades model-download size and device reach for privacy, offline support, and zero per-call cost. *See: [On-Device AI](/docs/ai/ai-on-device).*
+
 **OIDC (OpenID Connect)** — Identity layer on top of OAuth 2.0.
 
 **OKRs (Objectives and Key Results)** — Goal-setting framework; objectives are aspirational, key results are measurable.
@@ -412,7 +418,7 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **Pagination** — Splitting large result sets into smaller pages. Common styles: offset-based, cursor-based.
 
-**Partial Prerendering (PPR)** — Newer rendering strategy: static shell with dynamic streamed-in sections. Next.js 15+.
+**Partial Prerendering (PPR)** — Rendering strategy: static shell with dynamic streamed-in sections. The original experimental PPR flag was folded into **Cache Components** (the `"use cache"` directive) in Next.js 16, which is its finished form.
 
 **Passkey** — Modern passwordless authentication using public-key cryptography and biometrics. Supported via WebAuthn.
 
@@ -588,6 +594,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **TanStack Query** — Library for managing server state in React (formerly React Query).
 
+**TanStack Start** — A type-safe full-stack React framework (built on TanStack Router + Vite + Nitro). Routes and server-function calls are checked at compile time; positioned as the type-safe alternative to Next.js. *See: [Frontend Frameworks → TanStack Start](/docs/stack/frontend-frameworks#tanstack-start--the-type-safe-react-alternative).*
+
 **TCP (Transmission Control Protocol)** — Reliable, connection-oriented transport protocol; underlies most internet traffic.
 
 **Terraform** — Infrastructure-as-code tool from HashiCorp. *OpenTofu* is the open-source fork.
@@ -640,9 +648,11 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **Vercel** — Hosting platform optimized for Next.js and other frameworks.
 
-**Vercel AI SDK** — Dominant TypeScript abstraction for LLM integrations.
+**Vercel AI SDK** — Dominant TypeScript abstraction for LLM integrations. As of mid-2026: **v5** is the stable floor (typed *UIMessage*/*ModelMessage*, transport-based `useChat`, `toUIMessageStreamResponse()`); **v6** adds a first-class `Agent` abstraction and a stable `@ai-sdk/mcp` package. *See: [Pattern 1: Streaming Chat](/docs/ai/ai-streaming-chat).*
 
-**Vite** — Modern JavaScript build tool; very fast dev experience.
+**View Transitions** — A browser API/CSS feature that animates between two UI states by tweening before/after snapshots. *Same-document* transitions (within an SPA) reached Baseline in Oct 2025; *cross-document* (between page loads) is still progressive enhancement as of mid-2026. *See: [Advanced CSS](/docs/stack/styling-advanced#modern-css-thats-now-baseline).*
+
+**Vite** — Modern JavaScript build tool; very fast dev experience. As of mid-2026: **Vite 7** (Rollup for prod builds), with **Vite 8** moving the bundler to **Rolldown** (Rust).
 
 **Vitest** — A Vite-native test runner; replacing Jest in many projects.
 
@@ -661,6 +671,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 **WCAG (Web Content Accessibility Guidelines)** — Standards for web accessibility.
 
 **WebAuthn** — Standard for passwordless authentication using public-key cryptography and biometrics. Powers passkeys.
+
+**WebGPU** — Browser API giving JavaScript near-native access to the GPU for graphics *and* general compute — including AI inference. Reached cross-browser availability (Chrome, Safari, Firefox) in early 2026; the engine behind in-browser model libraries like transformers.js. *See: [On-Device AI](/docs/ai/ai-on-device).*
 
 **Webhook** — HTTP callback; one service calls a URL on another when an event happens.
 

@@ -126,6 +126,7 @@ Each page focuses on a single AI pattern or production concern. Read in order th
 4. [Pattern 4: Agentic Workflows](/docs/ai/ai-agents) — Multi-step planning and execution.
 5. [Pattern 5: Embeddings for Semantic Search](/docs/ai/ai-embeddings) — Search, recommendations, deduplication.
 6. [Pattern 6: Multimodal AI](/docs/ai/ai-multimodal) — Vision, audio, video.
+7. [On-Device AI](/docs/ai/ai-on-device) — Run small models in the browser via WebGPU — privacy, offline, zero cost-per-call.
 
 ### Operating AI in production
 

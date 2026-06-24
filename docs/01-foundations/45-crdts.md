@@ -304,6 +304,74 @@ CRDTs are great for collaborative text; less great for "shared boolean settings.
 
 CRDTs are the right answer for "two or more users actively editing the same blob simultaneously." For "two users with their own data occasionally syncing," ordinary databases work fine.
 
+## The local-first / sync-engine pattern
+
+Collaborative editing is the *extreme* case. But a broader, related pattern has gone mainstream — and it applies to ordinary apps that aren't Google Docs at all. It's called **local-first**, and the tools that implement it are called **sync engines**.
+
+:::tip[In plain English]
+The classic web app reads and writes through the network: click a button → wait for the server → update the UI. Every interaction pays a round-trip, and the app is useless offline. **Local-first flips the order:** your reads and writes hit a *local* copy of the data instantly (0ms, works offline), and a **sync engine** quietly reconciles that local copy with the server in the background. The user never waits on the network for the common case; the network becomes a background detail, not a gate on every click.
+:::
+
+> **Jargon:** A **sync engine** is the layer that keeps a local data store and a server store in agreement — pushing your local changes up, pulling others' changes down, and resolving conflicts — so your app code can just read/write locally and trust that it converges.
+
+### The three moves
+
+The pattern is the same regardless of which product you use:
+
+1. **Optimistic local reads and writes.** The UI reads from and writes to a local store immediately, assuming the write will succeed. The change is on screen before the server has heard about it. (This is *optimistic UI* generalized from one mutation to the whole data layer.)
+2. **Offline-first.** Because the local store is the source of truth for the UI, the app keeps working with no connection. Edits queue up locally.
+3. **Background reconciliation.** When connected, the sync engine sends local changes to the server and pulls remote ones down. The server is the authority that settles conflicts (or CRDTs settle them, for the collaborative case). If the server rejects a write, the optimistic change is rolled back and the UI corrects.
+
+```mermaid
+flowchart LR
+    UI[UI] -->|read/write instantly 0ms| Local[(Local store<br/>in the browser/device)]
+    Local <-->|background sync| Engine[Sync engine]
+    Engine <-->|reconcile| Server[(Server / DB)]
+```
+
+The payoff is the feel of a native app — instant interactions, no spinners on every click, works on a plane — without hand-rolling a cache, an offline queue, and a reconciliation protocol yourself. That last part is exactly what's hard, and exactly what a sync engine gives you.
+
+### A stable option you can build on today: Convex / InstantDB
+
+For a hosted, batteries-included path, **Convex** and **InstantDB** are two of the more stable choices as of mid-2026. The shape with InstantDB is representative:
+
+```typescript
+import { init, tx, id } from '@instantdb/react';
+
+const db = init({ appId: process.env.NEXT_PUBLIC_INSTANT_APP_ID! });
+
+function Todos() {
+  // Reads come from the LOCAL store and update live as data syncs.
+  const { data } = db.useQuery({ todos: {} });
+
+  function addTodo(text: string) {
+    // Writes apply locally first (instant), then sync in the background.
+    db.transact(tx.todos[id()].update({ text, done: false }));
+  }
+
+  return <ul>{data?.todos.map(t => <li key={t.id}>{t.text}</li>)}</ul>;
+}
+```
+
+> **In English:** `useQuery` reads from a local store that the engine keeps in sync with the server, so the list updates the instant any client (including this one) changes it. `transact` writes locally first — the new todo shows up immediately — and the engine pushes it to the server in the background, retrying and reconciling on its own. You wrote no fetch code, no cache, no offline queue. **Convex** offers a similar reactive model with a stronger server-functions/backend story; pick by how much backend you want bundled in.
+
+### The frontier (label: tool layer not yet consolidated)
+
+:::note[Version stamp — as of mid-2026]
+The *pattern* (optimistic local writes + offline-first + background reconciliation) is durable and worth learning now. The **tools are still settling** — shapes, conflict models, and which database they sync are all in flux, so treat this list as a snapshot, not a recommendation set in stone:
+
+- **Zero** (by Rocicorp) — optimistic mutations + fine-grained reactivity against an authoritative server; very fast *perceived* performance. Not fully offline-write capable as of mid-2026.
+- **ElectricSQL** — syncs Postgres → local SQLite; uses CRDTs to merge, works offline.
+- **PowerSync** — robust offline-first SQLite sync; supports Postgres, MongoDB, MySQL, SQL Server.
+
+Convex and InstantDB are the more "just works" hosted choices; Zero/Electric/PowerSync are the frontier where the sync engine plugs into a database you already run. Expect consolidation — don't over-invest in one tool's specific API; invest in understanding the pattern so you can swap engines.
+:::
+
+### When local-first is (and isn't) worth it
+
+- **Worth it:** apps where interaction latency and offline use define the experience — productivity tools, note-taking, field/mobile apps, internal tools, anything "Linear-fast."
+- **Probably not worth it:** simple content sites, read-mostly apps, or anything where a standard server round-trip is plenty fast and offline is irrelevant. Local-first adds a sync layer and a conflict story; don't take on that complexity for a blog or a basic CRUD form. As always: reach for it when the UX win is real and measured, not by default.
+
 ## Common mistakes
 
 :::caution[Where people commonly trip up]
@@ -373,6 +441,32 @@ CRDTs are the right answer for "two or more users actively editing the same blob
   correct={1}
   explanation="CRDTs merge text correctly; they can't preserve *intent* for fields that semantically must have one value. For titles, settings, single-value config, design the UX to surface the conflict — don't pretend the merge is correct."
   revisit={{ to: "/docs/foundations/crdts#offline-conflicts-on-intent-not-text", label: "Convergence vs intent" }}
+/>
+
+<Question
+  prompt="What are the three moves that define the local-first / sync-engine pattern?"
+  options={[
+    { text: "Encrypt the data, compress it, then upload it" },
+    { text: "Optimistic local reads/writes (instant, 0ms), offline-first (works with no connection), and background reconciliation with the server" },
+    { text: "Server-side rendering, edge caching, and a CDN" },
+    { text: "Lock the row, write to the server, then refresh the UI" }
+  ]}
+  correct={1}
+  explanation="The UI reads/writes a local store instantly and keeps working offline; a sync engine reconciles with the server in the background (rolling back if a write is rejected). The user never waits on the network for the common case."
+  revisit={{ to: "/docs/foundations/crdts#the-three-moves", label: "The three moves" }}
+/>
+
+<Question
+  prompt="As of mid-2026, how should you treat the sync-engine tool layer (Convex, InstantDB, Zero, ElectricSQL, PowerSync)?"
+  options={[
+    { text: "Pick Zero — it's the permanent industry standard" },
+    { text: "Learn the durable pattern (optimistic local + offline + reconciliation); use a stable hosted option like Convex/InstantDB to ship, and treat Zero/Electric/PowerSync as the still-consolidating frontier — don't over-invest in one tool's API" },
+    { text: "Avoid all of them; local-first is a fad" },
+    { text: "They're all identical, so the choice doesn't matter" }
+  ]}
+  correct={1}
+  explanation="The pattern is durable and worth learning now; the tools are still settling (different conflict models, which DB they sync). Convex/InstantDB are the more 'just works' hosted choices; Zero/Electric/PowerSync are the frontier. Invest in the pattern so you can swap engines."
+  revisit={{ to: "/docs/foundations/crdts#the-frontier-label-tool-layer-not-yet-consolidated", label: "The frontier" }}
 />
 
 </Quiz>

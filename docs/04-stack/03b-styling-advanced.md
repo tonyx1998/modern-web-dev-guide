@@ -69,6 +69,67 @@ Hard-coded colors and spacing scattered across components are unthemeable and in
 Now dark mode is one attribute on `<html>`; a rebrand is a token file. Tailwind's config and shadcn/ui both lean on exactly this — tokens are the layer that lets a design stay consistent across hundreds of components and still re-theme in one place. Cascading custom properties also *inherit*, so a token set on a subtree re-themes just that branch.
 :::
 
+## Modern CSS that's now Baseline
+
+A wave of CSS features crossed into "safe to use" between 2024 and early 2026. The word that matters here is **Baseline** — a cross-browser status meaning *all the major engines (Chromium, Safari/WebKit, Firefox/Gecko) ship it*. "Baseline newly available" means it just reached every browser; "Baseline widely available" means it's been there long enough (~2.5 years) to use without a second thought. The practical upshot: a lot of things that used to need a JavaScript library or a pile of `@media` queries are now plain CSS.
+
+:::note[Version stamp — as of mid-2026]
+The *features* below are durable CSS; the **dates** are the dated part. Treat anything stamped "Baseline" as safe to ship today, and anything labelled "progressive enhancement" as a nice-to-have with a Firefox gap — code a fallback path, don't make it the only path.
+:::
+
+> **Jargon:** **Baseline** — a browser-support label (from the Web Platform / MDN) saying a feature works across all major engines. **Progressive enhancement** — building so the page *works* without a feature, then *improves* where the feature exists; the opposite of requiring it.
+
+### Durable & safe to use today
+
+- **`:has()` — the "parent selector" we waited 20 years for.** Style an element based on what it *contains* or what follows it: `.card:has(img) { … }` styles only cards that contain an image; `label:has(+ input:required)::after { content: " *"; }` flags required fields — no JavaScript, no extra classes. Baseline widely available. This single selector deletes a huge category of "I need JS just to toggle a class on the parent" code.
+- **Native CSS nesting.** Write nested rules the way Sass let you, but in plain CSS — no preprocessor:
+  ```css
+  .card {
+    padding: 1rem;
+    & .title { font-weight: 600; }
+    &:hover { background: var(--hover); }
+  }
+  ```
+  Baseline. (Mind one gotcha: a bare nested element selector like `span` must be written `& span` or the parser can misread it.)
+- **View Transitions (same-document).** Animate *between two UI states* — a list re-sorting, a panel opening, navigating within a single-page app — by letting the browser tween the before/after snapshots for you, instead of hand-writing FLIP animations in JS:
+  ```js
+  // wrap the DOM update; the browser crossfades old → new
+  document.startViewTransition(() => updateTheDOM());
+  ```
+  ```css
+  /* opt specific elements into a shared, named transition */
+  .hero { view-transition-name: hero; }
+  ```
+  Same-document View Transitions reached **Baseline in October 2025** (Firefox 144 was the last engine in). Durable and safe.
+- **Anchor positioning — the Floating-UI killer.** Tether one element to another (tooltip to its trigger, menu to its button) declaratively, *including* an automatic fallback position so it never overflows the screen — all in CSS, no positioning library and no JS measurement loop:
+  ```css
+  .trigger { anchor-name: --btn; }
+  .tooltip {
+    position: absolute;
+    position-anchor: --btn;
+    top: anchor(bottom);        /* sit under the trigger */
+    position-try-fallbacks: flip-block;  /* flip above if it'd overflow */
+  }
+  ```
+  Reaching Baseline in **early 2026** (a headline item of the Interop 2026 effort). This replaces the most common reason teams reach for Floating UI / Popper.
+- **`oklch()` and `color-mix()` — perceptual color.** `oklch(0.7 0.15 250)` describes color as *lightness, chroma, hue* the way human vision works, so lightening/darkening and generating palettes stays perceptually even (unlike HSL, which gets muddy). `color-mix(in oklch, var(--brand) 80%, white)` blends two colors for hover/tint states without hard-coding a second value. Baseline. Tokens + `oklch` is the modern way to generate a whole tint/shade scale from one brand color.
+- **`@property` — typed custom properties.** Registering a custom property gives it a type, so it can be *animated*:
+  ```css
+  @property --angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+  .spinner { transition: --angle 0.3s; }   /* now the gradient angle can tween */
+  ```
+  Baseline. Unlocks animated gradients and other effects that plain custom properties can't do.
+- **Subgrid.** Lets a nested grid line its tracks up with its parent's grid — so, for example, a row of cards with differing content all share the same internal baselines. Baseline.
+
+### Progressive enhancement (Firefox gaps — code a fallback)
+
+- **Cross-document View Transitions (MPA).** The same crossfade/morph, but *between separate page loads* in a multi-page app — enabled with a single `@view-transition { navigation: auto; }`. As of mid-2026 this ships in Chromium-family browsers but Safari and Firefox are still catching up, so the navigation must look fine *without* the transition. Pure enhancement: the page works; it just animates where supported.
+- **Scroll-driven animations.** Drive an animation's progress from *scroll position* instead of time (`animation-timeline: scroll()` / `view()`) — reading-progress bars, parallax, reveal-on-scroll, entirely in CSS with no scroll listeners. Shipped in Chromium and (behind a flag) Firefox as of mid-2026. Because it degrades cleanly — without support the element simply sits in its final state — it's a textbook progressive enhancement, *not* something to gate core layout on.
+
+:::info[Highlight: the trade you should actually make]
+The durable lesson isn't the feature list — it's the *shift*. A growing share of UI behavior that used to demand JavaScript (parent-aware styling, tooltips/popovers positioning, page-transition animations, theme color math) is now **declarative CSS the browser optimizes for you**. Less JS means less bundle, fewer re-render bugs, and better accessibility defaults. Reach for the CSS feature first; pull in a library only when you hit a real gap (a not-yet-Baseline feature you can't degrade, or a genuinely dynamic case).
+:::
+
 ## Common mistakes
 
 :::caution[Where people commonly trip up]
@@ -78,6 +139,9 @@ Now dark mode is one attribute on `<html>`; a rebrand is a token file. Tailwind'
 - **Hard-coding colors/spacing per component.** Unthemeable and drift-prone. Use design tokens (CSS variables); theme by swapping variables.
 - **Forgetting `box-sizing: border-box`.** Without it, padding/border add to width and layouts overflow unexpectedly. It's the sane default (and most resets set it).
 - **Ignoring logical properties for i18n.** `margin-left` breaks RTL; `margin-inline-start` adapts automatically.
+- **Pulling in a positioning library out of habit.** Tooltips and popovers used to need Floating UI / Popper; CSS **anchor positioning** (with `position-try-fallbacks`) now covers the common cases declaratively. Check whether plain CSS does it before adding a dependency.
+- **Making a not-yet-Baseline feature load-bearing.** Cross-document View Transitions and scroll-driven animations have Firefox gaps as of mid-2026 — gate them as *enhancement* (the page must work and read correctly without them), never as the only way content appears or navigates.
+- **Reaching for HSL when generating a palette.** HSL lightness isn't perceptually uniform, so tint/shade scales come out muddy. Use `oklch()` (and `color-mix(in oklch, …)`) so steps look evenly spaced to the eye.
 :::
 
 ## Practice on your own project
@@ -130,6 +194,32 @@ Now dark mode is one attribute on `<html>`; a rebrand is a token file. Tailwind'
   correct={1}
   explanation="Tokens (CSS variables for colors, spacing, radius, etc.) centralize the design system. Components reference tokens, so dark mode or a rebrand becomes swapping variables — not editing components. It's the layer Tailwind config and shadcn/ui build on, and custom properties inherit so you can re-theme a subtree."
   revisit={{ to: "/docs/stack/styling-advanced#modern-layout", label: "Design tokens" }}
+/>
+
+<Question
+  prompt="A teammate wants to add Floating UI to position a tooltip under a button, with a fallback above when it'd overflow. What's the modern CSS-first answer (Baseline early 2026)?"
+  options={[
+    { text: "There's no CSS equivalent; Floating UI is required" },
+    { text: "CSS anchor positioning: anchor-name on the trigger, position-anchor + anchor() on the tooltip, and position-try-fallbacks for the flip — no JS positioning library" },
+    { text: "Use z-index: 9999 to force the tooltip on top" },
+    { text: "Set the tooltip to position: fixed and hard-code top/left pixels" }
+  ]}
+  correct={1}
+  explanation="Anchor positioning tethers one element to another declaratively, including automatic fallback positions to avoid overflow — covering the most common reason teams reach for Floating UI / Popper. Reaching Baseline in early 2026 as part of Interop 2026."
+  revisit={{ to: "/docs/stack/styling-advanced#durable--safe-to-use-today", label: "Anchor positioning" }}
+/>
+
+<Question
+  prompt="You add scroll-driven animations and cross-document View Transitions to a site. Why should both be treated as progressive enhancement as of mid-2026, while same-document View Transitions and :has() can be used freely?"
+  options={[
+    { text: "They're slower than JavaScript equivalents" },
+    { text: "They have Firefox gaps (scroll-driven is behind a flag; cross-document VT isn't in Safari/Firefox yet), so the page must work without them — whereas :has() and same-document View Transitions reached Baseline across all engines" },
+    { text: "They only work on mobile" },
+    { text: "They require a build step that Vite doesn't support" }
+  ]}
+  correct={1}
+  explanation="Baseline means all major engines ship it — :has() and same-document View Transitions (Firefox 144, Oct 2025) cleared that bar and are durable. Cross-document VT and scroll-driven animations still have Firefox/Safari gaps, so they're enhancement: code a path that works without them and let supporting browsers improve it."
+  revisit={{ to: "/docs/stack/styling-advanced#progressive-enhancement-firefox-gaps--code-a-fallback", label: "Progressive enhancement" }}
 />
 
 </Quiz>

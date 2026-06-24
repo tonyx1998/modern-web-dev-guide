@@ -47,7 +47,7 @@ All deployed as one Next.js app. Internally organized so that modules can later 
 
 | Layer            | Tool                                              |
 |------------------|---------------------------------------------------|
-| Frontend + SSR   | Next.js 15 (App Router)                           |
+| Frontend + SSR   | Next.js 16 (App Router)                           |
 | Language         | TypeScript (strict mode)                          |
 | UI               | shadcn/ui + Tailwind CSS v4                       |
 | Internal API     | tRPC or Server Actions                            |

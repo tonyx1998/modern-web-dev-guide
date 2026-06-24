@@ -35,7 +35,7 @@ A founder starts a new AI feature on a weekend. Using the table above as a "bori
 - **Chat:** Vercel AI SDK + Claude Sonnet (Anthropic).
 - **Embeddings:** OpenAI `text-embedding-3-small`.
 - **Vector storage:** pgvector on the existing Postgres database (Neon free tier).
-- **Streaming:** Server-Sent Events via `streamText().toDataStreamResponse()`.
+- **Streaming:** Server-Sent Events via `streamText().toUIMessageStreamResponse()` (AI SDK 5).
 - **Observability:** Langfuse free tier.
 - **Eval:** Langfuse + ~50 hand-written test cases in a JSON file.
 
