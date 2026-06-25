@@ -154,4 +154,4 @@ A referral converts to an interview at roughly 5–10x the rate of a cold applic
 
 ## What's next
 
-→ Continue to [Specialization Tracks](./career-specialization) for what comes after your first 2–3 years on the job.
+→ Continue to [Acing the Interview Loop](./career-interview-prep) for a full, worked walkthrough of every interview stage — coding, frontend, system design, behavioral, and take-home.

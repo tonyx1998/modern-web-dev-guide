@@ -30,7 +30,7 @@ export const chapters: GuideChapter[] = [
     icon: 'Layers',
     level: 'beginner',
     to: '/docs/foundations',
-    lessonCount: 48,
+    lessonCount: 50,
   },
   {
     id: 'roadmap',
@@ -57,7 +57,7 @@ export const chapters: GuideChapter[] = [
     icon: 'Code2',
     level: 'intermediate',
     to: '/docs/stack',
-    lessonCount: 25,
+    lessonCount: 27,
   },
   {
     id: 'cloud',
@@ -156,7 +156,7 @@ export const chapters: GuideChapter[] = [
     icon: 'TrendingUp',
     level: 'intermediate',
     to: '/docs/career',
-    lessonCount: 12,
+    lessonCount: 13,
   },
 ];
 

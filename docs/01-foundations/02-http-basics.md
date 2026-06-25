@@ -181,4 +181,4 @@ Every HTTP request has the same shape: **method + path + headers + (optional) bo
 
 ## What's next
 
-→ Continue to [HTTP Methods & Status Codes](./http-methods-and-status) where we'll cover the *verbs* (GET, POST, PUT…) and the numeric *replies* (200, 404, 500…).
+→ Continue to [TLS & HTTPS internals](./tls-https-internals) — open up the "S" in HTTPS: the handshake, certificates, and how trust actually works. Then on to [HTTP Methods & Status Codes](./http-methods-and-status) for the *verbs* (GET, POST, PUT…) and numeric *replies* (200, 404, 500…).

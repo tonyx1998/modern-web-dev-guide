@@ -114,6 +114,8 @@ function SignupForm() {
 
 > **In English:** **Zod** declares the validation rules (email must look like an email; password must be 8+ chars). React Hook Form's `register('email')` wires an input to the form state using the field name as the key. On submit, the **resolver** runs the Zod schema against the values; any failures populate `errors` so you can render messages next to the offending fields. One schema doubles as runtime validation, TypeScript types, and form validation.
 
+→ **Going deeper:** [Forms & Server Actions](./forms-server-actions) takes this pairing all the way — async validation, surfacing server errors, optimistic updates, and the React 19 / Next.js 16 server-action mutation pattern.
+
 ## URL state
 
 The URL is also state. Use the framework's router (Next.js's `useSearchParams`, React Router's `useSearchParams`) to read/update URL state.
@@ -196,4 +198,4 @@ This sets you up for stale data, manual refetching logic, race conditions, and c
 
 ## What's next
 
-→ Continue to [Backend Frameworks](./backend-frameworks) — the server-side equivalent of frontend frameworks.
+→ Continue to [Forms & Server Actions](./forms-server-actions) — the controlled/uncontrolled split, React Hook Form + Zod, and the React 19 / Next.js 16 server-action mutation pattern end to end.

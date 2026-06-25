@@ -81,6 +81,7 @@ Each page focuses on **one topic** with worked examples and beginner callouts. R
 25. [Authentication: Proving Identity](/docs/foundations/authentication) — Passwords, OAuth, magic links, passkeys.
 26. [Authorization: Permissions & Tokens](/docs/foundations/authorization) — Sessions, JWTs, RBAC, RLS.
 27. [Web Security](/docs/foundations/web-security) — XSS, CSRF, CSP, SQLi, SSRF, supply chain.
+28. [Security Headers & Checklist](/docs/foundations/security-headers) — HSTS, CSP rollout, SRI, and debugging CORS.
 
 ### Getting code to users
 

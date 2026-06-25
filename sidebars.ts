@@ -38,6 +38,7 @@ const sidebars: SidebarsConfig = {
           items: [
             'foundations/client-server',
             'foundations/http-basics',
+            'foundations/tls-https-internals',
             'foundations/http-methods-and-status',
             'foundations/http-headers-cookies',
             'foundations/dns',
@@ -134,6 +135,7 @@ const sidebars: SidebarsConfig = {
             'foundations/authentication',
             'foundations/authorization',
             'foundations/web-security',
+            'foundations/security-headers',
           ],
         },
         {
@@ -309,6 +311,8 @@ const sidebars: SidebarsConfig = {
             'stack/styling',
             'stack/styling-advanced',
             'stack/state-management',
+            'stack/forms-server-actions',
+            'stack/design-systems-storybook',
           ],
         },
         {

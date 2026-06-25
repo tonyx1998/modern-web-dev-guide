@@ -28,6 +28,8 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **ACID** — Atomicity, Consistency, Isolation, Durability. Guarantees provided by traditional relational databases.
 
+**ACME (Automatic Certificate Management Environment)** — The protocol that automates issuing and renewing TLS certificates (proving domain control, fetching the signed cert). Popularized by Let's Encrypt; clients include Certbot and Caddy. *See: [TLS & HTTPS internals → Let's Encrypt and ACME](/docs/foundations/tls-https-internals#lets-encrypt-and-acme-certificates-that-renew-themselves).*
+
 **ADR (Architecture Decision Record)** — A short document recording why an architectural decision was made, what alternatives were considered, and what the consequences are. *See: [The Documentation Trade-Off](/docs/decisions/documentation-tradeoff).*
 
 **Agent (AI)** — An LLM-based system that plans and executes multi-step actions by calling tools, observing results, and continuing until a task is complete. *See: [Pattern 4: Agentic Workflows](/docs/ai/ai-agents).*
@@ -84,7 +86,11 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **Canary Deployment** — Rolling out a new version to a small percentage of users first to detect problems before full rollout.
 
+**CA (Certificate Authority)** — An organization trusted by browsers/OSes to verify domain ownership and issue TLS certificates (e.g. Let's Encrypt, DigiCert). A CA that misissues gets distrusted. *See: [TLS & HTTPS internals → Certificate Authorities](/docs/foundations/tls-https-internals#certificate-authorities-who-gets-to-vouch).*
+
 **CCPA (California Consumer Privacy Act)** — California's data privacy law. Similar in spirit to GDPR.
+
+**Certificate chain** — The trust path a browser walks to validate a TLS cert: leaf (your domain) → intermediate (the CA) → root (pre-installed in the trust store). *See: [TLS & HTTPS internals → The certificate chain](/docs/foundations/tls-https-internals#the-certificate-chain-root--intermediate--leaf).*
 
 **CDN (Content Delivery Network)** — A globally distributed network of servers that caches content close to users. Examples: Cloudflare, Akamai, Fastly.
 
@@ -97,6 +103,8 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 **CD (Continuous Deployment / Delivery)** — Continuous Deployment: every change automatically deploys to production. Continuous Delivery: every change is *deployable*, but a human triggers actual deployment.
 
 **Clerk** — A popular drop-in auth-as-a-service for modern web apps.
+
+**Clickjacking** — Attack where your real page is loaded in an invisible iframe over a decoy, so a user's click lands on a hidden button (e.g. "confirm transfer"). Mitigated with `X-Frame-Options: DENY` or CSP `frame-ancestors`. *See: [Security headers & checklist](/docs/foundations/security-headers#frame-ancestors-vs-x-frame-options).*
 
 **Client Component** — In React, a component that runs in the browser (and is also pre-rendered on the server for initial HTML).
 
@@ -112,7 +120,9 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **Compositing** — In browser rendering, combining layers into the final image (often on the GPU).
 
-**CORS (Cross-Origin Resource Sharing)** — HTTP mechanism for letting one domain's JS access resources on another domain.
+**Controlled component** — A form input whose value lives in React state (`value` + `onChange`), making React the single source of truth. Contrast with *Uncontrolled component*. *See: [Forms & Server Actions](/docs/stack/forms-server-actions#controlled-vs-uncontrolled-inputs).*
+
+**CORS (Cross-Origin Resource Sharing)** — HTTP mechanism for letting one origin's JS read responses from another origin. A *relaxation* of the browser's same-origin policy (set via `Access-Control-Allow-*` response headers on the resource's server), not a server-side defense. *See: [Security headers & checklist → CORS](/docs/foundations/security-headers#cors-the-error-everyone-hits-finally-explained-operationally).*
 
 **CQRS (Command Query Responsibility Segregation)** — Architectural pattern separating write models from read models.
 
@@ -120,7 +130,7 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **CRUD (Create, Read, Update, Delete)** — The basic operations on data; most web apps mostly do CRUD.
 
-**CSP (Content Security Policy)** — HTTP header that restricts what resources a page can load, mitigating XSS.
+**CSP (Content Security Policy)** — HTTP header that restricts what resources a page can load, mitigating XSS. Roll out safely with `Content-Security-Policy-Report-Only` first. *See: [Security headers & checklist → CSP rollout](/docs/foundations/security-headers#content-security-policy--recap--the-report-only-rollout).*
 
 **CSR (Client-Side Rendering)** — Rendering HTML in the browser via JavaScript, after the page loads. Contrast with *SSR*, *SSG*.
 
@@ -144,7 +154,13 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **Deno** — A JavaScript runtime, alternative to Node. Built by the original creator of Node.
 
+**Dependabot** — GitHub's built-in tool that watches your lockfile and opens pull requests to bump outdated or vulnerable dependencies. *See: [Package Managers → Supply-chain security](/docs/stack/package-managers#supply-chain-security).*
+
 **Dependency Injection** — Pattern where a function or class receives its dependencies as parameters rather than constructing them itself.
+
+**Design system** — A shared, reusable kit of design tokens, primitives, and components (plus usage rules and docs) a team builds UIs from, for consistency and accessibility at scale. *See: [Design Systems & Storybook](/docs/stack/design-systems-storybook).*
+
+**Design token** — A named design value (e.g. `color.primary`, `space.4`, `radius.md`) that is the single source of truth for a design decision, referenced everywhere instead of hardcoded. *See: [Design Systems & Storybook → tokens](/docs/stack/design-systems-storybook#the-layers-tokens--primitives--components).*
 
 **DevEx (Developer Experience)** — The quality of life for developers using tools or working in a codebase.
 
@@ -254,7 +270,7 @@ Terms are alphabetized, then organized by their first letter. Cross-references a
 
 **Hono** — A fast, edge-friendly web framework that runs on any JavaScript runtime. Rising star in 2026.
 
-**HSTS (HTTP Strict Transport Security)** — HTTP header that tells browsers to always use HTTPS for a domain.
+**HSTS (HTTP Strict Transport Security)** — HTTP header that tells browsers to always use HTTPS for a domain, defending against downgrade attacks. The `preload` flag is effectively permanent — add it only when ready. *See: [Security headers & checklist → HSTS](/docs/foundations/security-headers#hsts--recap-plus-the-gotcha).*
 
 **HTML (HyperText Markup Language)** — The structural language of web pages.
 
@@ -315,6 +331,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 ## L
 
 **Laravel** — A popular PHP web framework.
+
+**Let's Encrypt** — A free, nonprofit Certificate Authority that issues TLS certs (valid 90 days) and automates issuance/renewal via ACME. *See: [TLS & HTTPS internals → Let's Encrypt and ACME](/docs/foundations/tls-https-internals#lets-encrypt-and-acme-certificates-that-renew-themselves).*
 
 **Local-first** — An app architecture where reads/writes happen instantly against a local copy of the data and a sync engine reconciles with the server in the background — so the UI feels 0ms and keeps working offline. Generalizes the CRDT/collaboration idea to ordinary apps. *See: [Realtime collaboration & CRDTs → the local-first / sync-engine pattern](/docs/foundations/crdts#the-local-first--sync-engine-pattern).*
 
@@ -386,6 +404,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **OpenAPI** — Specification format for REST APIs; tools can generate clients, docs, mocks from it.
 
+**Optimistic update** — Showing the expected result of a mutation immediately, before the server confirms, then reconciling (or rolling back) when the real response arrives — making the UI feel instant. *See: [Forms & Server Actions → optimistic updates](/docs/stack/forms-server-actions#optimistic-updates).*
+
 **OpenTelemetry** — Vendor-neutral standard for instrumenting code with telemetry (logs, metrics, traces).
 
 **ORM (Object-Relational Mapper)** — Library that maps database tables to programming-language objects. Drizzle, Prisma.
@@ -402,6 +422,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **PCI-DSS** — Payment Card Industry Data Security Standard; required for handling credit cards.
 
+**Permissions-Policy** — HTTP response header that disables powerful browser features (camera, microphone, geolocation, etc.) a page doesn't use, so injected code can't abuse them either. *See: [Security headers & checklist](/docs/foundations/security-headers#the-security-headers-checklist).*
+
 **PG (Postgres / PostgreSQL)** — Open-source relational database; the 2026 default for most new projects.
 
 **pgvector** — Postgres extension for vector similarity search; popular for RAG applications. *See: [Pattern 2: RAG](/docs/ai/ai-rag).*
@@ -414,11 +436,17 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **PostHog** — Open-source product analytics platform; includes session replay and feature flags.
 
+**Preflight (CORS)** — An automatic `OPTIONS` request the browser sends before a "non-simple" cross-origin request (e.g. a JSON body, a `PUT`/`DELETE`, or a custom header) to ask the server's permission via `Access-Control-Allow-*` headers. *See: [Security headers & checklist → simple vs preflighted](/docs/foundations/security-headers#the-model-simple-vs-preflighted-requests).*
+
 **Prisma** — A popular TypeScript ORM with schema-first design.
+
+**Primitive (UI)** — The lowest-level building block of a design system (e.g. `Box`, `Text`, `Stack`, `Icon`) that consumes tokens and is composed into components. *See: [Design Systems & Storybook](/docs/stack/design-systems-storybook#the-layers-tokens--primitives--components).*
 
 **Production** — The live environment used by real users.
 
 **Progressive Delivery** — Deployment strategies that gradually expand a release (canary, percentage rollout, feature flags).
+
+**Progressive enhancement** — Building so the core experience works with plain HTML (no JavaScript), then layering on richer behavior when JS loads. A form wired to a *Server Action* submits even before hydration. *See: [Forms & Server Actions](/docs/stack/forms-server-actions#server-actions--the-modern-mutation-pattern).*
 
 **Prompt Engineering** — Crafting input text to LLMs to get desired output.
 
@@ -452,7 +480,13 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **React** — A JavaScript library for building user interfaces from components. Maintained by Meta.
 
+**React Hook Form (RHF)** — The dominant React form library; uses uncontrolled inputs under the hood for performance and pairs with *Zod* (via a resolver) for validation. *See: [Forms & Server Actions](/docs/stack/forms-server-actions#react-hook-form--zod--the-validation-layer).*
+
 **React Server Components (RSCs)** — React components that render only on the server; can directly fetch data without API roundtrips.
+
+**Renovate** — A configurable dependency-update bot (works on any platform) that opens pull requests to keep dependencies current and patched. Like *Dependabot*, but vendor-neutral. *See: [Package Managers → Supply-chain security](/docs/stack/package-managers#supply-chain-security).*
+
+**Referrer-Policy** — HTTP response header controlling how much of the current URL is sent in the `Referer` header on outbound navigations/requests, preventing tokens or IDs in URLs from leaking to other sites. A common safe value is `strict-origin-when-cross-origin`. *See: [Security headers & checklist](/docs/foundations/security-headers#the-security-headers-checklist).*
 
 **Redis** — In-memory data store; used for caching, sessions, queues.
 
@@ -478,6 +512,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **S3 (Simple Storage Service)** — AWS's object storage service. The de facto standard; many providers offer S3-compatible APIs.
 
+**Same-Origin Policy** — The browser's default security rule: JS on one origin (scheme + host + port) may send requests to another origin but can't *read* the response unless that server opts in via *CORS*. *See: [Security headers & checklist → CORS](/docs/foundations/security-headers#the-model-simple-vs-preflighted-requests).*
+
 **SAML** — XML-based standard for enterprise single sign-on.
 
 **Sanity** — A headless CMS.
@@ -486,9 +522,13 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **SCA (Software Composition Analysis)** — Scanning dependencies for known vulnerabilities.
 
+**Security headers** — The set of HTTP response headers that harden a page in the browser: HSTS, Content-Security-Policy, X-Content-Type-Options, X-Frame-Options/frame-ancestors, Referrer-Policy, Permissions-Policy. *See: [Security headers & checklist](/docs/foundations/security-headers).*
+
 **Schema** — The structure of data (database schema = tables and columns; API schema = endpoints and shapes).
 
 **SCSS / Sass** — CSS preprocessors that add features like nesting and variables. Less common now that CSS itself has these features.
+
+**SNI (Server Name Indication)** — A field in the TLS ClientHello stating the target hostname (in the clear), so a server hosting many HTTPS sites on one IP can pick the right certificate. *See: [TLS & HTTPS internals → SNI](/docs/foundations/tls-https-internals#sni-many-sites-one-ip-address).*
 
 **SDK (Software Development Kit)** — A package providing tools/libraries for working with a service.
 
@@ -496,7 +536,7 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **Serverless** — Cloud model where functions run on demand without provisioning servers. AWS Lambda, Cloudflare Workers.
 
-**Server Action** — In Next.js, a server function that can be called directly from a client component.
+**Server Action** — A server-only function (marked `"use server"`) callable directly from a form or client component without a separate API route; the modern mutation pattern in React 19 / Next.js 16. *See: [Forms & Server Actions](/docs/stack/forms-server-actions#server-actions--the-modern-mutation-pattern).*
 
 **Server Component** — In React, a component that renders only on the server. Contrast with *Client Component*.
 
@@ -538,6 +578,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **SQLite** — A single-file relational database; lightweight, increasingly used in production at the edge.
 
+**SRI (Subresource Integrity)** — A cryptographic hash pinned on a `<script>`/`<link>` (`integrity="sha384-…"`) so the browser refuses to execute a CDN file whose bytes don't match — defending against a compromised/tampered CDN. For immutable, version-pinned URLs only. *See: [Security headers & checklist → SRI](/docs/foundations/security-headers#subresource-integrity-sri-trusting-a-script-you-didnt-write).*
+
 **SSE (Server-Sent Events)** — Long-lived HTTP connection for server-to-client streaming. Used for LLM responses. *See: [Pattern 1: Streaming Chat](/docs/ai/ai-streaming-chat).*
 
 **SSG (Static Site Generation)** — Rendering HTML at build time; serving as static files.
@@ -548,9 +590,15 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **Staging** — Pre-production environment for final testing.
 
+**Story (Storybook)** — A single rendered state of a component (e.g. "Button / Disabled"); the unit Storybook displays, documents, and tests. *See: [Design Systems & Storybook](/docs/stack/design-systems-storybook#storybook--isolated-component-development).*
+
+**Storybook** — A tool for building, documenting, and testing UI components in isolation, outside the app, with auto-generated controls and docs. *See: [Design Systems & Storybook](/docs/stack/design-systems-storybook#storybook--isolated-component-development).*
+
 **Stripe** — Dominant payments platform for developers.
 
 **Supabase** — Open-source Firebase alternative; Postgres + auth + storage + realtime.
+
+**Supply chain (software)** — The full transitive tree of dependencies your project runs; a real attack surface, since a compromised dependency runs with your code's access. Defended with lockfiles, `npm audit`, Dependabot/Renovate, and restricting install-time scripts. *See: [Package Managers → Supply-chain security](/docs/stack/package-managers#supply-chain-security).*
 
 **Svelte** — A frontend framework that compiles components to vanilla JS at build time.
 
@@ -594,9 +642,13 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 
 **Typesense** — Modern, fast search engine.
 
+**Typosquatting** — Publishing a malicious package under a name one keystroke off a popular one (e.g. `loadsh`, `crossenv`) so a typo in an install command pulls the attacker's code. *See: [Package Managers → Supply-chain security](/docs/stack/package-managers#supply-chain-security).*
+
 ---
 
 ## U
+
+**Uncontrolled component** — A form input that keeps its own value in the DOM, read on demand (via a `ref` or `FormData`) rather than living in React state. Contrast with *Controlled component*. *See: [Forms & Server Actions](/docs/stack/forms-server-actions#controlled-vs-uncontrolled-inputs).*
 
 **UDP (User Datagram Protocol)** — Connectionless transport protocol; faster but less reliable than TCP. Used by HTTP/3 (QUIC).
 
@@ -621,6 +673,8 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 **View Transitions** — A browser API/CSS feature that animates between two UI states by tweening before/after snapshots. *Same-document* transitions (within an SPA) reached Baseline in Oct 2025; *cross-document* (between page loads) is still progressive enhancement as of mid-2026. *See: [Advanced CSS](/docs/stack/styling-advanced#modern-css-thats-now-baseline).*
 
 **Vite** — Modern JavaScript build tool; very fast dev experience. As of mid-2026: **Vite 7** (Rollup for prod builds), with **Vite 8** moving the bundler to **Rolldown** (Rust).
+
+**Visual-regression testing** — Testing that screenshots a component (often each Storybook story) and pixel-diffs it against an approved baseline, flagging any unintended appearance change. *See: [Design Systems & Storybook](/docs/stack/design-systems-storybook#visual-regression-testing).*
 
 **Vitest** — A Vite-native test runner; replacing Jest in many projects.
 
@@ -657,6 +711,10 @@ A JWT looks like `xxxxx.yyyyy.zzzzz` — three base64 sections separated by dots
 ---
 
 ## X
+
+**X-Content-Type-Options** — HTTP response header; the value `nosniff` stops the browser from MIME-sniffing a response into a different type (e.g. running an uploaded image as HTML/JS). *See: [Security headers & checklist](/docs/foundations/security-headers#the-security-headers-checklist).*
+
+**X-Frame-Options** — HTTP response header (`DENY`/`SAMEORIGIN`) that stops your page being embedded in an iframe, defending against *clickjacking*. The modern replacement is CSP `frame-ancestors`. *See: [Security headers & checklist](/docs/foundations/security-headers#frame-ancestors-vs-x-frame-options).*
 
 **XHR (XMLHttpRequest)** — The original way browsers made HTTP requests from JavaScript. Largely replaced by `fetch`.
 

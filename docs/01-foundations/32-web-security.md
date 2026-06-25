@@ -12,6 +12,8 @@ description: The classes of attack that aren't about identity — injection (XSS
 
 → **Going deeper:** [Security Beyond HTTPS](/docs/roadmap/part-3-beyond/security) walks the threat model end to end — authz/IDOR, injection, SSRF, secret handling, and a pre-ship checklist.
 
+→ **The operational layer:** [Security headers & browser-security checklist](./security-headers) turns this page's concepts into the response-header checklist you actually ship (HSTS, CSP report-only rollout, `nosniff`, `frame-ancestors`, Referrer-/Permissions-Policy), plus Subresource Integrity for CDN scripts and a traced walkthrough of debugging a real CORS error.
+
 :::tip[In plain English]
 A user logs in (auth ✓). Now they paste a comment that contains `<script>` — XSS. Now an attacker tricks them into clicking a link that triggers a payment from their account — CSRF. Now an unrelated dependency in your package.json runs a postinstall script that exfiltrates your env vars — supply chain. Auth doesn't stop any of these. Each has its own defense, and modern web frameworks bake most of them in *if you don't fight them*.
 :::
@@ -278,7 +280,7 @@ The line between security and operations is fuzzy. See [Rate limiting](./rate-li
 
 ### Encryption in transit and at rest
 
-- **In transit:** HTTPS for everything user-facing. Internal services in a VPC can be HTTP; in zero-trust setups, mTLS internally.
+- **In transit:** HTTPS for everything user-facing (the handshake, certificates, and mTLS are covered in [TLS & HTTPS internals](./tls-https-internals)). Internal services in a VPC can be HTTP; in zero-trust setups, mTLS internally.
 - **At rest:** DB-level encryption (AWS RDS, Cloud SQL — usually on by default). Application-level encryption for the *specific* sensitive fields (using KMS) when stricter regulatory regimes demand it.
 - **Backup encryption** — yes, even backups. They get stolen too.
 

@@ -86,6 +86,32 @@ time bun add react
 You'll see a dramatic spread. Bun is usually 5–10× faster than npm on the same machine, and pnpm sits comfortably in between.
 :::
 
+## Supply-chain security
+
+When you install a package, you're not just running its code — you're running the code of everything *it* depends on, transitively, often hundreds of packages written by people you've never heard of. That's the **software supply chain**, and it's a real attack surface: a compromised dependency runs with the same access your project has. A few concept-first defenses, roughly in order of effort:
+
+**`npm audit` — know your known vulnerabilities.** Every package manager can cross-check your installed versions against a public database of disclosed vulnerabilities.
+
+```bash
+npm audit            # list known CVEs in your dependency tree
+npm audit fix        # upgrade to patched versions where it's safe
+```
+
+It only catches *publicly disclosed* issues, and `audit fix` won't apply upgrades that would break your version ranges — but it's the cheapest first look at "am I shipping a known hole?"
+
+**Dependabot / Renovate — keep dependencies fresh automatically.** Staying patched by hand doesn't scale. **Dependabot** (built into GitHub) and **Renovate** (configurable, works anywhere) watch your lockfile and open pull requests when a dependency has a newer or security-patched version. Your CI runs the test suite against each PR, so you review a small, isolated bump instead of a giant once-a-year upgrade. The win is *small, continuous, tested* updates rather than a scary big-bang.
+
+**The lockfile is a defense, not just reproducibility.** You already commit `package-lock.json` (or `pnpm-lock.yaml`, `bun.lock`) for reproducible installs — but it's also a *security* boundary. The lockfile pins the exact resolved version *and* an integrity hash of every package. That means a teammate's stray `install` can't silently pull a brand-new `1.4.0` of a dependency, and a tampered package whose contents don't match the recorded hash fails the install. Deleting the lockfile to "clean up" throws that protection away.
+
+**Typosquatting and postinstall scripts — the two classic traps.**
+
+- **Typosquatting** — Attackers publish malicious packages with names one keystroke off a popular one (`reactt`, `loadsh`, `crossenv` vs `cross-env`). A typo in `npm install` and you've installed the attacker's code. Slow down on install commands, copy names from official docs, and watch for a package with suspiciously few downloads where you expected millions.
+- **Postinstall scripts** — A package can run arbitrary code on your machine *at install time* via lifecycle scripts (`postinstall`). That's how a malicious dependency steals environment variables or tokens before you ever import it. You can disable lifecycle scripts by default (`npm install --ignore-scripts`, or pnpm's allowlist for which packages may run scripts) and re-enable only the few that genuinely need them.
+
+:::info[Highlight: defense in depth, cheap to expensive]
+No single control is enough. The practical stack: **commit the lockfile** (free, do it always) → **run `npm audit` in CI** (cheap) → **turn on Dependabot/Renovate** (set up once, runs forever) → **restrict postinstall scripts** and **double-check package names** (habit). Each layer catches what the others miss.
+:::
+
 ## Common mistakes
 
 :::caution[Where people commonly trip up]
@@ -150,6 +176,19 @@ You'll see a dramatic spread. Bun is usually 5–10× faster than npm on the sam
   correct={1}
   explanation="pnpm is the conservative pick for larger teams and monorepos: faster than npm, disk-efficient, and strict enough to catch phantom dependencies (packages you use without declaring them)."
   revisit={{ to: "/docs/stack/package-managers#decision-matrix", label: "Decision matrix" }}
+/>
+
+<Question
+  prompt="As a supply-chain defense, what does committing the lockfile protect against that reproducibility alone doesn't describe?"
+  options={[
+    { text: "It encrypts your dependencies at rest" },
+    { text: "It pins exact versions plus an integrity hash, so a stray `install` can't silently pull a new version and a tampered package fails the install" },
+    { text: "It scans your code for SQL injection" },
+    { text: "It blocks all postinstall scripts automatically" }
+  ]}
+  correct={1}
+  explanation="The lockfile records the exact resolved version and an integrity hash of every package. That stops a teammate's stray install from silently upgrading a dependency, and a tampered package whose contents don't match the hash fails to install. It's a security boundary, not just reproducibility — which is why deleting it to 'clean up' is a bad idea."
+  revisit={{ to: "/docs/stack/package-managers#supply-chain-security", label: "Supply-chain security" }}
 />
 
 </Quiz>

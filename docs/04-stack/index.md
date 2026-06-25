@@ -58,19 +58,21 @@ This is the "boring" path. It's boring because it works. Save creativity for you
 4. [Build Tools](/docs/stack/build-tools) — Vite, Turbopack, Bun, esbuild.
 5. [Package Managers](/docs/stack/package-managers) — pnpm, Bun, npm, Yarn.
 6. [State Management](/docs/stack/state-management) — TanStack Query, Zustand, forms.
-7. [Backend Frameworks](/docs/stack/backend-frameworks) — Hono, Express, Fastify, NestJS, FastAPI, Django, more.
-8. [APIs](/docs/stack/apis) — REST, tRPC, GraphQL, gRPC, WebSockets, SSE, webhooks.
-9. [Databases](/docs/stack/databases) — Postgres, SQLite, MongoDB, Redis, search, vector.
-10. [ORMs & Database Tools](/docs/stack/orms) — Drizzle, Prisma, Kysely, raw SQL.
-11. [Authentication](/docs/stack/authentication-tools) — Clerk, Better Auth, Auth.js, Auth0, Supabase.
-12. [Background Jobs](/docs/stack/background-jobs) — Trigger.dev, Inngest, BullMQ, others.
-13. [Services](/docs/stack/services) — Payments, email, files, video, maps, notifications.
-14. [AI Infrastructure](/docs/stack/ai-infrastructure) — Models, SDKs, embeddings, observability.
-15. [Hosting Platforms](/docs/stack/hosting) — Edge, App, Cloud.
-16. [DevOps & Infrastructure](/docs/stack/devops) — Containers, K8s, IaC, secrets.
-17. [Monitoring & Observability](/docs/stack/observability-tools) — Errors, logs, metrics, traces.
-18. [Code Quality & Dev Tools](/docs/stack/code-quality) — Biome, ESLint, hooks.
-19. [Editors & AI Assistants](/docs/stack/editors-ai) — VS Code, Cursor, Claude Code.
+7. [Forms & Server Actions](/docs/stack/forms-server-actions) — RHF + Zod, server actions, optimistic updates.
+8. [Design Systems & Storybook](/docs/stack/design-systems-storybook) — tokens, accessible components, visual-regression.
+9. [Backend Frameworks](/docs/stack/backend-frameworks) — Hono, Express, Fastify, NestJS, FastAPI, Django, more.
+10. [APIs](/docs/stack/apis) — REST, tRPC, GraphQL, gRPC, WebSockets, SSE, webhooks.
+11. [Databases](/docs/stack/databases) — Postgres, SQLite, MongoDB, Redis, search, vector.
+12. [ORMs & Database Tools](/docs/stack/orms) — Drizzle, Prisma, Kysely, raw SQL.
+13. [Authentication](/docs/stack/authentication-tools) — Clerk, Better Auth, Auth.js, Auth0, Supabase.
+14. [Background Jobs](/docs/stack/background-jobs) — Trigger.dev, Inngest, BullMQ, others.
+15. [Services](/docs/stack/services) — Payments, email, files, video, maps, notifications.
+16. [AI Infrastructure](/docs/stack/ai-infrastructure) — Models, SDKs, embeddings, observability.
+17. [Hosting Platforms](/docs/stack/hosting) — Edge, App, Cloud.
+18. [DevOps & Infrastructure](/docs/stack/devops) — Containers, K8s, IaC, secrets.
+19. [Monitoring & Observability](/docs/stack/observability-tools) — Errors, logs, metrics, traces.
+20. [Code Quality & Dev Tools](/docs/stack/code-quality) — Biome, ESLint, hooks.
+21. [Editors & AI Assistants](/docs/stack/editors-ai) — VS Code, Cursor, Claude Code.
 
 ---
 

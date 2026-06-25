@@ -31,6 +31,7 @@ export const chapterPages: Record<ChapterId, string[]> = {
     "/docs/foundations",
     "/docs/foundations/client-server",
     "/docs/foundations/http-basics",
+    "/docs/foundations/tls-https-internals",
     "/docs/foundations/http-methods-and-status",
     "/docs/foundations/http-headers-cookies",
     "/docs/foundations/dns",
@@ -60,6 +61,7 @@ export const chapterPages: Record<ChapterId, string[]> = {
     "/docs/foundations/observability-fundamentals",
     "/docs/foundations/testing",
     "/docs/foundations/web-security",
+    "/docs/foundations/security-headers",
     "/docs/foundations/concurrency",
     "/docs/foundations/distributed-systems",
     "/docs/foundations/performance",
@@ -149,7 +151,9 @@ export const chapterPages: Record<ChapterId, string[]> = {
     "/docs/stack/styling-advanced",
     "/docs/stack/package-managers",
     "/docs/stack/state-management",
+    "/docs/stack/forms-server-actions",
     "/docs/stack/backend-frameworks",
+    "/docs/stack/design-systems-storybook",
     "/docs/stack/apis",
     "/docs/stack/databases",
     "/docs/stack/orms",
@@ -281,6 +285,7 @@ export const chapterPages: Record<ChapterId, string[]> = {
     "/docs/ai/ai-checkpoint"
   ],
   "career": [
+    "/docs/career/career-interview-prep",
     "/docs/career",
     "/docs/career/state-of-market",
     "/docs/career/foundational-skills",
@@ -371,22 +376,22 @@ export function getPageIndex(chapterId: ChapterId, pagePath: string): number {
 }
 
 export function getTotalTrackablePages(): number {
-  return 276;
+  return 281;
 }
 
 /** Content pages only (excludes chapter index landing pages). */
 export const chapterPageCounts: Record<ChapterId, number> = {
-  "foundations": 48,
+  "foundations": 50,
   "roadmap": 36,
   "lifecycle": 18,
-  "stack": 25,
+  "stack": 27,
   "solo": 18,
   "startup": 18,
   "enterprise": 19,
   "comparison": 7,
   "decisions": 17,
   "ai": 17,
-  "career": 12,
+  "career": 13,
   "cloud": 11,
   "operations": 9,
   "distributed-systems": 11,
