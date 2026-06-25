@@ -116,8 +116,8 @@ function parseFrontmatter(filePath) {
   const m = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!m) return {};
   const fm = {};
-  for (const line of m[1].split('\n')) {
-    const kv = line.match(/^(\w+):\s*(.+)$/);
+  for (const line of m[1].split(/\r?\n/)) {
+    const kv = line.match(/^(\w+):\s*(.+?)\r?$/);
     if (kv) fm[kv[1]] = kv[2].trim().replace(/^['"]|['"]$/g, '');
   }
   return fm;
