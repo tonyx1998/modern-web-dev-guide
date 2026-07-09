@@ -3,5 +3,5 @@ blank_issues_enabled: false
 
 contact_links:
   - name: 💬 Read the suggestions guide
-    url: https://tonyx1998.github.io/modern-web-dev-guide/suggestions
+    url: https://modernwebdevguide.com/suggestions
     about: How to submit a clarification or correction to the guide.

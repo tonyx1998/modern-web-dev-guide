@@ -111,7 +111,7 @@ This documentation site has `.github/workflows/deploy.yml`:
 
 1. On every push to `main`, GitHub Actions runs `npm run build`.
 2. The built static site is uploaded to GitHub Pages.
-3. The new version is live on `tonyx1998.github.io/modern-web-dev-guide/` within ~2 minutes.
+3. The new version is live on `modernwebdevguide.com/` within ~2 minutes.
 4. You can roll back to a previous version by reverting the commit and pushing.
 
 That's a complete CI/CD pipeline for a static site, all expressed in one YAML file under 50 lines.

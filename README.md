@@ -2,7 +2,7 @@
 
 A comprehensive, beginner-first 2026 guide to how websites and web applications are actually built — with a **concept track** (sidebar order) and a parallel **build track** ([Roadmap](/docs/roadmap) stages). **17 chapters plus a final capstone and glossary**, with **interactive code that runs in your browser**. *Last updated: June 2026.*
 
-> **Live site (canonical):** https://tonyx1998.github.io/modern-web-dev-guide/
+> **Live site (canonical):** https://modernwebdevguide.com/
 
 ---
 

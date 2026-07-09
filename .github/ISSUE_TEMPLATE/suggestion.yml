@@ -15,7 +15,7 @@ body:
     attributes:
       label: Which page is this about?
       description: Paste the URL or page name (e.g. `/docs/foundations/client-server`, or "Chapter 3 — Frontend Frameworks").
-      placeholder: https://tonyx1998.github.io/modern-web-dev-guide/docs/...
+      placeholder: https://modernwebdevguide.com/docs/...
     validations:
       required: true
 

@@ -20,8 +20,8 @@ const config: Config = {
   },
 
   // Canonical deploy: GitHub Pages. Some cross-guide links use modern-web-dev-guide.vercel.app — treat this URL as source of truth.
-  url: 'https://tonyx1998.github.io',
-  baseUrl: '/modern-web-dev-guide/',
+  url: 'https://modernwebdevguide.com',
+  baseUrl: '/',
 
   organizationName: 'tonyx1998',
   projectName: 'modern-web-dev-guide',
