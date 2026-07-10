@@ -2,6 +2,7 @@
 id: capstone
 title: "Final Capstone — the whole guide, one assessment"
 sidebar_label: "Final capstone"
+description: Your whole-guide certification — one mixed quiz drawing from every chapter, 12 questions sampled from a 36-question bank, pass at 75%, with revisit links straight to the section behind anything you miss.
 ---
 
 # Final Capstone — the whole guide, one assessment
