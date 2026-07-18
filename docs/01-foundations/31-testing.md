@@ -481,7 +481,7 @@ Everything above is enough to ship with a trustworthy suite. If you want more:
 - [Testing in the lifecycle](../lifecycle/testing) — where testing fits in the dev process (TDD, 80/20 starter suite)
 - [Debugging methodology](./debugging) — when tests fail or flakes appear; hypothesis-driven investigation
 - [AI Evals](../ai/ai-evals) — testing non-deterministic LLM features (different from unit tests)
-- [SWE Interview Guide — testing fluency](https://swe-interview-guide.vercel.app/#/lesson/testing) — interview framing of the same pyramid
+- [SWE Interview Guide — testing fluency](https://sweinterviewguide.com/#/lesson/testing) — interview framing of the same pyramid
 
 ## What's next
 

@@ -469,7 +469,7 @@ Everything above is enough to debug web apps, production incidents, and AI-draft
 - [Observability fundamentals](./observability-fundamentals) — logs, metrics, traces in depth
 - [Editors & AI](/docs/stack/editors-ai) — preventing bugs while pair-programming with AI
 - [Testing: foundations](/docs/foundations/testing) — regression tests, CI, testing AI-generated code
-- [SWE Interview Guide — debugging rounds](https://swe-interview-guide.vercel.app/#/lesson/debugging-round) — the same methodology under interview time pressure
+- [SWE Interview Guide — debugging rounds](https://sweinterviewguide.com/#/lesson/debugging-round) — the same methodology under interview time pressure
 
 ## What's next
 

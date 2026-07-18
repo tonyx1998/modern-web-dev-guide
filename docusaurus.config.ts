@@ -19,7 +19,7 @@ const config: Config = {
     v4: true,
   },
 
-  // Canonical deploy: GitHub Pages. Some cross-guide links use modern-web-dev-guide.vercel.app — treat this URL as source of truth.
+  // Canonical URL — all cross-guide links must use this domain, never the vercel.app/github.io twins.
   url: 'https://modernwebdevguide.com',
   baseUrl: '/',
 
