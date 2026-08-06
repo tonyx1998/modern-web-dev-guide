@@ -150,7 +150,7 @@ You must pass (≥ 67%) to unlock the Next button and Chapter 10 in the sidebar.
   prompt="When is .NET most clearly the right choice?"
   options={[
     { text: "For any startup by default" },
-    { text: "With existing Microsoft gravity — Azure, Active Directory/Entra ID, Windows/Office, a C# team — where its seamless integration is the deciding advantage" },
+    { text: "With existing Microsoft gravity — Azure, Active Directory/Entra ID, Windows/Office, a C# team — where its first-party integration is the deciding advantage" },
     { text: "Only for desktop apps" },
     { text: "Whenever you need NoSQL" }
   ]}

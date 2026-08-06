@@ -11,7 +11,7 @@ description: Modern .NET and C# — cross-platform, fast, and excellent for Micr
 > **In one line:** Modern .NET (with C#) is Microsoft's reinvented platform — now open-source, cross-platform, and genuinely fast — and it's the natural backend choice wherever an organization already lives in the Microsoft ecosystem (Azure, Active Directory, Office, Windows), occupying much the same enterprise niche as the JVM.
 
 :::tip[In plain English]
-.NET is to the Microsoft world what the JVM is to the broader enterprise world. **C#** is its primary language — a modern, statically-typed language that's evolved into one of the most pleasant mainstream languages to write. The crucial thing to know is that **.NET reinvented itself**: the old ".NET Framework" was Windows-only and proprietary; modern **.NET** (formerly ".NET Core") is open-source, runs on Linux and Mac, performs excellently, and is fully competitive with the JVM and Node. **ASP.NET Core** is its web framework. You'll find .NET most often where a company is already a "Microsoft shop" — using Azure, Active Directory, Windows servers, the Office stack — because the integration is seamless and the tooling (Visual Studio) is best-in-class. For a web developer, C# will feel familiar coming from TypeScript (they share a designer and many ideas), and "comfortable in .NET" opens a large, well-paid slice of the enterprise market.
+.NET is to the Microsoft world what the JVM is to the broader enterprise world. **C#** is its primary language — a modern, statically-typed language that's evolved into one of the most pleasant mainstream languages to write. The crucial thing to know is that **.NET reinvented itself**: the old ".NET Framework" was Windows-only and proprietary; modern **.NET** (formerly ".NET Core") is open-source, runs on Linux and Mac, performs excellently, and is fully competitive with the JVM and Node. **ASP.NET Core** is its web framework. You'll find .NET most often where a company is already a "Microsoft shop" — using Azure, Active Directory, Windows servers, the Office stack — because the integration is tight and the tooling (Visual Studio) is hard to beat. For a web developer, C# will feel familiar coming from TypeScript (they share a designer and many ideas), and "comfortable in .NET" opens a large, well-paid slice of the enterprise market.
 :::
 
 ## The reinvention you need to know about
@@ -51,7 +51,7 @@ app.Run();
 Notable ecosystem pieces: **Entity Framework Core** (the standard ORM), first-class **dependency injection** built into the framework, and tight integration with **Azure** and Microsoft identity. The developer experience in **Visual Studio** (and the lighter VS Code + C# Dev Kit) is widely considered among the best in any ecosystem.
 
 :::info[Highlight: pick .NET when you have Microsoft gravity — the integration is the value]
-The clearest signal that .NET is the right call is **existing Microsoft-ecosystem gravity**: you're on Azure, your identity is Active Directory / Entra ID, your org runs Windows and Office, your team knows C#. In that context, .NET isn't just "a good backend platform" — it's the one that disappears into your existing infrastructure: native Azure integration, seamless AD authentication, unified tooling. That integration advantage is the same logic as [choosing Azure as your cloud](/docs/cloud/cloud-choosing) — the platform that fits your existing world out-ships the marginally-different alternative. Absent that gravity, .NET is still an excellent, fast, cross-platform choice on the merits; *with* it, it's usually the obvious one. Conversely, a startup with no Microsoft footprint and a JavaScript team has little reason to reach for it over Node — not because it's worse, but because the integration advantage that makes it shine isn't there.
+The clearest signal that .NET is the right call is **existing Microsoft-ecosystem gravity**: you're on Azure, your identity is Active Directory / Entra ID, your org runs Windows and Office, your team knows C#. In that context, .NET is more than a good backend platform: it's the one that disappears into your existing infrastructure, with native Azure integration, first-party AD authentication, and unified tooling. That integration advantage is the same logic as [choosing Azure as your cloud](/docs/cloud/cloud-choosing) — the platform that fits your existing world out-ships the marginally-different alternative. Absent that gravity, .NET is still an excellent, fast, cross-platform choice on the merits; *with* it, it's usually the obvious one. Conversely, a startup with no Microsoft footprint and a JavaScript team has little reason to reach for it over Node, since the integration advantage that makes it shine isn't in play.
 :::
 
 ## How it compares
@@ -62,7 +62,7 @@ The clearest signal that .NET is the right call is **existing Microsoft-ecosyste
 
 :::caution[Where people commonly trip up]
 - **Thinking .NET is still Windows-only/proprietary.** Modern .NET is open-source and cross-platform; it runs in Linux containers on any cloud. Update the mental model.
-- **Choosing .NET without Microsoft gravity.** Its biggest edge is seamless Azure/AD/Office integration; absent that, a JS team has little reason to prefer it over Node. Pick it for the integration, not by default.
+- **Choosing .NET without Microsoft gravity.** Its biggest edge is Azure/AD/Office integration; absent that, a JS team has little reason to prefer it over Node. Pick it for the integration.
 - **Confusing ".NET Framework" with modern ".NET."** They're different; new work targets modern .NET. Legacy .NET Framework apps are a separate (Windows-bound) world.
 - **Assuming it's slow because it's enterprise.** Modern .NET is one of the fastest mainstream backends; performance is a strength, not a concern.
 - **Overlooking how familiar C# is from TypeScript.** They share a designer and many concepts; a TS developer ramps on C# faster than they expect.
@@ -89,7 +89,7 @@ The clearest signal that .NET is the right call is **existing Microsoft-ecosyste
   prompt="When is .NET most clearly the right backend choice?"
   options={[
     { text: "For any startup, by default" },
-    { text: "When there's existing Microsoft-ecosystem gravity — Azure, Active Directory/Entra ID, Windows/Office, a C# team — because the seamless integration makes it disappear into your existing infrastructure" },
+    { text: "When there's existing Microsoft-ecosystem gravity — Azure, Active Directory/Entra ID, Windows/Office, a C# team — because the first-party integration makes it disappear into your existing infrastructure" },
     { text: "Only for desktop applications" },
     { text: "Whenever you need a NoSQL database" }
   ]}
