@@ -160,15 +160,15 @@ You must pass (≥ 67%) to unlock the Next button and Chapter 8 in the sidebar.
 />
 
 <Question
-  prompt="Why does requiring a majority prevent two conflicting decisions (e.g. two leaders)?"
+  prompt="What prevents two Raft candidates from winning the same term?"
   options={[
     { text: "The majority is always the fastest nodes" },
-    { text: "Any two majorities of the cluster share at least one node that won't approve conflicting decisions, so a minority partition can't form its own majority to elect a competing leader" },
+    { text: "Majorities overlap, and each voter durably grants at most one vote in a term, so it cannot approve both candidates in that term" },
     { text: "Minorities are shut down automatically" },
     { text: "Majorities use atomic clocks" }
   ]}
   correct={1}
-  explanation="Majority overlap: two majorities can't be disjoint, so a shared node blocks contradictions, and a minority can't act. This prevents split brain by construction — and is why clusters use odd sizes."
+  explanation="The overlap supplies a shared voter, while the one-vote-per-term rule stops contradictory votes. Arithmetic alone is insufficient; safety across terms also requires the log and commitment rules."
   revisit={{ to: "/docs/distributed-systems/ds-consensus#the-majority-quorum-the-core-idea", label: "Majority overlap" }}
 />
 

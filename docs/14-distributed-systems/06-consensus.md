@@ -3,15 +3,15 @@ id: ds-consensus
 title: Consensus
 sidebar_position: 7
 sidebar_label: Consensus
-description: What consensus is and why it's needed, the majority-quorum idea, Raft and Paxos at a conceptual level, the FLP result, and where consensus shows up in systems you use.
+description: Trace a five-node Raft election, distinguish quorum overlap from protocol safety, and calculate why three voting members tolerate one failure.
 ---
 
 # Consensus
 
-> **In one line:** Consensus is getting a group of nodes to agree on a single value — most importantly "who is the leader" and "what's the next entry in the log" — despite some nodes failing or being unreachable; it's solved by requiring a **majority** to agree (so two conflicting majorities are impossible), and algorithms like Raft and Paxos are the careful protocols that make this safe.
+> **In one line:** Consensus is getting a group of nodes to agree on a single value — most importantly "who is the leader" and "what's the next entry in the log" — despite some nodes failing or being unreachable; protocols such as Raft combine overlapping majorities with rules about votes, terms, and the log to preserve agreement.
 
 :::tip[In plain English]
-A lot of distributed-systems problems reduce to one question: *how do a bunch of machines agree on something when some of them might be down or unreachable and none of them fully trusts the others to be alive?* That's **consensus**. The classic need is electing a leader: from the [replication page](./ds-replication), if two nodes both think they're leader (split brain), data corrupts — so the group must agree on *exactly one*. The elegant core idea is the **majority**: require more than half the nodes to agree on any decision. Because two different majorities of the same group must overlap on at least one node, you can never get two conflicting decisions approved. That single insight — *majority overlap prevents contradiction* — is the heart of consensus. Algorithms like Raft and Paxos are the (genuinely intricate) rulebooks that turn it into a working protocol that survives crashes and message loss.
+A lot of distributed-systems problems reduce to one question: *how do a bunch of machines agree on something when some of them might be down or unreachable and none of them fully trusts the others to be alive?* That's **consensus**. The [replication page](./ds-replication) introduced the danger of conflicting writes after failover. A consensus protocol coordinates leadership and the writes that may be committed. The useful starting idea is the **majority**: more than half the voting members. Two majorities must overlap, but overlap alone does not prevent the shared member from contradicting itself. The protocol must constrain what each member can vote for and retain across failures. The example below shows one such rule.
 :::
 
 ## Why consensus is needed (and where it hides)
@@ -35,42 +35,50 @@ Give the cluster an **odd** number of nodes (3, 5, 7) and require a **majority**
    {A,B}     = 2 nodes  → NOT a majority → cannot elect a leader or commit
    {C,D,E}   = 3 nodes  → majority       → keeps operating safely
 
- Any two majorities of 5 share ≥1 node, so two conflicting decisions
- can never both get approved. The minority side blocks itself.
+ Any two majorities of 5 share ≥1 node. Protocol rules must
+ prevent that shared node from making contradictory commitments.
 ```
 
-This is why a partitioned minority *refuses to act* (preventing split brain), and why clusters use **odd** sizes — an even split (2 vs 2) would have no majority on either side, stalling everything. It's also why consensus clusters tolerate `(N-1)/2` failures: a 5-node cluster survives 2 failures (3 remain = majority); a 3-node survives 1.
+This is why a partitioned minority *refuses to act* (preventing split brain), and why clusters use **odd** sizes — an even split (2 vs 2) would have no majority on either side, stalling everything. For a fixed set of N voting members, the majority is `floor(N/2) + 1`, and failure tolerance is `N - majority`: a 5-node cluster survives 2 failures (3 remain = majority); a 3-node survives 1.
+
+## Worked example: overlapping votes are not enough
+
+A five-member cluster needs three votes. Imagine candidate A collects votes from A, B, C, while candidate D collects votes from C, D, E. Both groups have three members. If C may vote twice in the same election, arithmetic alone has allowed two winners.
+
+Raft divides elections into numbered **terms** and durably records at most one vote per member per term. C cannot grant that second vote in the same term. A later term may elect a different leader; safety across terms also depends on the log and commit rules. This trace demonstrates election safety, not the whole protocol proof. See the Raft paper in the optional references.
+
+**Try it:** C restarts before D asks for a vote in the same term. Should its earlier vote disappear? No. Losing that record would let C contradict its first vote after a restart.
 
 ## Raft and Paxos, conceptually
 
 You don't need to implement these, but you should recognize them and the shape of what they do.
 
-**Paxos** (Lamport, 1998) was the first proven-correct consensus algorithm — and famously hard to understand and implement. It's the theoretical bedrock; many systems use variants ("Multi-Paxos").
+**Paxos** is a family of consensus protocols associated with Leslie Lamport. Multi-Paxos applies the agreement mechanism to a sequence of decisions, such as log entries.
 
 **Raft** (2014) was designed explicitly to be *understandable* — same guarantees as Paxos, far easier to reason about and implement, which is why most newer systems (etcd, CockroachDB, Consul) use it. Its structure:
 
 - **Leader election:** nodes are followers; if a follower hears nothing from a leader for a randomized timeout, it becomes a *candidate* and requests votes. Win a majority → become leader. (Randomized timeouts make simultaneous candidacies rare, avoiding split votes.)
-- **Log replication:** all writes go to the leader, which appends them to its log and replicates to followers; an entry is *committed* once a majority have it (then it's safe to apply and acknowledge).
-- **Safety:** terms (logical election epochs) and the majority rule guarantee at most one leader per term and that committed entries are never lost or reordered.
+- **Log replication:** the leader replicates entries to followers. For an entry from its current term, it can determine commitment once a majority store it; older-term entries need the additional commitment rule in the protocol.
+- **Safety:** voting restrictions, log checks, and commitment rules work together to preserve previously committed entries. Majority arithmetic alone is not the protocol.
 
 ```
    Follower ──(no leader heartbeat for a random timeout)──► Candidate
    Candidate ──(wins majority of votes)──► Leader ──(sends heartbeats)──► Followers
-   Leader appends client writes → replicates → committed once a MAJORITY ack
+   Leader replicates log entries → applies Raft's commitment rules → acknowledges
 ```
 
 :::info[Highlight: FLP — why consensus can't be both perfectly safe and guaranteed-fast]
-A deep theoretical result (Fischer-Lynch-Paterson, 1985): in a fully asynchronous network where even one node can fail, **no consensus algorithm can guarantee it will always reach a decision** — because, as we saw, you [can't distinguish a slow node from a dead one](./ds-fallacies), so the protocol can be forced to wait forever for a node that might or might not respond. This sounds like it dooms consensus, but the escape is practical: real algorithms (Raft, Paxos) guarantee **safety** (they never produce a *wrong* or contradictory answer) unconditionally, and achieve **liveness** (they *do* make progress) under the realistic assumption that the network is *eventually* well-behaved for long enough — using timeouts and randomization to get there. The takeaway: consensus trades a sliver of theoretical "always terminates" for ironclad correctness, which is exactly the right trade — you'd rather a leader election occasionally take an extra moment than occasionally elect two leaders. FLP is why every consensus system has timeouts and why "eventually" is doing real work in its guarantees.
+A deep theoretical result (Fischer-Lynch-Paterson, 1985): in a fully asynchronous network where even one node can fail, **no deterministic consensus algorithm can guarantee it will always reach a decision** — because, as we saw, you [can't distinguish a slow node from a dead one](./ds-fallacies), so the protocol can be forced to wait forever for a node that might or might not respond. This sounds like it dooms consensus, but the escape is practical: real algorithms (Raft, Paxos) preserve **safety** (agreement) within their specified failure model, and achieve **liveness** (they *do* make progress) under the realistic assumption that the network is *eventually* well-behaved for long enough — using timeouts and randomization to get there. The takeaway: consensus trades a sliver of theoretical "always terminates" for ironclad correctness, which is exactly the right trade — you'd rather a leader election occasionally take an extra moment than occasionally elect two leaders. FLP is why every consensus system has timeouts and why "eventually" is doing real work in its guarantees.
 :::
 
-:::note[Worked example: why your cluster wants 3 or 5 nodes, never 2 or 4]
-A team sets up a 2-node etcd cluster "for redundancy." It's *worse* than one node: a majority of 2 is 2, so if *either* node fails or the link between them drops, neither side has a majority and the whole cluster freezes — you've doubled the failure probability and gained no fault tolerance. Same with 4 nodes: a 2-2 split has no majority. The rule falls straight out of majority math: use **odd** sizes. 3 nodes tolerate 1 failure; 5 tolerate 2; 7 tolerate 3. Beyond ~5–7 the coordination overhead (every decision needs a majority to ack) outweighs the added fault tolerance, so 3 or 5 is the sweet spot for almost everything. This is why managed coordination services and databases always deploy in odd numbers — it's not a convention, it's the consequence of how majorities work.
+:::note[Worked example: count voters before adding a member]
+A two-voter cluster requires both votes, so it cannot lose a voter and continue making quorum-based updates. Three voters require two: one may fail. Four require three: still only one may fail. Five require three: two may fail. This is why odd voting-group sizes usually provide the same failure tolerance with fewer members. Even sizes are valid configurations, but adding a fourth voter to three does not add failure tolerance. Count voting members, not every server or read replica in the deployment. The etcd reference below documents this arithmetic.
 :::
 
 ## Common mistakes
 
 :::caution[Where people commonly trip up]
-- **Even-sized consensus clusters (2 or 4 nodes).** No majority on an even split → the cluster stalls. A 2-node cluster is *less* reliable than 1. Always use odd sizes (3, 5, 7).
+- **Adding voters without calculating quorum.** A 2-member group needs both voters and tolerates no member failure; 3 needs 2 and tolerates 1. Four members still tolerate only 1. Even sizes can work, but an odd size generally provides the same failure tolerance with fewer voting members.
 - **Trying to hand-roll consensus / leader election.** It's subtle enough that experts get it wrong; naive "whoever has the highest ID is leader" schemes produce split brain. Use a proven implementation (etcd, ZooKeeper, your DB's built-in).
 - **Expecting consensus to be free or fast.** Every decision needs a majority round-trip; consensus adds latency and can't span too many nodes cheaply. Keep consensus groups small; don't route high-volume data through them.
 - **Assuming a partitioned minority can keep serving writes.** It correctly *can't* (no majority) — that's the feature preventing split brain, not a bug. Design clients to tolerate the minority side being read-only/unavailable.
@@ -82,15 +90,15 @@ A team sets up a 2-node etcd cluster "for redundancy." It's *worse* than one nod
 <Quiz id="ds-consensus-page" title="Did consensus stick?" sampleSize={3}>
 
 <Question
-  prompt="Why does requiring a majority to approve any decision prevent two conflicting decisions (e.g. two leaders)?"
+  prompt="What prevents two Raft candidates from winning the same term?"
   options={[
     { text: "Because the majority is always the fastest nodes" },
-    { text: "Any two majorities of the same cluster must share at least one node, and that node won't approve two conflicting decisions — so a partitioned minority can't form its own majority to elect a competing leader" },
+    { text: "The majorities overlap, and each voter durably grants at most one vote in that term" },
     { text: "Because minorities are shut down automatically" },
     { text: "Because majorities use atomic clocks" }
   ]}
   correct={1}
-  explanation="Majority overlap is the core idea: two majorities of N can't be disjoint, so they always share a node that blocks contradictory approvals. A minority partition lacks a majority and therefore can't act — preventing split brain by construction."
+  explanation="Overlap identifies a shared voter; the one-vote-per-term rule stops that voter from approving both candidates. Both facts are needed."
   revisit={{ to: "/docs/distributed-systems/ds-consensus#the-majority-quorum-the-core-idea", label: "Majority overlap" }}
 />
 
@@ -98,12 +106,12 @@ A team sets up a 2-node etcd cluster "for redundancy." It's *worse* than one nod
   prompt="A team deploys a 2-node consensus cluster 'for redundancy.' Why is this a mistake?"
   options={[
     { text: "Two nodes cost too much" },
-    { text: "A majority of 2 is 2, so if either node fails or the link drops, neither side has a majority and the whole cluster freezes — it's less reliable than one node; consensus clusters need odd sizes (3, 5, 7)" },
+    { text: "A majority of 2 is 2, so losing either voter prevents quorum; three voters can lose one and still have a majority" },
     { text: "Two nodes can't replicate data" },
     { text: "Raft requires at least four nodes" }
   ]}
   correct={1}
-  explanation="With 2 nodes any single failure leaves 1 (not a majority), stalling the cluster — doubling failure exposure for zero fault tolerance. Odd sizes work: 3 tolerates 1 failure, 5 tolerates 2. Even sizes can split with no majority on either side."
+  explanation="The calculation is voting members minus required majority: 2 - 2 = 0 tolerated failures; 3 - 2 = 1. An extra copy of data does not necessarily add voting fault tolerance."
   revisit={{ to: "/docs/distributed-systems/ds-consensus#the-majority-quorum-the-core-idea", label: "Odd cluster sizes" }}
 />
 
@@ -111,16 +119,25 @@ A team sets up a 2-node etcd cluster "for redundancy." It's *worse* than one nod
   prompt="What does the FLP result tell us, and how do real consensus algorithms cope?"
   options={[
     { text: "Consensus is impossible, so all distributed systems are unsafe" },
-    { text: "In a fully asynchronous network with possible failures, no algorithm can guarantee it always terminates — so real algorithms guarantee SAFETY (never a wrong/contradictory answer) unconditionally and achieve progress under the realistic assumption the network is eventually well-behaved, using timeouts" },
+    { text: "In a fully asynchronous network with possible crashes, deterministic consensus cannot guarantee termination in every execution; practical protocols preserve safety within their failure model and rely on sufficient communication progress for liveness" },
     { text: "Consensus always terminates in a fixed number of steps" },
     { text: "FLP only applies to Paxos, not Raft" }
   ]}
   correct={1}
-  explanation="FLP says guaranteed termination is impossible in a fully async, failure-prone model (you can't tell slow from dead). Practical algorithms keep safety absolute and rely on the network behaving long enough (via timeouts/randomization) to make progress — trading a theoretical 'always terminates' for ironclad correctness."
+  explanation="FLP limits guaranteed termination for deterministic consensus in its asynchronous failure model. It does not make agreement impossible in all executions or remove the assumptions under which a practical protocol is safe."
   revisit={{ to: "/docs/distributed-systems/ds-consensus#raft-and-paxos-conceptually", label: "FLP" }}
 />
 
 </Quiz>
+
+:::tip[→ Going deeper]
+Revisit [Replication](./03-replication.md) for the failover problem that motivates this protocol, and [Consistency & CAP](./02-consistency-cap.md) for what a client may observe during a partition.
+:::
+
+:::note[Go deeper (optional): primary references]
+- [Ongaro and Ousterhout: In Search of an Understandable Consensus Algorithm](https://raft.github.io/raft.pdf), sections 5.2 and 5.4 — election restrictions and commitment across terms.
+- [etcd FAQ: why an odd number of cluster members?](https://etcd.io/docs/v3.6/faq/#why-an-odd-number-of-cluster-members) — quorum and failure-tolerance arithmetic.
+:::
 
 ## What's next
 
